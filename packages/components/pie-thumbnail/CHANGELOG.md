@@ -1,5 +1,98 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.8.26
+
+### Patch Changes
+
+- Updated dependencies [[`38e002f`](https://github.com/justeattakeaway/pie/commit/38e002fbf1be6f64c0937c93645adaf112bfeb77)]:
+  - @justeattakeaway/pie-webc-core@14.0.1
+
+## 0.8.25
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@14.0.0
+
+## 0.8.24
+
+### Patch Changes
+
+- [Changed] - Refactored components to use clearer utility class modifiers such as is-loading, is-checked, has-error ([#2748](https://github.com/justeattakeaway/pie/pull/2748)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@13.0.0
+
+## 0.8.23
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@12.0.0
+
+## 0.8.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 0.8.21
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 0.8.20
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 0.8.19
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@10.0.0
+
+## 0.8.18
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@9.0.0
+
+## 0.8.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@8.0.1
+
+## 0.8.16
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@8.0.0
+
+## 0.8.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@7.0.0
+
+## 0.8.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@6.0.2
+
 ## 0.8.13
 
 ### Patch Changes

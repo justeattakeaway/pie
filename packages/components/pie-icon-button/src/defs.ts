@@ -1,8 +1,8 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['xsmall', 'small', 'medium', 'large'] as const;
-export const variants = ['primary', 'primary-alternative', 'secondary', 'outline', 'ghost',
-    'ghost-secondary', 'inverse', 'ghost-inverse', 'translucent'] as const;
+export const variants = ['primary', 'primary-alternative', 'primary-alternative-dark', 'secondary', 'outline', 'ghost',
+    'ghost-secondary', 'ghost-secondary-dark', 'inverse', 'inverse-outline', 'ghost-inverse', 'ghost-inverse-light', 'translucent'] as const;
 
 type AriaProps = {
     label?: string;
@@ -10,11 +10,12 @@ type AriaProps = {
     describedby?: string;
     expanded?: boolean;
     controls?: string;
+    haspopup?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
 };
 
 export interface IconButtonProps {
     /**
-     * The ARIA attributes available to use on the icon button. Offers label, labelledby, describedby, expanded and controls.
+     * The ARIA attributes available to use on the icon button. Offers label, labelledby, describedby, expanded, controls and haspopup.
      */
     aria?: AriaProps;
 

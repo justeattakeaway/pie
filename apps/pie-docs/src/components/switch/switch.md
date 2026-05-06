@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Switch'
     parent: Components
-    order: 42
+    order: 47
     url: /components/switch/
 permalink: false
 ---

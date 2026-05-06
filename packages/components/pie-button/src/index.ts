@@ -226,7 +226,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
         if (disabled) {
             spinnerVariant = variant === 'ghost-inverse' ? 'inverse' : 'secondary';
         } else {
-            const inverseVariants: ButtonProps['variant'][] = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
+            const inverseVariants: ButtonProps['variant'][] = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse', 'ghost-inverse-light'];
             spinnerVariant = inverseVariants.includes(this.variant) ? 'inverse' : 'secondary';
         }
 

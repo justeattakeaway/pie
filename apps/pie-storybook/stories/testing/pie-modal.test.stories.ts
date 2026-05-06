@@ -2,14 +2,14 @@ import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-modal';
+import '@justeattakeaway/pie-webc/components/modal';
 import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, backgroundColors, positions, defaultProps, imageSlotModes, imageSlotAspectRatios,
-} from '@justeattakeaway/pie-modal';
+} from '@justeattakeaway/pie-webc/components/modal';
 
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-text-input';
-import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/text-input';
+import '@justeattakeaway/pie-webc/components/form-label';
 
 import { type SlottedComponentProps } from '../../types';
 import { createStory, sanitizeAndRenderHTML } from '../../utilities';
@@ -52,6 +52,7 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'boolean',
         },
         hasStackedActions: {
+            description: 'When true, the actions will expand to full width and stack vertically. Only available below the mid breakpoint.',
             control: 'boolean',
         },
         isHeadingEmphasised: {
@@ -521,7 +522,7 @@ const CustomImageSlotContentStoryTemplate = (props: ModalProps) => {
 
     let imageUrl = '';
     if (imageSlotMode === 'image') {
-        imageUrl = `./static/images/modal-image-${imageSlotAspectRatio}.jpg`;
+        imageUrl = './static/images/modal-image-4by3.jpg';
     } else if (imageSlotMode === 'illustration') {
         imageUrl = './static/images/modal-image-illustration.png';
     }
@@ -584,3 +585,55 @@ export const MissingDialogSimulation = createStory<ModalProps>(MissingDialogSimu
     isOpen: false,
     heading: 'Error Simulation',
 });
+
+const MultipleDismissibleStoryTemplate = () => {
+    const toggleDismissibleModal = () => {
+        const modal = document.querySelector('#modal-dismissible') as PieModal;
+        if (modal) {
+            modal.isOpen = !modal.isOpen;
+        }
+    };
+
+    const toggleNonDismissibleModal = () => {
+        const modal = document.querySelector('#modal-non-dismissible') as PieModal;
+        if (modal) {
+            modal.isOpen = !modal.isOpen;
+        }
+    };
+
+    return html`
+        <pie-button id="open-dismissible" @click=${toggleDismissibleModal}>Open Dismissible Modal</pie-button>
+        <pie-button id="open-non-dismissible" @click=${toggleNonDismissibleModal}>Open Non-Dismissible Modal</pie-button>
+
+        <pie-modal
+            id="modal-dismissible"
+            heading="Dismissible Modal"
+            ?isDismissible="${true}"
+            .aria=${{ close: 'Close', back: 'Back', loading: 'Loading' }}
+            .leadingAction=${{ text: 'Confirm', variant: 'primary', ariaLabel: 'Confirm' }}
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}">
+                <span>This modal is dismissible. You should be able to close it with the Escape key.</span>
+        </pie-modal>
+
+        <pie-modal
+            id="modal-non-dismissible"
+            heading="Non-Dismissible Modal"
+            ?isDismissible="${false}"
+            .aria=${{ close: 'Close', back: 'Back', loading: 'Loading' }}
+            .leadingAction=${{ text: 'Close', variant: 'primary', ariaLabel: 'Close' }}
+            @pie-modal-leading-action-click="${() => {
+        const modal = document.querySelector('#modal-non-dismissible') as PieModal;
+        if (modal) modal.isOpen = false;
+    }}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}">
+                <span>This modal is NOT dismissible. You must use the button to close it.</span>
+        </pie-modal>
+    `;
+};
+
+export const MultipleDismissibleModals = {
+    render: MultipleDismissibleStoryTemplate,
+    args: {},
+};

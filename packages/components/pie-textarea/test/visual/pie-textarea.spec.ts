@@ -15,6 +15,7 @@ readingDirections.forEach((direction) => {
     test(`should render prop variations in writing direction: ${direction}`, async ({ page }) => {
         // Arrange
         const textareaVariationsPage = new BasePage(page, 'textarea--variations');
+        textareaVariationsPage.waitUntilStrategy = 'networkidle';
         await textareaVariationsPage.load({}, { writingDirection: direction });
 
         // Assert
@@ -25,6 +26,7 @@ readingDirections.forEach((direction) => {
 test('should render text related prop variations', async ({ page }) => {
     // Arrange
     const textareaVariationsPage = new BasePage(page, 'textarea--extended-text-variations');
+    textareaVariationsPage.waitUntilStrategy = 'networkidle';
     await textareaVariationsPage.load();
 
     // Assert
@@ -35,6 +37,7 @@ readingDirections.forEach((direction) => {
     test(`should render assistive text and status prop variations in writing direction: ${direction}`, async ({ page }) => {
         // Arrange
         const textareaVariationsPage = new BasePage(page, 'textarea--status-variations');
+        textareaVariationsPage.waitUntilStrategy = 'networkidle';
         await textareaVariationsPage.load({}, { writingDirection: direction });
 
         // Assert
@@ -45,6 +48,7 @@ readingDirections.forEach((direction) => {
 resizeModes.forEach((size) => {
     test(`should render tall textarea with ${size}`, async ({ page }) => {
         const textareaPage = new BasePage(page, 'textarea');
+        textareaPage.waitUntilStrategy = 'networkidle';
         const props: Partial<TextareaProps> = {
             resize: size,
         };

@@ -120,6 +120,13 @@ export interface CookieBannerProps {
      * or { 'functional': true, 'personalized': true, 'analytical': true }
      */
     defaultPreferences?: Partial<Record<PreferenceIds, boolean>>;
+
+    /**
+     * When true, external links (Cookie Statement, Cookie Technologies)
+     * will open in the same tab (`target="_self"`).
+     * When false (default), links open in a new browser tab (`target="_blank"`).
+     */
+    openLinksInSameTab?: boolean;
 }
 
 /**
@@ -199,11 +206,14 @@ export const defaultProps: DefaultProps = {
     language: Language.ENGLISH,
     cookieStatementLink: '',
     cookieTechnologiesLink: '',
+    openLinksInSameTab: false,
 };
 
 // Available locale files
 export const availableLocales = new Set([
     `${Language.BULGARIAN}`,
+    `${Language.ENGLISH}-${Country.CANADA}`,
+    `${Language.FRENCH}-${Country.CANADA}`,
     `${Language.DANISH}`,
     `${Language.ENGLISH}-${Country.FRANCE}`,
     `${Language.FRENCH}-${Country.FRANCE}`,

@@ -1,5 +1,111 @@
 # Changelog
 
+## 5.24.1
+
+### Patch Changes
+
+- [Fixed] - update script invokation so the test output is printed directly instead of being swallowed on failure ([#2783](https://github.com/justeattakeaway/pie/pull/2783)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 5.24.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 5.23.1
+
+### Patch Changes
+
+- [Changed] - Updated minor dependencies ([#2742](https://github.com/justeattakeaway/pie/pull/2742)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 5.23.0
+
+### Minor Changes
+
+- [Changed] - update workflows from bot to gh app ([#2746](https://github.com/justeattakeaway/pie/pull/2746)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 5.22.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2727](https://github.com/justeattakeaway/pie/pull/2727)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Benefits
+
+  - reorder-rewards-large
+  - reorder-rewards
+
+  ## Dietary
+
+  - halal-large
+  - halal
+
+  ## Pay
+
+  - credits-filled-large
+  - credits-filled
+  - credits-large
+  - credits
+
+  ## Payment
+
+  - wero
+
+  ## People
+
+  - face-unhappy-filled-large
+  - face-unhappy-filled
+  - face-unhappy-large
+  - face-unhappy
+
+  [Updated] - Icons
+
+  ## Arrow
+
+  - arrow-up
+
+## 5.20.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2677](https://github.com/justeattakeaway/pie/pull/2677)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Audiovisual (AV)
+
+  - stop-circle-filled-large
+  - stop-circle-filled
+  - stop-circle-large
+  - stop-circle
+  - stop-large
+  - stop
+
+  ## Chat
+
+  - chat-courier-large
+  - chat-courier
+
+  ## Documents
+
+  - document-edit-large
+  - document-edit
+
+  ## Number
+
+  - number-input-large
+  - number-input
+
+  ## Restaurant
+
+  - sign-empty-large
+  - sign-empty
+
+  [Updated] - Icons
+
+  ## Location
+
+  - location-pin-filled
+  - location-pin
+
 ## 5.19.0
 
 ### Minor Changes

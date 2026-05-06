@@ -1,5 +1,89 @@
 # Changelog
 
+## 2.103.0
+
+### Minor Changes
+
+- [Changed] - split dangerjs into seperate files ([#2776](https://github.com/justeattakeaway/pie/pull/2776)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - updated commitlint and changeset pkgs ([#2763](https://github.com/justeattakeaway/pie/pull/2763)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Fixed] - updated changeset scripts and lint hooks to work in a git worktree environment
+
+- [Updated] changeset snapshot / test-aperture token scopes so use new test-aperture workflow correctly ([#2781](https://github.com/justeattakeaway/pie/pull/2781)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - upgrading to storybook v10 ([#2767](https://github.com/justeattakeaway/pie/pull/2767)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.102.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.101.0
+
+### Minor Changes
+
+- [Fixed] - changeset release workflow fix for gh app ([#2749](https://github.com/justeattakeaway/pie/pull/2749)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Changed] - Updated minor dependencies ([#2742](https://github.com/justeattakeaway/pie/pull/2742)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.100.0
+
+### Minor Changes
+
+- [Changed] - update workflows from bot to gh app ([#2746](https://github.com/justeattakeaway/pie/pull/2746)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.99.2
+
+### Patch Changes
+
+- [Fixed] - add tokens packages as peerDependencies ([#2732](https://github.com/justeattakeaway/pie/pull/2732)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.99.1
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.99.0
+
+### Minor Changes
+
+- [Changed] - use pie-webc for story imports ([#2703](https://github.com/justeattakeaway/pie/pull/2703)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - AGENTS.md file ([#2690](https://github.com/justeattakeaway/pie/pull/2690)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.98.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+- [Added] - skill-reviewer agent skill ([#2691](https://github.com/justeattakeaway/pie/pull/2691)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 2.97.1
+
+### Patch Changes
+
+- [Fixed] - clean amplify job id ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+## 2.97.0
+
+### Minor Changes
+
+- [Added] - support modal motion ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - modal motion docs ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.96.0
+
+### Minor Changes
+
+- [Added] - chromatic setup ([#2669](https://github.com/justeattakeaway/pie/pull/2669)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.95.2
 
 ### Patch Changes

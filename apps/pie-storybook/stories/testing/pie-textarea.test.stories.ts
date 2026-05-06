@@ -1,16 +1,16 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
-import { useArgs as UseArgs } from '@storybook/preview-api';
+import { action } from 'storybook/actions';
+import { useArgs as UseArgs } from 'storybook/preview-api';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-textarea';
+import '@justeattakeaway/pie-webc/components/textarea';
 import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
-} from '@justeattakeaway/pie-textarea';
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-link';
+} from '@justeattakeaway/pie-webc/components/textarea';
+import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/form-label';
+import '@justeattakeaway/pie-webc/components/link';
 
 import {
     createStory,

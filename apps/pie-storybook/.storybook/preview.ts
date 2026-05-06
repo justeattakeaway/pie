@@ -3,19 +3,24 @@ import './styles/docs.scss';
 import './styles/component-status.scss';
 import './styles/icons.scss';
 
-import { WritingDirection, ComponentStatus } from '../decorators';
+import { WritingDirection, ComponentStatus, ColorMode } from '../decorators';
 import CUSTOM_VIEWPORTS from './viewports';
 import backgrounds from './backgrounds';
 import getTheme from './pieTheme';
 
 // Register SCSS language for syntax highlighting in docs
-import { SyntaxHighlighter } from '@storybook/components';
+// Must use Storybook's own SyntaxHighlighter (not react-syntax-highlighter directly)
+// so the language is available in docs code blocks.
+import { SyntaxHighlighter } from 'storybook/internal/components';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 
 SyntaxHighlighter.registerLanguage('scss', scss);
 
+// WCAG Accessibility rules - these are the rules used by AXE to perform Accessibility checks
+const AccessibilityRules = ['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'];
+
 export default {
-    decorators: [ComponentStatus, WritingDirection],
+    decorators: [ComponentStatus, WritingDirection, ColorMode],
     globalTypes: {
         writingDirection: {
             description: 'Which direction should content be written in',
@@ -35,16 +40,6 @@ export default {
             config: {
                 rules: [
                     {
-                        id: 'WCAG Rules',
-                        tags: [
-                            'wcag21a',
-                            'wcag21aa',
-                            'wcag143',
-                            'cat.color',
-                            'cat.aria'
-                        ]
-                    },
-                    {
                         // Disabled rule
                         id: 'color-contrast-enhanced',
                         enabled: false,
@@ -56,6 +51,12 @@ export default {
                     },
                 ],
             },
+            options: {
+                runOnly: {
+                    type: 'tag',
+                    values: AccessibilityRules,
+                },
+            },
         },
         backgrounds,
         controls: {
@@ -63,12 +64,15 @@ export default {
             sort: 'alpha',
         },
         darkMode: {
+            current: 'light',
+            // This forces the addon to initially render in light mode. If we dont do this, there is an initial flicker of the system-preference theme that only stops when the user explicitly clicks light/dark in the Storybook UI.
+            userHasExplicitlySetTheTheme: true,
             // Override the default dark theme
             dark: { ...getTheme('dark') },
             light: { ...getTheme() },
         },
         viewport: {
-            viewports: CUSTOM_VIEWPORTS
+            options: CUSTOM_VIEWPORTS
         },
         layout: 'centered',
         options: {
@@ -121,6 +125,7 @@ export default {
                     'Contribution',
                     [
                         'Overview',
+                        'CI Tooling',
                         'Testing',
                         [
                             'Overview',

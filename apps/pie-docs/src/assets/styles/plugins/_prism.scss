@@ -118,7 +118,7 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
     align-items: center;
 
     &:hover {
-        background: var(--dt-color-interactive-light-hover);
+        background: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-light));
     }
 }
 

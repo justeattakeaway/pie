@@ -1,5 +1,58 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- [Changed] - updated pie-css peerDep to non-pinned version ([#2766](https://github.com/justeattakeaway/pie/pull/2766)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 3.0.0
+
+### Patch Changes
+
+- [Changed] - use pie-css 1.x as peerDep ([#2756](https://github.com/justeattakeaway/pie/pull/2756)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`961be67`](https://github.com/justeattakeaway/pie/commit/961be6728cb1e9b5bd4023437b84e6cdeada71b2)]:
+  - @justeattakeaway/pie-css@1.1.0
+
+## 2.0.0
+
+### Minor Changes
+
+- [Added] - optional stylistic stylelint ruleset ([#2753](https://github.com/justeattakeaway/pie/pull/2753)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`31249c6`](https://github.com/justeattakeaway/pie/commit/31249c613e473c60d534551c7d6f2d768ad0d892)]:
+  - @justeattakeaway/pie-css@1.0.0
+
+## 1.0.0
+
+### Patch Changes
+
+- [Fixed] - add tokens packages as peerDependencies ([#2732](https://github.com/justeattakeaway/pie/pull/2732)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`76e0750`](https://github.com/justeattakeaway/pie/commit/76e0750169bb9894b95548e9acee09a8ab339f5c)]:
+  - @justeattakeaway/pie-css@0.32.0
+
+## 0.9.2
+
+### Patch Changes
+
+- [Fixed] - load extra tokens from pie-css correctly ([#2725](https://github.com/justeattakeaway/pie/pull/2725)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.9.1
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - `@justeattakeaway/pie-design-tokens` plugin to `stylelint-config-pie` for validating PIE design token usage ([#2603](https://github.com/justeattakeaway/pie/pull/2603)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.2
 
 ### Patch Changes

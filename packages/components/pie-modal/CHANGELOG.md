@@ -1,5 +1,252 @@
 # @justeattakeaway/pie-modal
 
+## 1.26.0
+
+### Minor Changes
+
+- [Fixed] - only setup Esc keydown listener when modal is open ([#2775](https://github.com/justeattakeaway/pie/pull/2775)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`bd921bf`](https://github.com/justeattakeaway/pie/commit/bd921bf4d45e820c83b2085ced2541245c891bec)]:
+  - @justeattakeaway/pie-icons-webc@1.21.5
+  - @justeattakeaway/pie-icon-button@2.7.8
+
+## 1.25.13
+
+### Patch Changes
+
+- Updated dependencies [[`38e002f`](https://github.com/justeattakeaway/pie/commit/38e002fbf1be6f64c0937c93645adaf112bfeb77)]:
+  - @justeattakeaway/pie-webc-core@14.0.1
+  - @justeattakeaway/pie-button@1.13.4
+  - @justeattakeaway/pie-icon-button@2.7.7
+  - @justeattakeaway/pie-spinner@1.4.13
+  - @justeattakeaway/pie-icons-webc@1.21.4
+
+## 1.25.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.13.3
+  - @justeattakeaway/pie-icon-button@2.7.6
+  - @justeattakeaway/pie-spinner@1.4.12
+  - @justeattakeaway/pie-icons-webc@1.21.3
+  - @justeattakeaway/pie-webc-core@14.0.0
+
+## 1.25.11
+
+### Patch Changes
+
+- [Changed] - Refactored components to use clearer utility class modifiers such as is-loading, is-checked, has-error ([#2748](https://github.com/justeattakeaway/pie/pull/2748)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.13.2
+  - @justeattakeaway/pie-icon-button@2.7.5
+  - @justeattakeaway/pie-spinner@1.4.11
+  - @justeattakeaway/pie-icons-webc@1.21.2
+  - @justeattakeaway/pie-webc-core@13.0.0
+
+## 1.25.10
+
+### Patch Changes
+
+- [Fixed] - Applied `width: 100%` to the `pie-button` host element when `isFullWidth` is set, ensuring buttons span full width in flex, grid, and block layouts. ([#2736](https://github.com/justeattakeaway/pie/pull/2736)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - `pie-cookie-banner`, `pie-modal`, and `pie-notification` to reset button width on desktop.
+
+- Updated dependencies [[`402ec79`](https://github.com/justeattakeaway/pie/commit/402ec79fb3ed5f77c241d19c09cff7bd66fe4e90)]:
+  - @justeattakeaway/pie-button@1.13.1
+
+## 1.25.9
+
+### Patch Changes
+
+- Updated dependencies [[`76e0750`](https://github.com/justeattakeaway/pie/commit/76e0750169bb9894b95548e9acee09a8ab339f5c)]:
+  - @justeattakeaway/pie-button@1.13.0
+  - @justeattakeaway/pie-icon-button@2.7.4
+  - @justeattakeaway/pie-spinner@1.4.10
+  - @justeattakeaway/pie-webc-core@12.0.0
+  - @justeattakeaway/pie-icons-webc@1.21.1
+
+## 1.25.8
+
+### Patch Changes
+
+- Updated dependencies [[`8547a78`](https://github.com/justeattakeaway/pie/commit/8547a789ffddbc950b98d24c1a683feee3a407d8)]:
+  - @justeattakeaway/pie-icons-webc@1.21.0
+  - @justeattakeaway/pie-icon-button@2.7.3
+  - @justeattakeaway/pie-button@1.12.9
+  - @justeattakeaway/pie-spinner@1.4.9
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 1.25.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.8
+  - @justeattakeaway/pie-icon-button@2.7.2
+  - @justeattakeaway/pie-spinner@1.4.8
+  - @justeattakeaway/pie-webc-core@11.0.1
+  - @justeattakeaway/pie-icons-webc@1.20.8
+
+## 1.25.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.7
+  - @justeattakeaway/pie-icon-button@2.7.1
+  - @justeattakeaway/pie-spinner@1.4.7
+  - @justeattakeaway/pie-webc-core@11.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.7
+
+## 1.25.5
+
+### Patch Changes
+
+- Updated dependencies [[`443571d`](https://github.com/justeattakeaway/pie/commit/443571d17978a575711cbc73918bc0ee1461ea2b)]:
+  - @justeattakeaway/pie-icon-button@2.7.0
+
+## 1.25.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.6
+  - @justeattakeaway/pie-icon-button@2.6.7
+  - @justeattakeaway/pie-spinner@1.4.6
+  - @justeattakeaway/pie-webc-core@10.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.6
+
+## 1.25.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.5
+  - @justeattakeaway/pie-icon-button@2.6.6
+  - @justeattakeaway/pie-spinner@1.4.5
+  - @justeattakeaway/pie-webc-core@9.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.5
+
+## 1.25.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.4
+  - @justeattakeaway/pie-icon-button@2.6.5
+  - @justeattakeaway/pie-spinner@1.4.4
+  - @justeattakeaway/pie-webc-core@8.0.1
+  - @justeattakeaway/pie-icons-webc@1.20.4
+
+## 1.25.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.3
+  - @justeattakeaway/pie-icon-button@2.6.4
+  - @justeattakeaway/pie-spinner@1.4.3
+  - @justeattakeaway/pie-webc-core@8.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
+## 1.25.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Update README with information of new aspect ratios for narrow screens ([#2695](https://github.com/justeattakeaway/pie/pull/2695)) by [@maledr5](https://github.com/maledr5)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.2
+  - @justeattakeaway/pie-icon-button@2.6.3
+  - @justeattakeaway/pie-spinner@1.4.2
+  - @justeattakeaway/pie-webc-core@7.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
+## 1.24.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.1
+  - @justeattakeaway/pie-icon-button@2.6.2
+  - @justeattakeaway/pie-spinner@1.4.1
+  - @justeattakeaway/pie-webc-core@6.0.2
+  - @justeattakeaway/pie-icons-webc@1.20.1
+
+## 1.24.3
+
+### Patch Changes
+
+- Updated dependencies [[`7bf9b2d`](https://github.com/justeattakeaway/pie/commit/7bf9b2dccde2f57e3e67ee3ee948905dae6deba4)]:
+  - @justeattakeaway/pie-icons-webc@1.20.0
+  - @justeattakeaway/pie-icon-button@2.6.1
+
+## 1.24.2
+
+### Patch Changes
+
+- [Updated] - heading buttons variants to match background colors in light and dark modes ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Updated] - content color for strong background variants and heading buttons variants ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Updated] - leading and supporting buttons variants to match background colors in light and dark modes ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`84bfb40`](https://github.com/justeattakeaway/pie/commit/84bfb4063d5012c234fe5801716c401a5a737ad9)]:
+  - @justeattakeaway/pie-button@1.12.0
+
+## 1.24.1
+
+### Patch Changes
+
+- Updated dependencies [[`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b), [`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b)]:
+  - @justeattakeaway/pie-icon-button@2.6.0
+  - @justeattakeaway/pie-spinner@1.4.0
+  - @justeattakeaway/pie-button@1.11.1
+
+## 1.24.0
+
+### Minor Changes
+
+- [Added] - support modal motion ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - modal motion docs ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`b9bd6c8`](https://github.com/justeattakeaway/pie/commit/b9bd6c8bacdcb8e8e8fac69872bdf2a51ba8f5a6)]:
+  - @justeattakeaway/pie-icons-webc@1.19.0
+  - @justeattakeaway/pie-icon-button@2.5.1
+
+## 1.23.0
+
+### Minor Changes
+
+- [Updated] - image slot aspect ratios for narrow screens ([#2675](https://github.com/justeattakeaway/pie/pull/2675)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Updated] - emphasised title typography
+
+## 1.22.5
+
+### Patch Changes
+
+- Updated dependencies [[`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233), [`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233)]:
+  - @justeattakeaway/pie-icon-button@2.5.0
+  - @justeattakeaway/pie-button@1.11.0
+
+## 1.22.4
+
+### Patch Changes
+
+- [Updated] - remove min height in the modal content ([#2665](https://github.com/justeattakeaway/pie/pull/2665)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.22.3
 
 ### Patch Changes

@@ -10,5 +10,5 @@ trim_trailing_whitespace = true
 [**/*.{config,csproj,dotsettings,feature,fxcop,json,markdown,md,ncrunch*,ndepend,rb,targets,xml,xsd,yml}]
 indent_size = 2
 
-[**/*.{cs,cshtml,css,html,js,less,vue}]
+[**/*.{cs,cshtml,scss,css,html,js,less,vue}]
 indent_size = 4

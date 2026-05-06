@@ -53,7 +53,7 @@
 
 .DocSearch-Title {
     padding-inline-start: 10px; // gap between icon and title
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-body-strong-s-weight);
     margin-block-end: var(--dt-spacing-a);
 }
 
@@ -91,7 +91,7 @@
 .DocSearch-Hit-title {
     @include p.font-size(--dt-font-body-l-size);
     @include p.line-height(--dt-font-body-l-line-height);
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-body-l-weight);
 }
 
 .DocSearch-Commands,

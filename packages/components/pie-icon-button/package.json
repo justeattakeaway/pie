@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icon-button",
-  "version": "2.4.0",
+  "version": "2.7.8",
   "description": "PIE Design System Icon Button built using Web Components",
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICON_BUTTON} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
@@ -44,15 +45,15 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.21.0",
-    "@justeattakeaway/pie-css": "0.26.1",
-    "@justeattakeaway/pie-monorepo-utils": "0.7.0",
-    "@justeattakeaway/pie-wrapper-react": "0.14.3",
+    "@justeattakeaway/pie-css": "1.1.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.0",
+    "@justeattakeaway/pie-wrapper-react": "0.14.4",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "1.18.2",
-    "@justeattakeaway/pie-spinner": "1.3.7",
-    "@justeattakeaway/pie-webc-core": "6.0.1"
+    "@justeattakeaway/pie-icons-webc": "1.21.5",
+    "@justeattakeaway/pie-spinner": "1.4.13",
+    "@justeattakeaway/pie-webc-core": "14.0.1"
   },
   "volta": {
     "extends": "../../../package.json"

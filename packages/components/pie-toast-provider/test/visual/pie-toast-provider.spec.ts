@@ -8,8 +8,9 @@ const directions = ['ltr', 'rtl'];
 test.describe('PieToastProvider - Visual tests`', () => {
     test('should display the PieToastProvider component successfully', async ({ page }) => {
         const basePage = new BasePage(page, 'toast-provider--custom-z-index');
+        basePage.waitUntilStrategy = 'networkidle';
 
-        basePage.load();
+        await basePage.load();
 
         const toastElement = page.locator('pie-toast');
         await toastElement.waitFor({ state: 'visible' });
@@ -21,6 +22,7 @@ test.describe('PieToastProvider - Visual tests`', () => {
         directions.forEach((direction) => {
             test(`should render position: ${position} correctly with direction: ${direction}`, async ({ page }) => {
                 const basePage = new BasePage(page, `toast-provider--position-${position}`);
+                basePage.waitUntilStrategy = 'networkidle';
 
                 await basePage.load({}, { writingDirection: direction });
 

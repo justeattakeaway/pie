@@ -2,7 +2,7 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/button';
 import {
     type ButtonProps as ButtonPropsBase,
     defaultProps,
@@ -11,7 +11,7 @@ import {
     sizes,
     types,
     variants,
-} from '@justeattakeaway/pie-button';
+} from '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
@@ -368,6 +368,10 @@ export const PrimaryAlternative = createButtonStory({ variant: 'primary-alternat
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
+export const PrimaryAlternativeDark = createButtonStory({ variant: 'primary-alternative-dark' }, {
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
 export const Secondary = createButtonStory({ variant: 'secondary' }, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
@@ -378,6 +382,11 @@ export const Outline = createButtonStory({ variant: 'outline' }, {
 });
 
 export const Ghost = createButtonStory({ variant: 'ghost' }, {
+    bgColor: 'background-subtle',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const GhostDark = createButtonStory({ variant: 'ghost-dark' }, {
     bgColor: 'background-subtle',
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
@@ -397,6 +406,11 @@ export const Inverse = createButtonStory({ variant: 'inverse' }, {
 });
 
 export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, {
+    bgColor: 'dark (container-dark)',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const GhostInverseLight = createButtonStory({ variant: 'ghost-inverse-light' }, {
     bgColor: 'dark (container-dark)',
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });

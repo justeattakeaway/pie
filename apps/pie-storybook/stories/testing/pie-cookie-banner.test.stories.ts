@@ -1,13 +1,14 @@
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-cookie-banner';
-import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
+import '@justeattakeaway/pie-webc/components/cookie-banner';
 import {
+    type CookieBannerProps,
     Country,
     Language,
-} from '@justeattakeaway/pie-cookie-banner/src/defs';
+    defaultProps,
+} from '@justeattakeaway/pie-webc/components/cookie-banner';
 import { createStory } from '../../utilities';
 
 type CookieBannerStoryMeta = Meta<CookieBannerProps>;
@@ -21,6 +22,7 @@ const defaultArgs: CookieBannerProps = {
         personalized: false,
         analytical: false,
     },
+    openLinksInSameTab: false,
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
@@ -50,6 +52,13 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
         defaultPreferences: {
             control: 'object',
         },
+        openLinksInSameTab: {
+            description: 'When true, external links will open in the same tab. When false (default), links open in a new browser tab.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.openLinksInSameTab,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -76,6 +85,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
         cookieStatementLink,
         cookieTechnologiesLink,
         defaultPreferences,
+        openLinksInSameTab,
     } = props;
 
     return html`
@@ -85,6 +95,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
+            .openLinksInSameTab="${openLinksInSameTab}"
             .defaultPreferences="${defaultPreferences}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"

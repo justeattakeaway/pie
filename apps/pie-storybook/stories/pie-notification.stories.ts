@@ -1,9 +1,9 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-notification';
+import '@justeattakeaway/pie-webc/components/notification';
 import {
     type NotificationProps as NotificationBaseProps,
     variants,
@@ -11,7 +11,7 @@ import {
     positions,
     actionSizes,
     defaultProps,
-} from '@justeattakeaway/pie-notification';
+} from '@justeattakeaway/pie-webc/components/notification';
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 

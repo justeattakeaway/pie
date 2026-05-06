@@ -1,5 +1,10 @@
 # pie-icons-react
 
+> [!WARNING]
+> **Deprecated:** This package is deprecated and will no longer receive updates.
+> Please migrate to [`@justeattakeaway/pie-icons-webc`](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc), which provides framework-agnostic web components compatible with React, Vue, and vanilla JS.
+> See the [`pie-icons-webc` README](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc#react) for React usage instructions.
+
 Shared PIE Icon Components for ReactJS.
 
 This package generates an iconset for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into React components.
@@ -92,7 +97,7 @@ The PIE iconset is managed by our PIE design system team and new icon requests s
 
 ### Building the Module
 
-Run `yarn build` from the project level or `yarn turbo run build --filter=pie-icons-react` from the root level to compile the module.
+Run `yarn build` from the project level or `yarn turbo run build --filter=@justeattakeaway/pie-icons-react` from the root level to compile the module.
 
 ## Icon list
 

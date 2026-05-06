@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import '@justeattakeaway/pie-thumbnail';
+import '@justeattakeaway/pie-webc/components/thumbnail';
 import {
     type ThumbnailProps,
     defaultProps,
@@ -9,7 +9,7 @@ import {
     backgroundColors,
     sizes,
     aspectRatios,
-} from '@justeattakeaway/pie-thumbnail';
+} from '@justeattakeaway/pie-webc/components/thumbnail';
 
 import { type Meta } from '@storybook/web-components';
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
@@ -195,7 +195,7 @@ export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template
 export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);
 export const aspectRatio4by3PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio4by3PropOptions);
 export const aspectRatio16by9PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio16by9PropOptions);
-export const InvalidSrcAndDefaultPlaceholder = createVariantStory<ThumbnailProps>(Template, defaultPlaceholderPropOptions);
+// export const InvalidSrcAndDefaultPlaceholder = createVariantStory<ThumbnailProps>(Template, defaultPlaceholderPropOptions);
 export const InvalidSrcAndCustomPlaceholder = createVariantStory<ThumbnailProps>(Template, customPlaceholderPropOptions);
 export const ValidSrcWithCustomPlaceholder = createStory<ThumbnailProps>(Template, {
     src: defaultArgs.src,

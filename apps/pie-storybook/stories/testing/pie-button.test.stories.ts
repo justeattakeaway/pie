@@ -2,11 +2,12 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/button';
 import {
     type ButtonProps as ButtonPropsBase, defaultProps, iconPlacements, responsiveSizes, sizes, types, variants,
-} from '@justeattakeaway/pie-button';
+} from '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
+import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 
 import {
     createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
@@ -417,12 +418,15 @@ const sharedAnchorPropMatrix : Partial<Record<keyof ButtonProps, unknown[]>> = {
 
 export const PrimaryAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['primary'] });
 export const PrimaryAlternativeAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['primary-alternative'] });
+export const PrimaryAlternativeDarkAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['primary-alternative-dark'] });
 export const SecondaryAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['secondary'] });
 export const OutlineAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['outline'] });
 export const GhostAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost'] });
+export const GhostDarkAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost-dark'] });
 export const OutlineInverseAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['outline-inverse'] }, { bgColor: 'background-dark' });
 export const InverseAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['inverse'] }, { bgColor: 'background-dark' });
 export const GhostInverseAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost-inverse'] }, { bgColor: 'background-dark' });
+export const GhostInverseLightAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost-inverse-light'] }, { bgColor: 'background-dark' });
 export const DestructiveAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['destructive'] });
 export const DestructiveGhostAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['destructive-ghost'] });
 
@@ -437,6 +441,11 @@ export const PrimaryVariations = createVariantStory<ButtonProps>(Template, {
 export const PrimaryAlternativeVariations = createVariantStory<ButtonProps>(Template, {
     ...sharedPropMatrix,
     variant: ['primary-alternative'],
+}, { multiColumn: true });
+
+export const PrimaryAlternativeDarkVariations = createVariantStory<ButtonProps>(Template, {
+    ...sharedPropMatrix,
+    variant: ['primary-alternative-dark'],
 }, { multiColumn: true });
 
 export const SecondaryVariations = createVariantStory<ButtonProps>(Template, {
@@ -459,6 +468,11 @@ export const GhostVariations = createVariantStory<ButtonProps>(Template, {
     variant: ['ghost'],
 }, { multiColumn: true });
 
+export const GhostDarkVariations = createVariantStory<ButtonProps>(Template, {
+    ...sharedPropMatrix,
+    variant: ['ghost-dark'],
+}, { multiColumn: true });
+
 export const InverseVariations = createVariantStory<ButtonProps>(Template, {
     ...sharedPropMatrix,
     variant: ['inverse'],
@@ -467,6 +481,11 @@ export const InverseVariations = createVariantStory<ButtonProps>(Template, {
 export const GhostInverseVariations = createVariantStory<ButtonProps>(Template, {
     ...sharedPropMatrix,
     variant: ['ghost-inverse'],
+}, { bgColor: 'background-dark', multiColumn: true });
+
+export const GhostInverseLightVariations = createVariantStory<ButtonProps>(Template, {
+    ...sharedPropMatrix,
+    variant: ['ghost-inverse-light'],
 }, { bgColor: 'background-dark', multiColumn: true });
 
 export const DestructiveVariations = createVariantStory<ButtonProps>(Template, {
@@ -478,3 +497,55 @@ export const DestructiveGhostVariations = createVariantStory<ButtonProps>(Templa
     ...sharedPropMatrix,
     variant: ['destructive-ghost'],
 }, { multiColumn: true });
+
+const IsFullWidthLayoutTemplate: TemplateFunction<ButtonProps> = () => html`
+    <style>
+        .layout-container {
+            margin-block-end: var(--dt-spacing-d);
+            padding: var(--dt-spacing-b);
+            border: 1px solid var(--dt-color-border-default);
+        }
+        .layout-label {
+            margin-block-end: var(--dt-spacing-b);
+        }
+        .flex-container {
+            display: flex;
+        }
+        .grid-container {
+            display: grid;
+        }
+        .block-container {
+            display: block;
+        }
+    </style>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Flex container (display: flex)</p>
+        <div class="flex-container">
+            <pie-button isFullWidth data-test-id="pie-button-flex">Full Width in Flex</pie-button>
+        </div>
+    </div>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Grid container (display: grid)</p>
+        <div class="grid-container">
+            <pie-button isFullWidth data-test-id="pie-button-grid">Full Width in Grid</pie-button>
+        </div>
+    </div>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Block container (display: block)</p>
+        <div class="block-container">
+            <pie-button isFullWidth data-test-id="pie-button-block">Full Width in Block</pie-button>
+        </div>
+    </div>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Flex container without isFullWidth (for comparison)</p>
+        <div class="flex-container">
+            <pie-button data-test-id="pie-button-flex-no-fullwidth">Without Full Width in Flex</pie-button>
+        </div>
+    </div>
+`;
+
+export const IsFullWidthLayoutVariations = createStory<ButtonProps>(IsFullWidthLayoutTemplate, defaultArgs)();

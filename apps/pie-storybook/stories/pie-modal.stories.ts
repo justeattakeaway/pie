@@ -1,18 +1,18 @@
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
-import '@justeattakeaway/pie-chip';
-import '@justeattakeaway/pie-modal';
-import '@justeattakeaway/pie-lottie-player';
+import '@justeattakeaway/pie-webc/components/chip';
+import '@justeattakeaway/pie-webc/components/modal';
+import '@justeattakeaway/pie-webc/components/lottie-player';
 
 import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, imageSlotModes, imageSlotAspectRatios, sizes, backgroundColors, positions, defaultProps,
-} from '@justeattakeaway/pie-modal';
+} from '@justeattakeaway/pie-webc/components/modal';
 
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-text-input';
-import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/text-input';
+import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconSearch';
 
 import { type SlottedComponentProps } from '../types';
@@ -58,6 +58,7 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'boolean',
         },
         hasStackedActions: {
+            description: 'When true, the actions will expand to full width and stack vertically. Only available below the mid breakpoint.',
             control: 'boolean',
         },
         isHeadingEmphasised: {
@@ -337,7 +338,7 @@ const SlottedImageContentStoryTemplate = (props: ModalProps) => {
 
     let imageUrl = '';
     if (imageSlotMode === 'image') {
-        imageUrl = `./static/images/modal-image-${imageSlotAspectRatio}.jpg`;
+        imageUrl = './static/images/modal-image-4by3.jpg';
     } else if (imageSlotMode === 'illustration') {
         imageUrl = './static/images/modal-image-illustration.png';
     }

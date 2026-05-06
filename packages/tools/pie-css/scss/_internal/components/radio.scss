@@ -1,0 +1,12 @@
+@use '../../mixins/components/radio' as radio;
+
+.c-radio {
+    @include radio.radio-input-base;
+    @include radio.radio-interactive-state('dt-color-interactive-brand');
+    @include radio.radio-animations;
+}
+
+.has-error {
+    @include radio.radio-error;
+    @include radio.radio-interactive-state('dt-color-support-error');
+}

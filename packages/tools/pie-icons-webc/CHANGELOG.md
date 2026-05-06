@@ -1,5 +1,188 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.21.5
+
+### Patch Changes
+
+- [Fixed] - adds missing rimraf dependency ([#2783](https://github.com/justeattakeaway/pie/pull/2783)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 1.21.4
+
+### Patch Changes
+
+- Updated dependencies [[`38e002f`](https://github.com/justeattakeaway/pie/commit/38e002fbf1be6f64c0937c93645adaf112bfeb77)]:
+  - @justeattakeaway/pie-webc-core@14.0.1
+
+## 1.21.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@14.0.0
+
+## 1.21.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@13.0.0
+
+## 1.21.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@12.0.0
+
+## 1.21.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2727](https://github.com/justeattakeaway/pie/pull/2727)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Benefits
+
+  - reorder-rewards-large
+  - reorder-rewards
+
+  ## Dietary
+
+  - halal-large
+  - halal
+
+  ## Pay
+
+  - credits-filled-large
+  - credits-filled
+  - credits-large
+  - credits
+
+  ## Payment
+
+  - wero
+
+  ## People
+
+  - face-unhappy-filled-large
+  - face-unhappy-filled
+  - face-unhappy-large
+  - face-unhappy
+
+  [Updated] - Icons
+
+  ## Arrow
+
+  - arrow-up
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 1.20.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 1.20.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 1.20.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@10.0.0
+
+## 1.20.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@9.0.0
+
+## 1.20.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@8.0.1
+
+## 1.20.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@8.0.0
+
+## 1.20.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@7.0.0
+
+## 1.20.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@6.0.2
+
+## 1.20.0
+
+### Minor Changes
+
+- [Added] - support a fill prop ([#2685](https://github.com/justeattakeaway/pie/pull/2685)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.19.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2677](https://github.com/justeattakeaway/pie/pull/2677)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Audiovisual (AV)
+
+  - stop-circle-filled-large
+  - stop-circle-filled
+  - stop-circle-large
+  - stop-circle
+  - stop-large
+  - stop
+
+  ## Chat
+
+  - chat-courier-large
+  - chat-courier
+
+  ## Documents
+
+  - document-edit-large
+  - document-edit
+
+  ## Number
+
+  - number-input-large
+  - number-input
+
+  ## Restaurant
+
+  - sign-empty-large
+  - sign-empty
+
+  [Updated] - Icons
+
+  ## Location
+
+  - location-pin-filled
+  - location-pin
+
 ## 1.18.2
 
 ### Patch Changes

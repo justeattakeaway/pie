@@ -3,25 +3,13 @@
   "extends": [
     "//"
   ],
-  "pipeline": {
-    "generate:typography-docs": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "scripts/generate-typography-docs.js"
-      ],
-      "outputs": [
-        "stories/pie-css-typography.mdx"
-      ]
-    },
+  "tasks": {
     "dev": {
       "cache": false,
       "dependsOn": [
         "^build",
         "^generate:component-statuses",
-        "generate:typography-docs"
+        "^generate:typography-docs"
       ]
     },
     "dev:testing": {
@@ -36,9 +24,11 @@
       "dependsOn": [
         "^build",
         "^generate:component-statuses",
-        "generate:typography-docs"
+        "^generate:typography-docs"
       ],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
     },
     "build:testing": {
       "cache": true,
@@ -46,7 +36,19 @@
         "^build",
         "^generate:component-statuses"
       ],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "build:chromatic": {
+      "cache": true,
+      "dependsOn": [
+        "^build",
+        "^generate:component-statuses"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "test": {
       "cache": true,

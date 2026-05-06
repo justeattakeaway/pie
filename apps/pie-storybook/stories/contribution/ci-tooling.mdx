@@ -1,0 +1,96 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Contribution/CI Tooling" />
+
+# CI Tooling
+
+## Table of Contents
+
+- [Snapshot releases](#snapshot-releases)
+    - [Known issues](#known-issues)
+    - [Can I use snapshot releases in production?](#can-i-use-snapshot-releases-in-production)
+    - [Aperture integration](#aperture-integration)
+- [DangerJS](#dangerjs)
+    - [Configuring DangerJS](#configuring-dangerjs)
+    - [Testing DangerJS locally](#testing-dangerjs-locally)
+
+## Snapshot releases
+
+If you want to test your changes from a PR in another project without having to merge the PR or use a tool like `yalc` (which can be complex if you have nested component dependencies) then you can use our `changeset-snapshot` workflow.
+
+To do this, add a comment to your PR that starts with "/snapit". You should see an acknowledging "👀" reaction from [@pie-design-system-bot](https://github.com/pie-design-system-bot), shortly followed by a comment with a link to the logs.
+
+**For this to work as intended, your PR needs to meet the following requirements:**
+- Your PR should have a changeset entry for each package you would like to publish a snapshot.
+    - You can generate this by running `yarn changeset` from the root of the project.
+  - **Note:** any packages which depend on your package will also have a snapshot published. For example if you update `pie-button` then `pie-modal` will also get a new snapshot version.
+- The base branch should be up to date.
+    - This is to make sure the changeset files from your PR are correctly detected and isolated.
+
+If successful, another comment will be added to your PR containing the snapshot versions for all of the packages that were published. You can now use these versions to test the packages in your chosen application by following the instructions in the comment.
+
+### Known issues
+| Failure | What to do |
+| :--- | :--- |
+| The build fails on *Get Markdown Changeset Files Difference* | This is likely because the base branch of your PR is not up to date. Please update your PR and resolve any conflicts before trying again. |
+
+### Can I use snapshot releases in production?
+
+One use-case for snapshot builds in production is that it allows you to use new props which have been added specifically for an experiment, without needing to release them for package consumers (where they may be misused or add to technical debt).
+
+This is possible, and works as intended (because snapshot versions are published to npm like any normal version), however you should be aware that there are significant downsides. If you are considering this approach after reading this, we recommend discussing it with the team first.
+
+The main downside to this approach is that someone merges a change to any of your component's dependent components (or, if you are using a snapshot of `pie-webc`, to **_ANY_** component!), a new version will be created which **will not include your changes**!
+
+If you are in the middle of using a snapshot but someone wants to update the version to include some other, urgent new changes, they would have to remove any custom code to integrate with your new version before they can use theirs. The alternative is updating your branch and generating a new snapshot every time. This is time-consuming, fiddly, risky, and requires proper communication.
+
+Overall, this approach is **not recommended**, instead we would suggest merging your experimental changes. Make sure that your custom code is properly commented with references to Jira ticket numbers. You should not add your new props to the README or documentation site. Adding storybook controls is okay if it helps you with testing, as long as these are removed when the experiment is finished or productionised.
+
+### Aperture integration
+We have a special command for automatically generating a snapshot and opening a PR to install it in PIE Aperture. To trigger this, comment `/test-aperture` on your PR. This will trigger the same snapshot release process as described above, but once the snapshot is published, a new PR will be opened in the PIE Aperture repository with the new snapshot version added as a dependency.
+
+Warning: running this command multiple times will override the previously opened PR, so be careful when running it.
+
+See more about testing in Aperture [here](?path=/docs/contribution-testing-aperture-integration-tests--docs).
+
+---
+
+## DangerJS
+
+[DangerJS](http://danger.systems/js/) is a tool that we use to automate certain aspects of our code review process.
+
+Checks that we automate using DangerJS include:
+
+- Ensuring Changeset entries added to PRs are consistent.
+
+We automate DangerJS checks through Github Actions and comments are added to PRs via our [pie-design-system-bot](https://github.com/pie-design-system-bot) Github bot.
+
+
+### Configuring DangerJS
+
+All of the checks that DangerJS performs are configured inside a `dangerfile.js` file, [which is located at the root of the mono-repo](https://github.com/justeattakeaway/pie/blob/main/dangerfile.js).
+
+If you want to add, edit or remove any of the checks that DangerJS performs, you will need to edit this file. For information on the API that Danger exposes for developers to hook onto, check out their [reference guide](https://danger.systems/js/reference.html).
+
+
+### Testing DangerJS locally
+
+To test changes that you've made to a `dangerfile.js` locally against an existing PR, follow these steps.
+
+
+1. Setup a local environment variable to give you access to the Github API. To do this in bash or ZSH (for instance), you would add the following line:
+
+    ```bash
+    export DANGER_GITHUB_API_TOKEN=xxx
+    ```
+
+> If you need to set up your own Github API token, [check the DangerJS docs](https://danger.systems/js/guides/getting_started#tokens-for-oss-projects) for the permissions you need to give that token.
+
+
+2. Once you have your environment variable set up, from a command shell, run:
+
+    ```bash
+    yarn danger pr {PR_URL}
+    ```
+
+    Replacing `{PR_URL}` with the relevant PR URL. This will enable you to test changes without pushing them to a branch and waiting for the DangerJS CI process to run (which can be quite a slow way to test script changes like this).

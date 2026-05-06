@@ -8,6 +8,7 @@
   --toast-border-radius: var(--dt-radius-rounded-b);
   --toast-background-color: var(--dt-color-container-inverse);
   --toast-font-color: var(--dt-color-content-inverse);
+  --toast-font-family: var(--dt-font-body-s-family);
   --toast-font-size: #{p.font-size(--dt-font-body-s-size)};
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
   --toast-icon-fill: var(--dt-color-content-default);
@@ -25,6 +26,7 @@
   background-color: var(--toast-background-color);
   box-shadow: var(--dt-elevation-below-20);
   color: var(--toast-font-color);
+  font-family: var(--toast-font-family);
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
 }
@@ -94,7 +96,7 @@
   flex-shrink: 0;
 }
 
-.c-toast--multiline {
+.is-multiline {
   .c-toast-contentArea {
     align-items: flex-start;
     gap: 0;

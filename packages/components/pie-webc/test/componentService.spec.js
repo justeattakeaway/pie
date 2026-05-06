@@ -131,10 +131,20 @@ describe('ComponentService', () => {
 
             // Assert
             expect(result).toEqual({
+                './components/component-name': {
+                    import: './components/component-name.js',
+                    require: './components/component-name.js',
+                    types: './components/component-name.d.ts',
+                },
                 './components/component-name.js': {
                     import: './components/component-name.js',
                     require: './components/component-name.js',
                     types: './components/component-name.d.ts',
+                },
+                './react/component-name': {
+                    import: './react/component-name.js',
+                    require: './react/component-name.js',
+                    types: './react/component-name.d.ts',
                 },
                 './react/component-name.js': {
                     import: './react/component-name.js',
@@ -244,8 +254,10 @@ describe('ComponentService', () => {
             const { exports } = componentService.processComponents(workingDir, excludedFolders, rootPackageJson);
 
             // Assert
-            expect(Object.keys(exports)).toHaveLength(2);
+            expect(Object.keys(exports)).toHaveLength(4);
+            expect(Object.keys(exports)).toContain('./components/component-name');
             expect(Object.keys(exports)).toContain('./components/component-name.js');
+            expect(Object.keys(exports)).toContain('./react/component-name');
             expect(Object.keys(exports)).toContain('./react/component-name.js');
             // Content of the exports object is tested in createPackageJsonExports
         });
@@ -267,7 +279,7 @@ describe('ComponentService', () => {
             // Assert
             expect(Object.keys(exports)).toContain('./components/existing-component.js');
             expect(Object.keys(exports)).toContain('./react/existing-component.js');
-            expect(Object.keys(exports)).toHaveLength(4);
+            expect(Object.keys(exports)).toHaveLength(6);
         });
 
         it('should override existing exports in the package.json', () => {
@@ -285,9 +297,11 @@ describe('ComponentService', () => {
             const { exports } = componentService.processComponents(workingDir, excludedFolders, rootPackageJson);
 
             // Assert
+            expect(Object.keys(exports)).toContain('./components/component-name');
             expect(Object.keys(exports)).toContain('./components/component-name.js');
+            expect(Object.keys(exports)).toContain('./react/component-name');
             expect(Object.keys(exports)).toContain('./react/component-name.js');
-            expect(Object.keys(exports)).toHaveLength(2);
+            expect(Object.keys(exports)).toHaveLength(4);
         });
 
         it('should preserve existing dependencies in the package.json', () => {

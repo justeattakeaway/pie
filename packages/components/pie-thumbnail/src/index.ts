@@ -161,7 +161,7 @@ export class PieThumbnail extends PieElement implements ThumbnailProps {
             [backgroundColorClassNames[backgroundColor]]: true,
             'is-disabled': disabled,
             'c-thumbnail--padding': hasPadding,
-            'c-thumbnail--defaultPlaceholder': _isDefaultPlaceholderVisible,
+            'is-defaultPlaceholder': _isDefaultPlaceholderVisible,
         };
 
         const sizeStyles = this._generateSizeStyles();

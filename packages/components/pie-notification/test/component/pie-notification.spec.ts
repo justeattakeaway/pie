@@ -430,10 +430,10 @@ test.describe('PieNotification - Component tests', () => {
                     const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
 
                     // Assert
-                    expect(notificationComponent).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
-                    expect(actionSupporting).toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
+                    await expect(actionSupporting).toBeVisible();
 
                     await expect(footer).toHaveCSS('flex-direction', 'row');
                 });

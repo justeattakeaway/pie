@@ -1,7 +1,7 @@
 import { html, type TemplateResult } from 'lit';
 import DOMPurify from 'dompurify';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import type { StoryOptions, BackgroundValue } from '../types/StoryOptions';
+import type { StoryOptions } from '../types/StoryOptions';
 import CUSTOM_BACKGROUNDS from '../.storybook/backgrounds';
 
 export type TemplateFunction<T> = (props: T) => TemplateResult;
@@ -42,12 +42,13 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
         ...propOverrides,
     },
     parameters: {
-        backgrounds: {
-            ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
-        },
         controls: { ...(storyOpts?.controls ? storyOpts.controls : {}) },
         ...(storyOpts?.layout ? { layout: storyOpts?.layout || 'centered' } : {}),
     },
+    // storyGlobals (set via the `globals` key) take priority over userGlobals in
+    // Storybook v10, so this is the correct way to declare a per-story background.
+    // parameters.backgrounds.default is ignored by the v10 backgrounds decorator.
+    ...(storyOpts?.bgColor ? { globals: { backgrounds: { value: storyOpts.bgColor } } } : {}),
     ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
 });
 
@@ -114,7 +115,7 @@ export const createVariantStory = <T extends Record<string, any>>(
             };
 
             const propCombinations = generateCombinations(propOptions);
-            const backgroundValue = CUSTOM_BACKGROUNDS.values.find((bg: BackgroundValue) => bg.name === storyOpts?.bgColor)?.value || '#ffffff';
+            const backgroundValue = (storyOpts?.bgColor ? CUSTOM_BACKGROUNDS.options[storyOpts.bgColor]?.value : undefined) || '#ffffff';
 
             const gridStyle = storyOpts?.multiColumn ? `
                 display: grid;
@@ -157,7 +158,7 @@ export const createVariantStory = <T extends Record<string, any>>(
                     grid-template-columns: repeat(2, 1fr);
                     gap: 8px;
                     font-family: monospace;
-                    background-color: #f9f9f9;
+                    background-color: var(--dt-color-background-default);
                     padding: 8px;
                     border-radius: 4px;
                 }

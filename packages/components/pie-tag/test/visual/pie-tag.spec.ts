@@ -7,6 +7,7 @@ import { variants } from '../../src/defs.ts';
 variants.forEach((variant) => {
     test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
         const tagVariationsPage = new BasePage(page, `tag--${variant}-variations`);
+        tagVariationsPage.waitUntilStrategy = 'networkidle';
 
         await tagVariationsPage.load();
 
@@ -16,6 +17,7 @@ variants.forEach((variant) => {
 
 test('should allow for custom styling using CSS parts', async ({ page }) => {
     const tagVariationsPage = new BasePage(page, 'tag--custom-styled-tags');
+    tagVariationsPage.waitUntilStrategy = 'networkidle';
 
     await tagVariationsPage.load();
 
@@ -24,6 +26,7 @@ test('should allow for custom styling using CSS parts', async ({ page }) => {
 
 test('should render slotted raw SVG icons correctly in all sizes', async ({ page }) => {
     const rawSVGPage = new BasePage(page, 'tag--raw-svg-slot');
+    rawSVGPage.waitUntilStrategy = 'networkidle';
 
     await rawSVGPage.load();
 
@@ -32,6 +35,7 @@ test('should render slotted raw SVG icons correctly in all sizes', async ({ page
 
 test('should render text truncation correctly for different tag sizes and variants', async ({ page }) => {
     const textTruncationPage = new BasePage(page, 'tag--text-truncation');
+    textTruncationPage.waitUntilStrategy = 'networkidle';
 
     await textTruncationPage.load();
 
@@ -40,6 +44,7 @@ test('should render text truncation correctly for different tag sizes and varian
 
 test('should render translucent tags over images correctly', async ({ page }) => {
     const translucentOverImagePage = new BasePage(page, 'tag--translucent-over-image');
+    translucentOverImagePage.waitUntilStrategy = 'networkidle';
 
     await translucentOverImagePage.load();
 
@@ -48,6 +53,7 @@ test('should render translucent tags over images correctly', async ({ page }) =>
 
 test('should render icon-only tags as the large size for both small and large sizes', async ({ page }) => {
     const iconOnlyPage = new BasePage(page, 'tag--icon-only-variations');
+    iconOnlyPage.waitUntilStrategy = 'networkidle';
 
     await iconOnlyPage.load();
 

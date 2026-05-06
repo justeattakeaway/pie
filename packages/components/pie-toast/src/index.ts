@@ -307,7 +307,7 @@ export class PieToast extends PieElement implements ToastProps {
 
         const componentWrapperClasses = {
             [componentClass]: true,
-            [`${componentClass}--multiline`]: isMultiline,
+            'is-multiline': isMultiline,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--strong`]: isStrong,
         };

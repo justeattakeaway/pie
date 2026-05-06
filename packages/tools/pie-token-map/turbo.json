@@ -1,0 +1,27 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "extends": [
+    "//"
+  ],
+  "tasks": {
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "src/**",
+        "scripts/**"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "generate:verify": {
+      "cache": false,
+      "dependsOn": [
+        "build"
+      ]
+    }
+  }
+}

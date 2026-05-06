@@ -12,6 +12,7 @@ writingDirections.forEach((direction) => {
     test(`should render all prop variations in writing direction: ${direction}`, async ({ page }) => {
         // Arrange
         const switchVariationsPage = new BasePage(page, 'switch--variations');
+        switchVariationsPage.waitUntilStrategy = 'networkidle';
         await switchVariationsPage.load({}, { writingDirection: direction });
 
         // Assert

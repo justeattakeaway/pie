@@ -9,9 +9,11 @@
     --notification-border-radius: var(--dt-radius-rounded-c);
     --notification-background-color: var(--dt-color-container-subtle);
     --notification-direction: column;
+    --notification-heading-font-family: var(--dt-font-heading-s-family);
     --notification-heading-font-size: #{p.font-size(--dt-font-heading-s-size--narrow)};
     --notification-heading-line-height: #{p.line-height(--dt-font-heading-s-line-height--narrow)};
     --notification-heading-font-weight: var(--dt-font-heading-s-weight);
+    --notification-font-family: var(--dt-font-body-l-family);
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-font-weight: var(--dt-font-body-l-weight);
@@ -27,12 +29,13 @@
     display: flex;
     flex-direction: var(--notification-direction);
     gap: var(--dt-spacing-d);
+    font-family: var(--notification-font-family);
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
     font-weight: var(--notification-font-weight);
     color: var(--dt-color-content-default);
 
-    &.c-notification--compact {
+    &.is-compact {
         --notification-direction: row;
     }
 
@@ -77,6 +80,7 @@
     &-heading {
         margin: 0;
         margin-block-end: var(--dt-spacing-a);
+        font-family: var(--notification-heading-font-family);
         font-size: var(--notification-heading-font-size);
         line-height: var(--notification-heading-line-height);
         font-weight: var(--notification-heading-font-weight);
@@ -93,7 +97,7 @@
         align-items: center;
         gap: var(--dt-spacing-c);
 
-        &.c-notification-content-section--dismissible {
+        &.is-dismissible {
             max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
         }
     }
@@ -110,14 +114,20 @@
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
-        &.c-notification-footer--compact {
+        &.is-compact {
             align-self: center;
             margin-inline-start: auto;
         }
 
-        @include media('<md') {
-            &.c-notification-footer--stacked {
+        &.c-notification-footer--stacked {
+            @include media('<md') {
                 flex-direction: column-reverse;
+            }
+
+            @include media('>=md') {
+                > pie-button {
+                    width: auto;
+                }
             }
         }
     }

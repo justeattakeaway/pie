@@ -8,6 +8,7 @@ variants.forEach((variant) => {
     test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
         // Arrange
         const buttonPage = new BasePage(page, `button--${variant}-variations`);
+        buttonPage.waitUntilStrategy = 'networkidle';
         const buttonComponent = new ButtonComponent(page);
         await buttonPage.load();
 
@@ -15,4 +16,16 @@ variants.forEach((variant) => {
         await expect.soft(buttonComponent.componentLocator.first()).toBeVisible();
         await percySnapshot(page, `PIE Button - Variant: ${variant}`, { widths: [1280] });
     });
+});
+
+test('should render isFullWidth correctly in different layout contexts', async ({ page }) => {
+    // Arrange
+    const buttonPage = new BasePage(page, 'button--is-full-width-layout-variations');
+    buttonPage.waitUntilStrategy = 'networkidle';
+    const buttonComponent = new ButtonComponent(page);
+    await buttonPage.load();
+
+    // Assert
+    await expect.soft(buttonComponent.componentLocator.first()).toBeVisible();
+    await percySnapshot(page, 'PIE Button - isFullWidth in different layouts', { widths: [1280] });
 });

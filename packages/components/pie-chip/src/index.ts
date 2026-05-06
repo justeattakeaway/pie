@@ -116,7 +116,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
         const classes = {
             'c-chip': true,
             [`c-chip--${variant}`]: true,
-            'c-chip--selected': isSelected,
+            'is-selected': isSelected,
             'is-disabled': disabled,
             'is-loading': isLoading,
         };
@@ -150,7 +150,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
         const classes = {
             'c-chip': true,
             [`c-chip--${variant}`]: true,
-            'c-chip--selected': isSelected,
+            'is-selected': isSelected,
             'is-disabled': disabled,
             'is-loading': isLoading,
         };
@@ -189,7 +189,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
         const classes = {
             'c-chip': true,
             [`c-chip--${variant}`]: true,
-            'c-chip--selected': isSelected,
+            'is-selected': isSelected,
             'is-dismissible': showCloseButton,
             'is-disabled': disabled,
             'is-loading': isLoading,

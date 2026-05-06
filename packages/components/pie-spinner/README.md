@@ -32,7 +32,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Prop     | Options                                      | Description                                                                                      | Default     |
 |----------|----------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|
 | `size`   | `"xsmall"`, `"small"`, `"medium"`, `"large"`, `"xlarge"` | Size of the spinner.                                                                             | `medium`    |
-| `variant`| `"brand"`, `"secondary"`, `"inverse"`        | Variant of the spinner.                                                                          | `brand`     |
+| `variant`| `"brand"`, `"secondary"`, `"secondary-dark"`, `"inverse"`, `"inverse-light"` | Variant of the spinner.                                                                          | `brand`     |
 | `aria`   | —                                            | An object representing the ARIA attributes such as `label`.                                      | `undefined` |
 
 ### Slots

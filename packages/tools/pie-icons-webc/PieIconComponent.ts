@@ -1,10 +1,16 @@
 import {
-    LitElement, css, type PropertyValues, type TemplateResult,
+    LitElement,
+    css,
+    type PropertyValues,
+    type TemplateResult,
 } from 'lit';
 import { property, state } from 'lit/decorators.js';
 
 import {
-    getSvgProps, type RegularIconSize, type LargeIconSize,
+    getSvgProps,
+    iconFillDefault,
+    type RegularIconSize,
+    type LargeIconSize,
 } from '@justeattakeaway/pie-icons-configs';
 
 export abstract class PieIconComponent extends LitElement {
@@ -30,6 +36,9 @@ export abstract class PieIconComponent extends LitElement {
 
     @property({ type: String, reflect: true })
     public size!: RegularIconSize | LargeIconSize;
+
+    @property({ type: String, reflect: true })
+    public fill: string = iconFillDefault;
 
     @state()
     protected _svgWidth!: string | number;

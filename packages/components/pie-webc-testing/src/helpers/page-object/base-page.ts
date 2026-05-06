@@ -12,6 +12,7 @@ export class BasePage {
     path: string;
     args: string;
     globals: string;
+    waitUntilStrategy: 'load' | 'networkidle' = 'load';
 
     constructor (page: Page, componentName: string, componentTag = 'data-test-id') {
         this.page = page;
@@ -33,7 +34,7 @@ export class BasePage {
     }
 
     async open (url: string) {
-        await this.page.goto(url, { waitUntil: 'networkidle' });
+        await this.page.goto(url, { waitUntil: this.waitUntilStrategy });
         return this;
     }
 
@@ -48,7 +49,7 @@ export class BasePage {
      *
      */
     composePath (queries: Record<string, unknown>) {
-        if (!queries) {
+        if (!queries || Object.keys(queries).length === 0) {
             return '';
         }
 
@@ -71,13 +72,13 @@ export class BasePage {
      * @returns Globals string to append to the URL.
      */
     composeGlobals (globals: Record<string, unknown>) {
-        if (!globals) {
+        if (!globals || Object.keys(globals).length === 0) {
             return '';
         }
 
         const flattenGlobals = (obj: Record<string, unknown>): string[] => Object.entries(obj).map(([key, value]) => `${key}:${value}`);
 
-        return `&globals=${flattenGlobals(globals).join(';')}`;
+        return flattenGlobals(globals).join(';');
     }
 
     /**

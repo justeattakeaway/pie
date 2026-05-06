@@ -102,22 +102,38 @@
         h2 {
             @include p.font-size(--dt-font-heading-xl-size--narrow);
             @include p.line-height(--dt-font-heading-xl-line-height--narrow);
+            font-weight: var(--dt-font-heading-xl-weight);
         }
 
         h3 {
             @include p.font-size(--dt-font-heading-m-size--narrow);
             @include p.line-height(--dt-font-heading-m-line-height--narrow);
+            font-weight: var(--dt-font-heading-m-weight);
+        }
+
+        h4 {
+            @include p.font-size(--dt-font-heading-s-size--narrow);
+            @include p.line-height(--dt-font-heading-s-line-height--narrow);
+            font-weight: var(--dt-font-heading-s-weight);
         }
 
         @include f.media('>=wide') {
             h2 {
                 @include p.font-size(--dt-font-heading-xl-size--wide);
                 @include p.line-height(--dt-font-heading-xl-line-height--wide);
+                font-weight: var(--dt-font-heading-xl-weight);
             }
 
             h3 {
                 @include p.font-size(--dt-font-heading-m-size--wide);
                 @include p.line-height(--dt-font-heading-m-line-height--wide);
+                font-weight: var(--dt-font-heading-m-weight);
+            }
+
+            h4 {
+                @include p.font-size(--dt-font-heading-s-size--wide);
+                @include p.line-height(--dt-font-heading-s-line-height--wide);
+                font-weight: var(--dt-font-heading-s-weight);
             }
         }
 
@@ -157,6 +173,10 @@
         > .c-contentPage-notification + h3,
         & .c-contentPage-notification {
             margin-block-start: var(--dt-spacing-f);
+        }
+
+        > h5 {
+            margin-block-start: var(--dt-spacing-e);
         }
 
         .c-contentPage-notification + .c-contentPage-notification {

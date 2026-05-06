@@ -16,6 +16,7 @@ export const sizeToValueMap : Record<RegularIconSize, number> = {
 export const regularIconSizeDefault : RegularIconSize = 'xs';
 export const largeIconSizeModule = 8;
 export const largeIconSizeDefault = 32;
+export const iconFillDefault = 'currentColor';
 
 /**
  * Validates the size for large icons

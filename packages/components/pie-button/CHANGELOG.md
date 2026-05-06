@@ -1,5 +1,140 @@
 # Changelog
 
+## 1.13.4
+
+### Patch Changes
+
+- Updated dependencies [[`38e002f`](https://github.com/justeattakeaway/pie/commit/38e002fbf1be6f64c0937c93645adaf112bfeb77)]:
+  - @justeattakeaway/pie-webc-core@14.0.1
+  - @justeattakeaway/pie-spinner@1.4.13
+
+## 1.13.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.12
+  - @justeattakeaway/pie-webc-core@14.0.0
+
+## 1.13.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.11
+  - @justeattakeaway/pie-webc-core@13.0.0
+
+## 1.13.1
+
+### Patch Changes
+
+- [Fixed] - Applied `width: 100%` to the `pie-button` host element when `isFullWidth` is set, ensuring buttons span full width in flex, grid, and block layouts. ([#2736](https://github.com/justeattakeaway/pie/pull/2736)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - `pie-cookie-banner`, `pie-modal`, and `pie-notification` to reset button width on desktop.
+
+## 1.13.0
+
+### Minor Changes
+
+- [Changed] - Refactored to pull base styles in from pie-css ([#2729](https://github.com/justeattakeaway/pie/pull/2729)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.10
+  - @justeattakeaway/pie-webc-core@12.0.0
+
+## 1.12.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.9
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 1.12.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.8
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 1.12.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.7
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 1.12.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.6
+  - @justeattakeaway/pie-webc-core@10.0.0
+
+## 1.12.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.5
+  - @justeattakeaway/pie-webc-core@9.0.0
+
+## 1.12.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.4
+  - @justeattakeaway/pie-webc-core@8.0.1
+
+## 1.12.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.3
+  - @justeattakeaway/pie-webc-core@8.0.0
+
+## 1.12.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.2
+  - @justeattakeaway/pie-webc-core@7.0.0
+
+## 1.12.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.1
+  - @justeattakeaway/pie-webc-core@6.0.2
+
+## 1.12.0
+
+### Minor Changes
+
+- [Added] - ghost-dark and ghost-inverse-light variants ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 1.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b)]:
+  - @justeattakeaway/pie-spinner@1.4.0
+
+## 1.11.0
+
+### Minor Changes
+
+- [Added] - primary-alternative-dark button variant ([#2674](https://github.com/justeattakeaway/pie/pull/2674)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.10.2
 
 ### Patch Changes

@@ -91,6 +91,9 @@ avatarInitialsTestCases.forEach(({ input, expectedVisual, expectedScreenReader }
         const avatarPage = new BasePage(page, 'avatar--default');
         await avatarPage.load();
 
+        // Wait for the component to be ready before using page.evaluate
+        await page.locator('pie-avatar').waitFor({ state: 'visible' });
+
         // Act - Have to manually set the label as Storybook doesn't support certain characters when passed via query params
         await page.evaluate(async (input) => {
             const avatarComponent = document.querySelector('pie-avatar');

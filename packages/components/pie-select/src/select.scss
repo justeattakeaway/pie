@@ -11,6 +11,7 @@
     --select-background-color: var(--dt-color-container-default);
     --select-text-color: var(--dt-color-content-default);
     --select-border-color: var(--dt-color-border-form);
+    --select-font-family: var(--dt-font-body-l-family);
     --select-font-size: #{p.font-size(--dt-font-body-l-size)};
     --select-line-height: #{p.font-size(--dt-font-body-l-line-height)};
     --select-height: 48px;
@@ -18,6 +19,7 @@
 
     position: relative;
     color: var(--select-text-color);
+    font-family: var(--select-font-family);
     font-size: var(--select-font-size);
     line-height: var(--select-line-height);
 

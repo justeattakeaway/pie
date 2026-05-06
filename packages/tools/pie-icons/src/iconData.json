@@ -223,6 +223,18 @@
                 {
                     "name": "soundwave",
                     "displayName": "Soundwave"
+                },
+                {
+                    "name": "stop",
+                    "displayName": "Stop"
+                },
+                {
+                    "name": "stop-circle",
+                    "displayName": "Stop Circle"
+                },
+                {
+                    "name": "stop-circle-filled",
+                    "displayName": "Stop Circle Filled"
                 }
             ]
         },
@@ -295,6 +307,10 @@
                 {
                     "name": "offer-star-filled",
                     "displayName": "Offer Star Filled"
+                },
+                {
+                    "name": "reorder-rewards",
+                    "displayName": "Reorder Rewards"
                 },
                 {
                     "name": "voucher",
@@ -405,16 +421,20 @@
                     "displayName": "Chat"
                 },
                 {
-                    "name": "chat-filled",
-                    "displayName": "Chat Filled"
-                },
-                {
                     "name": "chat-bot",
                     "displayName": "Chat Bot"
                 },
                 {
                     "name": "chat-conversation",
                     "displayName": "Chat Conversation"
+                },
+                {
+                    "name": "chat-courier",
+                    "displayName": "Chat Courier"
+                },
+                {
+                    "name": "chat-filled",
+                    "displayName": "Chat Filled"
                 },
                 {
                     "name": "chat-heart",
@@ -431,6 +451,18 @@
             "displayName": "Chevron",
             "icons": [
                 {
+                    "name": "chevron-collapse",
+                    "displayName": "Chevron Collapse"
+                },
+                {
+                    "name": "chevron-double-left",
+                    "displayName": "Chevron Double Left"
+                },
+                {
+                    "name": "chevron-double-right",
+                    "displayName": "Chevron Double Right"
+                },
+                {
                     "name": "chevron-down",
                     "displayName": "Chevron Down"
                 },
@@ -443,20 +475,12 @@
                     "displayName": "Chevron Right"
                 },
                 {
-                    "name": "chevron-up",
-                    "displayName": "Chevron Up"
-                },
-                {
-                    "name": "chevron-double-left",
-                    "displayName": "Chevron Double Left"
-                },
-                {
-                    "name": "chevron-double-right",
-                    "displayName": "Chevron Double Right"
-                },
-                {
                     "name": "chevron-split",
                     "displayName": "Chevron Split"
+                },
+                {
+                    "name": "chevron-up",
+                    "displayName": "Chevron Up"
                 }
             ]
         },
@@ -645,6 +669,10 @@
                     "displayName": "Gluten"
                 },
                 {
+                    "name": "halal",
+                    "displayName": "Halal"
+                },
+                {
                     "name": "kosher",
                     "displayName": "Kosher"
                 },
@@ -707,16 +735,20 @@
             "displayName": "Documents",
             "icons": [
                 {
-                    "name": "document",
-                    "displayName": "Document"
-                },
-                {
                     "name": "consent",
                     "displayName": "Consent"
                 },
                 {
                     "name": "cookie-policy",
                     "displayName": "Cookie Policy"
+                },
+                {
+                    "name": "document",
+                    "displayName": "Document"
+                },
+                {
+                    "name": "document-edit",
+                    "displayName": "Document Edit"
                 },
                 {
                     "name": "terms-and-conditions",
@@ -1047,6 +1079,10 @@
                 {
                     "name": "close-circle-filled",
                     "displayName": "Close Circle Filled"
+                },
+                {
+                    "name": "column",
+                    "displayName": "Column"
                 },
                 {
                     "name": "double-check",
@@ -1539,6 +1575,10 @@
             "displayName": "Number",
             "icons": [
                 {
+                    "name": "number-input",
+                    "displayName": "Number Input"
+                },
+                {
                     "name": "number-symbol",
                     "displayName": "Number Symbol"
                 },
@@ -1623,10 +1663,6 @@
                     "displayName": "Cash"
                 },
                 {
-                    "name": "cash-filled",
-                    "displayName": "Cash Filled"
-                },
-                {
                     "name": "cash-card",
                     "displayName": "Cash Card"
                 },
@@ -1635,12 +1671,24 @@
                     "displayName": "Cash Card Filled"
                 },
                 {
+                    "name": "cash-filled",
+                    "displayName": "Cash Filled"
+                },
+                {
                     "name": "cheque",
                     "displayName": "Cheque"
                 },
                 {
                     "name": "cheque-filled",
                     "displayName": "Cheque Filled"
+                },
+                {
+                    "name": "coins",
+                    "displayName": "Coins"
+                },
+                {
+                    "name": "coins-filled",
+                    "displayName": "Coins Filled"
                 },
                 {
                     "name": "credit-card",
@@ -1659,12 +1707,12 @@
                     "displayName": "Credit Card Home Filled"
                 },
                 {
-                    "name": "coins",
-                    "displayName": "Coins"
+                    "name": "credits",
+                    "displayName": "Credits"
                 },
                 {
-                    "name": "coins-filled",
-                    "displayName": "Coins Filled"
+                    "name": "credits-filled",
+                    "displayName": "Credits Filled"
                 },
                 {
                     "name": "instant-bank",
@@ -1707,12 +1755,12 @@
                     "displayName": "Wallet"
                 },
                 {
-                    "name": "wallet-filled",
-                    "displayName": "Wallet Filled"
-                },
-                {
                     "name": "wallet-add",
                     "displayName": "Wallet Add"
+                },
+                {
+                    "name": "wallet-filled",
+                    "displayName": "Wallet Filled"
                 }
             ]
         },
@@ -1831,6 +1879,11 @@
                     "oneSize": true
                 },
                 {
+                    "name": "wero",
+                    "displayName": "Wero",
+                    "oneSize": true
+                },
+                {
                     "name": "wise",
                     "displayName": "Wise",
                     "oneSize": true
@@ -1873,6 +1926,14 @@
                 {
                     "name": "face-neutral-filled",
                     "displayName": "Face Neutral Filled"
+                },
+                {
+                    "name": "face-unhappy",
+                    "displayName": "Face Unhappy"
+                },
+                {
+                    "name": "face-unhappy-filled",
+                    "displayName": "Face Unhappy Filled"
                 },
                 {
                     "name": "user",
@@ -2113,6 +2174,10 @@
                 {
                     "name": "sign-closed",
                     "displayName": "Sign Closed"
+                },
+                {
+                    "name": "sign-empty",
+                    "displayName": "Sign Empty"
                 },
                 {
                     "name": "sign-open",
@@ -2409,6 +2474,10 @@
                 {
                     "name": "robot",
                     "displayName": "Robot"
+                },
+                {
+                    "name": "tree-trace",
+                    "displayName": "Tree Trace"
                 }
             ]
         },

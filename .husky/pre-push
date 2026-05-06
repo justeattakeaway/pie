@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# In a worktree, git sets GIT_DIR to .git/worktrees/<name>/ before
+# invoking hooks. Turbo uses git internally and hangs when GIT_DIR
+# points to a worktree subdirectory instead of the repo root.
+# Unsetting it lets turbo discover the repo from the working directory.
+unset GIT_DIR
+
 # Checks the diff files for lint errors before allowing to push
 yarn lint:scripts lint:style

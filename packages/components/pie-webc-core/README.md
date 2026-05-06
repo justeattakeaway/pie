@@ -59,7 +59,7 @@ Other dependencies may be added in future to make it easier for people to instal
 
 Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development).
 
-To run the unit tests, simply run `yarn test --filter=pie-webc-core` from the root of the monorepo.
+To run the unit tests, simply run `yarn test --filter=@justeattakeaway/pie-webc-core` from the root of the monorepo.
 
 ## Testing
 
@@ -74,7 +74,7 @@ We write unit tests for small pieces of functionality that can be tested in isol
 We write browser tests for functionality that requires a browser environment to test. This could be things such as component class mixins. For these, we run our tests using Playwright. This allows us to run our tests in a real browser environment and test things such as DOM manipulation and events. A useful pattern for this kind of testing is to write a mock component that uses the mixin you want to test. This allows you to test the mixin in isolation without having to worry about the implementation of the component itself.
 
 ### Naming and running tests
-Currently, for writing unit tests we simply name the file `**/*.spec.ts`. To write browser tests, we name the file `**/*.browser.spec.ts`. This allows us to run all unit tests using `yarn test --filter=pie-webc-core` and all browser tests using `yarn test:browsers --filter=pie-webc-core`.
+Currently, for writing unit tests we simply name the file `**/*.spec.ts`. To write browser tests, we name the file `**/*.browser.spec.ts`. This allows us to run all unit tests using `yarn test --filter=@justeattakeaway/pie-webc-core` and all browser tests using `yarn test:browsers --filter=@justeattakeaway/pie-webc-core`.
 
 ## Bundling
 When we build the package, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file named `stats.html` in the root of the package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.

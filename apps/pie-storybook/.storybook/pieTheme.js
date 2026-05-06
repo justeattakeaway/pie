@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 import darkLogo from '../static/images/logo--pie--dark.svg';
 import lightLogo from '../static/images/logo--pie--light.svg';
 

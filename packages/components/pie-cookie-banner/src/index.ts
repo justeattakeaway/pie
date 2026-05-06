@@ -82,8 +82,20 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     @property({ type: String })
     public language = defaultProps.language;
 
+    @property({ type: Boolean })
+    public openLinksInSameTab = defaultProps.openLinksInSameTab;
+
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
+
+    /**
+     * Returns the target attribute value for external links based on the openLinksInSameTab prop.
+     * - false (default): returns '_blank' (new tab)
+     * - true: returns '_self' (same tab)
+     */
+    private get _linkTargetAttribute () {
+        return this.openLinksInSameTab ? '_self' : '_blank';
+    }
 
     async updated (changedProperties: PropertyValues<this>) {
         // Re-fetch locale when country or language changes
@@ -133,12 +145,12 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     };
 
     private _customTagEnhancers: CustomTagEnhancers = {
-        linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
+        linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="${this._linkTargetAttribute}" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
         linkNecessaryOnly: (tagContent: string) => html`<pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">${tagContent}</pie-link>`,
         linkManagePreferences: (tagContent: string) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">${tagContent}</pie-link>`,
         linkAcceptAll: (tagContent: string) => html`<pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">${tagContent}</pie-link>`,
-        linkCookieStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" size="small" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
-        linkCookieTechList: (tagContent: string) => html`<pie-link href="${this.cookieTechnologiesLink}" size="small" target="_blank" data-test-id="cookie-technology-link">${tagContent}</pie-link>`,
+        linkCookieStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" size="small" target="${this._linkTargetAttribute}" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
+        linkCookieTechList: (tagContent: string) => html`<pie-link href="${this.cookieTechnologiesLink}" size="small" target="${this._linkTargetAttribute}" data-test-id="cookie-technology-link">${tagContent}</pie-link>`,
     };
 
     private _localiseText (key: string) {

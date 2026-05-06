@@ -14,16 +14,31 @@ jobs:
       github.event.issue.pull_request &&
       (startsWith(github.event.comment.body, '/snapit'))
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: write
     steps:
       - name: Enforce permission requirement
         uses: prince-chrismc/check-actor-permissions-action@d504e74ba31658f4cdf4fcfeb509d4c09736d88e # v3.0.2
         with:
           permission: write
 
+      - name: Generate GitHub App token
+        id: get-token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        with:
+          app-id: ${{ vars.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: justeattakeaway
+          repositories: |
+            pie
+            pie-aperture
+
       - name: Add initial reaction
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
-          token: ${{ secrets.CHANGESETS_TOKEN }}
+          token: ${{ steps.get-token.outputs.token }}
           comment-id: ${{ github.event.comment.id }}
           reactions: eyes
 
@@ -31,8 +46,9 @@ jobs:
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea #v7.0.1
         id: pr_data
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
         with:
+          github-token: ${{ steps.get-token.outputs.token }}
           script: |
             try {
               const pullRequest = await github.rest.pulls.get({
@@ -62,9 +78,9 @@ jobs:
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         id: build-link
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
         with:
-          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          github-token: ${{ steps.get-token.outputs.token }}
           script: |
             try {
               const buildLink = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}';
@@ -95,7 +111,7 @@ jobs:
       - name: Checkout pull request branch
         run: gh pr checkout ${{ github.event.issue.number }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
 
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -135,9 +151,9 @@ jobs:
       - name: Create and publish snapshot release
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
         with:
-          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          github-token: ${{ steps.get-token.outputs.token }}
           script: |
             const execa = require('execa');
             const script = require('./packages/tools/pie-monorepo-utils/changeset-snapshot/create-and-publish.js')
@@ -148,5 +164,5 @@ jobs:
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
-          token: ${{ secrets.CHANGESETS_TOKEN }}
+          token: ${{ steps.get-token.outputs.token }}
           body: The build failed, please see the [logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) or take a look at the [Workflow Tooling wiki page](https://github.com/justeattakeaway/pie/wiki/Workflow-Tooling#snapshot-releases) to make sure your PR meets the requirements.

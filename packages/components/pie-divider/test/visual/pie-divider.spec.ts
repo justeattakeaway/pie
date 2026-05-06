@@ -6,6 +6,7 @@ import { variants } from '../../src/defs.ts';
 
 variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     const basePage = new BasePage(page, `divider--${variant}-prop-variations`);
+    basePage.waitUntilStrategy = 'networkidle';
 
     await basePage.load();
 

@@ -46,6 +46,9 @@ test.describe('PieCheckbox - Component tests', () => {
                 const checkboxDefaultPage = new CheckboxDefaultPage(page);
                 await checkboxDefaultPage.load();
 
+                // Wait for the component to be ready before using page.evaluate
+                await page.locator('pie-checkbox').waitFor({ state: 'attached' });
+
                 // Act - Manually remove the attribute as Storybook control causes it to be set, even though default value is '';
                 await page.evaluate(async () => {
                     const checkbox = document.querySelector('pie-checkbox');

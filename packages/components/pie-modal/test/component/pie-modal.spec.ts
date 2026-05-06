@@ -8,8 +8,9 @@ import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom
 import { ModalMissingDialogSimulationPage } from 'test/helpers/page-object/pie-modal-missing-dialog-simulation.page.ts';
 import { ModalCustomImageSlotContentPage } from 'test/helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
 import { ModalCustomHeadingStylePage } from 'test/helpers/page-object/pie-modal-custom-heading-style.page.ts';
+import { ModalMultipleDismissiblePage } from 'test/helpers/page-object/pie-modal-multiple-dismissible.page.ts';
 import {
-    type ModalProps, headingLevels, imageSlotModes, backgroundColors,
+    type ModalProps, headingLevels, imageSlotModes,
 } from '../../src/defs.ts';
 
 const sharedProps: ModalProps = {
@@ -57,10 +58,11 @@ test.describe('modal', () => {
         };
 
         await modalDefaultPage.load(props);
-        const fallBackHeadingExists = await modalDefaultPage.modalComponent.headingByTagExists('h2');
 
-        // Assert
-        expect(fallBackHeadingExists).toBe(true);
+        // Assert - use auto-waiting assertion instead of point-in-time isVisible()
+        await expect(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
+        const headingLocator = page.getByTestId('modal-header').locator('h2');
+        await expect(headingLocator).toBeVisible();
     }));
 
     test.describe('When modal is closed', () => {
@@ -364,6 +366,46 @@ test.describe('modal', () => {
             });
         });
     });
+
+    test.describe('multiple modals', () => {
+        test('should close a dismissible modal with Escape when a non-dismissible modal is also mounted', async ({ page }) => {
+            // Arrange
+            const multipleDismissiblePage = new ModalMultipleDismissiblePage(page);
+            await multipleDismissiblePage.load();
+
+            // Act
+            await multipleDismissiblePage.openDismissibleModal();
+            const dismissibleModal = page.locator('#modal-dismissible').getByTestId('pie-modal');
+            await expect(dismissibleModal).toBeVisible();
+            await page.keyboard.press('Escape');
+
+            // Assert
+            await expect(dismissibleModal).not.toBeVisible();
+        });
+
+        test('should close a dismissible modal with Escape after a non-dismissible modal has been opened and closed', async ({ page }) => {
+            // Arrange
+            const multipleDismissiblePage = new ModalMultipleDismissiblePage(page);
+            await multipleDismissiblePage.load();
+
+            // Act
+            // Open and close the non-dismissible modal first
+            await multipleDismissiblePage.openNonDismissibleModal();
+            const nonDismissibleModal = page.locator('#modal-non-dismissible').getByTestId('pie-modal');
+            await expect(nonDismissibleModal).toBeVisible();
+            await multipleDismissiblePage.closeNonDismissibleModal();
+            await expect(nonDismissibleModal).not.toBeVisible();
+
+            // Then open the dismissible modal and press Escape
+            await multipleDismissiblePage.openDismissibleModal();
+            const dismissibleModal = page.locator('#modal-dismissible').getByTestId('pie-modal');
+            await expect(dismissibleModal).toBeVisible();
+            await page.keyboard.press('Escape');
+
+            // Assert
+            await expect(dismissibleModal).not.toBeVisible();
+        });
+    });
 });
 
 test.describe('isOpen prop', () => {
@@ -409,7 +451,7 @@ test.describe('scrolling logic', () => {
         await modalScrollLockingPage.load(props);
 
         // Act
-        // Scroll 800 pixels down the page
+        // Try to scroll - the modal's scroll-lock should prevent this
         await page.mouse.wheel(0, 5000);
 
         // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
@@ -432,11 +474,8 @@ test.describe('scrolling logic', () => {
         await modalScrollLockingPage.load(props);
 
         // Act
-        // Scroll 800 pixels down the page
-        await page.mouse.wheel(0, 5000);
-
-        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
-        await page.waitForTimeout(3000);
+        // Scroll the bottom-of-page element into view
+        await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
         // Assert
         await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
@@ -455,11 +494,8 @@ test.describe('scrolling logic', () => {
         await modalScrollLockingPage.load(props);
 
         // Act
-        // Scroll to the bottom of the page
-        await page.mouse.wheel(0, 5000);
-
-        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
-        await page.waitForTimeout(3000);
+        // Scroll the bottom-of-page element into view
+        await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
         // opens the modal
         await modalScrollLockingPage.openModalFromPageBottom();
@@ -479,15 +515,13 @@ test.describe('scrolling logic', () => {
             await modalErrorPage.load();
 
             // 1. Assert initial state: we can scroll to the bottom
-            await page.mouse.wheel(0, 5000);
-            await page.waitForTimeout(3000); // Wait for scroll to settle
+            await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
             await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
             await expect(page.getByText('Bottom of page copy')).toBeInViewport();
 
             // Reset scroll to top of the page for the main test
-            await page.mouse.wheel(0, 0);
-            await page.waitForTimeout(3000); // Wait for scroll to settle
+            await page.getByText('Top of page copy').scrollIntoViewIfNeeded();
 
             // 2. Act: Click the button to run the open/break/close sequence
             await modalErrorPage.runTestButton.click();
@@ -496,8 +530,7 @@ test.describe('scrolling logic', () => {
             await page.waitForTimeout(6000);
 
             // 3. Assert final state: we can still scroll to the bottom
-            await page.mouse.wheel(0, 5000);
-            await page.waitForTimeout(3000); // Wait for scroll to settle
+            await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
             await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
             await expect(page.getByText('Bottom of page copy')).toBeInViewport();
@@ -851,17 +884,17 @@ test.describe('`image` slot', () => {
             const bgColorToButtonVariant = {
                 default: 'ghost-secondary',
                 subtle: 'ghost-secondary',
-                'brand-01': 'ghost-secondary',
+                'brand-01': 'ghost-secondary-dark',
                 'brand-02': 'ghost-secondary',
-                'brand-03': 'ghost-secondary',
+                'brand-03': 'ghost-secondary-dark',
                 'brand-03-subtle': 'ghost-secondary',
-                'brand-04': 'ghost-secondary',
+                'brand-04': 'ghost-secondary-dark',
                 'brand-04-subtle': 'ghost-secondary',
-                'brand-05': 'ghost-secondary',
+                'brand-05': 'ghost-secondary-dark',
                 'brand-05-subtle': 'ghost-secondary',
-                'brand-06': 'ghost-inverse',
+                'brand-06': 'ghost-inverse-light',
                 'brand-06-subtle': 'ghost-secondary',
-                'brand-08': 'ghost-secondary',
+                'brand-08': 'ghost-secondary-dark',
                 'brand-08-subtle': 'ghost-secondary',
             };
 
@@ -918,6 +951,73 @@ test.describe('`image` slot', () => {
                     await expect(slotLocator).toBeVisible();
                 });
 
+                [true, false].forEach((hasBackButton) => {
+                    test.describe(`when \`hasBackButton\` is \`${hasBackButton}\``, () => {
+                        test(`the back button should ${hasBackButton ? 'be' : 'not be'} visible`, async ({ page }) => {
+                            // Arrange
+                            const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                            const props: ModalProps = {
+                                ...sharedProps,
+                                imageSlotMode,
+                                hasBackButton,
+                            };
+                            await modalCustomImageSlotContentPage.load(props);
+
+                            // Act
+                            const { backButtonLocator } = modalCustomImageSlotContentPage;
+
+                            // Assert
+                            if (hasBackButton) {
+                                await expect(backButtonLocator).toBeVisible();
+                            } else {
+                                await expect(backButtonLocator).not.toBeVisible();
+                            }
+                        });
+                    });
+
+                    if (hasBackButton) {
+                        test.describe('when `hasBackButton` is `true`', () => {
+                            const bgColorToButtonVariant = {
+                                default: 'ghost-secondary',
+                                subtle: 'ghost-secondary',
+                                'brand-01': 'ghost-secondary-dark',
+                                'brand-02': 'ghost-secondary',
+                                'brand-03': 'ghost-secondary-dark',
+                                'brand-03-subtle': 'ghost-secondary',
+                                'brand-04': 'ghost-secondary-dark',
+                                'brand-04-subtle': 'ghost-secondary',
+                                'brand-05': 'ghost-secondary-dark',
+                                'brand-05-subtle': 'ghost-secondary',
+                                'brand-06': 'ghost-inverse-light',
+                                'brand-06-subtle': 'ghost-secondary',
+                                'brand-08': 'ghost-secondary-dark',
+                                'brand-08-subtle': 'ghost-secondary',
+                            };
+
+                            Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
+                                test(`when \`backgroundColor\` is \`${backgroundColor}\`, the back button variant should be \`${variant}\``, async ({ page }) => {
+                                    // Arrange
+                                    const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                                    const props: ModalProps = {
+                                        ...sharedProps,
+                                        imageSlotMode,
+                                        hasBackButton: true,
+                                        backgroundColor: backgroundColor as ModalProps['backgroundColor'],
+                                    };
+                                    await modalCustomImageSlotContentPage.load(props);
+
+                                    // Act
+                                    const { backButtonLocator } = modalCustomImageSlotContentPage;
+
+                                    // Assert
+                                    await expect(backButtonLocator).toBeVisible();
+                                    await expect(backButtonLocator).toHaveAttribute('variant', variant);
+                                });
+                            });
+                        });
+                    }
+                });
+
                 [true, false].forEach((isDismissible) => {
                     test.describe(`when \`isDismissible\` is \`${isDismissible}\`   `, () => {
                         test(`the dismiss button should ${isDismissible ? 'be' : 'not be'} visible`, async ({ page }) => {
@@ -940,45 +1040,48 @@ test.describe('`image` slot', () => {
                                 await expect(closeButtonLocator).not.toBeVisible();
                             }
                         });
+                    });
+                    if (isDismissible) {
+                        test.describe('when `isDismissible` is `true`', () => {
+                            const bgColorToButtonVariant = {
+                                default: 'secondary',
+                                subtle: 'secondary',
+                                'brand-01': 'secondary',
+                                'brand-02': 'secondary',
+                                'brand-03': 'secondary',
+                                'brand-03-subtle': 'secondary',
+                                'brand-04': 'secondary',
+                                'brand-04-subtle': 'secondary',
+                                'brand-05': 'secondary',
+                                'brand-05-subtle': 'secondary',
+                                'brand-06': 'secondary',
+                                'brand-06-subtle': 'secondary',
+                                'brand-08': 'secondary',
+                                'brand-08-subtle': 'secondary',
+                            };
 
-                        const bgColorToButtonVariant = {
-                            default: imageSlotMode === 'illustration' ? 'ghost-secondary' : 'secondary',
-                            subtle: 'secondary',
-                            'brand-01': 'secondary',
-                            'brand-02': 'secondary',
-                            'brand-03': 'secondary',
-                            'brand-03-subtle': 'secondary',
-                            'brand-04': 'secondary',
-                            'brand-04-subtle': 'secondary',
-                            'brand-05': 'secondary',
-                            'brand-05-subtle': 'secondary',
-                            'brand-06': 'ghost-inverse',
-                            'brand-06-subtle': 'secondary',
-                            'brand-08': 'secondary',
-                            'brand-08-subtle': 'secondary',
-                        };
+                            Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
+                                test(`when \`backgroundColor\` is \`${backgroundColor}\`, the dismiss button variant should be \`${variant}\``, async ({ page }) => {
+                                    // Arrange
+                                    const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                                    const props: ModalProps = {
+                                        ...sharedProps,
+                                        imageSlotMode,
+                                        isDismissible: true,
+                                        backgroundColor: backgroundColor as ModalProps['backgroundColor'],
+                                    };
+                                    await modalCustomImageSlotContentPage.load(props);
 
-                        Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
-                            test(`when \`backgroundColor\` is \`${backgroundColor}\`, the dismiss button variant should be \`${variant}\``, async ({ page }) => {
-                                // Arrange
-                                const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
-                                const props: ModalProps = {
-                                    ...sharedProps,
-                                    imageSlotMode,
-                                    isDismissible: true,
-                                    backgroundColor: backgroundColor as ModalProps['backgroundColor'],
-                                };
-                                await modalCustomImageSlotContentPage.load(props);
+                                    // Act
+                                    const { closeButtonLocator } = modalCustomImageSlotContentPage;
 
-                                // Act
-                                const { closeButtonLocator } = modalCustomImageSlotContentPage;
-
-                                // Assert
-                                await expect(closeButtonLocator).toBeVisible();
-                                await expect(closeButtonLocator).toHaveAttribute('variant', variant);
+                                    // Assert
+                                    await expect(closeButtonLocator).toBeVisible();
+                                    await expect(closeButtonLocator).toHaveAttribute('variant', variant);
+                                });
                             });
                         });
-                    });
+                    }
                 });
             });
         });

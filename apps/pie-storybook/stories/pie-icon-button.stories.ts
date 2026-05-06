@@ -2,10 +2,10 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-webc/components/icon-button';
 import {
     type IconButtonProps, sizes, variants, defaultProps,
-} from '@justeattakeaway/pie-icon-button';
+} from '@justeattakeaway/pie-webc/components/icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
 import { createStory, type TemplateFunction } from '../utilities';
@@ -19,7 +19,7 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
     component: 'pie-icon-button',
     argTypes: {
         aria: {
-            description: 'The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `expanded` and `controls`.',
+            description: 'The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `expanded`, `controls` and `haspopup`.',
             control: 'object',
         },
         size: {
@@ -85,10 +85,14 @@ const createIconButtonStory = createStory<IconButtonProps>(Template, defaultArgs
 
 export const Primary = createIconButtonStory();
 export const PrimaryAlternative = createIconButtonStory({ variant: 'primary-alternative' });
+export const PrimaryAlternativeDark = createIconButtonStory({ variant: 'primary-alternative-dark' });
 export const Secondary = createIconButtonStory({ variant: 'secondary' });
 export const Outline = createIconButtonStory({ variant: 'outline' }, { bgColor: 'background-subtle' });
 export const Ghost = createIconButtonStory({ variant: 'ghost' }, { bgColor: 'background-subtle' });
 export const GhostSecondary = createIconButtonStory({ variant: 'ghost-secondary' }, { bgColor: 'background-subtle' });
+export const GhostSecondaryDark = createIconButtonStory({ variant: 'ghost-secondary-dark' }, { bgColor: 'background-subtle' });
 export const Inverse = createIconButtonStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const InverseOutline = createIconButtonStory({ variant: 'inverse-outline' }, { bgColor: 'dark (container-dark)' });
 export const GhostInverse = createIconButtonStory({ variant: 'ghost-inverse' }, { bgColor: 'dark (container-dark)' });
+export const GhostInverseLight = createIconButtonStory({ variant: 'ghost-inverse-light' }, { bgColor: 'dark (container-dark)' });
 export const Translucent = createIconButtonStory({ variant: 'translucent' });

@@ -1,7 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
-export const variants = ['brand', 'secondary', 'inverse'] as const;
+export const variants = ['brand', 'secondary', 'secondary-dark', 'inverse', 'inverse-light'] as const;
 
 type AriaProps = {
     label?: string;

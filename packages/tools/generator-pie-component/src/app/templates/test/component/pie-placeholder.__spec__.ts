@@ -8,8 +8,7 @@ test.describe('Pie<%= componentName %> - Component tests', () => {
         // Arrange
         const basePage = new BasePage(page, '<%= fileName %>--default');
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const <%= componentNameCamelCase %> = page.locator(componentSelector);

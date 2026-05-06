@@ -1,7 +1,11 @@
+// eslint-disable-next-line import/extensions
+import pieDesignTokensPlugin from '../plugins/pie-design-tokens.js';
+
 export default {
     extends: 'stylelint-config-standard-scss',
     plugins: [
         '@justeattakeaway/stylelint-no-logical-props-shorthands',
+        pieDesignTokensPlugin,
     ],
     rules: {
         '@justeattakeaway/stylelint-no-logical-props-shorthands': true,

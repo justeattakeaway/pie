@@ -1,10 +1,10 @@
 import { html, nothing } from 'lit';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-switch';
-import '@justeattakeaway/pie-button';
-import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
+import '@justeattakeaway/pie-webc/components/switch';
+import '@justeattakeaway/pie-webc/components/button';
+import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
 import { createStory, type TemplateFunction } from '../utilities';

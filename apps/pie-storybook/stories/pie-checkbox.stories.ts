@@ -2,10 +2,10 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-checkbox';
-import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
+import '@justeattakeaway/pie-webc/components/checkbox';
+import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-webc/components/checkbox';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
@@ -136,7 +136,7 @@ const Template = ({
             ?indeterminate="${indeterminate}"
             ?required="${required}"
             @change="${onChange}"
-            ?assistiveText="${ifDefined(assistiveText)}"
+            assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
             ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
@@ -201,3 +201,24 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
 
 export const Default = createStory<CheckboxProps>(Template, defaultArgs)();
 export const ExampleForm = createStory<CheckboxProps>(ExampleFormTemplate, defaultArgs)();
+
+const richLabelSlot = `<div style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--dt-spacing-a);
+">
+    <span class="u-font-body-l">A yummy dish</span>
+    <span class="u-font-body-l">£2.50</span>
+    <span class="u-font-caption" style="
+        width: 100%;
+        color: var(--dt-color-content-subdued);
+    ">
+        Some description as a part of the label
+    </span>
+</div>`;
+
+export const RichLabel = createStory<CheckboxProps>(Template, {
+    ...defaultArgs,
+    slot: richLabelSlot,
+})();

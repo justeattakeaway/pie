@@ -1,6 +1,7 @@
 # @justeattakeaway/pie-modal
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-modal) | [Design Documentation](https://pie.design/components/link) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-modal)
+
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-modal">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-modal.svg">
@@ -57,7 +58,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `size`                           | `"small"`, `"medium"`, `"large"`                  | Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.                                                                                                                    | `"medium"`  |
 | `backgroundColor`                | `"default"`, `"subtle"`, `"brand-01"`, `"brand-02"`, `"brand-03"`, `"brand-03-subtle"`, `"brand-04"`, `"brand-04-subtle"`, `"brand-05"`, `"brand-05-subtle"`, `"brand-06"`, `"brand-06-subtle"`, `"brand-08"`, `"brand-08-subtle"` | Sets the background color for the modal.           | `"default"` |
 | `imageSlotMode`                | `"image"`, `"illustration"`                         | This property controls if and how the image slot will display its content. `"image"` will display the slot content in a rectangle, covering the entire width of the modal, while `"illustration"` will display the slot content inside a square container. If not specified it will not display the image slot content. | —           |
-| `imageSlotAspectRatio`         | `"small"`, `"medium"`, `"large"`                    | If the `imageSlotMode` is set to `image`, this property controls the aspect ratio of the image container. The aspect ratios are the following: `"small"` : `4:1`, `"medium"` : `3:1`, `"large"` : `21:9`.                           | `"medium"`     |
+| `imageSlotAspectRatio`         | `"small"`, `"medium"`, `"large"`                    | If the `imageSlotMode` is set to `image`, this property controls the aspect ratio of the image container. The aspect ratios are for **narrow** breakpoints: `"small"` : `3:1`, `"medium"` : `16:9`, `"large"` : `4:3`, and for **wide** breakpoints: `"small"` : `4:1`, `"medium"` : `3:1`, `"large"` : `21:9`.                           | `"medium"`     |
 
 ### Slots
 | Slot      | Description                                                        |

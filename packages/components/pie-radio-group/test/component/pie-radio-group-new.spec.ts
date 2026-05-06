@@ -2,7 +2,7 @@ import {
     test, expect, type Page, type Expect,
 } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { type PieRadio } from '@justeattakeaway/pie-radio';
+import { type PieRadio } from '@justeattakeaway/pie-radio/src/index.ts';
 import { radio } from '@justeattakeaway/pie-radio/test/helpers/page-object/selectors.ts';
 import { radioGroup } from '../helpers/page-object/selectors.ts';
 import { type RadioGroupProps, statusTypes } from '../../src/defs.ts';
@@ -287,12 +287,16 @@ test.describe('PieRadioGroup - Component tests new', () => {
             test.beforeEach(async ({ page }) => {
                 pageObject = new BasePage(page, 'radio-group--keyboard-navigation');
                 await pageObject.load();
+
+                // Explicitly focus btn-1 to ensure a deterministic starting point for keyboard tests
+                const firstButton = page.getByTestId(keyboardNavigationStorySelectors.button1);
+                await expect(firstButton).toBeVisible();
+                await firstButton.focus();
             });
 
             test.describe('Tab', () => {
                 test('Tab and no option selected focuses the first radio', async ({ page }) => {
-                    // Tab 2 times to go button 1 -> Radio group 1
-                    await page.keyboard.press('Tab');
+                    // Tab once to go button 1 -> Radio group 1
                     await page.keyboard.press('Tab');
 
                     const radio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[1]);
@@ -300,8 +304,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Tab and an option selected focuses the selected', async ({ page }) => {
-                    // Tab 5 times to go button 1 -> Radio group 1 -> Button 2 -> Button 3 -> Radio group 2 (Where the focused option is)
-                    await page.keyboard.press('Tab');
+                    // Tab 4 times to go button 1 -> Radio group 1 -> Button 2 -> Button 3 -> Radio group 2 (Where the focused option is)
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
@@ -313,8 +316,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Second Tab leaves the radio group', async ({ page }) => {
-                    // Tab 3 times to go button 1 -> Radio group 1 -> Button 2
-                    await page.keyboard.press('Tab');
+                    // Tab 2 times to go button 1 -> Radio group 1 -> Button 2
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
 
@@ -328,7 +330,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-and-checked');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
 
                         const radio = page.getByTestId(keyboardNavigationDisabledStorySelectors.radioGroup.radios[1]);
@@ -341,7 +345,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-radios-and-checked');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
 
                         const radio = page.getByTestId(keyboardNavigationDisabledStorySelectors.radioGroup.radios[2]);
@@ -353,7 +359,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled-and-checked');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
 
                         const button = page.getByTestId(keyboardNavigationDisabledStorySelectors.button2);
@@ -365,7 +373,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
 
                         const button = page.getByTestId(keyboardNavigationDisabledStorySelectors.button2);
@@ -378,11 +388,14 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 test.beforeEach(async ({ page }) => {
                     pageObject = new BasePage(page, 'radio-group--keyboard-navigation');
                     await pageObject.load();
+
+                    const firstButton = page.getByTestId(keyboardNavigationStorySelectors.button1);
+                    await expect(firstButton).toBeVisible();
+                    await firstButton.focus();
                 });
 
                 test('Shift + Tab and no option selected focuses the last radio', async ({ page }) => {
-                    // First Tab 3 times to go button 1 -> Radio group 1 -> button 2
-                    await page.keyboard.press('Tab');
+                    // First Tab 2 times to go button 1 -> Radio group 1 -> button 2
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
 
@@ -394,8 +407,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Shift + Tab and an option selected focuses the selected', async ({ page }) => {
-                    // First Tab 6 times to go button 1 -> Radio group 1 -> button 2 -> Button 3 -> Radio group 2 -> Button 4
-                    await page.keyboard.press('Tab');
+                    // First Tab 5 times to go button 1 -> Radio group 1 -> button 2 -> Button 3 -> Radio group 2 -> Button 4
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
@@ -410,8 +422,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Second Shift + Tab leaves the radio group', async ({ page }) => {
-                    // First Tab 3 times to go button 1 -> Radio group 1 -> button 2
-                    await page.keyboard.press('Tab');
+                    // First Tab 2 times to go button 1 -> Radio group 1 -> button 2
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
 
@@ -424,8 +435,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('When an option is set programatically, Shift + Tab focuses the correct radio button', async ({ page }) => {
-                    // First Tab 3 times to go button 1 -> Radio group 1 -> button 2
-                    await page.keyboard.press('Tab');
+                    // First Tab 2 times to go button 1 -> Radio group 1 -> button 2
                     await page.keyboard.press('Tab');
                     await page.keyboard.press('Tab');
 
@@ -463,7 +473,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-and-checked');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
                         await page.keyboard.press('Tab');
 
@@ -479,7 +491,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-radios-and-checked');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
                         await page.keyboard.press('Tab');
 
@@ -494,7 +508,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled-and-checked');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
                         await page.keyboard.press('Shift+Tab');
 
@@ -507,7 +523,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled');
                         await pageObject.load();
 
-                        await page.keyboard.press('Tab');
+                        const firstButton = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await firstButton.focus();
+
                         await page.keyboard.press('Tab');
                         await page.keyboard.press('Shift+Tab');
 
@@ -521,11 +539,14 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 test.beforeEach(async ({ page }) => {
                     pageObject = new BasePage(page, 'radio-group--keyboard-navigation');
                     await pageObject.load();
+
+                    const firstButton = page.getByTestId(keyboardNavigationStorySelectors.button1);
+                    await expect(firstButton).toBeVisible();
+                    await firstButton.focus();
                 });
 
                 test('Left Arrow goes backwards through radios and loops', async ({ page }) => {
-                    // Tab 2 times to go button 1 -> Radio group 1
-                    await page.keyboard.press('Tab');
+                    // Tab once to go button 1 -> Radio group 1
                     await page.keyboard.press('Tab');
 
                     await page.keyboard.press('ArrowLeft');
@@ -543,8 +564,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Up Arrow goes backwards through radios and loops', async ({ page }) => {
-                    // Tab 2 times to go button 1 -> Radio group 1
-                    await page.keyboard.press('Tab');
+                    // Tab once to go button 1 -> Radio group 1
                     await page.keyboard.press('Tab');
 
                     await page.keyboard.press('ArrowUp');
@@ -562,8 +582,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Right Arrow goes forwards through radios and loops', async ({ page }) => {
-                    // Tab 2 times to go button 1 -> Radio group 1
-                    await page.keyboard.press('Tab');
+                    // Tab once to go button 1 -> Radio group 1
                     await page.keyboard.press('Tab');
 
                     // Press Arrow Right 4 times to get to the last radio
@@ -586,8 +605,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Down Arrow goes forwards through radios and loops', async ({ page }) => {
-                    // Tab 2 times to go button 1 -> Radio group 1
-                    await page.keyboard.press('Tab');
+                    // Tab once to go button 1 -> Radio group 1
                     await page.keyboard.press('Tab');
 
                     // Press Arrow Down 4 times to get to the last radio
@@ -610,8 +628,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 });
 
                 test('Arrow key selection in one Group does not affect the other', async ({ page }) => {
-                    // Tab 2 times to go button 1 -> Radio group 1
-                    await page.keyboard.press('Tab');
+                    // Tab once to go button 1 -> Radio group 1
                     await page.keyboard.press('Tab');
 
                     await page.keyboard.press('ArrowRight');
@@ -652,6 +669,9 @@ test.describe('PieRadioGroup - Component tests new', () => {
                         const thirdRadio = page.getByTestId(disabledRadioStorySelectors.radioGroup.radios[3]);
                         const fourthRadio = page.getByTestId(disabledRadioStorySelectors.radioGroup.radios[4]);
 
+                        // Ensure the radio group has rendered before keyboard navigation
+                        await expect(firstRadio).toBeVisible();
+
                         // Tab to Radio group
                         await page.keyboard.press('Tab');
                         await expect(firstRadio).toBeFocused();
@@ -680,12 +700,15 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 test.beforeEach(async ({ page }) => {
                     pageObject = new BasePage(page, 'radio-group--keyboard-navigation');
                     await pageObject.load({}, { writingDirection: 'rtl' });
+
+                    const firstButton = page.getByTestId(keyboardNavigationStorySelectors.button1);
+                    await expect(firstButton).toBeVisible();
+                    await firstButton.focus();
                 });
 
                 test.describe('Arrow Keys', () => {
                     test('Left Arrow goes forwards through radios and loops', async ({ page }) => {
-                        // Tab 2 times to go button 1 -> Radio group 1
-                        await page.keyboard.press('Tab');
+                        // Tab once to go button 1 -> Radio group 1
                         await page.keyboard.press('Tab');
 
                         // Press Arrow Left 4 times to get to the last radio
@@ -708,8 +731,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     });
 
                     test('Up Arrow goes backwards through radios and loops', async ({ page }) => {
-                        // Tab 2 times to go button 1 -> Radio group 1
-                        await page.keyboard.press('Tab');
+                        // Tab once to go button 1 -> Radio group 1
                         await page.keyboard.press('Tab');
 
                         await page.keyboard.press('ArrowUp');
@@ -727,8 +749,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     });
 
                     test('Right Arrow goes backwards through radios and loops', async ({ page }) => {
-                        // Tab 2 times to go button 1 -> Radio group 1
-                        await page.keyboard.press('Tab');
+                        // Tab once to go button 1 -> Radio group 1
                         await page.keyboard.press('Tab');
 
                         await page.keyboard.press('ArrowRight');
@@ -746,8 +767,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     });
 
                     test('Down Arrow goes forwards through radios and loops', async ({ page }) => {
-                        // Tab 2 times to go button 1 -> Radio group 1
-                        await page.keyboard.press('Tab');
+                        // Tab once to go button 1 -> Radio group 1
                         await page.keyboard.press('Tab');
 
                         // Press Arrow Down 4 times to get to the last radio

@@ -29,12 +29,14 @@ The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as
     4. [z-index variables](#z-index-variables)
     5. [Reusable Animations](#reusable-animations)
 4. [Typography Utility Classes](#typography-utility-classes)
-5. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
+5. [Component Visual Exports](#component-visual-exports)
+    1. [Radio Buttons](#radio-buttons)
+6. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
         -  [`font-size()`](#font-size)
         - [`@include media()`](#include-media)
-6. [Testing](#testing)
+7. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss)
 
@@ -205,7 +207,9 @@ The starting position of the slide animation can be customised by overriding the
 
 ## Typography Utility Classes
 
-`pie-css` includes a comprehensive set of typography utility classes that provide consistent typography styles across your application. These utility classes are built on top of PIE design tokens and automatically apply the correct font family, weight, size, line height, and spacing.
+`pie-css` includes a comprehensive set of typography utility classes that provide consistent typography styles across your application. These utility classes are built on top of PIE design tokens and automatically apply the correct font family, weight, size, and line height.
+
+Paragraph spacing is now opt-in via the `.u-typographySpacing` utility class, used alongside a typography class on the same element (for example, `<p class="u-font-body-l u-typographySpacing">...</p>`).
 
 The utility classes follow a simple naming convention: `u-font-{token-name}`, where the token name matches the design token used in Figma. For example, the `body-l-link` token becomes the `.u-font-body-l-link` utility class.
 
@@ -216,6 +220,16 @@ import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 ```
 
 For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](/docs/additional-libraries-pie-css-typography-utility-classes--docs).
+
+---
+
+## Component Visual Exports
+
+In addition to typography utilities, pie-css provides ready-to-use CSS classes for some component patterns. These allow you to style native HTML elements with PIE design system styling.
+
+Each component visual export will be found in the `dist` folder of `pie-css` as a separate CSS file, which you can import directly into your project like so: `@justeattakeaway/pie-css/dist/components/{component-name}.css`.
+
+All available component visual exports will have a README file found at `/docs/components/{component-name}.md` in the `pie-css` package, which provides documentation on how to use the styles.
 
 ---
 

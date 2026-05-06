@@ -2,14 +2,14 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-tag';
+import '@justeattakeaway/pie-webc/components/tag';
 import {
     type TagProps as TagBaseProps,
     variants,
     sizes,
     defaultProps,
-} from '@justeattakeaway/pie-tag';
-import '@justeattakeaway/pie-notification';
+} from '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/notification';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
@@ -161,10 +161,18 @@ const Template : TemplateFunction<TagProps> = ({
 
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
 
+const IconAndTextTemplate : TemplateFunction<TagProps> = (args) => html`
+    <p><b>Note:</b> The <code>isStrong</code> property will change the colours of some variants.</p>
+    ${Template(args)}
+`;
+
+const createIconAndTextStory = createStory<TagProps>(IconAndTextTemplate, defaultArgs);
+
 export const Neutral = createTagStory({ variant: 'neutral' });
 export const Information = createTagStory({ variant: 'information' });
 export const Success = createTagStory({ variant: 'success' });
 export const Error = createTagStory({ variant: 'error' });
+export const Warning = createTagStory({ variant: 'warning' });
 export const Brand05 = createTagStory({ variant: 'brand-05' });
 
 // For the following stories isStrong prop won't have any effect so it is excluded
@@ -228,6 +236,12 @@ export const IconOnly = createTagStory({
     variant: 'brand-06',
     isIconOnly: true,
 }, {});
+
+export const IconAndText = createIconAndTextStory({
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
 
 const allCustomStyles = `
     pie-tag.custom-style {

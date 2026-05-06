@@ -196,7 +196,7 @@ export class PieCard extends PieElement implements CardProps {
         const classes = {
             'c-card': true,
             [`c-card--${variant}`]: true,
-            'c-card--draggable': isDraggable,
+            'is-draggable': isDraggable,
             'is-disabled': disabled,
         };
 

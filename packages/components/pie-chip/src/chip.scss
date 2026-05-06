@@ -72,7 +72,7 @@
         @include p.interactive-states('--dt-color-container-neutral');
     }
 
-    &.c-chip--selected {
+    &.is-selected {
         --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
         --chip-color: var(--dt-color-content-interactive-primary);
         --chip-border-color: transparent;

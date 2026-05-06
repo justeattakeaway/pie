@@ -69,7 +69,7 @@
     object-fit: var(--thumbnail-img-object-fit);
   }
 
-  &.c-thumbnail--defaultPlaceholder {
+  &.is-defaultPlaceholder {
     --thumbnail-bg-color: var(--dt-color-container-default);
     --thumbnail-img-object-fit: fill;
     padding: var(--thumbnail-default-placeholder-padding);

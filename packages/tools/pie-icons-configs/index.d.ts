@@ -6,6 +6,7 @@ declare const sizeToValueMap: Record<RegularIconSize, number>;
 
 declare const regularIconSizeDefault: RegularIconSize;
 declare const largeIconSizeModule: number;
+declare const iconFillDefault: string;
 declare const largeIconSizeDefault: LargeIconSize;
 
 interface IconSizeValidator {
@@ -24,6 +25,7 @@ declare function normalizeIconName(name: string): string;
 export {
     LargeIconSize,
     RegularIconSize,
+    iconFillDefault,
     iconSizeValidator,
     largeIconSizeDefault,
     largeIconSizeModule,

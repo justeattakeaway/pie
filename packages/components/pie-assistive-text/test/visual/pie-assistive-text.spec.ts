@@ -9,6 +9,7 @@ const directions = ['ltr', 'rtl'];
 directions.forEach((dir) => {
     test(`should render all prop variations with ${dir} direction`, async ({ page }) => {
         const assistiveTextVariantsPage = new BasePage(page, 'assistive-text--variants');
+        assistiveTextVariantsPage.waitUntilStrategy = 'networkidle';
         await assistiveTextVariantsPage.load({}, { writingDirection: dir });
 
         await expect.soft(page.getByTestId(assistiveText.selectors.container.dataTestId).first()).toBeVisible();

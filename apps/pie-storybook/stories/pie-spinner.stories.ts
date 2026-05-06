@@ -2,10 +2,10 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-spinner';
+import '@justeattakeaway/pie-webc/components/spinner';
 import {
     type SpinnerProps, sizes, variants, defaultProps,
-} from '@justeattakeaway/pie-spinner';
+} from '@justeattakeaway/pie-webc/components/spinner';
 
 import { type TemplateFunction, createStory } from '../utilities';
 
@@ -69,4 +69,6 @@ const createSpinnerStory = createStory<SpinnerProps>(Template, defaultArgs);
 
 export const Brand = createSpinnerStory();
 export const Secondary = createSpinnerStory({ variant: 'secondary' });
+export const SecondaryDark = createSpinnerStory({ variant: 'secondary-dark' });
 export const Inverse = createSpinnerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const InverseLight = createSpinnerStory({ variant: 'inverse-light' }, { bgColor: 'dark (container-dark)' });

@@ -9,6 +9,7 @@ test.describe('PieSpinner - Visual tests`', () => {
     variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     // Arrange
         const spinnerVariantsPage = new BasePage(page, `spinner--${variant}-variations`);
+        spinnerVariantsPage.waitUntilStrategy = 'networkidle';
         await spinnerVariantsPage.load();
 
         // Assert

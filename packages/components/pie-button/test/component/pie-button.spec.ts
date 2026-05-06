@@ -255,6 +255,10 @@ test.describe('Form Actions', () => {
             const formIntegrationPage = new FormIntegrationPage(page);
             await formIntegrationPage.load({ renderIncorrectForm: true });
 
+            // Wait for the submit button to be rendered before evaluating form association,
+            // as page.evaluate does not auto-wait for custom element upgrade
+            await formIntegrationPage.submitPieButton.waitFor({ state: 'visible' });
+
             // Act
             const associatedFormId = await formIntegrationPage.getAssociatedFormIdForButton('pie-button-submit');
 

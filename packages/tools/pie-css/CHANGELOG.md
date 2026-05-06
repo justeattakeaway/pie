@@ -1,5 +1,95 @@
 # @justeattakeaway/pie-css
 
+## 1.1.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Refactored components to use clearer utility class modifiers such as is-loading, is-checked, has-error ([#2748](https://github.com/justeattakeaway/pie/pull/2748)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.32.0
+
+### Minor Changes
+
+- [Added] CSS only button classes for use on static, non-interactive HTML elements such as divs ([#2729](https://github.com/justeattakeaway/pie/pull/2729)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.31.2
+
+### Patch Changes
+
+- [Fixed] - a typo in the fonts mixin docs ([#2723](https://github.com/justeattakeaway/pie/pull/2723)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.31.1
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.31.0
+
+### Minor Changes
+
+- [Updated] include-media mixin to fix deprecation pie-css warning for media query mixin ([#2718](https://github.com/justeattakeaway/pie/pull/2718)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.30.0
+
+### Minor Changes
+
+- [Changed] - decoupled paragraph spacing from `u-font-*` typography classes. ([#2705](https://github.com/justeattakeaway/pie/pull/2705)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  `margin-block-end` is no longer included in typography utility classes by default. Use `.u-typographySpacing` alongside a typography utility class on the same element to apply paragraph spacing where a `paragraph` token exists.
+
+  Before:
+
+  ```html
+  <p class="u-font-body-l">Text with typography and paragraph spacing</p>
+  ```
+
+  After:
+
+  ```html
+  <p class="u-font-body-l u-typographySpacing">
+    Text with typography and opt-in paragraph spacing
+  </p>
+  ```
+
+## 0.29.0
+
+### Minor Changes
+
+- [Added] - pie-css to include new caption italic utility class ([#2708](https://github.com/justeattakeaway/pie/pull/2708)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - pie-css to store utility class docs
+
+## 0.28.1
+
+### Patch Changes
+
+- [Added] - move storybook docs to the packages ([#2702](https://github.com/justeattakeaway/pie/pull/2702)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.28.0
+
+### Minor Changes
+
+- [Added] - CSS only radio button class for styling native inputs ([#2700](https://github.com/justeattakeaway/pie/pull/2700)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.27.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+## 0.26.2
+
+### Patch Changes
+
+- [Fixed] - import issue with scss helpers ([#2687](https://github.com/justeattakeaway/pie/pull/2687)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.26.1
 
 ### Patch Changes

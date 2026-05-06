@@ -1,5 +1,283 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.24
+
+### Patch Changes
+
+- Updated dependencies [[`ea7eeca`](https://github.com/justeattakeaway/pie/commit/ea7eeca4cb8803747eda63307d59c55b427df398)]:
+  - @justeattakeaway/pie-modal@1.26.0
+  - @justeattakeaway/pie-icon-button@2.7.8
+  - @justeattakeaway/pie-link@1.3.24
+  - @justeattakeaway/pie-switch@2.3.26
+
+## 1.7.23
+
+### Patch Changes
+
+- Updated dependencies [[`38e002f`](https://github.com/justeattakeaway/pie/commit/38e002fbf1be6f64c0937c93645adaf112bfeb77)]:
+  - @justeattakeaway/pie-webc-core@14.0.1
+  - @justeattakeaway/pie-button@1.13.4
+  - @justeattakeaway/pie-divider@1.5.21
+  - @justeattakeaway/pie-icon-button@2.7.7
+  - @justeattakeaway/pie-link@1.3.23
+  - @justeattakeaway/pie-modal@1.25.13
+  - @justeattakeaway/pie-switch@2.3.25
+
+## 1.7.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.13.3
+  - @justeattakeaway/pie-divider@1.5.20
+  - @justeattakeaway/pie-icon-button@2.7.6
+  - @justeattakeaway/pie-link@1.3.22
+  - @justeattakeaway/pie-modal@1.25.12
+  - @justeattakeaway/pie-switch@2.3.24
+  - @justeattakeaway/pie-webc-core@14.0.0
+
+## 1.7.21
+
+### Patch Changes
+
+- Updated dependencies [[`31249c6`](https://github.com/justeattakeaway/pie/commit/31249c613e473c60d534551c7d6f2d768ad0d892)]:
+  - @justeattakeaway/pie-modal@1.25.11
+  - @justeattakeaway/pie-link@1.3.21
+  - @justeattakeaway/pie-button@1.13.2
+  - @justeattakeaway/pie-divider@1.5.19
+  - @justeattakeaway/pie-icon-button@2.7.5
+  - @justeattakeaway/pie-switch@2.3.23
+  - @justeattakeaway/pie-webc-core@13.0.0
+
+## 1.7.20
+
+### Patch Changes
+
+- [Added] - locale files for Canada to support cookie banner regional content ([#2737](https://github.com/justeattakeaway/pie/pull/2737)) by [@cacuba](https://github.com/cacuba)
+
+## 1.7.19
+
+### Patch Changes
+
+- [Fixed] - Applied `width: 100%` to the `pie-button` host element when `isFullWidth` is set, ensuring buttons span full width in flex, grid, and block layouts. ([#2736](https://github.com/justeattakeaway/pie/pull/2736)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - `pie-cookie-banner`, `pie-modal`, and `pie-notification` to reset button width on desktop.
+
+- Updated dependencies [[`402ec79`](https://github.com/justeattakeaway/pie/commit/402ec79fb3ed5f77c241d19c09cff7bd66fe4e90)]:
+  - @justeattakeaway/pie-button@1.13.1
+  - @justeattakeaway/pie-modal@1.25.10
+
+## 1.7.18
+
+### Patch Changes
+
+- Updated dependencies [[`76e0750`](https://github.com/justeattakeaway/pie/commit/76e0750169bb9894b95548e9acee09a8ab339f5c)]:
+  - @justeattakeaway/pie-button@1.13.0
+  - @justeattakeaway/pie-modal@1.25.9
+  - @justeattakeaway/pie-divider@1.5.18
+  - @justeattakeaway/pie-icon-button@2.7.4
+  - @justeattakeaway/pie-link@1.3.20
+  - @justeattakeaway/pie-switch@2.3.22
+  - @justeattakeaway/pie-webc-core@12.0.0
+
+## 1.7.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.3
+  - @justeattakeaway/pie-link@1.3.19
+  - @justeattakeaway/pie-modal@1.25.8
+  - @justeattakeaway/pie-switch@2.3.21
+  - @justeattakeaway/pie-button@1.12.9
+  - @justeattakeaway/pie-divider@1.5.17
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 1.7.16
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.8
+  - @justeattakeaway/pie-divider@1.5.16
+  - @justeattakeaway/pie-icon-button@2.7.2
+  - @justeattakeaway/pie-link@1.3.18
+  - @justeattakeaway/pie-modal@1.25.7
+  - @justeattakeaway/pie-switch@2.3.20
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 1.7.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.7
+  - @justeattakeaway/pie-divider@1.5.15
+  - @justeattakeaway/pie-icon-button@2.7.1
+  - @justeattakeaway/pie-link@1.3.17
+  - @justeattakeaway/pie-modal@1.25.6
+  - @justeattakeaway/pie-switch@2.3.19
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 1.7.14
+
+### Patch Changes
+
+- Updated dependencies [[`443571d`](https://github.com/justeattakeaway/pie/commit/443571d17978a575711cbc73918bc0ee1461ea2b)]:
+  - @justeattakeaway/pie-icon-button@2.7.0
+  - @justeattakeaway/pie-modal@1.25.5
+
+## 1.7.13
+
+### Patch Changes
+
+- Updated dependencies [[`e0d34b4`](https://github.com/justeattakeaway/pie/commit/e0d34b489ba7704bc323a15bdbf6dec120c235c2)]:
+  - @justeattakeaway/pie-divider@1.5.14
+
+## 1.7.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.6
+  - @justeattakeaway/pie-divider@1.5.13
+  - @justeattakeaway/pie-icon-button@2.6.7
+  - @justeattakeaway/pie-link@1.3.16
+  - @justeattakeaway/pie-modal@1.25.4
+  - @justeattakeaway/pie-switch@2.3.18
+  - @justeattakeaway/pie-webc-core@10.0.0
+
+## 1.7.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.5
+  - @justeattakeaway/pie-divider@1.5.12
+  - @justeattakeaway/pie-icon-button@2.6.6
+  - @justeattakeaway/pie-link@1.3.15
+  - @justeattakeaway/pie-modal@1.25.3
+  - @justeattakeaway/pie-switch@2.3.17
+  - @justeattakeaway/pie-webc-core@9.0.0
+
+## 1.7.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.4
+  - @justeattakeaway/pie-divider@1.5.11
+  - @justeattakeaway/pie-icon-button@2.6.5
+  - @justeattakeaway/pie-link@1.3.14
+  - @justeattakeaway/pie-modal@1.25.2
+  - @justeattakeaway/pie-switch@2.3.16
+  - @justeattakeaway/pie-webc-core@8.0.1
+
+## 1.7.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.3
+  - @justeattakeaway/pie-divider@1.5.10
+  - @justeattakeaway/pie-icon-button@2.6.4
+  - @justeattakeaway/pie-link@1.3.13
+  - @justeattakeaway/pie-modal@1.25.1
+  - @justeattakeaway/pie-switch@2.3.15
+  - @justeattakeaway/pie-webc-core@8.0.0
+
+## 1.7.8
+
+### Patch Changes
+
+- Updated dependencies [[`09b544f`](https://github.com/justeattakeaway/pie/commit/09b544fff345f95d84e11d96b45620411ee99793), [`8e693f3`](https://github.com/justeattakeaway/pie/commit/8e693f3010125d5367584e4e5e8934f8ecf2f42d)]:
+  - @justeattakeaway/pie-modal@1.25.0
+  - @justeattakeaway/pie-button@1.12.2
+  - @justeattakeaway/pie-divider@1.5.9
+  - @justeattakeaway/pie-icon-button@2.6.3
+  - @justeattakeaway/pie-link@1.3.12
+  - @justeattakeaway/pie-switch@2.3.14
+  - @justeattakeaway/pie-webc-core@7.0.0
+
+## 1.7.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.1
+  - @justeattakeaway/pie-divider@1.5.8
+  - @justeattakeaway/pie-icon-button@2.6.2
+  - @justeattakeaway/pie-link@1.3.11
+  - @justeattakeaway/pie-modal@1.24.4
+  - @justeattakeaway/pie-switch@2.3.13
+  - @justeattakeaway/pie-webc-core@6.0.2
+
+## 1.7.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.6.1
+  - @justeattakeaway/pie-link@1.3.10
+  - @justeattakeaway/pie-modal@1.24.3
+  - @justeattakeaway/pie-switch@2.3.12
+
+## 1.7.5
+
+### Patch Changes
+
+- Updated dependencies [[`84bfb40`](https://github.com/justeattakeaway/pie/commit/84bfb4063d5012c234fe5801716c401a5a737ad9), [`84bfb40`](https://github.com/justeattakeaway/pie/commit/84bfb4063d5012c234fe5801716c401a5a737ad9), [`84bfb40`](https://github.com/justeattakeaway/pie/commit/84bfb4063d5012c234fe5801716c401a5a737ad9), [`84bfb40`](https://github.com/justeattakeaway/pie/commit/84bfb4063d5012c234fe5801716c401a5a737ad9)]:
+  - @justeattakeaway/pie-button@1.12.0
+  - @justeattakeaway/pie-modal@1.24.2
+
+## 1.7.4
+
+### Patch Changes
+
+- Updated dependencies [[`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b)]:
+  - @justeattakeaway/pie-icon-button@2.6.0
+  - @justeattakeaway/pie-modal@1.24.1
+  - @justeattakeaway/pie-button@1.11.1
+
+## 1.7.3
+
+### Patch Changes
+
+- Updated dependencies [[`ca28e6d`](https://github.com/justeattakeaway/pie/commit/ca28e6d353d242a472cb07ac3a7c2ad247a59758), [`ca28e6d`](https://github.com/justeattakeaway/pie/commit/ca28e6d353d242a472cb07ac3a7c2ad247a59758)]:
+  - @justeattakeaway/pie-modal@1.24.0
+  - @justeattakeaway/pie-icon-button@2.5.1
+  - @justeattakeaway/pie-link@1.3.9
+  - @justeattakeaway/pie-switch@2.3.11
+
+## 1.7.2
+
+### Patch Changes
+
+- Updated dependencies [[`4ef6f98`](https://github.com/justeattakeaway/pie/commit/4ef6f982ec6366f7100ca6da5dee569c307e0a64)]:
+  - @justeattakeaway/pie-modal@1.23.0
+
+## 1.7.1
+
+### Patch Changes
+
+- Updated dependencies [[`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233), [`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233)]:
+  - @justeattakeaway/pie-icon-button@2.5.0
+  - @justeattakeaway/pie-button@1.11.0
+  - @justeattakeaway/pie-modal@1.22.5
+
+## 1.7.0
+
+### Minor Changes
+
+- [Added] - New Cookie Banner property `openLinksInSameTab` which, when true, opens external links in the same tab and when false opens them in a new tab. ([#2649](https://github.com/justeattakeaway/pie/pull/2649)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`cface11`](https://github.com/justeattakeaway/pie/commit/cface11e9fbb32719354c210f90f2df3a2bf8cea)]:
+  - @justeattakeaway/pie-modal@1.22.4
+
 ## 1.6.40
 
 ### Patch Changes

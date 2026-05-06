@@ -1,0 +1,98 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`pie-design-tokens > deprecated tokens > should warn when deprecated tokens are used 1`] = `
+[
+  {
+    "column": 16,
+    "endColumn": 54,
+    "endLine": 2,
+    "line": 2,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Token "--dt-color-content-interactive-primary" is deprecated. Use "--dt-color-content-interactive-brand" instead.",
+  },
+  {
+    "column": 23,
+    "endColumn": 49,
+    "endLine": 3,
+    "line": 3,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Token "--dt-color-content-subdued" is deprecated. Please update to a supported token.",
+  },
+]
+`;
+
+exports[`pie-design-tokens > font token calc() enforcement > should warn when font-size uses a font size/line-height token without calc() 1`] = `
+[
+  {
+    "column": 23,
+    "endColumn": 59,
+    "endLine": 1,
+    "line": 1,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Font token in "font-size" must be wrapped in calc(), e.g., calc(var(--dt-font-...) * 1px).",
+  },
+]
+`;
+
+exports[`pie-design-tokens > font token calc() enforcement > should warn when line-height uses a font size/line-height token without calc() 1`] = `
+[
+  {
+    "column": 25,
+    "endColumn": 68,
+    "endLine": 1,
+    "line": 1,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Font token in "line-height" must be wrapped in calc(), e.g., calc(var(--dt-font-...) * 1px).",
+  },
+]
+`;
+
+exports[`pie-design-tokens > global tokens > should warn when a global token is used 1`] = `
+[
+  {
+    "column": 16,
+    "endColumn": 33,
+    "endLine": 2,
+    "line": 2,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Avoid global token "--dt-color-orange". Use PIE alias tokens instead.",
+  },
+  {
+    "column": 21,
+    "endColumn": 39,
+    "endLine": 3,
+    "line": 3,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Avoid global token "--dt-color-blue-30". Use PIE alias tokens instead.",
+  },
+]
+`;
+
+exports[`pie-design-tokens > invalid tokens > should warn when a token does not exist 1`] = `
+[
+  {
+    "column": 16,
+    "endColumn": 41,
+    "endLine": 2,
+    "line": 2,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Token "--dt-color-fake-token-999" is not a valid pie token.",
+  },
+  {
+    "column": 24,
+    "endColumn": 49,
+    "endLine": 3,
+    "line": 3,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Token "--dt-color-fake-token-000" is not a valid pie token.",
+  },
+]
+`;

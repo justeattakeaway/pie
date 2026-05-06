@@ -2,19 +2,10 @@ type BackgroundColor = 'light (container-default)' |
     'dark (container-dark)' |
     'background-subtle' |
     'background-dark' |
+    'container-inverse' |
     'brand orange' |
     'saddlebrown' |
     'aquamarine';
-
-export type BackgroundValue = {
-    name: BackgroundColor,
-    value: string,
-};
-
-export type StoryBackgrounds = {
-    default: BackgroundColor,
-    values: Array<BackgroundValue>,
-};
 
 type StorybookControls = {
     exclude?: string[],
