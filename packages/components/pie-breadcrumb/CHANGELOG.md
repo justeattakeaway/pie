@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - `aria` prop support on `pie-breadcrumb` and `pie-breadcrumb-item` components, allowing consumers to set a custom `aria-label` on the nav element and individual item links ([#2815](https://github.com/justeattakeaway/pie/pull/2815)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.7.30
 
 ### Patch Changes
