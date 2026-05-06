@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.75.2
+
+### Patch Changes
+
+- [Fixed] - small readme and docs update to pie-tag ([#2744](https://github.com/justeattakeaway/pie/pull/2744)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Moved typography utility class docs to the introduction section and tidied up the page. Also link to it from the css setup page. ([#2818](https://github.com/justeattakeaway/pie/pull/2818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`42a5c27`](https://github.com/justeattakeaway/pie/commit/42a5c2725e86e3af2c46df142b26e062945a957a), [`71f09eb`](https://github.com/justeattakeaway/pie/commit/71f09ebaa83ad17c2a23e93b131965f473a916c0)]:
+  - @justeattakeaway/pie-css@1.1.1
+  - @justeattakeaway/pie-icons-webc@1.22.0
+  - @justeattakeaway/pie-webc@0.10.3
+
 ## 1.75.1
 
 ### Patch Changes

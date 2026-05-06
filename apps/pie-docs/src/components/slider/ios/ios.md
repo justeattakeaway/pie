@@ -3,7 +3,6 @@ eleventyNavigation:
     key: iOS
     parent: Slider
     order: 3
-draft: true
 ---
 
 {% notification {
