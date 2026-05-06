@@ -16,12 +16,12 @@ Figma currently recommends the remote MCP server for most teams. The desktop ser
 
 ## How to install
 
-The Figma MCP is a server that runs locally and provides design metadata to the AI agents. It can be configured in different ways, depending on the coding tool used. The MCP server can be started from the Figma desktop app or from the coding tool, depending on the setup.
+The Figma MCP can run as a remote (cloud-hosted) server or as a locally running desktop server, depending on your setup. Figma recommends the remote server for most teams. Configuration varies by tool, but the functionality remains consistent across all platforms.
 
-!!! info "Note the owner of the Figma file" 
-    The availability of the Figma MCP server depends on who owns a particular file. Trying to run it on files that don’t belong to the organisation will lead to limitations
+!!! info "Note the owner of the Figma file"
+The availability of the Figma MCP server depends on who owns a particular file. Trying to run it on files that don’t belong to the organisation will lead to limitations
 
-It's better to follow [Figma official set up instructions](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server) as they can change. We capture here the two most used in JET, but keep in mind this may change in the future: 
+It's better to follow [Figma official set up instructions](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server) as they can change. We capture here the two most used in JET, but keep in mind this may change in the future:
 
 
 ### VS Code
@@ -33,26 +33,26 @@ Follow the instructions provided [here](https://justeattakeaway.atlassian.net/wi
 
 Unlike VScode, OpenCode (and likely other MCP clients) will not take advantage of JET's standard MCP configuration, and will need to be manually configured.
 
-Follow the instructions provided [here](https://justeattakeaway.atlassian.net/wiki/spaces/WPG/pages/8849621806/DSW-3709+-+Figma+MCP+and+Code+Connect#OpenCode-setup-(or-others)) 
+Follow the instructions provided [here](https://justeattakeaway.atlassian.net/wiki/spaces/WPG/pages/8849621806/DSW-3709+-+Figma+MCP+and+Code+Connect#OpenCode-setup-(or-others))
 
 
 ## Code Connect
 
 Code Connect links Figma components to real components in your codebase. This gives Figma MCP better implementation context and usually improves the quality of generated code and explanations.
+More information can be found in [Figma's documentation](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect).
 
 The current working assumption for JET should be:
 
-- feel free to experiment locally if you want to understand how it works
-- feel free to connect or modify mappings for **your own components** when appropriate
-- do not modify configuration for PIE components without agreeing the change first. You can reach out to #help-designsystem for any questions
-- if you think the shared setup should change, raise it with the owning team before making that change
+- Feel free to experiment, connect or modify mappings for **your own components** when appropriate
+- If you think any shared setup should change, raise it with the owning team before making that change
+- We are currently exploring Code Connect for PIE components. Please do not modify the configuration for these components without discussing with the PIE team. If you have questions, reach out to us in #help-designsystem
 
 This matters because Code Connect influences how Figma MCP describes our components to AI tools. Unreviewed changes can degrade output quality or create confusion across teams.
 
-For broader setup, ownership, and implementation guidance, use the internal Confluence page: [Figma MCP and Code Connect](https://justeattakeaway.atlassian.net/wiki/spaces/WPG/pages/8849621806/DSW-3709+-+Figma+MCP+and+Code+Connect#What-is-Code-Connect-(CC)).
+The PIE team has worked on an initial exploration of the tool. For broader setup, implementation guidance and limitations, check our spike findings in Confluence: [Figma MCP and Code Connect](https://justeattakeaway.atlassian.net/wiki/spaces/WPG/pages/8849621806/DSW-3709+-+Figma+MCP+and+Code+Connect#What-is-Code-Connect-(CC)).
 
 
-## How to use it in JET
+## Examples of use cases for JET
 
 The best use cases at JET are the ones where design context improves engineering decisions, not just code generation speed.
 
@@ -79,7 +79,7 @@ Figma MCP becomes more useful when Code Connect is in place. In that case, the a
 This is a strong fit for teams working in shared component libraries or feature areas with strict design-system constraints.
 
 !!! info "Code Connect PIE support"
-    The PIE team is looking into prioritising a full Code Connect setup for PIE components. If you find this useful, please reach out to us so we can understand the demand to do this sooner rather than later
+The PIE team is looking into prioritising a full Code Connect setup for PIE components. If you find this useful, please reach out to us so we can understand the demand to do this sooner rather than later
 
 
 #### 4. Preparing better handoff conversations between design and engineering
@@ -113,4 +113,3 @@ Once connected, start with simple, explicit prompts. For example:
 - [Tools and prompts](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/)
 - [Code Connect overview](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect)
 - [Set up instructions from JET code Fest](https://justeat.slack.com/archives/C0AE4S4GHEE/p1772110240863749)
-
