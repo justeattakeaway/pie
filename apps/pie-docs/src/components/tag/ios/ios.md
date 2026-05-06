@@ -3,7 +3,6 @@ eleventyNavigation:
     key: iOS
     parent: Tag
     order: 4
-draft: true
 ---
 
 {% notification {

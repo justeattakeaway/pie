@@ -6,34 +6,30 @@
   "tasks": {
     "test:browsers": {
       "cache": true,
-      "dependsOn": [],
       "inputs": [
-        "./**",
-        "../../../apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
+        "$TURBO_EXTENDS$",
+        "$TURBO_ROOT$/apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
       ]
     },
     "test:browsers:ci": {
       "cache": true,
-      "dependsOn": ["^build"],
       "inputs": [
-        "./**",
-        "../../../apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
+        "$TURBO_EXTENDS$",
+        "$TURBO_ROOT$/apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
       ]
     },
     "test:visual": {
       "cache": false,
-      "dependsOn": [],
       "inputs": [
-        "./**",
-        "../../../apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
+        "$TURBO_EXTENDS$",
+        "$TURBO_ROOT$/apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
       ]
     },
     "test:visual:ci": {
       "cache": false,
-      "dependsOn": ["^build"],
       "inputs": [
-        "./**",
-        "../../../apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
+        "$TURBO_EXTENDS$",
+        "$TURBO_ROOT$/apps/pie-storybook/stories/testing/pie-radio-group.test.stories.ts"
       ]
     }
   }
