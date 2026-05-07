@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-breadcrumb",
   "description": "PIE Design System Breadcrumb built using Web Components",
-  "version": "0.7.30",
+  "version": "0.8.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
