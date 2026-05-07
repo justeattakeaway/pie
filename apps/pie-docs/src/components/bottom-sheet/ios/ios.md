@@ -38,7 +38,7 @@ eleventyNavigation:
     width: 126
 } %}
 
-### iOS 26 and later versions
+### iOS 26 (Liquid Glass) and later versions
 
 {% contentPageImage {
     src:"../../../assets/img/components/bottom-sheet/anatomy-ios26.svg",
@@ -83,7 +83,7 @@ This is the default variation of the Bottom Sheet for iOS 18 and earlier version
     width: 30
 } %}
 
-### Default iOS 26
+### Default iOS 26 (Liquid Glass) and later versions
 
 This is the default variation of the Bottom Sheet for iOS 26 and later versions, which features a nested Slot component which can be replaced by local component containing the Bottom Sheet’s contents.
 
@@ -317,7 +317,7 @@ Sometimes the content inside our Bottom Sheets will be longer than the space ava
 
 ### Scrolled header
 
-In Bottom Sheets where content needs to be scrolled, the header should lay on top of the scrolled content. To visually indicate this, an elevation token ($elevation-04) has been applied to the ‘Scrolled’ variant of this nested component.
+In Bottom Sheets where content needs to be scrolled, the header should lay on top of the scrolled content. To visually indicate this, an elevation token ($elevation-below-20) has been applied to the ‘Scrolled’ variant of this nested component.
 
 {% contentPageImage {
     src:"../../../assets/img/components/bottom-sheet/fixed-header.svg",
@@ -327,7 +327,7 @@ In Bottom Sheets where content needs to be scrolled, the header should lay on to
 
 ### Fixed footer
 
-Used when the content inside the bottom sheet is longer than the total height of the screen, but the actions that can be performed in the Bottom Sheet need to be visible at all times. To visually indicate this, an elevation token ($elevation-05) has been applied to the ‘Fixed’ variant of this nested component.
+Used when the content inside the bottom sheet is longer than the total height of the screen, but the actions that can be performed in the Bottom Sheet need to be visible at all times. To visually indicate this, an elevation token ($elevation-above-20) has been applied to the ‘Fixed’ variant of this nested component.
 
 {% contentPageImage {
     src:"../../../assets/img/components/bottom-sheet/fixed-footer.svg",
