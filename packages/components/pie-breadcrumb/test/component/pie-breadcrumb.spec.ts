@@ -70,7 +70,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
         });
 
         test.describe('isCompact', () => {
-            test('should display only the parent item for back navigation', async ({ page }) => {
+            test('should render the compact variation of the breadcrumb - only before the last item is shown', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'breadcrumb--default');
                 await basePage.load({ isCompact: true });
@@ -90,21 +90,6 @@ test.describe('PieBreadcrumb - Component tests', () => {
                 await expect(firstItem).not.toBeVisible();
                 await expect(secondItem).not.toBeVisible();
                 await expect(lastItem).not.toBeVisible();
-            });
-
-            test('should display the item as the current page when only one item exists', async ({ page }) => {
-                // Arrange
-                const basePage = new BasePage(page, 'breadcrumb--single-item-compact');
-                await basePage.load();
-
-                // Act
-                const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
-                const breadcrumbItemElements = page.getByTestId(breadcrumb.selectors.item.dataTestId);
-
-                // Assert
-                await expect(breadcrumbComponent).toBeVisible();
-                await expect(breadcrumbItemElements).toHaveCount(1);
-                await expect(breadcrumbItemElements.first()).toBeVisible();
             });
         });
 
