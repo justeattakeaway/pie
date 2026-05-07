@@ -73,6 +73,7 @@ jobs:
       pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
       web-components-change: ${{ steps.component-check.outputs.web-components-change }}
       storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
+      changed-component-packages: ${{ steps.component-check.outputs.changed-component-packages }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -95,10 +96,32 @@ jobs:
       - name: Verify if web components have changes
         id: component-check
         run: |
-          # Check if any components, tools, or their dependents have changed since origin/main
-          COMPONENT_CHANGE=$(yarn turbo run build --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
+          # Compare against HEAD^1 on main pushes, origin/main on PRs.
+          if [ "$GITHUB_EVENT_NAME" != "pull_request" ] && [ "$GITHUB_REF" = "refs/heads/main" ]; then
+            DIFF_REF="HEAD^1"
+          else
+            DIFF_REF="origin/main"
+          fi
+          # Dry-run scoped to test:browsers:ci so only packages that define that script appear.
+          # `select(.command != "<NONEXISTENT>")` filters out packages without the script —
+          # tools/* packages without test:browsers:ci drop out, pie-icons-webc flows through.
+          # `...{path}[ref]` includes packages changed since ref AND their downstream
+          # dependents, so e.g. a change to pie-button also triggers pie-cookie-banner.
+          # Final `.directory` filter restricts the matrix to packages physically in
+          # packages/components/ or packages/tools/. Without it, dependent apps like
+          # apps/pie-docs leak in via `...` and would duplicate the dedicated
+          # browser-tests-docs job.
+          DRY_JSON=$(yarn turbo run test:browsers:ci \
+            --filter="...{./packages/components/*}[$DIFF_REF]" \
+            --filter="...{./packages/tools/*}[$DIFF_REF]" \
+            --dry=json)
+          COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.command != "<NONEXISTENT>") | select(.directory | startswith("packages/components/") or startswith("packages/tools/")) | .package] | unique')
+          COMPONENT_CHANGE=$(echo "$COMPONENTS_JSON" | jq 'length > 0')
+          echo "Diff ref: $DIFF_REF"
           echo "Change Detected: $COMPONENT_CHANGE"
+          echo "Changed packages: $COMPONENTS_JSON"
           echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
+          echo "changed-component-packages=$COMPONENTS_JSON" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
@@ -271,56 +294,59 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true # 👈 Required option to enable TurboSnap
 
-  # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
-  browser-tests-components:
-    needs: [ build-ubuntu-node-24, deploy-storybook, check-change-type ]
-    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
+  # System/a11y + Percy visual tests, one shard per changed component package.
+  component-tests:
+    name: component-tests (${{ matrix.package }})
+    needs: [ build-ubuntu-node-24, deploy-storybook-testing, check-change-type ]
+    if: >-
+      needs.check-change-type.outputs.web-components-change == 'true'
+      && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-noble
+      options: --user 1001
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.check-change-type.outputs.changed-component-packages) }}
     steps:
-      # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          fetch-depth: 0
-      # Setup Repo
+          fetch-depth: 1
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
           node-version: 24
           os: ubuntu-latest
-      # Setup Playwright
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
-      # Run System / a11y Tests
-      - name: Run All System / Component /  a11y Tests
+      - name: Sanitise package name for artifacts
+        id: pkg
+        shell: bash
+        env:
+          PKG: ${{ matrix.package }}
+        run: echo "safe=${PKG//\//__}" >> "$GITHUB_OUTPUT"
+      - name: Run System / Component / a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci --filter='./packages/components/*' --filter='./packages/tools/*'"
-      - name: Upload Playwright Report
+          script-name: "test:browsers:ci --filter=${{ matrix.package }}"
+          concurrency: 1
+      - name: Upload Browsers Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-browsers-report
+          name: lit-browsers-report-${{ steps.pkg.outputs.safe }}
           path: lit-browsers-report/
           retention-days: 7
-      # Run Visual Tests
-      - name: Run Visual Tests for changed packages and dependents since HEAD^1 (main only)
+      - name: Run Visual Tests
         uses: ./.github/actions/run-script
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[HEAD^1]' --filter='{./packages/tools/*}...[HEAD^1]'"
+          script-name: "test:visual:ci --filter=${{ matrix.package }}"
           concurrency: 1
-      - name: Run Visual Tests for changed packages and dependents since origin/main
-        uses: ./.github/actions/run-script
-        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
-        with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
-          concurrency: 1
-      - name: Upload Playwright Report
+      - name: Upload Visual Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-visual-report
+          name: lit-visual-report-${{ steps.pkg.outputs.safe }}
           path: lit-visual-report/
           retention-days: 7
     env:
@@ -350,6 +376,9 @@ jobs:
   browser-tests-docs:
     needs: deploy-docs
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-noble
+      options: --user 1001
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -362,9 +391,6 @@ jobs:
         with:
           node-version: 24
           os: ubuntu-latest
-      # Setup Playwright
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
       # Run System / a11y Tests
       - name: Run All System /  a11y Tests
         uses: ./.github/actions/run-script
@@ -426,9 +452,10 @@ jobs:
       - build-ubuntu-node-20
       - unit-tests
       - chromatic-tests
-      - browser-tests-components
+      - component-tests
       - deploy-docs
       - deploy-storybook
+      - deploy-storybook-testing
       - browser-tests-docs
 
     runs-on: ubuntu-latest
@@ -438,5 +465,5 @@ jobs:
         uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
         with:
           # "allowed-skips" lists jobs that are optional but should not fail
-          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs, chromatic-tests
+          allowed-skips: component-tests, deploy-docs, deploy-storybook, deploy-storybook-testing, browser-tests-docs, chromatic-tests
           jobs: ${{ toJSON(needs) }}

@@ -154,6 +154,20 @@ jobs:
             --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             || true
+      # Tag Amplify branch
+      - name: Tag Amplify branch
+        shell: bash
+        env:
+          AMPLIFY_BRANCH_TAGS: ${{ secrets.AMPLIFY_BRANCH_TAGS }}
+        run: |
+          BRANCH_ARN=$(aws amplify get-branch \
+            --app-id "${AMPLIFY_ID}" \
+            --branch-name "${BRANCH_NAME}" \
+            --query 'branch.branchArn' \
+            --output text)
+          aws amplify tag-resource \
+            --resource-arn "$BRANCH_ARN" \
+            --tags "$(echo "$AMPLIFY_BRANCH_TAGS" | tr ' ' ',')"
       # Deploy Amplify from S3
       - name: Start Amplify Deployment from S3
         shell: bash
@@ -241,7 +255,7 @@ jobs:
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
-        uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
+        uses: chrnorm/deployment-status@6df8d036fd2fee9eb82936733953da1f8382b41e # v2.0.4
         with:
           token: ${{ steps.get-token.outputs.token }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
@@ -251,7 +265,7 @@ jobs:
       # If it failed
       - name: Update deployment status (failure)
         if: ${{ github.event_name == 'pull_request' && failure() }}
-        uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
+        uses: chrnorm/deployment-status@6df8d036fd2fee9eb82936733953da1f8382b41e # v2.0.4
         with:
           token: ${{ steps.get-token.outputs.token }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/

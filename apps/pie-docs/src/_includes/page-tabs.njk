@@ -1,7 +1,7 @@
 <nav aria-label="Secondary navigational tabs" class="c-tabs">
     <ul class="c-content-container">
         {%- for entry in collections.all | eleventyNavigation(navKey) %}
-            {% if entry.url !== false %}
+            {% if entry.url %}
                 <li
                     class="c-tabs-item">
                         {% set linkAriaLabelTitle = entry.title | lower %}

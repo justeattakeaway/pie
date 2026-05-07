@@ -2,7 +2,16 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['default', 'scrim'] as const;
 
+type AriaProps = {
+    label?: string;
+};
+
 export interface BreadcrumbProps {
+  /**
+   * The ARIA labels used for various parts of the breadcrumb.
+   */
+  aria?: AriaProps;
+
   /**
    * Optional variant for styling the breadcrumb component.
    */
@@ -19,7 +28,7 @@ export interface BreadcrumbProps {
   hideCurrentPage?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultProps<BreadcrumbProps>;
+export type DefaultProps = ComponentDefaultProps<BreadcrumbProps, keyof Omit<BreadcrumbProps, 'aria'>>;
 
 export const defaultProps:DefaultProps = {
     variant: 'default',
