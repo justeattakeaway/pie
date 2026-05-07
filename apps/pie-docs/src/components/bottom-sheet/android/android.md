@@ -337,8 +337,6 @@ The contents of the bottom sheet can be customised by detaching the instance. Fo
 
 ### Overrides
 
-**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent.
-
 {% contentPageImage {
     src:"../../../assets/img/components/bottom-sheet/content-overrides.svg",
     alt: "A bottom sheet with content overrides for action buttons in the footer.",
