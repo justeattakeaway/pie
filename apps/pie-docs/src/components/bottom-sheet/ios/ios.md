@@ -357,7 +357,12 @@ The contents of the bottom sheet can be customised by detaching the instance. Fo
     width: 30
 } %}
 
-**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent.
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent.",
+    ]
+} %}
 
 ---
 
@@ -415,6 +420,32 @@ The pull handle can be focused in the tab order and interacted with using non-to
 } %}
 
 **Focus ring:** Visible focus when the tab order is placed on the pull handle. 
+
+---
+
+## Behaviour
+
+iOS 26 introduces new behaviours for bottom sheets, these are explained below:
+
+### Positioning 
+
+Bottom sheets at below 50% of the screen size will include 6px of padding between the bottom sheet and the edge of the screen. When bottom sheets are pulled up to access full screen mode, the sheet extends fully to the edges.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/bottom-sheet/behaviour-positioning-ios26.svg",
+    alt: "A bottom sheet with the different positioning behaviours when the sheet is below 50% of the screen size and when it is pulled up to full screen.",
+    width: 30
+} %}
+
+### Rounded corners
+
+iOS 26 introduces dynamic rounded corners that adapt to the rounded corners of the Apple device you are using - creating a more cohesive design by aligning software elements with hardware curvature.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/bottom-sheet/behaviour-rounded-corners-ios26.svg",
+    alt: "A bottom sheet with dynamic rounded corners that adapt to the rounded corners of the Apple device.",
+    width: 30
+} %}
 
 ---
 
