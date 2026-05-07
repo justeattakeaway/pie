@@ -323,7 +323,6 @@ Used when the content inside the bottom sheet is longer than the total height of
 
 ---
 
-// I'm intentionally not adding images to the slot section as the content of the slot can be very flexible and variable. This documentation might change soon due to Figma's update on slot in Q1 2026.
 ## Slot (nested component)
 
 Our Bottom Sheets use nested Slots which help us make the component flexible without the need to detach it from it’s original instance. If you want to learn more about slots and how to use them, please check the [Slots documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/-Core--Apps-Component-Documentation--PIE-3-?node-id=29-31).
@@ -346,7 +345,7 @@ The contents of the bottom sheet can be customised by detaching the instance. Fo
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent.",
+        "**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
     ]
 } %}
 
