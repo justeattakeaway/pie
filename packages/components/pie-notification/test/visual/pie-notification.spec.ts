@@ -296,3 +296,41 @@ test.describe('Reading direction - RTL - Right to Left', () => {
         await percySnapshot(page, 'PieNotification - Reading direction - RTL - Right to Left');
     });
 });
+
+test.describe('Slotted Action Buttons', () => {
+    test('should render slotted leading action with icon', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-leading-action');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Leading Action with Icon', screenWidths);
+    });
+
+    test('should render slotted supporting action (disabled)', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-supporting-action');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Supporting Action Disabled', screenWidths);
+    });
+
+    test('should render both slotted actions (leading loading, supporting ghost)', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions', screenWidths);
+    });
+
+    test('should render mixed slotted leading and prop-based supporting action', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--mixed-slotted-leading-prop-supporting');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Mixed Slotted Leading Prop Supporting', screenWidths);
+    });
+});

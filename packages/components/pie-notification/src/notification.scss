@@ -109,6 +109,10 @@
     }
 
     &-footer {
+        &.is-hidden {
+            display: none;
+        }
+
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -122,6 +126,10 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
+
+                ::slotted(pie-button) {
+                    width: 100%;
+                }
             }
 
             @include media('>=md') {
@@ -129,6 +137,10 @@
                     width: auto;
                 }
             }
+        }
+
+        ::slotted(:not(pie-button)) {
+            display: none;
         }
     }
 }

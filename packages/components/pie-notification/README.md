@@ -46,10 +46,14 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `aria` | `{ close?: string, label?: string }` | The ARIA labels used for various parts of the notification. Only pass `label` if there is no heading to ensure the region is announced with a title. | `undefined` |
 
 ### Slots
-| Slot      | Description                                                             |
-|-----------|-------------------------------------------------------------------------|
-| `default` | The default slot is used to pass text into the notification component.  |
-| `icon`    | Used to pass in an icon to the notification component.                  |
+| Slot               | Description                                                                                                    |
+|--------------------|----------------------------------------------------------------------------------------------------------------|
+| `default`          | The default slot is used to pass text into the notification component.                                         |
+| `icon`             | Used to pass in an icon to the notification component.                                                         |
+| `leadingAction`    | An optional slot for a custom `pie-button` to replace the prop-based leading action button.                    |
+| `supportingAction` | An optional slot for a custom `pie-button` to replace the prop-based supporting action button.                 |
+
+> **Note:** Only `pie-button` elements are accepted in the `leadingAction` and `supportingAction` slots. Any other elements will be hidden and a console warning will be emitted.
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
@@ -180,6 +184,36 @@ import { PieNotification } from '@justeattakeaway/pie-webc/react/notification.js
     A new version is available with exciting features.
 </PieNotification>
 ```
+
+### With Slotted Action Buttons
+
+For more control over action buttons (e.g. adding icons, loading states, or disabled states), you can slot `pie-button` elements directly:
+
+```html
+<pie-notification heading="Order Confirmed" variant="success">
+    Your order has been placed successfully.
+    <pie-button slot="leadingAction" variant="primary" size="small-productive">
+        <icon-plus-circle slot="icon"></icon-plus-circle>
+        View Order
+    </pie-button>
+    <pie-button slot="supportingAction" variant="ghost" size="small-productive" disabled>
+        Cancel
+    </pie-button>
+</pie-notification>
+```
+
+### Slots vs Props
+
+The notification component supports two approaches for action buttons:
+
+| Use Case | Approach |
+|----------|----------|
+| Simple text-only actions | Use `leadingAction` / `supportingAction` **props** |
+| Actions with icons | Use `leadingAction` / `supportingAction` **slots** |
+| Dynamic disabled/loading states | Use **slots** |
+| Any other `pie-button` feature (e.g. `isLoading`, custom `variant`) | Use **slots** |
+
+When a slot is populated, it takes precedence over the corresponding prop. You can mix approaches (e.g. prop-based leading action with a slotted supporting action).
 
 ## Questions and Support
 
