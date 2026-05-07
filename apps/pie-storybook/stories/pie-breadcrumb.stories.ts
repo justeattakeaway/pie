@@ -48,6 +48,10 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
                 summary: defaultProps.hideCurrentPage,
             },
         },
+        aria: {
+            description: 'The ARIA labels used for the breadcrumb component.',
+            control: 'object',
+        },
         slot: {
             description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb is hidden.',
             control: 'text',
@@ -68,12 +72,14 @@ const Template = ({
     variant,
     isCompact,
     hideCurrentPage,
+    aria,
     slot,
 }: BreadcrumbProps) => html`
     <pie-breadcrumb
         variant="${ifDefined(variant)}"
         ?isCompact="${isCompact}"
-        ?hideCurrentPage="${hideCurrentPage}">
+        ?hideCurrentPage="${hideCurrentPage}"
+        .aria="${aria}">
             ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-breadcrumb-item'] })}
     </pie-breadcrumb>
 `;

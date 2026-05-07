@@ -1,4 +1,13 @@
+type AriaProps = {
+    label?: string;
+};
+
 export interface BreadcrumbItemProps {
+    /**
+     * The ARIA labels used for various parts of the breadcrumb item.
+     */
+    aria?: AriaProps;
+
     /**
     * The URL that the breadcrumb item links to
     */
