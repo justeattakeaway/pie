@@ -11,11 +11,10 @@ description: This roadmap displays our current projects and future plans. Its ai
 
 ### AI exploration in PIE
 
-* We have created new resources for agentic use. You can find documentation under our new Agents tab. Among our new
-  additions:
-  * Skills that support the migration of components to PIE
-  * A PIE skill that provides AI agents with deep knowledge of how to use our component library and design tokens
-  * Guidelines that support prototyping tools like Figma Make
+We have created new resources for agentic use. You can find documentation under our new Agents tab. Among our new additions:
+* Skills that support the migration of components to PIE
+* A PIE skill that provides AI agents with deep knowledge of how to use our component library and design tokens
+* Guidelines that support prototyping tools like Figma Make
 
 ### Migration of legacy libraries
 
@@ -32,8 +31,7 @@ description: This roadmap displays our current projects and future plans. Its ai
 
 #### What if a component you need isn't prioritised?
 
-If you have a strong case for a new component, especially one tied to company OKRs or multiple teams, let us know! We may
-be able to adjust our roadmap.
+If you have a strong case for a new component, especially one tied to company OKRs or multiple teams, let us know! We may be able to adjust our roadmap.
 
 Otherwise, you are welcome to contribute it yourself. Keep in mind that core components require a higher level of rigor,
 accessibility, and quality to serve the entire company. While we are currently testing AI workflows to speed this up,

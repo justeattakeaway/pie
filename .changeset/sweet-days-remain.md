@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-docs": minor
 ---
 
-Updates roadmap copy and adds a short guidance on contributions
+[Changed] - Updates roadmap copy and adds a short guidance on contributions
