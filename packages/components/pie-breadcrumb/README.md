@@ -37,7 +37,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Prop | Options | Description | Default |
 |------|---------|-------------|--------|
 | `variant` | `"default"`, `"scrim"` | Sets the variant of the breadcrumb. | `"default"` |
-| `isCompact` | `true`, `false` | When true, displays only the parent breadcrumb item for back navigation. When only one item exists, it falls back to displaying that item. | `false` |
+| `isCompact` | `true`, `false` | If true, renders a compact variation of the breadcrumb. | `false` |
 | `hideCurrentPage` | `true`, `false` | If true, hides the current page of the breadcrumb (last item). | `false` |
 | `aria.label` | `string` | Provides a custom accessible label for the breadcrumb element. | `"Breadcrumb"` |
 

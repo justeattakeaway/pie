@@ -35,7 +35,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'When true, displays only the parent breadcrumb item for back navigation. When only one item exists, it falls back to displaying that item.',
+            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
