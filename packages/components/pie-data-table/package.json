@@ -10,10 +10,7 @@
     "custom-elements.json",
     "src",
     "dist",
-    "**/*.d.ts",
-    "vscode.html-custom-data.json",
-    "vscode.css-custom-data.json",
-    "vue.d.ts"
+    "**/*.d.ts"
   ],
   "pieMetadata": {
     "componentStatus": "alpha",

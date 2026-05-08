@@ -18,10 +18,7 @@
     "dist",
     "cdn_dist",
     "locales",
-    "**/*.d.ts",
-    "vscode.html-custom-data.json",
-    "vscode.css-custom-data.json",
-    "vue.d.ts"
+    "**/*.d.ts"
   ],
   "pieMetadata": {
     "componentStatus": "stable",

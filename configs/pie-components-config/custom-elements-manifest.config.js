@@ -18,10 +18,13 @@ export default {
             from: /^src\/(.*)\.(t|j)sx?$/,
             to: 'dist/$1.js',
         }),
-        customElementVsCodePlugin({}),
+        customElementVsCodePlugin({
+            outdir: 'dist',
+        }),
         customElementVuejsPlugin({
+            outdir: 'dist',
             fileName: 'vue.d.ts',
-            globalTypePath: './dist/index.js',
+            globalTypePath: './index.js',
         }),
     ],
 };

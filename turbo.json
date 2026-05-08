@@ -33,9 +33,9 @@
       ],
       "outputs": [
         "custom-elements.json",
-        "vscode.html-custom-data.json",
-        "vscode.css-custom-data.json",
-        "vue.d.ts"
+        "dist/vscode.html-custom-data.json",
+        "dist/vscode.css-custom-data.json",
+        "dist/vue.d.ts"
       ]
     },
     "generate:component-statuses": {},
