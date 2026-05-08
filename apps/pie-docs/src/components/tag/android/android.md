@@ -89,11 +89,16 @@ Depending on the level of visual prominence you want to give to the tag, you can
 
 Select from a range of colour options across the two levels of emphasis.
 
+{% notification {
+  type: "information",
+  message: "Please note that the translucent variant in Android uses a container fill with transparency only as Android operational system doesn't support blur."
+} %}
+
 {% contentLayout %}
   {% contentItem %}
     <h3>Neutral</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/neutral.svg",
+      src: "../../../assets/img/components/tag-apps/neutral.svg",
       width: "123px",
       alt: "Tag demonstrating the neutral colour."
     } %}
@@ -101,7 +106,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Neutral alternative</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/neutral-alt.svg",
+      src: "../../../assets/img/components/tag-apps/neutral-alt.svg",
       width: "57px",
       alt: "Tag demonstrating the neutral alternative colour."
     } %}
@@ -109,7 +114,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Ghost</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/ghost.svg",
+      src: "../../../assets/img/components/tag-apps/ghost.svg",
       width: "57px",
       alt: "Tag demonstrating the ghost colour."
     } %}
@@ -117,7 +122,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Outline</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/outline.svg",
+      src: "../../../assets/img/components/tag-apps/outline.svg",
       width: "57px",
       alt: "Tag demonstrating the outline colour."
     } %}
@@ -125,7 +130,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Translucent</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/translucent.svg",
+      src: "../../../assets/img/components/tag-apps/translucent.svg",
       width: "57px",
       alt: "Tag demonstrating the translucent colour."
     } %}
@@ -133,7 +138,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Information</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/info.svg",
+      src: "../../../assets/img/components/tag-apps/info.svg",
       width: "123px",
       alt: "Tag demonstrating the information colour."
     } %}
@@ -141,7 +146,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Success</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/success.svg",
+      src: "../../../assets/img/components/tag-apps/success.svg",
       width: "123px",
       alt: "Tag demonstrating the success colour."
     } %}
@@ -149,7 +154,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Error</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/error.svg",
+      src: "../../../assets/img/components/tag-apps/error.svg",
       width: "123px",
       alt: "Tag demonstrating the error colour."
     } %}
@@ -157,7 +162,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>Warning</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/warning.svg",
+      src: "../../../assets/img/components/tag-apps/warning.svg",
       width: "123px",
       alt: "Tag demonstrating the warning colour."
     } %}
@@ -165,7 +170,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>02 Orange subtle</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/orange-sub.svg",
+      src: "../../../assets/img/components/tag-apps/orange-sub.svg",
       width: "57px",
       alt: "Tag demonstrating the orange subtle colour."
     } %}
@@ -173,7 +178,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>03 Cupcake</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/cupcake.svg",
+      src: "../../../assets/img/components/tag-apps/cupcake.svg",
       width: "123px",
       alt: "Tag demonstrating the cupcake colour."
     } %}
@@ -181,7 +186,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>04 Berry</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/berry.svg",
+      src: "../../../assets/img/components/tag-apps/berry.svg",
       width: "123px",
       alt: "Tag demonstrating the berry colour."
     } %}
@@ -189,7 +194,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>05 Turmeric</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/turmeric.svg",
+      src: "../../../assets/img/components/tag-apps/turmeric.svg",
       width: "123px",
       alt: "Tag demonstrating the turmeric colour."
     } %}
@@ -197,7 +202,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>06 Aubergine</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/aubergine.svg",
+      src: "../../../assets/img/components/tag-apps/aubergine.svg",
       width: "123px",
       alt: "Tag demonstrating the aubergine colour."
     } %}
@@ -205,7 +210,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% contentItem %}
     <h3>08 Latte</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/latte.svg",
+      src: "../../../assets/img/components/tag-apps/latte.svg",
       width: "123px",
       alt: "Tag demonstrating the latte colour."
     } %}
