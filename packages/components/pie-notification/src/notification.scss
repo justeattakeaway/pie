@@ -16,12 +16,6 @@
     }
 }
 
-:host(:not([hasStackedActions])) {
-    .c-notification-footer {
-        gap: var(--dt-spacing-d);
-    }
-}
-
 .c-notification {
     --notification-border-radius: var(--dt-radius-rounded-c);
     --notification-background-color: var(--dt-color-container-subtle);
@@ -160,6 +154,12 @@
 // Ensures proper vertical whitespace for prop-based actions
 .c-notification:has(pie-button) {
     --gap: var(--gap-has-content);
+}
+
+:host(:not([hasStackedActions])) {
+    .c-notification-footer {
+        gap: var(--dt-spacing-d);
+    }
 }
 
 .icon,

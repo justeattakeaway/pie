@@ -85,7 +85,7 @@ export class PieNotification extends PieElement implements NotificationProps {
     @property({ type: Object })
     public supportingAction: NotificationProps['supportingAction'];
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public hasStackedActions = defaultProps.hasStackedActions;
 
     @property({ type: Object })
