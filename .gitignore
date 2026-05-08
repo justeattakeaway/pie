@@ -165,6 +165,9 @@ compiled/
 build/**
 dist/
 custom-elements.json
+vue.d.ts
+vscode.html-custom-data.json
+vscode.css-custom-data.json
 **/src/react.ts
 **/src/**/react.ts
 **/stats.html
