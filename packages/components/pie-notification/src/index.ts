@@ -316,7 +316,6 @@ export class PieNotification extends PieElement implements NotificationProps {
             isDismissible,
             isCompact,
             hideIcon,
-            leadingAction,
             isOpen,
             aria,
         } = this;
