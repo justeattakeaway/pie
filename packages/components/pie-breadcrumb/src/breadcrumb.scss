@@ -2,10 +2,6 @@
 
 :host {
   display: block;
-
-  ::slotted(pie-breadcrumb-item:only-child) {
-    display: none;
-  }
 }
 
 .c-breadcrumb {
@@ -67,7 +63,7 @@
     --breadcrumb-separator-transform: rotate(180deg);
   }
 
-  ::slotted(pie-breadcrumb-item:not(:nth-last-of-type(2))) {
+  ::slotted(pie-breadcrumb-item:not(:nth-last-of-type(2), :only-child)) {
     display: none;
   }
 }
@@ -78,7 +74,7 @@
   }
 }
 
-:host(:last-of-type) {
+:host(:last-of-type:not(:only-of-type)) {
   pie-link {
     --link-font-weight: var(--dt-font-body-l-link-weight);
 
