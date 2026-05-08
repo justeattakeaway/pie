@@ -373,4 +373,49 @@ test.describe('props', () => {
             });
         });
     });
+
+    test.describe('aria', () => {
+        test.describe('label', () => {
+            test('should apply aria-label to the underlying button element', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    aria: { label: 'Close dialog' },
+                };
+
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load({ ...props });
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).toHaveAttribute('aria-label', 'Close dialog');
+            });
+
+            test('should apply aria-label to the underlying anchor element when tag is "a"', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    aria: { label: 'Visit homepage' },
+                };
+
+                const buttonAnchorPage = new ButtonAnchorPage(page);
+                await buttonAnchorPage.load({ ...props });
+
+                const anchor = buttonAnchorPage.buttonComponent.componentLocator.locator('a');
+
+                // Assert
+                await expect(anchor).toHaveAttribute('aria-label', 'Visit homepage');
+            });
+
+            test('should not set aria-label when aria prop is not provided', async ({ page }) => {
+                // Arrange
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load();
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).not.toHaveAttribute('aria-label');
+            });
+        });
+    });
 });
