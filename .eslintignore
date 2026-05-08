@@ -5,3 +5,6 @@ lit-browsers-report
 lit-visual-report
 test-results
 react-browsers-report
+vue.d.ts
+vscode.html-custom-data.json
+vscode.css-custom-data.json

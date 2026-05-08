@@ -1,5 +1,5 @@
-import type { DefineComponent } from "vue";
-import type { PieList, PieListItem } from "./dist/index.js";
+import type { DefineComponent } from 'vue';
+import type { PieList, PieListItem } from './dist/index.js';
 
 type PieListProps = {};
 
@@ -11,17 +11,17 @@ export type CustomElements = {
    * ---
    *
    */
-  "pie-list": DefineComponent<PieListProps>;
+  'pie-list': DefineComponent<PieListProps>;
 
   /**
    *
    * ---
    *
    */
-  "pie-list-item": DefineComponent<PieListItemProps>;
+  'pie-list-item': DefineComponent<PieListItemProps>;
 };
 
-declare module "vue" {
+declare module 'vue' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface GlobalComponents extends CustomElements {}
 }
