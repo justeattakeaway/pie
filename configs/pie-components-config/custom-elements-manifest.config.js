@@ -11,5 +11,10 @@ export default {
         '**/test/**',
         '**/node_modules/**',
     ],
-    plugins: [moduleFileExtensionsPlugin()],
+    plugins: [
+        moduleFileExtensionsPlugin({
+            from: /^src\/(.*)\.(t|j)sx?$/,
+            to: 'dist/$1.js',
+        }),
+    ],
 };
