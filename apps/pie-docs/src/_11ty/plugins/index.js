@@ -10,6 +10,8 @@ const cssnano = require('cssnano');
 const pluginTOC = require('eleventy-plugin-toc');
 
 const litPlugin = require('@lit-labs/eleventy-plugin-lit');
+const sitemapPlugin = require('@quasibit/eleventy-plugin-sitemap');
+const markdownPagesPlugin = require('./markdown-pages');
 
 /**
  * Adds all 11ty plugins
@@ -41,6 +43,12 @@ const addAllPlugins = (eleventyConfig) => {
         componentModules: [
             'src/assets/js/pie-components-imports.js',
         ],
+    });
+    eleventyConfig.addPlugin(markdownPagesPlugin);
+    eleventyConfig.addPlugin(sitemapPlugin, {
+        sitemap: {
+            hostname: 'https://pie.design',
+        },
     });
 };
 

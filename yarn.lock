@@ -3696,6 +3696,7 @@ __metadata:
     "@justeattakeaway/pie-webc": 0.10.4
     "@lit-labs/eleventy-plugin-lit": 1.0.6
     "@lit-labs/ssr-client": 1.1.8
+    "@quasibit/eleventy-plugin-sitemap": ^2.2.0
     "@types/markdown-it": 14.1.2
     "@webcomponents/template-shadowroot": 0.2.1
     autoprefixer: 10.5.0
@@ -3712,6 +3713,8 @@ __metadata:
     postcss: 8.5.12
     postcss-cli: 11.0.1
     slugify: 1.6.9
+    turndown: ^7.2.4
+    turndown-plugin-gfm: ^1.0.2
   languageName: unknown
   linkType: soft
 
@@ -4444,6 +4447,13 @@ __metadata:
   version: 0.15.1
   resolution: "@microsoft/tsdoc@npm:0.15.1"
   checksum: 526f125c48b4e5511571ee552ff38691405131c0b72df85f091b1aa47571315e7ba5258cd9f48c41b8ef80f2c1f489e9b09c8b1fcc1599b7f8a35f917e03ec65
+  languageName: node
+  linkType: hard
+
+"@mixmark-io/domino@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@mixmark-io/domino@npm:2.2.0"
+  checksum: 547af4a8f74cb8e1f2f86e84dc968e7a722522d4748d8a1c9d30c5d1ce6a190ec400866338cc1f717b31beabed6e61c44edf17db5cf380317b63a1e7f253080f
   languageName: node
   linkType: hard
 
@@ -5402,6 +5412,16 @@ __metadata:
   bin:
     browsers: lib/cjs/main-cli.js
   checksum: d75fde03be4be106ca907834739251c2bb0b33a09fa23315c5dbe8b8b4cfed2f1b26af62e1dbe5fccc227e9bc87b51da0815461b982477eb01439bfdd6e7b01a
+  languageName: node
+  linkType: hard
+
+"@quasibit/eleventy-plugin-sitemap@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@quasibit/eleventy-plugin-sitemap@npm:2.2.0"
+  dependencies:
+    array-flat-polyfill: ^1.0.1
+    sitemap: ^6.3.2
+  checksum: ae01f648d1d29be8c0c65ecf3417db5681139a0110c161d69654bb40cb3547bcf57cdf5f49adab0483eace59d80dcd5b41975c5605ac8899750939d5b7ac2922
   languageName: node
   linkType: hard
 
@@ -6911,6 +6931,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^14.14.28":
+  version: 14.18.63
+  resolution: "@types/node@npm:14.18.63"
+  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.4
   resolution: "@types/normalize-package-data@npm:2.4.4"
@@ -6976,6 +7003,15 @@ __metadata:
   version: 1.20.2
   resolution: "@types/resolve@npm:1.20.2"
   checksum: 61c2cad2499ffc8eab36e3b773945d337d848d3ac6b7b0a87c805ba814bc838ef2f262fc0f109bfd8d2e0898ff8bd80ad1025f9ff64f1f71d3d4294c9f14e5f6
+  languageName: node
+  linkType: hard
+
+"@types/sax@npm:^1.2.1":
+  version: 1.2.7
+  resolution: "@types/sax@npm:1.2.7"
+  dependencies:
+    "@types/node": "*"
+  checksum: 7ece5fbb5d9c8fc76ab0de2f99d705edf92f18e701d4f9d9b0647275e32eb65e656c1badf9dfaa12f4e1ff3e250561c8c9cfe79e8b5f33dd1417ac0f1804f6cc
   languageName: node
   linkType: hard
 
@@ -8675,7 +8711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"arg@npm:5.0.2":
+"arg@npm:5.0.2, arg@npm:^5.0.0":
   version: 5.0.2
   resolution: "arg@npm:5.0.2"
   checksum: 6c69ada1a9943d332d9e5382393e897c500908d91d5cb735a01120d5f71daf1b339b7b8980cbeaba8fd1afc68e658a739746179e4315a26e8a28951ff9930078
@@ -8740,6 +8776,13 @@ __metadata:
   version: 3.0.0
   resolution: "array-differ@npm:3.0.0"
   checksum: 117edd9df5c1530bd116c6e8eea891d4bd02850fd89b1b36e532b6540e47ca620a373b81feca1c62d1395d9ae601516ba538abe5e8172d41091da2c546b05fb7
+  languageName: node
+  linkType: hard
+
+"array-flat-polyfill@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "array-flat-polyfill@npm:1.0.1"
+  checksum: 5d578b191a7f145a1351a4962df9a14d905060c7dfcd8f85062954b7a44b2bff1c9d2bff2d56b07756de774d5e9e4feafe4572f5641b1e9c8a968aca5cbe4902
   languageName: node
   linkType: hard
 
@@ -20430,7 +20473,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sax@npm:^1.5.0":
+"sax@npm:^1.2.4, sax@npm:^1.5.0":
   version: 1.6.0
   resolution: "sax@npm:1.6.0"
   checksum: 83ae2a17f524bd35b1b7d1c867700b1fab41e4cbb4f7635b7e66398421e06ff2cd43ec651c151cb99c67c3681ec7d0493cb6a98fd2e7799ea15b5d0a4615f870
@@ -20820,6 +20863,20 @@ __metadata:
   bin:
     sigstore: bin/sigstore.js
   checksum: b3f1ccf4d2d5e6af294ad851981cc9dc4c01b6b5b7aeb98582765f5d2e75aa2b9221133b8e572179bb305e16ce589339d9617b26b9fa0bea0c38c9adef792912
+  languageName: node
+  linkType: hard
+
+"sitemap@npm:^6.3.2":
+  version: 6.4.0
+  resolution: "sitemap@npm:6.4.0"
+  dependencies:
+    "@types/node": ^14.14.28
+    "@types/sax": ^1.2.1
+    arg: ^5.0.0
+    sax: ^1.2.4
+  bin:
+    sitemap: dist/cli.js
+  checksum: 499f6929cc6faef45944509705e8c07b7062be0ea1643ecdc6e489b32652c7ca44da4949861fcac62b9044eb6c3ff3049478d06f27019a3c230409aca377c71a
   languageName: node
   linkType: hard
 
@@ -22102,6 +22159,22 @@ __metadata:
   bin:
     turbo: bin/turbo
   checksum: 1e516c82abae3e68200e04ec9d9b141c1eb81ed1eaf6f39196252e37be4040f9382ed18ddfaac8b32009ff7d19f4bac50e3ec231a20b627f566a0915852e151b
+  languageName: node
+  linkType: hard
+
+"turndown-plugin-gfm@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "turndown-plugin-gfm@npm:1.0.2"
+  checksum: 18191dc18d731ec16bb1f1a477af6471ce2acf152b882a7eccef8e0101e09628fec0f8499f352f0a291ce798f1f30d799b5a72bd5d2cde30a2a28070de24495c
+  languageName: node
+  linkType: hard
+
+"turndown@npm:^7.2.4":
+  version: 7.2.4
+  resolution: "turndown@npm:7.2.4"
+  dependencies:
+    "@mixmark-io/domino": ^2.2.0
+  checksum: 4e0e4e280ade8f93f2ec5de1084681c2ff59c4ef5c927cbf945de12636596703a1cf3db539f1c4bc653dc85a0f9cddb3f68505073b44eaddcac5d3a01f3ecc30
   languageName: node
   linkType: hard
 

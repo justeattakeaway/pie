@@ -36,7 +36,9 @@
     "autoprefixer": "10.5.0",
     "eleventy-plugin-rev": "2.0.0",
     "eleventy-sass": "3.0.0-beta.0",
-    "markdown-it-attrs": "4.3.1"
+    "markdown-it-attrs": "4.3.1",
+    "turndown": "^7.2.4",
+    "turndown-plugin-gfm": "^1.0.2"
   },
   "dependencies": {
     "@docsearch/css": "3.9.0",
@@ -50,6 +52,7 @@
     "@justeattakeaway/pie-webc": "0.10.4",
     "@lit-labs/eleventy-plugin-lit": "1.0.6",
     "@lit-labs/ssr-client": "1.1.8",
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "@types/markdown-it": "14.1.2",
     "@webcomponents/template-shadowroot": "0.2.1",
     "cssnano": "7.1.7",
