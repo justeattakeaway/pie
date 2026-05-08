@@ -8,7 +8,7 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { validPropertyValues, dispatchCustomEvent, safeCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, state, queryAssignedElements } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
@@ -93,12 +93,6 @@ export class PieNotification extends PieElement implements NotificationProps {
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
-    @state()
-    private _hasSlottedLeadingAction = false;
-
-    @state()
-    private _hasSlottedSupportingAction = false;
-
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
@@ -113,44 +107,16 @@ export class PieNotification extends PieElement implements NotificationProps {
     }
 
     /**
-     * Handles slotchange events for action slots.
-     * Updates state to track whether valid pie-button elements are slotted,
-     * and warns if invalid elements are detected.
-     *
-     * @private
-     */
-    private _handleActionSlotChange (e: Event, actionType: 'leading' | 'supporting') {
-        const slot = e.target as HTMLSlotElement;
-        const assignedElements = slot.assignedElements({ flatten: true });
-        const pieButtons = assignedElements.filter((el) => el.tagName.toLowerCase() === 'pie-button');
-        const hasValidContent = pieButtons.length > 0;
-
-        if (actionType === 'leading') {
-            this._hasSlottedLeadingAction = hasValidContent;
-        } else {
-            this._hasSlottedSupportingAction = hasValidContent;
-        }
-
-        // Warn if non-pie-button elements are slotted
-        const invalidElements = assignedElements.filter((el) => el.tagName.toLowerCase() !== 'pie-button');
-        if (invalidElements.length > 0) {
-            console.warn(`[pie-notification] Only pie-button elements are supported in the "${actionType}Action" slot. Other elements will be hidden.`);
-        }
-    }
-
-    /**
      * Renders the supporting action - either from slot or props.
      * Supporting action only renders when a leading action is also present (via prop or slot).
      *
      * @private
      */
     private renderSupportingAction () {
-        if (this._hasSlottedSupportingAction) {
-            return nothing;
-        }
-
         const { supportingAction, leadingAction } = this;
-        if (supportingAction && (leadingAction?.text || this._hasSlottedLeadingAction)) {
+        const hasLeadingAction = leadingAction?.text || this.querySelector('[slot="leadingAction"]');
+
+        if (supportingAction && hasLeadingAction) {
             return this.renderActionButton(supportingAction, 'supporting');
         }
 
@@ -158,15 +124,11 @@ export class PieNotification extends PieElement implements NotificationProps {
     }
 
     /**
-     * Renders the leading action - either from slot or props.
+     * Renders the leading action from props.
      *
      * @private
      */
     private renderLeadingAction () {
-        if (this._hasSlottedLeadingAction) {
-            return nothing;
-        }
-
         const { leadingAction } = this;
         if (leadingAction) {
             return this.renderActionButton(leadingAction, 'leading');
@@ -186,8 +148,8 @@ export class PieNotification extends PieElement implements NotificationProps {
             isCompact, hasStackedActions,
         } = this;
 
-        // The footer is always rendered so that action slots exist in the DOM and can fire
-        // slotchange events. CSS handles hiding the footer when it has no visible content
+        // The footer is always rendered so that action slots exist in the DOM.
+        // CSS handles hiding the footer when it has no visible content
         // via :not(:has(pie-button, ::slotted(pie-button))).
         const classes = {
             [`${componentClass}-footer`]: true,
@@ -199,9 +161,9 @@ export class PieNotification extends PieElement implements NotificationProps {
                 class="${classMap(classes)}"
                 data-test-id="${componentSelector}-footer">
                     ${this.renderSupportingAction()}
-                    <slot name="supportingAction" @slotchange="${(e: Event) => this._handleActionSlotChange(e, 'supporting')}"></slot>
+                    <slot name="supportingAction"></slot>
                     ${this.renderLeadingAction()}
-                    <slot name="leadingAction" @slotchange="${(e: Event) => this._handleActionSlotChange(e, 'leading')}"></slot>
+                    <slot name="leadingAction"></slot>
             </footer>
         `;
     }
