@@ -21,6 +21,27 @@ Accordions are useful for presenting categorised information like FAQs, product 
 
 ---
 
+## Dos and Don'ts
+
+**Do**
+- Use to organise [related information](https://www.pie.design/components/bottom-sheet/android/).
+- Use to shorten pages and reduce scrolling when content isn’t crucial to read in full.
+
+**Don't**
+- Don’t use if the quantity of the content within the Accordion is too large, consider Tabs instead.
+
+--- 
+
+## Anatomy
+
+- Icon (Optional): Non-interactive icon that can be used to visually support the primary text.
+- Primary Text: Informs the user the type of content contained within the Accordion.
+- Secondary Text (Optional): Provides additional detail if required, aiming to be contained within two lines.
+- Chevron: Indicates whether the Accordion is open or closed.
+- Divider (Optional): Helps visually defining the end of a list item and the beginning of the next one.
+
+---
+
 ## Resources
 
 {% notification {
