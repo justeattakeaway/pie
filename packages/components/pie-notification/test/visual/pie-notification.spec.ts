@@ -333,4 +333,33 @@ test.describe('Slotted Action Buttons', () => {
 
         await percySnapshot(page, 'PieNotification - Mixed Slotted Leading Prop Supporting', screenWidths);
     });
+
+    test('should render slotted actions in compact mode', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-compact');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Compact', screenWidths);
+    });
+
+    test('should stack slotted action buttons on small screens', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+        await page.setViewportSize({ width: 375, height: 667 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked - Small Screen');
+    });
+
+    test('should not stack slotted action buttons on large screens', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+        await page.setViewportSize({ width: 1275, height: 900 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked - Large Screen');
+    });
 });

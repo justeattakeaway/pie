@@ -492,3 +492,77 @@ export const MixedSlottedLeadingPropSupporting = createStory<NotificationProps>(
     slot: 'This notification uses a slotted pie-button for the leading action and a prop-based supporting action.',
     supportingAction: { text: 'Dismiss', ariaLabel: 'Dismiss notification' },
 })();
+
+// Slotted actions with isCompact
+const SlottedBothActionsCompactTemplate: TemplateFunction<NotificationProps> = ({
+    slot,
+    variant,
+    heading,
+}) => html`
+    <pie-notification
+        ?isOpen="${true}"
+        variant="${ifDefined(variant)}"
+        heading="${ifDefined(heading)}"
+        ?isCompact="${true}">
+            ${sanitizeAndRenderHTML(slot)}
+            <pie-button
+                slot="supportingAction"
+                variant="ghost"
+                size="small-productive"
+                data-test-id="slotted-supporting-action">
+                Cancel
+            </pie-button>
+            <pie-button
+                slot="leadingAction"
+                variant="primary"
+                size="small-productive"
+                data-test-id="slotted-leading-action">
+                Confirm
+            </pie-button>
+    </pie-notification>`;
+
+export const SlottedBothActionsCompact = createStory<NotificationProps>(SlottedBothActionsCompactTemplate, {
+    ...defaultArgs,
+    variant: 'info',
+    heading: 'Compact Slotted Actions',
+    slot: 'This compact notification has both actions as slotted pie-buttons.',
+    leadingAction: undefined,
+    supportingAction: undefined,
+})();
+
+// Slotted actions with hasStackedActions
+const SlottedBothActionsStackedTemplate: TemplateFunction<NotificationProps> = ({
+    slot,
+    variant,
+    heading,
+}) => html`
+    <pie-notification
+        ?isOpen="${true}"
+        variant="${ifDefined(variant)}"
+        heading="${ifDefined(heading)}"
+        ?hasStackedActions="${true}">
+            ${sanitizeAndRenderHTML(slot)}
+            <pie-button
+                slot="supportingAction"
+                variant="ghost"
+                size="small-productive"
+                data-test-id="slotted-supporting-action">
+                Cancel
+            </pie-button>
+            <pie-button
+                slot="leadingAction"
+                variant="primary"
+                size="small-productive"
+                data-test-id="slotted-leading-action">
+                Confirm
+            </pie-button>
+    </pie-notification>`;
+
+export const SlottedBothActionsStacked = createStory<NotificationProps>(SlottedBothActionsStackedTemplate, {
+    ...defaultArgs,
+    variant: 'info',
+    heading: 'Stacked Slotted Actions',
+    slot: 'This notification has stacked slotted actions on narrow screens.',
+    leadingAction: undefined,
+    supportingAction: undefined,
+})();
