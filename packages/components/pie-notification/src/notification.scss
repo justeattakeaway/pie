@@ -12,7 +12,13 @@
 // Ensures proper vertical whitespace for slot-based actions
 :host(:not([isCompact])) {
     ::slotted(pie-button) {
-        margin-top: var(--gap-has-content);
+        margin-block-start: var(--gap-has-content);
+    }
+}
+
+:host(:not([hasStackedActions])) {
+    .c-notification-footer {
+        gap: var(--dt-spacing-d);
     }
 }
 
