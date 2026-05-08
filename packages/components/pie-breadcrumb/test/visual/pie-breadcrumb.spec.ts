@@ -40,4 +40,24 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
             await percySnapshot(page, `PieBreadcrumb - Variant: ${variant}`);
         });
     });
+
+    test('should render a single item breadcrumb', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'breadcrumb--single-item');
+        basePage.waitUntilStrategy = 'networkidle';
+        await basePage.load();
+
+        // Assert
+        await percySnapshot(page, 'PieBreadcrumb - Single Item');
+    });
+
+    test('should render a single item breadcrumb in compact mode', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'breadcrumb--single-item-compact');
+        basePage.waitUntilStrategy = 'networkidle';
+        await basePage.load();
+
+        // Assert
+        await percySnapshot(page, 'PieBreadcrumb - Single Item Compact');
+    });
 });
