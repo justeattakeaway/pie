@@ -50,8 +50,10 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |-----------|-------------------------------------------------------------------------|
 | `default` | The default slot is used to pass text into the notification component.  |
 | `icon`    | Used to pass in an icon to the notification component.                  |
-| `leadingAction` | Used to pass a custom `pie-button` for the leading action. Takes priority over the `leadingAction` prop. Only `pie-button` elements are supported; other elements will be hidden. |
-| `supportingAction` | Used to pass a custom `pie-button` for the supporting action. Takes priority over the `supportingAction` prop. Only `pie-button` elements are supported; other elements will be hidden. |
+| `leadingAction` | Used to pass a custom `pie-button` for the leading action. Only `pie-button` elements are supported; other elements will be hidden. |
+| `supportingAction` | Used to pass a custom `pie-button` for the supporting action. Only `pie-button` elements are supported; other elements will be hidden. |
+
+> **Important:** Do not mix props and slots for action buttons. Use **either** the `leadingAction`/`supportingAction` props **or** the `leadingAction`/`supportingAction` slots — not a combination of both. Additionally, do not provide both a prop-based action and a slotted action for the same slot (e.g. setting the `leadingAction` prop while also slotting a `pie-button` into `leadingAction`).
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
