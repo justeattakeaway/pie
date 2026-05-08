@@ -7,7 +7,7 @@ shouldShowContents: true
 permalink: components/accordion/
 ---
 
-## Overview
+## Overview oopps
 
 Accordions are vertical stacks of headers that categorise content. Clicking or interacting with a header expands or collapses its associated content, enabling users to selectively view information while keeping the interface clean.
 
