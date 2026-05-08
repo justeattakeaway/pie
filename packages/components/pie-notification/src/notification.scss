@@ -130,7 +130,7 @@
                 flex-direction: column-reverse;
 
                 ::slotted(pie-button) {
-                    width: 100%;
+                    --btn-inline-size: 100%;
                 }
             }
 
