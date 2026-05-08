@@ -3,18 +3,13 @@
 
 :host {
     display: block;
+
     --gap-empty: 0;
     --gap-has-content: var(--dt-spacing-d);
     --gap: var(--gap-empty);
 }
 
-// These two rules enable the correct whitespace to be applied above either the slotted OR prop-based pie-button actions.
-// Flexgap wont work for an empty footer when slotted as gap still applies whitespace even for empty children.
-
-.c-notification:has(pie-button) {
-    --gap: var(--gap-has-content);
-}
-
+// Ensures proper vertical whitespace for slot-based actions
 :host(:not([isCompact])) {
     ::slotted(pie-button) {
         margin-top: var(--gap-has-content);
@@ -154,6 +149,11 @@
             display: none;
         }
     }
+}
+
+// Ensures proper vertical whitespace for prop-based actions
+.c-notification:has(pie-button) {
+    --gap: var(--gap-has-content);
 }
 
 .icon,
