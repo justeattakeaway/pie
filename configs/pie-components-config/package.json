@@ -20,7 +20,9 @@
     "deepmerge-ts": "5.1.0"
   },
   "devDependencies": {
-    "cem-plugin-module-file-extensions": "0.0.5"
+    "cem-plugin-module-file-extensions": "0.0.5",
+    "custom-element-vs-code-integration": "1.5.0",
+    "custom-element-vuejs-integration": "1.4.0"
   },
   "volta": {
     "extends": "../../package.json"

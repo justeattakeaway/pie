@@ -1,4 +1,6 @@
 import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
+import { customElementVsCodePlugin } from 'custom-element-vs-code-integration';
+import { customElementVuejsPlugin } from 'custom-element-vuejs-integration';
 
 export default {
     globs: [
@@ -15,6 +17,11 @@ export default {
         moduleFileExtensionsPlugin({
             from: /^src\/(.*)\.(t|j)sx?$/,
             to: 'dist/$1.js',
+        }),
+        customElementVsCodePlugin({}),
+        customElementVuejsPlugin({
+            fileName: 'vue.d.ts',
+            globalTypePath: './dist/index.js',
         }),
     ],
 };

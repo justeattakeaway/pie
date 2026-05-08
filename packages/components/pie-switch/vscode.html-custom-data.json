@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-switch",
+      "description": "\n---\n\n\n### **Events:**\n - **invalid**\n- **change** - when the switch checked state is changed.\n\n### **Methods:**\n - **checkValidity(): __** - Returns a boolean value which indicates validity of the value of the component. If the value is invalid, this method also fires the invalid event on the component.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity\n- **reportValidity(): __** - If the value is invalid, this method also fires the invalid event on the element, and (if the event isn't canceled) reports the problem to the user.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/reportValidity\n- **setCustomValidity(message: _string_): _void_** - Allows a consumer to set a custom validation message on the switch. An empty string counts as valid.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setCustomValidity",
+      "attributes": [
+        { "name": "label", "values": [{ "name": "SwitchProps['label']" }] },
+        { "name": "labelPlacement", "values": [] },
+        { "name": "aria", "values": [{ "name": "SwitchProps['aria']" }] },
+        { "name": "checked", "values": [] },
+        { "name": "required", "values": [] },
+        { "name": "value", "values": [] },
+        { "name": "name", "values": [{ "name": "SwitchProps['name']" }] },
+        { "name": "disabled", "values": [] }
+      ],
+      "references": []
+    }
+  ]
+}

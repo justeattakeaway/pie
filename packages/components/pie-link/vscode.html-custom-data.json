@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-link",
+      "description": "\n---\n\n\n### **Slots:**\n - **icon** - The icon slot\n- _default_ - Default slot",
+      "attributes": [
+        { "name": "tag", "values": [] },
+        { "name": "variant", "values": [] },
+        { "name": "size", "values": [] },
+        { "name": "underline", "values": [] },
+        { "name": "iconPlacement", "values": [] },
+        { "name": "href", "values": [{ "name": "LinkProps['href']" }] },
+        { "name": "target", "values": [{ "name": "LinkProps['target']" }] },
+        { "name": "rel", "values": [{ "name": "LinkProps['rel']" }] },
+        { "name": "download", "values": [{ "name": "LinkProps['download']" }] },
+        { "name": "isBold", "values": [] },
+        { "name": "isStandalone", "values": [] },
+        { "name": "hasVisited", "values": [] },
+        { "name": "type", "values": [] },
+        { "name": "aria", "values": [{ "name": "LinkProps['aria']" }] }
+      ],
+      "references": []
+    }
+  ]
+}

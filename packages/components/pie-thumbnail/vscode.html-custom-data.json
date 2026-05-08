@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-thumbnail",
+      "description": "\n---\n",
+      "attributes": [
+        { "name": "variant", "values": [] },
+        { "name": "size", "values": [] },
+        { "name": "aspectRatio", "values": [] },
+        { "name": "src", "values": [] },
+        { "name": "alt", "values": [] },
+        { "name": "disabled", "values": [] },
+        { "name": "hasPadding", "values": [] },
+        { "name": "hideDefaultPlaceholder", "values": [] },
+        { "name": "backgroundColor", "values": [] },
+        {
+          "name": "placeholder",
+          "values": [{ "name": "ThumbnailProps['placeholder']" }]
+        }
+      ],
+      "references": []
+    }
+  ]
+}

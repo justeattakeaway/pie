@@ -27,8 +27,15 @@
     },
     "create:manifest": {
       "cache": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/configs/pie-components-config/custom-elements-manifest.config.js"
+      ],
       "outputs": [
-        "custom-elements.json"
+        "custom-elements.json",
+        "vscode.html-custom-data.json",
+        "vscode.css-custom-data.json",
+        "vue.d.ts"
       ]
     },
     "generate:component-statuses": {},

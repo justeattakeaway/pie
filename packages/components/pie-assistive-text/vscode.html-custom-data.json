@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-assistive-text",
+      "description": "\n---\n\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [
+        { "name": "variant", "values": [] },
+        { "name": "isVisuallyHidden", "values": [] }
+      ],
+      "references": []
+    }
+  ]
+}

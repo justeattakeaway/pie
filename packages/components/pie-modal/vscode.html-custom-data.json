@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-modal",
+      "description": "\n---\n\n\n### **Events:**\n - **pie-modal-open** - when the modal is opened.\n- **pie-modal-close** - when the modal is closed.\n- **pie-modal-back** - when the modal back button is clicked.\n- **pie-modal-leading-action-click** - when the modal leading action is clicked.\n- **pie-modal-supporting-action-click** - when the modal supporting action is clicked.\n\n### **Slots:**\n - **headerContent** - Used to pass additional content to the modal header that scrolls with the heading and controls.\n- **footer** - Used to pass optional content to the modal component footer area.\n- _default_ - The default slot is used to pass content into the modal component.",
+      "attributes": [
+        { "name": "aria", "values": [{ "name": "ModalProps['aria']" }] },
+        { "name": "heading", "values": [] },
+        { "name": "headingLevel", "values": [] },
+        { "name": "hasBackButton", "values": [] },
+        { "name": "hasStackedActions", "values": [] },
+        { "name": "isDismissible", "values": [] },
+        { "name": "isHeadingEmphasised", "values": [] },
+        { "name": "isFooterPinned", "values": [] },
+        { "name": "isFullWidthBelowMid", "values": [] },
+        { "name": "isLoading", "values": [] },
+        { "name": "isOpen", "values": [] },
+        {
+          "name": "leadingAction",
+          "values": [{ "name": "ModalProps['leadingAction']" }]
+        },
+        { "name": "position", "values": [] },
+        {
+          "name": "returnFocusAfterCloseSelector",
+          "values": [{ "name": "ModalProps['returnFocusAfterCloseSelector']" }]
+        },
+        { "name": "size", "values": [] },
+        {
+          "name": "supportingAction",
+          "values": [{ "name": "ModalProps['supportingAction']" }]
+        },
+        { "name": "backgroundColor", "values": [] },
+        {
+          "name": "imageSlotMode",
+          "values": [{ "name": "ModalProps['imageSlotMode']" }]
+        },
+        { "name": "imageSlotAspectRatio", "values": [] }
+      ],
+      "references": []
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-data-table",
+      "description": "\n---\n\n\n### **Slots:**\n - **table-header** - Slot for custom table header content\n- _default_ - Default slot for when there is no data to display in the table",
+      "attributes": [
+        {
+          "name": "columns",
+          "description": "Array of column definitions",
+          "values": [{ "name": "Column[]" }]
+        },
+        {
+          "name": "data",
+          "description": "Array of data objects to display",
+          "values": [{ "name": "Record<string" }, { "name": "unknown>[]" }]
+        },
+        {
+          "name": "additionalRows",
+          "description": "Arbitrary additional rows to display at the bottom of the table",
+          "values": [{ "name": "DataTableAdditionalRow[]" }]
+        }
+      ],
+      "references": []
+    },
+    {
+      "name": "pie-data-table-body",
+      "description": "\n---\n\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [],
+      "references": []
+    },
+    {
+      "name": "pie-data-table-head",
+      "description": "\n---\n\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [],
+      "references": []
+    },
+    {
+      "name": "pie-data-table-head-cell",
+      "description": "\n---\n\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [
+        {
+          "name": "textAlign",
+          "description": "Text alignment for the cell content",
+          "values": [{ "name": "DataTableHeadCellProps['textAlign']" }]
+        },
+        {
+          "name": "isHidden",
+          "description": "Whether the cell is hidden",
+          "values": [{ "name": "DataTableHeadCellProps['isHidden']" }]
+        }
+      ],
+      "references": []
+    },
+    {
+      "name": "pie-data-table-cell",
+      "description": "\n---\n\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [
+        {
+          "name": "textAlign",
+          "description": "Text alignment for the cell content",
+          "values": [{ "name": "DataTableCellProps['textAlign']" }]
+        },
+        {
+          "name": "isHidden",
+          "description": "Whether the cell is hidden",
+          "values": [{ "name": "DataTableCellProps['isHidden']" }]
+        }
+      ],
+      "references": []
+    },
+    {
+      "name": "pie-data-table-contents",
+      "description": "\n---\n\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [],
+      "references": []
+    },
+    {
+      "name": "pie-data-table-header",
+      "description": "\n---\n\n\n### **Slots:**\n - **action-button** - Slot for action buttons in the header",
+      "attributes": [
+        {
+          "name": "heading",
+          "description": "heading text for the data table header",
+          "values": [{ "name": "DataTableHeaderProps['heading']" }]
+        },
+        {
+          "name": "subHeading",
+          "description": "Sub heading text for the data table header",
+          "values": [{ "name": "DataTableHeaderProps['subHeading']" }]
+        },
+        {
+          "name": "variant",
+          "description": "Emphasis level for the header",
+          "values": [{ "name": "typeof defaultProps.variant" }]
+        }
+      ],
+      "references": []
+    },
+    {
+      "name": "pie-data-table-row",
+      "description": "\n---\n\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [
+        {
+          "name": "isSelected",
+          "description": "Whether the row is currently selected",
+          "values": [{ "name": "DataTableRowProps['isSelected']" }]
+        },
+        {
+          "name": "isHidden",
+          "description": "Whether the row is hidden",
+          "values": [{ "name": "DataTableRowProps['isHidden']" }]
+        }
+      ],
+      "references": []
+    }
+  ]
+}

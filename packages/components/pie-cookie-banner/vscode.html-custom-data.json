@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-cookie-banner",
+      "description": "\n---\n\n\n### **Events:**\n - **pie-cookie-banner-accept-all** - when all cookies are accepted.\n- **pie-cookie-banner-necessary-only** - when all only necessary cookies are accepted.\n- **pie-cookie-banner-manage-prefs** - when a user clicks manage preferences.\n- **pie-cookie-banner-prefs-saved** - when a user clicks save preferences.",
+      "attributes": [
+        { "name": "hasPrimaryActionsOnly", "values": [] },
+        { "name": "defaultPreferences", "values": [] },
+        { "name": "cookieStatementLink", "values": [] },
+        { "name": "cookieTechnologiesLink", "values": [] },
+        { "name": "country", "values": [] },
+        { "name": "language", "values": [] },
+        { "name": "openLinksInSameTab", "values": [] }
+      ],
+      "references": []
+    }
+  ]
+}

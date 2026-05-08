@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-textarea",
+      "description": "\n---\n\n\n### **Events:**\n - **input** - when the textarea value is changed.\n- **change** - when the textarea value is changed.\n\n### **Methods:**\n - **formDisabledCallback(disabled: _boolean_): _void_** - Called after the disabled state of the element changes,\neither because the disabled attribute of this element was added or removed;\nor because the disabled state changed on a <fieldset> that's an ancestor of this element.\n- **formResetCallback(): _void_** - Called when the form that owns this component is reset.\nResets the value to the default value.",
+      "attributes": [
+        { "name": "value", "values": [] },
+        {
+          "name": "defaultValue",
+          "values": [{ "name": "TextareaProps['defaultValue']" }]
+        },
+        { "name": "disabled", "values": [] },
+        { "name": "size", "values": [] },
+        { "name": "resize", "values": [] },
+        { "name": "readonly", "values": [] },
+        { "name": "autoFocus", "values": [] },
+        { "name": "required", "values": [] },
+        { "name": "status", "values": [] },
+        {
+          "name": "assistiveText",
+          "values": [{ "name": "TextareaProps['assistiveText']" }]
+        },
+        { "name": "name", "values": [{ "name": "TextareaProps['name']" }] },
+        {
+          "name": "autocomplete",
+          "values": [{ "name": "TextareaProps['autocomplete']" }]
+        },
+        {
+          "name": "placeholder",
+          "values": [{ "name": "TextareaProps['placeholder']" }]
+        }
+      ],
+      "references": []
+    }
+  ]
+}

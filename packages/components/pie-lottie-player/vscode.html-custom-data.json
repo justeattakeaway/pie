@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-lottie-player",
+      "description": "\n---\n\n\n### **Methods:**\n - **play(): _void_** - Plays the animation from the beginning\n- **stop(): _void_** - Stops the animation",
+      "attributes": [
+        { "name": "animationSrc", "values": [] },
+        { "name": "animationData", "values": [] },
+        { "name": "autoPlayDisabled", "values": [] },
+        { "name": "loopDisabled", "values": [] },
+        { "name": "speed", "values": [] },
+        {
+          "name": "direction",
+          "values": [{ "name": "LottiePlayerProps['direction']" }]
+        }
+      ],
+      "references": []
+    }
+  ]
+}

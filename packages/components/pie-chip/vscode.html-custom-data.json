@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-chip",
+      "description": "\n---\n\n\n### **Events:**\n - **close** - when a user clicks the close button.\n- **change** - when a user interacts with the chip of type checkbox.\n\n### **Slots:**\n - **icon** - The icon slot\n- _default_ - Default slot",
+      "attributes": [
+        { "name": "variant", "values": [] },
+        { "name": "type", "values": [] },
+        { "name": "disabled", "values": [] },
+        { "name": "isSelected", "values": [] },
+        { "name": "isLoading", "values": [] },
+        { "name": "isDismissible", "values": [] },
+        { "name": "aria", "values": [{ "name": "ChipProps['aria']" }] }
+      ],
+      "references": []
+    }
+  ]
+}

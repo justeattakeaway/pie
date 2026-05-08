@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-select",
+      "description": "\n---\n\n\n### **Events:**\n - **change** - when the selected option is changed.\n\n### **Methods:**\n - **formDisabledCallback(disabled: _boolean_): _void_** - Called after the disabled state of the element changes,\neither because the disabled attribute of this element was added or removed;\nor because the disabled state changed on a <fieldset> that's an ancestor of this element.\n- **formResetCallback(): _void_** - Called when the form that owns this component is reset.\nResets the value to the default select value.",
+      "attributes": [
+        { "name": "size", "values": [] },
+        { "name": "disabled", "values": [] },
+        { "name": "status", "values": [] },
+        {
+          "name": "assistiveText",
+          "values": [{ "name": "SelectProps['assistiveText']" }]
+        },
+        { "name": "name", "values": [{ "name": "SelectProps['name']" }] },
+        { "name": "options", "values": [{ "name": "SelectProps['options']" }] },
+        { "name": "value", "values": [{ "name": "SelectProps['value']" }] }
+      ],
+      "references": []
+    }
+  ]
+}

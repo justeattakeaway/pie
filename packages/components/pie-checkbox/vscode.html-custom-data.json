@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-checkbox",
+      "description": "\n---\n\n\n### **Events:**\n - **change** - when checked state is changed.\n\n### **Methods:**\n - **formDisabledCallback(disabled: _boolean_): _void_** - Called after the disabled state of the element changes,\neither because the disabled attribute of this element was added or removed;\nor because the disabled state changed on a <fieldset> that's an ancestor of this element.\n- **formResetCallback(): _void_** - Called when the form that contains this component is reset.\nIf the current checked state is different to the default checked state,\nthe checked state is reset to the default checked state and a `change` event is emitted.\n\n### **Slots:**\n - _default_ - Default slot",
+      "attributes": [
+        { "name": "value", "values": [] },
+        { "name": "name", "values": [{ "name": "CheckboxProps['name']" }] },
+        { "name": "checked", "values": [] },
+        { "name": "defaultChecked", "values": [] },
+        { "name": "disabled", "values": [] },
+        { "name": "required", "values": [] },
+        { "name": "indeterminate", "values": [] },
+        {
+          "name": "assistiveText",
+          "values": [{ "name": "CheckboxProps['assistiveText']" }]
+        },
+        { "name": "status", "values": [] }
+      ],
+      "references": []
+    }
+  ]
+}

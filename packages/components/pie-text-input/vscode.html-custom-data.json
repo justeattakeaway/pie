@@ -1,0 +1,60 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-text-input",
+      "description": "\n---\n\n\n### **Events:**\n - **input** - when the input value is changed.\n- **change** - when the input value is changed.\n\n### **Methods:**\n - **formDisabledCallback(disabled: _boolean_): _void_** - Called after the disabled state of the element changes,\neither because the disabled attribute of this element was added or removed;\nor because the disabled state changed on a <fieldset> that's an ancestor of this element.\n- **formResetCallback(): _void_** - Called when the form that owns this component is reset.\nResets the value to the default value.\n\n### **Slots:**\n - **leadingText** - Short text to display at the start of the input. Wrap the text in a <span>. Do not use with leadingIcon at the same time.\n- **leadingIcon** - An icon to display at the start of the input. Do not use with leadingText at the same time.\n- **trailingText** - Short text to display at the end of the input. Wrap the text in a <span>. Do not use with trailingIcon at the same time.\n- **trailingIcon** - An icon to display at the end of the input. Do not use with trailingText at the same time.",
+      "attributes": [
+        { "name": "type", "values": [] },
+        { "name": "value", "values": [] },
+        { "name": "name", "values": [{ "name": "TextInputProps['name']" }] },
+        { "name": "disabled", "values": [] },
+        {
+          "name": "pattern",
+          "values": [{ "name": "TextInputProps['pattern']" }]
+        },
+        {
+          "name": "minlength",
+          "values": [{ "name": "TextInputProps['minlength']" }]
+        },
+        {
+          "name": "maxlength",
+          "values": [{ "name": "TextInputProps['maxlength']" }]
+        },
+        {
+          "name": "autocomplete",
+          "values": [{ "name": "TextInputProps['autocomplete']" }]
+        },
+        {
+          "name": "placeholder",
+          "values": [{ "name": "TextInputProps['placeholder']" }]
+        },
+        {
+          "name": "autoFocus",
+          "values": [{ "name": "TextInputProps['autoFocus']" }]
+        },
+        {
+          "name": "inputmode",
+          "values": [{ "name": "TextInputProps['inputmode']" }]
+        },
+        { "name": "readonly", "values": [] },
+        {
+          "name": "defaultValue",
+          "values": [{ "name": "TextInputProps['defaultValue']" }]
+        },
+        {
+          "name": "assistiveText",
+          "values": [{ "name": "TextInputProps['assistiveText']" }]
+        },
+        { "name": "status", "values": [] },
+        { "name": "step", "values": [{ "name": "TextInputProps['step']" }] },
+        { "name": "min", "values": [{ "name": "TextInputProps['min']" }] },
+        { "name": "max", "values": [{ "name": "TextInputProps['max']" }] },
+        { "name": "size", "values": [] },
+        { "name": "required", "values": [] }
+      ],
+      "references": []
+    }
+  ]
+}

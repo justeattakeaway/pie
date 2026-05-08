@@ -1,0 +1,55 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "pie-button",
+      "description": "\n---\n\n\n### **Slots:**\n - **icon** - The icon slot\n- _default_ - Default slot",
+      "attributes": [
+        { "name": "tag", "values": [] },
+        { "name": "size", "values": [] },
+        { "name": "type", "values": [] },
+        { "name": "variant", "values": [] },
+        { "name": "iconPlacement", "values": [] },
+        { "name": "disabled", "values": [] },
+        { "name": "isLoading", "values": [] },
+        { "name": "isFullWidth", "values": [] },
+        { "name": "isResponsive", "values": [] },
+        { "name": "name", "values": [{ "name": "ButtonProps['name']" }] },
+        { "name": "value", "values": [{ "name": "ButtonProps['value']" }] },
+        {
+          "name": "formaction",
+          "values": [{ "name": "ButtonProps['formaction']" }]
+        },
+        {
+          "name": "formenctype",
+          "values": [{ "name": "ButtonProps['formenctype']" }]
+        },
+        {
+          "name": "formmethod",
+          "values": [{ "name": "ButtonProps['formmethod']" }]
+        },
+        {
+          "name": "formnovalidate",
+          "values": [{ "name": "ButtonProps['formnovalidate']" }]
+        },
+        {
+          "name": "formtarget",
+          "values": [{ "name": "ButtonProps['formtarget']" }]
+        },
+        {
+          "name": "responsiveSize",
+          "values": [{ "name": "ButtonProps['responsiveSize']" }]
+        },
+        { "name": "href", "values": [{ "name": "ButtonProps['href']" }] },
+        { "name": "rel", "values": [{ "name": "ButtonProps['rel']" }] },
+        { "name": "target", "values": [{ "name": "ButtonProps['target']" }] },
+        {
+          "name": "download",
+          "values": [{ "name": "ButtonProps['download']" }]
+        }
+      ],
+      "references": []
+    }
+  ]
+}
