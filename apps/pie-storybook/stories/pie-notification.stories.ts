@@ -236,22 +236,28 @@ export const WithLinkActions = createNotificationStory({
 const SlottedLeadingActionTemplate: TemplateFunction<NotificationProps> = ({
     aria,
     isOpen,
+    isDismissible,
+    isCompact,
     variant,
     position,
     heading,
     headingLevel,
     hideIcon,
+    hasStackedActions,
     slot,
     iconSlot,
 }) => html`
     <pie-notification
         .aria="${aria}"
         ?isOpen="${isOpen}"
+        ?isDismissible="${isDismissible}"
+        ?isCompact="${isCompact}"
         variant="${ifDefined(variant)}"
         position="${ifDefined(position)}"
         heading="${ifDefined(heading)}"
         headingLevel="${ifDefined(headingLevel)}"
         ?hideIcon="${hideIcon}"
+        ?hasStackedActions="${hasStackedActions}"
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}">
             ${iconSlot}
@@ -270,27 +276,35 @@ export const WithSlottedLeadingAction = createStory<NotificationProps>(SlottedLe
     variant: 'info',
     heading: 'Slotted Action with Icon',
     slot: 'This notification uses a slotted pie-button with an icon for the leading action.',
-})();
+    leadingAction: undefined,
+    supportingAction: undefined,
+})(undefined, { controls: { exclude: ['leadingAction', 'supportingAction'] } });
 
 const SlottedBothActionsTemplate: TemplateFunction<NotificationProps> = ({
     aria,
     isOpen,
+    isDismissible,
+    isCompact,
     variant,
     position,
     heading,
     headingLevel,
     hideIcon,
+    hasStackedActions,
     slot,
     iconSlot,
 }) => html`
     <pie-notification
         .aria="${aria}"
         ?isOpen="${isOpen}"
+        ?isDismissible="${isDismissible}"
+        ?isCompact="${isCompact}"
         variant="${ifDefined(variant)}"
         position="${ifDefined(position)}"
         heading="${ifDefined(heading)}"
         headingLevel="${ifDefined(headingLevel)}"
         ?hideIcon="${hideIcon}"
+        ?hasStackedActions="${hasStackedActions}"
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}">
             ${iconSlot}
@@ -316,16 +330,21 @@ export const WithSlottedBothActions = createStory<NotificationProps>(SlottedBoth
     variant: 'success',
     heading: 'Slotted Actions (Loading & Disabled)',
     slot: 'This notification has a loading leading action and a disabled supporting action, both using slotted pie-buttons.',
-})();
+    leadingAction: undefined,
+    supportingAction: undefined,
+})(undefined, { controls: { exclude: ['leadingAction', 'supportingAction'] } });
 
 const MixedSlottedLeadingPropSupportingTemplate: TemplateFunction<NotificationProps> = ({
     aria,
     isOpen,
+    isDismissible,
+    isCompact,
     variant,
     position,
     heading,
     headingLevel,
     hideIcon,
+    hasStackedActions,
     slot,
     iconSlot,
     supportingAction,
@@ -333,11 +352,14 @@ const MixedSlottedLeadingPropSupportingTemplate: TemplateFunction<NotificationPr
     <pie-notification
         .aria="${aria}"
         ?isOpen="${isOpen}"
+        ?isDismissible="${isDismissible}"
+        ?isCompact="${isCompact}"
         variant="${ifDefined(variant)}"
         position="${ifDefined(position)}"
         heading="${ifDefined(heading)}"
         headingLevel="${ifDefined(headingLevel)}"
         ?hideIcon="${hideIcon}"
+        ?hasStackedActions="${hasStackedActions}"
         .supportingAction="${supportingAction}"
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}"
@@ -359,4 +381,5 @@ export const WithMixedSlottedLeadingPropSupporting = createStory<NotificationPro
     heading: 'Mixed: Slotted Leading & Prop Supporting',
     slot: 'This notification uses a slotted pie-button for the leading action and a prop-based supporting action.',
     supportingAction: { text: 'Dismiss', ariaLabel: 'Dismiss notification' },
-})();
+    leadingAction: undefined,
+})(undefined, { controls: { exclude: ['leadingAction'] } });
