@@ -68,7 +68,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### Neutral - alternative
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-neutral-alternative",
+    src: "../../../assets/img/components/modal-apps/variants-neutral-alternative.svg",
     alt: "Neutral-alternative variation of the dialog.",
     width: 300
 } %}
@@ -76,7 +76,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 02 Orange subtle
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-orange-subtle",
+    src: "../../../assets/img/components/modal-apps/variants-orange-subtle.svg",
     alt: "Orange subtle variation of the dialog.",
     width: 300
 } %}
@@ -84,7 +84,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 03 Cupcake strong
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-cupcake-strong",
+    src: "../../../assets/img/components/modal-apps/variants-cupcake-strong.svg",
     alt: "Cupcake strong variation of the dialog.",
     width: 300
 } %}
@@ -92,7 +92,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 03 Cupcake subtle
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-cupcake-subtle",
+    src: "../../../assets/img/components/modal-apps/variants-cupcake-subtle.svg",
     alt: "Cupcake subtle variation of the dialog.",
     width: 300
 } %}
@@ -100,7 +100,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 04 Berry strong
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-berry-strong",
+    src: "../../../assets/img/components/modal-apps/variants-berry-strong.svg",
     alt: "Berry strong variation of the dialog.",
     width: 300
 } %}
@@ -108,7 +108,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 04 Berry subtle
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-berry-subtle",
+    src: "../../../assets/img/components/modal-apps/variants-berry-subtle.svg",
     alt: "Berry subtle variation of the dialog.",
     width: 300
 } %}
@@ -116,7 +116,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 05 Turmeric strong
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-turmeric-strong",
+    src: "../../../assets/img/components/modal-apps/variants-turmeric-strong.svg",
     alt: "Turmeric strong variation of the dialog.",
     width: 300
 } %}
@@ -124,7 +124,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 05 Turmeric subtle
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-turmeric-subtle",
+    src: "../../../assets/img/components/modal-apps/variants-turmeric-subtle.svg",
     alt: "Turmeric subtle variation of the dialog.",
     width: 300
 } %}
@@ -132,7 +132,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 06 Aubergine strong
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-aubergine-strong",
+    src: "../../../assets/img/components/modal-apps/variants-aubergine-strong.svg",
     alt: "Aubergine strong variation of the dialog.",
     width: 300
 } %}
@@ -140,7 +140,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 06 Aubergine subtle
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-aubergine-subtle",
+    src: "../../../assets/img/components/modal-apps/variants-aubergine-subtle.svg",
     alt: "Aubergine subtle variation of the dialog.",
     width: 300
 } %}
@@ -148,7 +148,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 08 Latte strong
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-latte-strong",
+    src: "../../../assets/img/components/modal-apps/variants-latte-strong.svg",
     alt: "Latte strong variation of the dialog.",
     width: 300
 } %}
@@ -156,7 +156,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 ### 08 Latte subtle
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/variants-latte-subtle",
+    src: "../../../assets/img/components/modal-apps/variants-latte-subtle.svg",
     alt: "Latte subtle variation of the dialog.",
     width: 300
 } %}
@@ -172,7 +172,7 @@ For critical messaging, the Neutral - alternative variant must be used. For non-
 #### Critical messaging
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/usage-colour-critical",
+    src: "../../../assets/img/components/modal-apps/usage-colour-critical.svg",
     alt: "Dialog in variant neutral-alternative for critical messaging.",
     width: 300
 } %}
@@ -180,7 +180,7 @@ For critical messaging, the Neutral - alternative variant must be used. For non-
 #### Promotional messaging
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/usage-colour-promotional",
+    src: "../../../assets/img/components/modal-apps/usage-colour-promotional.svg",
     alt: "Dialog in variant cupcake subtle for promotional messaging.",
     width: 300
 } %}
@@ -192,7 +192,7 @@ Critical messaging should always be left-aligned. Promotional messaging can be c
 #### Critical messaging
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/usage-alignment-critical",
+    src: "../../../assets/img/components/modal-apps/usage-alignment-critical.svg",
     alt: "Dialog with text left-aligned for critical messaging.",
     width: 300
 } %}
@@ -200,7 +200,7 @@ Critical messaging should always be left-aligned. Promotional messaging can be c
 #### Promotional messaging
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/usage-alignment-promotional",
+    src: "../../../assets/img/components/modal-apps/usage-alignment-promotional.svg",
     alt: "Dialog with text center-aligned for promotional messaging.",
     width: 300
 } %}
@@ -212,7 +212,7 @@ Critical messaging should use default title styling. Promotional messaging can u
 #### Critical messaging
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/usage-title-critical",
+    src: "../../../assets/img/components/modal-apps/usage-title-critical.svg",
     alt: "Dialog with default title styling for critical messaging.",
     width: 300
 } %}
@@ -220,7 +220,7 @@ Critical messaging should use default title styling. Promotional messaging can u
 #### Promotional messaging
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/usage-title-promotional",
+    src: "../../../assets/img/components/modal-apps/usage-title-promotional.svg",
     alt: "Dialog with prominent title styling for promotional messaging.",
     width: 300
 } %}
@@ -239,7 +239,7 @@ The default width of the component is set to 328px, however may be adjusted to f
 ### Default
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/sizes-default",
+    src: "../../../assets/img/components/modal-apps/sizes-default.svg",
     alt: "Dialog in default size.",
     width: 300
 } %}
@@ -247,7 +247,7 @@ The default width of the component is set to 328px, however may be adjusted to f
 ### Minimum Size
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/sizes-minimum",
+    src: "../../../assets/img/components/modal-apps/sizes-minimum.svg",
     alt: "Dialog in minimum size.",
     width: 300
 } %}
@@ -263,7 +263,7 @@ Depending on the level of visual prominence you want to give to the Modal, you c
 #### Strong
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-colour-strong",
+    src: "../../../assets/img/components/modal-apps/modifiers-colour-strong.svg",
     alt: "Dialog with strong colour emphasis.",
     width: 300
 } %}
@@ -271,7 +271,7 @@ Depending on the level of visual prominence you want to give to the Modal, you c
 #### Subtle
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-colour-subtle",
+    src: "../../../assets/img/components/modal-apps/modifiers-colour-subtle.svg",
     alt: "Dialog with subtle colour emphasis.",
     width: 300
 } %}
@@ -283,7 +283,7 @@ Depending on the level of visual prominence you want to give to the title, you c
 #### Default title
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-title-default",
+    src: "../../../assets/img/components/modal-apps/modifiers-title-default.svg",
     alt: "Dialog with default title styling.",
     width: 300
 } %}
@@ -291,7 +291,7 @@ Depending on the level of visual prominence you want to give to the title, you c
 #### Prominent title
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-title-prominent",
+    src: "../../../assets/img/components/modal-apps/modifiers-title-prominent.svg",
     alt: "Dialog with prominent title styling.",
     width: 300
 } %}
@@ -301,7 +301,7 @@ Depending on the level of visual prominence you want to give to the title, you c
 You can use centre-alignment in a dialog to highlight short messages, like titles or brief instructions, enhancing readability and importance. However, longer text or multiple elements may benefit from left-aligned text for better flow.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-alignment",
+    src: "../../../assets/img/components/modal-apps/modifiers-alignment.svg",
     alt: "Dialog with centre-aligned text.",
     width: 300
 } %}
@@ -313,7 +313,7 @@ You can use centre-alignment in a dialog to highlight short messages, like title
 You can use an illustration in the header of a Dialog to add visual context, this can reinforce the modal's purpose and enhance engagement while aligning with the app's design.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-illustration",
+    src: "../../../assets/img/components/modal-apps/modifiers-header-illustration.svg",
     alt: "Dialog with illustration in the header.",
     width: 300
 } %}
@@ -325,7 +325,7 @@ You can use an image in the header of a Dialog to add visual context. This is av
 ##### Full bleed image
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image",
+    src: "../../../assets/img/components/modal-apps/modifiers-header-image.svg",
     alt: "Dialog with full bleed image in the header.",
     width: 300
 } %}
@@ -334,7 +334,7 @@ You can use an image in the header of a Dialog to add visual context. This is av
 
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-margin",
+    src: "../../../assets/img/components/modal-apps/modifiers-header-image-margin.svg",
     alt: "Dialog with image in the header and margin.",
     width: 300
 } %}
@@ -348,26 +348,26 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
   message: "The image aspect ration must be consistent across portrait and landscape design as to not distort or stretch the image."
 } %}
 
-###### Small (3:1)
+**Small (3:1)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-small",
+    src: "../../../assets/img/components/modal-apps/modifiers-header-image-small.svg",
     alt: "Dialog with small image in the header.",
     width: 300
 } %}
 
-###### Medium (16:9)
+**Medium (16:9)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-medium",
+    src: "../../../assets/img/components/modal-apps/modifiers-header-image-medium.svg",
     alt: "Dialog with medium image in the header.",
     width: 300
 } %}
 
-###### Large (4:3)
+**Large (4:3)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-large",
+    src: "../../../assets/img/components/modal-apps/modifiers-header-image-large.svg",
     alt: "Dialog with large image in the header.",
     width: 300
 } %}
@@ -377,7 +377,7 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
 Animation can be used in the header of a Dialog to add visual context. Lottie files will need to be used for implementing this in development; however, GIF animations can be used in Figma files for visual purposes only.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-animation",
+    src: "../../../assets/img/components/modal-apps/modifiers-animation.svg",
     alt: "Dialog with animation in the header.",
     width: 300
 } %}
@@ -387,7 +387,7 @@ Animation can be used in the header of a Dialog to add visual context. Lottie fi
 On landscape mode the visual property can be disabled. This ensures users can easily view and scroll through content.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-landscape",
+    src: "../../../assets/img/components/modal-apps/modifiers-landscape.svg",
     alt: "Dialog with hidden decorative content in the header on landscape mode.",
     width: 300
 } %}
@@ -397,7 +397,7 @@ On landscape mode the visual property can be disabled. This ensures users can ea
 You can use a dialog with no body for quick confirmation messages, alerts, notifications or confirmation prompts where the title alone is enough.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-no-body",
+    src: "../../../assets/img/components/modal-apps/modifiers-no-body.svg",
     alt: "Dialog with no body text.",
 
     width: 300
@@ -408,7 +408,7 @@ You can use a dialog with no body for quick confirmation messages, alerts, notif
 You can use side-by-side calls to action when space is limited or when both actions are equally important. This is often seen in confirmation prompts for efficient interaction, like "OK" and "Cancel".
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-two-buttons",
+    src: "../../../assets/img/components/modal-apps/modifiers-two-buttons.svg",
     alt: "Dialog with side-by-side calls to action.",
     width: 300
 } %}
@@ -418,7 +418,7 @@ You can use side-by-side calls to action when space is limited or when both acti
 You can use a single call to action in a dialog when there's only one primary action and to simplify user decisions. This is often seen in scenarios without alternative choices.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-one-button",
+    src: "../../../assets/img/components/modal-apps/modifiers-one-button.svg",
     alt: "Dialog with single call to action.",
     width: 300
 } %}
@@ -430,7 +430,7 @@ Designers have the option to add non-interactive text below the actions, or they
 #### Footer text
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-footer-text",
+    src: "../../../assets/img/components/modal-apps/modifiers-footer-text.svg",
     alt: "Dialog with footer text.",
     width: 300
 } %}
@@ -438,7 +438,7 @@ Designers have the option to add non-interactive text below the actions, or they
 #### Footer slot
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-footer-slot",
+    src: "../../../assets/img/components/modal-apps/modifiers-footer-slot.svg",
     alt: "Dialog with footer slot.",
     width: 300
 } %}
@@ -510,7 +510,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 ### Title
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/content-overrides-title",
+    src: "../../../assets/img/components/modal-apps/content-overrides-title.svg",
     alt: "Example of a dialog title using default heading being replaced with heading italic.",
     width: 300
 } %}
@@ -546,7 +546,7 @@ Here’s some examples of a Dialog in context:
 ### LTR examples
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/example-ltr",
+    src: "../../../assets/img/components/modal-apps/example-ltr.svg",
     alt: "Example of a dialog in LTR context.",
     width: 300
 } %}
@@ -554,7 +554,7 @@ Here’s some examples of a Dialog in context:
 ### RTL Examples
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/example-rtl",
+    src: "../../../assets/img/components/modal-apps/example-rtl.svg",
     alt: "Example of a dialog in RTL context.",
     width: 300
 } %}
