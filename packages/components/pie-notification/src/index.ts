@@ -140,6 +140,7 @@ export class PieNotification extends PieElement implements NotificationProps {
 
     /**
      * Renders the supporting action - either from slot or props.
+     * Supporting action only renders when a leading action is also present (via prop or slot).
      *
      * @private
      */
@@ -148,8 +149,8 @@ export class PieNotification extends PieElement implements NotificationProps {
             return nothing;
         }
 
-        const { supportingAction } = this;
-        if (supportingAction) {
+        const { supportingAction, leadingAction } = this;
+        if (supportingAction && (leadingAction?.text || this._hasSlottedLeadingAction)) {
             return this.renderActionButton(supportingAction, 'supporting');
         }
 
