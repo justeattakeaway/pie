@@ -351,7 +351,7 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
 **Small (3:1)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-small.svg",
+    src: "../../../assets/img/components/modal-apps/modifiers-image-small.svg",
     alt: "Alert component with small image in the header.",
     width: 300
 } %}
@@ -359,7 +359,7 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
 **Medium (16:9)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-medium.svg",
+    src: "../../../assets/img/components/modal-apps/modifiers-image-medium.svg",
     alt: "Alert component with medium image in the header.",
     width: 300
 } %}
@@ -367,7 +367,7 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
 **Large (4:3)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-large.svg",
+    src: "../../../assets/img/components/modal-apps/modifiers-image-large.svg",
     alt: "Alert component with large image in the header.",
     width: 300
 } %}
@@ -379,16 +379,6 @@ Animation can be used in the header of an Alert component to add visual context.
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/modifiers-animation.svg",
     alt: "Alert component with animation in the header.",
-    width: 300
-} %}
-
-#### Hidden decorative content in the header on landscape mode
-
-On landscape mode the visual property can be disabled. This ensures users can easily view and scroll through content.
-
-{% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-landscape.svg",
-    alt: "Alert component with hidden decorative content in the header on landscape mode.",
     width: 300
 } %}
 
@@ -454,7 +444,7 @@ Tapping outside the alert's boundaries will close it, providing an intuitive way
 This interaction is enabled by default. Designers need to ask engineers to disabled during in the handover.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/interactions-close",
+    src: "../../../assets/img/components/modal-apps/interactions-close.svg",
     alt: "Example of an alert closing when tapping outside its boundaries.",
     width: 300
 } %}

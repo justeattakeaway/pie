@@ -351,7 +351,7 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
 **Small (3:1)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-small.svg",
+    src: "../../../assets/img/components/modal-apps/modifiers-image-small.svg",
     alt: "Dialog with small image in the header.",
     width: 300
 } %}
@@ -359,7 +359,7 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
 **Medium (16:9)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-medium.svg",
+    src: "../../../assets/img/components/modal-apps/modifiers-image-medium.svg",
     alt: "Dialog with medium image in the header.",
     width: 300
 } %}
@@ -367,7 +367,7 @@ There are 3 aspect ratios for imagery within the modal component. Aspect ratios 
 **Large (4:3)**
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/modifiers-header-image-large.svg",
+    src: "../../../assets/img/components/modal-apps/modifiers-image-large.svg",
     alt: "Dialog with large image in the header.",
     width: 300
 } %}
@@ -454,7 +454,7 @@ Tapping outside the dialog's boundaries will close it, providing an intuitive wa
 This interaction is enabled by default. Designers need to ask engineers to disabled during in the handover.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/interactions-close",
+    src: "../../../assets/img/components/modal-apps/interactions-close.svg",
     alt: "Example of a dialog closing when tapping outside its boundaries.",
     width: 300
 } %}
@@ -525,7 +525,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 ### Buttons
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal-apps/content-overrides-buttons",
+    src: "../../../assets/img/components/modal-apps/content-overrides-buttons.svg",
     alt: "Example pointing at dialog buttons that can be overridden to use different variants.",
     width: 300
 } %}
