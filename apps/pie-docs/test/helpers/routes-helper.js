@@ -24,7 +24,9 @@ const readChildren = (childDirectories, result = []) => {
         return result;
     }
 
-    if (childDirectories.children.length === 1 && childDirectories.children[0].name === 'index.html') {
+    const relevantChildren = childDirectories.children.filter((child) => !child.name.endsWith('.md'));
+
+    if (relevantChildren.length === 1 && relevantChildren[0].name === 'index.html') {
         if (process.platform === 'win32') {
             childDirectories.relativePath = childDirectories.relativePath.replace(/\\/g, '/');
         }
