@@ -721,7 +721,7 @@ test.describe('PieNotification - Component tests', () => {
                 await expect(slottedSupporting).toBeVisible();
             });
 
-            test('should render slotted leading action alongside prop-based supporting action', async ({ page }) => {
+            test('should not render prop-based supporting action when leading action is only slotted', async ({ page }) => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification--mixed-slotted-leading-prop-supporting');
                 await notificationPage.load();
@@ -732,7 +732,7 @@ test.describe('PieNotification - Component tests', () => {
 
                 // Assert
                 await expect(slottedLeading).toBeVisible();
-                await expect(propSupporting).toBeVisible();
+                await expect(propSupporting).not.toBeVisible();
             });
 
             test('should not emit pie-notification-leading-action-click when a slotted leading action is clicked', async ({ page }) => {

@@ -114,9 +114,8 @@ export class PieNotification extends PieElement implements NotificationProps {
      */
     private renderSupportingAction () {
         const { supportingAction, leadingAction } = this;
-        const hasLeadingAction = leadingAction?.text || this.querySelector('[slot="leadingAction"]');
 
-        if (supportingAction && hasLeadingAction) {
+        if (supportingAction && leadingAction?.text) {
             return this.renderActionButton(supportingAction, 'supporting');
         }
 
