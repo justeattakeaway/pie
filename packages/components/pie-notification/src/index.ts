@@ -66,7 +66,7 @@ export class PieNotification extends PieElement implements NotificationProps {
     @property({ type: Boolean })
     public isDismissible = defaultProps.isDismissible;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public isCompact = defaultProps.isCompact;
 
     @property({ type: String })

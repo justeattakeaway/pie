@@ -3,6 +3,22 @@
 
 :host {
     display: block;
+    --gap-empty: 0;
+    --gap-has-content: var(--dt-spacing-d);
+    --gap: var(--gap-empty);
+}
+
+// These two rules enable the correct whitespace to be applied above either the slotted OR prop-based pie-button actions.
+// Flexgap wont work for an empty footer when slotted as gap still applies whitespace even for empty children.
+
+.c-notification:has(pie-button) {
+    --gap: var(--gap-has-content);
+}
+
+:host(:not([isCompact])) {
+    ::slotted(pie-button) {
+        margin-top: var(--gap-has-content);
+    }
 }
 
 .c-notification {
@@ -28,7 +44,7 @@
     position: relative;
     display: flex;
     flex-direction: var(--notification-direction);
-    gap: var(--dt-spacing-d);
+    gap: var(--gap);
     font-family: var(--notification-font-family);
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
@@ -112,13 +128,6 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        gap: var(--dt-spacing-d);
-
-        // When the footer has no visible content (e.g. only empty slots),
-        // collapse it so it doesn't contribute to the parent's gap spacing.
-        &:not(:has(pie-button, ::slotted(pie-button))) {
-            display: none;
-        }
 
         &.is-compact {
             align-self: center;
