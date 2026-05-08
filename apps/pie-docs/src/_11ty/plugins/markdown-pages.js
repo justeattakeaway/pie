@@ -1,5 +1,6 @@
 /**
- * Eleventy plugin that generates an `.md` sibling for every built HTML page.
+ * Eleventy plugin that generates a `.md` file for every built HTML page.
+ * e.g. dist/components/accordion/index.html -> dist/components/accordion.md
  * Used to provide AI/agent-friendly markdown versions of pie.design content.
  *
  */
@@ -9,7 +10,7 @@ const {
     writeFile,
     readdir,
 } = require('node:fs/promises');
-const { join } = require('node:path');
+const { join, relative, dirname } = require('node:path');
 const TurndownService = require('turndown');
 const { gfm } = require('turndown-plugin-gfm');
 
@@ -45,14 +46,20 @@ function htmlToMarkdown (html) {
 }
 
 /**
- * Converts a single HTML file to markdown and writes it alongside as index.md.
+ * Converts a single HTML file to markdown and writes it as a sibling .md file.
+ * e.g. dist/components/accordion/index.html -> dist/components/accordion.md
  */
-async function processHtmlFile (htmlFile) {
+async function processHtmlFile (htmlFile, outputDir) {
     try {
         const html = await readFile(htmlFile, 'utf-8');
         const md = htmlToMarkdown(html);
 
-        await writeFile(htmlFile.replace(/index\.html$/, 'index.md'), md, 'utf-8');
+        const relPath = relative(outputDir, dirname(htmlFile));
+        const mdPath = relPath
+            ? join(outputDir, `${relPath}.md`)
+            : join(outputDir, 'index.md');
+
+        await writeFile(mdPath, md, 'utf-8');
         return true;
     } catch {
         return false;
@@ -65,7 +72,7 @@ async function processHtmlFile (htmlFile) {
 function markdownPagesPlugin (eleventyConfig) {
     eleventyConfig.on('eleventy.after', async ({ dir }) => {
         const htmlFiles = await findHtmlFiles(dir.output);
-        const results = await Promise.all(htmlFiles.map(processHtmlFile));
+        const results = await Promise.all(htmlFiles.map((file) => processHtmlFile(file, dir.output)));
         const count = results.filter(Boolean).length;
 
         // eslint-disable-next-line no-console
