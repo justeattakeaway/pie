@@ -5,8 +5,7 @@
 In order to use this package, your component must have the following devDependencies:
 
 ```bash
-yarn add -D @custom-elements-manifest/analyzer \
-@justeattakeaway/pie-components-config \
+yarn add -D @justeattakeaway/pie-components-config \
 @justeattakeaway/pie-wrapper-react
 ```
 
