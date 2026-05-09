@@ -28,7 +28,7 @@ eleventyNavigation:
 ## Anatomy
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/2.svg",
+    src:"../../../assets/img/components/tag-apps/anatomy.svg",
     alt: "Anatomy of a tag.",
     width: 126
 } %}
@@ -39,7 +39,7 @@ eleventyNavigation:
         "**Container:** Holds related UI elements.",
         "**Leading icon background (Optional):** Background container for leading icon.",
         "**Leading icon (Optional):** Visually supports the label.",
-        "**Label:** Provides informative infromation to the user."
+        "**Label:** Provides informative information to the user."
     ]
 } %}
 
@@ -55,7 +55,7 @@ When incorporating an icon into a tag, it is essential to ensure that the icon c
 
 Leading icon provides context and visually supports the label and it is available for both variants.
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/modifiers-icon-leading.svg",
+    src:"../../../assets/img/components/tag-apps/modifiers-icon-leading.svg",
     alt: "A large and a small icon both using leading icons. These icons are placed before the icon text.",
     width: "128px"
 } %}
@@ -68,15 +68,15 @@ Depending on the level of visual prominence you want to give to the tag, you can
   {% contentItem %}
     <h4>Strong</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/strong.svg",
+      src: "../../../assets/img/components/tag-apps/strong.svg",
       width: "49px",
-      alt: "A tag component with label text. The component has a dark background color to indicate string emphasis."
+      alt: "A tag component with label text. The component has a dark background color to indicate strong emphasis."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Subtle</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tag/subtle.svg",
+      src: "../../../assets/img/components/tag-apps/subtle.svg",
       width: "49px",
       alt: "A tag component with label text. The component has a subtle background color (light grey) to indicate subtle emphasis.",
       variant: "secondary"
@@ -91,7 +91,7 @@ Select from a range of colour options across the two levels of emphasis.
 
 {% notification {
   type: "information",
-  message: "Please note that the translucent variant in Android uses a container fill with transparency only as Android operational system doesn't support blur."
+  message: "Please note that the translucent variant in iOS uses a container fill with transparency combined with blur."
 } %}
 
 {% contentLayout %}
