@@ -12,7 +12,7 @@ const {
 } = require('node:fs/promises');
 const { join, relative, dirname } = require('node:path');
 const TurndownService = require('turndown');
-const { gfm } = require('turndown-plugin-gfm');
+const { gfm } = require('@joplin/turndown-plugin-gfm');
 
 const turndown = new TurndownService({
     headingStyle: 'atx',

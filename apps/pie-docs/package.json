@@ -32,13 +32,13 @@
   "devDependencies": {
     "@11ty/eleventy": "3.1.5",
     "@11ty/eleventy-navigation": "1.0.5",
+    "@joplin/turndown-plugin-gfm": "^1.0.67",
     "@justeattakeaway/pie-monorepo-utils": "0.9.0",
     "autoprefixer": "10.5.0",
     "eleventy-plugin-rev": "2.0.0",
     "eleventy-sass": "3.0.0-beta.0",
     "markdown-it-attrs": "4.3.1",
-    "turndown": "^7.2.4",
-    "turndown-plugin-gfm": "^1.0.2"
+    "turndown": "^7.2.4"
   },
   "dependencies": {
     "@docsearch/css": "3.9.0",

@@ -3330,6 +3330,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@joplin/turndown-plugin-gfm@npm:^1.0.67":
+  version: 1.0.67
+  resolution: "@joplin/turndown-plugin-gfm@npm:1.0.67"
+  checksum: c2ec9737a9544d266596faf63f844af10ffd53d65d032706b342ccf0a098cf1713fe3e5ca49eb9d26a5e9952c01fc66dd34d68b07395104437ad7c333ddd8da1
+  languageName: node
+  linkType: hard
+
 "@jridgewell/gen-mapping@npm:^0.3.12, @jridgewell/gen-mapping@npm:^0.3.5":
   version: 0.3.12
   resolution: "@jridgewell/gen-mapping@npm:0.3.12"
@@ -3686,6 +3693,7 @@ __metadata:
     "@11ty/eleventy-navigation": 1.0.5
     "@docsearch/css": 3.9.0
     "@docsearch/js": 3.9.0
+    "@joplin/turndown-plugin-gfm": ^1.0.67
     "@justeat/fozzie": 11.0.2
     "@justeat/pie-design-tokens": 7.11.1
     "@justeattakeaway/browserslist-config-pie": 0.2.1
@@ -3714,7 +3722,6 @@ __metadata:
     postcss-cli: 11.0.1
     slugify: 1.6.9
     turndown: ^7.2.4
-    turndown-plugin-gfm: ^1.0.2
   languageName: unknown
   linkType: soft
 
@@ -22159,13 +22166,6 @@ __metadata:
   bin:
     turbo: bin/turbo
   checksum: 1e516c82abae3e68200e04ec9d9b141c1eb81ed1eaf6f39196252e37be4040f9382ed18ddfaac8b32009ff7d19f4bac50e3ec231a20b627f566a0915852e151b
-  languageName: node
-  linkType: hard
-
-"turndown-plugin-gfm@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "turndown-plugin-gfm@npm:1.0.2"
-  checksum: 18191dc18d731ec16bb1f1a477af6471ce2acf152b882a7eccef8e0101e09628fec0f8499f352f0a291ce798f1f30d799b5a72bd5d2cde30a2a28070de24495c
   languageName: node
   linkType: hard
 
