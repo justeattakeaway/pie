@@ -70,7 +70,7 @@ Depending on the level of visual prominence you want to give to the tag, you can
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/strong.svg",
       width: "49px",
-      alt: "A tag component with label text. The component has a dark background color to indicate strong emphasis."
+      alt: "A tag component with label text. The component has a dark background colour to indicate strong emphasis."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -78,7 +78,7 @@ Depending on the level of visual prominence you want to give to the tag, you can
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/subtle.svg",
       width: "49px",
-      alt: "A tag component with label text. The component has a subtle background color (light grey) to indicate subtle emphasis.",
+      alt: "A tag component with label text. The component has a subtle background colour (light grey) to indicate subtle emphasis.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
