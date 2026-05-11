@@ -1,0 +1,16 @@
+{
+  "headings": [
+    "Element",
+    "Typography token"
+  ],
+  "rows": [
+    [
+      "Title",
+      { "type": "token", "item": ["$font-heading-s"], "variant": "neutral-alternative", "isStrong": false }
+    ],
+    [
+      "Supporting text",
+      { "type": "token", "item": ["$font-body-l"], "variant": "neutral-alternative", "isStrong": false }
+    ]
+  ]
+}

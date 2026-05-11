@@ -1,0 +1,12 @@
+{
+  "headings": [
+    "Element",
+    "Radius token"
+  ],
+  "rows": [
+    [
+      "Notification container",
+      { "type": "token", "item": ["$rounded-c"], "variant": "neutral-alternative", "isStrong": false }
+    ]
+  ]
+}
