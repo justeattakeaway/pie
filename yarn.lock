@@ -3462,7 +3462,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration":
+"@justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:*, @justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration"
   dependencies:
@@ -3878,6 +3878,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-monorepo-utils@workspace:packages/tools/pie-monorepo-utils"
   dependencies:
     "@changesets/parse": 0.4.3
+    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "workspace:*"
     chalk: 4.1.2
   bin:
     detect-webc-major-version: ./webc-major-versioning/detect-webc-major-version.js
