@@ -19,7 +19,7 @@
   "dependencies": {
     "deepmerge-ts": "5.1.0"
   },
-  "peerDependencies": {
+  "devDependencies": {
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "volta": {
