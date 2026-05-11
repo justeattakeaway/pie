@@ -2,21 +2,22 @@ const fs = require('fs');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { globSync } = require('glob');
 
-function listFiles (startPath) {
-    const files = globSync('**/package.json', {
+function listFiles (startPath, globSyncImpl) {
+    return globSyncImpl('**/package.json', {
         ignore: 'node_modules/**',
         cwd: startPath,
         absolute: true,
     });
-    return files;
 }
 
-function extractComponentData (startPath) {
-    const packageFiles = listFiles(startPath);
+function extractComponentData (startPath, deps = {}) {
+    const fsImpl = deps.fs || fs;
+    const globSyncImpl = deps.globSync || globSync;
+    const packageFiles = listFiles(startPath, globSyncImpl);
     const components = {};
 
     packageFiles.forEach((filePath) => {
-        const fileContent = fs.readFileSync(filePath, 'utf8');
+        const fileContent = fsImpl.readFileSync(filePath, 'utf8');
         const parsedPackage = JSON.parse(fileContent);
 
         if (!parsedPackage.pieMetadata) return;
