@@ -1,4 +1,5 @@
 import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
+import { componentCompassPlugin }from '@component-compass/manifest-cem'
 
 export default {
     globs: [
@@ -7,9 +8,8 @@ export default {
     exclude: [
         '**/*.d.ts',
         '**/*.d.js',
-        '**/react.ts',
         '**/test/**',
         '**/node_modules/**',
     ],
-    plugins: [moduleFileExtensionsPlugin()],
+    plugins: [moduleFileExtensionsPlugin(), componentCompassPlugin()],
 };

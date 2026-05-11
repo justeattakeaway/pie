@@ -17,6 +17,7 @@
     "playwright-native-visual-config.ts"
   ],
   "dependencies": {
+    "@component-compass/manifest-cem": "pr-32-6d9bc35",
     "deepmerge-ts": "5.1.0"
   },
   "devDependencies": {

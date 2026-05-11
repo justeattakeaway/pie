@@ -2418,6 +2418,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@component-compass/ast-utils@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "@component-compass/ast-utils@npm:0.0.2"
+  dependencies:
+    "@babel/traverse": ^7.29.0
+    parse5: ^8.0.0
+  checksum: b94d8760c36997a3898ef6fc79c3144ec83e51f920a329c2baf84e3cb6f83a497a013533abd7c7badb9769c7500a170e5d0bd84cb9cc7fc526b9515d3a311ef8
+  languageName: node
+  linkType: hard
+
+"@component-compass/manifest-cem@npm:pr-32-6d9bc35":
+  version: 0.0.0-pr-32-6d9bc35-20260510174455
+  resolution: "@component-compass/manifest-cem@npm:0.0.0-pr-32-6d9bc35-20260510174455"
+  dependencies:
+    "@babel/parser": ^7.29.0
+    "@babel/traverse": ^7.29.0
+    "@babel/types": ^7.29.0
+    "@component-compass/ast-utils": ^0.0.2
+    "@component-compass/plugin-core": 0.0.0-pr-32-6d9bc35-20260510174455
+  peerDependencies:
+    "@custom-elements-manifest/analyzer": ">=0.9.0"
+  checksum: 153b4e43b60e1e2c92918a06916df7f4f0d40546108827e233f791c30aee6b17c350cd4ce22239db2f24c7b62702ce3108fa368c6ae63e81787b930f0a8f6266
+  languageName: node
+  linkType: hard
+
+"@component-compass/plugin-core@npm:0.0.0-pr-32-6d9bc35-20260510174455":
+  version: 0.0.0-pr-32-6d9bc35-20260510174455
+  resolution: "@component-compass/plugin-core@npm:0.0.0-pr-32-6d9bc35-20260510174455"
+  dependencies:
+    ajv: ^8.17.0
+  checksum: 53208682168a37607b626ae333cc40df77fd328ef3de985c072e37d0508fd373063f5bcc1282a7d765ae52daf5576934ab1a4d2447c4a5358a0d9dc9558e35f2
+  languageName: node
+  linkType: hard
+
 "@conventional-changelog/git-client@npm:^2.6.0":
   version: 2.7.0
   resolution: "@conventional-changelog/git-client@npm:2.7.0"
@@ -3594,6 +3628,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   dependencies:
+    "@component-compass/manifest-cem": pr-32-6d9bc35
     cem-plugin-module-file-extensions: 0.0.5
     deepmerge-ts: 5.1.0
   bin:
@@ -8435,6 +8470,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ajv@npm:^8.17.0":
+  version: 8.20.0
+  resolution: "ajv@npm:8.20.0"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    fast-uri: ^3.0.1
+    json-schema-traverse: ^1.0.0
+    require-from-string: ^2.0.2
+  checksum: 4f18ca5fcccff8c8b9a4d6f1a6a3a70ffc888e787624ca66f2d0162e04e8f9f2d289d8a1acdb9520d18bffcee975e7a789a9f8292b5c2c577c408cd2c3308cad
+  languageName: node
+  linkType: hard
+
 "ajv@npm:~8.12.0":
   version: 8.12.0
   resolution: "ajv@npm:8.12.0"
@@ -11601,6 +11648,13 @@ __metadata:
   version: 6.0.1
   resolution: "entities@npm:6.0.1"
   checksum: 937b952e81aca641660a6a07f70001c6821973dea3ae7f6a5013eadce94620f3ed2e9c745832d503c8811ce6e97704d8a0396159580c0e567d815234de7fdecf
+  languageName: node
+  linkType: hard
+
+"entities@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "entities@npm:8.0.0"
+  checksum: 0b5dcab25b0ed82859555086c0a80d6c7e1fbae76af4de528c45de742fabb54c5f9c788351a4d966211a2997651f2746d6491c3b29bb49abc425384fdc98315e
   languageName: node
   linkType: hard
 
@@ -18166,6 +18220,15 @@ __metadata:
   dependencies:
     entities: ^6.0.0
   checksum: ffd040c4695d93f0bc370e3d6d75c1b352178514af41be7afa212475ea5cead1d6e377cd9d4cec6a5e2bcf497ca50daf9e0088eadaa37dbc271f60def08fdfcd
+  languageName: node
+  linkType: hard
+
+"parse5@npm:^8.0.0":
+  version: 8.0.1
+  resolution: "parse5@npm:8.0.1"
+  dependencies:
+    entities: ^8.0.0
+  checksum: 6500541f52eea5cd7b4868355f912386bd5b801aa1ee1a7d8199b850374ce1aec1dda31f099f2b17b20794ad7739a880d6d07366c17c51bb8746d8b63aa32318
   languageName: node
   linkType: hard
 
