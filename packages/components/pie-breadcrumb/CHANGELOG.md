@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.8.1
+
+### Patch Changes
+
+- [Changed] - When `isCompact` is true and only one breadcrumb item exists, the item is now displayed as the current page instead of being hidden. ([#2822](https://github.com/justeattakeaway/pie/pull/2822)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.0
 
 ### Minor Changes
