@@ -115,10 +115,13 @@ export function addReactWrapper (customElementsObject) {
                 k.declarations.forEach((decl) => {
                     if (decl.customElement === true) {
                         const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
+                        // The CEM ships dist/ paths for consumers, but this generator writes
+                        // its output back into src/, so normalise before deriving file paths.
+                        const sourcePath = k.path.replace(/^dist\//, 'src/');
                         const componentData = {
                             class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName },
-                            path: k.path.replace('index.js', 'react.ts'),
-                            reactBaseType: getReactBaseType(k.path),
+                            path: sourcePath.replace('index.js', 'react.ts'),
+                            reactBaseType: getReactBaseType(sourcePath),
                         };
 
                         components.push(componentData);
