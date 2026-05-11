@@ -73,6 +73,11 @@ Exists as an alternative option to Neutral that can be visible over grey backgro
 
 Translucent notifications appear on top of content, creating a layered effect.
 
+{% notification {
+  type: "information",
+  message: "Please note that the notification translucent variant in iOS uses a container fill with transparency combined with blur."
+} %}
+
 {% contentPageImage {
     src:"../../../assets/img/components/notification-apps/variants-translucent.svg",
     alt: "The translucent variant of the notification component.",
@@ -145,7 +150,7 @@ The action(s) relocate to be in line with the supporting text, which helps to re
 Supporting icons can be removed for all variants if not required.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification-apps/modifier-icons-removing.svg",
+    src:"../../../assets/img/components/notification-apps/modifiers-icons-removing.svg",
     alt: "A notification component with a title, supporting text and dismiss button only",
     width: 1024
 } %}
@@ -398,13 +403,13 @@ Notifications can appear full width, and always appears at the top of the interf
 Here are some examples of Buttons in left-to-right context:
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification-apps/example-ltr-error.svg",
+    src:"../../../assets/img/components/notification-apps/examples-ltr-error.svg",
     alt: "An error notification that informs users their connect is interrupted in English representing how the component looks in a LTR context",
     width: 1024
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification-apps/example-ltr-success.svg",
+    src:"../../../assets/img/components/notification-apps/examples-ltr-success.svg",
     alt: "An success notification that informs users email is confirmed in English representing how the component looks in a LTR context",
     width: 1024
 } %}
@@ -412,13 +417,13 @@ Here are some examples of Buttons in left-to-right context:
 ### RTL examples
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification-apps/example-rtl-error.svg",
+    src:"../../../assets/img/components/notification-apps/examples-rtl-error.svg",
     alt: "An error notification that informs users their connect is interrupted in Hebrew representing how the component looks in a RTL context",
     width: 1024
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification-apps/example-rtl-success.svg",
+    src:"../../../assets/img/components/notification-apps/examples-rtl-success.svg",
     alt: "An success notification that informs users email is confirmed in Hebrew representing how the component looks in a RTL context",
     width: 1024
 } %}
