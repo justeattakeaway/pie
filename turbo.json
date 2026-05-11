@@ -27,6 +27,11 @@
     },
     "create:manifest": {
       "cache": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/configs/pie-components-config/custom-elements-manifest.config.js",
+        "$TURBO_ROOT$/configs/pie-components-config/package.json"
+      ],
       "outputs": [
         "custom-elements.json"
       ]
