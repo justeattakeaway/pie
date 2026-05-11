@@ -1,0 +1,24 @@
+{
+  "headings": [
+    "Element",
+    "Property",
+    "Colour token"
+  ],
+  "rows": [
+    [
+      "Container",
+      "Background colour",
+      { "type": "token", "item": ["$color-support-info-tonal"], "variant": "neutral-alternative", "isStrong": false }
+    ],
+    [
+      "Title",
+      "Text colour",
+      { "type": "token", "item": ["$color-content-default"], "variant": "neutral-alternative", "isStrong": false }
+    ],
+    [
+      "Supporting text",
+      "Text colour",
+      { "type": "token", "item": ["$color-content-default"], "variant": "neutral-alternative", "isStrong": false }
+    ]
+  ]
+}
