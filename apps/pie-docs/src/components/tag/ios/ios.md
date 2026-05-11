@@ -3,6 +3,8 @@ eleventyNavigation:
     key: iOS
     parent: Tag
     order: 4
+eleventyComputed:
+    sizes: "{% include './sizes.json' %}"
 ---
 
 ## Dos and Don'ts

@@ -3,6 +3,8 @@ eleventyNavigation:
     key: Android
     parent: Tag
     order: 3
+eleventyComputed:
+    sizes: "{% include './sizes.json' %}"
 ---
 
 ## Dos and Don'ts
