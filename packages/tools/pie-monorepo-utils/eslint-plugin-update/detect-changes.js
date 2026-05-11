@@ -4,47 +4,9 @@ const { execFileSync, execSync } = require('child_process');
 
 const { extractComponentData } = require('@justeattakeaway/eslint-plugin-snacks-pie-migration/extract-component-data');
 const findMonorepoRoot = require('../utils/find-monorepo-root');
+const { BRANCH_PREFIX, diffComponentData } = require('./shared');
 
 const ESLINT_PLUGIN_PACKAGE = '@justeattakeaway/eslint-plugin-snacks-pie-migration';
-const BRANCH_PREFIX = 'update-eslint-snacks-plugin';
-
-function diffComponentData (stored, current) {
-    const diff = {
-        added: [],
-        removed: [],
-        statusChanged: [],
-        snacksChanged: [],
-    };
-
-    const allKeys = new Set([...Object.keys(stored), ...Object.keys(current)]);
-
-    allKeys.forEach((key) => {
-        const inStored = stored[key];
-        const inCurrent = current[key];
-
-        if (!inStored) {
-            diff.added.push({ snacksComponent: key, ...inCurrent });
-        } else if (!inCurrent) {
-            diff.removed.push({ snacksComponent: key, ...inStored });
-        } else if (inStored.status !== inCurrent.status) {
-            diff.statusChanged.push({
-                snacksComponent: key,
-                piePackage: inCurrent.piePackage,
-                from: inStored.status,
-                to: inCurrent.status,
-            });
-        } else if (inStored.piePackage !== inCurrent.piePackage) {
-            diff.snacksChanged.push({
-                snacksComponent: key,
-                from: inStored.piePackage,
-                to: inCurrent.piePackage,
-                status: inCurrent.status,
-            });
-        }
-    });
-
-    return diff;
-}
 
 function hasDiff (diff) {
     return diff.added.length > 0 ||
