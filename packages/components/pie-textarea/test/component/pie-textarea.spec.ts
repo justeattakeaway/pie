@@ -464,8 +464,81 @@ test.describe('PieTextarea - Component tests', () => {
                 await expect(textarea).toHaveAttribute('placeholder', 'Test Placeholder');
             });
         });
-    });
+        test.describe('maxLength', () => {
+            test('should not render a maxlength attribute on the textarea element if no maxlength is provided', async ({ page }) => {
+                // Arange
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(textarea).not.toHaveAttribute('maxlength');
+            });
+
+            test('should not be able to input a value greater than the maxlength provided', async ({ page }) => {
+            // Arange
+                const props: TextareaProps = {
+                    maxlength: 3,
+                    value: '',
+                };
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ ...props });
+
+                // Act
+                await page.getByTestId(textArea.selectors.textArea.dataTestId).fill('test');
+
+                const component = page.getByTestId(textArea.selectors.container.dataTestId);
+                const inputValue = await component.evaluate((element) => (element as HTMLTextAreaElement).value);
+
+                // Assert
+                expect(inputValue).toBe('tes');
+            });
+
+            test('should be invalid state `tooLong`if the maxlength is exceeded programmatically', async ({ page }) => {
+            // Arrange
+                const props: TextareaProps = {
+                    maxlength: 3,
+                    value: 'test1',
+                };
+
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ ...props });
+
+                // Act
+                await page.focus('pie-textarea');
+                await page.keyboard.press('ArrowRight'); // Move cursor to end of input so we don't delete the whole value
+                await page.keyboard.press('Backspace'); // Delete the last character to trigger an input event - this should trigger the validity state update
+
+                const component = page.getByTestId(textArea.selectors.container.dataTestId);
+                const isInvalid = await component.evaluate((element) => (element as HTMLTextAreaElement).validity.tooLong);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+        });
+
+        test('should be valid state if the max legth is not exceeded', async ({ page }) => {
+        // Arrange
+            const props: TextareaProps = {
+                maxlength: 5,
+                value: '',
+            };
+
+            const textAreaPage = new BasePage(page, 'textarea');
+            await textAreaPage.load({ ...props });
+
+            // Act
+            await page.getByTestId(textArea.selectors.textArea.dataTestId).fill('test');
+
+            const component = page.getByTestId(textArea.selectors.container.dataTestId);
+            const isValid = await component.evaluate((element) => (element as HTMLTextAreaElement).validity.valid);
+
+            // Assert
+            expect(isValid).toBe(true);
+        });
+    });
     test.describe('Form integration', () => {
         test('should correctly set the value of a description field in the FormData object when the form is submitted', async ({ page }) => {
             // Arrange

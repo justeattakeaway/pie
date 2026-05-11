@@ -116,6 +116,14 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '',
             },
         },
+        maxlength: {
+            description: 'The maximum number of characters allowed in the textarea.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -140,6 +148,7 @@ const Template = ({
     assistiveText,
     status,
     placeholder,
+    maxlength,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -176,7 +185,9 @@ const Template = ({
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
+            status=${ifDefined(status)}
+            maxlength=${ifDefined(maxlength)}
+            data-test-id="pie-textarea-container">
         </pie-textarea>
     `;
 };
