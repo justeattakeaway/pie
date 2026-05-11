@@ -35,7 +35,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation. If there\'s no item to go back to, the breadcrumb is hidden.',
+            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
@@ -48,8 +48,12 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
                 summary: defaultProps.hideCurrentPage,
             },
         },
+        aria: {
+            description: 'The ARIA labels used for the breadcrumb component.',
+            control: 'object',
+        },
         slot: {
-            description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb is hidden.',
+            description: 'The default slot is used to pass `pie-breadcrumb-item` elements.',
             control: 'text',
         },
     },
@@ -68,12 +72,14 @@ const Template = ({
     variant,
     isCompact,
     hideCurrentPage,
+    aria,
     slot,
 }: BreadcrumbProps) => html`
     <pie-breadcrumb
         variant="${ifDefined(variant)}"
         ?isCompact="${isCompact}"
-        ?hideCurrentPage="${hideCurrentPage}">
+        ?hideCurrentPage="${hideCurrentPage}"
+        .aria="${aria}">
             ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-breadcrumb-item'] })}
     </pie-breadcrumb>
 `;

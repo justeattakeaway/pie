@@ -35,7 +35,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation. If there\'s no item to go back to, the breadcrumb is hidden.',
+            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
@@ -48,8 +48,12 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
                 summary: defaultProps.hideCurrentPage,
             },
         },
+        aria: {
+            description: 'The ARIA labels used for the breadcrumb component.',
+            control: 'object',
+        },
         slot: {
-            description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb is hidden.',
+            description: 'The default slot is used to pass `pie-breadcrumb-item` elements.',
             control: 'text',
         },
     },
@@ -68,17 +72,23 @@ const Template = ({
     variant,
     isCompact,
     hideCurrentPage,
+    aria,
     slot,
 }: BreadcrumbProps) => html`
     <pie-breadcrumb
         variant="${ifDefined(variant)}"
         ?isCompact="${isCompact}"
-        ?hideCurrentPage="${hideCurrentPage}">
+        ?hideCurrentPage="${hideCurrentPage}"
+        .aria="${aria}">
             ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-breadcrumb-item'] })}
     </pie-breadcrumb>
 `;
 
 export const Default = createStory<BreadcrumbProps>(Template, defaultArgs)();
+export const WithAriaLabel = createStory<BreadcrumbProps>(Template, {
+    ...defaultArgs,
+    aria: { label: 'Site navigation' },
+})();
 export const WithLongText = createStory<BreadcrumbProps>(Template, {
     slot: `<pie-breadcrumb-item href="#">Breadcrumb 1</pie-breadcrumb-item>
         <pie-breadcrumb-item href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eget velit quis mollis.</pie-breadcrumb-item>`,
@@ -102,3 +112,29 @@ const scrimVariantPropOptions = {
 
 export const DefaultPropVariation = createVariantStory<BreadcrumbProps>(Template, defaultVariantPropOptions);
 export const ScrimPropVariation = createVariantStory<BreadcrumbProps>(Template, scrimVariantPropOptions);
+
+const ItemWithAriaLabelTemplate = () => html`
+    <pie-breadcrumb>
+        <pie-breadcrumb-item href="#" .aria=${{ label: 'Go to home' }}>Home</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Category</pie-breadcrumb-item>
+        <pie-breadcrumb-item>Current Page</pie-breadcrumb-item>
+    </pie-breadcrumb>
+`;
+
+export const ItemWithAriaLabel = createStory<BreadcrumbProps>(ItemWithAriaLabelTemplate, defaultArgs)();
+
+const SingleItemTemplate = () => html`
+    <pie-breadcrumb>
+        <pie-breadcrumb-item href="#">Single Item</pie-breadcrumb-item>
+    </pie-breadcrumb>
+`;
+
+export const SingleItem = createStory<BreadcrumbProps>(SingleItemTemplate, defaultArgs)();
+
+const SingleItemCompactTemplate = () => html`
+    <pie-breadcrumb isCompact>
+        <pie-breadcrumb-item href="#">Single Item</pie-breadcrumb-item>
+    </pie-breadcrumb>
+`;
+
+export const SingleItemCompact = createStory<BreadcrumbProps>(SingleItemCompactTemplate, defaultArgs)();

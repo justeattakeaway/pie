@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System",
-  "version": "2.103.0",
+  "version": "2.104.0",
   "repository": "justeattakeaway/pie",
   "homepage": "https://pie.design/",
   "keywords": [],
@@ -75,7 +75,7 @@
     "@justeat/pie-design-tokens": "7.11.1",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/generator-pie-component": "0.33.0",
-    "@justeattakeaway/pie-icons": "5.24.1",
+    "@justeattakeaway/pie-icons": "5.25.0",
     "@justeattakeaway/pie-webc-testing": "0.13.5",
     "@justeattakeaway/pie-wrapper-react": "0.14.4",
     "@justeattakeaway/stylelint-config-pie": "3.0.1",
@@ -131,7 +131,6 @@
   "resolutions": {
     "lit": "3.2.0",
     "tar": "6.2.1",
-    "typescript": "5.8.3",
-    "@manypkg/get-packages@^1.1.3": "patch:@manypkg/get-packages@npm%3A1.1.3#./.yarn/patches/@manypkg-get-packages-npm-1.1.3-55c0cc9daa.patch"
+    "typescript": "5.8.3"
   }
 }
