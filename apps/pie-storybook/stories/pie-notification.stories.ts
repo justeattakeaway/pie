@@ -80,7 +80,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             },
         },
         size: {
-            description: 'Sets the size of the notification. When `small`, the component renders with reduced dimensions on narrow screens (below the md breakpoint). On wide screens, both sizes render identically.',
+            description: 'Sets the size of the notification.',
             control: 'select',
             options: sizes,
             defaultValue: {
