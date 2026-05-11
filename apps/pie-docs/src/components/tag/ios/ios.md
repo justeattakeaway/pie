@@ -78,7 +78,7 @@ Depending on the level of visual prominence you want to give to the tag, you can
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/subtle.svg",
       width: "49px",
-      alt: "A tag component with label text. The component has a subtle background colour (light grey) to indicate subtle emphasis.",
+      alt: "A tag component with label text. The component has a subtle background colour to indicate subtle emphasis.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -217,7 +217,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% endcontentItem %}
 {% endcontentLayout %}
 
-___
+---
 
 ## Sizes
 
@@ -239,7 +239,7 @@ Container width is dynamic to the content's width and retains 4px left and right
     width: "108px"
 } %}
 
-___ 
+---
 
 ## Content
 

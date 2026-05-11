@@ -54,6 +54,7 @@ When incorporating an icon into a tag, it is essential to ensure that the icon c
 #### Leading
 
 Leading icon provides context and visually supports the label and it is available for both variants.
+
 {% contentPageImage {
     src:"../../../assets/img/components/tag-apps/modifiers-icon-leading.svg",
     alt: "A large and a small icon both using leading icons. These icons are placed before the icon text.",
@@ -217,7 +218,7 @@ Select from a range of colour options across the two levels of emphasis.
   {% endcontentItem %}
 {% endcontentLayout %}
 
-___
+---
 
 ## Sizes
 
@@ -239,7 +240,7 @@ Container width is dynamic to the content's width and retains 4px left and right
     width: "108px"
 } %}
 
-___ 
+---
 
 ## Content
 
