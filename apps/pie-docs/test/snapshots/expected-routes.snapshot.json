@@ -59,6 +59,7 @@
     "components/notification/android",
     "components/notification/code",
     "components/notification/ios",
+    "components/notification/style",
     "components/numeric-stepper",
     "components/numeric-stepper/numeric-stepper",
     "components/numeric-stepper/numeric-stepper-form",
