@@ -407,6 +407,11 @@ You can use a dialog with no body for quick confirmation messages, alerts, notif
 
 You can use side-by-side calls to action when space is limited or when both actions are equally important. This is often seen in confirmation prompts for efficient interaction, like "OK" and "Cancel".
 
+{% notification {
+  type: "warning",
+  message: "Please note that this modifier is only available for left-aligned Dialogs."
+} %}
+
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/modifiers-two-buttons.svg",
     alt: "Dialog with side-by-side calls to action.",
@@ -518,7 +523,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Title:** Title can be overridden to use any of the Heading font tokens. As a  default state, the title will use Heading M / Narrow. When the prominent toggle is engaged, Heading XL / Narrow italic is applied."
+        "**Title:** Title can be overridden to use any of the Heading font tokens. As a  default state, the title will use **Heading M / Narrow**. When the prominent toggle is engaged, **Heading XL / Narrow italic** is applied."
     ]
 } %}
 

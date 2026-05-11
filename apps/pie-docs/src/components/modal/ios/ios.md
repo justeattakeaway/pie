@@ -397,6 +397,11 @@ You can use an alert with no body for quick confirmation messages, alerts, notif
 
 You can use side-by-side calls to action when space is limited or when both actions are equally important. This is often seen in confirmation prompts for efficient interaction, like "OK" and "Cancel".
 
+{% notification {
+  type: "warning",
+  message: "Please note that this modifier is only available for left-aligned Alerts."
+} %}
+
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/modifiers-two-buttons.svg",
     alt: "Alert component with side-by-side calls to action.",
