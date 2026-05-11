@@ -279,10 +279,11 @@ This variant is ideal for highly compact interfaces or simple messaging, where m
 
 ## Usage
 
+### Toast vs Notification
 
-{% componentDetailsTable {
-  tableData: usage
-} %}
+**Notification:** Block of messaging appearing either at the top or somewhere within the interface, inline with page/screen content.
+
+**Toast:** Non-disruptive and temporary messages, typically in the bottom centre or bottom left of the interface. Provides succinct feedback on the outcome of a user action.
 
 ---
 
