@@ -112,12 +112,8 @@
         flex-direction: row;
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
+        padding-block-start: var(--dt-spacing-d);
 
-        &:has(pie-button) {
-            padding-block-start: var(--dt-spacing-d);
-        }
-
-        // Enforce only pie-button in the action slots
         &:not(:has(pie-button, ::slotted(pie-button))) {
             display: none;
         }
@@ -143,8 +139,17 @@
             }
         }
 
+        // Enforce only pie-button in the action slots
         ::slotted(:not(pie-button)) {
             display: none;
+        }
+    }
+}
+
+:host([isCompact]) {
+    .c-notification-footer {
+        pie-button, ::slotted(pie-button) {
+            margin-block-start: calc(var(--dt-spacing-d) * -1);
         }
     }
 }
