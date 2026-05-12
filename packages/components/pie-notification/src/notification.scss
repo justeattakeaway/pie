@@ -3,17 +3,6 @@
 
 :host {
     display: block;
-
-    --gap-empty: 0;
-    --gap-has-content: var(--dt-spacing-d);
-    --gap: var(--gap-empty);
-}
-
-// Ensures proper vertical whitespace for slot-based actions
-:host(:not([isCompact])) {
-    ::slotted(pie-button) {
-        margin-block-start: var(--gap-has-content);
-    }
 }
 
 .c-notification {
@@ -39,7 +28,6 @@
     position: relative;
     display: flex;
     flex-direction: var(--notification-direction);
-    gap: var(--gap);
     font-family: var(--notification-font-family);
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
@@ -123,6 +111,8 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+        padding-block-start: var(--dt-spacing-d);
+        gap: var(--dt-spacing-d);
 
         &.is-compact {
             align-self: center;
@@ -148,17 +138,6 @@
         ::slotted(:not(pie-button)) {
             display: none;
         }
-    }
-}
-
-// Ensures proper vertical whitespace for prop-based actions
-.c-notification:has(pie-button) {
-    --gap: var(--gap-has-content);
-}
-
-:host(:not([hasStackedActions])) {
-    .c-notification-footer {
-        gap: var(--dt-spacing-d);
     }
 }
 
