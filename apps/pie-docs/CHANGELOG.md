@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.73.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.6
+
+## 4.73.0
+
+### Minor Changes
+
+- [Changed] - Updates roadmap copy and adds a short guidance on contributions ([#2792](https://github.com/justeattakeaway/pie/pull/2792)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.5
+
 ## 4.72.1
 
 ### Patch Changes

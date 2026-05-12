@@ -58,6 +58,9 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
         }
     }
 
+    @property({ type: Object })
+    public aria: ButtonProps['aria'];
+
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
     public tag = defaultProps.tag;
@@ -239,7 +242,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
 
     renderAnchor (classes: ClassInfo) {
         const {
-            href, iconPlacement, rel, target, download,
+            href, iconPlacement, rel, target, download, aria,
         } = this;
 
         return html`
@@ -248,6 +251,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 rel="${ifDefined(rel)}"
                 target="${ifDefined(target)}"
                 download="${ifDefined(download)}"
+                aria-label="${ifDefined(aria?.label)}"
                 class="${classMap(classes)}">
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                 <slot></slot>
@@ -257,7 +261,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
 
     renderButton (classes: ClassInfo) {
         const {
-            disabled, iconPlacement, isLoading, type,
+            disabled, iconPlacement, isLoading, type, aria,
         } = this;
 
         const buttonClasses = {
@@ -270,7 +274,8 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 @click=${this._handleClick}
                 class=${classMap(buttonClasses)}
                 type=${type}
-                ?disabled=${disabled}>
+                ?disabled=${disabled}
+                aria-label="${ifDefined(aria?.label)}">
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <span class="o-btn-text"><slot></slot></span>

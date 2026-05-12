@@ -33,12 +33,16 @@ const defaultArgs: ButtonProps = {
     showSubmitButton: true,
     renderIncorrectForm: false,
     download: undefined,
+    aria: undefined,
 };
 
 const buttonStoryMeta: ButtonStoryMeta = {
     title: 'Button',
     component: 'pie-button',
     argTypes: {
+        aria: {
+            control: 'object',
+        },
         tag: {
             control: {
                 disable: true,
@@ -172,6 +176,7 @@ const Template: TemplateFunction<ButtonProps> = ({
     name,
     value,
     responsiveSize,
+    aria,
 }) => html`
 <pie-button
     tag="button"
@@ -187,7 +192,8 @@ const Template: TemplateFunction<ButtonProps> = ({
     name=${ifDefined(name)}
     value=${ifDefined(value)}
     @click=${handleClick}
-    responsiveSize="${ifDefined(responsiveSize)}">
+    responsiveSize="${ifDefined(responsiveSize)}"
+    .aria="${aria}">
     ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
     ${sanitizeAndRenderHTML(slot)}
 </pie-button>`;
@@ -204,7 +210,8 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         href="${ifDefined(props.href)}"
         download="${ifDefined(props.download)}"
         rel="${ifDefined(props.rel)}"
-        target="${ifDefined(props.target)}">
+        target="${ifDefined(props.target)}"
+        .aria="${props.aria}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
         ${sanitizeAndRenderHTML(props.slot)}
     </pie-button>`;
