@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Android
     parent: Modal
     order: 4
+    shouldShowContents: true
 ---
 
 ## [Android] Dialog
@@ -27,7 +28,7 @@ A Dialog is a pop-up window that prompts the user for interaction or information
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't allow excessive content length. Modals are for focused tasks, so a [different component](/patterns/overlay-patterns/) might be more suitable.",
+            "Don't allow excessive content length. Modals are for focused tasks, check out the [Overlay patterns](/patterns/overlay-patterns/) documentation to see if another component might be more suitable.",
             "Don't use dialogs for minor notifications.",
             "Limit and avoid excessive interruptions.",
             "Don’t add crucial information to images."
@@ -240,7 +241,7 @@ The default width of the component is set to 328px, however may be adjusted to f
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/sizes-default.svg",
-    alt: "Dialog in default size.",
+    alt: "Dialog in default size with 328px width and 16px margin.",
     width: 300
 } %}
 
@@ -248,7 +249,7 @@ The default width of the component is set to 328px, however may be adjusted to f
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/sizes-minimum.svg",
-    alt: "Dialog in minimum size.",
+    alt: "Dialog in minimum size with 288px width.",
     width: 300
 } %}
 
@@ -284,7 +285,7 @@ Depending on the level of visual prominence you want to give to the title, you c
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/modifiers-title-default.svg",
-    alt: "Dialog with default title styling.",
+    alt: "Dialog with default title styling using the typography token Heading M.",
     width: 300
 } %}
 
@@ -292,7 +293,7 @@ Depending on the level of visual prominence you want to give to the title, you c
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/modifiers-title-prominent.svg",
-    alt: "Dialog with prominent title styling.",
+    alt: "Dialog with prominent title styling using the typography token Heading XL italic.",
     width: 300
 } %}
 
@@ -318,7 +319,7 @@ You can use an illustration in the header of a Dialog to add visual context, thi
     width: 300
 } %}
 
-#### Image 
+#### Image
 
 You can use an image in the header of a Dialog to add visual context. This is available either with full bleed or with 16px margin either side. 
 
@@ -409,7 +410,7 @@ You can use side-by-side calls to action when space is limited or when both acti
 
 {% notification {
   type: "warning",
-  message: "Please note that this modifier is only available for left-aligned Dialogs."
+  message: "Please note that this modifier is only available for left-aligned Dialogs.."
 } %}
 
 {% contentPageImage {
@@ -482,13 +483,14 @@ Chips are commonly used in various contexts, including filtering options, search
 
 ## Content
 
-### Title
+### Title content
 
 Ensure the title clearly communicates the purpose or topic of the dialog.
 Keep the title brief and to the point, avoiding unnecessary wording.
 Make sure the title directly relates to the content of the dialog, helping users understand its significance.
 Maintain consistency in tone and style with the rest of the application's UI for a cohesive user experience.
 Titles have the ability to toggle on and off prominence:
+
 - Default (Heading M/Narrow)
 - Prominent (Heading XL/Narrow italic)
 
@@ -512,7 +514,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 
 ## Overrides
 
-### Title
+### Title overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-title.svg",
@@ -527,7 +529,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
     ]
 } %}
 
-### Buttons
+### Buttons overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-buttons.svg",

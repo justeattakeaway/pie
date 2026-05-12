@@ -3,6 +3,7 @@ eleventyNavigation:
     key: iOS
     parent: Modal
     order: 5
+    shouldShowContents: true
 ---
 
 ## [iOS] Alert
@@ -27,7 +28,7 @@ An Alert is a pop-up window that prompts the user for interaction or information
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't allow excessive content length. Alerts are for focused tasks, so a [different component](/patterns/overlay-patterns/) might be more suitable.",
+            "Don't allow excessive content length. Alerts are for focused tasks, check out the [Overlay patterns](/patterns/overlay-patterns/) documentation to see if another component might be more suitable.",
             "Don't use alerts for minor notifications.",
             "Limit and avoid excessive interruptions.",
             "Don’t add crucial information to images."
@@ -240,7 +241,7 @@ The default width of the component is set to 328px, however may be adjusted to f
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/sizes-default.svg",
-    alt: "Alert component in default size.",
+    alt: "Alert component in default size with 328px width and 16px margin.",
     width: 300
 } %}
 
@@ -248,7 +249,7 @@ The default width of the component is set to 328px, however may be adjusted to f
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/sizes-minimum.svg",
-    alt: "Alert component in minimum size.",
+    alt: "Alert component in minimum size with 288px width.",
     width: 300
 } %}
 
@@ -284,7 +285,7 @@ Depending on the level of visual prominence you want to give to the title, you c
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/modifiers-title-default.svg",
-    alt: "Alert component with default title styling.",
+    alt: "Alert component with default title styling using the typography token Heading M.",
     width: 300
 } %}
 
@@ -292,7 +293,7 @@ Depending on the level of visual prominence you want to give to the title, you c
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/modifiers-title-prominent.svg",
-    alt: "Alert component with prominent title styling.",
+    alt: "Alert component with prominent title styling using the typography token Heading XL italic.",
     width: 300
 } %}
 
@@ -472,13 +473,14 @@ Chips are commonly used in various contexts, including filtering options, search
 
 ## Content
 
-### Title
+### Title content
 
 Ensure the title clearly communicates the purpose or topic of the alert.
 Keep the title brief and to the point, avoiding unnecessary wording.
 Make sure the title directly relates to the content of the alert, helping users understand its significance.
 Maintain consistency in tone and style with the rest of the application's UI for a cohesive user experience.
 Titles have the ability to toggle on and off prominence:
+
 - Default (Heading M/Narrow)
 - Prominent (Heading XL/Narrow italic)
 
@@ -502,7 +504,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 
 ## Overrides
 
-### Title
+### Title overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-title.svg",
@@ -517,7 +519,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
     ]
 } %}
 
-### Buttons
+### Buttons overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-buttons.svg",
