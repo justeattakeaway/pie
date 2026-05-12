@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio
 
+## 1.1.12
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.1.11
 
 ### Patch Changes
