@@ -170,7 +170,7 @@
 
     &.c-notification--small &-content-section.is-dismissible {
         @include media('<md') {
-            max-width: calc(100% - var(--dt-spacing-a) - 32px);
+            max-width: calc(100% - var(--dt-spacing-a) - var(--dt-spacing-f));
         }
     }
 
