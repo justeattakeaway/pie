@@ -34,8 +34,8 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: ${{ inputs.node-version }}
-          os: ${{ inputs.os }}
+          node-version: 24
+          os: ubuntu-latest
 
       - name: Install dependencies
         shell: bash
