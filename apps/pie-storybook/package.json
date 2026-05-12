@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.75.4",
+  "version": "1.75.5",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -8,7 +8,6 @@
     "dev:testing": "BROWSER_TESTING=true storybook dev -p 6007",
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
     "build:testing": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
-    "build:chromatic": "BROWSER_TESTING=true storybook build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run test",
@@ -20,7 +19,7 @@
     "@justeat/pie-design-tokens": "7.11.1",
     "@justeattakeaway/pie-css": "1.1.1",
     "@justeattakeaway/pie-icons-webc": "1.22.0",
-    "@justeattakeaway/pie-webc": "0.10.5",
+    "@justeattakeaway/pie-webc": "0.10.6",
     "dompurify": "3.3.3"
   },
   "devDependencies": {
