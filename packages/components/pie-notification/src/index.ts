@@ -148,8 +148,8 @@ export class PieNotification extends PieElement implements NotificationProps {
         } = this;
 
         // The footer is always rendered so that action slots exist in the DOM.
-        // CSS handles hiding the footer when it has no visible content
-        // via :not(:has(pie-button, ::slotted(pie-button))).
+        // When no buttons are present (prop or slotted), the footer collapses
+        // to zero height because spacing is applied via margin on the buttons themselves.
         const classes = {
             [`${componentClass}-footer`]: true,
             'is-compact': isCompact,

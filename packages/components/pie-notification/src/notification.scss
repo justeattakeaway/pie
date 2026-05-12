@@ -112,10 +112,10 @@
         flex-direction: row;
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
-        padding-block-start: var(--dt-spacing-d);
 
-        &:not(:has(pie-button, ::slotted(pie-button))) {
-            display: none;
+        pie-button,
+        ::slotted(pie-button) {
+            margin-block-start: var(--dt-spacing-d);
         }
 
         &.is-compact {
@@ -126,6 +126,7 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
+                gap: 0;
 
                 ::slotted(pie-button) {
                     --btn-inline-size: 100%;
@@ -149,7 +150,7 @@
 :host([isCompact]) {
     .c-notification-footer {
         pie-button, ::slotted(pie-button) {
-            margin-block-start: calc(var(--dt-spacing-d) * -1);
+            margin-block-start: 0;
         }
     }
 }
