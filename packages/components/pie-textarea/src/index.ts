@@ -76,7 +76,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     public placeholder: TextareaProps['placeholder'];
 
     @property({ type: Number })
-    public maxlength: TextareaProps ['maxlength'];
+    public maxlength: TextareaProps['maxlength'];
 
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
@@ -251,7 +251,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
                     @input=${this.handleInput}
                     @change=${this.handleChange}
-                    maxlength = ${ifDefined(maxlength)}
+                    maxlength=${ifDefined(maxlength)}
                 ></textarea>
             </div>
             ${this.renderAssistiveText()}
