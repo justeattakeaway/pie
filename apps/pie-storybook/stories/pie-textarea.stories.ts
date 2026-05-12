@@ -186,14 +186,14 @@ const Template = ({
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
-            maxlength=${ifDefined(maxlength)}
-            data-test-id="pie-textarea-container">
+            maxlength=${ifDefined(maxlength)}>
         </pie-textarea>
     `;
 };
 
 const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
     defaultValue,
+    maxlength,
 }) => html`
     <style>
         .form {
@@ -220,7 +220,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
 
     <form class="form">
         <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}">
+        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" maxlength="${ifDefined(maxlength)}">
         </pie-textarea>
 
         <div class="form-btns">

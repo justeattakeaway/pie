@@ -479,7 +479,7 @@ test.describe('PieTextarea - Component tests', () => {
 
             test('should not be able to input a value greater than the maxlength provided', async ({ page }) => {
             // Arange
-                const props: TextareaProps = {
+                const props: Partial<TextareaProps> = {
                     maxlength: 3,
                     value: '',
                 };
@@ -496,9 +496,9 @@ test.describe('PieTextarea - Component tests', () => {
                 expect(inputValue).toBe('tes');
             });
 
-            test('should be invalid state `tooLong`if the maxlength is exceeded programmatically', async ({ page }) => {
+            test('should be invalid state `tooLong` if the maxlength is exceeded programmatically', async ({ page }) => {
             // Arrange
-                const props: TextareaProps = {
+                const props: Partial<TextareaProps> = {
                     maxlength: 3,
                     value: 'test1',
                 };
@@ -517,11 +517,31 @@ test.describe('PieTextarea - Component tests', () => {
                 // Assert
                 expect(isInvalid).toBe(true);
             });
+
+            test('should be invalid when required is `true` and not `tooLong` when no maxlength is provided', async ({ page }) => {
+            // Arrange
+                const props: Partial<TextareaProps> = {
+                    value: '',
+                    required: true,
+                };
+
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ ...props });
+
+                // Act
+                const component = page.getByTestId(textArea.selectors.container.dataTestId);
+                const isTooLong = await component.evaluate((element) => (element as HTMLTextAreaElement).validity.tooLong);
+                const isValid = await component.evaluate((element) => (element as HTMLTextAreaElement).validity.valid);
+
+                // Assert
+                expect(isTooLong).toBe(false);
+                expect(isValid).toBe(false);
+            });
         });
 
-        test('should be valid state if the max legth is not exceeded', async ({ page }) => {
+        test('should be valid state if the max length is not exceeded', async ({ page }) => {
         // Arrange
-            const props: TextareaProps = {
+            const props: Partial<TextareaProps> = {
                 maxlength: 5,
                 value: '',
             };
