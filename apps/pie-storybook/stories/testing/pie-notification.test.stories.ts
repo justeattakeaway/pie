@@ -566,3 +566,107 @@ export const SlottedBothActionsStacked = createStory<NotificationProps>(SlottedB
     leadingAction: undefined,
     supportingAction: undefined,
 })();
+
+// Slotted supporting action only (no leading action) - should not render
+const SlottedSupportingActionOnlyTemplate: TemplateFunction<NotificationProps> = ({
+    slot,
+    variant,
+    heading,
+}) => html`
+    <pie-notification
+        ?isOpen="${true}"
+        variant="${ifDefined(variant)}"
+        heading="${ifDefined(heading)}">
+            ${sanitizeAndRenderHTML(slot)}
+            <pie-button
+                slot="supportingAction"
+                variant="ghost"
+                size="small-productive"
+                data-test-id="slotted-supporting-action">
+                Cancel
+            </pie-button>
+    </pie-notification>`;
+
+export const SlottedSupportingActionOnly = createStory<NotificationProps>(SlottedSupportingActionOnlyTemplate, {
+    ...defaultArgs,
+    variant: 'info',
+    heading: 'Supporting Action Only (No Leading)',
+    slot: 'This notification has only a slotted supporting action with no leading action - the supporting action should not render.',
+    leadingAction: undefined,
+    supportingAction: undefined,
+})();
+
+// Slotted both actions with hasStackedActions=false
+const SlottedBothActionsNotStackedTemplate: TemplateFunction<NotificationProps> = ({
+    slot,
+    variant,
+    heading,
+}) => html`
+    <pie-notification
+        ?isOpen="${true}"
+        variant="${ifDefined(variant)}"
+        heading="${ifDefined(heading)}"
+        ?hasStackedActions="${false}">
+            ${sanitizeAndRenderHTML(slot)}
+            <pie-button
+                slot="supportingAction"
+                variant="ghost"
+                size="small-productive"
+                data-test-id="slotted-supporting-action">
+                Cancel
+            </pie-button>
+            <pie-button
+                slot="leadingAction"
+                variant="primary"
+                size="small-productive"
+                data-test-id="slotted-leading-action">
+                Confirm
+            </pie-button>
+    </pie-notification>`;
+
+export const SlottedBothActionsNotStacked = createStory<NotificationProps>(SlottedBothActionsNotStackedTemplate, {
+    ...defaultArgs,
+    variant: 'info',
+    heading: 'Not Stacked Slotted Actions',
+    slot: 'This notification has slotted actions that should not stack regardless of screen size.',
+    leadingAction: undefined,
+    supportingAction: undefined,
+})();
+
+// Slotted both actions with hasStackedActions=true and isCompact=true
+const SlottedBothActionsStackedCompactTemplate: TemplateFunction<NotificationProps> = ({
+    slot,
+    variant,
+    heading,
+}) => html`
+    <pie-notification
+        ?isOpen="${true}"
+        variant="${ifDefined(variant)}"
+        heading="${ifDefined(heading)}"
+        ?hasStackedActions="${true}"
+        ?isCompact="${true}">
+            ${sanitizeAndRenderHTML(slot)}
+            <pie-button
+                slot="supportingAction"
+                variant="ghost"
+                size="small-productive"
+                data-test-id="slotted-supporting-action">
+                Cancel
+            </pie-button>
+            <pie-button
+                slot="leadingAction"
+                variant="primary"
+                size="small-productive"
+                data-test-id="slotted-leading-action">
+                Confirm
+            </pie-button>
+    </pie-notification>`;
+
+export const SlottedBothActionsStackedCompact = createStory<NotificationProps>(SlottedBothActionsStackedCompactTemplate, {
+    ...defaultArgs,
+    variant: 'info',
+    heading: 'Stacked Compact Slotted Actions',
+    slot: 'This notification has stacked slotted actions in compact mode - stacking should be overridden.',
+    leadingAction: undefined,
+    supportingAction: undefined,
+})();

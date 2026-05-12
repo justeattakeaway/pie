@@ -56,7 +56,15 @@ export class BasePage {
         const flattenQueries = (obj: Record<string, unknown>, prefix = ''): string[] => Object.entries(obj).flatMap(([key, value]) => {
             const newKey = prefix ? `${prefix}.${key}` : key;
 
-            if (typeof value === 'object' && value !== null) {
+            if (value === undefined) {
+                return `${newKey}:!undefined`;
+            }
+
+            if (value === null) {
+                return `${newKey}:!null`;
+            }
+
+            if (typeof value === 'object') {
                 return flattenQueries(value as Record<string, unknown>, newKey);
             }
             return `${newKey}:${value}`;
