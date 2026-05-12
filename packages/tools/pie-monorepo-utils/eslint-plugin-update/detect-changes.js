@@ -5,6 +5,7 @@ const { execFileSync, execSync } = require('child_process');
 const { extractComponentData } = require('@justeattakeaway/eslint-plugin-snacks-pie-migration/extract-component-data');
 const findMonorepoRoot = require('../utils/find-monorepo-root');
 const { BRANCH_PREFIX, diffComponentData } = require('./shared');
+const { appendToGithubOutput, appendToGithubEnv, appendJsonToGithubEnv } = require('../utils/github-utils');
 
 const ESLINT_PLUGIN_PACKAGE = '@justeattakeaway/eslint-plugin-snacks-pie-migration';
 
@@ -13,21 +14,6 @@ function hasDiff (diff) {
         diff.removed.length > 0 ||
         diff.statusChanged.length > 0 ||
         diff.snacksChanged.length > 0;
-}
-
-function appendToGithubOutput (key, value) {
-    if (!process.env.GITHUB_OUTPUT) return;
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
-}
-
-function appendToGithubEnv (key, value) {
-    if (!process.env.GITHUB_ENV) return;
-    fs.appendFileSync(process.env.GITHUB_ENV, `${key}=${value}\n`);
-}
-
-function appendJsonToGithubEnv (key, value) {
-    if (!process.env.GITHUB_ENV) return;
-    fs.appendFileSync(process.env.GITHUB_ENV, `${key}<<EOF\n${JSON.stringify(value)}\nEOF\n`);
 }
 
 function configureGitUser () {
