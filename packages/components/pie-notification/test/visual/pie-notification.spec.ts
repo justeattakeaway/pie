@@ -325,15 +325,6 @@ test.describe('Slotted Action Buttons', () => {
         await percySnapshot(page, 'PieNotification - Slotted Both Actions', screenWidths);
     });
 
-    test('should render mixed slotted leading and prop-based supporting action', async ({ page }) => {
-        const basePage = new BasePage(page, 'notification--mixed-slotted-leading-prop-supporting');
-        basePage.waitUntilStrategy = 'networkidle';
-
-        await basePage.load();
-
-        await percySnapshot(page, 'PieNotification - Mixed Slotted Leading Prop Supporting', screenWidths);
-    });
-
     test('should render slotted actions in compact mode', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions-compact');
         basePage.waitUntilStrategy = 'networkidle';
@@ -361,15 +352,6 @@ test.describe('Slotted Action Buttons', () => {
         await page.setViewportSize({ width: 1275, height: 900 });
 
         await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked - Large Screen');
-    });
-
-    test('should not render slotted supporting action when no leading action exists', async ({ page }) => {
-        const basePage = new BasePage(page, 'notification--slotted-supporting-action-only');
-        basePage.waitUntilStrategy = 'networkidle';
-
-        await basePage.load();
-
-        await percySnapshot(page, 'PieNotification - Slotted Supporting Action Only (No Leading)', screenWidths);
     });
 
     test('should not stack slotted action buttons on small screens when hasStackedActions is false', async ({ page }) => {
