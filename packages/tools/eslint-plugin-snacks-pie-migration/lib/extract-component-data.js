@@ -10,6 +10,18 @@ function listFiles (startPath, globSyncImpl) {
     });
 }
 
+/**
+ * Reads package files from a specified path, extracts component data based on certain criteria,
+ * and returns a sorted object of components with their package name and status.
+ * @param startPath - directory path from which you want to start searching for package files
+ * containing component data.
+ * @param [deps] - object that can contain optional dependencies for `fs` and `globSync` modules.
+ * These dependencies are used to provide flexibility in testing and mocking these modules when needed.
+ * If not provided, the function will default to using the actual `fs` and `globSync` modules.
+ * @returns Returns an object containing component data, where the keys are component names and the
+ * values are objects with `piePackage` and `status` properties. The components are sorted alphabetically
+ * by their names.
+ */
 function extractComponentData (startPath, deps = {}) {
     const fsImpl = deps.fs || fs;
     const globSyncImpl = deps.globSync || globSync;
