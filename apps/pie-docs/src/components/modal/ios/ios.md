@@ -3,7 +3,7 @@ eleventyNavigation:
     key: iOS
     parent: Modal
     order: 5
-    shouldShowContents: true
+shouldShowContents: true
 ---
 
 ## [iOS] Alert

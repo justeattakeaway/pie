@@ -3,7 +3,7 @@ eleventyNavigation:
     key: Android
     parent: Modal
     order: 4
-    shouldShowContents: true
+shouldShowContents: true
 ---
 
 ## [Android] Dialog
