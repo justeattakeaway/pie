@@ -173,9 +173,21 @@ The components data used by the plugin is stored in two files: `snacks-component
 ### `snacks-components-data.json`
 It's an auto-generated file that contains the list of deprecated components and their replacement PIE components (if they exist).
 
-Please do not update the `snacks-components-data.json` file directly, as it is generated automatically by a script.
+Please do not update the `snacks-components-data.json` file directly, as it is generated automatically.
 
-To update the data, you need to update the `pieMetadata` key of the components in the PIE repository, and then run the `build` command of this package to regenerate the JSON file.
+To update the data, update the `pieMetadata` key of the components in the PIE repository. The CI automation will detect the change, regenerate the file, and open a pull request automatically.
+
+To regenerate the file manually, run the `build` command of this package.
+
+#### `extractComponentData`
+
+The data extraction logic is exported from this package and can be used by other tools:
+
+```js
+const { extractComponentData } = require('@justeattakeaway/eslint-plugin-snacks-pie-migration/extract-component-data');
+```
+
+It reads component `package.json` files from a given directory and returns a sorted map of Snacks component names to their PIE package and status. Only components with `beta` or `stable` status and at least one Snacks replacement are included.
 
 ### `snacks-components-solutions.js`
 This file can be manually updated with solutions that apply to multiple components, such as migration skills, or with specific solutions for individual components that don't have a direct mapping to a PIE component.
