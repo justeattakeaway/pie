@@ -37,10 +37,6 @@ jobs:
           node-version: 24
           os: ubuntu-latest
 
-      - name: Install dependencies
-        shell: bash
-        run: yarn
-
       - name: Detect pieMetadata changes
         id: detect
         run: node ./packages/tools/pie-monorepo-utils/eslint-plugin-update/detect-changes.js
