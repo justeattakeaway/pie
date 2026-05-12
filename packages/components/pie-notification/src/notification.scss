@@ -111,8 +111,11 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        padding-block-start: var(--dt-spacing-d);
         gap: var(--dt-spacing-d);
+
+        &:has(pie-button) {
+            padding-block-start: var(--dt-spacing-d);
+        }
 
         // Enforce only pie-button in the action slots
         &:not(:has(pie-button, ::slotted(pie-button))) {
