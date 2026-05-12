@@ -114,6 +114,11 @@
         padding-block-start: var(--dt-spacing-d);
         gap: var(--dt-spacing-d);
 
+        // Enforce only pie-button in the action slots
+        &:not(:has(pie-button, ::slotted(pie-button))) {
+            display: none;
+        }
+
         &.is-compact {
             align-self: center;
             margin-inline-start: auto;
