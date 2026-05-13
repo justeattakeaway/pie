@@ -769,6 +769,10 @@
                     "displayName": "Lightning"
                 },
                 {
+                    "name": "lightning-filled",
+                    "displayName": "Lightning Filled"
+                },
+                {
                     "name": "moon",
                     "displayName": "Moon"
                 },
