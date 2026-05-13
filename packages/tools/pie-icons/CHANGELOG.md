@@ -1,5 +1,21 @@
 # Changelog
 
+## 5.26.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Elements
+
+  - lightning-filled-large
+  - lightning-filled
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.1
+
 ## 5.25.0
 
 ### Minor Changes

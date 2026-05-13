@@ -45,8 +45,8 @@
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.1",
     "@justeattakeaway/pie-css": "1.1.1",
-    "@justeattakeaway/pie-icons-webc": "1.22.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.0",
+    "@justeattakeaway/pie-icons-webc": "1.23.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.1",
     "@justeattakeaway/pie-wrapper-react": "0.14.4"
   },
   "dependencies": {

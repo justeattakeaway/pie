@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 1.26.3
+
+### Patch Changes
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-icon-button@2.7.11
+
 ## 1.26.2
 
 ### Patch Changes

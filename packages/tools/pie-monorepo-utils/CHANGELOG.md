@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`0929ebb`](https://github.com/justeattakeaway/pie/commit/0929ebba0fc06cac1c2a21f65f1c6216172eaf7c)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.7.1
+
 ## 0.9.0
 
 ### Minor Changes

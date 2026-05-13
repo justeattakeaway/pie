@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.23.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Elements
+
+  - lightning-filled-large
+  - lightning-filled
+
 ## 1.22.0
 
 ### Minor Changes
