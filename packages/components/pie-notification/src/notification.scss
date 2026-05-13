@@ -143,8 +143,8 @@
         --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
         --notification-font-weight: var(--dt-font-body-s-weight);
         --notification-close-icon-offset: var(--dt-spacing-a);
-        --icon-size-override: 20px;
 
+        min-block-size: 48px;
         padding: 0;
         gap: 0;
 
@@ -157,10 +157,6 @@
 
             &:last-child {
                 padding-block-end: var(--dt-spacing-b);
-            }
-
-            &.is-dismissible {
-                max-width: calc(100% - var(--dt-spacing-a) - var(--dt-spacing-f));
             }
         }
 
@@ -194,9 +190,4 @@
     padding: var(--dt-spacing-a);
 }
 
-.c-notification--small .icon,
-.c-notification--small ::slotted([slot="icon"]) {
-    @include media('<md') {
-        padding: var(--dt-spacing-a-small);
-    }
-}
+

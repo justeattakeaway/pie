@@ -190,7 +190,7 @@ export class PieNotification extends PieElement implements NotificationProps {
      * @private
      */
     private renderCloseButton (): TemplateResult {
-        const closeButtonSize = this.size === 'small' ? 'xsmall' : 'small';
+        const closeButtonSize = 'small';
 
         return html`
             <pie-icon-button
