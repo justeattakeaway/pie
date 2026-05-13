@@ -2,9 +2,15 @@
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/eslint-plugin-snacks-pie-migration) | [NPM](https://www.npmjs.com/package/@justeattakeaway/eslint-plugin-snacks-pie-migration)
 
-<p>
-  <a href="https://www.npmjs.com/@justeattakeaway/eslint-plugin-snacks-pie-migration">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/eslint-plugin-snacks-pie-migration.svg">
+<p align="center">
+  <a href="https://github.com/justeattakeaway/pie/tree/main/packages/tools/eslint-plugin-snacks-pie-migration">
+    <img alt="Source code" src="https://img.shields.io/badge/Source%20code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://www.npmjs.com/package/@justeattakeaway/eslint-plugin-snacks-pie-migration">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/eslint-plugin-snacks-pie-migration?style=for-the-badge&color=ff8000&logo=npm&logoColor=white&label=npm">
+  </a>
+  <a href="https://github.com/justeattakeaway/pie/blob/main/LICENSE">
+    <img alt="license" src="https://img.shields.io/npm/l/@justeattakeaway/eslint-plugin-snacks-pie-migration?style=for-the-badge">
   </a>
 </p>
 
