@@ -32,10 +32,6 @@ jobs:
           node-version: 24
           os: ubuntu-latest
 
-      - name: Install dependencies
-        shell: bash
-        run: yarn
-
       - name: Update icons
         run: yarn workspace @justeattakeaway/pie-icons update-icons
 

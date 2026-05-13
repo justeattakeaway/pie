@@ -1,11 +1,12 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import path from 'path';
-import { execFileSync, execSync } from 'child_process';
+import { execSync } from 'child_process';
 import {
     emptyDirSync, removeSync, readJSONSync, writeJsonSync,
 } from 'fs-extra/esm';
 import slugify from 'slugify';
+import { appendToGithubEnv, configureGitUser } from '@justeattakeaway/pie-monorepo-utils/utils/github-utils.js';
 
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
@@ -209,15 +210,8 @@ async function updateIcons () {
         const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);
         const changesetFilePath = await createIconsChangeset(changedFilesGroups);
 
-        // check if is running on GHA and setup the git user
-        if (process.env.GITHUB_ACTIONS) {
-            // configure git and push
-            const gitUserName = process.env.GIT_USER_NAME || 'github-actions[bot]';
-            const gitUserEmail = process.env.GIT_USER_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com';
-
-            execFileSync('git', ['config', '--global', 'user.name', gitUserName]);
-            execFileSync('git', ['config', '--global', 'user.email', gitUserEmail]);
-        }
+        // setup the git user for CI environment
+        configureGitUser();
 
         const gitUpdatedPaths = [changesetFilePath, iconsDataFilePath, pieDocsTestsPath, pieDocsChangesetFilePath]
             .filter(Boolean).join(' ');
@@ -228,8 +222,8 @@ async function updateIcons () {
         // push if is running on GHA
         if (process.env.GITHUB_ACTIONS) {
             execSync(`git push --set-upstream origin ${branchName} --no-verify`);
-            execSync(`echo "BRANCH_NAME=${branchName}" >> $GITHUB_ENV`);
-            execSync(`echo "CHANGESET_FILE_PATH=${changesetFilePath}" >> $GITHUB_ENV`);
+            appendToGithubEnv('BRANCH_NAME', branchName);
+            appendToGithubEnv('CHANGESET_FILE_PATH', changesetFilePath);
         }
     }
 

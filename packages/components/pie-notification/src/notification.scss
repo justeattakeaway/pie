@@ -28,7 +28,6 @@
     position: relative;
     display: flex;
     flex-direction: var(--notification-direction);
-    gap: var(--dt-spacing-d);
     font-family: var(--notification-font-family);
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
@@ -114,6 +113,11 @@
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
+        pie-button,
+        ::slotted(pie-button) {
+            margin-block-start: var(--dt-spacing-d);
+        }
+
         &.is-compact {
             align-self: center;
             margin-inline-start: auto;
@@ -122,6 +126,11 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
+                gap: 0;
+
+                ::slotted(pie-button) {
+                    --btn-inline-size: 100%;
+                }
             }
 
             @include media('>=md') {
@@ -129,6 +138,19 @@
                     width: auto;
                 }
             }
+        }
+
+        // Enforce only pie-button in the action slots
+        ::slotted(:not(pie-button)) {
+            display: none;
+        }
+    }
+}
+
+:host([isCompact]) {
+    .c-notification-footer {
+        pie-button, ::slotted(pie-button) {
+            margin-block-start: 0;
         }
     }
 

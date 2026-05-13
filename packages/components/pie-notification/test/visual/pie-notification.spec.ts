@@ -371,3 +371,90 @@ test.describe('Reading direction - RTL - Right to Left', () => {
         await percySnapshot(page, 'PieNotification - Reading direction - RTL - Right to Left');
     });
 });
+
+test.describe('Slotted Action Buttons', () => {
+    test('should render slotted leading action with icon', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-leading-action');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Leading Action with Icon', screenWidths);
+    });
+
+    test('should render slotted supporting action (disabled)', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-supporting-action');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Supporting Action Disabled', screenWidths);
+    });
+
+    test('should render both slotted actions (leading loading, supporting ghost)', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions', screenWidths);
+    });
+
+    test('should render slotted actions in compact mode', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-compact');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Compact', screenWidths);
+    });
+
+    test('should stack slotted action buttons on small screens', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+        await page.setViewportSize({ width: 375, height: 667 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked - Small Screen');
+    });
+
+    test('should not stack slotted action buttons on large screens', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+        await page.setViewportSize({ width: 1275, height: 900 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked - Large Screen');
+    });
+
+    test('should not stack slotted action buttons on small screens when hasStackedActions is false', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-not-stacked');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+        await page.setViewportSize({ width: 375, height: 667 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Not Stacked - Small Screen');
+    });
+
+    test('should not stack slotted action buttons on large screens when hasStackedActions is false', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-not-stacked');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+        await page.setViewportSize({ width: 1275, height: 900 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Not Stacked - Large Screen');
+    });
+
+    test('should not stack slotted action buttons when hasStackedActions is true and isCompact is true', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked-compact');
+        basePage.waitUntilStrategy = 'networkidle';
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked Compact - Should Not Stack', screenWidths);
+    });
+});
