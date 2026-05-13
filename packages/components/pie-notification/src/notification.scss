@@ -152,7 +152,7 @@
             gap: var(--dt-spacing-b);
         }
 
-        &-content-section {
+        .c-notification-content-section {
             padding: var(--dt-spacing-b) var(--dt-spacing-b) 0;
 
             &:last-child {
@@ -164,13 +164,13 @@
             }
         }
 
-        &.is-compact &-content-section {
+        &.is-compact .c-notification-content-section {
             flex: 1;
             min-width: 0;
             padding: var(--dt-spacing-b) 0 var(--dt-spacing-b) var(--dt-spacing-b);
         }
 
-        &-footer {
+        .c-notification-footer {
             padding: var(--dt-spacing-b);
             align-items: flex-end;
 

@@ -1,6 +1,6 @@
-<svg width="380" height="104" viewBox="0 0 380 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="380" height="80" viewBox="0 0 380 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_18936_6022)">
-<path d="M0 12C0 5.37259 5.37258 0 12 0H368C374.627 0 380 5.37258 380 12V92C380 98.6274 374.627 104 368 104H12C5.37259 104 0 98.6274 0 92V12Z" fill="white"/>
+<path d="M0 12C0 5.37258 5.37258 0 12 0H368C374.627 0 380 5.37258 380 12V68C380 74.6274 374.627 80 368 80H12C5.37259 80 0 74.6274 0 68V12Z" fill="white"/>
 <path d="M16 24C16 19.5817 19.5817 16 24 16H40C44.4183 16 48 19.5817 48 24V40C48 44.4183 44.4183 48 40 48H24C19.5817 48 16 44.4183 16 40V24Z" fill="#F0ECE6"/>
 <rect x="16" y="16" width="32" height="32" rx="16" fill="#F0ECE6"/>
 <g clip-path="url(#clip1_18936_6022)">
@@ -20,7 +20,7 @@
 </g>
 <defs>
 <clipPath id="clip0_18936_6022">
-<path d="M0 12C0 5.37259 5.37258 0 12 0H368C374.627 0 380 5.37258 380 12V92C380 98.6274 374.627 104 368 104H12C5.37259 104 0 98.6274 0 92V12Z" fill="white"/>
+<path d="M0 12C0 5.37258 5.37258 0 12 0H368C374.627 0 380 5.37258 380 12V68C380 74.6274 374.627 80 368 80H12C5.37259 80 0 74.6274 0 68V12Z" fill="white"/>
 </clipPath>
 <clipPath id="clip1_18936_6022">
 <rect width="24" height="24" fill="white" transform="translate(20 20)"/>
