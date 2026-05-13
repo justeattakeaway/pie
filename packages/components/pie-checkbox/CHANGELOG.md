@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox
 
+## 1.1.0
+
+### Minor Changes
+
+- [Added] - LabelFit and LabelPosition properties for Checkbox label styling ([#2848](https://github.com/justeattakeaway/pie/pull/2848)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.0.23
 
 ### Patch Changes

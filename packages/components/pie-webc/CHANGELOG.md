@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 0.10.8
+
+### Patch Changes
+
+- Updated dependencies [[`ff92fc5`](https://github.com/justeattakeaway/pie/commit/ff92fc550ac33ddd4dedcb4640819527924503d2)]:
+  - @justeattakeaway/pie-checkbox@1.1.0
+
 ## 0.10.7
 
 ### Patch Changes
