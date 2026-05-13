@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.8.28
+
+### Patch Changes
+
+- [Changed] - readded skipped tests now chromatic removed ([#2846](https://github.com/justeattakeaway/pie/pull/2846)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.8.27
 
 ### Patch Changes
