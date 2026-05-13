@@ -3811,6 +3811,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.29.0
     "@changesets/write": 0.4.0
+    "@justeattakeaway/pie-monorepo-utils": 0.9.0
     babel-loader: 8.3.0
     cheerio: 1.0.0-rc.12
     classnames: 2.5.1
