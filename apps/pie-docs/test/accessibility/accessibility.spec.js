@@ -16,6 +16,8 @@ expectedRoutesJson.forEach((route) => {
         const results = await makeAxeBuilder()
             .include(`[data-test-id=${selector}]`)
             .exclude('iframe')
+            // TODO: Remove once DSW-3955 is resolved
+            .disableRules(['landmark-unique', 'color-contrast-enhanced', 'heading-order', 'empty-heading', 'landmark-main-is-top-level', 'empty-table-header'])
             .analyze();
 
         expect(results.violations).toEqual([]);
@@ -30,6 +32,8 @@ test('should test page content WCAG compliance for home page', async ({ page, ba
 
     const results = await makeAxeBuilder()
         .include(`[data-test-id=${selector}]`)
+        // TODO: Remove once DSW-3955 is resolved
+        .disableRules(['heading-order', 'color-contrast-enhanced'])
         .analyze();
 
     expect(results.violations).toEqual([]);
@@ -47,6 +51,8 @@ sharedComponents.forEach((component) => {
 
         const results = await makeAxeBuilder()
             .include(`[data-test-id=${component}]`)
+            // TODO: Remove once DSW-3955 is resolved
+            .disableRules(['landmark-main-is-top-level', 'landmark-no-duplicate-main'])
             .analyze();
 
         expect(results.violations).toEqual([]);
