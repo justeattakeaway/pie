@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.26
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9), [`908d04a`](https://github.com/justeattakeaway/pie/commit/908d04ae13b7c4512a8d36fb67f8b9746dfaeafb)]:
+  - @justeattakeaway/pie-icon-button@2.7.10
+  - @justeattakeaway/pie-divider@1.5.22
+  - @justeattakeaway/pie-button@1.14.0
+  - @justeattakeaway/pie-switch@2.3.28
+  - @justeattakeaway/pie-modal@1.26.2
+  - @justeattakeaway/pie-link@1.3.26
+
 ## 1.7.25
 
 ### Patch Changes

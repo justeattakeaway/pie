@@ -4,6 +4,8 @@ eleventyNavigation:
     parent: Tag
     order: 3
 shouldShowContent: true
+eleventyComputed:
+    sizes: "{% include './sizes.json' %}"
 ---
 
 ## Dos and Don'ts

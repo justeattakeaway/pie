@@ -24,7 +24,11 @@
     "PIE"
   ],
   "main": "./lib/index.js",
-  "exports": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./extract-component-data": "./lib/extract-component-data.js",
+    "./snacks-components-data.json": "./snacks-components-data.json"
+  },
   "files": [
     "lib",
     "snacks-components-data.json",
