@@ -44,6 +44,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `indeterminate`  | `-`                                    | Indicates whether the checkbox visually shows a horizontal line in the box instead of a check/tick. It has no impact on whether the checkbox's value is used in a form submission. That is decided by the checked state, regardless of the indeterminate state.                                                                          | `false`     |
 | `assistiveText`  | `-`                                    | Allows assistive text to be displayed below the checkbox element.                                                                                                                                                                                                                                                                                                                | `-`         |
 | `status`         | `"default"`, `"error"`, `"success"`    | The status of the checkbox component / assistive text. If you use `status` you must provide an `assistiveText` prop value for accessibility purposes.                                                                                                                                                                                                                            | `"default"` |
+| `labelPosition`  | `"trailing"`, `"leading"`              | The position of the label relative to the checkbox input. `trailing` places the label after the checkbox, `leading` places it before.                                                                                                                                                                                                                                           | `"trailing"` |
+| `labelFit`       | `"hug"`, `"fill"`                      | Controls how the label container is sized. `hug` wraps the content, `fill` stretches to fill the available width.                                                                                                                                                                                                                                                               | `"hug"`     |
 
 ### Slots
 
@@ -122,6 +124,19 @@ import '@justeattakeaway/pie-webc/components/checkbox.js';
 <pie-checkbox name="mycheckbox" aria-label="Label"></pie-checkbox>
 ```
 
+**Label positioning and fit:**
+
+```html
+<!-- Leading label (label appears before the checkbox) -->
+<pie-checkbox name="mycheckbox" labelPosition="leading">Label</pie-checkbox>
+
+<!-- Fill label (label container stretches to fill available width) -->
+<pie-checkbox name="mycheckbox" labelFit="fill">Label</pie-checkbox>
+
+<!-- Combined leading + fill -->
+<pie-checkbox name="mycheckbox" labelPosition="leading" labelFit="fill">Label</pie-checkbox>
+```
+
 **For React Applications:**
 
 ```jsx
@@ -131,6 +146,12 @@ import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
 
 // Always use aria-label if you are not passing a label
 <PieCheckbox name="mycheckbox" aria-label="Label"></PieCheckbox>
+
+// Leading label
+<PieCheckbox name="mycheckbox" labelPosition="leading">Label</PieCheckbox>
+
+// Fill label
+<PieCheckbox name="mycheckbox" labelFit="fill">Label</PieCheckbox>
 ```
 
 ### Rich Label Slot Content

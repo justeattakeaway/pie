@@ -13,7 +13,9 @@ import {
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/notification';
 
+import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
@@ -230,3 +232,57 @@ export const WithLinkActions = createNotificationStory({
         download: 'update-notes.pdf',
     },
 });
+
+const SlottedActionsTemplate: TemplateFunction<NotificationProps> = ({
+    aria,
+    isOpen,
+    isDismissible,
+    isCompact,
+    variant,
+    position,
+    heading,
+    headingLevel,
+    hideIcon,
+    hasStackedActions,
+    slot,
+    iconSlot,
+}) => html`
+    <pie-notification
+        .aria="${aria}"
+        ?isOpen="${isOpen}"
+        ?isDismissible="${isDismissible}"
+        ?isCompact="${isCompact}"
+        variant="${ifDefined(variant)}"
+        position="${ifDefined(position)}"
+        heading="${ifDefined(heading)}"
+        headingLevel="${ifDefined(headingLevel)}"
+        ?hideIcon="${hideIcon}"
+        ?hasStackedActions="${hasStackedActions}"
+        @pie-notification-close="${pieNotificationClose}"
+        @pie-notification-open="${pieNotificationOpen}">
+            ${iconSlot}
+            ${sanitizeAndRenderHTML(slot)}
+            <pie-button
+                slot="supportingAction"
+                variant="ghost"
+                size="small-productive"
+                disabled>
+                Cancel
+            </pie-button>
+            <pie-button
+                slot="leadingAction"
+                variant="primary"
+                size="small-productive"
+                isLoading>
+                Saving...
+            </pie-button>
+    </pie-notification>`;
+
+export const WithSlottedActions = createStory<NotificationProps>(SlottedActionsTemplate, {
+    ...defaultArgs,
+    variant: 'success',
+    heading: 'Slotted Actions (Loading & Disabled)',
+    slot: 'This notification has a loading leading action and a disabled supporting action, both using slotted pie-buttons.',
+    leadingAction: undefined,
+    supportingAction: undefined,
+})(undefined, { controls: { exclude: ['leadingAction', 'supportingAction'] } });

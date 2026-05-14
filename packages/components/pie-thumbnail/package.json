@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-thumbnail",
   "description": "PIE Design System Thumbnail built using Web Components",
-  "version": "0.8.27",
+  "version": "0.8.28",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.1",
     "@justeattakeaway/pie-css": "1.1.1",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.0"
+    "@justeattakeaway/pie-monorepo-utils": "0.9.1"
   },
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "14.0.1"

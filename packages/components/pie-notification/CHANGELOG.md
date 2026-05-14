@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-notification
 
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - Support for `leadingAction` and `supportingAction` slots, allowing consumers to pass custom `pie-button` elements for full control over action rendering (e.g. icons, loading states, disabled states) ([#2824](https://github.com/justeattakeaway/pie/pull/2824)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-icon-button@2.7.11
+
 ## 0.21.25
 
 ### Patch Changes
