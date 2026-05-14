@@ -156,14 +156,14 @@ export class PieNotification extends PieElement implements NotificationProps {
             [`${componentClass}-footer--stacked`]: hasStackedActions && !isCompact,
         };
         return html`
-            <footer
+            <div
                 class="${classMap(classes)}"
                 data-test-id="${componentSelector}-footer">
                     ${this.renderSupportingAction()}
                     <slot name="supportingAction"></slot>
                     ${this.renderLeadingAction()}
                     <slot name="leadingAction"></slot>
-            </footer>
+            </div>
         `;
     }
 
@@ -347,13 +347,13 @@ export class PieNotification extends PieElement implements NotificationProps {
                 aria-label="${!heading && ifDefined(aria?.label)}">
                 ${showCloseButton ? this.renderCloseButton() : nothing}
 
-                <section class="${classMap(contentSectionClasses)}">
+                <div class="${classMap(contentSectionClasses)}">
                     ${!hideIcon ? this.renderIcon() : nothing}
-                    <article>
+                    <div>
                         ${heading ? this.renderNotificationHeading() : nothing}
                         <slot></slot>
-                    </article>
-                </section>
+                    </div>
+                </div>
 
                 ${this.renderFooter()}
             </div>`;
