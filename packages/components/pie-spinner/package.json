@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-spinner",
   "description": "PIE Design System Spinner built using Web Components",
-  "version": "1.4.14",
+  "version": "1.4.15",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -43,7 +43,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.1",
+    "@justeattakeaway/pie-components-config": "0.21.2",
     "@justeattakeaway/pie-css": "1.1.1",
     "@justeattakeaway/pie-monorepo-utils": "0.9.1",
     "@justeattakeaway/pie-wrapper-react": "0.14.4"

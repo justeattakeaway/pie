@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.77.0
+
+### Minor Changes
+
+- [Added] - Notification story with no actions ([#2853](https://github.com/justeattakeaway/pie/pull/2853)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-webc@0.10.9
+
 ## 1.76.0
 
 ### Minor Changes
