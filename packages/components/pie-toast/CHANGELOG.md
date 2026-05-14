@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-toast
 
+## 0.12.41
+
+### Patch Changes
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-icon-button@2.7.11
+
+## 0.12.40
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9), [`908d04a`](https://github.com/justeattakeaway/pie/commit/908d04ae13b7c4512a8d36fb67f8b9746dfaeafb)]:
+  - @justeattakeaway/pie-icon-button@2.7.10
+  - @justeattakeaway/pie-button@1.14.0
+
 ## 0.12.39
 
 ### Patch Changes
