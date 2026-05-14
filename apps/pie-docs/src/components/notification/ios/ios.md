@@ -3,6 +3,8 @@ eleventyNavigation:
     key: iOS
     parent: Notification
     order: 4
+shouldShowContents: true
+permalink: components/notification/ios/
 ---
 
 ## Dos and Don’ts
@@ -39,7 +41,7 @@ eleventyNavigation:
         "**Icon (Optional):** Leading icon that visually reinforces the content.",
         "**Title (Optional)**: Provides overall content of the content.",
         "**Supporting text**: Provides supporting information to the user.",
-        "**Close (Optional)**: Let the user dismiss the notification.",
+        "**Close (Optional)**: Lets the user dismiss the notification.",
         "**Actions (Optional)**: Button options let the user proceed with or dismiss the notification."
     ]
 } %}
@@ -137,9 +139,20 @@ The action(s) relocate to be in line with the supporting text, which helps to re
   message: "If the close icon is required, don’t use the compact prop."
 } %}
 
+{% notification {
+  type: "information",
+  message: "It's recommended that the compact prop isn't used below 600px due to available space."
+} %}
+
 {% contentPageImage {
-    src:"../../../assets/img/components/notification-apps/modifiers-compact.svg",
-    alt: "The compact variant of the notification where the trailing icon, title, supporting text and actions are on the same line.",
+    src:"../../../assets/img/components/notification-apps/modifiers-compact-title.svg",
+    alt: "The compact variant of the notification with an icon, title, supporting text where actions are on the same line.",
+    width: 1024
+} %}
+
+{% contentPageImage {
+    src:"../../../assets/img/components/notification-apps/modifiers-compact-no-title.svg",
+    alt: "The compact variant of the notification without a title, with an icon and supporting text where actions are on the same line.",
     width: 1024
 } %}
 
@@ -306,7 +319,7 @@ Notifications provide limited space for content, and therefore the content must 
 - Be concise and avoid repeating or paraphrasing the title.
 - Limit content to one or two short sentences.
 
-### Overrides   
+### Overrides
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification-apps/content-overrides.svg",
@@ -318,8 +331,8 @@ Notifications provide limited space for content, and therefore the content must 
     type: listTypes.ordered,
     items: [
         "**Leading icon:** Leading icon can be overridden, but the chosen icon must be appropriate for the message context. Find more information in the [Modifiers: Icon](#icons) section.",
-        "**Supporting text:** The supporting text can include a [link](/components/link) or bold type, when the string is a complete sentence or more.",
-        "**Buttons:** The default [Button’s](/components/button/#sizes) size is Small-Productive, it can be decreased to XS. When used as a pair, ensure both buttons are the same size."
+        "**Supporting text:** The supporting text can include a [link component](/components/link) or bold type, when the string is a complete sentence or more.",
+        "**Buttons:** The default [Button component](/components/button/#sizes) size is Small-Productive, it can be decreased to XS. When used as a pair, ensure both buttons are the same size."
     ]
 } %}
 
@@ -358,7 +371,7 @@ When the user clicks the icon button, the notification is dismissed.
     width: 1024
 } %}
 
-### Actions
+### Action buttons
 
 The actions in the notification can do things like redirecting the user. This might result in the notification closing once a task is done, or it could directly close the notification.
 
@@ -400,7 +413,7 @@ Notifications can appear full width, and always appears at the top of the interf
 
 ### LTR examples
 
-Here are some examples of Buttons in left-to-right context:
+Here are some examples of notifications in left-to-right context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification-apps/examples-ltr-error.svg",
@@ -416,6 +429,7 @@ Here are some examples of Buttons in left-to-right context:
 
 ### RTL examples
 
+Here are some examples of notifications in right-to-left context:
 {% contentPageImage {
     src:"../../../assets/img/components/notification-apps/examples-rtl-error.svg",
     alt: "An error notification that informs users their connect is interrupted in Hebrew representing how the component looks in a RTL context",
