@@ -3,6 +3,7 @@ eleventyNavigation:
     key: iOS
     parent: Tag
     order: 4
+shouldShowContent: true
 ---
 
 ## Dos and Don'ts
@@ -47,7 +48,7 @@ eleventyNavigation:
 
 ## Modifiers
 
-### Icon 
+### Icon
 
 When incorporating an icon into a tag, it is essential to ensure that the icon clearly supports the label.
 
@@ -83,7 +84,6 @@ Depending on the level of visual prominence you want to give to the tag, you can
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
-
 
 ### Colours
 
@@ -283,6 +283,33 @@ Tags can be used to indicate status or used to convey specific meanings within J
 
 ---
 
+## Interactive states
+
+The Tag includes the default and disabled states.
+
+{% nofication {
+  type: "information",
+  message: "As the Tag is no longer interactive the design system team is currently reviewing the interactive states. Contact the design system team if you have any questions."
+} %}
+
+### Default state
+
+{% contentPageImage {
+    src:"../../../assets/img/components/tag-apps/interactive-state-default.svg",
+    alt: "A collection of different tag variants showing the different interactive states.",
+    width: "342px"
+} %}
+
+### Disabled state
+
+{% contentPageImage {
+    src:"../../../assets/img/components/tag-apps/interactive-state-disabled.svg",
+    alt: "A collection of different tag variants showing the different interactive states.",
+    width: "342px"
+} %}
+
+---
+
 ## Examples
 
 ### LTR examples
@@ -304,4 +331,3 @@ Here are some examples of tags in right-to-left context:
     alt: "An example of the tag inside a restaurant listing that displays text from right to left. The tags start on the right of the image.",
     width: "343px"
 } %}
-

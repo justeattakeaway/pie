@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Android
     parent: Tag
     order: 3
+shouldShowContent: true
 ---
 
 ## Dos and Don'ts
@@ -47,7 +48,7 @@ eleventyNavigation:
 
 ## Modifiers
 
-### Icon 
+### Icon
 
 When incorporating an icon into a tag, it is essential to ensure that the icon clearly supports the label.
 
@@ -84,7 +85,6 @@ Depending on the level of visual prominence you want to give to the tag, you can
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
-
 
 ### Colours
 
@@ -280,6 +280,33 @@ Tags can be used to indicate status or used to convey specific meanings within J
         "**Error:** Drawing attention to critical information for the user. Please review if an icon only tag is appropriate it might be better to use a dialogue, notification, toast or banner component",
         "**Offers:** Drawing attention to contextual information about the details of a deal or promotion to the user"
     ]
+} %}
+
+---
+
+## Interactive states
+
+The Tag includes the default and disabled states.
+
+{% nofication {
+  type: "information",
+  message: "As the Tag is no longer interactive the design system team is currently reviewing the interactive states. Contact the design system team if you have any questions."
+} %}
+
+### Default state
+
+{% contentPageImage {
+    src:"../../../assets/img/components/tag-apps/interactive-state-default.svg",
+    alt: "A collection of different tag variants showing the different interactive states.",
+    width: "342px"
+} %}
+
+### Disabled state
+
+{% contentPageImage {
+    src:"../../../assets/img/components/tag-apps/interactive-state-disabled.svg",
+    alt: "A collection of different tag variants showing the different interactive states.",
+    width: "342px"
 } %}
 
 ---
