@@ -1,10 +1,13 @@
 const path = require('path');
 const fs = require('fs');
-const { execFileSync, execSync } = require('child_process');
+const { execSync } = require('child_process');
 
 const { extractComponentData } = require('@justeattakeaway/eslint-plugin-snacks-pie-migration/extract-component-data');
 const findMonorepoRoot = require('../utils/find-monorepo-root');
 const { BRANCH_PREFIX, diffComponentData } = require('./shared');
+const {
+    appendToGithubOutput, appendToGithubEnv, appendJsonToGithubEnv, configureGitUser,
+} = require('../utils/github-utils');
 
 const ESLINT_PLUGIN_PACKAGE = '@justeattakeaway/eslint-plugin-snacks-pie-migration';
 
@@ -13,30 +16,6 @@ function hasDiff (diff) {
         diff.removed.length > 0 ||
         diff.statusChanged.length > 0 ||
         diff.snacksChanged.length > 0;
-}
-
-function appendToGithubOutput (key, value) {
-    if (!process.env.GITHUB_OUTPUT) return;
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
-}
-
-function appendToGithubEnv (key, value) {
-    if (!process.env.GITHUB_ENV) return;
-    fs.appendFileSync(process.env.GITHUB_ENV, `${key}=${value}\n`);
-}
-
-function appendJsonToGithubEnv (key, value) {
-    if (!process.env.GITHUB_ENV) return;
-    fs.appendFileSync(process.env.GITHUB_ENV, `${key}<<EOF\n${JSON.stringify(value)}\nEOF\n`);
-}
-
-function configureGitUser () {
-    if (!process.env.GITHUB_ENV) return;
-
-    const gitUserName = process.env.GIT_USER_NAME || 'github-actions[bot]';
-    const gitUserEmail = process.env.GIT_USER_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com';
-    execFileSync('git', ['config', '--global', 'user.name', gitUserName]);
-    execFileSync('git', ['config', '--global', 'user.email', gitUserEmail]);
 }
 
 /**

@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.27
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.11
+  - @justeattakeaway/pie-link@1.3.27
+  - @justeattakeaway/pie-modal@1.26.3
+  - @justeattakeaway/pie-switch@2.3.29
+
 ## 1.7.26
 
 ### Patch Changes
