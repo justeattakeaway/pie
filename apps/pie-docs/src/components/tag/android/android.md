@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: Tag
     order: 3
 shouldShowContents: true
+permalink: /components/tag/android/
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 ---
