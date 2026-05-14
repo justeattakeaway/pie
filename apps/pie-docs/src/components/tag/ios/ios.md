@@ -3,7 +3,7 @@ eleventyNavigation:
     key: iOS
     parent: Tag
     order: 4
-shouldShowContent: true
+shouldShowContents: true
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 ---

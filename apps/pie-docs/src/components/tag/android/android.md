@@ -3,7 +3,7 @@ eleventyNavigation:
     key: Android
     parent: Tag
     order: 3
-shouldShowContent: true
+shouldShowContents: true
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 ---
