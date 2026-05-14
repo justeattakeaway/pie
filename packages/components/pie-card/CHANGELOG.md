@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.26.23
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.26.22
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.33.1
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.33.0
 
 ### Minor Changes

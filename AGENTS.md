@@ -38,7 +38,6 @@ pie/
   - Playwright (browser tests)
   - Vitest (unit tests)
   - Percy (visual regression)
-  - Chromatic (additional visual regression / Storybook snapshots)
 
 ## Component Structure
 

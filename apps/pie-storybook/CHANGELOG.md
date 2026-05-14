@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.76.0
+
+### Minor Changes
+
+- [Added] - LabelFit and LabelPosition properties for Checkbox label styling ([#2848](https://github.com/justeattakeaway/pie/pull/2848)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.8
+
+## 1.75.6
+
+### Patch Changes
+
+- [Changed] - readded skipped tests now chromatic removed ([#2846](https://github.com/justeattakeaway/pie/pull/2846)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - Support for `leadingAction` and `supportingAction` slots, allowing consumers to pass custom `pie-button` elements for full control over action rendering (e.g. icons, loading states, disabled states) ([#2824](https://github.com/justeattakeaway/pie/pull/2824)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-webc@0.10.7
+
+## 1.75.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.6
+
 ## 1.75.4
 
 ### Patch Changes
