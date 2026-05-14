@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-form-label
 
+## 0.18.24
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.18.23
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.28
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-button@1.14.1
+  - @justeattakeaway/pie-divider@1.5.23
+  - @justeattakeaway/pie-icon-button@2.7.12
+  - @justeattakeaway/pie-link@1.3.28
+  - @justeattakeaway/pie-modal@1.26.4
+  - @justeattakeaway/pie-switch@2.3.30
+
 ## 1.7.27
 
 ### Patch Changes
