@@ -35,7 +35,7 @@ export interface ToastProps {
   /**
    * The message content of the toast.
    */
-  message: string;
+  message?: string;
   /**
    * Allows the message content to be displayed as multiline, limited to three rows.
    */
@@ -77,10 +77,9 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'leadingAction'>>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'leadingAction' | 'message'>>;
 
 export const defaultProps: DefaultProps = {
-    message: '',
     isOpen: true,
     variant: 'neutral',
     isStrong: false,
