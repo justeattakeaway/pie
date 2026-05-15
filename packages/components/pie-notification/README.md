@@ -34,6 +34,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | --- | --- | --- | --- |
 | `variant` | `"neutral"`, `"neutral-alternative"`, `"info"`, `"success"`, `"warning"`, `"error"`, `"translucent"` | Sets the variant of the notification. | `"neutral"` |
 | `position` | `"inline-content"`, `"full-width"` | Defines the proper styles, whether the component appears within the content or at the top of the interface. | `"inline-content"` |
+| `size` | `"small"`, `"large"` | Sets the size of the notification. When `small`, renders with reduced dimensions on narrow screens (below the `md` breakpoint). On wide screens, both sizes render identically. | `"large"` |
 | `heading` | — | The heading text of the notification. | `undefined` |
 | `headingLevel` | `h2`, `h3`, `h4`, `h5`, `h6` | The HTML tag to use for the notification's heading. | `h2` |
 | `isDismissible` | `true`, `false` | When true, allows dismissing the notification by clicking on the close button. | `false` |

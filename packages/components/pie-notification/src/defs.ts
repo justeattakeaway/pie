@@ -3,6 +3,7 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'warning', 'error', 'translucent'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const positions = ['inline-content', 'full-width'] as const;
+export const sizes = ['small', 'large'] as const;
 export const actionSizes = ['small-productive', 'xsmall'] as const;
 
 type AriaProps = {
@@ -57,6 +58,13 @@ export interface NotificationProps {
    * Defines the proper styles, whether the component appears within the content or at the top of the interface
    */
   position?: typeof positions[number];
+
+  /**
+   * Sets the size of the notification. When `small`, the component renders with
+   * reduced dimensions on narrow screens (below the md breakpoint).
+   * On wide screens, both sizes render identically.
+   */
+  size?: typeof sizes[number];
 
   /**
    * When true, allows dismissing the notification by clicking on the close button.
@@ -154,6 +162,7 @@ export const defaultActionButtonProps: ActionProps = {
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
     position: 'inline-content',
+    size: 'large',
     isDismissible: false,
     isCompact: false,
     headingLevel: 'h2',

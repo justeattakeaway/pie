@@ -7,6 +7,7 @@ import {
     headingLevels,
     positions,
     actionSizes,
+    sizes,
 } from '../../src/defs.ts';
 
 export const screenWidths = {
@@ -256,6 +257,80 @@ test.describe('Props', () => {
 
                 // Assert
                 await percySnapshot(page, 'PieNotification - isCompact - should align actions to the edge of the container');
+            });
+        });
+
+        test.describe('size', () => {
+            sizes.forEach((size) => {
+                test(`should render correctly with size ${size} on narrow screen`, async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'notification');
+                    basePage.waitUntilStrategy = 'networkidle';
+                    const props: NotificationProps = {
+                        ...initialValues,
+                        size,
+                        heading: 'Notification Title',
+                    };
+
+                    await basePage.load({ ...props });
+                    await page.setViewportSize({ width: 375, height: 667 });
+
+                    // Assert
+                    await percySnapshot(page, `PieNotification - size = ${size} - narrow screen`);
+                });
+
+                test(`should render correctly with size ${size} on wide screen`, async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'notification');
+                    basePage.waitUntilStrategy = 'networkidle';
+                    const props: NotificationProps = {
+                        ...initialValues,
+                        size,
+                        heading: 'Notification Title',
+                    };
+
+                    await basePage.load({ ...props });
+                    await page.setViewportSize({ width: 1275, height: 900 });
+
+                    // Assert
+                    await percySnapshot(page, `PieNotification - size = ${size} - wide screen`);
+                });
+            });
+
+            test('should render correctly with size small and isCompact on narrow screen', async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'notification');
+                basePage.waitUntilStrategy = 'networkidle';
+                const props: NotificationProps = {
+                    ...initialValues,
+                    size: 'small',
+                    isCompact: true,
+                    heading: 'Notification Title',
+                };
+
+                await basePage.load({ ...props });
+                await page.setViewportSize({ width: 375, height: 667 });
+
+                // Assert
+                await percySnapshot(page, 'PieNotification - size = small, isCompact = true - narrow screen');
+            });
+
+            test('should render correctly with size small and isCompact on wide screen', async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'notification');
+                basePage.waitUntilStrategy = 'networkidle';
+                const props: NotificationProps = {
+                    ...initialValues,
+                    size: 'small',
+                    isCompact: true,
+                    heading: 'Notification Title',
+                };
+
+                await basePage.load({ ...props });
+                await page.setViewportSize({ width: 1275, height: 900 });
+
+                // Assert
+                await percySnapshot(page, 'PieNotification - size = small, isCompact = true - wide screen');
             });
         });
     });

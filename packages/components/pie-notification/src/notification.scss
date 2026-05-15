@@ -68,13 +68,11 @@
         --notification-icon-fill: var(--dt-color-content-light);
     }
 
-     &.c-notification--translucent {
+    &.c-notification--translucent {
         --notification-background-color: var(--dt-color-container-prominent);
 
         backdrop-filter: blur(var(--dt-blur-prominent));
-
     }
-
 
     &-heading {
         margin: 0;
@@ -143,6 +141,57 @@
         // Enforce only pie-button in the action slots
         ::slotted(:not(pie-button)) {
             display: none;
+        }
+    }
+
+    @include media('<md') {
+        &.c-notification--small {
+            --notification-heading-font-family: var(--dt-font-heading-xs-family);
+            --notification-heading-font-size: #{p.font-size(--dt-font-heading-xs-size--narrow)};
+            --notification-heading-line-height: #{p.line-height(--dt-font-heading-xs-line-height--narrow)};
+            --notification-heading-font-weight: var(--dt-font-heading-xs-weight);
+            --notification-font-family: var(--dt-font-body-s-family);
+            --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
+            --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+            --notification-font-weight: var(--dt-font-body-s-weight);
+            --notification-close-icon-offset: var(--dt-spacing-a);
+            --icon-size-override: 20px;
+
+            padding: var(--dt-spacing-b);
+            gap: 0;
+
+            &.is-compact {
+                gap: var(--dt-spacing-b);
+            }
+
+            .c-notification-content-section {
+                padding: var(--dt-spacing-b) var(--dt-spacing-b) 0;
+
+                &:last-child {
+                    padding-block-end: var(--dt-spacing-b);
+                }
+
+                &.is-dismissible {
+                    max-width: calc(100% - var(--dt-spacing-a) - 32px);
+                }
+            }
+
+            &.is-compact .c-notification-content-section {
+                flex: 1;
+                min-width: 0;
+                padding: var(--dt-spacing-b) 0 var(--dt-spacing-b) var(--dt-spacing-b);
+            }
+
+            .c-notification-footer {
+                padding: var(--dt-spacing-b);
+                align-items: flex-end;
+
+                &.is-compact {
+                    align-self: stretch;
+                    align-items: center;
+                    padding: var(--dt-spacing-b);
+                }
+            }
         }
     }
 }

@@ -146,7 +146,7 @@ The action(s) relocate to be in line with the supporting text, which helps to re
 
 {% notification {
   type: "information",
-  message: "If the close icon is required, don’t use the compact prop."
+  message: "If the close icon is required, don't use the compact prop."
 } %}
 
 {% contentPageImage {
@@ -239,6 +239,56 @@ When the user is not required to take action against the notification.
     alt: "A notification with a title, a trailing icon, supporting text, dismiss button and no action buttons",
     width: 1024
 } %}
+
+---
+
+## Sizes
+
+We provide two sizes for both inline and full width notifications in the Narrow variant. The Wide variant only has large size as the default.
+
+### Narrow
+
+#### Large
+
+The narrow - large variant uses 16px spacing around the content and small size action and close buttons.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-large.svg",
+      width: "380px",
+      alt: "A narrow notification in large size with a leading icon, title, supporting text, dismiss button and two action buttons."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-large-compact.svg",
+      width: "380px",
+      alt: "A narrow notification in large size with the compact modifier, showing a leading icon, title, supporting text and two action buttons inline."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Small
+
+The small variant further reduces the overall visual size. Spacing around the content is reduced to 8px, and actions use the XSmall size. Text tokens are scaled down to match the tighter layout. This variant is ideal for highly compact interfaces or simple messaging, where minimal disruption is preferred.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-small.svg",
+      width: "380px",
+      alt: "A narrow notification in small size with a leading icon, title, supporting text, dismiss button and two action buttons."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-small-compact.svg",
+      width: "380px",
+      alt: "A narrow notification in small size with the compact modifier, showing a leading icon, title, supporting text and two action buttons inline."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 

@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { type NotificationProps, headingLevels, variants } from '../../src/defs.ts';
+import {
+    type NotificationProps, headingLevels, variants, sizes,
+} from '../../src/defs.ts';
 
 import { notification } from '../helpers/page-object/selectors.ts';
 
@@ -199,6 +201,56 @@ test.describe('PieNotification - Component tests', () => {
                     await expect(notificationComponent).toHaveAttribute('variant', variant);
                     await expect(iconSelector).not.toBeVisible();
                 });
+            });
+        });
+
+        test.describe('size', () => {
+            sizes.forEach((size) => {
+                test(`should render successfully when size is ${size}`, async ({ page }) => {
+                    // Arrange
+                    const notificationPage = new BasePage(page, 'notification');
+                    const props: NotificationProps = {
+                        size,
+                    };
+
+                    await notificationPage.load({ ...props });
+
+                    // Act
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+
+                    // Assert
+                    await expect(notificationComponent).toBeVisible();
+                });
+            });
+
+            test('should default to large size', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification');
+                await notificationPage.load();
+
+                // Act
+                const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
+
+                // Assert
+                await expect(notificationComponent).toBeVisible();
+                await expect(notificationComponent).not.toHaveClass(/c-notification--small/);
+            });
+
+            test('should apply the small class when size is small', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification');
+                const props: NotificationProps = {
+                    size: 'small',
+                };
+
+                await notificationPage.load({ ...props });
+
+                // Act
+                const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
+
+                // Assert
+                await expect(notificationComponent).toBeVisible();
+                await expect(notificationComponent).toHaveClass(/c-notification--small/);
             });
         });
 

@@ -15,6 +15,7 @@ import {
     type ActionProps,
     variants,
     positions,
+    sizes,
     headingLevels,
     actionSizes,
     componentSelector,
@@ -62,6 +63,10 @@ export class PieNotification extends PieElement implements NotificationProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, positions, defaultProps.position)
     public position = defaultProps.position;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size = defaultProps.size;
 
     @property({ type: Boolean })
     public isDismissible = defaultProps.isDismissible;
@@ -223,10 +228,12 @@ export class PieNotification extends PieElement implements NotificationProps {
      * @private
      */
     private renderCloseButton (): TemplateResult {
+        const closeButtonSize = 'small';
+
         return html`
             <pie-icon-button
                 variant="ghost-secondary"
-                size="small"
+                size="${closeButtonSize}"
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
                 @click="${this.handleCloseButton}"
@@ -273,7 +280,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         const {
             text,
             ariaLabel,
-            size = defaultActionButtonProps.size,
+            size: actionSize,
             href,
             target,
             rel,
@@ -285,7 +292,8 @@ export class PieNotification extends PieElement implements NotificationProps {
         }
 
         const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
-        const buttonSize = size && actionSizes.includes(size) ? size : defaultActionButtonProps.size;
+        const defaultSize = this.size === 'small' ? 'xsmall' : defaultActionButtonProps.size;
+        const buttonSize = actionSize && actionSizes.includes(actionSize) ? actionSize : defaultSize;
         const isLink = !!href;
 
         return html`
@@ -311,6 +319,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         const {
             variant,
             position,
+            size,
             heading,
             isDismissible,
             isCompact,
@@ -329,6 +338,7 @@ export class PieNotification extends PieElement implements NotificationProps {
             [componentClass]: true,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--${position}`]: true,
+            [`${componentClass}--${size}`]: true,
             'is-compact': isCompact,
         };
 
