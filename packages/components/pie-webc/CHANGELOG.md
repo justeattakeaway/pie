@@ -1,5 +1,99 @@
 # @justeattakeaway/pie-webc
 
+## 0.10.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.31
+  - @justeattakeaway/pie-avatar@0.4.33
+  - @justeattakeaway/pie-breadcrumb@0.8.5
+  - @justeattakeaway/pie-chip@0.15.29
+  - @justeattakeaway/pie-icon-button@2.7.13
+  - @justeattakeaway/pie-link@1.3.29
+  - @justeattakeaway/pie-modal@1.26.5
+  - @justeattakeaway/pie-notification@0.23.1
+  - @justeattakeaway/pie-switch@2.3.31
+  - @justeattakeaway/pie-text-input@0.29.33
+  - @justeattakeaway/pie-toast@0.12.43
+  - @justeattakeaway/pie-checkbox@1.1.2
+  - @justeattakeaway/pie-checkbox-group@1.0.24
+  - @justeattakeaway/pie-radio-group@1.0.24
+  - @justeattakeaway/pie-select@0.8.33
+  - @justeattakeaway/pie-textarea@0.17.31
+  - @justeattakeaway/pie-cookie-banner@1.7.29
+  - @justeattakeaway/pie-toast-provider@0.7.44
+
+## 0.10.9
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15), [`975c802`](https://github.com/justeattakeaway/pie/commit/975c802e1c4d8ba2bea31aeaf2fc58fad3b92b6b)]:
+  - @justeattakeaway/pie-assistive-text@0.11.30
+  - @justeattakeaway/pie-avatar@0.4.32
+  - @justeattakeaway/pie-breadcrumb@0.8.4
+  - @justeattakeaway/pie-button@1.14.1
+  - @justeattakeaway/pie-card@0.26.24
+  - @justeattakeaway/pie-checkbox@1.1.1
+  - @justeattakeaway/pie-checkbox-group@1.0.23
+  - @justeattakeaway/pie-chip@0.15.28
+  - @justeattakeaway/pie-cookie-banner@1.7.28
+  - @justeattakeaway/pie-data-table@0.3.16
+  - @justeattakeaway/pie-divider@1.5.23
+  - @justeattakeaway/pie-form-label@0.18.24
+  - @justeattakeaway/pie-icon-button@2.7.12
+  - @justeattakeaway/pie-link@1.3.28
+  - @justeattakeaway/pie-list@0.0.27
+  - @justeattakeaway/pie-lottie-player@0.4.3
+  - @justeattakeaway/pie-modal@1.26.4
+  - @justeattakeaway/pie-notification@0.23.0
+  - @justeattakeaway/pie-radio@1.1.13
+  - @justeattakeaway/pie-radio-group@1.0.23
+  - @justeattakeaway/pie-select@0.8.32
+  - @justeattakeaway/pie-spinner@1.4.15
+  - @justeattakeaway/pie-switch@2.3.30
+  - @justeattakeaway/pie-tabs@0.1.23
+  - @justeattakeaway/pie-tag@0.22.20
+  - @justeattakeaway/pie-text-input@0.29.32
+  - @justeattakeaway/pie-textarea@0.17.30
+  - @justeattakeaway/pie-thumbnail@0.8.29
+  - @justeattakeaway/pie-toast@0.12.42
+  - @justeattakeaway/pie-toast-provider@0.7.43
+
+## 0.10.8
+
+### Patch Changes
+
+- Updated dependencies [[`ff92fc5`](https://github.com/justeattakeaway/pie/commit/ff92fc550ac33ddd4dedcb4640819527924503d2)]:
+  - @justeattakeaway/pie-checkbox@1.1.0
+
+## 0.10.7
+
+### Patch Changes
+
+- Updated dependencies [[`41ad96d`](https://github.com/justeattakeaway/pie/commit/41ad96db3f86ac180e8274e9a10ef333fa7a6a0e), [`94cb1c3`](https://github.com/justeattakeaway/pie/commit/94cb1c367dd36ad90bf9d4347372446bb9f58378)]:
+  - @justeattakeaway/pie-thumbnail@0.8.28
+  - @justeattakeaway/pie-notification@0.22.0
+  - @justeattakeaway/pie-assistive-text@0.11.29
+  - @justeattakeaway/pie-avatar@0.4.31
+  - @justeattakeaway/pie-breadcrumb@0.8.3
+  - @justeattakeaway/pie-chip@0.15.27
+  - @justeattakeaway/pie-icon-button@2.7.11
+  - @justeattakeaway/pie-link@1.3.27
+  - @justeattakeaway/pie-modal@1.26.3
+  - @justeattakeaway/pie-switch@2.3.29
+  - @justeattakeaway/pie-text-input@0.29.31
+  - @justeattakeaway/pie-toast@0.12.41
+  - @justeattakeaway/pie-checkbox@1.0.23
+  - @justeattakeaway/pie-checkbox-group@1.0.22
+  - @justeattakeaway/pie-cookie-banner@1.7.27
+  - @justeattakeaway/pie-radio-group@1.0.22
+  - @justeattakeaway/pie-select@0.8.31
+  - @justeattakeaway/pie-textarea@0.17.29
+  - @justeattakeaway/pie-toast-provider@0.7.42
+
 ## 0.10.6
 
 ### Patch Changes

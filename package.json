@@ -64,13 +64,13 @@
     }
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.11.2",
+    "@axe-core/playwright": "4.11.3",
     "@babel/preset-env": "7.29.2",
     "@changesets/changelog-github": "0.6.0",
     "@changesets/cli": "2.30.0",
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-conventional": "20.5.0",
-    "@custom-elements-manifest/analyzer": "0.9.0",
+    "@custom-elements-manifest/analyzer": "0.11.0",
     "@justeat/pie-design-tokens": "7.11.1",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/generator-pie-component": "0.33.0",

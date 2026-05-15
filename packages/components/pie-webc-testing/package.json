@@ -19,7 +19,7 @@
     "@justeattakeaway/pie-css": "1.1.1"
   },
   "peerDependencies": {
-    "@axe-core/playwright": "^4.0.0",
+    "@axe-core/playwright": "^4.11.3",
     "@playwright/test": "^1.57.0"
   },
   "volta": {

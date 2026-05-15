@@ -1,5 +1,41 @@
 # Changelog
 
+## 5.27.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2855](https://github.com/justeattakeaway/pie/pull/2855)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Age limit
+
+  - over-16-large
+  - over-16
+  - over-18-large
+  - over-18
+  - over-21-large
+  - over-21
+
+  ## Restaurant
+
+  - chef-large
+  - chef
+
+## 5.26.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Elements
+
+  - lightning-filled-large
+  - lightning-filled
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.1
+
 ## 5.25.0
 
 ### Minor Changes

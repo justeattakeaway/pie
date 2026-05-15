@@ -1,5 +1,41 @@
 # Changelog
 
+## 4.73.5
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2855](https://github.com/justeattakeaway/pie/pull/2855)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`c272cb5`](https://github.com/justeattakeaway/pie/commit/c272cb59073e8864ed538228d35b7ade776732d2)]:
+  - @justeattakeaway/pie-icons@5.27.0
+  - @justeattakeaway/pie-icons-webc@1.24.0
+  - @justeattakeaway/pie-webc@0.10.10
+
+## 4.73.4
+
+### Patch Changes
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-webc@0.10.9
+
+## 4.73.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.8
+
+## 4.73.2
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons@5.26.0
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-webc@0.10.7
+
 ## 4.73.1
 
 ### Patch Changes

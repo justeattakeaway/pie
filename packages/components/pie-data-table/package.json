@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-data-table",
   "description": "PIE Design System Data Table built using Web Components",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -35,9 +35,9 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.1",
+    "@justeattakeaway/pie-components-config": "0.21.2",
     "@justeattakeaway/pie-css": "1.1.1",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.0"
+    "@justeattakeaway/pie-monorepo-utils": "0.9.1"
   },
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "14.0.1"

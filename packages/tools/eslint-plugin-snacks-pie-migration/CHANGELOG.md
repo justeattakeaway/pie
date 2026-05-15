@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.7.1
+
+### Patch Changes
+
+- [Changed] - component medatata extraction into a shareable function to enable the package release automation ([#2842](https://github.com/justeattakeaway/pie/pull/2842)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.7.0
 
 ### Minor Changes
