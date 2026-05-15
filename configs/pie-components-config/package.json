@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-components-config",
-  "version": "0.21.0",
+  "version": "0.21.2",
   "main": "index.js",
   "type": "module",
   "author": "Just Eat Takeaway.com - Design System Team",
@@ -19,7 +19,7 @@
   "dependencies": {
     "deepmerge-ts": "5.1.0"
   },
-  "peerDependencies": {
+  "devDependencies": {
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "volta": {

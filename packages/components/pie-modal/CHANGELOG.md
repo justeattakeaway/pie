@@ -1,5 +1,43 @@
 # @justeattakeaway/pie-modal
 
+## 1.26.5
+
+### Patch Changes
+
+- Updated dependencies [[`c272cb5`](https://github.com/justeattakeaway/pie/commit/c272cb59073e8864ed538228d35b7ade776732d2)]:
+  - @justeattakeaway/pie-icons-webc@1.24.0
+  - @justeattakeaway/pie-icon-button@2.7.13
+
+## 1.26.4
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-button@1.14.1
+  - @justeattakeaway/pie-icon-button@2.7.12
+  - @justeattakeaway/pie-spinner@1.4.15
+
+## 1.26.3
+
+### Patch Changes
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-icon-button@2.7.11
+
+## 1.26.2
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9), [`908d04a`](https://github.com/justeattakeaway/pie/commit/908d04ae13b7c4512a8d36fb67f8b9746dfaeafb)]:
+  - @justeattakeaway/pie-icon-button@2.7.10
+  - @justeattakeaway/pie-spinner@1.4.14
+  - @justeattakeaway/pie-button@1.14.0
+
 ## 1.26.1
 
 ### Patch Changes

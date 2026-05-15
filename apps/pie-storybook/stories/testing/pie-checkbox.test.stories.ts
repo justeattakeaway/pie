@@ -3,7 +3,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/checkbox';
-import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-webc/components/checkbox';
+import {
+    type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes, labelPositions, labelFits,
+} from '@justeattakeaway/pie-webc/components/checkbox';
 
 import { type SlottedComponentProps } from '../../types';
 import {
@@ -113,6 +115,8 @@ const Template = ({
     required,
     assistiveText,
     status,
+    labelPosition,
+    labelFit,
     slot,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
@@ -130,7 +134,9 @@ const Template = ({
             ?required="${required}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
+            status=${ifDefined(status)}
+            labelPosition=${ifDefined(labelPosition)}
+            labelFit=${ifDefined(labelFit)}>
             ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
     `;
@@ -271,3 +277,36 @@ const checkedTruePropsMatrix: Partial<Record<keyof CheckboxProps, unknown[]>> = 
 
 export const CheckedFalseVariations = createVariantStory<CheckboxProps>(Template, checkedFalsePropsMatrix);
 export const CheckedTrueVariations = createVariantStory<CheckboxProps>(Template, checkedTruePropsMatrix);
+
+const labelPositionPropsMatrix: Partial<Record<keyof CheckboxProps, unknown[]>> = {
+    slot: ['Label'],
+    labelPosition: [...labelPositions],
+    labelFit: [...labelFits],
+    checked: [true, false],
+};
+
+export const LabelPositionVariations = createVariantStory<CheckboxProps>(Template, labelPositionPropsMatrix);
+
+const richLabelSlot = `<div style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--dt-spacing-a);
+">
+    <span class="u-font-body-l">A yummy dish</span>
+    <span class="u-font-body-l">£2.50</span>
+    <span class="u-font-caption" style="
+        width: 100%;
+        color: var(--dt-color-content-subdued);
+    ">
+        Some description as a part of the label
+    </span>
+</div>`;
+
+const richLabelPropsMatrix: Partial<Record<keyof CheckboxProps, unknown[]>> = {
+    slot: [richLabelSlot],
+    labelPosition: [...labelPositions],
+    checked: [true, false],
+};
+
+export const RichLabelVariations = createVariantStory<CheckboxProps>(Template, richLabelPropsMatrix);

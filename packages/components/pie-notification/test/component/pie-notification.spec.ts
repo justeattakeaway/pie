@@ -653,5 +653,137 @@ test.describe('PieNotification - Component tests', () => {
             await expect(slottedIcon).toBeVisible();
             await expect(slottedIcon).toHaveText('Mocked Icon Slot');
         });
+
+        test.describe('Action Slots', () => {
+            test('should render slotted leading action pie-button and hide prop-based button', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--slotted-leading-action');
+                await notificationPage.load();
+
+                // Act
+                const slottedButton = page.getByTestId('slotted-leading-action');
+                const propBasedButton = page.getByTestId(notification.selectors.leadingAction.dataTestId);
+
+                // Assert
+                await expect(slottedButton).toBeVisible();
+                await expect(propBasedButton).not.toBeVisible();
+            });
+
+            test('should fall back to prop-based rendering when slot is empty', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--neutral');
+                await notificationPage.load();
+
+                // Act
+                const propBasedButton = page.getByTestId(notification.selectors.leadingAction.dataTestId);
+
+                // Assert
+                await expect(propBasedButton).toBeVisible();
+            });
+
+            test('should hide non-pie-button elements slotted into action slots', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--slotted-invalid-element');
+                await notificationPage.load();
+
+                // Act
+                const invalidElement = page.getByTestId('invalid-slotted-element');
+
+                // Assert
+                await expect(invalidElement).toBeHidden();
+            });
+
+            test('should render footer when only slot is provided without action props', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--slotted-leading-action-only-no-props');
+                await notificationPage.load();
+
+                // Act
+                const footer = page.getByTestId(notification.selectors.footer.dataTestId);
+                const slottedButton = page.getByTestId('slotted-leading-action');
+
+                // Assert
+                await expect(footer).toBeVisible();
+                await expect(slottedButton).toBeVisible();
+            });
+
+            test('should render both slotted leading and supporting actions', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--slotted-both-actions');
+                await notificationPage.load();
+
+                // Act
+                const slottedLeading = page.getByTestId('slotted-leading-action');
+                const slottedSupporting = page.getByTestId('slotted-supporting-action');
+
+                // Assert
+                await expect(slottedLeading).toBeVisible();
+                await expect(slottedSupporting).toBeVisible();
+            });
+
+            test('should not render prop-based supporting action when leading action is only slotted', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--mixed-slotted-leading-prop-supporting');
+                await notificationPage.load();
+
+                // Act
+                const slottedLeading = page.getByTestId('slotted-leading-action');
+                const propSupporting = page.getByTestId(notification.selectors.supportingAction.dataTestId);
+
+                // Assert
+                await expect(slottedLeading).toBeVisible();
+                await expect(propSupporting).not.toBeVisible();
+            });
+
+            test('should not emit pie-notification-leading-action-click when a slotted leading action is clicked', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--slotted-leading-action');
+                await notificationPage.load();
+
+                // Set up a browser-side listener to track the event
+                await page.evaluate(() => {
+                    window.__notificationEventFired = false;
+                    document.querySelector('pie-notification')?.addEventListener('pie-notification-leading-action-click', () => {
+                        window.__notificationEventFired = true;
+                    });
+                });
+
+                // Act
+                const slottedButton = page.getByTestId('slotted-leading-action');
+                await slottedButton.click();
+
+                // Allow time for any async event dispatch
+                await page.waitForTimeout(200);
+
+                // Assert
+                const eventFired = await page.evaluate(() => window.__notificationEventFired);
+                expect(eventFired).toBe(false);
+            });
+
+            test('should not emit pie-notification-supporting-action-click when a slotted supporting action is clicked', async ({ page }) => {
+                // Arrange
+                const notificationPage = new BasePage(page, 'notification--slotted-both-actions');
+                await notificationPage.load();
+
+                // Set up a browser-side listener to track the event
+                await page.evaluate(() => {
+                    window.__notificationEventFired = false;
+                    document.querySelector('pie-notification')?.addEventListener('pie-notification-supporting-action-click', () => {
+                        window.__notificationEventFired = true;
+                    });
+                });
+
+                // Act
+                const slottedButton = page.getByTestId('slotted-supporting-action');
+                await slottedButton.click();
+
+                // Allow time for any async event dispatch
+                await page.waitForTimeout(200);
+
+                // Assert
+                const eventFired = await page.evaluate(() => window.__notificationEventFired);
+                expect(eventFired).toBe(false);
+            });
+        });
     });
 });
