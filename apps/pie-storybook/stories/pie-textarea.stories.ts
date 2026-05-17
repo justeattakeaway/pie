@@ -116,6 +116,14 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '',
             },
         },
+        maxlength: {
+            description: 'The maximum number of characters the textarea can hold.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -140,6 +148,7 @@ const Template = ({
     assistiveText,
     status,
     placeholder,
+    maxlength,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -176,13 +185,16 @@ const Template = ({
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
+            status=${ifDefined(status)}
+            maxlength=${ifDefined(maxlength)}>
         </pie-textarea>
     `;
 };
 
 const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
     defaultValue,
+    maxlength,
+    required,
 }) => html`
     <style>
         .form {
@@ -207,15 +219,45 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
         }
     </style>
 
-    <form class="form">
+    <form id="testForm" class="form">
         <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}">
+        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" maxlength="${ifDefined(maxlength)}" ?required="${required}">
         </pie-textarea>
 
         <div class="form-btns">
             <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
             <pie-button class="form-btn" type="submit">Submit</pie-button>
         </div>
+
+        <script>
+            // var is used to prevent storybook from erroring when the script is re-run
+            var form = document.querySelector('#testForm');
+            var textarea = form.querySelector('#description');
+
+            // if there was an error message and user starts typing, the message disappears
+            textarea.addEventListener('input', () => {
+                if (textarea.getAttribute('status') === 'error') {
+                    textarea.removeAttribute('assistiveText');
+                    textarea.removeAttribute('status');
+                }
+            });
+
+            form.addEventListener('submit', (e) => {
+            e.preventDefault();   
+
+            if (textarea.validity.valueMissing) {
+                    textarea.setAttribute('assistiveText', 'This field is required.');
+                    textarea.setAttribute('status', 'error');
+                    return;
+                }
+
+            });
+
+            form.addEventListener('reset', () => {
+                textarea.removeAttribute('assistiveText');
+                textarea.removeAttribute('status');
+            });
+        </script>  
     </form>
 `;
 
