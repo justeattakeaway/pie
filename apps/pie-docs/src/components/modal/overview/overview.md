@@ -32,7 +32,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
             "Choose variants in [brand colours](#01-orange) for promotional and non-critical content.",
             "Use dialogs to drive user input or prompt for decisions.",
             "Use dialogs for confirmations for important actions.",
-            "All content meets AA accessibility standards and is read by assistive technologies."
+            "Ensure all content meets AA accessibility standards and is read by assistive technologies."
         ]
     },
     dont: {
