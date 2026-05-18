@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: iOS
     parent: Tag
-    order: 4
+    order: 3
 shouldShowContents: true
 permalink: /components/tag/ios/
 eleventyComputed:
@@ -290,7 +290,7 @@ Tags can be used to indicate status or used to convey specific meanings within J
 
 The Tag includes the default and disabled states.
 
-{% nofication {
+{% notification {
   type: "information",
   message: "As the Tag is no longer interactive the design system team is currently reviewing the interactive states. Contact the design system team if you have any questions."
 } %}
@@ -300,7 +300,7 @@ The Tag includes the default and disabled states.
 {% contentPageImage {
     src:"../../../assets/img/components/tag-apps/interactive-state-default.svg",
     alt: "A collection of different tag variants showing the different interactive states.",
-    width: "342px"
+    width: "128px"
 } %}
 
 ### Disabled state
@@ -308,7 +308,7 @@ The Tag includes the default and disabled states.
 {% contentPageImage {
     src:"../../../assets/img/components/tag-apps/interactive-state-disabled.svg",
     alt: "A collection of different tag variants showing the different interactive states.",
-    width: "342px"
+    width: "128px"
 } %}
 
 ---

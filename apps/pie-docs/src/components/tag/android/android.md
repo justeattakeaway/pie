@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Android
     parent: Tag
-    order: 3
+    order: 2
 shouldShowContents: true
 permalink: /components/tag/android/
 eleventyComputed:
