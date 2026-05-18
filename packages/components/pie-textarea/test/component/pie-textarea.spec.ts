@@ -464,9 +464,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await expect(textarea).toHaveAttribute('placeholder', 'Test Placeholder');
             });
         });
-        test.describe('maxLength', () => {
+
+        test.describe('maxlength', () => {
             test('should not render a maxlength attribute on the textarea element if no maxlength is provided', async ({ page }) => {
-                // Arange
+                // Arrange
                 const textAreaPage = new BasePage(page, 'textarea');
                 await textAreaPage.load();
 
@@ -478,7 +479,7 @@ test.describe('PieTextarea - Component tests', () => {
             });
 
             test('should not be able to input a value greater than the maxlength provided', async ({ page }) => {
-            // Arange
+                // Arrange
                 const props: Partial<TextareaProps> = {
                     maxlength: 3,
                     value: '',
@@ -497,7 +498,7 @@ test.describe('PieTextarea - Component tests', () => {
             });
 
             test('should be invalid state `tooLong` if the maxlength is exceeded programmatically', async ({ page }) => {
-            // Arrange
+                // Arrange
                 const props: Partial<TextareaProps> = {
                     maxlength: 3,
                     value: 'test1',
@@ -519,7 +520,7 @@ test.describe('PieTextarea - Component tests', () => {
             });
 
             test('should be invalid when required is `true` and not `tooLong` when no maxlength is provided', async ({ page }) => {
-            // Arrange
+                // Arrange
                 const props: Partial<TextareaProps> = {
                     value: '',
                     required: true,
@@ -537,28 +538,29 @@ test.describe('PieTextarea - Component tests', () => {
                 expect(isTooLong).toBe(false);
                 expect(isValid).toBe(false);
             });
-        });
 
-        test('should be valid state if the max length is not exceeded', async ({ page }) => {
-        // Arrange
-            const props: Partial<TextareaProps> = {
-                maxlength: 5,
-                value: '',
-            };
+            test('should be valid state if the max length is not exceeded', async ({ page }) => {
+                // Arrange
+                const props: Partial<TextareaProps> = {
+                    maxlength: 5,
+                    value: '',
+                };
 
-            const textAreaPage = new BasePage(page, 'textarea');
-            await textAreaPage.load({ ...props });
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ ...props });
 
-            // Act
-            await page.getByTestId(textArea.selectors.textArea.dataTestId).fill('test');
+                // Act
+                await page.getByTestId(textArea.selectors.textArea.dataTestId).fill('test');
 
-            const component = page.getByTestId(textArea.selectors.container.dataTestId);
-            const isValid = await component.evaluate((element) => (element as HTMLTextAreaElement).validity.valid);
+                const component = page.getByTestId(textArea.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLTextAreaElement).validity.valid);
 
-            // Assert
-            expect(isValid).toBe(true);
+                // Assert
+                expect(isValid).toBe(true);
+            });
         });
     });
+
     test.describe('Form integration', () => {
         test('should correctly set the value of a description field in the FormData object when the form is submitted', async ({ page }) => {
             // Arrange
