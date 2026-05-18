@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Android
     parent: Notification
-    order: 3
+    order: 2
 shouldShowContents: true
 permalink: components/notification/android/
 ---
@@ -274,7 +274,7 @@ The large variant uses 16px spacing around the content and small size action and
 ### Small
 
 The small variant further reduces the overall visual size. Spacing around the content is reduced to 8px, and action use the XSmall size.
-Text tokens are scaled down to match the tighter layout. 
+Text tokens are scaled down to match the tighter layout.
 This variant is ideal for highly compact interfaces or simple messaging, where minimal disruption is preferred.
 
 #### Small default
@@ -423,7 +423,7 @@ Here are some examples of notifications in left-to-right context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification-apps/examples-ltr-success.svg",
-    alt: "An success notification that informs users email is confirmed in English representing how the component looks in a LTR context",
+    alt: "A success notification that informs users email is confirmed in English representing how the component looks in a LTR context",
     width: 1024
 } %}
 
@@ -439,6 +439,6 @@ Here are some examples of notifications in right-to-left context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification-apps/examples-rtl-success.svg",
-    alt: "An success notification that informs users email is confirmed in Hebrew representing how the component looks in a RTL context",
+    alt: "A success notification that informs users email is confirmed in Hebrew representing how the component looks in a RTL context",
     width: 1024
 } %}

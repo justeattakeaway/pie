@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: iOS
     parent: Notification
-    order: 4
+    order: 3
 shouldShowContents: true
 permalink: components/notification/ios/
 ---
@@ -274,7 +274,7 @@ The large variant uses 16px spacing around the content and small size action and
 ### Small
 
 The small variant further reduces the overall visual size. Spacing around the content is reduced to 8px, and action use the XSmall size.
-Text tokens are scaled down to match the tighter layout. 
+Text tokens are scaled down to match the tighter layout.
 This variant is ideal for highly compact interfaces or simple messaging, where minimal disruption is preferred.
 
 #### Small default
