@@ -1,5 +1,25 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.24.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2855](https://github.com/justeattakeaway/pie/pull/2855)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Age limit
+
+  - over-16-large
+  - over-16
+  - over-18-large
+  - over-18
+  - over-21-large
+  - over-21
+
+  ## Restaurant
+
+  - chef-large
+  - chef
+
 ## 1.23.0
 
 ### Minor Changes
