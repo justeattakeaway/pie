@@ -100,7 +100,7 @@ Select from a range of colour options across the two levels of emphasis.
 
 {% contentLayout %}
   {% contentItem %}
-    <h3>Neutral</h3>
+    <h4>Neutral</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/neutral.svg",
       width: "200px",
@@ -108,7 +108,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Neutral alternative</h3>
+    <h4>Neutral alternative</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/neutral-alt.svg",
       width: "96px",
@@ -116,7 +116,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Ghost</h3>
+    <h4>Ghost</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/ghost.svg",
       width: "96px",
@@ -124,7 +124,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Outline</h3>
+    <h4>Outline</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/outline.svg",
       width: "96px",
@@ -132,7 +132,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Translucent</h3>
+    <h4>Translucent</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/translucent.svg",
       width: "96px",
@@ -140,7 +140,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Information</h3>
+    <h4>Information</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/info.svg",
       width: "200px",
@@ -148,7 +148,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Success</h3>
+    <h4>Success</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/success.svg",
       width: "200px",
@@ -156,7 +156,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Error</h3>
+    <h4>Error</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/error.svg",
       width: "200px",
@@ -164,7 +164,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Warning</h3>
+    <h4>Warning</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/warning.svg",
       width: "200px",
@@ -172,7 +172,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>02 Orange subtle</h3>
+    <h4>02 Orange subtle</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/orange-sub.svg",
       width: "96px",
@@ -180,7 +180,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>03 Cupcake</h3>
+    <h4>03 Cupcake</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/cupcake.svg",
       width: "200px",
@@ -188,7 +188,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>04 Berry</h3>
+    <h4>04 Berry</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/berry.svg",
       width: "200px",
@@ -196,7 +196,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>05 Turmeric</h3>
+    <h4>05 Turmeric</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/turmeric.svg",
       width: "200px",
@@ -204,7 +204,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>06 Aubergine</h3>
+    <h4>06 Aubergine</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/aubergine.svg",
       width: "200px",
@@ -212,7 +212,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>08 Latte</h3>
+    <h4>08 Latte</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag-apps/latte.svg",
       width: "200px",
