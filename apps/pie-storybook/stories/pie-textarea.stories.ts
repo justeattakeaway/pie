@@ -238,7 +238,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
             textarea.addEventListener('input', () => {
                 if (textarea.getAttribute('status') === 'error') {
                     textarea.removeAttribute('assistiveText');
-                    textarea.removeAttribute('status');
+                    textarea.setAttribute('status', 'default');
                 }
             });
 
@@ -255,7 +255,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
 
             form.addEventListener('reset', () => {
                 textarea.removeAttribute('assistiveText');
-                textarea.removeAttribute('status');
+                textarea.setAttribute('status', 'default');
             });
         </script>  
     </form>
