@@ -115,6 +115,13 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: false,
             },
         },
+        maxlength: {
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
     },
     args: defaultArgs,
 };
@@ -133,6 +140,7 @@ const Template = ({
     assistiveText,
     status,
     placeholder,
+    maxlength,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -175,7 +183,9 @@ const Template = ({
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
+            status=${ifDefined(status)}
+            maxlength=${ifDefined(maxlength)}
+            data-test-id="pie-textarea-container">
         </pie-textarea>
         <div id="output"></div>
     `;
@@ -229,7 +239,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
 
     <form id="testForm" class="form" @submit="${onSubmit}" >
         <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" ?disabled="${disabled}">
+        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" ?disabled="${disabled}" data-test-id="pie-textarea-container">
         </pie-textarea>
         ${showAdditionalField ? html`
             <pie-form-label for="comment">Comment:</pie-form-label>
@@ -237,7 +247,8 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
             class="form-field"
             id="comment"
             name="comment"
-            value="commentsTextareaValue">
+            value="commentsTextareaValue"
+            data-test-id="pie-textarea-container">
         ` : nothing}
 
         <div class="form-btns">
