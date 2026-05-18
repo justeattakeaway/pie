@@ -291,7 +291,7 @@ Tags can be used to indicate status or used to convey specific meanings within J
 
 The Tag includes the default and disabled states.
 
-{% nofication {
+{% notification {
   type: "information",
   message: "As the Tag is no longer interactive the design system team is currently reviewing the interactive states. Contact the design system team if you have any questions."
 } %}
