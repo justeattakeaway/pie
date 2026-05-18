@@ -300,7 +300,7 @@ The Tag includes the default and disabled states.
 {% contentPageImage {
     src:"../../../assets/img/components/tag-apps/interactive-state-default.svg",
     alt: "A collection of different tag variants showing the different interactive states.",
-    width: "128px"
+    width: "64px"
 } %}
 
 ### Disabled state
@@ -308,7 +308,7 @@ The Tag includes the default and disabled states.
 {% contentPageImage {
     src:"../../../assets/img/components/tag-apps/interactive-state-disabled.svg",
     alt: "A collection of different tag variants showing the different interactive states.",
-    width: "128px"
+    width: "64px"
 } %}
 
 ---
