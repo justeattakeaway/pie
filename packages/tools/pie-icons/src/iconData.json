@@ -5,12 +5,24 @@
             "displayName": "Age limit",
             "icons": [
                 {
+                    "name": "over-16",
+                    "displayName": "Over 16"
+                },
+                {
                     "name": "over-16-filled",
                     "displayName": "Over 16 Filled"
                 },
                 {
+                    "name": "over-18",
+                    "displayName": "Over 18"
+                },
+                {
                     "name": "over-18-filled",
                     "displayName": "Over 18 Filled"
+                },
+                {
+                    "name": "over-21",
+                    "displayName": "Over 21"
                 },
                 {
                     "name": "over-21-filled",
@@ -2075,6 +2087,10 @@
             "name": "restaurant",
             "displayName": "Restaurant",
             "icons": [
+                {
+                    "name": "chef",
+                    "displayName": "Chef"
+                },
                 {
                     "name": "collect",
                     "displayName": "Collect"
