@@ -91,7 +91,7 @@ jobs:
     - name: Create latest release PR
       id: changesets-main
       if: contains(github.ref_name, 'main')
-      uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
       env:
         GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
@@ -108,7 +108,7 @@ jobs:
       run: npx changeset pre enter beta
     - name: Create beta release PR
       if: contains(github.ref_name, 'beta')
-      uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
       env:
         GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
@@ -123,7 +123,7 @@ jobs:
       run: npx changeset pre enter next
     - name: Create feature release PR
       if: contains(github.ref_name, 'feature')
-      uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
       env:
         GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
