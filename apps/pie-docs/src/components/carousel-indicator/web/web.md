@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-    key: Android
-    parent: Checkbox
-    order: 3
+    key: Web
+    parent: Carousel Indicator
+    order: 2
 draft: true
 ---
 

@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-    key: Android
-    parent: Checkbox
-    order: 3
+    key: Web
+    parent: 'Bar Chart'
+    order: 2
 draft: true
 ---
 
