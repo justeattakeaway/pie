@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-    key: Apps
+    key: Web
     parent: Avatar
-    order: 3
+    order: 2
 draft: true
 ---
 

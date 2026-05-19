@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Avatar
     order: 1
-shouldShowContents: true
 permalink: components/avatar/
 ---
 

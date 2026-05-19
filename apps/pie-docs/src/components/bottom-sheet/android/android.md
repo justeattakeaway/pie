@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Android
     parent: Bottom Sheet
-    order: 2
+    order: 3
 ---
 
 ## Dos and Don'ts
