@@ -3,6 +3,8 @@ eleventyNavigation:
     key: Android
     parent: Slider
     order: 2
+shouldShowContents: true
+permalink: /components/slider/android/
 ---
 
 ## Overview
@@ -17,31 +19,47 @@ Sliders consist of a draggable handle that users can slide horizontally along a 
 
 ## Dos and Don'ts
 
-### Do
-
-• Always visually highlight the selected value within the trailing label of the form label, ensuring the user can easily see their precise choice.
-
-### Don't
-
-• Don’t use when an element is displaying the status or completion of a task, using the Progress Bar instead.
-
-• Don't use when exact values are critical. If a user must select an exact number, a text input is usually more appropriate.
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Always visually highlight the selected value within the trailing label of the form label, ensuring the user can easily see their precise choice."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don’t use when an element is displaying the status or completion of a task, using the Progress Bar instead.",
+            "Don't use when exact values are critical. If a user must select an exact number, a text input is usually more appropriate."
+        ]
+    }
+} %}
 
 ---
 
 ## Anatomy
 
-<!-- [image to go here] -->
+{% contentPageImage {
+    src:"../../../assets/img/components/slider-apps/anatomy.svg",
+    alt: "Anatomy of a slider that contains a form label, progress line, progress container, handle, and assistive text.",
+    width: 1024,
+    variant: "secondary"
+} %}
 
-1. **Form label (Optional):** The form label provides necessary content / information to a form with an optional trailing string.
-2. *Progress line:* Illustrates the visual representation of the selection.
-3. **Progress container:** Shows a user’s available minimum and maximum values on the range to select from.
-4. **Handle:** An indicator that can be moved on the track within the slider range to specify a selected value.
-5. **Assistive text (Optional):** The Assistive text provides additional instructional information / error / success messaging.
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Form label (Optional):** The form label provides necessary content / information to a form with an optional trailing string.",
+        "**Progress line**: Illustrates the visual representation of the selection.",
+        "**Progress container:** Shows a user’s available minimum and maximum values on the range to select from.",
+        "**Handle:** An indicator that can be moved on the track within the slider range to specify a selected value.",
+        "**Assistive text (Optional):** The Assistive text provides additional instructional information / error / success messaging."
+    ]
+} %}
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -77,15 +95,15 @@ Users can adjust the handle's position by either dragging it along the progress 
 
 Outlines the atomic level interactive elements for the component.
 
-### Default
+### Default state
 
 <!-- [image to go here] -->
 
-### Active
+### Active state
 
 <!-- [image to go here] -->
 
-### Disabled
+### Disabled state
 
 <!-- [image to go here] -->
 
