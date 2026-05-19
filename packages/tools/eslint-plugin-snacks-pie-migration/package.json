@@ -47,8 +47,5 @@
     "@typescript-eslint/parser": "8.46.3",
     "eslint": ">=7.32.0"
   },
-  "license": "Apache-2.0",
-  "volta": {
-    "extends": "../../../package.json"
-  }
+  "license": "Apache-2.0"
 }

@@ -116,7 +116,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 24
           os: ubuntu-latest
 
       - name: Create an .npmrc
