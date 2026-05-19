@@ -1,6 +1,5 @@
 import { type TemplateResult, html } from 'lit';
 import '@justeattakeaway/pie-webc/components/tag';
-import '@justeattakeaway/pie-icons-webc/dist/IconHelpCircle.js';
 import componentStatusesJson from '@justeattakeaway/pie-monorepo-utils/dist/component-statuses.json';
 import { type StorybookContext } from '../interfaces/storybook-context';
 import { type ComponentStatuses } from '../interfaces/component-status';
@@ -27,20 +26,9 @@ export const ComponentStatus = (story: () => TemplateResult, storybookContext: S
             ${story()}
 
             <div class="${`c-componentStatus ${positionClass} percyHidden`}">
-                <pie-tag variant="${tagVariant}" hasLeadingIcon>
+                <pie-tag variant="${tagVariant}">
                     Status: ${componentStatus}
-                    <a
-                        href="https://pie.design/components/component-status/#status-descriptions"
-                        target="_blank"
-                        slot="icon"
-                        aria-labelledby="status-docs-link">
-                        <icon-help-circle></icon-help-circle>
-                    </a>
                 </pie-tag>
-
-                <p id="status-docs-link" hidden>
-                    Component status documentation link
-                </p>
             </div>
         </div>
     `;
