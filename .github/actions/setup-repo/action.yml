@@ -9,8 +9,8 @@ inputs:
 runs:
   using: composite
   steps:
-      # Read tool versions from mise.toml (single source of truth)
-      - name: Read tool versions from mise.toml
+      # Read tool versions from .mise.toml (single source of truth)
+      - name: Read tool versions from .mise.toml
         id: mise
         shell: bash
         run: |
