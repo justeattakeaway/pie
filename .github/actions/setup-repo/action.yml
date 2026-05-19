@@ -67,6 +67,5 @@ runs:
           key: y9rn4-${{ runner.os }}-${{ runner.arch }}-node-${{ steps.cache-params.outputs.node-version }}-${{ hashFiles('**/yarn.lock') }}
       # Install deps only when cache misses. Use --immutable so CI fails on lockfile drift.
       - name: Install Dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         shell: bash
         run: yarn install --immutable
