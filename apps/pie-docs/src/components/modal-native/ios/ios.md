@@ -2,11 +2,11 @@
 eleventyNavigation:
   key: iOS
   parent: 'Modal - Native'
-  order: 2
+  order: 4
 draft: true
-shouldShowContents: true
 ---
 
-## Overview
-
-Coming soon.
+{% notification {
+  type: "neutral",
+  message: "We're currently working on this documentation. It will be available soon."
+} %}

@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Toast Provider
     parent: Toast
-    order: 4
+    order: 5
 ---
 
 ## Web

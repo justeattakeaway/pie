@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Toast
-    order: 3
+    order: 6
 ---
 
 ## Web

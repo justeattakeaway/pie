@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Spinner
-    order: 3
+    order: 6
 ---
 ## Web
 

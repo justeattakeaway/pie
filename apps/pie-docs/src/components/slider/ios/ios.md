@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: iOS
     parent: Slider
-    order: 3
+    order: 4
 ---
 
 {% notification {
