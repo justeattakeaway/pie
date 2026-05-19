@@ -17,7 +17,8 @@
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-font-weight: var(--dt-font-body-l-weight);
-    --notification-close-icon-offset: var(--dt-spacing-b);
+    --notification-close-btn-size: 40px;
+    --notification-close-btn-offset: var(--dt-spacing-b);
     --notification-icon-fill: var(--dt-color-content-inverse);
     --notification-icon-background-color: var(--dt-color-container-inverse);
     --icon-size-override: 24px;
@@ -74,6 +75,10 @@
         backdrop-filter: blur(var(--dt-blur-prominent));
     }
 
+    &.c-notification--small {
+        --notification-close-btn-size: 32px;
+    }
+
     &-heading {
         margin: 0;
         margin-block-end: var(--dt-spacing-a);
@@ -95,14 +100,14 @@
         gap: var(--dt-spacing-c);
 
         &.is-dismissible {
-            max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
+            max-width: calc(100% - var(--notification-close-btn-offset) - var(--notification-close-btn-size));
         }
     }
 
     &-icon-close {
         position: absolute;
-        inset-block-start: var(--notification-close-icon-offset);
-        inset-inline-end: var(--notification-close-icon-offset);
+        inset-block-start: var(--notification-close-btn-offset);
+        inset-inline-end: var(--notification-close-btn-offset);
     }
 
     &-footer {
@@ -111,8 +116,10 @@
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
+
         pie-button,
         ::slotted(pie-button) {
+
             margin-block-start: var(--dt-spacing-d);
         }
 
@@ -154,10 +161,11 @@
             --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
             --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
             --notification-font-weight: var(--dt-font-body-s-weight);
-            --notification-close-icon-offset: var(--dt-spacing-a);
+            --notification-close-btn-offset: var(--dt-spacing-b);
             --icon-size-override: 20px;
 
             padding: var(--dt-spacing-b);
+            min-height: calc(var(--dt-spacing-b) * 2 + var(--notification-close-btn-size));
             gap: 0;
 
             &.is-compact {
@@ -165,25 +173,25 @@
             }
 
             .c-notification-content-section {
-                padding: var(--dt-spacing-b) var(--dt-spacing-b) 0;
+                min-height: var(--notification-close-btn-size);
 
                 &:last-child {
                     padding-block-end: var(--dt-spacing-b);
                 }
 
                 &.is-dismissible {
-                    max-width: calc(100% - var(--dt-spacing-a) - 32px);
+                    max-width: calc(100% - var(--notification-close-btn-offset) - var(--notification-close-btn-size));
                 }
             }
 
             &.is-compact .c-notification-content-section {
                 flex: 1;
                 min-width: 0;
-                padding: var(--dt-spacing-b) 0 var(--dt-spacing-b) var(--dt-spacing-b);
+
             }
 
             .c-notification-footer {
-                padding: var(--dt-spacing-b);
+
                 align-items: flex-end;
 
                 &.is-compact {
