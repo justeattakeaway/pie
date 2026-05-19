@@ -26,18 +26,17 @@ runs:
           fi
           echo "node-version=$node_version" >> "$GITHUB_OUTPUT"
           echo "yarn-version=$yarn_version" >> "$GITHUB_OUTPUT"
-      # Enable corepack and activate the correct Yarn version
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ steps.mise.outputs.node-version }}
+      # Enable corepack (bundled with Node) and activate the correct Yarn version
       - name: Enable Corepack
         shell: bash
         run: |
           corepack enable
           corepack prepare yarn@${{ steps.mise.outputs.yarn-version }} --activate
-      # Setup Node (also restores Yarn global cache keyed on yarn.lock)
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: ${{ steps.mise.outputs.node-version }}
-          cache: "yarn"
       - name: Get caching params
         id: cache-params
         shell: bash
