@@ -22,9 +22,6 @@
     "test:ci": "yarn test",
     "test:watch": "run -T vitest"
   },
-  "volta": {
-    "extends": "../../../package.json"
-  },
   "dependencies": {
     "@changesets/parse": "0.4.3",
     "@justeattakeaway/eslint-plugin-snacks-pie-migration": "0.7.1",

@@ -65,8 +65,5 @@
     "rollup": "3.29.5",
     "rollup-plugin-multi-input": "1.4.1",
     "typescript": "5.8.3"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }

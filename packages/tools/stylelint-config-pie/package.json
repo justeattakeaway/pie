@@ -43,8 +43,5 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run --config ../../../vite.config.js --environment node",
     "test:ci": "yarn test"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }
