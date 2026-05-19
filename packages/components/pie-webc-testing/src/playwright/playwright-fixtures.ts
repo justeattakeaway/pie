@@ -12,8 +12,9 @@ interface ExtendedTestContext {
 export const test = baseTest.extend<ExtendedTestContext>({
     makeAxeBuilder: [async ({ page }: { page: Page }, use: (builder: () => AxeBuilder) => Promise<void>) => {
         const makeAxeBuilder = () => new AxeBuilder({ page })
-        .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
-        .disableRules(['color-contrast-enhanced']);
+        .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria', 'best-practice'])
+        .disableRules(['color-contrast-enhanced'])
+        .include('#root-inner');
 
         await use(makeAxeBuilder);
     }, {

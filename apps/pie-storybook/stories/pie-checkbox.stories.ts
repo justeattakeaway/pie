@@ -3,7 +3,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/checkbox';
-import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-webc/components/checkbox';
+import {
+    type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes, labelPositions, labelFits,
+} from '@justeattakeaway/pie-webc/components/checkbox';
 
 import { action } from 'storybook/actions';
 import { type SlottedComponentProps } from '../types';
@@ -96,6 +98,24 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
                 summary: defaultProps.status,
             },
         },
+
+        labelPosition: {
+            description: 'The position of the label relative to the checkbox input.',
+            control: 'select',
+            options: labelPositions,
+            defaultValue: {
+                summary: defaultProps.labelPosition,
+            },
+        },
+
+        labelFit: {
+            description: 'Controls how the label container is sized. `hug` wraps the content, `fill` stretches to fill available width.',
+            control: 'select',
+            options: labelFits,
+            defaultValue: {
+                summary: defaultProps.labelFit,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -118,6 +138,8 @@ const Template = ({
     required,
     assistiveText,
     status,
+    labelPosition,
+    labelFit,
     slot,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
@@ -137,7 +159,9 @@ const Template = ({
             ?required="${required}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
+            status=${ifDefined(status)}
+            labelPosition=${ifDefined(labelPosition)}
+            labelFit=${ifDefined(labelFit)}>
             ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
     `;
@@ -222,3 +246,94 @@ export const RichLabel = createStory<CheckboxProps>(Template, {
     ...defaultArgs,
     slot: richLabelSlot,
 })();
+
+export const LabelTrailing = createStory<CheckboxProps>(Template, {
+    ...defaultArgs,
+    labelPosition: 'trailing',
+})();
+
+export const LabelLeading = createStory<CheckboxProps>(Template, {
+    ...defaultArgs,
+    labelPosition: 'leading',
+})();
+
+export const RichLabelLeading = createStory<CheckboxProps>(Template, {
+    ...defaultArgs,
+    slot: richLabelSlot,
+    labelPosition: 'leading',
+})();
+
+export const RichLabelTrailing = createStory<CheckboxProps>(Template, {
+    ...defaultArgs,
+    slot: richLabelSlot,
+    labelPosition: 'trailing',
+})();
+
+const LabelFitComparisonTemplate = ({
+    value,
+    name,
+    checked,
+    defaultChecked,
+    disabled,
+    indeterminate,
+    required,
+    assistiveText,
+    status,
+    slot,
+}: CheckboxProps) => html`
+    <style>
+        .label-fit-demo pie-checkbox {
+            background: rgba(0, 123, 255, 0.06);
+            outline: 1px dashed rgba(0, 123, 255, 0.3);
+        }
+    </style>
+    <div class="label-fit-demo" style="display: flex; flex-direction: column; gap: 16px; width: 400px; border: 1px dashed var(--dt-color-border-default); padding: 16px;">
+        <p style="margin: 0; font-family: var(--dt-font-body-l-family); font-size: 14px; color: var(--dt-color-content-subdued);">labelPosition="trailing" labelFit="hug" (default)</p>
+        <pie-checkbox
+            .value="${value}"
+            name="${ifDefined(name)}"
+            ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
+            ?disabled="${disabled}"
+            ?indeterminate="${indeterminate}"
+            ?required="${required}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}
+            labelFit="hug">
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-checkbox>
+        <p style="margin: 0; font-family: var(--dt-font-body-l-family); font-size: 14px; color: var(--dt-color-content-subdued);">labelPosition="leading" labelFit="hug"</p>
+        <pie-checkbox
+            .value="${value}"
+            name="${ifDefined(name)}"
+            ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
+            ?disabled="${disabled}"
+            ?indeterminate="${indeterminate}"
+            ?required="${required}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}
+            labelPosition="leading"
+            labelFit="hug">
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-checkbox>
+        <p style="margin: 0; font-family: var(--dt-font-body-l-family); font-size: 14px; color: var(--dt-color-content-subdued);">labelPosition="leading" labelFit="fill" — checkbox pushed to far right</p>
+        <pie-checkbox
+            .value="${value}"
+            name="${ifDefined(name)}"
+            ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
+            ?disabled="${disabled}"
+            ?indeterminate="${indeterminate}"
+            ?required="${required}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}
+            labelPosition="leading"
+            labelFit="fill">
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-checkbox>
+    </div>
+`;
+
+export const LabelFitComparison = createStory<CheckboxProps>(LabelFitComparisonTemplate, defaultArgs)();
+

@@ -4,6 +4,7 @@
     display: block;
 }
 
+
 @keyframes checkboxCheck {
     0% {
         width: 0;
@@ -222,6 +223,7 @@
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 
     input {
         display: block;
@@ -239,6 +241,29 @@
         max-width: 100%;
         white-space: nowrap;
         cursor: pointer;
+    }
+
+    &.c-checkbox--leading {
+        label {
+            flex-direction: row-reverse;
+        }
+
+        .c-checkbox-text {
+            margin-inline-start: 0;
+            margin-inline-end: var(--checkbox-gap);
+        }
+    }
+
+    &.c-checkbox--fill {
+        align-items: stretch;
+
+        label {
+            justify-content: space-between;
+        }
+
+        .c-checkbox-text {
+            flex: 0 1 auto;
+        }
     }
 
     &:hover {

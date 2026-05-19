@@ -117,7 +117,7 @@ jobs:
       # Create Github Deployment
       - name: Create GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}
-        uses: chrnorm/deployment-action@55729fcebec3d284f60f5bcabbd8376437d696b1 # v2.0.7
+        uses: chrnorm/deployment-action@500aa6a23c81ffa1acf71072aee3cfa2cc2e556a # v2.0.8
         id: deploy
         with:
           token: ${{ steps.get-token.outputs.token }}

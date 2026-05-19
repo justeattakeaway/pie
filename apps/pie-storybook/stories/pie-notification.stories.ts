@@ -214,6 +214,10 @@ export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
 export const Translucent = createNotificationStory({ variant: 'translucent' });
+export const NoActions = createNotificationStory({
+    leadingAction: undefined,
+    supportingAction: undefined,
+});
 export const WithLinkActions = createNotificationStory({
     variant: 'info',
     heading: 'Update Available',
