@@ -41,9 +41,6 @@
     "storybook": "10.3.5",
     "storybook-dark-mode": "5.0.0"
   },
-  "volta": {
-    "extends": "../../package.json"
-  },
   "installConfig": {
     "hoistingLimits": "workspaces"
   }

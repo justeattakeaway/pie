@@ -16,8 +16,5 @@
     "test": "run -T vitest run",
     "test:ci": "yarn test",
     "test:watch": "run -T vitest"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }

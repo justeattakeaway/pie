@@ -42,9 +42,6 @@
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "0.0.0"
   },
-  "volta": {
-    "extends": "../../../package.json"
-  },
   "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
