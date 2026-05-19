@@ -65,8 +65,5 @@
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }
