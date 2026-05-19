@@ -1,3 +1,10 @@
+---
+eleventyNavigation:
+    key: Android
+    parent: Slider
+    order: 2
+---
+
 ## Overview
 
 The purpose of sliders is to provide users with a flexible and intuitive way to adjust and select values within a continuous range. They are commonly used for inputting numeric values, controlling settings, filtering data or performing other interactive actions that require selecting a value within a specified range.
