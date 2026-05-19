@@ -83,7 +83,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 24
           os: ubuntu-latest
       - name: Verify if pie-docs has changes
         id: docs-check
@@ -139,7 +138,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 24
           os: ubuntu-latest
       # Lint Styles
       - name: Lint Styles
@@ -158,7 +156,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 24
           os: ubuntu-latest
       # Lint JS
       - name: Lint JavaScript
@@ -185,14 +182,6 @@ jobs:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
-      node-version: 24
-    secrets: inherit
-
-  build-ubuntu-node-20:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 20
     secrets: inherit
 
   build-ubuntu-node-24:
@@ -200,7 +189,6 @@ jobs:
     needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
     with:
       os: ubuntu-latest
-      node-version: 24
       analyse-component-bundles: true
     secrets: inherit
 
@@ -215,7 +203,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 24
           os: ubuntu-latest
       # Run Unit Tests
       - name: Unit Tests
@@ -233,7 +220,6 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 24
       amplify-app-id: d17ja0ul7nrdy0
       package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -253,7 +239,6 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 24
       amplify-app-id: d3eyargno6okyn
       package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -288,7 +273,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 24
           os: ubuntu-latest
       - name: Sanitise package name for artifacts
         id: pkg
@@ -334,7 +318,6 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 24
       amplify-app-id: dvskdcoepjoyf
       package-name: '@justeattakeaway/pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
@@ -360,7 +343,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 24
           os: ubuntu-latest
       # Run System / a11y Tests
       - name: Run All System /  a11y Tests
@@ -407,7 +389,6 @@ jobs:
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
-      node-version: 24
       aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
     secrets: inherit
 
@@ -420,7 +401,6 @@ jobs:
       - lint-workflows
       - build-ubuntu-node-24
       - build-windows-node-24
-      - build-ubuntu-node-20
       - unit-tests
       - component-tests
       - deploy-docs
