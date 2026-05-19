@@ -21,8 +21,5 @@
   "dependencies": {
     "query-ast": "1.0.5",
     "scss-parser": "1.0.6"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }

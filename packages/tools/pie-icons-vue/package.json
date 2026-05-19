@@ -76,8 +76,5 @@
     "rollup": "3.29.5",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }

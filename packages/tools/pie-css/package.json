@@ -54,8 +54,5 @@
     "postcss": "8.4.32",
     "postcss-import": "15.1.0",
     "w3c-css-validator": "1.4.1"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }

@@ -6,9 +6,6 @@ on:
       os:
         required: true
         type: string
-      node-version:
-        required: true
-        type: string
       aws-role-arn:
         description: "ARN of the AWS IAM role to assume for OIDC"
         required: true
@@ -58,7 +55,6 @@ jobs:
     - name: Setup Repo
       uses: ./.github/actions/setup-repo
       with:
-        node-version: ${{ inputs.node-version }}
         os: ${{ inputs.os }}
     - name: Generate GitHub App token
       id: get-token

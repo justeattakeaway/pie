@@ -35,9 +35,5 @@
     "rollup-plugin-copy": "3.4.0",
     "rollup-plugin-delete": "2.0.0"
   },
-  "license": "Apache-2.0",
-  "volta": {
-    "node": "20.9.0",
-    "yarn": "3.8.1"
-  }
+  "license": "Apache-2.0"
 }
