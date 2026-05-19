@@ -6,9 +6,6 @@ on:
       os:
         required: true
         type: string
-      node-version:
-        required: true
-        type: string
       build-script:
         required: false
         type: string
@@ -18,7 +15,7 @@ on:
         required: false
         default: false
 
-permissions: 
+permissions:
   contents: read
 
 env:
@@ -33,7 +30,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: ${{ inputs.node-version }}
           os: ${{ inputs.os }}
       - name: Build Packages
         uses: ./.github/actions/run-script

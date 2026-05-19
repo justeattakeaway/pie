@@ -55,9 +55,6 @@
     "@justeattakeaway/pie-wrapper-react": "0.14.4",
     "@types/body-scroll-lock": "3.1.2"
   },
-  "volta": {
-    "extends": "../../../package.json"
-  },
   "dependencies": {
     "@justeattakeaway/pie-button": "1.14.1",
     "@justeattakeaway/pie-icon-button": "2.7.13",

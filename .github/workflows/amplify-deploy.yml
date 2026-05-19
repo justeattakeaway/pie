@@ -6,9 +6,6 @@ on:
       os:
         required: true
         type: string
-      node-version:
-        required: true
-        type: string
       amplify-app-id:
         description: "The ID for your Amplify app (which you can get from the end of its ARN)"
         required: true
@@ -107,7 +104,6 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: ${{ inputs.node-version }}
           os: ${{ inputs.os }}
       # Build
       - name: Build ${{ inputs.package-name }}
