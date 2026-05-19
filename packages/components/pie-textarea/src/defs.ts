@@ -75,12 +75,17 @@ export interface TextareaProps {
      * The placeholder text to display when the textarea is empty.
      */
     placeholder?: string;
+
+    /**
+     * The maximum number of characters allowed in the textarea.
+     */
+    maxlength?: number;
 }
 
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue'| 'maxlength'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
