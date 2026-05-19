@@ -122,10 +122,6 @@
       "config": ".cz-config.js"
     }
   },
-  "volta": {
-    "node": "24.11.1",
-    "yarn": "3.8.1"
-  },
   "resolutions": {
     "lit": "3.2.0",
     "tar": "6.2.1",
