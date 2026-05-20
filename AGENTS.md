@@ -28,7 +28,7 @@ pie/
 
 ## Technology Stack
 
-- **Runtime**: Node.js 22 or 24 (specified in `package.json` engines). Versions are pinned via **Mise** (see `.mise.toml` in the repo root). Install [Mise](https://mise.jdx.dev/) to have node versions switched automatically.
+- **Runtime**: Node.js 22 or 24 (specified in `package.json` engines). Versions are pinned via **Mise** (see `mise.toml` in the repo root). Install [Mise](https://mise.jdx.dev/) to have node versions switched automatically.
 - **Package Manager**: Yarn 3.x (exact version pinned in root `package.json` via `packageManager`)
 - **Monorepo**: Turborepo
 - **Build Tool**: Vite
