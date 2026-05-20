@@ -8,7 +8,6 @@ import '@justeattakeaway/pie-webc/components/textarea';
 import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-webc/components/textarea';
-import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-webc/components/link';
 
