@@ -1,6 +1,4 @@
-import React, {
-    useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStorybookState } from 'storybook/manager-api';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -50,7 +48,6 @@ function getComponentName (storyTitle: string): string | null {
     const match = storyTitle.match(/^Components\/(.+)/i);
     if (!match) return null;
 
-    // Convert "Button" -> "button", "Text Input" -> "text-input"
     return match[1].toLowerCase().replace(/\s+/g, '-');
 }
 
@@ -115,10 +112,17 @@ const styles: Record<string, React.CSSProperties> = {
         color: '#666',
         flexShrink: 0,
     },
-    iframe: {
+    iframeContainer: {
         flex: 1,
-        border: 'none',
+        position: 'relative',
+    },
+    iframe: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
         width: '100%',
+        height: '100%',
+        border: 'none',
     },
     codePane: {
         flex: 1,
@@ -180,24 +184,17 @@ export function CodeExamplesPanel () {
     const [code, setCode] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [fetchError, setFetchError] = useState(false);
-    const [iframeLoaded, setIframeLoaded] = useState(false);
-    const iframeRef = useRef<HTMLIFrameElement>(null);
-
-    const handleIframeLoad = useCallback(() => {
-        // Delay slightly to allow fonts and styles to settle
-        setTimeout(() => setIframeLoaded(true), 500);
-    }, []);
 
     const selectedApp = APERTURE_APPS[selectedIndex];
     const sourcePath = componentName ? selectedApp.getSourcePath(componentName) : '';
 
+    // Fetch source code from GitHub
     useEffect(() => {
         if (!componentName) return;
 
         setLoading(true);
         setFetchError(false);
         setCode(null);
-        setIframeLoaded(false);
 
         fetch(getRawGitHubUrl(sourcePath))
             .then((res) => {
@@ -255,20 +252,24 @@ export function CodeExamplesPanel () {
                             Open in new tab &#8599;
                         </a>
                     </div>
-                    {!iframeLoaded && (
-                        <div style={{ ...styles.loading, flex: 1 }}>Loading preview...</div>
-                    )}
-                    <iframe
-                        ref={iframeRef}
-                        src={`${selectedApp.baseUrl}/${componentName}`}
-                        style={{
-                            ...styles.iframe,
-                            opacity: iframeLoaded ? 1 : 0,
-                            flex: iframeLoaded ? 1 : 0,
-                        }}
-                        title={`${selectedApp.label} - ${componentName}`}
-                        onLoad={handleIframeLoad}
-                    />
+                    {/*
+                     * All 4 iframes are rendered simultaneously but only the
+                     * active one is visible. This keeps each iframe's fonts
+                     * and styles loaded across tab switches.
+                     */}
+                    <div style={styles.iframeContainer}>
+                        {APERTURE_APPS.map((app, index) => (
+                            <iframe
+                                key={app.label}
+                                src={`${app.baseUrl}/${componentName}`}
+                                style={{
+                                    ...styles.iframe,
+                                    visibility: index === selectedIndex ? 'visible' : 'hidden',
+                                }}
+                                title={`${app.label} - ${componentName}`}
+                            />
+                        ))}
+                    </div>
                 </div>
 
                 {/* Right: Source code */}
