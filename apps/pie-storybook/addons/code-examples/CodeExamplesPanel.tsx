@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    useCallback, useEffect, useRef, useState,
+} from 'react';
 import { useStorybookState } from 'storybook/manager-api';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -169,7 +171,7 @@ const styles: Record<string, React.CSSProperties> = {
 
 export function CodeExamplesPanel () {
     const state = useStorybookState();
-    const storyId = state.storyId;
+    const { storyId } = state;
     const story = state.index?.[storyId];
     const storyTitle = story && 'title' in story ? story.title : '';
 
