@@ -131,9 +131,12 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
-                gap: 0;
+                gap: var(--dt-spacing-c);
+                margin-block-start: var(--dt-spacing-b);
 
+                pie-button,
                 ::slotted(pie-button) {
+                    margin-block-start: 0;
                     --btn-inline-size: 100%;
                 }
             }
