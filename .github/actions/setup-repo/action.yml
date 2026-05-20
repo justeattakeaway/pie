@@ -9,19 +9,19 @@ inputs:
 runs:
   using: composite
   steps:
-      # Read tool versions from .mise.toml (single source of truth)
-      - name: Read tool versions from .mise.toml
+      # Read tool versions from mise.toml (single source of truth)
+      - name: Read tool versions from mise.toml
         id: mise
         shell: bash
         run: |
-          node_version=$(grep -E '^node\s*=' .mise.toml | sed -E 's/.*"([^"]+)".*/\1/')
-          yarn_version=$(grep -E '^yarn\s*=' .mise.toml | sed -E 's/.*"([^"]+)".*/\1/')
+          node_version=$(grep -E '^node\s*=' mise.toml | sed -E 's/.*"([^"]+)".*/\1/')
+          yarn_version=$(grep -E '^yarn\s*=' mise.toml | sed -E 's/.*"([^"]+)".*/\1/')
           if [ -z "$node_version" ]; then
-            echo 'Failed to read node version from .mise.toml'
+            echo 'Failed to read node version from mise.toml'
             exit 1
           fi
           if [ -z "$yarn_version" ]; then
-            echo 'Failed to read yarn version from .mise.toml'
+            echo 'Failed to read yarn version from mise.toml'
             exit 1
           fi
           echo "node-version=$node_version" >> "$GITHUB_OUTPUT"
