@@ -166,10 +166,8 @@
             --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
             --notification-font-weight: var(--dt-font-body-s-weight);
             --notification-close-btn-offset: var(--dt-spacing-b);
-            // --icon-size-override: 20px;
 
             padding: var(--dt-spacing-b);
-            // min-height: calc(var(--dt-spacing-b) * 2 + var(--notification-close-btn-size));
             gap: 0;
 
             &.is-compact {
