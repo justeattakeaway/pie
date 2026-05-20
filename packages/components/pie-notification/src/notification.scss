@@ -17,7 +17,7 @@
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-font-weight: var(--dt-font-body-l-weight);
-    --notification-close-btn-size: 40px;
+    --notification-close-btn-size: 40px; // 40px is the size of the medium icon button
     --notification-close-btn-offset: var(--dt-spacing-b);
     --notification-icon-fill: var(--dt-color-content-inverse);
     --notification-icon-background-color: var(--dt-color-container-inverse);
@@ -166,10 +166,10 @@
             --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
             --notification-font-weight: var(--dt-font-body-s-weight);
             --notification-close-btn-offset: var(--dt-spacing-b);
-            --icon-size-override: 20px;
+            // --icon-size-override: 20px;
 
             padding: var(--dt-spacing-b);
-            min-height: calc(var(--dt-spacing-b) * 2 + var(--notification-close-btn-size));
+            // min-height: calc(var(--dt-spacing-b) * 2 + var(--notification-close-btn-size));
             gap: 0;
 
             &.is-compact {
@@ -177,7 +177,7 @@
             }
 
             .c-notification-content-section {
-                min-height: var(--notification-close-btn-size);
+                // min-height: var(--notification-close-btn-size);
 
                 &:last-child {
                     padding-block-end: var(--dt-spacing-b);
@@ -202,6 +202,11 @@
                     align-self: stretch;
                     align-items: center;
                     padding: var(--dt-spacing-b);
+                }
+
+                pie-button,
+                ::slotted(pie-button) {
+                    margin-block-start: var(--dt-spacing-b);
                 }
             }
         }
