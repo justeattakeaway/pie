@@ -205,9 +205,9 @@ export const Default = CreateTextareaStory({}, {
     },
 });
 export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)({}, {
-      argTypes: {
+    argTypes: {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
-    },  
+    },
 });
 
 export default textareaStoryMeta;
