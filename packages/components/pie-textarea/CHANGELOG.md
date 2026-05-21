@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-textarea
 
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - maxlength prop to the pie-textarea component ([#2840](https://github.com/justeattakeaway/pie/pull/2840)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.17.31
 
 ### Patch Changes

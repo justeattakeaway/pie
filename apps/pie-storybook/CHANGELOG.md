@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.78.0
+
+### Minor Changes
+
+- [Added] - maxlength prop to the pie-textarea component ([#2840](https://github.com/justeattakeaway/pie/pull/2840)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+- [Deleted] - Example Form story for pie-textarea ([#2870](https://github.com/justeattakeaway/pie/pull/2870)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.11
+
 ## 1.77.1
 
 ### Patch Changes
