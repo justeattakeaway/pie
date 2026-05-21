@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox
 
+## 1.2.0
+
+### Minor Changes
+
+- [Fixed] - Do not allow checkbox to fill entire container width with whitespace touch target unless labelFit="fill" ([#2872](https://github.com/justeattakeaway/pie/pull/2872)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.1.2
 
 ### Patch Changes

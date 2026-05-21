@@ -3569,7 +3569,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group"
   dependencies:
     "@justeattakeaway/pie-assistive-text": 0.11.31
-    "@justeattakeaway/pie-checkbox": 1.1.2
+    "@justeattakeaway/pie-checkbox": 1.2.0
     "@justeattakeaway/pie-components-config": 0.21.2
     "@justeattakeaway/pie-css": 1.1.1
     "@justeattakeaway/pie-monorepo-utils": 0.9.1
@@ -3577,7 +3577,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox@1.1.2, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
+"@justeattakeaway/pie-checkbox@1.2.0, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox"
   dependencies:
@@ -3682,7 +3682,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 5.27.0
     "@justeattakeaway/pie-icons-webc": 1.24.0
     "@justeattakeaway/pie-monorepo-utils": 0.9.1
-    "@justeattakeaway/pie-webc": 0.10.10
+    "@justeattakeaway/pie-webc": 0.10.11
     "@lit-labs/eleventy-plugin-lit": 1.0.6
     "@lit-labs/ssr-client": 1.1.8
     "@types/markdown-it": 14.1.2
@@ -3982,7 +3982,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": 5.21.0
     "@justeattakeaway/pie-icons-webc": 1.24.0
     "@justeattakeaway/pie-monorepo-utils": 0.9.1
-    "@justeattakeaway/pie-webc": 0.10.10
+    "@justeattakeaway/pie-webc": 0.10.11
     "@storybook/addon-a11y": 10.3.5
     "@storybook/addon-designs": 11.1.3
     "@storybook/addon-docs": 10.3.5
@@ -4055,7 +4055,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-textarea@0.17.31, @justeattakeaway/pie-textarea@workspace:packages/components/pie-textarea":
+"@justeattakeaway/pie-textarea@0.18.0, @justeattakeaway/pie-textarea@workspace:packages/components/pie-textarea":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-textarea@workspace:packages/components/pie-textarea"
   dependencies:
@@ -4137,7 +4137,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@0.10.10, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@0.10.11, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4146,7 +4146,7 @@ __metadata:
     "@justeattakeaway/pie-breadcrumb": 0.8.5
     "@justeattakeaway/pie-button": 1.14.1
     "@justeattakeaway/pie-card": 0.26.24
-    "@justeattakeaway/pie-checkbox": 1.1.2
+    "@justeattakeaway/pie-checkbox": 1.2.0
     "@justeattakeaway/pie-checkbox-group": 1.0.24
     "@justeattakeaway/pie-chip": 0.15.29
     "@justeattakeaway/pie-components-config": 0.21.2
@@ -4168,7 +4168,7 @@ __metadata:
     "@justeattakeaway/pie-tabs": 0.1.23
     "@justeattakeaway/pie-tag": 0.22.20
     "@justeattakeaway/pie-text-input": 0.29.33
-    "@justeattakeaway/pie-textarea": 0.17.31
+    "@justeattakeaway/pie-textarea": 0.18.0
     "@justeattakeaway/pie-thumbnail": 0.8.29
     "@justeattakeaway/pie-toast": 0.12.43
     "@justeattakeaway/pie-toast-provider": 0.7.44
