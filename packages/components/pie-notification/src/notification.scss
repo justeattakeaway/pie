@@ -175,11 +175,7 @@
             }
 
             .c-notification-content-section {
-                // min-height: var(--notification-close-btn-size);
-
-                &:last-child {
-                    padding-block-end: var(--dt-spacing-b);
-                }
+                min-height: var(--notification-close-btn-size);
 
                 &.is-dismissible {
                     max-width: calc(100% - var(--notification-close-btn-offset) - var(--notification-close-btn-size));
