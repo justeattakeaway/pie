@@ -3,6 +3,7 @@ eleventyNavigation:
     key: iOS
     parent: Bottom Sheet
     order: 4
+shouldShowContents: true
 ---
 
 ## Dos and Don'ts
