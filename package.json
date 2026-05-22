@@ -122,7 +122,7 @@
     }
   },
   "resolutions": {
-    "basic-ftp": "5.2.0",
+    "basic-ftp": "5.2.1",
     "lit": "3.2.0",
     "typescript": "5.8.3"
   }
