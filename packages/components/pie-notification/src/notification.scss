@@ -97,7 +97,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: var(--dt-spacing-c);
+        gap: var(--dt-spacing-d);
 
         &.is-dismissible {
             max-width: calc(100% - var(--notification-close-btn-offset) - var(--notification-close-btn-size));
@@ -131,7 +131,7 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
-                gap: var(--dt-spacing-c);
+                gap: var(--dt-spacing-d);
                 margin-block-start: var(--dt-spacing-b);
 
                 pie-button,
