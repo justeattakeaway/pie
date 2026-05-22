@@ -131,7 +131,6 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
-                gap: var(--dt-spacing-d);
                 margin-block-start: var(--dt-spacing-b);
 
                 pie-button,
@@ -195,7 +194,6 @@
                 &.is-compact {
                     align-self: stretch;
                     align-items: center;
-                    padding: var(--dt-spacing-b);
                 }
 
                 pie-button,
