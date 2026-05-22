@@ -1,0 +1,38 @@
+{
+  "name": "@justeattakeaway/pie-icon-with-background",
+  "description": "PIE Design System Icon with Background built using Web Components",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-icon-with-background"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
+  "scripts": {
+    "build": "run -T vite build",
+    "watch": "run -T vite build --watch"
+  },
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@justeattakeaway/pie-components-config": "0.21.2",
+    "@justeattakeaway/pie-css": "1.1.1",
+    "@justeattakeaway/pie-icons-webc": "1.24.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.1"
+  },
+  "dependencies": {
+    "@justeattakeaway/pie-icons-configs": "*",
+    "@justeattakeaway/pie-webc-core": "14.0.1"
+  },
+  "sideEffects": [
+    "dist/*.js"
+  ]
+}
