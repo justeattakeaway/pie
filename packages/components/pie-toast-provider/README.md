@@ -56,6 +56,7 @@ This component does not have any slots. All content is controlled through proper
 
 ## Usage Examples
 
+The usage guideline is:
 - Place `pie-toast-provider` wherever toasts should appear (e.g. root of your application, page or inside a modal).
 - Use the `toaster` utility to dynamically create toasts from anywhere in your app.
 
@@ -115,7 +116,7 @@ You can use multiple `pie-toast-provider` instances in the same page or applicat
 
 When `providerId` is not specified, the toaster utility resolves the target provider automatically:
 - If there is only one provider in the DOM, it is always used.
-- If there are multiple providers, the closest ancestor of the currently focused element is used. For example, if a button inside a modal triggers a toast, the modal's own provider is selected without needing an explicit `providerId`.
+- If there are multiple providers, the closest ancestor of the currently focused element is used. For example, if a button inside a modal triggers a toast, the modal's own provider is selected automatically.
 
 For explicit control when using multiple providers, give each one a native `id` attribute and pass the `providerId` option when creating or clearing toasts:
 

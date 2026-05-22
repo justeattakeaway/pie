@@ -181,10 +181,9 @@ const MultipleProvidersTemplate = () => html`
     </pie-toast-provider>
 
     <pie-modal
-        id="multi-provider-modal"
         heading="Modal with Toast Provider"
-        ?isDismissible=${true}
-        ?isOpen=${true}>
+        isDismissible
+        isOpen>
         <pie-toast-provider
             id="modal"
             position="bottom-center"
@@ -198,7 +197,6 @@ const MultipleProvidersTemplate = () => html`
     toaster.create({
         providerId: 'modal',
         message: 'Toast in modal',
-        duration: null,
     });
 }}>
                 Add Toast to Modal
@@ -212,7 +210,6 @@ const MultipleProvidersTemplate = () => html`
     toaster.create({
         providerId: 'main',
         message: 'Toast in main',
-        duration: null,
     });
 }}>
         Add Toast to Main

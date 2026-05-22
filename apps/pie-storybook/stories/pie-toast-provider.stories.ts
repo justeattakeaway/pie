@@ -194,7 +194,6 @@ const MultipleProvidersTemplate = () => {
 
     <pie-modal
         heading="Modal with its own Toast Provider"
-        .isOpen=${false}
         isDismissible>
         <pie-toast-provider id="modal" position="bottom-center"></pie-toast-provider>
 
