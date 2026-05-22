@@ -10,6 +10,7 @@ import {
 } from '@justeattakeaway/pie-webc/components/toast-provider';
 import '@justeattakeaway/pie-webc/components/toast';
 import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/modal';
 
 import { createStory } from '../../utilities';
 
@@ -171,4 +172,53 @@ export const ScrollPage: StoryObj<ToastProviderProps> = {
             isDismissible: true,
         });
     },
+};
+
+const MultipleProvidersTemplate = () => html`
+    <pie-toast-provider
+        id="main"
+        @pie-toast-provider-queue-update="${onQueueUpdate}">
+    </pie-toast-provider>
+
+    <pie-modal
+        id="multi-provider-modal"
+        heading="Modal with Toast Provider"
+        ?isDismissible=${true}
+        ?isOpen=${true}>
+        <pie-toast-provider
+            id="modal"
+            position="bottom-center"
+            @pie-toast-provider-queue-update="${onQueueUpdate}">
+        </pie-toast-provider>
+
+        <div style="display: flex; gap: var(--dt-spacing-d); flex-wrap: wrap; justify-content: center; padding-bottom: var(--dt-spacing-i);">
+            <pie-button
+                id="modal-trigger-btn"
+                @click=${() => {
+    toaster.create({
+        providerId: 'modal',
+        message: 'Toast in modal',
+        duration: null,
+    });
+}}>
+                Add Toast to Modal
+            </pie-button>
+        </div>
+    </pie-modal>
+
+    <pie-button
+        id="main-trigger-btn"
+        @click=${() => {
+    toaster.create({
+        providerId: 'main',
+        message: 'Toast in main',
+        duration: null,
+    });
+}}>
+        Add Toast to Main
+    </pie-button>
+`;
+
+export const MultipleProviders: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(MultipleProvidersTemplate, defaultArgs)(),
 };
