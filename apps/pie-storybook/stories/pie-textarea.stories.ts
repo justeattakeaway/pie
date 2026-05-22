@@ -8,7 +8,6 @@ import '@justeattakeaway/pie-webc/components/textarea';
 import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-webc/components/textarea';
-import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-webc/components/link';
 
@@ -191,76 +190,6 @@ const Template = ({
     `;
 };
 
-const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
-    defaultValue,
-    maxlength,
-    required,
-}) => html`
-    <style>
-        .form {
-            display: flex;
-            flex-direction: column;
-            padding: var(--dt-spacing-d);
-        }
-
-        .form-field {
-            display: block;
-            margin-bottom: var(--dt-spacing-d);
-        }
-
-        .form-btns {
-            margin-top: var(--dt-spacing-c);
-            display: flex;
-            gap: var(--dt-spacing-a)
-        }
-
-        .form-btns > .form-btn:first-of-type {
-            margin-left: auto;
-        }
-    </style>
-
-    <form id="testForm" class="form">
-        <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" maxlength="${ifDefined(maxlength)}" ?required="${required}">
-        </pie-textarea>
-
-        <div class="form-btns">
-            <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
-            <pie-button class="form-btn" type="submit">Submit</pie-button>
-        </div>
-
-        <script>
-            // var is used to prevent storybook from erroring when the script is re-run
-            var form = document.querySelector('#testForm');
-            var textarea = form.querySelector('#description');
-
-            // if there was an error message and user starts typing, the message disappears
-            textarea.addEventListener('input', () => {
-                if (textarea.getAttribute('status') === 'error') {
-                    textarea.removeAttribute('assistiveText');
-                    textarea.setAttribute('status', 'default');
-                }
-            });
-
-            form.addEventListener('submit', (e) => {
-            e.preventDefault();   
-
-            if (textarea.validity.valueMissing) {
-                    textarea.setAttribute('assistiveText', 'This field is required.');
-                    textarea.setAttribute('status', 'error');
-                    return;
-                }
-
-            });
-
-            form.addEventListener('reset', () => {
-                textarea.removeAttribute('assistiveText');
-                textarea.setAttribute('status', 'default');
-            });
-        </script>  
-    </form>
-`;
-
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
         <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
@@ -268,15 +197,17 @@ const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps
     `;
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
-const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
 const CreateTextareaStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
 
 export const Default = CreateTextareaStory({}, {
     argTypes: {
-        defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
+        defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },
 });
-export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)();
-export const ExampleForm = CreateTextareaStoryWithForm();
+export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)({}, {
+    argTypes: {
+        defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
+    },
+});
 
 export default textareaStoryMeta;
