@@ -32,19 +32,18 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-monorepo-utils": "0.9.1",
-    "cheerio": "1.2.0",
-    "classnames": "2.5.1",
-    "html-minifier-terser": "7.2.0",
-    "prettier": "2.8.7",
-    "svgo": "3.0.2"
+    "classnames": "2.5.1"
   },
   "devDependencies": {
     "@babel/node": "7.29.0",
     "@changesets/write": "0.4.0",
     "babel-loader": "8.3.0",
+    "cheerio": "1.2.0",
     "fs-extra": "11.3.4",
     "glob": "11.1.0",
+    "html-minifier-terser": "7.2.0",
     "is-svg": "6.1.0",
+    "prettier": "2.8.7",
     "slugify": "1.6.9",
     "svgo": "4.0.1",
     "webpack": "5.107.1",
