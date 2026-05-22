@@ -1,5 +1,5 @@
 import path from 'path';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import prettier from 'prettier';
 import { optimize } from 'svgo';
 import { DEFAULT_ATTRS } from '../src/default-attrs';

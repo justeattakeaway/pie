@@ -28,12 +28,11 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
-    "test:coverage": "run -T vitest run --coverage",
-    "precommit": "lint-staged"
+    "test:coverage": "run -T vitest run --coverage"
   },
   "dependencies": {
     "@justeattakeaway/pie-monorepo-utils": "0.9.1",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "1.2.0",
     "classnames": "2.5.1",
     "html-minifier-terser": "7.2.0",
     "prettier": "2.8.7",
@@ -45,11 +44,10 @@
     "babel-loader": "8.3.0",
     "fs-extra": "11.3.4",
     "glob": "11.1.0",
-    "is-svg": "5.1.0",
-    "lint-staged": "12.5.0",
+    "is-svg": "6.1.0",
     "slugify": "1.6.9",
-    "svgo": "3.0.2",
-    "webpack": "5.94.0",
-    "webpack-cli": "4.10.0"
+    "svgo": "4.0.1",
+    "webpack": "5.107.1",
+    "webpack-cli": "7.0.2"
   }
 }
