@@ -137,3 +137,39 @@ export const SuccessStrong = createToastStory({ variant: 'success', isStrong: tr
 export const Error = createToastStory({ variant: 'error' });
 export const ErrorStrong = createToastStory({ variant: 'error', isStrong: true });
 export const AutoDismiss = createToastStory({ duration: 3000, message: 'Closing in three seconds' });
+
+export const SlotContent = {
+    render: () => {
+        const [, updateArgs] = useArgs();
+
+        const pieToastCloseHandle = () => {
+            updateArgs({ isOpen: false });
+            pieToastClose();
+        };
+
+        const pieToastOpenHandle = () => {
+            updateArgs({ isOpen: true });
+            pieToastOpen();
+        };
+
+        return html`
+            <pie-toast
+                isOpen
+                isDismissible
+                variant="info"
+                .duration="${null}"
+                @pie-toast-close="${pieToastCloseHandle}"
+                @pie-toast-open="${pieToastOpenHandle}">
+                <span>Check out our <a href="#" style="color: inherit;">latest deals</a> for great savings!</span>
+            </pie-toast>
+        `;
+    },
+    args: {},
+    parameters: {
+        docs: {
+            description: {
+                story: 'Toast with custom slot content instead of the message prop. This allows for rich content like links and formatted text.',
+            },
+        },
+    },
+};
