@@ -8,6 +8,7 @@ import '@justeattakeaway/pie-webc/components/card';
 import {
     type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-webc/components/card';
+import '@justeattakeaway/pie-webc/components/notification';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
@@ -151,13 +152,7 @@ export const Default = createCardStory();
 export const Outline = createCardStory({ variant: 'outline' });
 export const Inverse = createCardStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const OutlineInverse = createCardStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
-const EqualHeightCardsTemplate: TemplateFunction<CardProps> = ({
-    variant,
-    padding,
-    tag,
-    disabled,
-    isDraggable,
-}) => {
+const EqualHeightCardsTemplate: TemplateFunction<CardProps> = () => {
     const cards = [
         {
             title: 'Short card',
@@ -186,17 +181,19 @@ const EqualHeightCardsTemplate: TemplateFunction<CardProps> = ({
     ];
 
     return html`
-        <div style="margin-bottom: 16px; padding: 12px; background-color: var(--dt-color-support-info-02); border-radius: var(--dt-radius-rounded-b); font-size: calc(var(--dt-font-body-s-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
+        <pie-notification
+            variant="info"
+            isOpen
+            isCompact
+            style="margin-bottom: 16px;">
             This story demonstrates equal-height cards in a responsive layout. The container uses <code>display: grid</code> with <code>grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))</code>, which automatically makes all cards in each row match the height of the tallest card in that row.
-        </div>
+        </pie-notification>
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
             ${cards.map((card) => html`
                 <pie-card
-                    tag="${ifDefined(tag)}"
-                    variant="${ifDefined(variant)}"
-                    ?disabled="${disabled}"
-                    ?isDraggable="${isDraggable}"
-                    padding="${padding || nothing}"
+                    tag="button"
+                    variant="outline"
+                    padding="c"
                     style="height: 100%;">
                     <div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
                         <h2 style="margin-top: 0">${card.title}</h2>
@@ -209,14 +206,11 @@ const EqualHeightCardsTemplate: TemplateFunction<CardProps> = ({
 };
 
 export const EqualHeightCards = EqualHeightCardsTemplate.bind({});
-EqualHeightCards.args = {
-    ...defaultArgs,
-    tag: 'button',
-    variant: 'outline',
-    padding: 'c',
-};
 EqualHeightCards.parameters = {
     layout: 'padded',
+    controls: {
+        disable: true,
+    },
 };
 
 export const CardWithImage = createCardStory({
