@@ -8,6 +8,7 @@ import '@justeattakeaway/pie-webc/components/card';
 import {
     type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-webc/components/card';
+import '@justeattakeaway/pie-webc/components/notification';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
@@ -151,6 +152,67 @@ export const Default = createCardStory();
 export const Outline = createCardStory({ variant: 'outline' });
 export const Inverse = createCardStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const OutlineInverse = createCardStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
+const EqualHeightCardsTemplate: TemplateFunction<CardProps> = () => {
+    const cards = [
+        {
+            title: 'Short card',
+            content: 'Just a brief description.',
+        },
+        {
+            title: 'Medium card',
+            content: 'This card has a bit more content to show how the equal-height layout works when cards have varying amounts of text.',
+        },
+        {
+            title: 'Tall card',
+            content: 'This card has the most content of all. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat dolore dolorem maxime, quod, in minima esse fugit distinctio, officia et soluta dicta consequuntur commodi officiis tempora asperiores aspernatur atque quas. Reprehenderit, voluptatum.',
+        },
+        {
+            title: 'Another short one',
+            content: 'Minimal content here.',
+        },
+        {
+            title: 'With a list',
+            content: '<ul><li>Item one</li><li>Item two</li><li>Item three</li><li>Item four</li><li>Item five</li></ul>',
+        },
+        {
+            title: 'Image card',
+            content: '<p>A card with an image.</p><img src="https://picsum.photos/280/120?image=10" alt="Sample" style="width:100%; border-radius: 4px;" />',
+        },
+    ];
+
+    return html`
+        <pie-notification
+            variant="info"
+            isOpen
+            isCompact
+            style="margin-bottom: 16px;">
+            This story demonstrates equal-height cards in a responsive layout. The container uses <code>display: grid</code> with <code>grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))</code>, which automatically makes all cards in each row match the height of the tallest card in that row.
+        </pie-notification>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+            ${cards.map((card) => html`
+                <pie-card
+                    tag="button"
+                    variant="outline"
+                    padding="c"
+                    style="height: 100%;">
+                    <div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
+                        <h2 style="margin-top: 0">${card.title}</h2>
+                        ${sanitizeAndRenderHTML(card.content)}
+                    </div>
+                </pie-card>
+            `)}
+        </div>
+    `;
+};
+
+export const EqualHeightCards = EqualHeightCardsTemplate.bind({});
+EqualHeightCards.parameters = {
+    layout: 'padded',
+    controls: {
+        disable: true,
+    },
+};
+
 export const CardWithImage = createCardStory({
     ...defaultArgs,
     slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
