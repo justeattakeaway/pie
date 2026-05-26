@@ -244,7 +244,7 @@ const AutoResolveProviderTemplate = () => html`
         message: 'Auto-resolved modal toast',
     });
 }}>
-                Toast Without ProviderId
+                Create Toast
             </pie-button>
         </div>
     </pie-modal>

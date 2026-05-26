@@ -22,7 +22,7 @@ export const positions = ['default', 'bottom-left', 'bottom-right', 'bottom-cent
 export interface ExtendedToastProps extends ToastProps {
     /**
      * The ID of the toast provider to target.
-     * If not specified, resolves to the closest ancestor toast provider or the only provider in the DOM.
+     * If not specified, resolves to the provider in the nearest containing scope of the focused element, or the sole provider in the DOM.
      */
     providerId?: string;
 
