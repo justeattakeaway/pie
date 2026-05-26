@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.27.0
+
+### Minor Changes
+
+- [Fixed] - Ensure inner div inside pie-card will occupy the full height of the host element ([#2882](https://github.com/justeattakeaway/pie/pull/2882)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.26.24
 
 ### Patch Changes
