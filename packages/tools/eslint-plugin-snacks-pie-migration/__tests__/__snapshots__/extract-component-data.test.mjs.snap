@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`extractComponentData > sort order > produces a result with deterministic order 1`] = `
+{
+  "SnacksAardvark": {
+    "piePackage": "@pie/b",
+    "status": "beta",
+  },
+  "SnacksCat": {
+    "piePackage": "@pie/b",
+    "status": "beta",
+  },
+  "SnacksZebra": {
+    "piePackage": "@pie/a",
+    "status": "stable",
+  },
+}
+`;

@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.14.1
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-spinner@1.4.15
+
+## 1.14.0
+
+### Minor Changes
+
+- [Added] - New `aria` prop with `label` field that maps to `aria-label` on the rendered button/anchor element ([#2832](https://github.com/justeattakeaway/pie/pull/2832)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9)]:
+  - @justeattakeaway/pie-spinner@1.4.14
+
 ## 1.13.4
 
 ### Patch Changes

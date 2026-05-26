@@ -40,16 +40,6 @@
         "dist/**"
       ]
     },
-    "build:chromatic": {
-      "cache": true,
-      "dependsOn": [
-        "^build",
-        "^generate:component-statuses"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
-    },
     "test": {
       "cache": true,
       "dependsOn": []

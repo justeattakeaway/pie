@@ -1,5 +1,57 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.24.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2855](https://github.com/justeattakeaway/pie/pull/2855)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Age limit
+
+  - over-16-large
+  - over-16
+  - over-18-large
+  - over-18
+  - over-21-large
+  - over-21
+
+  ## Restaurant
+
+  - chef-large
+  - chef
+
+## 1.23.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Elements
+
+  - lightning-filled-large
+  - lightning-filled
+
+## 1.22.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2797](https://github.com/justeattakeaway/pie/pull/2797)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Chevron
+
+  - chevron-collapse-large
+  - chevron-collapse
+
+  ## Functionality
+
+  - column-large
+  - column
+
+  ## Technology
+
+  - tree-trace-large
+  - tree-trace
+
 ## 1.21.5
 
 ### Patch Changes

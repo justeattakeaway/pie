@@ -86,7 +86,7 @@ A spacing token (`--dt-spacing-e`) is applied to padding, providing internal spa
 ## Typography
 
 For typography, we recommend using the utility classes provided by `pie-css` instead of directly applying font tokens. These classes ensure consistent application of our type scale and responsive adjustments across all components.
-Documentation and examples can be found in Storybook [here](https://webc.pie.design/?path=/docs/additional-libraries-pie-css-typography-utility-classes--docs).
+Documentation and examples can be found in Storybook [here](https://webc.pie.design/?path=/docs/introduction-typography-utility-classes--docs).
 
 ## Radius
 

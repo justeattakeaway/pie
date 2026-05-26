@@ -10,4 +10,6 @@ module.exports = {
     FlexItem: migrateWithSkill,
     Util: migrateWithSkill,
     Button: migrateWithSkill,
+    Text: migrateWithSkill,
+    Heading: migrateWithSkill,
 };

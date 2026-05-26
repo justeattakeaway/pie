@@ -1,6 +1,9 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const statusTypes = ['default', 'success', 'error'] as const;
+export const labelPositions = ['leading', 'trailing'] as const;
+export const labelFits = ['hug', 'fill'] as const;
+
 export interface CheckboxProps {
     /**
      * The value of the checkbox (used as a key/value pair in HTML forms with `name`).
@@ -47,6 +50,16 @@ export interface CheckboxProps {
      * The status of the checkbox component / assistive text. Can be default, success or error.
      */
     status?: typeof statusTypes[number];
+
+    /**
+     * The position of the label relative to the checkbox input.
+     */
+    labelPosition?: typeof labelPositions[number];
+
+    /**
+     * Controls how the label container is sized. `hug` wraps the content, `fill` stretches to fill available width.
+     */
+    labelFit?: typeof labelFits[number];
 }
 
 export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'name' | 'assistiveText'>>;
@@ -61,4 +74,6 @@ export const defaultProps: DefaultProps = {
     indeterminate: false,
     required: false,
     status: 'default',
+    labelPosition: 'trailing',
+    labelFit: 'hug',
 };

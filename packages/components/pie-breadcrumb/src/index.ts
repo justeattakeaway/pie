@@ -32,6 +32,9 @@ export class PieBreadcrumb extends PieElement implements BreadcrumbProps {
     @property({ type: Boolean, reflect: true })
     public hideCurrentPage = defaultProps.hideCurrentPage;
 
+    @property({ type: Object })
+    public aria: BreadcrumbProps['aria'];
+
     private updateAriaCurrentItem () {
         const items = [...this.querySelectorAll('pie-breadcrumb-item')] as PieBreadcrumbItem[];
         items.forEach((item, i) => {
@@ -63,7 +66,7 @@ export class PieBreadcrumb extends PieElement implements BreadcrumbProps {
 
         return html`
             <nav
-                aria-label="breadcrumb"
+                aria-label=${this.aria?.label ?? 'Breadcrumb'}
                 data-test-id="pie-breadcrumb"
                 class="${classMap(classes)}">
                     <ol class="c-breadcrumb-list" data-test-id="pie-breadcrumb-list">

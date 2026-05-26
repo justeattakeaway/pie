@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-monorepo-utils",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Scripts and utilities used by the PIE monorepo",
   "repository": {
     "type": "git",
@@ -22,11 +22,9 @@
     "test:ci": "yarn test",
     "test:watch": "run -T vitest"
   },
-  "volta": {
-    "extends": "../../../package.json"
-  },
   "dependencies": {
     "@changesets/parse": "0.4.3",
+    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "0.7.1",
     "chalk": "4.1.2"
   }
 }

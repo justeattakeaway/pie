@@ -15,7 +15,9 @@ import {
 import '@justeattakeaway/pie-assistive-text';
 
 import styles from './checkbox.scss?inline';
-import { type CheckboxProps, defaultProps, statusTypes } from './defs';
+import {
+    type CheckboxProps, defaultProps, statusTypes, labelPositions, labelFits,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -69,6 +71,14 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
+
+    @property({ type: String, reflect: true })
+    @validPropertyValues(componentSelector, labelPositions, defaultProps.labelPosition)
+    public labelPosition = defaultProps.labelPosition;
+
+    @property({ type: String, reflect: true })
+    @validPropertyValues(componentSelector, labelFits, defaultProps.labelFit)
+    public labelFit = defaultProps.labelFit;
 
     private _abortController!: AbortController;
 
@@ -168,6 +178,8 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
             indeterminate,
             assistiveText,
             status,
+            labelPosition,
+            labelFit,
         } = this;
 
         const componentDisabled = disabled || _disabledByParent;
@@ -178,6 +190,8 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
             'is-disabled': componentDisabled,
             'is-checked': checked,
             'is-indeterminate': indeterminate && !checked,
+            'c-checkbox--leading': labelPosition === 'leading',
+            'c-checkbox--fill': labelFit === 'fill',
         };
 
         const labelClasses = {

@@ -24,12 +24,19 @@ const defaultArgs: ButtonProps = {
     ...defaultProps,
     iconPlacement: undefined,
     slot: 'Label',
+    aria: {
+        label: 'Accessible text',
+    },
 };
 
 const buttonStoryMeta: ButtonStoryMeta = {
     title: 'Components/Button',
     component: 'pie-button',
     argTypes: {
+        aria: {
+            description: 'The ARIA attributes to be applied to the underlying element.',
+            control: 'object',
+        },
         tag: {
             description: 'Choose the HTML element that will be used to render the button.<br>For this story, the prop has the value of `button`. See the Anchor story to interact with the component when this prop has a value of `a`.',
             control: {
@@ -220,6 +227,7 @@ const Template: TemplateFunction<ButtonProps> = ({
     formnovalidate,
     formtarget,
     responsiveSize,
+    aria,
 }) => html`
 <pie-button
     tag="button"
@@ -238,7 +246,8 @@ const Template: TemplateFunction<ButtonProps> = ({
     formenctype=${ifDefined(formenctype)}
     formmethod=${ifDefined(formmethod)}
     formtarget=${ifDefined(formtarget)}
-    ?formnovalidate="${formnovalidate}">
+    ?formnovalidate="${formnovalidate}"
+    .aria="${aria}">
     ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
     ${sanitizeAndRenderHTML(slot)}
 </pie-button>`;
@@ -255,7 +264,8 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         href="${ifDefined(props.href)}"
         download="${ifDefined(props.download)}"
         rel="${ifDefined(props.rel)}"
-        target="${ifDefined(props.target)}">
+        target="${ifDefined(props.target)}"
+        .aria="${props.aria}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
         ${sanitizeAndRenderHTML(props.slot)}
     </pie-button>`;

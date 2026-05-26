@@ -2,6 +2,11 @@
 
 :host {
     display: block;
+    width: fit-content;
+}
+
+:host([labelFit='fill']) {
+    width: 100%;
 }
 
 @keyframes checkboxCheck {
@@ -113,7 +118,7 @@
         border-bottom: 2px solid transparent;
         transform: rotate(45deg);
         transform-origin: 0% 100%;
-    
+
         @media (prefers-reduced-motion: reduce) {
             animation-duration: 1ms !important;
             animation-delay: 0 !important;
@@ -124,7 +129,7 @@
             border-bottom-right-radius: 2px;
             transform: translate3d(0, -16px, 0) rotate(45deg);
         }
-    
+
         @media only percy {
             animation: none;
             width: 8px;
@@ -139,7 +144,7 @@
     &.is-checked.is-animated:before {
         animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
     }
-    
+
     &.is-checked:not(.is-animated):before {
         width: 8px;
         height: 16px;
@@ -222,6 +227,7 @@
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 
     input {
         display: block;
@@ -236,9 +242,32 @@
 
     label {
         display: flex;
-        max-width: 100%;
+        width: 100%;
         white-space: nowrap;
         cursor: pointer;
+    }
+
+    &.c-checkbox--leading {
+        label {
+            flex-direction: row-reverse;
+        }
+
+        .c-checkbox-text {
+            margin-inline-start: 0;
+            margin-inline-end: var(--checkbox-gap);
+        }
+    }
+
+    &.c-checkbox--fill {
+        align-items: stretch;
+
+        label {
+            justify-content: space-between;
+        }
+
+        .c-checkbox-text {
+            flex: 0 1 auto;
+        }
     }
 
     &:hover {

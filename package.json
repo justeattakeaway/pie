@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System",
-  "version": "2.103.0",
+  "version": "2.104.0",
   "repository": "justeattakeaway/pie",
   "homepage": "https://pie.design/",
   "keywords": [],
@@ -11,7 +11,6 @@
   "engines": {
     "node": "^22 || ^24"
   },
-  "packageManager": "yarn@3.8.1",
   "workspaces": {
     "packages": [
       "apps/**/*",
@@ -24,7 +23,6 @@
     "watch": "turbo run watch",
     "build": "cross-env-shell turbo run build --token=${TURBO_TOKEN}",
     "build:testing": "cross-env-shell turbo run build:testing --token=${TURBO_TOKEN}",
-    "build:chromatic": "cross-env-shell turbo run build:chromatic --token=${TURBO_TOKEN} -- --output-dir dist",
     "build:dev": "cross-env-shell turbo run build:dev --token=${TURBO_TOKEN}",
     "build:react-wrapper": "cross-env-shell turbo run build:react-wrapper --token=${TURBO_TOKEN}",
     "create:manifest": "cross-env-shell turbo run create:manifest --token=${TURBO_TOKEN}",
@@ -32,7 +30,6 @@
     "changeset:publish": "changeset publish",
     "changeset:snapshot": "changeset version --snapshot snapshot-release",
     "changeset:version": "./packages/tools/pie-monorepo-utils/preserve-peer-dep-ranges/changeset-version.sh",
-    "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "turbo run clean",
     "cz": "./packages/tools/pie-monorepo-utils/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev",
@@ -66,16 +63,17 @@
     }
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.11.2",
+    "@axe-core/playwright": "4.11.3",
     "@babel/preset-env": "7.29.2",
     "@changesets/changelog-github": "0.6.0",
     "@changesets/cli": "2.30.0",
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-conventional": "20.5.0",
+    "@custom-elements-manifest/analyzer": "0.11.0",
     "@justeat/pie-design-tokens": "7.11.1",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/generator-pie-component": "0.33.0",
-    "@justeattakeaway/pie-icons": "5.24.1",
+    "@justeattakeaway/pie-icons": "5.25.0",
     "@justeattakeaway/pie-webc-testing": "0.13.5",
     "@justeattakeaway/pie-wrapper-react": "0.14.4",
     "@justeattakeaway/stylelint-config-pie": "3.0.1",
@@ -89,7 +87,6 @@
     "@typescript-eslint/parser": "5.62.0",
     "@vitest/coverage-v8": "4.0.17",
     "bundlewatch": "0.4.1",
-    "chromatic": "13.3.5",
     "commitizen": "4.3.1",
     "cross-env": "7.0.3",
     "cz-customizable": "7.5.4",
@@ -124,14 +121,9 @@
       "config": ".cz-config.js"
     }
   },
-  "volta": {
-    "node": "24.11.1",
-    "yarn": "3.8.1"
-  },
   "resolutions": {
     "lit": "3.2.0",
     "tar": "6.2.1",
-    "typescript": "5.8.3",
-    "@manypkg/get-packages@^1.1.3": "patch:@manypkg/get-packages@npm%3A1.1.3#./.yarn/patches/@manypkg-get-packages-npm-1.1.3-55c0cc9daa.patch"
+    "typescript": "5.8.3"
   }
 }

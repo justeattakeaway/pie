@@ -31,9 +31,6 @@
     "@justeattakeaway/pie-css": "1.x"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.0"
-  },
-  "volta": {
-    "extends": "../../../package.json"
+    "@justeattakeaway/pie-components-config": "0.21.2"
   }
 }

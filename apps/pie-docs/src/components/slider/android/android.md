@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Android
     parent: Slider
     order: 2
-draft: true
 ---
 
 {% notification {

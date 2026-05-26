@@ -28,8 +28,8 @@ pie/
 
 ## Technology Stack
 
-- **Runtime**: Node.js 22 or 24 (specified in `package.json` engines). Versions are pinned via **Volta** (see `"volta"` field in root `package.json`). Install Volta to have node/yarn versions switched automatically.
-- **Package Manager**: Yarn 3.x (exact version pinned in root `package.json` via `packageManager` and `volta.yarn`)
+- **Runtime**: Node.js 22 or 24 (specified in `package.json` engines). Versions are pinned via **Mise** (see `mise.toml` in the repo root). Install [Mise](https://mise.jdx.dev/) to have node versions switched automatically.
+- **Package Manager**: Yarn 3.x (exact version pinned in root `package.json` via `packageManager`)
 - **Monorepo**: Turborepo
 - **Build Tool**: Vite
 - **Web Components**: Lit 3.x (exact version pinned in root `package.json` `resolutions.lit`)
@@ -38,7 +38,6 @@ pie/
   - Playwright (browser tests)
   - Vitest (unit tests)
   - Percy (visual regression)
-  - Chromatic (additional visual regression / Storybook snapshots)
 
 ## Component Structure
 

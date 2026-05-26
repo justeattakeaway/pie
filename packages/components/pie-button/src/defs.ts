@@ -12,11 +12,20 @@ export const iconPlacements = ['leading', 'trailing'] as const;
 
 export type Variant = typeof variants[number];
 
+type AriaProps = {
+    label?: string;
+};
+
 export const formEncodingtypes = ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain'] as const;
 export const formMethodTypes = ['post', 'get', 'dialog'] as const;
 export const formTargetTypes = ['_self', '_blank', '_parent', '_top'] as const;
 
 export interface ButtonProps {
+    /**
+     * The ARIA attributes for the button element.
+     */
+    aria?: AriaProps;
+
     /**
      * Which HTML element to use when rendering the button.
      */

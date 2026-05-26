@@ -1,5 +1,93 @@
 # Changelog
 
+## 4.73.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.11
+
+## 4.73.5
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2855](https://github.com/justeattakeaway/pie/pull/2855)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`c272cb5`](https://github.com/justeattakeaway/pie/commit/c272cb59073e8864ed538228d35b7ade776732d2)]:
+  - @justeattakeaway/pie-icons@5.27.0
+  - @justeattakeaway/pie-icons-webc@1.24.0
+  - @justeattakeaway/pie-webc@0.10.10
+
+## 4.73.4
+
+### Patch Changes
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-webc@0.10.9
+
+## 4.73.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.8
+
+## 4.73.2
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons@5.26.0
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-webc@0.10.7
+
+## 4.73.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.6
+
+## 4.73.0
+
+### Minor Changes
+
+- [Changed] - Updates roadmap copy and adds a short guidance on contributions ([#2792](https://github.com/justeattakeaway/pie/pull/2792)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.5
+
+## 4.72.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.4
+
+## 4.72.0
+
+### Minor Changes
+
+- [Added] - index page card displays for All about PIE, Accessibility and Patterns sections ([#2796](https://github.com/justeattakeaway/pie/pull/2796)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+- [Changed] - Upgraded 11ty to v3 and associated package deps ([#2798](https://github.com/justeattakeaway/pie/pull/2798)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2797](https://github.com/justeattakeaway/pie/pull/2797)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- [Changed] - Published previously drafted component pages (Notification, Slider, Tag, Tag - Icon Only) for Android and iOS platforms ([#2812](https://github.com/justeattakeaway/pie/pull/2812)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+- Updated dependencies [[`8e357bd`](https://github.com/justeattakeaway/pie/commit/8e357bdbd74529fc956a9391dd81fbb635b43ce0), [`42a5c27`](https://github.com/justeattakeaway/pie/commit/42a5c2725e86e3af2c46df142b26e062945a957a), [`71f09eb`](https://github.com/justeattakeaway/pie/commit/71f09ebaa83ad17c2a23e93b131965f473a916c0)]:
+  - @justeattakeaway/pie-icons@5.25.0
+  - @justeattakeaway/pie-css@1.1.1
+  - @justeattakeaway/pie-icons-webc@1.22.0
+  - @justeattakeaway/pie-webc@0.10.3
+
 ## 4.71.0
 
 ### Minor Changes

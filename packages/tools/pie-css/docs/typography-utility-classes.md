@@ -2,26 +2,25 @@
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css) | [NPM Package](https://www.npmjs.com/package/@justeattakeaway/pie-css)
 
-The PIE CSS Typography Utilities provide a comprehensive set of utility classes for applying consistent typography styles across your application. These classes are built on top of PIE design tokens and ensure your typography follows the design system's guidelines automatically.
+`@justeattakeaway/pie-css` provide a comprehensive set of utility classes for applying consistent typography styles across your application. These classes are built on top of the PIE design tokens and ensure your typography follows the design system's guidelines automatically. The utility classes handle the responsive behaviour automatically, so you don't need to write additional media queries.
+
+> Note: The utility classes do **not** apply colours to your text. This should be handled in your own CSS.
 
 ## Table of Contents
 
 - [Why?](#why)
 - [Installation](#installation)
-- [Importing](#importing)
-    - [JavaScript/Framework Import (via bundler)](#javascriptframework-import-via-bundler)
-    - [SCSS/Sass Import](#scsssass-import)
 - [Which Class Should I Use?](#which-class-should-i-use)
     - [If You Have Designs](#if-you-have-designs)
     - [If You Don't Have Designs](#if-you-dont-have-designs)
 - [Available Classes](#available-classes)
-- [Typography Spacing Utility](#typography-spacing-utility)
-- [the `font-theme` mixin](#the-font-theme-mixin)
+- [SCSS Mixin](#the-font-theme-mixin)
 - [Usage Examples](#usage-examples)
 - [What Each Utility Class Applies](#what-each-utility-class-applies)
 - [Troubleshooting](#troubleshooting)
     - [Utilities Not Working](#utilities-not-working)
     - [Font Not Displaying](#font-not-displaying)
+    - [No Colours Appearing](#no-colours-appearing)
 
 ## Why?
 
@@ -44,18 +43,18 @@ yarn add @justeattakeaway/pie-css
 npm install @justeattakeaway/pie-css
 ```
 
-## Importing
+### Importing
 
 To use the typography utility classes, you need to import the typography CSS file. The import method depends on your project setup:
 
-### JavaScript/Framework Import (via bundler)
+#### JavaScript/Framework Import (via bundler)
 
 ```javascript
 // Import the typography utilities
 import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 ```
 
-### SCSS/Sass Import
+#### SCSS/Sass Import
 
 ```scss
 @use '@justeattakeaway/pie-css/dist/helpers/typography.css';
@@ -88,35 +87,15 @@ If you don't have access to designs, you have two options:
 
 ## Available Classes
 
-The typography utilities are organized into several categories. This documentation is automatically generated from the CSS source file.
+The typography utilities are organised into several categories. This documentation is automatically generated from the CSS source file.
 
-### the `font-theme` mixin
+### Typography Spacing Utility
 
-In addition to the typography utility classes, the `font-theme` mixin can also be used directly to apply the styles to your SCSS.
+Use `.u-typographySpacing` alongside a typography utility class on the same element to apply paragraph spacing for typography tokens that define a `paragraph` token.
 
-**N.b. We recommend only using this when using the classes isn't possible – and only if you are serving your CSS gzipped, to ensure that this code is properly optimised when served to your users.**
-
-Using the `font-theme` mixin will apply the corresponding typography styles to the element selected. It takes a typography token name as an argument.
-
-To use the mixin as part of the full set of PIE SCSS Utilities, you can import the mixin as follows:
-
-```scss
-@use '@justeattakeaway/pie-css/scss' as p;
-
-.my-element {
-    @include p.font-theme('font-heading-l');
-}
-```
-
-Alternatively, you can import the mixin directly, without importing the other SCSS utilities:
-
-```scss
-@use '@justeattakeaway/pie-css/scss/mixins/font-theme' as *;
-
-.my-element {
-    @include font-theme('font-heading-l');
-}
-```
+| Class | Use Case |
+| --- | --- |
+| `.u-typographySpacing` | Opt-in paragraph spacing for typography classes that support paragraph tokens |
 
 ### Headings
 
@@ -155,21 +134,13 @@ Subheadings are used for secondary headings and section titles.
 
 ### Interactive Text
 
-Interactive text utilities are optimized for buttons, links, and other interactive elements.
+Interactive text utilities are optimised for buttons, links, and other interactive elements.
 
 | Class | Use Case |
 | --- | --- |
 | `.u-font-interactive-l` | Large interactive text |
 | `.u-font-interactive-s` | Small interactive text |
 | `.u-font-interactive-xs` | Extra small interactive text |
-
-### Typography Spacing Utility
-
-Use `.u-typographySpacing` alongside a typography utility class on the same element to apply paragraph spacing for typography tokens that define a `paragraph` token.
-
-| Class | Use Case |
-| --- | --- |
-| `.u-typographySpacing` | Opt-in paragraph spacing for typography classes that support paragraph tokens |
 
 ### Body Text
 
@@ -191,7 +162,7 @@ Body link utilities combine body text styling with link-specific properties like
 
 ### Body Strong
 
-Body strong utilities are for bold/emphasized body text.
+Body strong utilities are for bold/emphasised body text.
 
 | Class | Use Case |
 | --- | --- |
@@ -240,6 +211,34 @@ Caption strong link utilities combine bold caption styling with link properties.
 | --- | --- |
 | `.u-font-caption-strong-link` | caption bold/strong link |
 
+## The `font-theme` mixin
+
+In addition to the typography utility classes, the `font-theme` mixin can also be used directly to apply the styles to your SCSS.
+
+**N.b. We recommend only using this when using the classes isn't possible – and only if you are serving your CSS gzipped, to ensure that this code is properly optimised when served to your users.**
+
+Using the `font-theme` mixin will apply the corresponding typography styles to the element selected. It takes a typography token name as an argument.
+
+To use the mixin as part of the full set of PIE SCSS Utilities, you can import the mixin as follows:
+
+```scss
+@use '@justeattakeaway/pie-css/scss' as p;
+
+.my-element {
+    @include p.font-theme('font-heading-l');
+}
+```
+
+Alternatively, you can import the mixin directly, without importing the other SCSS utilities:
+
+```scss
+@use '@justeattakeaway/pie-css/scss/mixins/font-theme' as *;
+
+.my-element {
+    @include font-theme('font-heading-l');
+}
+```
+
 ## Usage Examples
 
 ### Basic Usage
@@ -251,66 +250,6 @@ Simply add the utility class to your HTML element:
 <p class="u-font-body-l">This is a paragraph of body text.</p>
 <p class="u-font-body-l u-typographySpacing">This is body text with opt-in paragraph spacing.</p>
 ```
-
-### React Example
-
-```jsx
-function MyComponent() {
-  return (
-    <div>
-      <h1 className="u-font-heading-xl">Welcome</h1>
-      <h2 className="u-font-heading-m">Section Title</h2>
-      <p className="u-font-body-l">
-        This is a paragraph using the body large utility class.
-      </p>
-      <p className="u-font-body-l u-typographySpacing">
-        This paragraph uses the same typography class with opt-in spacing.
-      </p>
-      <a href="#" className="u-font-body-l-link">Learn more</a>
-    </div>
-  );
-}
-```
-
-### Vue Example
-
-```html
-<template>
-  <div>
-    <h1 class="u-font-heading-xl">Welcome</h1>
-    <h2 class="u-font-heading-m">Section Title</h2>
-    <p class="u-font-body-l">
-      This is a paragraph using the body large utility class.
-    </p>
-    <p class="u-font-body-l u-typographySpacing">
-      This paragraph uses the same typography class with opt-in spacing.
-    </p>
-    <a href="#" class="u-font-body-l-link">Learn more</a>
-  </div>
-</template>
-```
-
-### Combining with Other Classes
-
-You can combine typography utilities with other CSS classes:
-
-```html
-<div class="card">
-  <h2 class="u-font-heading-m card-title">Card Title</h2>
-  <p class="u-font-body-s card-description">Card description text.</p>
-</div>
-```
-
-### Responsive Behavior
-
-Heading and subheading utilities automatically adjust at the 768px breakpoint:
-
-```html
-<!-- This heading will be smaller on mobile and larger on desktop -->
-<h1 class="u-font-heading-xl">Responsive Heading</h1>
-```
-
-The utility classes handle the responsive behavior automatically, so you don't need to write additional media queries.
 
 ## What Each Utility Class Applies
 
@@ -343,3 +282,7 @@ If fonts aren't displaying correctly:
 1. Ensure you've set up the JETSansDigital font as described in the [Typography setup guide](https://webc.pie.design/?path=/docs/introduction-typography--docs)
 2. Check that font files are loading correctly
 3. Verify font-face declarations are correct
+
+### No Colours Appearing
+
+These utility classes do not apply any colours to your text. This must be handled in your own CSS.
