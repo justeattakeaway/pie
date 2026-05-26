@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.79.0
+
+### Minor Changes
+
+- [Added] - Demo story to pie-card showing how to create card grids where cards on each row match the height of the tallest card in that row ([#2882](https://github.com/justeattakeaway/pie/pull/2882)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.12
+
 ## 1.78.0
 
 ### Minor Changes
