@@ -72,7 +72,7 @@ Use a Tooltip to guide users through specific features or highlight particular a
 
 Check out the Tooltip documentation.
 
-**The current tooltip component doesn't support all the following features. If required, additional functionality must be handled by pillar engineers.**
+The current tooltip component doesn't support all the following features. If required, additional functionality must be handled by pillar engineers.
 
 Spacing within the component can be adjusted based on the content requirements and the overall design layout.
 
