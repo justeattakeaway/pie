@@ -219,3 +219,37 @@ const MultipleProvidersTemplate = () => html`
 export const MultipleProviders: StoryObj<ToastProviderProps> = {
     ...createStory<ToastProviderProps>(MultipleProvidersTemplate, defaultArgs)(),
 };
+
+const AutoResolveProviderTemplate = () => html`
+    <pie-toast-provider
+        id="main"
+        @pie-toast-provider-queue-update="${onQueueUpdate}">
+    </pie-toast-provider>
+
+    <pie-modal
+        heading="Modal with Toast Provider"
+        isDismissible
+        isOpen>
+        <pie-toast-provider
+            id="modal"
+            position="bottom-center"
+            @pie-toast-provider-queue-update="${onQueueUpdate}">
+        </pie-toast-provider>
+
+        <div style="display: flex; gap: var(--dt-spacing-d); justify-content: center; padding-bottom: var(--dt-spacing-i);">
+            <pie-button
+                id="modal-auto-btn"
+                @click=${() => {
+    toaster.create({
+        message: 'Auto-resolved modal toast',
+    });
+}}>
+                Toast Without ProviderId
+            </pie-button>
+        </div>
+    </pie-modal>
+`;
+
+export const AutoResolveProvider: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(AutoResolveProviderTemplate, defaultArgs)(),
+};

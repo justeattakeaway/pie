@@ -388,5 +388,22 @@ test.describe('PieToastProvider - Component tests', () => {
             await expect(mainToast).toBeVisible();
             await expect(modalToast).not.toBeVisible();
         });
+
+        test('should auto-resolve to the nearest provider when providerId is not specified', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--auto-resolve-provider');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider#modal').waitFor({ state: 'attached' });
+
+            // Act — click button inside modal that calls toaster.create() without providerId
+            await page.locator('#modal-auto-btn').click();
+
+            // Assert — the toast should appear in the modal provider (nearest scope), not the main one
+            const modalToast = page.locator('pie-toast-provider#modal pie-toast');
+            const mainToast = page.locator('pie-toast-provider#main pie-toast');
+
+            await expect(modalToast).toBeVisible();
+            await expect(mainToast).not.toBeVisible();
+        });
     });
 });

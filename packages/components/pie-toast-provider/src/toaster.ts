@@ -18,9 +18,16 @@ export const toaster = {
             return el as PieToastProvider;
         }
 
-        // 2. Closest ancestor of the focused element (e.g. a button inside a modal with its own provider)
-        const closest = document.activeElement?.closest('pie-toast-provider') as PieToastProvider | null;
-        if (closest) return closest;
+        // 2. Find the provider in the nearest containing scope of the focused element (e.g. a button inside a modal with its own provider)
+        let el: Element | null = document.activeElement;
+        while (el) {
+            const parent = el.parentElement;
+            if (parent) {
+                const provider = parent.querySelector(':scope > pie-toast-provider') as PieToastProvider | null;
+                if (provider) return provider;
+            }
+            el = parent;
+        }
 
         // 3. Sole provider in the DOM
         const providers = document.querySelectorAll('pie-toast-provider');
