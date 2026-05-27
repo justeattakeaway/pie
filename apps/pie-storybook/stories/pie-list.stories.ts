@@ -5,6 +5,8 @@ import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/switch';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
 
@@ -43,7 +45,7 @@ const Template = ({}: ListProps) => html`
             </pie-list-item>
         </pie-list>
 
-        <h2>Multi-item list</h2>
+        <h2>Multi-item lists</h2>
         <pie-list>
             <pie-list-item is-bold>
                 <pie-thumbnail size="40" slot="leading" src="./static/images/pie-logo.svg"></pie-thumbnail>
@@ -58,7 +60,13 @@ const Template = ({}: ListProps) => html`
                 <span slot="trailing">Meta text</span>
             </pie-list-item>
             <pie-list-item>
-                <pie-thumbnail size="40" slot="leading" src="./static/images/pie-logo.svg"></pie-thumbnail>
+                <icon-placeholder slot="leading"></icon-placeholder>
+                <span slot="text">Primary text</span>
+                <span slot="text">Secondary text</span>
+                <span slot="trailing">Meta text</span>
+            </pie-list-item>
+            <pie-list-item>
+                <icon-placeholder slot="leading"></icon-placeholder>
                 <span slot="text">Primary text</span>
                 <span slot="text">Secondary text</span>
                 <span slot="trailing">Meta text</span>
@@ -131,6 +139,37 @@ const Template = ({}: ListProps) => html`
                 <label for="radio-bank-transfer" slot="text">Bank Transfer</label>
                 <span id="desc-bank-transfer" slot="text">Direct wire from your checking account</span>
                 <pie-tag id="tag-bank-transfer" slot="trailing">Bank</pie-tag>
+            </pie-list-item>
+        </pie-list>
+
+        <h2>Switch group Trailing</h2>
+        <pie-list type="interactive">
+            <pie-list-item is-bold>
+                <label for="switch1" slot="text">Option One</label>
+                <span id="secondary-text-1" slot="text">Details for option one</span>
+                <pie-switch aria-describedby="secondary-text-1" slot="trailing" name="switches" id="switch1"
+                    value="switch1"></pie-switch>
+            </pie-list-item>
+
+            <pie-list-item is-bold>
+                <label for="switch2" slot="text">Option Two</label>
+                <span id="secondary-text-2" slot="text">Details for option two</span>
+                <pie-switch aria-describedby="secondary-text-2" slot="trailing" name="switches" id="switch2"
+                    value="switch2"></pie-switch>
+            </pie-list-item>
+
+            <pie-list-item>
+                <label for="switch3" slot="text">Option Three</label>
+                <span id="secondary-text-3" slot="text">Details for option three</span>
+                <pie-switch aria-describedby="secondary-text-3" slot="trailing" name="switches" id="switch3"
+                    value="switch3"></pie-switch>
+            </pie-list-item>
+
+            <pie-list-item>
+                <label for="switch4" slot="text">Option Four</label>
+                <span id="secondary-text-4" slot="text">Details for option four</span>
+                <pie-switch aria-describedby="secondary-text-4" slot="trailing" name="switches" id="switch4"
+                    value="switch4"></pie-switch>
             </pie-list-item>
         </pie-list>
 
