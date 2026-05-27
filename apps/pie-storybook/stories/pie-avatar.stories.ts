@@ -49,11 +49,14 @@ const Template = ({ label, tag, src }: AvatarProps) => html`
     </div>
     <div style="margin-top: 24px; min-width: 300px; display: flex; gap: 8px; flex-direction: column;">
         <pie-avatar type="checkbox">
-        <label for="3">
-        <p>Broccoli</p>
-        </label>
-        <input id="3" type="radio" name="veg" value="broccoli" />
+            <label for="3">
+                <p>Broccoli</p>
+            </label>
+            <input id="3" type="radio" name="veg" value="broccoli" />
+            <span>3rd thing</span>
+            <span>4rd thing</span>
         </pie-avatar>
+
         <pie-avatar type="checkbox">
             <label for="4">
                 <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
@@ -86,11 +89,12 @@ const Template = ({ label, tag, src }: AvatarProps) => html`
         </label>
     </pie-avatar>
     <pie-avatar type="checkbox">
-        <label for="8">
-            <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
-            <p>carrot</p>
-            <input id="8" type="checkbox" name="veg" value="carrot" />
-        </label>
+
+        <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
+        <p>carrot</p>
+        <input id="8" type="checkbox" name="veg" value="carrot" />
+        <input id="8" type="checkbox" name="veg" value="carrot" />
+
     </pie-avatar>
 </div>
 `;

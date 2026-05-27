@@ -20,6 +20,10 @@
         background: lightblue;
         gap: 1em;
     }
+
+    ::slotted(*:nth-child(n+3):last-child) {
+        margin-inline-start: auto;
+    }
 }
 
 // :host([type="checkbox"]) {
