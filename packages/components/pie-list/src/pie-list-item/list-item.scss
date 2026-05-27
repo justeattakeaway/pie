@@ -1,1 +1,22 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--dt-spacing-b);
+    padding: var(--dt-spacing-b) var(--dt-spacing-c);
+    position: relative;
+
+    ::slotted(*:nth-child(n+3):last-child) {
+        margin-inline-start: auto;
+    }
+
+    ::slotted(label)::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: pink;
+    }
+}

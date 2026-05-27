@@ -2,4 +2,8 @@
 
 :host {
     display: block;
+
+    ::slotted(*:nth-last-child(n+2)) {
+        border-bottom: 1px solid var(--dt-color-divider-default);
+    }
 }
