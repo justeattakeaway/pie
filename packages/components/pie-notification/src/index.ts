@@ -8,7 +8,7 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { validPropertyValues, dispatchCustomEvent, safeCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property, query, queryAssignedElements, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
@@ -98,8 +98,44 @@ export class PieNotification extends PieElement implements NotificationProps {
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
+    @query(`.${componentClass}-content-section`) private _contentSection!: HTMLElement;
+
+    /**
+     * Tracks whether the content section has multiline text.
+     * Used to switch the icon alignment from centered (single line) to top-aligned (multiline).
+     * CSS alone cannot detect content height changes, so a ResizeObserver is used.
+     */
+    @state() private _isMultiline = false;
+
+    private _resizeObserver: ResizeObserver | null = null;
+
+    /**
+     * Height threshold (in px) above which the content section is considered multiline.
+     * When the content section exceeds this height, the icon switches from
+     * `align-self: center` to `align-self: flex-start` via the `has-multiline` CSS class.
+     */
+    private static readonly MULTILINE_THRESHOLD = 48;
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
+
+    connectedCallback (): void {
+        super.connectedCallback();
+        this._resizeObserver = new ResizeObserver((entries) => {
+            for (const entry of entries) {
+                const isMultiline = entry.contentRect.height > PieNotification.MULTILINE_THRESHOLD;
+                if (this._isMultiline !== isMultiline) {
+                    this._isMultiline = isMultiline;
+                }
+            }
+        });
+    }
+
+    disconnectedCallback (): void {
+        super.disconnectedCallback();
+        this._resizeObserver?.disconnect();
+        this._resizeObserver = null;
+    }
 
     /**
      * Lifecycle method executed when component is updated.
@@ -108,6 +144,10 @@ export class PieNotification extends PieElement implements NotificationProps {
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('isOpen') && this.isOpen) {
             dispatchCustomEvent(this, ON_NOTIFICATION_OPEN_EVENT, { targetNotification: this });
+        }
+
+        if (this._contentSection && this._resizeObserver) {
+            this._resizeObserver.observe(this._contentSection);
         }
     }
 
@@ -228,12 +268,10 @@ export class PieNotification extends PieElement implements NotificationProps {
      * @private
      */
     private renderCloseButton (): TemplateResult {
-        const closeButtonSize = this.size === 'small' ? 'xsmall' : 'small';
-
         return html`
             <pie-icon-button
                 variant="ghost-secondary"
-                size="${closeButtonSize}"
+                size="small"
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
                 @click="${this.handleCloseButton}"
@@ -292,8 +330,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         }
 
         const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
-        const defaultSize = this.size === 'small' ? 'xsmall' : defaultActionButtonProps.size;
-        const buttonSize = actionSize && actionSizes.includes(actionSize) ? actionSize : defaultSize;
+        const buttonSize = actionSize && actionSizes.includes(actionSize) ? actionSize : defaultActionButtonProps.size;
         const isLink = !!href;
 
         return html`
@@ -345,6 +382,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         const contentSectionClasses = {
             [`${componentClass}-content-section`]: true,
             'is-dismissible': showCloseButton,
+            'has-multiline': this._isMultiline,
         };
 
         return html`

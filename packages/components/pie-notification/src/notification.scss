@@ -76,7 +76,9 @@
     }
 
     &.c-notification--small {
-        --notification-close-btn-size: 32px;
+        --notification-close-btn-size: 40px;
+        --notification-content-min-height: 20px; // 36px total - 8px padding top - 8px padding bottom
+        --notification-content-min-height-dismissible: 32px; // 48px total - 8px padding top - 8px padding bottom
     }
 
     &-heading {
@@ -164,7 +166,7 @@
             --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
             --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
             --notification-font-weight: var(--dt-font-body-s-weight);
-            --notification-close-btn-offset: var(--dt-spacing-b);
+            --notification-close-btn-offset: var(--dt-spacing-a);
 
             padding: var(--dt-spacing-b);
             gap: 0;
@@ -174,9 +176,11 @@
             }
 
             .c-notification-content-section {
-                min-height: var(--notification-close-btn-size);
+                // gap: var(--dt-spacing-b);
+                min-height: var(--notification-content-min-height);
 
                 &.is-dismissible {
+                    min-height: var(--notification-content-min-height-dismissible);
                     max-width: calc(100% - var(--notification-close-btn-offset) - var(--notification-close-btn-size));
                 }
             }
@@ -216,9 +220,14 @@
 .icon,
 ::slotted([slot="icon"]) {
     display: inline-flex;
-    align-self: flex-start;
+    align-self: center;
     background-color: var(--notification-icon-background-color);
     color: var(--notification-icon-fill);
     border-radius: var(--dt-radius-rounded-b);
     padding: var(--dt-spacing-a);
+}
+
+.has-multiline .icon,
+.has-multiline ::slotted([slot="icon"]) {
+    align-self: flex-start;
 }
