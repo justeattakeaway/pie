@@ -1,5 +1,5 @@
 ---
-"@justeattakeaway/pie-docs": patch
+"@justeattakeaway/pie-docs": minor
 ---
 
 feat(pie-docs): DSW-3932 patterns nested overrides
