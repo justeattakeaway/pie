@@ -46,7 +46,7 @@ permalink: /components/slider/android/
         "**Assistive text (Optional):** The Assistive text provides additional instructional information / error / success messaging.",
         "**String (Optional):** A text label aligned to the end of the slider, for showing a unit, limit, or contextual value alongside the range.",
         "**Tick marks (Optional):** Tick marks indicators show which predetermined values can be chosen on the slider. The slider handle snaps to the closest stop.",
-        "**Help or info tooltip (Optional):** An icon the user can hover to obtain additional information to understand the meaning of the label."
+        "**Help or info tooltip (Optional):** A small icon users can tap to see extra information about what the slider does or how to use it."
     ]
 } %}
 
