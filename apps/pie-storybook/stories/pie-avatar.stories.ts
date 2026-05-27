@@ -6,6 +6,7 @@ import { type AvatarProps, defaultProps, tags } from '@justeattakeaway/pie-webc/
 
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createStory } from '../utilities';
+import '@justeattakeaway/pie-thumbnail';
 
 type AvatarStoryMeta = Meta<AvatarProps>;
 
@@ -15,20 +16,7 @@ const avatarStoryMeta: AvatarStoryMeta = {
     title: 'Components/Avatar',
     component: 'pie-avatar',
     argTypes: {
-        label: {
-            description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
-            control: 'text',
-        },
-        tag: {
-            description: 'Set the element tag of the avatar.',
-            control: 'select',
-            options: tags,
-            defaultValue: {
-                summary: defaultProps.tag,
-            },
-        },
-        src: {
-            description: 'Used to load an image to display inside the Avatar',
+        type: {
             control: 'text',
         },
     },
@@ -45,8 +33,72 @@ const avatarStoryMeta: AvatarStoryMeta = {
 export default avatarStoryMeta;
 
 const Template = ({ label, tag, src }: AvatarProps) => html`
-    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}" src="${ifDefined(src)}"></pie-avatar>
+    <div style="min-width: 300px; display: flex; gap: 8px; flex-direction: column;">
+        <pie-avatar type="checkbox">
+            <label for="1">
+                Apple
+                <input id="1" type="radio" name="fruit" value="apple" />
+            </label>
+        </pie-avatar>
+        <pie-avatar type="checkbox">
+            <label for="2">
+                Banana
+                <input id="2" type="radio" name="fruit" value="banana" />
+            </label>
+        </pie-avatar>
+    </div>
+    <div style="margin-top: 24px; min-width: 300px; display: flex; gap: 8px; flex-direction: column;">
+        <pie-avatar type="checkbox">
+        <label for="3">
+        <p>Broccoli</p>
+        </label>
+        <input id="3" type="radio" name="veg" value="broccoli" />
+        </pie-avatar>
+        <pie-avatar type="checkbox">
+            <label for="4">
+                <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
+                <p>carrot</p>
+            </label>
+            <input id="4" type="radio" name="veg" value="carrot" />
+        </pie-avatar>
+    </div>
+
+    <div style="margin-top: 42px; min-width: 300px; display: flex; gap: 8px; flex-direction: column;">
+        <pie-avatar type="checkbox">
+            <label for="5">
+                Apple
+                <input id="5" type="checkbox" name="fruit" value="apple" />
+            </label>
+        </pie-avatar>
+        <pie-avatar type="checkbox">
+            <label for="6">
+                Banana
+                <input id="6" type="checkbox" name="fruit" value="banana" />
+            </label>
+        </pie-avatar>
+    </div>
+
+<div style="margin-top: 24px; min-width: 300px; display: flex; gap: 8px; flex-direction: column;">
+    <pie-avatar type="checkbox">
+        <label for="7">
+            <input id="7" type="checkbox" name="veg" value="broccoli" />
+            <p>Broccoli</p>
+        </label>
+    </pie-avatar>
+    <pie-avatar type="checkbox">
+        <label for="8">
+            <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
+            <p>carrot</p>
+            <input id="8" type="checkbox" name="veg" value="carrot" />
+        </label>
+    </pie-avatar>
+</div>
 `;
+
+// <pie-avatar type="ordered-list">
+//     <input id="3" type="radio" name="fruit" value="mango" />
+//     <label for="3">mango</label>
+// </pie-avatar>
 
 const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);
 

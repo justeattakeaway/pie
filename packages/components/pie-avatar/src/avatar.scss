@@ -3,36 +3,63 @@
 :host {
     // Note: For consistency sake, the recommended display should be either
     // "block" or "inline-block", otherwise it can be ommited for floating elements
-    display: block;
-
-    --avatar-size: 32px;
-}
-
-.c-avatar-visuallyHidden {
-    @include p.visually-hidden;
-}
-
-.c-avatar {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--dt-font-body-s-family);
-    @include p.font-size(--dt-font-body-s-size);
-    background-color: var(--dt-color-container-inverse);
-    color: var(--dt-color-content-interactive-primary); 
-    width: var(--avatar-size);
-    height: var(--avatar-size);
-    border-radius:var(--dt-radius-rounded-e);
-    overflow: hidden;
+    --avatar-size: 32px;
+    border: 1px solid purple;
+    min-height: 48px;
 }
 
-.c-avatar--image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+:host([type="checkbox"]) {
+    ::slotted(label) {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 5px 10px;
+        background: lightblue;
+        gap: 1em;
+    }
 }
 
-.c-avatar--button {
-    border: none;
-    font-family: inherit;
-}
+// :host([type="checkbox"]) {
+//     ::slotted(label)::after {
+//         content: '';
+//         position: absolute;
+//         inset: 0;
+//         background-color: lightgreen;
+//     }
+// }
+
+@include p.radio-slotted-input-base('input[type="radio"]');
+@include p.radio-slotted-interactive-state('input[type="radio"]', 'dt-color-interactive-brand');
+@include p.radio-slotted-animations('input[type="radio"]');
+
+// .c-avatar-visuallyHidden {
+//     @include p.visually-hidden;
+// }
+
+// .c-avatar {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-family: var(--dt-font-body-s-family);
+//     @include p.font-size(--dt-font-body-s-size);
+//     background-color: var(--dt-color-container-inverse);
+//     color: var(--dt-color-content-interactive-primary);
+//     width: var(--avatar-size);
+//     height: var(--avatar-size);
+//     border-radius:var(--dt-radius-rounded-e);
+//     overflow: hidden;
+// }
+
+// .c-avatar--image {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+// }
+
+// .c-avatar--button {
+//     border: none;
+//     font-family: inherit;
+// }
