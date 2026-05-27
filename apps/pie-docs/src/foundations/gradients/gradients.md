@@ -1,14 +1,8 @@
 ---
 eleventyNavigation:
-  key: Gradients
-  parent: Foundations
-  url: /foundations/gradients/
-  order: 10
-title: Gradients
-shouldShowContents: true
+    key: Gradients
+    parent: Foundations
+    url: /foundations/gradients/
+    order: 10
 permalink: false
 ---
-
-## Overview
-
-Coming soon.
