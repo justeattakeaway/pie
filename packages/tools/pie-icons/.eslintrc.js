@@ -7,6 +7,15 @@ module.exports = {
         'no-use-before-define': 'off',
         'vue/sort-keys': 'off',
     },
+    overrides: [
+        {
+            files: ['bin/**'],
+            rules: {
+                'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+                'import/no-unresolved': ['error', { ignore: ['svgo'] }],
+            },
+        },
+    ],
     parserOptions: {
         ecmaVersion: 2020,
     },

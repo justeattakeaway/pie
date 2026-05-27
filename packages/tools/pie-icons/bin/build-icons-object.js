@@ -1,5 +1,5 @@
 import path from 'path';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import { minify } from 'html-minifier-terser';
 
 import pathHelpers from './path-helpers';
