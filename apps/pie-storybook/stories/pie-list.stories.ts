@@ -34,31 +34,26 @@ const Template = ({}: ListProps) => html`
     <div style="width: 400px">
         <h2>Single item list</h2>
         <pie-list>
-            <pie-list-item>
-                <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
-                <p>Primary text - Apples</p>
-                <span>Meta text</span>
+            <pie-list-item primary-text="Primary text" secondary-text="Secondary text">
+                <pie-thumbnail size="40" slot="leading" src="./static/images/pie-logo.svg"></pie-thumbnail>
+                <span slot="trailing">Meta text</span>
             </pie-list-item>
         </pie-list>
 
         <h2>Multi-item list</h2>
         <pie-list>
-            <pie-list-item>
-                <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
-                <p>Primary text - Apples</p>
-                <span>Meta text</span>
+            <pie-list-item is-bold primary-text="Primary text" secondary-text="Secondary text">
+                <pie-thumbnail size="40" slot="leading" src="./static/images/pie-logo.svg"></pie-thumbnail>
+                <span slot="trailing">Meta text</span>
             </pie-list-item>
 
-            <pie-list-item>
-                <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
-                <p>Primary text - Bananas</p>
-                <span>Meta text</span>
+            <pie-list-item is-bold primary-text="Primary text">
+                <pie-thumbnail size="40" slot="leading" src="./static/images/pie-logo.svg"></pie-thumbnail>
+                <span slot="trailing">Meta text</span>
             </pie-list-item>
 
-            <pie-list-item>
-                <pie-thumbnail src="./static/images/pie-logo.svg"></pie-thumbnail>
-                <p>Primary text - Mangos</p>
-                <span>Meta text</span>
+            <pie-list-item is-compact primary-text="Primary text"">
+                <span slot="trailing">Meta text</span>
             </pie-list-item>
         </pie-list>
 
