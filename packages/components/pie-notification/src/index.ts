@@ -8,7 +8,12 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { validPropertyValues, dispatchCustomEvent, safeCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, query, queryAssignedElements, state } from 'lit/decorators.js';
+import {
+    property,
+    query,
+    queryAssignedElements,
+    state,
+} from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
@@ -122,6 +127,7 @@ export class PieNotification extends PieElement implements NotificationProps {
     connectedCallback (): void {
         super.connectedCallback();
         this._resizeObserver = new ResizeObserver((entries) => {
+            // eslint-disable-next-line no-restricted-syntax
             for (const entry of entries) {
                 const isMultiline = entry.contentRect.height > PieNotification.MULTILINE_THRESHOLD;
                 if (this._isMultiline !== isMultiline) {
