@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/web-components-vite';
 import remarkGfm from 'remark-gfm';
+import type { InlineConfig } from 'vite';
 
 const isBrowserTesting = process.env.BROWSER_TESTING === 'true';
 
@@ -37,6 +38,15 @@ const config: StorybookConfig = {
         autodocs: false
     },
     staticDirs: ['../static'],
+    async viteFinal (config: InlineConfig) {
+        config.define = {
+            ...config.define,
+            // Required when importing PIE component source files directly (not pre-built dist).
+            // Normally injected by the shared pie-components-config vite build.
+            __PACKAGE_VERSION__: JSON.stringify('poc'),
+        };
+        return config;
+    },
 };
 
 export default config;

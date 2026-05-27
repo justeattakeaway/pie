@@ -1,10 +1,9 @@
-import { html, unsafeCSS, nothing, type PropertyValues } from 'lit';
+import { html, unsafeCSS, nothing } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, state } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
 import styles from './icon-with-background.scss?inline';
 import {
     variants,
@@ -20,17 +19,11 @@ export * from './defs';
 
 const componentSelector = 'pie-icon-with-background';
 
-// Converts a kebab-case icon element name to PascalCase module name.
-// "icon-alert-circle" → "IconAlertCircle", "icon-over-18" → "IconOver18"
-function toPascalCase (kebabName: string): string {
-    return normalizeIconName(kebabName)
-        .split('-')
-        .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
-        .join('');
-}
-
 /**
  * @tagname pie-icon-with-background
+ *
+ * The icon element referenced by `iconName` must be imported separately by the consumer,
+ * e.g. `import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js'`.
  */
 @safeCustomElement(componentSelector)
 export class PieIconWithBackground extends PieElement implements IconWithBackgroundProps {
@@ -56,26 +49,9 @@ export class PieIconWithBackground extends PieElement implements IconWithBackgro
     @property({ type: Boolean })
     public isDisabled = defaultProps.isDisabled;
 
-    @state()
-    private _iconReady = false;
-
-    updated (changedProperties: PropertyValues<this>): void {
-        if (changedProperties.has('iconName') && this.iconName) {
-            this._iconReady = false;
-            this._loadIcon();
-        }
-    }
-
-    private async _loadIcon (): Promise<void> {
-        if (!this.iconName) return;
-        const pascalName = toPascalCase(this.iconName);
-        await import(`@justeattakeaway/pie-icons-webc/dist/${pascalName}.js`);
-        this._iconReady = true;
-    }
-
     render () {
         const {
-            shape, size, variant, emphasis, isDisabled,
+            iconName, shape, size, variant, emphasis, isDisabled,
         } = this;
 
         const classes = {
@@ -94,8 +70,8 @@ export class PieIconWithBackground extends PieElement implements IconWithBackgro
                 class="${classMap(classes)}"
                 data-test-id="${componentSelector}"
                 aria-hidden="true">
-                ${this._iconReady
-                    ? unsafeHTML(`<${this.iconName} size="${iconConfig.iconSize}" style="--icon-size-override: ${iconConfig.iconPx}px"></${this.iconName}>`)
+                ${iconName
+                    ? unsafeHTML(`<${iconName} size="${iconConfig.iconSize}" style="--icon-size-override: ${iconConfig.iconPx}px"></${iconName}>`)
                     : nothing}
             </div>
         `;

@@ -3234,6 +3234,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-components-config@npm:0.21.2":
+  version: 0.21.2
+  resolution: "@justeattakeaway/pie-components-config@npm:0.21.2"
+  dependencies:
+    deepmerge-ts: "npm:5.1.0"
+  bin:
+    playwright-lit-setup: scripts/playwright-lit-setup.js
+  checksum: 10/1ffbb72eeda32113a5f25c99a5c9566f16a692d19d439eff66849448c5ed9ed1f9010af122806b9b349f4a8eb9982bb550c41d1274bf84723a34b18190b5c14b
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-cookie-banner@npm:1.9.1, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
@@ -3353,7 +3364,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-configs@npm:5.21.0, @justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs":
+"@justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "npm:0.21.2"
+    "@justeattakeaway/pie-css": "npm:1.2.0"
+    "@justeattakeaway/pie-icons-configs": "npm:*"
+    "@justeattakeaway/pie-icons-webc": "npm:1.25.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
+    "@justeattakeaway/pie-webc-core": "npm:15.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-icons-configs@npm:*, @justeattakeaway/pie-icons-configs@npm:5.21.0, @justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs"
   languageName: unknown

@@ -24,13 +24,13 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.2",
-    "@justeattakeaway/pie-css": "1.1.1",
-    "@justeattakeaway/pie-icons-webc": "1.24.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.1"
+    "@justeattakeaway/pie-css": "1.2.0",
+    "@justeattakeaway/pie-icons-webc": "1.25.1",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.6"
   },
   "dependencies": {
     "@justeattakeaway/pie-icons-configs": "*",
-    "@justeattakeaway/pie-webc-core": "14.0.1"
+    "@justeattakeaway/pie-webc-core": "15.0.0"
   },
   "sideEffects": [
     "dist/*.js"
