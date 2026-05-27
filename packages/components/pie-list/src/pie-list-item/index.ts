@@ -28,16 +28,10 @@ export class PieListItem extends LitElement implements ListItemProps {
     public isCompact = false;
 
     render () {
-        const primaryTextClasses = {
-            'c-listItem-primaryText': true,
-            'c-listItem-primaryText--bold': this.isBold,
-        };
-
         return html`
             <slot name="leading"></slot>
             <div class="c-listItem-text">
-                <span class=${classMap(primaryTextClasses)}>${this.primaryText ?? nothing}</span>
-                ${this.secondaryText ? html`<span class="c-listItem-secondaryText">${this.secondaryText}</span>` : nothing}
+                <slot name="text"></slot>
             </div>
             <slot name="trailing"></slot>
         `;

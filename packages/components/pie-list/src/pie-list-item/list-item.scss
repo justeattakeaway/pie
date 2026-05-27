@@ -1,6 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-
 :host {
     // Expose for consumers to override
     --list-item-inline-padding: var(--dt-spacing-d);
@@ -24,6 +23,29 @@
     //     align-self: flex-start;
     // }
 
+    ::slotted([slot="text"]) {
+        margin: 0;
+        padding: 0;
+    }
+
+    ::slotted(label):after {
+        content: '';
+        position: absolute;
+        inset: 0;
+    }
+
+    // Primary text
+    ::slotted([slot="text"]:nth-child(2)) {
+        color: var(--dt-color-content-default);
+        @include p.font-theme('font-body-l');
+    }
+
+    // Secondary text
+    ::slotted([slot="text"]:nth-child(3)) {
+        color: var(--dt-color-content-subdued);
+        @include p.font-theme('font-body-s');
+    }
+
     ::slotted([slot="trailing"]) {
         margin-inline-end: auto;
         margin-inline-start: var(--dt-spacing-d);
@@ -38,20 +60,6 @@
         flex-direction: column;
         margin-inline-end: auto;
     }
-
-    .c-listItem-primaryText {
-        color: var(--dt-color-content-default);
-        @include p.font-theme('font-body-l');
-
-        &--bold {
-            @include p.font-theme('font-body-strong-l');
-        }
-    }
-
-    .c-listItem-secondaryText {
-        color: var(--dt-color-content-subdued);
-        @include p.font-theme('font-body-s');
-    }
 }
 
 // compact
@@ -62,6 +70,11 @@
 // primary + secondary
 :host([secondary-text]) {
     min-height: 76px;
+}
+
+// bold
+:host([is-bold]) ::slotted([slot="text"]:nth-child(2)) {
+    @include p.font-theme('font-body-strong-l');
 }
 
 // Radio slot styles
