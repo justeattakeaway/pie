@@ -11,9 +11,13 @@ permalink: patterns/onboarding-and-guided-tour/apps-guidance/
 
 Onboarding and guided tour patterns are essential tools for welcoming new users to a product or introducing existing users to new features.
 
+---
+
 ## Overview
 
 The onboarding and guided tour pattern aim to create a smooth and engaging first interaction, helping users understand the core functionalities, value propositions, or changes within the system. By providing a clear, step-by-step guide, these patterns reduce friction, improve user confidence, and foster a positive experience from the very beginning.
+
+---
 
 ## Purpose
 
