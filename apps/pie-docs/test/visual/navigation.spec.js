@@ -8,12 +8,12 @@ test.describe('PIE - Page Visual Tests', () => {
     });
 
     const templateVariants = [
-        { route: '/', name: "Home Page" },
-        { route: '/all-about-pie/what-is-pie/', name: "Content Page" },
-        { route: '/components/card/', name: "Content Page with Table of Contents" },
-        { route: '/components/card/code', name: "Content Page with Tabs" },
-        { route: '/foundations/colour/tokens/alias/light/', name: "Page with Toggles" },
-        { route: '/foo/bar/baz/', name: "404 Page" },
+        { route: '/', name: 'Home Page' },
+        { route: '/all-about-pie/what-is-pie/', name: 'Content Page' },
+        { route: '/components/card/', name: 'Content Page with Table of Contents' },
+        { route: '/components/card/code', name: 'Content Page with Tabs' },
+        { route: '/foundations/colour/tokens/alias/light/', name: 'Page with Toggles' },
+        { route: '/foo/bar/baz/', name: '404 Page' },
     ];
 
     templateVariants.forEach((variant) => {
