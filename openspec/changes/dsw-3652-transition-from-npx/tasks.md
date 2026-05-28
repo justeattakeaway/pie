@@ -32,9 +32,9 @@
 
 ## 6. Replace npx in CI Workflow and Husky Hooks
 
-- [ ] 6.1 In `.github/workflows/changeset-release.yml`, replace the three `npx changeset pre exit/enter beta/enter next` shell steps with `yarn run changeset pre exit/enter beta/enter next`
-- [ ] 6.2 In `.husky/commit-msg`, replace `npx --no -- commitlint --edit ${1}` → `yarn run commitlint --edit ${1}` (the `--no` flag is not needed — `yarn run` never downloads packages)
-- [ ] 6.3 In `.husky/commit-msg`, replace `npx detect-webc-major-version` → `yarn run detect-webc-major-version`
+- [x] 6.1 In `.github/workflows/changeset-release.yml`, replace the three `npx changeset pre exit/enter beta/enter next` shell steps with `yarn exec changeset pre exit/enter beta/enter next` (`yarn exec` used instead of `yarn run` to bypass the root `changeset` script that has the same name)
+- [x] 6.2 In `.husky/commit-msg`, replace `npx --no -- commitlint --edit ${1}` → `yarn run commitlint --edit ${1}` (the `--no` flag is not needed — `yarn run` never downloads packages)
+- [x] 6.3 In `.husky/commit-msg`, replace `npx detect-webc-major-version` → `yarn run detect-webc-major-version`
 
 ## 7. Update Documentation
 
