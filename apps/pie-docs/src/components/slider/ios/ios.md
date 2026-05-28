@@ -3,6 +3,8 @@ eleventyNavigation:
     key: iOS
     parent: Slider
     order: 3
+shouldShowContents: true
+permalink: /components/slider/ios/
 ---
 
 {% notification {
