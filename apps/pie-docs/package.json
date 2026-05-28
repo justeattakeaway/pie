@@ -12,7 +12,7 @@
     "build": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='production' eleventy",
     "build:dev": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='development' eleventy",
     "clean": "run -T rimraf dist",
-    "dev": "npx @11ty/eleventy --serve --port=8080",
+    "dev": "run -T eleventy --serve --port=8080",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
@@ -21,9 +21,9 @@
     "test:update": "run -T vitest -u run --config ../../vite.config.js",
     "test:ci": "yarn test",
     "test:generate-routes": "node test/helpers/generate-routes.js",
-    "test:browsers": "npx playwright test -c ./playwright-browsers.config.ts",
+    "test:browsers": "run -T playwright test -c ./playwright-browsers.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_DOCS} percy exec -- npx playwright test -c ./playwright-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_DOCS} percy exec -- run -T playwright test -c ./playwright-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "browserslist": [

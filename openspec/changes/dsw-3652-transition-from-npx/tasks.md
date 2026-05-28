@@ -22,9 +22,9 @@
 
 ## 4. Replace npx in Tools and Apps
 
-- [ ] 4.1 In `packages/tools/pie-icons-webc/package.json`, replace `npx playwright-lit-setup` → `run -T playwright-lit-setup` and `npx playwright test` → `run -T playwright test` (affects `test:browsers-setup`, `test:browsers:react`, `test:browsers:webc`, `test:visual`)
-- [ ] 4.2 In `apps/pie-docs/package.json`, replace `npx @11ty/eleventy --serve --port=8080` → `run -T eleventy --serve --port=8080` in the `dev` script
-- [ ] 4.3 In root `package.json`, replace `changeset && npx detect-webc-major-version` → `changeset && run -T detect-webc-major-version` in the `changeset` script
+- [x] 4.1 In `packages/tools/pie-icons-webc/package.json`, replace `npx playwright-lit-setup` → `run -T playwright-lit-setup` and `npx playwright test` → `run -T playwright test` (affects `test:browsers-setup`, `test:browsers:react`, `test:browsers:webc`, `test:visual`)
+- [x] 4.2 In `apps/pie-docs/package.json`, replace `npx @11ty/eleventy --serve --port=8080` → `run -T eleventy --serve --port=8080` in the `dev` script
+- [x] 4.3 In root `package.json`, replace `changeset && npx detect-webc-major-version` → `changeset && run -T detect-webc-major-version` in the `changeset` script
 
 ## 5. Replace npx in Generator Template
 

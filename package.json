@@ -32,7 +32,7 @@
     "build:dev": "cross-env-shell turbo run build:dev --token=${TURBO_TOKEN}",
     "build:react-wrapper": "cross-env-shell turbo run build:react-wrapper --token=${TURBO_TOKEN}",
     "create:manifest": "cross-env-shell turbo run create:manifest --token=${TURBO_TOKEN}",
-    "changeset": "changeset && npx detect-webc-major-version",
+    "changeset": "changeset && detect-webc-major-version",
     "changeset:publish": "changeset publish",
     "changeset:snapshot": "changeset version --snapshot snapshot-release",
     "changeset:version": "./packages/tools/pie-monorepo-utils/preserve-peer-dep-ranges/changeset-version.sh",
