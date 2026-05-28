@@ -102,7 +102,7 @@
         gap: var(--dt-spacing-d);
 
         &.is-dismissible {
-            max-width: calc(100% - var(--notification-close-btn-offset) - var(--notification-close-btn-size));
+            max-width: calc(100% - var(--notification-close-btn-size));
         }
     }
 
@@ -133,7 +133,11 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
-                margin-block-start: var(--dt-spacing-b);
+
+                &:has(pie-button),
+                &:has(::slotted(pie-button)) {
+                    margin-block-start: var(--dt-spacing-b);
+                }
 
                 pie-button,
                 ::slotted(pie-button) {
@@ -166,7 +170,7 @@
             --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
             --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
             --notification-font-weight: var(--dt-font-body-s-weight);
-            --notification-close-btn-offset: var(--dt-spacing-a);
+            --notification-close-btn-offset: 0;
 
             padding: var(--dt-spacing-b);
             gap: 0;
@@ -175,13 +179,27 @@
                 gap: var(--dt-spacing-b);
             }
 
+            .c-notification-icon-close {
+                inset-block-start: 50%;
+                transform: translateY(-50%);
+            }
+
+            &:has(.has-multiline) .c-notification-icon-close,
+            &:has(.c-notification-footer pie-button) .c-notification-icon-close {
+                inset-block-start: var(--notification-close-btn-offset);
+                transform: none;
+            }
+
             .c-notification-content-section {
-                // gap: var(--dt-spacing-b);
+                // border: 1px solid red;
+                gap: var(--dt-spacing-b);
+
                 min-height: var(--notification-content-min-height);
 
                 &.is-dismissible {
+
                     min-height: var(--notification-content-min-height-dismissible);
-                    max-width: calc(100% - var(--notification-close-btn-offset) - var(--notification-close-btn-size));
+                    max-width: calc(100% - var(--notification-close-btn-size));
                 }
             }
 
