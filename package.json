@@ -18,6 +18,12 @@
       "packages/**/*"
     ]
   },
+  "bin": {
+    "add-components": "./packages/components/pie-webc/src/index.js",
+    "build-react-wrapper": "./packages/tools/pie-wrapper-react/index.js",
+    "detect-webc-major-version": "./packages/tools/pie-monorepo-utils/webc-major-versioning/detect-webc-major-version.js",
+    "playwright-lit-setup": "./configs/pie-components-config/scripts/playwright-lit-setup.js"
+  },
   "scripts": {
     "analyse-component-bundles": "bundlewatch --config bundlewatch.config.json",
     "watch": "turbo run watch",
@@ -111,7 +117,8 @@
     "typescript": "5.9.3",
     "vite": "6.4.2",
     "vite-plugin-dts": "4.5.4",
-    "vitest": "4.0.17"
+    "vitest": "4.0.17",
+    "yo": "7.0.1"
   },
   "config": {
     "commitizen": {

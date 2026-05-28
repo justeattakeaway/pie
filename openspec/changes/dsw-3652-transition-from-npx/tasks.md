@@ -1,8 +1,8 @@
 ## 1. Prerequisites
 
-- [ ] 1.1 Add `yo` to root `package.json` devDependencies and run `yarn install` to update `yarn.lock`
-- [ ] 1.2 Remove the `"bin"` entry for `add-components` from `packages/components/pie-webc/package.json`, for `detect-webc-major-version` from `packages/tools/pie-monorepo-utils/package.json`, for `playwright-lit-setup` from `configs/pie-components-config/package.json`, and for `build-react-wrapper` from `packages/tools/pie-wrapper-react/package.json`
-- [ ] 1.3 Add all four entries to the root `package.json` `"bin"` field:
+- [x] 1.1 Add `yo` to root `package.json` devDependencies and run `yarn install` to update `yarn.lock`
+- [x] 1.2 Remove the `"bin"` entry for `add-components` from `packages/components/pie-webc/package.json`, for `detect-webc-major-version` from `packages/tools/pie-monorepo-utils/package.json`, for `playwright-lit-setup` from `configs/pie-components-config/package.json`, and for `build-react-wrapper` from `packages/tools/pie-wrapper-react/package.json`
+- [x] 1.3 Add all four entries to the root `package.json` `"bin"` field:
   - `"add-components": "./packages/components/pie-webc/src/index.js"`
   - `"detect-webc-major-version": "./packages/tools/pie-monorepo-utils/webc-major-versioning/detect-webc-major-version.js"`
   - `"playwright-lit-setup": "./configs/pie-components-config/scripts/playwright-lit-setup.js"`
