@@ -10,10 +10,10 @@
 
 ## 2. Banned Pattern Lint Script
 
-- [ ] 2.1 Create `scripts/lint-banned-patterns.config.json` with the `npx ` pattern entry (`excludeExtensions: [".md"]`) and `excludePaths: ["node_modules", ".yarn", "openspec"]`
-- [ ] 2.2 Create `scripts/lint-banned-patterns.js` — Node.js script that reads the config, walks the repo (including extension-less files), and exits 1 with file/line/message output on any match
-- [ ] 2.3 Add `"lint:banned-patterns": "node scripts/lint-banned-patterns.js"` to root `package.json` scripts
-- [ ] 2.4 Add a `yarn lint:banned-patterns` step to the lint job in `.github/workflows/ci.yml`
+- [x] 2.1 Create `packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.config.json` with the `npx ` pattern entry (`excludeExtensions: [".md"]`) and `excludePaths: ["node_modules", ".yarn", "openspec"]`
+- [x] 2.2 Create `packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.js` — Node.js script that reads the config, walks the repo (including extension-less files), and exits 1 with file/line/message output on any match
+- [x] 2.3 Add `"lint:banned-patterns": "node ./packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.js"` to root `package.json` scripts
+- [x] 2.4 Add a `yarn lint:banned-patterns` step to the lint job in `.github/workflows/ci.yml`
 
 ## 3. Replace npx in Component package.json Files
 

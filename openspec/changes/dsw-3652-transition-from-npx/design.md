@@ -76,7 +76,7 @@ The full inventory of `npx` invocation sites:
 
 ### D6: Config-driven banned-pattern lint script
 
-**Decision**: Implement a Node.js script (`scripts/lint-banned-patterns.js`) with a companion JSON config file (`scripts/lint-banned-patterns.config.json`). File discovery walks the repo and includes files regardless of extension (so husky hooks are covered), filtering by `excludePaths` and per-pattern `excludeExtensions`.
+**Decision**: Implement a Node.js script (`packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.js`) with a companion JSON config file (`packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.config.json`). File discovery walks the repo and includes files regardless of extension (so husky hooks are covered), filtering by `excludePaths` and per-pattern `excludeExtensions`.
 
 **Config structure**:
 ```json

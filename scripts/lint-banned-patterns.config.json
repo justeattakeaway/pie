@@ -1,0 +1,14 @@
+{
+  "patterns": [
+    {
+      "pattern": "npx ",
+      "message": "Use 'run -T <bin>' (in package.json scripts) or 'yarn run <bin>' (in shell contexts) instead of npx.",
+      "excludeExtensions": [".md"]
+    }
+  ],
+  "excludePaths": [
+    "node_modules",
+    ".yarn",
+    "openspec"
+  ]
+}
