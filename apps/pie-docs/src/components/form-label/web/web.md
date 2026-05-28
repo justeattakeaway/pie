@@ -53,7 +53,7 @@ shouldShowContents: true
 
 ---
 
-## Variantions
+## Variants
 
 ### Leading content
 
