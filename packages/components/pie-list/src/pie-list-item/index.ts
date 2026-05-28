@@ -31,7 +31,8 @@ export class PieListItem extends LitElement implements ListItemProps {
         return html`
             <slot name="leading"></slot>
             <div class="c-listItem-text">
-                <slot name="text"></slot>
+                <slot name="primaryText"></slot>
+                <slot name="secondaryText"></slot>
             </div>
             <slot name="trailing"></slot>
         `;

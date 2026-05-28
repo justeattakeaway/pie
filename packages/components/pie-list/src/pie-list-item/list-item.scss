@@ -40,13 +40,13 @@
     }
 
     // Primary text
-    ::slotted([slot="text"]:nth-child(2)) {
+    ::slotted([slot="primaryText"]) {
         color: var(--dt-color-content-default);
         @include p.font-theme('font-body-l');
     }
 
     // Secondary text
-    ::slotted([slot="text"]:nth-child(3)) {
+    ::slotted([slot="secondaryText"]) {
         color: var(--dt-color-content-subdued);
         @include p.font-theme('font-body-s');
     }
@@ -78,7 +78,7 @@
 }
 
 // bold - BUG: when no leading slot it targets the wrong text
-:host([is-bold]) ::slotted([slot="text"]:nth-child(2)) {
+:host([is-bold]) ::slotted([slot="primaryText"]) {
     @include p.font-theme('font-body-strong-l');
 }
 
