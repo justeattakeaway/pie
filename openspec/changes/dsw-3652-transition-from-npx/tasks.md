@@ -28,7 +28,7 @@
 
 ## 5. Replace npx in Generator Template
 
-- [ ] 5.1 In `packages/tools/generator-pie-component/src/app/templates/__package__.json`, replace all three `npx` calls (`npx build-react-wrapper`, `npx playwright test` in `test:browsers`, `npx playwright test` in `test:visual`) with their `run -T` equivalents
+- [x] 5.1 In `packages/tools/generator-pie-component/src/app/templates/__package__.json`, replace all three `npx` calls (`npx build-react-wrapper`, `npx playwright test` in `test:browsers`, `npx playwright test` in `test:visual`) with their `run -T` equivalents
 
 ## 6. Replace npx in CI Workflow and Husky Hooks
 
