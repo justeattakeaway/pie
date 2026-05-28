@@ -9,7 +9,7 @@ permalink: foundations/gradients/
 
 ## Overview
 
-Gradients are a type of style that are made up of 2 or more global colour tokens that fade from one into another, set at stops between 0-100%. We use primarily linear gradient styles for use in backgrounds, containers and smaller UI elements. 
+Gradients are a type of style that are made up of 2 or more global colour tokens that fade from one into another, set at stops between 0-100%. We use primarily linear gradient styles for use in backgrounds, containers and smaller UI elements.
 
 We use gradients to signify and visually communicate ‘special’ content in our products, like messaging, imagery and motion related to our sub-brands, Just Eat+ and the Just Eat AI Assistant. Because of this we ask to please not use gradients to convey other meanings in product.
 
@@ -18,18 +18,29 @@ We use gradients to signify and visually communicate ‘special’ content in ou
     message: "We are happy to support new gradients but we ask that this is approached with caution and restraint. Gradients are intended to communicate ‘special’ content in our products and should not be used for every corner of product. Please reach out to the PIE team for support with gradients."
 } %}
 
+{% contentPageImage {
+src:"../../../assets/img/foundations/gradients/overview.svg",
+alt: "A visual showing three circles and a background made of different PIE gradients."
+} %}
+
 ---
 
 ## Anatomy
 
-A gradient is always made up of at least 2 colours at defined stops. A stop is the point at which a gradient changes from one colour to the next and are communicated as percentages on a scale of 0-100. Our gradients always have a stop at 0% and 100%.
+A gradient is always made up of at least two colours at defined stops. A stop is the point at which a gradient changes from one colour to the next and are communicated as percentages on a scale of 0-100. Our gradients always have a stop at 0% and 100%.
+
+{% contentPageImage {
+src:"../../../assets/img/foundations/gradients/anatomy.svg",
+alt: "A scale showing stops between 0% and 100% and highlighting the 0%, 40% and 100% stops.",
+width: 230
+} %}
 
 {% list {
     type: listTypes.ordered,
     items: [
         "**0%:** The first stop used in the gradient, this is always 0%.",
-        "**Additional stops (optional):** These can be any additional stops used in the gradient on a scale of 1-99. This can include multiples of the colours used at either 0% or 100% to create different gradient effects."
-        "**100%:** The last stop used in the gradient, this is always 100%"
+        "**Additional stops (optional):** These can be any additional stops used in the gradient on a scale of 1-99. This can include multiples of the colours used at either 0% or 100% to create different gradient effects.",
+        "**100%:** The last stop used in the gradient, this is always 100%."
     ]
 } %}
 
@@ -70,10 +81,9 @@ We highly encourage using gradients alongside solid brand, container and backgro
 
 ### Using JET+ and AI together
 
-In places where we need to mix two visual identities that include gradients please ensure that there is a clear hierarchy in content. For example in the AI assistant we use just the gradient border on the JET+ card to nod to the brand without the two identities clashing. 
+In places where we need to mix two visual identities that include gradients please ensure that there is a clear hierarchy in content. For example in the AI assistant we use just the gradient border on the JET+ card to nod to the brand without the two identities clashing.
 
 {% notification {
     type: "info",
     message: "Please reach out to the PIE team to see how we can help in regards to specific use cases."
 } %}
-
