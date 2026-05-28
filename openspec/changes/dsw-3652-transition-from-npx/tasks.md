@@ -17,8 +17,8 @@
 
 ## 3. Replace npx in Component package.json Files
 
-- [ ] 3.1 In all 31 `packages/components/*/package.json` files, replace `npx playwright test` → `run -T playwright test` in `test:browsers` and `test:visual` scripts
-- [ ] 3.2 In all 31 `packages/components/*/package.json` files, replace `npx build-react-wrapper` → `run -T build-react-wrapper` in the `build:react-wrapper` script
+- [x] 3.1 In all 31 `packages/components/*/package.json` files, replace `npx playwright test` → `run -T playwright test` in `test:browsers` and `test:visual` scripts
+- [x] 3.2 In all 31 `packages/components/*/package.json` files, replace `npx build-react-wrapper` → `run -T build-react-wrapper` in the `build:react-wrapper` script
 
 ## 4. Replace npx in Tools and Apps
 

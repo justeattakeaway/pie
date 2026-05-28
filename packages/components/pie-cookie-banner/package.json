@@ -32,7 +32,7 @@
   "scripts": {
     "build": "run -T vite build && yarn build:cdn",
     "build:cdn": "run -T vite build --config './cdn.vite.config.js'",
-    "build:react-wrapper": "npx build-react-wrapper",
+    "build:react-wrapper": "run -T build-react-wrapper",
     "create:manifest": "run -T cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
@@ -41,9 +41,9 @@
     "watch": "run -T vite build --watch",
     "test": "run -T vitest run test/unit",
     "test:ci": "yarn test",
-    "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers": "run -T playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_COOKIE_BANNER} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_COOKIE_BANNER} percy exec --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
