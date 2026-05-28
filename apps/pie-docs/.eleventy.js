@@ -5,6 +5,21 @@ const {
     plugins
 } = require('./src/_11ty');
 
+// Force-exit watchdog. Eleventy signals fatal errors by setting
+// `process.exitCode = 1` but never calls `process.exit()`. The
+// @lit-labs/eleventy-plugin-lit worker thread keeps the event loop alive
+// (Worker.unref() doesn't fully unref the underlying MessagePort/pipes),
+// so the process hangs and CI/turbo never see the non-zero exit. This
+// unref'd interval polls the exit code and forces termination if it
+// becomes non-zero. Unref'd timers don't keep the loop alive on their
+// own, so successful builds still exit naturally with code 0.
+const exitWatchdog = setInterval(() => {
+    if (process.exitCode && process.exitCode !== 0) {
+        process.exit(process.exitCode);
+    }
+}, 100);
+exitWatchdog.unref();
+
 module.exports = eleventyConfig => {
     // Copy over img directory to dist directory.
     eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
