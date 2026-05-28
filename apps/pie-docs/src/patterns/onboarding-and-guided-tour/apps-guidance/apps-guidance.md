@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: 'Onboarding and Guided Tour'
     order: 2
 shouldShowContents: true
+permalink: patterns/onboarding-and-guided-tour/apps-guidance/
 ---
 
 # Onboarding & guided tour
