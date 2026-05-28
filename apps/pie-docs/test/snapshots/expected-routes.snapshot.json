@@ -130,7 +130,6 @@
     "components/toast",
     "components/toast/code",
     "components/toast/motion",
-    "components/toast/toast-provider/code",
     "components/toast/web",
     "components/tooltip",
     "components/uploader",
