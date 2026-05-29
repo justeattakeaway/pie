@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
@@ -10,6 +12,9 @@ const repoRoot = findMonorepoRoot(__dirname);
 
 let hasMatches = false;
 
+/**
+ * Determines whether a given file path should be ignored based on the configuration file.
+ */
 function shouldExcludePath (filePath) {
     const relative = path.relative(repoRoot, filePath);
     return config.excludePaths.some((fragment) => relative.split(path.sep).includes(fragment) || relative.startsWith(fragment));
@@ -29,6 +34,9 @@ function walkDir (dir) {
     });
 }
 
+/**
+ * Checks for specific patterns in its content, and logs any matches along with their line numbers and messages.
+ */
 function checkFile (filePath) {
     const ext = path.extname(filePath);
     const content = fs.readFileSync(filePath, 'utf8');
@@ -49,6 +57,13 @@ function checkFile (filePath) {
     });
 }
 
+/*
+Recursively walks through the directory structure, iterates through all files
+and directories, excluding paths based on the configuration, and checks each
+file for specific patterns defined in the configuration file.
+If a matching pattern is found in a file, it prints out the details.
+Finally, if there are any matches, the script exits with a status code of 1.
+*/
 walkDir(repoRoot);
 
 if (hasMatches) {
