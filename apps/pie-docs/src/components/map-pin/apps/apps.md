@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Apps
     parent: Map Pin
-    order: 2
+    order: 3
 draft: true
 ---
 

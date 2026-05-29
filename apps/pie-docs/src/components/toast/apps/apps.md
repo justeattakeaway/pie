@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Apps
     parent: Toast
-    order: 5
+    order: 3
 draft: true
 ---
 

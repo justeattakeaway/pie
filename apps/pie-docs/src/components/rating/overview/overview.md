@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Rating
     order: 1
-shouldShowContents: true
 permalink: components/rating/
 ---
 

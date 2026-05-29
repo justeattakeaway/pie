@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Motion
     parent: 'Spinner'
-    order: 2
+    order: 5
 eleventyComputed:
     loading: "{% include './loading.json' %}"
 ---

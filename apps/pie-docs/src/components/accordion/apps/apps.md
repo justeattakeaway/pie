@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Apps
     parent: Accordion
-    order: 2
+    order: 3
 draft: true
 ---
 

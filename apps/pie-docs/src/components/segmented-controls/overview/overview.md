@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Segmented Controls
     order: 1
-shouldShowContents: true
 permalink: components/segmented-controls/
 ---
 

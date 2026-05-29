@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Android
     parent: Slider
-    order: 2
+    order: 3
 shouldShowContents: true
 permalink: /components/slider/android/
 ---

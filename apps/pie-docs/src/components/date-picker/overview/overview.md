@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Date Picker
     order: 1
-shouldShowContents: true
 permalink: components/date-picker/
 ---
 
@@ -23,7 +22,7 @@ Date pickers display a calendar grid, allowing users to navigate through months 
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Date Picker documentation, please see the resources below."
+  message: "We're currently working on updating our Date Picker documentation, please see the resources below."
 } %}
 
 {% resourceTable {
