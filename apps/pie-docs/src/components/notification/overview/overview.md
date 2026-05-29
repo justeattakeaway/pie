@@ -3,9 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Notification
     order: 1
-eleventyComputed:
-    usage: "{% include './usage.json' %}"
-shouldShowContents: true,
 permalink: components/notification/
 ---
 

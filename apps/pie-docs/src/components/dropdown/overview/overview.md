@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Dropdown
     order: 1
-shouldShowContents: true
 permalink: components/dropdown/
 ---
 
