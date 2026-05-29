@@ -57,15 +57,18 @@ function checkFile (filePath) {
     });
 }
 
-/*
-Recursively walks through the directory structure, iterates through all files
-and directories, excluding paths based on the configuration, and checks each
-file for specific patterns defined in the configuration file.
-If a matching pattern is found in a file, it prints out the details.
-Finally, if there are any matches, the script exits with a status code of 1.
-*/
-walkDir(repoRoot);
+/**
+ * Lints the monorepo for banned patterns based on the configuration file.
+ * Recursively walks through the directory structure, checks each file for
+ * specific patterns, and logs any matches along with their line numbers and messages.
+ * Exits with a status code of 1 if any matches are found.
+ */
+function lintBannedPatterns () {
+    walkDir(repoRoot);
 
-if (hasMatches) {
-    process.exit(1);
+    if (hasMatches) {
+        process.exit(1);
+    }
 }
+
+lintBannedPatterns();
