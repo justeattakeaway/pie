@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: FAB
     order: 1
-shouldShowContents: true
 permalink: components/fab/
 ---
 

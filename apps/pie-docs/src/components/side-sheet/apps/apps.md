@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Apps
     parent: Side Sheet
-    order: 2
+    order: 3
 draft: true
 ---
 

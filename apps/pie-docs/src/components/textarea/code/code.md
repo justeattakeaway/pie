@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Textarea
-    order: 2
+    order: 3
 ---
 
 ## Web
