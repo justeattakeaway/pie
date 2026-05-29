@@ -1,5 +1,24 @@
 # Changelog
 
+## 4.74.0
+
+### Minor Changes
+
+- Moved web content to it's own web tab for all components, so we can support having other platform tabs ([#2867](https://github.com/justeattakeaway/pie/pull/2867)) by [@maledr5](https://github.com/maledr5)
+
+- feat(pie-docs): [Added] - Slider component Android documentation as replacement of Figma docs ([#2864](https://github.com/justeattakeaway/pie/pull/2864)) by [@joshua-king-JET](https://github.com/joshua-king-JET)
+
+### Patch Changes
+
+- [Added] - Publishing new pattern pages for Errors, Focus state, JET AI, Just Eat +, Nested overrides, Onboarding, and Selected state and new foundations page for Gradients. ([#2871](https://github.com/justeattakeaway/pie/pull/2871)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`fc9adc8`](https://github.com/justeattakeaway/pie/commit/fc9adc8e1fe3b00e2f03c0f24d802ca34d8a8ea9)]:
+  - @justeattakeaway/pie-icons-webc@1.24.1
+  - @justeattakeaway/pie-webc@0.10.13
+  - @justeattakeaway/pie-icons@5.27.1
+
 ## 4.73.7
 
 ### Patch Changes

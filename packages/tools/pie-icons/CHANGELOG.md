@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.27.1
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 5.27.0
 
 ### Minor Changes
