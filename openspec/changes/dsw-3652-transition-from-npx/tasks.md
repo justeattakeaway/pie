@@ -38,12 +38,12 @@
 
 ## 7. Update Documentation
 
-- [ ] 7.1 In `packages/tools/pie-wrapper-react/README.md` (lines 29 and 68), update the `"build:react-wrapper"` script example from `"npx build-react-wrapper"` → `"run -T build-react-wrapper"`
-- [ ] 7.2 In `packages/tools/generator-pie-component/README.md` (line 78), replace `npx add-components` → `yarn add-components`
-- [ ] 7.3 In `packages/tools/generator-pie-component/README.md` (lines 37 and 106), replace `npx yo @justeattakeaway/pie-component` → `yarn run yo @justeattakeaway/pie-component`
-- [ ] 7.4 In `packages/components/pie-webc/README.md` (line 60), replace `npx add-components` → `yarn add-components`
+- [x] 7.1 In `packages/tools/pie-wrapper-react/README.md` (lines 29 and 68), update the `"build:react-wrapper"` script example from `"npx build-react-wrapper"` → `"run -T build-react-wrapper"`
+- [x] 7.2 In `packages/tools/generator-pie-component/README.md` (line 78), replace `npx add-components` → `yarn add-components`
+- [x] 7.3 In `packages/tools/generator-pie-component/README.md` (lines 37 and 106), replace `npx yo @justeattakeaway/pie-component` → `yarn run yo @justeattakeaway/pie-component`
+- [x] 7.4 In `packages/components/pie-webc/README.md` (line 60), replace `npx add-components` → `yarn add-components`
 
-- [ ] 7.5 In `AGENTS.md`, add a dedicated section (e.g. "Adding and running tools") covering:
+- [x] 7.5 In `AGENTS.md`, add a dedicated section (e.g. "Adding and running tools") covering:
   - **Never use `npx`** — it can silently download unverified packages and introduces version drift
   - **Adding a new external tool**: install it as a `devDependency` in the appropriate `package.json` so the version is locked in `yarn.lock` and monitored by Dependabot
   - **Adding a new monorepo-internal bin script**: declare it in root `package.json` `"bin"` (not in the source package) so it is always resolved correctly via `run -T`; explain why — Yarn Berry's `run -T` only resolves bins from packages the root workspace explicitly declares
@@ -54,6 +54,6 @@
 
 ## 8. Verify
 
-- [ ] 8.1 Run `yarn lint:banned-patterns` locally and confirm it exits 0 (no remaining `npx` in non-Markdown, non-excluded files)
-- [ ] 8.2 Confirm the generator still works: run `yarn run yo @justeattakeaway/pie-component` and verify the scaffolded `package.json` contains no `npx` calls
-- [ ] 8.3 Confirm `yarn add-components` runs successfully from the monorepo root
+- [x] 8.1 Run `yarn lint:banned-patterns` locally and confirm it exits 0 (no remaining `npx` in non-Markdown, non-excluded files)
+- [x] 8.2 Confirm the generator still works: run `yarn run yo @justeattakeaway/pie-component` and verify the scaffolded `package.json` contains no `npx` calls
+- [x] 8.3 Confirm `yarn add-components` runs successfully from the monorepo root

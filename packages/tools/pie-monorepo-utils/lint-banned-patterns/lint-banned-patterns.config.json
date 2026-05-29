@@ -7,8 +7,14 @@
     }
   ],
   "excludePaths": [
-    "node_modules",
     ".yarn",
-    "openspec"
+    ".git",
+    ".turbo",
+    "node_modules",
+    "openspec",
+    "dist",
+    "lit-browsers-report",
+    "lit-visual-report",
+    "lint-banned-patterns.config.json"
   ]
 }

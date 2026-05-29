@@ -57,7 +57,7 @@ For full information on using PIE components as part of an application, check ou
 
 There is a command that can be run (from the root of the monorepo) which adds all PIE components to this package:
 
-```npx add-components```
+```yarn add-components```
 
 This does the following:
 1. Loops through the (root) `packages/components` folder to find all of the PIE components, ignoring non-component folders, helper packages, and this package itself.
