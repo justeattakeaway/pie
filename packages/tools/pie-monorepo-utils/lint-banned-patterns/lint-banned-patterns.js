@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
+
 const findMonorepoRoot = require('../utils/find-monorepo-root');
 
 const configPath = path.join(__dirname, 'lint-banned-patterns.config.json');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-
 const repoRoot = findMonorepoRoot(__dirname);
 
 let hasMatches = false;
@@ -19,6 +20,7 @@ function walkDir (dir) {
     entries.forEach((entry) => {
         const fullPath = path.join(dir, entry.name);
         if (shouldExcludePath(fullPath)) return;
+
         if (entry.isDirectory()) {
             walkDir(fullPath);
         } else if (entry.isFile()) {
@@ -38,8 +40,9 @@ function checkFile (filePath) {
         lines.forEach((line, index) => {
             if (line.includes(patternConfig.pattern)) {
                 const relative = path.relative(repoRoot, filePath);
-                console.error(`${relative}:${index + 1}: ${line.trim()}`);
-                console.error(`  → ${patternConfig.message}\n`);
+                console.error(chalk.gray(`${relative}:${index + 1}`));
+                console.error(chalk.green(`${line.trim()}`));
+                console.error(chalk.red(`→ ${patternConfig.message}\n`));
                 hasMatches = true;
             }
         });
