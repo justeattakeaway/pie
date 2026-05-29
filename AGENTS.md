@@ -191,7 +191,7 @@ Declare it in the **root `package.json` `"bin"` field**, not in the source packa
 }
 ```
 
-Then run `yarn install` to link the binary into `node_modules/.bin/`.
+Then run `yarn install` to link the binary.
 
 ### Invocation patterns
 
