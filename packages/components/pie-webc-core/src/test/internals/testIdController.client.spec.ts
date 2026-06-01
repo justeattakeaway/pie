@@ -61,4 +61,18 @@ describe('TestIdController (client)', () => {
         expect(el.shadowRoot?.querySelector('[data-qa="mock-button"]')).not.toBeNull();
         expect(el.shadowRoot?.querySelector('[data-test-id]')).toBeNull();
     });
+
+    it('applies the rename on a re-render that happens after the override is set', async () => {
+        // Mount with no override — data-test-id stays.
+        const el = await mount();
+        expect(el.shadowRoot?.querySelector('[data-test-id="mock-button"]')).not.toBeNull();
+
+        // Set the override AFTER first render, then force another update cycle.
+        setPieTestIdAttribute('data-qa');
+        el.requestUpdate();
+        await el.updateComplete;
+
+        expect(el.shadowRoot?.querySelector('[data-qa="mock-button"]')).not.toBeNull();
+        expect(el.shadowRoot?.querySelector('[data-test-id]')).toBeNull();
+    });
 });

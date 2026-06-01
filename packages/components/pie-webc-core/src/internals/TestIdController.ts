@@ -48,6 +48,8 @@ export class TestIdController implements ReactiveController {
         // pass, and consumer light-DOM / slotted content is never affected.
         root.querySelectorAll(`[${DEFAULT_TEST_ID_ATTRIBUTE}]`).forEach((element) => {
             const value = element.getAttribute(DEFAULT_TEST_ID_ATTRIBUTE);
+            // The selector guarantees the attribute exists; this guard only
+            // narrows getAttribute's `string | null` return for setAttribute below.
             if (value === null) {
                 return;
             }
