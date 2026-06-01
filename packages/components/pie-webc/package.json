@@ -797,9 +797,6 @@
     },
     "./docs/*": "./docs/*"
   },
-  "bin": {
-    "add-components": "./src/index.js"
-  },
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
