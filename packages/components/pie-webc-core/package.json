@@ -20,7 +20,7 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
-    "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers": "run -T playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:watch": "run -T vitest"
   },

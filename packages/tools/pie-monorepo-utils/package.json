@@ -11,9 +11,6 @@
   "files": [
     "dist"
   ],
-  "bin": {
-    "detect-webc-major-version": "./webc-major-versioning/detect-webc-major-version.js"
-  },
   "scripts": {
     "generate:component-statuses": "node ./component-statuses/generate-component-statuses.js",
     "lint:scripts": "run -T eslint .",

@@ -165,10 +165,10 @@ export default class extends Generator {
         const { componentPath } = this.props;
 
         this.log(chalk('Updating pie-webc...'));
-        this.spawnCommandSync('npx', ['add-components']);
+        this.spawnCommandSync('yarn', ['add-components']);
 
         this.log(chalk('Checking for package updates...'));
-        this.spawnCommandSync('npx', ['npm-check-updates', '-u', packagesToUpgrade], { cwd: this.destinationPath(componentPath) });
+        this.spawnCommandSync('yarn', ['npm-check-updates', '-u', packagesToUpgrade], { cwd: this.destinationPath(componentPath) });
 
         this.log(chalk('Updating lock file...'));
         this.spawnCommandSync('yarn', [], { cwd: this.destinationPath() });

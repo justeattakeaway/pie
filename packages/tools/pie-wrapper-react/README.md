@@ -26,7 +26,7 @@ Changes to this file should be committed as part of your PR. These are necessary
 In order to create the react wrapper, this package exposes a `build-react-wrapper` executable that can be added to your component `package.json`:
 
 ```json
-"build:react-wrapper": "npx build-react-wrapper"
+"build:react-wrapper": "run -T build-react-wrapper"
 ```
 
 ### Script execution order
@@ -65,7 +65,7 @@ Alternatively, simply modify your `build` script in `package.json`:
 
 ```json
 "build": "yarn create:manifest && yarn build:react-wrapper && <existing-build-command>",
-"build:react-wrapper": "npx build-react-wrapper",
+"build:react-wrapper": "run -T build-react-wrapper",
 "create:manifest": "run -T cem analyze --litelement",
 ```
 

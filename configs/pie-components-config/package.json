@@ -5,9 +5,6 @@
   "type": "module",
   "author": "Just Eat Takeaway.com - Design System Team",
   "description": "Shared configuration files for PIE components",
-  "bin": {
-    "playwright-lit-setup": "./scripts/playwright-lit-setup.js"
-  },
   "files": [
     "custom-elements-manifest.config.js",
     "vite.config.js",

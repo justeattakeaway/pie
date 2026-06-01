@@ -83,7 +83,7 @@ jobs:
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode.
       if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
-      run: npx changeset pre exit
+      run: yarn exec changeset pre exit
     - name: Create latest release PR
       id: changesets-main
       if: contains(github.ref_name, 'main')
@@ -101,7 +101,7 @@ jobs:
       if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag beta
-      run: npx changeset pre enter beta
+      run: yarn exec changeset pre enter beta
     - name: Create beta release PR
       if: contains(github.ref_name, 'beta')
       uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
@@ -116,7 +116,7 @@ jobs:
       if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag next
-      run: npx changeset pre enter next
+      run: yarn exec changeset pre enter next
     - name: Create feature release PR
       if: contains(github.ref_name, 'feature')
       uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
