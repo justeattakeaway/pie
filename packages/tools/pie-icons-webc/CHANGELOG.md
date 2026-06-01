@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.24.1
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.24.0
 
 ### Minor Changes
