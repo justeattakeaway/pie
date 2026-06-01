@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-textarea
 
+## 0.18.1
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.32
+
 ## 0.18.0
 
 ### Minor Changes
