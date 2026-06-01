@@ -32,10 +32,15 @@ class MockComponent extends LitElement {
 
 customElements.define(SELECTOR, MockComponent);
 
+// The rename is deferred to a microtask after the update, so flush past it
+// (a macrotask drains any queued microtasks) before asserting.
+const flushRename = () => new Promise<void>((resolve) => { setTimeout(resolve, 0); });
+
 async function mount (): Promise<MockComponent> {
     document.body.innerHTML = `<${SELECTOR}></${SELECTOR}>`;
     const el = document.body.querySelector(SELECTOR) as MockComponent;
     await el.updateComplete;
+    await flushRename();
     return el;
 }
 
@@ -69,6 +74,7 @@ describe('TestIdController (client)', () => {
         setPieTestIdAttribute('data-qa');
         el.requestUpdate();
         await el.updateComplete;
+        await flushRename();
 
         expect(el.shadowRoot?.querySelector('[data-qa="mock-button"]')).not.toBeNull();
         expect(el.shadowRoot?.querySelector('[data-test-id]')).toBeNull();

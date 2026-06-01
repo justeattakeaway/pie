@@ -32,6 +32,8 @@ describe('PieElement + TestIdController integration', () => {
         document.body.innerHTML = `<${SELECTOR}></${SELECTOR}>`;
         const el = document.body.querySelector(SELECTOR) as MockComponent;
         await el.updateComplete;
+        // The rename is deferred to a microtask; flush past it before asserting.
+        await new Promise<void>((resolve) => { setTimeout(resolve, 0); });
 
         expect(el.shadowRoot?.querySelector('[data-qa="pie-element-inner"]')).not.toBeNull();
         expect(el.shadowRoot?.querySelector('[data-test-id]')).toBeNull();
