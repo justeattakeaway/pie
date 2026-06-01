@@ -64,12 +64,6 @@ To learn more about the guidelines we adhere to, check out these resources:
 {% card {
   items: [
         {
-          linkText: "Inclusion, Diversity & Belonging at JET",
-          href: "https://kitchen.just-eat.com/home/inclusion-diversity-belonging-at-jet-update",
-          src: "../../../assets/img/accessibility/accessibility-overview/jet-guidelines.svg",
-          shouldOpenInNewTab: true
-        },
-        {
           linkText: "Introduction to web accessibility",
           href: "https://www.w3.org/WAI/fundamentals/accessibility-intro/",
           src: "../../../assets/img/accessibility/accessibility-overview/w3c-guidelines.svg"
