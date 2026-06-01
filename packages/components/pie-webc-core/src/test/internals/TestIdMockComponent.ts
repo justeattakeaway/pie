@@ -3,12 +3,14 @@ import { customElement } from 'lit/decorators.js';
 
 import { PieElement } from '../../internals/PieElement';
 
+const componentSelector = 'test-id-mock';
+
 /**
  * Mock element used by the test-id override browser story. Renders a nested set
  * of internal `data-test-id` hooks so the rename pass can be observed in a real
  * browser shadow root.
  */
-@customElement('test-id-mock')
+@customElement(componentSelector)
 export class TestIdMockComponent extends PieElement {
     render () {
         return html`

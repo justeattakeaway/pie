@@ -16,10 +16,11 @@ test.describe('Configurable test-id attribute', () => {
         await expect(page.locator('[data-test-id="test-id-mock-label"]')).toHaveCount(0);
     });
 
-    test('the rename still applies when the same element is driven through a host framework', async ({ page }) => {
-        // The story mounts the real <test-id-mock> custom element; React/Vue wrappers
-        // mount this same element via @lit/react createComponent, so observing the
-        // upgraded element here is equivalent to the wrapped case.
+    test('exposes the configured attribute on the upgraded custom element host and internals', async ({ page }) => {
+        // This does not mount a React/Vue wrapper directly. The wrappers (via
+        // @lit/react createComponent) mount this same <test-id-mock> custom element,
+        // so verifying the upgraded element + renamed internals here is representative
+        // of the wrapped case; a true framework-integration test is tracked separately.
         const mockPage = new BasePage(page, 'webc-core--test-id-attribute-override');
         await mockPage.load();
 
