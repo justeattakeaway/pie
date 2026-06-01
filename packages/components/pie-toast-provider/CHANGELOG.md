@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - Support for multiple `pie-toast-provider` instances ([#2875](https://github.com/justeattakeaway/pie/pull/2875)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.7.45
 
 ### Patch Changes
