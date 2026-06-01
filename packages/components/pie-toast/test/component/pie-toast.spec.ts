@@ -22,6 +22,38 @@ test.describe('PieToast - Component tests', () => {
     });
 
     test.describe('Props', () => {
+        test.describe('isOpen', () => {
+            test('should render the toast when isOpen is true', async ({ page }) => {
+                // Arrange
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isOpen: true,
+                };
+                await toastPage.load({ ...props });
+
+                // Act
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+
+                // Assert
+                await expect(toastComponent).toBeVisible();
+            });
+
+            test('should not render the toast when isOpen is false', async ({ page }) => {
+                // Arrange
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isOpen: false,
+                };
+                await toastPage.load({ ...props });
+
+                // Act
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+
+                // Assert
+                await expect(toastComponent).toHaveCount(0);
+            });
+        });
+
         test.describe('message', () => {
             test('should render the message', async ({ page }) => {
                 // Arrange
