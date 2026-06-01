@@ -4,6 +4,15 @@ import remarkGfm from 'remark-gfm';
 const isBrowserTesting = process.env.BROWSER_TESTING === 'true';
 
 const config: StorybookConfig = {
+    viteFinal (config) {
+        config.define = {
+            ...config.define,
+            // Ensure source-imported PieElement subclasses work in Storybook's dev
+            // server, where the per-package vite build-time replacement is absent.
+            __PACKAGE_VERSION__: JSON.stringify('storybook-dev'),
+        };
+        return config;
+    },
     stories: isBrowserTesting
         ? [
             "../stories/testing/**/*.test.stories.ts"

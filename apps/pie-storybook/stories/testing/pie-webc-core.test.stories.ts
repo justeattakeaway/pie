@@ -3,7 +3,9 @@ import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/MockComponent';
 import '@justeattakeaway/pie-webc-core/src/test/mixins/formControlMixin/MockComponent';
 import '@justeattakeaway/pie-webc-core/src/test/mixins/delegatesFocusMixin/MockComponent';
+import '@justeattakeaway/pie-webc-core/src/test/internals/TestIdMockComponent';
 import { EXPECTED_MOCK_EVENT_MESSAGE } from '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/constants';
+import { setPieTestIdAttribute } from '@justeattakeaway/pie-webc-core/src/functions/testIdAttribute';
 /**
  * Mock stories for testing pie-webc-core functionality
  */
@@ -84,3 +86,13 @@ export const DelegatesFocusMixinElement = () => html`
     <button id="first-focusable">First Focusable Element</button>
     <delegates-focus-mixin-mock></delegates-focus-mixin-mock>
 `;
+
+/**
+ * Story for testing the configurable internal test-id attribute. The override is
+ * set inside the render fn so it only affects this story's page load.
+ */
+export const TestIdAttributeOverride = () => {
+    setPieTestIdAttribute('data-qa');
+    return html`<test-id-mock></test-id-mock>`;
+};
+TestIdAttributeOverride.storyName = 'Test Id Attribute Override';
