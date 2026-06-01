@@ -4,9 +4,7 @@ import {
 } from 'vitest';
 
 import { PieElement } from '../../internals/PieElement';
-import {
-    DEFAULT_TEST_ID_ATTRIBUTE, setPieTestIdAttribute,
-} from '../../functions/testIdAttribute';
+import { setPieTestIdAttribute } from '../../functions/testIdAttribute';
 
 vi.mock('lit', async () => ({
     ...((await vi.importActual('lit')) as Record<string, unknown>),

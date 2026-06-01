@@ -2,9 +2,6 @@ import { defineConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
-    define: {
-        __PACKAGE_VERSION__: JSON.stringify('test'),
-    },
     build: {
         lib: {
             entry: {
