@@ -78,3 +78,33 @@ Currently, for writing unit tests we simply name the file `**/*.spec.ts`. To wri
 
 ## Bundling
 When we build the package, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file named `stats.html` in the root of the package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.
+
+## Configuring the internal test-id attribute
+
+By default, PIE components expose internal test hooks under `data-test-id`. If
+your test tooling uses a different attribute (e.g. Playwright's
+`testConfig.testIdAttribute = 'data-qa'`), you can tell PIE to use the same name
+so a single `getByTestId` strategy works end-to-end:
+
+```ts
+import { setPieTestIdAttribute } from '@justeattakeaway/pie-webc-core';
+
+// Call ONCE, before any PIE component renders (top of your app/test entry).
+setPieTestIdAttribute('data-qa');
+```
+
+After this, every PIE component renames its internal `data-test-id` attributes
+to `data-qa` (the original `data-test-id` is removed). Calling it with an invalid
+attribute name logs a warning and keeps the previous value.
+
+**Important notes:**
+
+- **Set it before first render.** The rename is applied as components render; an
+  element that rendered before the override was set and never updates again will
+  keep `data-test-id`.
+- **React / Vue wrappers:** works unchanged — the wrappers mount the same custom
+  element, whose lifecycle performs the rename.
+- **SSR:** server-rendered HTML still contains `data-test-id`; the configured
+  name is applied on the client after render/hydration. The configured name is
+  therefore present in the live (hydrated) browser — which is what Playwright
+  e2e tests observe — but not in raw, pre-JS server HTML.
