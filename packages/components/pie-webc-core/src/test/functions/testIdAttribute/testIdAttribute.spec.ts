@@ -10,8 +10,8 @@ import {
 
 describe('testIdAttribute config', () => {
     afterEach(() => {
-        // Reset to the default between tests (the store lives on globalThis).
-        setPieTestIdAttribute(DEFAULT_TEST_ID_ATTRIBUTE);
+        // Reset directly so teardown doesn't depend on setPieTestIdAttribute working.
+        (globalThis as Record<symbol, unknown>)[Symbol.for('pie.testIdAttribute')] = undefined;
         vi.restoreAllMocks();
     });
 

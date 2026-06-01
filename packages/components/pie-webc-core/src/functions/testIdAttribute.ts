@@ -34,7 +34,7 @@ export function getPieTestIdAttribute (): string {
  */
 export function setPieTestIdAttribute (name: string): void {
     if (typeof name !== 'string' || !VALID_ATTRIBUTE_NAME.test(name)) {
-        console.warn(`[PIE] Ignoring invalid test-id attribute name: "${name}". It must match ${VALID_ATTRIBUTE_NAME.toString()}.`);
+        console.warn(`[PIE] Ignoring invalid test-id attribute name: "${name}". Use a valid HTML attribute name (e.g. "data-qa").`);
         return;
     }
 
