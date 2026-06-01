@@ -6,9 +6,7 @@ import {
 } from 'vitest';
 
 import { TestIdController } from '../../internals/TestIdController';
-import {
-    DEFAULT_TEST_ID_ATTRIBUTE, setPieTestIdAttribute,
-} from '../../functions/testIdAttribute';
+import { setPieTestIdAttribute } from '../../functions/testIdAttribute';
 
 vi.mock('lit', async () => ({
     ...((await vi.importActual('lit')) as Record<string, unknown>),
