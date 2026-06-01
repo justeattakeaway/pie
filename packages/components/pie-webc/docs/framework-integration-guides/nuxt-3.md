@@ -10,6 +10,7 @@ This guide will show you how to set up the PIE Web Components in a Nuxt 3 applic
 - [Dependencies](#dependencies)
 - [Nuxt config](#nuxt-config)
 - [Usage](#usage)
+- [Configuring the test-id attribute](#configuring-the-test-id-attribute)
 
 
 ## Dependencies
@@ -117,3 +118,23 @@ import '@justeattakeaway/pie-icons-webc/dist/IconCamera.js';
 ```
 
 You should now be able to use any components you need in your Nuxt application!
+
+## Configuring the test-id attribute
+
+PIE components expose their internal test hooks using the `data-test-id` attribute by default. If your test tooling targets a different attribute (for example, Playwright's `testConfig.testIdAttribute`), you can tell PIE to use the same attribute name so a single `getByTestId` strategy works for both your own markup and PIE internals.
+
+Because the app is server-side rendered, set this in a **client-only** plugin so it runs in the browser before PIE components hydrate:
+
+```ts
+// plugins/pie-test-id.client.ts
+import { setPieTestIdAttribute } from '@justeattakeaway/pie-webc-core';
+
+export default defineNuxtPlugin(() => {
+    setPieTestIdAttribute('data-qa');
+});
+```
+
+- The `.client.ts` suffix ensures the plugin only runs on the client, and Nuxt runs plugins before mounting the app.
+- Defaults to `data-test-id`. Pass any valid attribute name (e.g. `data-qa`). Invalid names are ignored with a warning.
+- During SSR the server-rendered HTML still contains `data-test-id`; the configured name is applied on the client after hydration (which is what Playwright e2e tests observe).
+- `setPieTestIdAttribute` is provided by `@justeattakeaway/pie-webc-core`, which is installed automatically as a dependency of the PIE components.

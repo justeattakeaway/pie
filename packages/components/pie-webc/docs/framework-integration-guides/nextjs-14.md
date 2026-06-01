@@ -10,6 +10,7 @@ This guide will show you how to set up the PIE Web Components in a Next.js 14 ap
 - [Dependencies](#dependencies)
 - [Next.js config](#nextjs-config)
 - [Usage](#usage)
+- [Configuring the test-id attribute](#configuring-the-test-id-attribute)
 
 
 ## Dependencies
@@ -72,3 +73,23 @@ export default function SomeComponent() {
 ```
 
 You should now be able to use any components you need in your Next.js application!
+
+## Configuring the test-id attribute
+
+PIE components expose their internal test hooks using the `data-test-id` attribute by default. If your test tooling targets a different attribute (for example, Playwright's `testConfig.testIdAttribute`), you can tell PIE to use the same attribute name so a single `getByTestId` strategy works for both your own markup and PIE internals.
+
+Because the app is server-side rendered, set this on the **client only**, as early as possible — at the module scope of your custom `_app`, so it runs before any PIE component hydrates:
+
+```jsx
+// pages/_app.tsx — module scope (runs before hydration)
+import { setPieTestIdAttribute } from '@justeattakeaway/pie-webc-core';
+
+if (typeof window !== 'undefined') {
+    setPieTestIdAttribute('data-qa');
+}
+```
+
+- Defaults to `data-test-id`. Pass any valid attribute name (e.g. `data-qa`). Invalid names are ignored with a warning.
+- The `typeof window` guard keeps it off the server; placing it at module scope (not in `useEffect`/`componentDidMount`) ensures it runs **before** PIE components hydrate, so the first client render already uses the configured attribute.
+- During SSR the server-rendered HTML still contains `data-test-id`; the configured name is applied on the client after hydration (which is what Playwright e2e tests observe).
+- `setPieTestIdAttribute` is provided by `@justeattakeaway/pie-webc-core`, which is installed automatically as a dependency of the PIE components.
