@@ -4,6 +4,8 @@ eleventyNavigation:
     parent: Notification
     order: 1
 permalink: components/notification/
+eleventyComputed:
+    usage: "{% include './usage.json' %}"
 ---
 
 ## Overview
@@ -312,7 +314,7 @@ Notifications provide limited space for content, and therefore the content must 
 - Be concise and avoid repeating or paraphrasing the title.
 - Limit content to one or two short sentences.
 
-### Overrides   
+### Overrides
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/content-overrides-anatomy.svg",
