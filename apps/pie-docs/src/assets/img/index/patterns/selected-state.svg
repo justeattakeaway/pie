@@ -1,0 +1,38 @@
+<svg width="328" height="216" viewBox="0 0 328 216" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 12C0 5.37259 5.37258 0 12 0H316C322.627 0 328 5.37258 328 12V204C328 210.627 322.627 216 316 216H12C5.37259 216 0 210.627 0 204V12Z" fill="#FBDFE3"/>
+<path d="M20 106C20 93.8497 29.8497 84 42 84H286C298.15 84 308 93.8497 308 106C308 118.15 298.15 128 286 128H42C29.8497 128 20 118.15 20 106Z" fill="#F0ECE6"/>
+<g filter="url(#filter0_ddd_2670_463)">
+<path d="M22 106C22 94.9543 30.9543 86 42 86H142C153.046 86 162 94.9543 162 106C162 117.046 153.046 126 142 126H42C30.9543 126 22 117.046 22 106Z" fill="white"/>
+<g clip-path="url(#clip0_2670_463)">
+<path d="M67.2425 108.619L66.4802 108.064L65.8922 107.639L65.119 101.78C65.7724 101.355 66.2189 100.626 66.2189 99.7873C66.2189 98.4806 65.1517 97.4242 63.8558 97.4242H53.4886C52.1818 97.4134 51.1146 98.4806 51.1146 99.7765C51.1146 100.648 51.5938 101.399 52.3016 101.813L51.3869 108.249L51.1582 108.401H49.9712V110.035H51.6482L52.9006 109.196L54.5776 108.085C54.8063 107.933 55.0676 107.857 55.329 107.857H57.8663V108.129C57.8663 108.88 57.2565 109.49 56.5051 109.49H55.2854L54.4687 111.124H59.5652C60.2839 111.124 60.9917 110.862 61.5362 110.383L63.1152 108.978C63.6162 108.543 64.3458 108.51 64.8794 108.902L64.9556 108.957L61.9936 112.311C61.7322 112.594 61.3729 112.757 60.9808 112.757H49.9712V114.391H60.4037L61.4709 114.336C61.558 114.325 61.6451 114.304 61.7322 114.282C62.2985 114.129 62.8103 113.835 63.2133 113.389L67.3623 108.684L67.2425 108.597V108.619ZM62.0372 107.77L60.4581 109.174C60.2077 109.392 59.8919 109.512 59.5652 109.512H59.1731C59.38 109.098 59.4998 108.641 59.4998 108.151V106.245H55.329C54.7409 106.245 54.1638 106.419 53.6629 106.746L53.2055 107.051L53.9024 102.172H63.5182L64.1607 107.029C63.3984 106.996 62.6361 107.247 62.0263 107.781L62.0372 107.77ZM63.8558 100.517H53.4886C53.0857 100.517 52.759 100.179 52.759 99.7873C52.759 99.3953 53.0966 99.0577 53.4886 99.0577H63.8558C64.2587 99.0577 64.5854 99.3953 64.5854 99.7873C64.5854 100.179 64.2478 100.517 63.8558 100.517Z" fill="#F36805"/>
+</g>
+<rect x="76.6558" y="102.709" width="58.6887" height="6.58209" fill="black" fill-opacity="0.76"/>
+</g>
+<path d="M166 106C166 94.9543 174.954 86 186 86H286C297.046 86 306 94.9543 306 106C306 117.046 297.046 126 286 126H186C174.954 126 166 117.046 166 106Z" fill="white" fill-opacity="0.01"/>
+<rect x="212.125" y="102.709" width="47.7488" height="6.58209" fill="black" fill-opacity="0.76"/>
+<defs>
+<filter id="filter0_ddd_2670_463" x="10" y="76" width="164" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="2" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_2670_463"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="3"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2670_463"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="6"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_2670_463" result="effect2_dropShadow_2670_463"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="3"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.01 0"/>
+<feBlend mode="normal" in2="effect2_dropShadow_2670_463" result="effect3_dropShadow_2670_463"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow_2670_463" result="shape"/>
+</filter>
+<clipPath id="clip0_2670_463">
+<rect width="17.5" height="17.5" fill="white" transform="translate(49.9058 97.25)"/>
+</clipPath>
+</defs>
+</svg>

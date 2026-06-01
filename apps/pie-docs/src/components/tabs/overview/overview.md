@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Tabs
     order: 1
-shouldShowContents: true
 permalink: components/tabs/
 ---
 

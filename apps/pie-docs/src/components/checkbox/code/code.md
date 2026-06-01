@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Checkbox
-    order: 3
+    order: 6
 ---
 
 ## Web

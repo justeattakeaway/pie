@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Apps
     parent: Numeric Stepper
-    order: 2
+    order: 3
 draft: true
 ---
 

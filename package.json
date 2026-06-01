@@ -77,7 +77,7 @@
     "@justeattakeaway/pie-webc-testing": "0.13.5",
     "@justeattakeaway/pie-wrapper-react": "0.14.4",
     "@justeattakeaway/stylelint-config-pie": "3.0.1",
-    "@percy/cli": "1.31.1",
+    "@percy/cli": "1.31.14",
     "@percy/playwright": "1.0.9",
     "@playwright/experimental-ct-react": "1.57.0",
     "@playwright/test": "1.57.0",
@@ -86,7 +86,7 @@
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "@vitest/coverage-v8": "4.0.17",
-    "bundlewatch": "0.4.1",
+    "bundlewatch": "0.4.2",
     "commitizen": "4.3.1",
     "cross-env": "7.0.3",
     "cz-customizable": "7.5.4",
@@ -122,8 +122,8 @@
     }
   },
   "resolutions": {
+    "basic-ftp": "5.2.1",
     "lit": "3.2.0",
-    "tar": "6.2.1",
     "typescript": "5.8.3"
   }
 }

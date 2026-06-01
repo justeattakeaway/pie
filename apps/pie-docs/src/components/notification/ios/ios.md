@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: iOS
     parent: Notification
-    order: 3
+    order: 4
 shouldShowContents: true
 permalink: components/notification/ios/
 ---

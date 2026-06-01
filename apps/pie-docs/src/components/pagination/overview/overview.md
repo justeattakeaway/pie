@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Pagination
     order: 1
-shouldShowContents: true
 permalink: components/pagination/
 ---
 
