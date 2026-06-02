@@ -79,7 +79,7 @@
     "@custom-elements-manifest/analyzer": "0.11.0",
     "@justeat/pie-design-tokens": "7.11.1",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
-    "@justeattakeaway/generator-pie-component": "0.33.0",
+    "@justeattakeaway/generator-pie-component": "workspace:*",
     "@justeattakeaway/pie-icons": "5.25.0",
     "@justeattakeaway/pie-webc-testing": "0.13.5",
     "@justeattakeaway/pie-wrapper-react": "0.14.4",
