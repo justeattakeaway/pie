@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.33.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.33.1
 
 ### Patch Changes
