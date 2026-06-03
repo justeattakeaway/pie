@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/generator-pie-component",
-  "version": "0.33.1",
+  "version": "0.33.2",
   "description": "A generator for PIE Web Components",
   "repository": {
     "type": "git",
