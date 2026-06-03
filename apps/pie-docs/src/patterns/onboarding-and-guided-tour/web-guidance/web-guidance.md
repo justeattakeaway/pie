@@ -32,7 +32,7 @@ Contextual onboarding offers a step-by-step guidance tied directly to specific f
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/onboarding-and-guided-tour/web/decision-tree.svg",
-alt: "Decision tree for the onboarding approach.",
+alt: "A decision tree diagram for choosing between 'Overview' and 'Contextual' content types based on three questions: 1. Is it a high-level intro guide? If Yes, result is Overview. If No, proceed to next question. 2. Is it a multi-step flow? If No, result is Contextual. If Yes, proceed to next question. 3. Are the steps connected? If Yes, result is Contextual. If No, result is Overview.",
 width: 120
 } %}
 
@@ -46,7 +46,10 @@ These are UI elements you can use to enhance the onboarding experience:
 
 Use a Modal when you need to provide users with a high-level introduction to the onboarding process or summarise what they can expect to learn. A modal sets the stage for onboarding by creating a focused environment free of distractions, allowing users to concentrate on the essential information.
 
-Check out the Modal documentation.
+{% notification {
+  type: "neutral",
+  message: "Check out the [Modal documentation](https://www.pie.design/components/modal/web/)."
+} %}
 
 #### Actions
 
@@ -96,11 +99,20 @@ These are UI elements you can use to enhance the onboarding experience:
 
 Use a Tooltip to guide users through specific features or highlight particular areas of the interface as they interact with it. Tooltips are most effective when used sparingly and targeted toward features that might not be immediately intuitive.
 
-Check out the Tooltip documentation.
+{% notification {
+  type: "neutral",
+  message: "Check out the [Tooltip documentation](https://www.pie.design/components/tooltip/)."
+} %}
 
-The current tooltip component doesn't support all the following features. If required, additional functionality must be handled by pillar engineers.
+{% notification {
+  type: "information",
+  message: "The current tooltip component doesn't support all the following features. If required, additional functionality must be handled by pillar engineers."
+} %}
 
-Spacing within the component can be adjusted based on the content requirements and the overall design layout.
+{% notification {
+  type: "information",
+  message: "Spacing within the component can be adjusted based on the content requirements and the overall design layout."
+} %}
 
 #### Assets
 
@@ -146,7 +158,10 @@ width: 120
 
 The default tooltip colour is dark, providing good contrast on light backgrounds. However, when tooltips are displayed on dark backgrounds, you can use inverse colour variants to ensure optimal accessibility and readability.
 
-When changing colour variants, be mindful of button styles to ensure they remain accessible and maintain the correct visual hierarchy.
+{% notification {
+  type: "information",
+  message: "When changing colour variants, be mindful of button styles to ensure they remain accessible and maintain the correct visual hierarchy."
+} %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/onboarding-and-guided-tour/web/contextual-onboarding-tooltip-colours-1.svg",
@@ -176,7 +191,7 @@ alt: "Example of a tooltip variant with a close button.",
 width: 120
 } %}
 
-### Spotlight overlay
+### Spotlight
 
 During a step-by-step or new feature guide, a spotlight can be utilised to direct attention to specific areas, helping the tooltip focus on key elements. This helps guide the user's attention, making it easier to understand the process by highlighting important sections or actions and improving clarity.
 
