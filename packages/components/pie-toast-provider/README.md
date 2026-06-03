@@ -19,6 +19,7 @@
   - [Events](#events)
 - [Usage Examples](#usage-examples)
   - [Creating Toasts with `toaster`](#creating-toasts-with-toaster)
+  - [Multiple Providers](#multiple-providers)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -45,6 +46,7 @@ This component does not have any slots. All content is controlled through proper
 | Name                     | Description                                 | Default                     |
 |--------------------------|---------------------------------------------|-----------------------------|
 | `--toast-provider-z-index` | Controls the stacking order of the toasts. | `--dt-z-index-toast` (6000) |
+| `--toast-provider-position` | Controls the CSS positioning of the provider. Set to `absolute` to position relative to the nearest positioned ancestor instead of the viewport. | `fixed` |
 | `--toast-provider-offset` | Controls the gap between toasts and the boundary of the viewport. | `--dt-spacing-c  (Desktop)` / `--dt-spacing-d (Mobile)` |
 
 ### Events
@@ -56,9 +58,8 @@ This component does not have any slots. All content is controlled through proper
 ## Usage Examples
 
 The usage guideline is:
-
-- Place `pie-toast-provider` at the root level of your application or page.
-- Use the `toaster` utility from any where in your app to dynamically create toasts.
+- Place `pie-toast-provider` wherever toasts should appear (e.g. root of your application, page or inside a modal).
+- Use the `toaster` utility to dynamically create toasts from anywhere in your app.
 
 **For HTML:**
 
@@ -107,7 +108,49 @@ toaster.create({
 To clear all active and queued toasts:
 
 ```js
-toaster.clearToasts();
+toaster.clearAll();
+```
+
+### Multiple Providers
+
+You can use multiple `pie-toast-provider` instances in the same page or application (e.g. one at the root level and one inside a modal). Each provider maintains its own independent toast queue and logic.
+
+When `providerId` is not specified, the toaster utility resolves the target provider automatically:
+- If there is only one provider in the DOM, it is always used.
+- If there are multiple providers, the provider in the nearest containing scope of the currently focused element is used. For example, if a button inside a modal triggers a toast, the modal's own provider is selected.
+
+For explicit control when using multiple providers, give each one a native `id` attribute and pass the `providerId` option when creating or clearing toasts:
+
+```html
+<pie-toast-provider id="main"></pie-toast-provider>
+
+<pie-modal>
+  <pie-toast-provider id="modal" position="bottom-center"></pie-toast-provider>
+</pie-modal>
+```
+
+```js
+import { toaster } from '@justeattakeaway/pie-webc/components/toast-provider.js';
+
+// Target the main page provider
+toaster.create({
+  message: 'Saved successfully!',
+  variant: 'success',
+  providerId: 'main',
+});
+
+// Target the modal provider
+toaster.create({
+  message: 'Form submitted!',
+  variant: 'success',
+  providerId: 'modal',
+});
+```
+
+To clear toasts for a specific provider:
+
+```js
+toaster.clearAll('modal');
 ```
 
 ## Questions and Support

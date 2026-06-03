@@ -1,0 +1,20 @@
+{
+  "patterns": [
+    {
+      "pattern": "npx ",
+      "message": "Use 'run -T <bin>' (in package.json scripts) or 'yarn run <bin>' (in shell contexts) instead of npx.",
+      "excludeExtensions": [".md"]
+    }
+  ],
+  "excludePaths": [
+    ".yarn",
+    ".git",
+    ".turbo",
+    "node_modules",
+    "openspec",
+    "dist",
+    "lit-browsers-report",
+    "lit-visual-report",
+    "lint-banned-patterns.config.json"
+  ]
+}

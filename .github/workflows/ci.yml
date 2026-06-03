@@ -162,6 +162,11 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:scripts"
+      # Lint banned patterns
+      - name: Lint banned patterns
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:banned-patterns"
 
   lint-workflows:
     runs-on: ubuntu-latest

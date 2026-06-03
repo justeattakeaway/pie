@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Popover
     order: 1
-shouldShowContents: true
 permalink: components/popover/
 ---
 

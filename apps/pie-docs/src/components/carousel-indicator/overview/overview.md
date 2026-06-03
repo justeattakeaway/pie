@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Carousel Indicator
     order: 1
-shouldShowContents: true
 permalink: components/carousel-indicator/
 ---
 
@@ -25,7 +24,7 @@ Carousel indicators can be clicked or tapped to directly navigate to a specific 
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Carousel Indicator documentation, please see the resources below."
+  message: "We're currently working on updating our Carousel Indicator documentation, please see the resources below."
 } %}
 
 {% resourceTable {

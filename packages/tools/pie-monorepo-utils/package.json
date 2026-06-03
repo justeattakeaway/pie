@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-monorepo-utils",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Scripts and utilities used by the PIE monorepo",
   "repository": {
     "type": "git",
@@ -11,9 +11,6 @@
   "files": [
     "dist"
   ],
-  "bin": {
-    "detect-webc-major-version": "./webc-major-versioning/detect-webc-major-version.js"
-  },
   "scripts": {
     "generate:component-statuses": "node ./component-statuses/generate-component-statuses.js",
     "lint:scripts": "run -T eslint .",

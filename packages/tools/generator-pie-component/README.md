@@ -26,7 +26,7 @@
 Build the generator package locally (it is recommended you force the build)
 
 ```sh
-$ yarn build --filter=generator-pie-component --force
+$ yarn build --filter=@justeattakeaway/generator-pie-component --force
 ```
 
 ### Generating a new component
@@ -34,7 +34,7 @@ $ yarn build --filter=generator-pie-component --force
 To run the generator, use this command from the root directory within the monorepo:
 
 ```sh
-$ npx yo @justeattakeaway/pie-component
+$ yarn yo @justeattakeaway/pie-component
 ```
 
 An interactive prompt should now be displayed asking for a component name.
@@ -75,7 +75,7 @@ export default viteConfig({
 });
 ```
 
-- Run `npx add-components` from the monorepo root to update the `webc` package exports.
+- Run `yarn add-components` from the monorepo root to update the `webc` package exports.
 
 ## Local development
 
@@ -88,13 +88,13 @@ yarn
 To build the `generator-pie-component` package, run the following command:
 
 ```bash
-yarn build --filter=generator-pie-component
+yarn build --filter=@justeattakeaway/generator-pie-component
 ```
 
 You can also build the component in `watch` mode if desired with the following command:
 
 ```bash
-yarn watch --filter=generator-pie-component
+yarn watch --filter=@justeattakeaway/generator-pie-component
 ```
 
 ## Contributing
@@ -103,4 +103,4 @@ In order to contribute to the `generator-pie-component`, it's advised to link yo
 
 To do this, run `yarn link` from the root of the `generator-pie-component` folder in the mono-repo.
 
-Once you have done this, running `npx yo @justeattakeaway/pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).
+Once you have done this, running `yarn yo @justeattakeaway/pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).

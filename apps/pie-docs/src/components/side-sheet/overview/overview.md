@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Side Sheet
     order: 1
-shouldShowContents: true
 permalink: components/side-sheet/
 ---
 

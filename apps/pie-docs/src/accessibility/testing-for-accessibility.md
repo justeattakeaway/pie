@@ -128,7 +128,7 @@ You can watch your users navigate and complete tasks to see how different aspect
 
 {% notification {
   type: "information",
-  message: "Get in touch with the [research team](https://justeat.slack.com/archives/CD0M5FRRV){target=“_blank”} to learn how you can test your products with real users."
+  message: "Get in touch with the research team in Slack on #interest-uxresearch to learn how you can test your products with real users."
 } %}
 
 

@@ -45,7 +45,7 @@ export function getPlaywrightNativeConfig() {
             },
         ],
         webServer: !process.env.CI ? {
-            command: 'npx turbo dev:testing --filter=@justeattakeaway/pie-storybook',
+            command: 'yarn turbo dev:testing --filter=@justeattakeaway/pie-storybook',
             url: 'http://localhost:6007',
             timeout: 120 * 10000,
             reuseExistingServer: !process.env.CI,
