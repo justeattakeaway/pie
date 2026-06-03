@@ -194,25 +194,24 @@
     }
 }
 
-// =============================================================================
-// SLOTTED VARIANTS
-//
-// When styling a slotted <input type="radio"> inside a shadow DOM host,
-// pseudo-classes (:checked, :disabled, :focus-visible, etc.) must go INSIDE
-// the ::slotted() functional notation, while pseudo-elements (::before, ::after)
-// must go AFTER it.
-//
-// Standard mixins produce: `&:checked::after { ... }` → invalid when nested
-// inside `::slotted(...)`.
-//
-// Slotted mixins produce: `::slotted(selector:checked)::after { ... }` → valid.
-//
-// Usage:
-//   @include radio-slotted-input-base('input[type="radio"]');
-//   @include radio-slotted-interactive-state('input[type="radio"]', 'dt-color-interactive-brand');
-//   @include radio-slotted-animations('input[type="radio"]');
-//   @include radio-slotted-error('input[type="radio"]');
-// =============================================================================
+/// =============================================================================
+/// SLOTTED VARIANTS
+/// When styling a slotted <input type="radio"> inside a shadow DOM host,
+/// pseudo-classes (:checked, :disabled, :focus-visible, etc.) must go INSIDE
+/// the ::slotted() functional notation, while pseudo-elements (::before, ::after)
+/// must go AFTER it.
+///
+/// Standard mixins produce: `&:checked::after { ... }` → invalid when nested
+/// inside `::slotted(...)`.
+///
+/// Slotted mixins produce: `::slotted(selector:checked)::after { ... }` → valid.
+///
+/// Usage:
+///   @include radio-slotted-input-base('input[type="radio"]');
+///   @include radio-slotted-interactive-state('input[type="radio"]', 'dt-color-interactive-brand');
+///   @include radio-slotted-animations('input[type="radio"]');
+///   @include radio-slotted-error('input[type="radio"]');
+/// =============================================================================
 
 /// Slotted variant of radio-input-base.
 /// Applies base styles, pseudo-elements, and state styles to a slotted radio input.

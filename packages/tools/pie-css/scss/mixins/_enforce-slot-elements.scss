@@ -1,8 +1,7 @@
-@use "sass:string";
-@use "sass:list";
+@use 'sass:string';
+@use 'sass:list';
 
 @mixin enforce-slot-elements($allowed-elements, $restored-font-size: 1rem, $allow-raw-text: false) {
-
     // 1. Only hide raw text if $allow-raw-text is set to false
     @if not $allow-raw-text {
         slot {
@@ -21,7 +20,7 @@
     );
 
     @each $el in $allowed-elements {
-        $allowlist-selectors: list.append($allowlist-selectors, string.unquote("::slotted(#{$el})"), comma);
+        $allowlist-selectors: list.append($allowlist-selectors, string.unquote('::slotted(#{$el})'), comma);
     }
 
     #{$allowlist-selectors} {
