@@ -3,12 +3,35 @@
 @use "sass:string";
 @use "sass:list";
 
-
-
 :host {
-    // Note: For consistency sake, the recommended display should be either
-    // "block" or "inline-block", otherwise it can be ommited for floating elements
-    display: block;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: var(--dt-spacing-b);
 
-    @include p.enforce-slot-elements(('input[type="radio"]'), 1rem);
+    // Only allow html radio inputs and labels in the slot
+    @include p.enforce-slot-elements(('input[type="radio"]', 'label[for]'), 1rem);
+
+    // Radio styles applied to the slotted input
+    @include p.radio-slotted-input-base('input[type="radio"]');
+    @include p.radio-slotted-interactive-state('input[type="radio"]', 'dt-color-interactive-brand');
+    @include p.radio-slotted-animations('input[type="radio"]');
+
+    // Ensure radio always sits before label (no a11y issue here as it doesn't affect narration)
+    ::slotted(input[type="radio"]) {
+        order: -1;
+        align-self: flex-start; // sit with first line of multiline labels
+    }
+
+    ::slotted(label[for]) {
+        order: 1;
+    }
+
+    // Label styles applied to the optional slotted label
+    @include p.radio-slotted-label('label[for]');
+}
+
+:host([isError]) {
+    @include p.radio-slotted-error('input[type="radio"]');
+    @include p.radio-slotted-interactive-state('input[type="radio"]', 'dt-color-support-error');
 }

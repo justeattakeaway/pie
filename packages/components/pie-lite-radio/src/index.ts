@@ -4,8 +4,9 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import {
     safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
+import { property } from 'lit/decorators.js';
 import styles from './lite-radio.scss?inline';
-import { type LiteRadioProps } from './defs';
+import { defaultProps, type LiteRadioProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -17,6 +18,9 @@ const componentSelector = 'pie-lite-radio';
  */
 @safeCustomElement('pie-lite-radio')
 export class PieLiteRadio extends PieElement implements LiteRadioProps {
+    @property({ type: Boolean, reflect: true })
+    public isError = defaultProps.isError;
+
     render () {
         return html`<slot></slot>`;
     }

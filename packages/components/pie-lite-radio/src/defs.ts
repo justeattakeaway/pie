@@ -1,3 +1,13 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface LiteRadioProps {}
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
+
+export const statusTypes = ['default', 'error'] as const;
+
+export interface LiteRadioProps {
+    isError: boolean;
+}
+
+export type DefaultProps = ComponentDefaultProps<LiteRadioProps>;
+
+export const defaultProps: DefaultProps = {
+    isError: false,
+};
