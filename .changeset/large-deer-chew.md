@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-cookie-banner": minor
 ---
 
-added aria label to switches in manage preferences
+[Added] - Added ARIA labels to switches in Manage preferences
