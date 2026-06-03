@@ -42,7 +42,7 @@ export default class extends Generator {
             this.props,
             undefined,
             {
-                globOptions: { dot: true, ignore: ['**/pie-placeholder.__stories__.ts', '**/pie-placeholder.mdx'] },
+                globOptions: { dot: true, ignore: ['**/pie-placeholder.__stories__.ts', '**/pie-placeholder.mdx', '**/pie-placeholder.__test__.__stories__.ts'] },
                 processDestinationPath,
             },
         );
