@@ -281,4 +281,129 @@ test.describe('PieToastProvider - Component tests', () => {
             expect(finalPosition?.y).toBe(initialPosition?.y);
         });
     });
+
+    test.describe('Multiple Providers', () => {
+        test('should target a specific provider using id', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--multiple-providers');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider#main').waitFor({ state: 'attached' });
+            await page.locator('pie-toast-provider#modal').waitFor({ state: 'attached' });
+
+            // Act — send a toast to the modal provider only
+            await page.evaluate(() => {
+                const modalProvider = document.querySelector('pie-toast-provider#modal') as PieToastProvider;
+                modalProvider.createToast({ message: 'Modal toast' });
+            });
+
+            // Assert — the modal provider should show the toast, the main provider should not
+            const modalToast = page.locator('pie-toast-provider#modal pie-toast');
+            const mainToast = page.locator('pie-toast-provider#main pie-toast');
+
+            await expect(modalToast).toBeVisible();
+            await expect(mainToast).not.toBeVisible();
+        });
+
+        test('should handle independent queues per provider', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--multiple-providers');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider#main').waitFor({ state: 'attached' });
+            await page.locator('pie-toast-provider#modal').waitFor({ state: 'attached' });
+
+            // Act — add toasts to both providers
+            await page.evaluate(() => {
+                const mainProvider = document.querySelector('pie-toast-provider#main') as PieToastProvider;
+                const modalProvider = document.querySelector('pie-toast-provider#modal') as PieToastProvider;
+
+                mainProvider.createToast({ message: 'Main toast 1' });
+                mainProvider.createToast({ message: 'Main toast 2' });
+                modalProvider.createToast({ message: 'Modal toast 1' });
+            });
+
+            // Assert — both providers show their respective toasts independently
+            const mainToast = page.locator('pie-toast-provider#main pie-toast');
+            const modalToast = page.locator('pie-toast-provider#modal pie-toast');
+
+            await expect(mainToast).toBeVisible();
+            await expect(modalToast).toBeVisible();
+
+            // Verify message content
+            await expect(mainToast).toHaveAttribute('message', 'Main toast 1');
+            await expect(modalToast).toHaveAttribute('message', 'Modal toast 1');
+        });
+
+        test('should clear only the targeted provider toasts', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--multiple-providers');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider#main').waitFor({ state: 'attached' });
+            await page.locator('pie-toast-provider#modal').waitFor({ state: 'attached' });
+
+            // Act — add toasts to both, then clear only the modal provider
+            await page.evaluate(() => {
+                const mainProvider = document.querySelector('pie-toast-provider#main') as PieToastProvider;
+                const modalProvider = document.querySelector('pie-toast-provider#modal') as PieToastProvider;
+
+                mainProvider.createToast({ message: 'Main toast', duration: null });
+                modalProvider.createToast({ message: 'Modal toast', duration: null });
+            });
+
+            const mainToast = page.locator('pie-toast-provider#main pie-toast');
+            const modalToast = page.locator('pie-toast-provider#modal pie-toast');
+
+            await expect(mainToast).toBeVisible();
+            await expect(modalToast).toBeVisible();
+
+            // Clear the modal provider only
+            await page.evaluate(() => {
+                const modalProvider = document.querySelector('pie-toast-provider#modal') as PieToastProvider;
+                modalProvider.clearToasts();
+            });
+
+            // Assert — main toast should remain, modal toast should be gone
+            await expect(mainToast).toBeVisible();
+            await expect(modalToast).not.toBeVisible();
+        });
+
+        test('should not affect other providers when creating toasts on one', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--multiple-providers');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider#main').waitFor({ state: 'attached' });
+            await page.locator('pie-toast-provider#modal').waitFor({ state: 'attached' });
+
+            // Act — create multiple toasts on the main provider only
+            await page.evaluate(() => {
+                const mainProvider = document.querySelector('pie-toast-provider#main') as PieToastProvider;
+                mainProvider.createToast({ message: 'Main toast 1', duration: null });
+                mainProvider.createToast({ message: 'Main toast 2', duration: null });
+                mainProvider.createToast({ message: 'Main toast 3', duration: null });
+            });
+
+            // Assert — main provider shows a toast, modal provider remains empty
+            const mainToast = page.locator('pie-toast-provider#main pie-toast');
+            const modalToast = page.locator('pie-toast-provider#modal pie-toast');
+
+            await expect(mainToast).toBeVisible();
+            await expect(modalToast).not.toBeVisible();
+        });
+
+        test('should auto-resolve to the nearest provider when providerId is not specified', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--auto-resolve-provider');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider#modal').waitFor({ state: 'attached' });
+
+            // Act — click button inside modal that calls toaster.create() without providerId
+            await page.locator('#modal-auto-btn').click();
+
+            // Assert — the toast should appear in the modal provider (nearest scope), not the main one
+            const modalToast = page.locator('pie-toast-provider#modal pie-toast');
+            const mainToast = page.locator('pie-toast-provider#main pie-toast');
+
+            await expect(modalToast).toBeVisible();
+            await expect(mainToast).not.toBeVisible();
+        });
+    });
 });

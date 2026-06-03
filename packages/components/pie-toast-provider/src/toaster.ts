@@ -5,29 +5,53 @@ import { type ExtendedToastProps } from './defs';
  * Singleton toaster interface for global access.
  */
 export const toaster = {
-    _getToastProvider (): PieToastProvider | null {
-        const toastProviders = document.querySelectorAll('pie-toast-provider');
+    _getToastProvider (providerId?: string): PieToastProvider | null {
+        // 1. Explicit ID lookup
+        if (providerId) {
+            const el = document.getElementById(providerId);
 
-        if (toastProviders.length === 0) {
-            console.error('The pie-toast component requires a pie-toast-provider element present in the DOM.');
+            if (!el || el.tagName.toLowerCase() !== 'pie-toast-provider') {
+                console.error(`No pie-toast-provider found with id "${providerId}".`);
+                return null;
+            }
+
+            return el as PieToastProvider;
+        }
+
+        // 2. Find the provider in the nearest containing scope of the focused element (e.g. a button inside a modal with its own provider)
+        let el: Element | null = document.activeElement;
+        while (el) {
+            const parent = el.parentElement;
+            if (parent) {
+                const provider = parent.querySelector(':scope > pie-toast-provider') as PieToastProvider | null;
+                if (provider) return provider;
+            }
+            el = parent;
+        }
+
+        // 3. Sole provider in the DOM
+        const providers = document.querySelectorAll('pie-toast-provider');
+
+        if (providers.length === 0) {
+            console.error('No pie-toast-provider found in the DOM. Add a <pie-toast-provider> element to your page or at the root of your application.');
             return null;
         }
 
-        if (toastProviders.length > 1) {
-            console.error('Multiple pie-toast-provider are found in the DOM. Only one provider is supported currently and should be registered at the root of the app.');
+        if (providers.length > 1) {
+            console.error('Multiple pie-toast-provider elements found. Use the `providerId` option to target a specific provider.');
             return null;
         }
 
-        return toastProviders[0];
+        return providers[0] as PieToastProvider;
     },
     create (toast: ExtendedToastProps) {
-        const toastProvider = this._getToastProvider();
+        const toastProvider = this._getToastProvider(toast.providerId);
         if (!toastProvider) return;
 
         toastProvider.createToast(toast);
     },
-    clearAll () {
-        const toastProvider = this._getToastProvider();
+    clearAll (providerId?: string) {
+        const toastProvider = this._getToastProvider(providerId);
         if (!toastProvider) return;
 
         toastProvider.clearToasts();

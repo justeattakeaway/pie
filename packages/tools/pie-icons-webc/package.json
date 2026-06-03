@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "1.24.0",
+  "version": "1.24.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,23 +37,23 @@
     "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "test:browsers-setup": "npx playwright-lit-setup",
-    "test:browsers:react": "npx playwright test -c ./playwright-react.config.ts",
-    "test:browsers:webc": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers-setup": "run -T playwright-lit-setup",
+    "test:browsers:react": "run -T playwright test -c ./playwright-react.config.ts",
+    "test:browsers:webc": "run -T playwright test -c ./playwright-lit.config.ts",
     "test:browsers": "yarn test:browsers:react && yarn test:browsers:webc",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICONS_WEBC} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICONS_WEBC} percy exec --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "browserslist": [
     "extends @justeattakeaway/browserslist-config-pie"
   ],
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "14.0.1"
+    "@justeattakeaway/pie-webc-core": "14.0.2"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.2",
-    "@justeattakeaway/pie-icons": "5.27.0",
+    "@justeattakeaway/pie-components-config": "0.21.3",
+    "@justeattakeaway/pie-icons": "5.27.2",
     "@justeattakeaway/pie-icons-configs": "5.21.0",
     "@rollup/plugin-typescript": "12.3.0",
     "@web/test-runner": "0.16.1",

@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Uploader
     order: 1
-shouldShowContents: true
 permalink: components/uploader/
 ---
 

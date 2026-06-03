@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Accordion
     order: 1
-shouldShowContents: true
 permalink: components/accordion/
 ---
 

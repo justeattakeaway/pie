@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Motion
     parent: Modal
-    order: 2
+    order: 5
 eleventyComputed:
     enterTransition: "{% include './enter-transition.json' %}"
     existTransition: "{% include './exit-transition.json' %}"
