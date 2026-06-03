@@ -11,6 +11,8 @@ permalink: patterns/errors/
 
 Errors occur when a product or interface fails to do what the user wants it to do. Error patterns help users recover in such circumstances.
 
+---
+
 ## Overview
 
 The implementation of error states and the corresponding messages can vary from scenario to scenario. It is important that all error messages are visible, understandable and useful to the user.
@@ -26,6 +28,8 @@ The implementation of error states and the corresponding messages can vary from 
 - Don't overwhelm users with technical jargon or vague messages.
 - Don't leave users without a clear course of action.
 
+---
+
 ## Hierarchy
 
 Each type of error provides specific feedback to help users understand and correct the issues, ensuring a more user-friendly experience.
@@ -38,6 +42,10 @@ These errors can be categorised into four main types:
 - **Feedback error:** providing non-crucial feedback that doesn't block the user's flow.
 
 These error types can be conveyed through different components, forming a hierarchy in how errors are managed and communicated to the user.
+
+<!-- image goes here -->
+
+---
 
 ## Global error
 
@@ -60,9 +68,18 @@ Full width notification must be placed at the top of the page or screen, typical
 
 Use the error variant in notification for global issues.
 
+<!-- image goes here -->
+
+<!-- image goes here -->
+
+
 ### Modal
 
 Use a modal for critical errors that require immediate attention and block further interaction fully, such as session expiration that require users to login again. It overlays the page and focuses the user on the required action before they can continue.
+
+<!-- image goes here -->
+
+---
 
 ## Page level & In-page error
 
@@ -83,9 +100,17 @@ Both types of error can be communicated with notification or error summary. The 
 
 Use inline notification to address general errors, for example, a payment error on a checkout page.
 
+<!-- image goes here -->
+
 ### Error summary
 
 Use the error summary if it is a validation error or submission error that occurs when a user submits a form.
+
+<!-- image goes here -->
+
+<!-- image goes here -->
+
+---
 
 ## Field error
 
@@ -107,11 +132,17 @@ Field error relates to individual input field within a form or data entry sectio
 
 Detects and displays errors as the user interacts with each field, providing immediate feedback as the user completes the input. Examples include: invalid input format, required fields left empty.
 
+<!-- image goes here -->
+
 ### Error summary
 
 #### Validation on submit
 
 Detects and displays errors only after the user submits the form, with messages below each field and an error summary at the top.
+
+<!-- image goes here -->
+
+---
 
 ## Feedback error
 
@@ -132,5 +163,5 @@ Use toast to provide feedback on errors, such as a failed user action that doesn
 
 Toast can be auto-dismissed, meaning it will automatically disappear after a certain amount of time to give users enough time to read the message without blocking the information behind it for too long. It can also include an optional action, and remain persistent until manually dismissed by the user.
 
----
+<!-- image goes here -->
 
