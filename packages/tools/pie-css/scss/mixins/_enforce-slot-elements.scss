@@ -1,0 +1,37 @@
+@use "sass:string";
+@use "sass:list";
+
+@mixin enforce-slot-elements($allowed-elements, $restored-font-size: 1rem, $allow-raw-text: false) {
+
+    // 1. Only hide raw text if $allow-raw-text is set to false
+    @if not $allow-raw-text {
+        slot {
+            font-size: 0;
+            color: transparent;
+        }
+    }
+
+    /* 2. Hide all slotted elements by default */
+    ::slotted(*) {
+        display: none;
+    }
+
+    /* 3. Allow-list specific elements */
+    $allowlist-selectors: (
+    );
+
+    @each $el in $allowed-elements {
+        $allowlist-selectors: list.append($allowlist-selectors, string.unquote("::slotted(#{$el})"), comma);
+    }
+
+    #{$allowlist-selectors} {
+        display: revert;
+
+        // Only bother restoring the font-size if we explicitly shrunk it earlier
+        @if not $allow-raw-text {
+            font-size: $restored-font-size;
+        }
+
+        @content;
+    }
+}
