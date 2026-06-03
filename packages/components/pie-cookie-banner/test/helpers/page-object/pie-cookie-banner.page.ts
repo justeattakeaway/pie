@@ -319,6 +319,11 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<Object[]>} A promise that resolves to an array of objects for prefernece ID and
      *                              whether the preference toggle is checked (`true`) or not (`false`).
      */
+    async getPreferenceSwitchAriaLabel (preferenceId: PreferenceIds): Promise<string | null> {
+        const switchInput = this.page.locator(`#${preferenceId} [data-test-id="switch-input"]`);
+        return switchInput.getAttribute('aria-label');
+    }
+
     async getAllCheckedPreferences (preferences: { id: string }[]): Promise<{ id: string; isChecked: boolean }[]> {
         const elements = preferences.map(async ({ id }) => ({
             id,
