@@ -20,7 +20,7 @@
     "@justeattakeaway/pie-css": "1.1.1",
     "@justeattakeaway/pie-icons-webc": "1.24.2",
     "@justeattakeaway/pie-webc": "0.10.15",
-    "dompurify": "3.3.3"
+    "dompurify": "3.4.8"
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "5.21.0",
@@ -37,7 +37,6 @@
     "react-dom": "18.3.1",
     "react-syntax-highlighter": "15.6.6",
     "remark-gfm": "4.0.1",
-    "serve": "14.2.6",
     "storybook": "10.3.5",
     "storybook-dark-mode": "5.0.0"
   },
