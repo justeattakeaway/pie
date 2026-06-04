@@ -311,7 +311,6 @@ export class CookieBannerComponent extends BasePage {
         return this.getModalCookieTechnologiesLinkAttribute('target');
     }
 
-
     /**
      * Retrieves the aria-label attribute from the preference switch associated with the specified preference ID.
      *
