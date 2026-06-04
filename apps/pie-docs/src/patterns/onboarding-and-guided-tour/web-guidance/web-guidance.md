@@ -195,7 +195,10 @@ width: 120
 
 During a step-by-step or new feature guide, a spotlight can be utilised to direct attention to specific areas, helping the tooltip focus on key elements. This helps guide the user's attention, making it easier to understand the process by highlighting important sections or actions and improving clarity.
 
-Always use spotlight with an overlay to make onboarding elements stand out by minimising distraction.
+{% notification {
+  type: "information",
+  message: "Always use spotlight with an overlay to make onboarding elements stand out by minimising distraction."
+} %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/onboarding-and-guided-tour/web/contextual-onboarding-tooltip-spotlight-1.svg",

@@ -55,7 +55,7 @@ Use an alert / dialog when you need to provide users with a high-level introduct
 
 {% notification {
   type: "neutral",
-  message: "Check out the Alert (iOS) / Dialog (Android) documentation."
+  message: "Check out the [Alert (iOS) / Dialog (Android) documentation](https://www.pie.design/components/modal/)."
 } %}
 
 #### Actions
@@ -245,8 +245,8 @@ width: 120
 A bottom sheet provides a non-intrusive way to deliver contextual information or actions. This component is well-suited for specific steps within a user's flow or when triggered by user interactions. It is particularly effective for single-step interactions that require focused instructions or quick actions without involving multi-step processes.
 
 {% notification {
-  type: "information",
-  message: "Check out the Bottom sheet documentation."
+  type: "neutral",
+  message: "Check out the [Bottom sheet documentation](https://www.pie.design/components/bottom-sheet/)."
 } %}
 
 #### Single action
