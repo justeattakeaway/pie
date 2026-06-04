@@ -7,6 +7,7 @@
 "@justeattakeaway/pie-icons": patch
 "@justeattakeaway/pie-css": patch
 "@justeattakeaway/pie-storybook": patch
+"@justeattakeaway/pie-monorepo-utils": patch
 ---
 
 [Updated] - Internal dependencies

@@ -50,7 +50,7 @@ describe('create and publish workflow', () => {
         };
 
         execa = {
-            command: mockExecaCommand,
+            execaCommand: mockExecaCommand,
         };
 
         github = {

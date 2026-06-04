@@ -3462,6 +3462,7 @@ __metadata:
     "@changesets/parse": "npm:0.4.3"
     "@justeattakeaway/eslint-plugin-snacks-pie-migration": "npm:0.7.1"
     chalk: "npm:4.1.2"
+    execa: "npm:9.6.1"
   languageName: unknown
   linkType: soft
 
@@ -10866,7 +10867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^9.6.1":
+"execa@npm:9.6.1, execa@npm:^9.6.1":
   version: 9.6.1
   resolution: "execa@npm:9.6.1"
   dependencies:
