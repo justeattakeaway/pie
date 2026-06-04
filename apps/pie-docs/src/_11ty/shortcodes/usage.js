@@ -55,18 +55,18 @@ const buildUsageCard = (usageType, {
             'aria-hidden': 'true',
         },
     });
-        const backdropClasses = ['c-usage-backdrop',
-                ...(isSecondary ? ['c-usage-backdrop-secondary'] : []),
-                ...(isImage ? ['c-usage-backdrop--hasImage'] : []),
-                ...(hasPadding ? ['c-usage-backdrop--hasPadding'] : []),
-        ];
+    const backdropClasses = ['c-usage-backdrop',
+        ...(isSecondary ? ['c-usage-backdrop-secondary'] : []),
+        ...(isImage ? ['c-usage-backdrop--hasImage'] : []),
+        ...(hasPadding ? ['c-usage-backdrop--hasPadding'] : []),
+    ];
 
-        const content = isImage
-                ? items.map((i) => buildImage({
-                        ...i,
-                        backdropClasses,
-                })).join(' ')
-                : `<div class="${backdropClasses.join(' ')}">
+    const content = isImage
+        ? items.map((i) => buildImage({
+            ...i,
+            backdropClasses,
+        })).join(' ')
+        : `<div class="${backdropClasses.join(' ')}">
                     ${list({ type: 'bullet', items })}
                 </div>`;
 
@@ -96,12 +96,12 @@ const buildUsageCard = (usageType, {
  * @returns {string} - The HTML representation of the usage component.
 */
 const usage = (props = {}) => {
-        const cards = Object.keys(metadata)
-                .filter((usageType) => props[usageType])
-                .map((usageType) => buildUsageCard(usageType, props[usageType]))
-                .join(' ');
+    const cards = Object.keys(metadata)
+        .filter((usageType) => props[usageType])
+        .map((usageType) => buildUsageCard(usageType, props[usageType]))
+        .join(' ');
 
-        return `<div class="c-usage-container">
+    return `<div class="c-usage-container">
     ${cards}
 </div>`;
 };
