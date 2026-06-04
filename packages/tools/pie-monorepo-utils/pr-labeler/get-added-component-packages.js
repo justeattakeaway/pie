@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 const scriptPrefix = 'check-added-packages:';
 
@@ -10,7 +10,7 @@ const scriptPrefix = 'check-added-packages:';
  */
 async function getPackageJsonAtRef (ref, filePath) {
     try {
-        const fileContent = execSync(`git show ${ref}:${filePath}`).toString();
+        const fileContent = execFileSync('git', ['show', `${ref}:${filePath}`]).toString();
 
         return JSON.parse(fileContent);
     } catch (err) {

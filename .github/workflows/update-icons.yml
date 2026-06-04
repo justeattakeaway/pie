@@ -6,12 +6,12 @@ env:
   HUSKY: 0
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
+permissions:
+  contents: read
+
 jobs:
   update-icons:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - name: Generate GitHub App token
         id: get-token
