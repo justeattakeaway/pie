@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 const { extractComponentData } = require('@justeattakeaway/eslint-plugin-snacks-pie-migration/extract-component-data');
 const findMonorepoRoot = require('../utils/find-monorepo-root');
@@ -52,18 +52,18 @@ function detectChanges () {
 
     configureGitUser();
 
-    execSync(`git checkout -b ${branchName}`);
+    execFileSync('git', ['checkout', '-b', branchName]);
 
     fs.writeFileSync(dataFilePath, `${JSON.stringify(currentData, null, 2)}\n`, 'utf8');
 
     const changesetContent = `---\n"${ESLINT_PLUGIN_PACKAGE}": minor\n---\n\nUpdate eslint rules for PIE migration\n`;
     fs.writeFileSync(changesetFilePath, changesetContent, 'utf8');
 
-    execSync(`git add "${dataFilePath}" "${changesetFilePath}"`);
-    execSync('git commit --no-verify -m "feat(eslint-plugin-snacks-pie-migration): Update eslint rules for PIE migration"');
+    execFileSync('git', ['add', dataFilePath, changesetFilePath]);
+    execFileSync('git', ['commit', '--no-verify', '-m', 'feat(eslint-plugin-snacks-pie-migration): Update eslint rules for PIE migration']);
 
     if (process.env.GITHUB_ACTIONS) {
-        execSync(`git push --set-upstream origin ${branchName} --no-verify`);
+        execFileSync('git', ['push', '--set-upstream', 'origin', branchName, '--no-verify']);
     }
 
     // Set GitHub Action outputs and environment variables for downstream steps

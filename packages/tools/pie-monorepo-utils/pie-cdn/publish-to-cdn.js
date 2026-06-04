@@ -1,7 +1,7 @@
 /* eslint-disable camelcase, no-console */
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execSync, execFileSync } = require('child_process');
 const findMonorepoRoot = require('../utils/find-monorepo-root.js');
 
 /**
@@ -81,8 +81,15 @@ async function publishToCdn (cdnPackages) {
             }
 
             console.log(`Uploading ${pkg.name} to S3 from ${sourcePath}...`);
-            execSync(
-                `aws s3 sync ${sourcePath}/ s3://$PIE_CDN_BUCKET_NAME/${packageName}/v${pkg.version}/ --region $AWS_REGION --content-type "${pkg.cdnContentType}"`,
+            execFileSync(
+                'aws',
+                [
+                    's3', 'sync',
+                    `${sourcePath}/`,
+                    `s3://${process.env.PIE_CDN_BUCKET_NAME}/${packageName}/v${pkg.version}/`,
+                    '--region', process.env.AWS_REGION,
+                    '--content-type', pkg.cdnContentType,
+                ],
                 { stdio: 'inherit' },
             );
 

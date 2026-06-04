@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import path from 'path';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import { emptyDirSync, copySync } from 'fs-extra/esm';
 import { globSync } from 'glob';
 
@@ -66,7 +66,7 @@ export function syncIcons (tempFolderPath) {
     emptyDirSync(tempFolderPath);
 
     console.info('clone pie-iconography repo');
-    execSync(`git clone --depth=1 --branch=main https://github.com/justeattakeaway/pie-iconography.git ${tempFolderPath}`);
+    execFileSync('git', ['clone', '--depth=1', '--branch=main', 'https://github.com/justeattakeaway/pie-iconography.git', tempFolderPath]);
 
     console.info('sync icon assets');
     const filesArr = getIconFilesPaths(config.folderMapping, tempFolderPath, normalizeFileName);
