@@ -48,6 +48,7 @@ Use a Modal when you need to provide users with a high-level introduction to the
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [Modal documentation](https://www.pie.design/components/modal/web/)."
 } %}
 
@@ -101,16 +102,19 @@ Use a Tooltip to guide users through specific features or highlight particular a
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [Tooltip documentation](https://www.pie.design/components/tooltip/)."
 } %}
 
 {% notification {
   type: "information",
+  iconName: "info-circle",
   message: "The current tooltip component doesn't support all the following features. If required, additional functionality must be handled by pillar engineers."
 } %}
 
 {% notification {
   type: "information",
+  iconName: "info-circle",
   message: "Spacing within the component can be adjusted based on the content requirements and the overall design layout."
 } %}
 
@@ -160,6 +164,7 @@ The default tooltip colour is dark, providing good contrast on light backgrounds
 
 {% notification {
   type: "information",
+  iconName: "info-circle",
   message: "When changing colour variants, be mindful of button styles to ensure they remain accessible and maintain the correct visual hierarchy."
 } %}
 
@@ -197,6 +202,7 @@ During a step-by-step or new feature guide, a spotlight can be utilised to direc
 
 {% notification {
   type: "information",
+  iconName: "info-circle",
   message: "Always use spotlight with an overlay to make onboarding elements stand out by minimising distraction."
 } %}
 
