@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Checkbox Group
-    order: 2
+    order: 3
 ---
 
 ## Web

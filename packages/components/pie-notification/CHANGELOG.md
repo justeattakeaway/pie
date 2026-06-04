@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-notification
 
+## 0.23.3
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-icon-button@2.7.15
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-icons-webc@1.24.2
+
+## 0.23.2
+
+### Patch Changes
+
+- Updated dependencies [[`fc9adc8`](https://github.com/justeattakeaway/pie/commit/fc9adc8e1fe3b00e2f03c0f24d802ca34d8a8ea9)]:
+  - @justeattakeaway/pie-icons-webc@1.24.1
+  - @justeattakeaway/pie-icon-button@2.7.14
+
 ## 0.23.1
 
 ### Patch Changes

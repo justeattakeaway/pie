@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-textarea
 
+## 0.18.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-assistive-text@0.11.33
+  - @justeattakeaway/pie-webc-core@14.0.2
+
+## 0.18.1
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.32
+
 ## 0.18.0
 
 ### Minor Changes

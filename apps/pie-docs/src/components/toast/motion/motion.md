@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Motion
     parent: 'Toast'
-    order: 2
+    order: 4
 eleventyComputed:
     enterTransition: "{% include './enter-transition.json' %}"
     existTransition: "{% include './exit-transition.json' %}"

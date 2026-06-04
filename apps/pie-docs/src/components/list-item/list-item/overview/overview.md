@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: List Item
     order: 1
-shouldShowContents: true
 permalink: components/list-item/list-item/
 ---
 

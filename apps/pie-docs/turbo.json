@@ -9,7 +9,7 @@
       "dependsOn": []
     },
     "build": {
-      "cache": true,
+      "cache": false,
       "dependsOn": [
         "^build",
         "clean",
@@ -20,7 +20,7 @@
       ]
     },
     "build:dev": {
-      "cache": true,
+      "cache": false,
       "dependsOn": [
         "^build",
         "^generate:component-statuses"

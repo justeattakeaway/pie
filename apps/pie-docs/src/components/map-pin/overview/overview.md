@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Map Pin
     order: 1
-shouldShowContents: true
 permalink: components/map-pin/
 ---
 
