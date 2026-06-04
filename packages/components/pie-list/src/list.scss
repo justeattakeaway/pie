@@ -4,6 +4,8 @@
     display: block;
 
     ::slotted(*:nth-last-child(n+2)) {
+        // will need an isCompact prop reflected so we can assign a diff value here
+        padding-block-end: calc(var(--dt-spacing-b) - 1px);
         border-bottom: 1px solid var(--dt-color-divider-default);
     }
 }

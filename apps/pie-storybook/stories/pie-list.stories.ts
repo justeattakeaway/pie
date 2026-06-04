@@ -53,18 +53,21 @@ const Template = ({}: ListProps) => html`
                 <span slot="secondaryText">Secondary text</span>
                 <span slot="trailing">Meta text</span>
             </pie-list-item>
+
             <pie-list-item is-bold>
                 <pie-thumbnail size="40" slot="leading" src="./static/images/pie-logo.svg"></pie-thumbnail>
                 <span slot="primaryText">Primary text</span>
                 <span slot="secondaryText">Secondary text</span>
                 <span slot="trailing">Meta text</span>
             </pie-list-item>
+
             <pie-list-item>
                 <icon-placeholder slot="leading"></icon-placeholder>
                 <span slot="primaryText">Primary text</span>
                 <span slot="secondaryText">Secondary text</span>
                 <span slot="trailing">Meta text</span>
             </pie-list-item>
+
             <pie-list-item>
                 <icon-placeholder slot="leading"></icon-placeholder>
                 <span slot="primaryText">Primary text</span>
