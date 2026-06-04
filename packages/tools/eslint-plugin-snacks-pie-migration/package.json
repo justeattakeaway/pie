@@ -11,7 +11,8 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "scripts": {
     "build": "yarn extract-component-data",
-    "test": "run -T vitest",
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "extract-component-data": "node scripts/extract-component-data.js"

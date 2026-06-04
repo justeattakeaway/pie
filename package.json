@@ -115,12 +115,11 @@
     "stylelint-order": "6.0.4",
     "ts-node": "10.9.2",
     "tsx": "4.19.4",
-    "turbo": "2.9.6",
+    "turbo": "2.9.16",
     "typescript": "5.9.3",
     "vite": "6.4.2",
     "vite-plugin-dts": "4.5.4",
-    "vitest": "4.1.8",
-    "yo": "7.0.1"
+    "vitest": "4.1.8"
   },
   "config": {
     "commitizen": {

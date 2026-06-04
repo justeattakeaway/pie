@@ -16,7 +16,7 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run --config ../../../vite.config.js --environment node",
     "test:ci": "yarn test",
-    "test:watch": "run -T vitest"
+    "test:watch": "run -T vitest run"
   },
   "dependencies": {
     "query-ast": "1.0.5",

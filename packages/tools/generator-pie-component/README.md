@@ -34,6 +34,7 @@ $ yarn build --filter=@justeattakeaway/generator-pie-component --force
 To run the generator, use this command from the root directory within the monorepo:
 
 ```sh
+$ npm install -g yo
 $ yarn yo @justeattakeaway/pie-component
 ```
 
