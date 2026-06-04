@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 /**
  * Check if a file was added but not committed yet
@@ -8,7 +8,7 @@ const { execSync } = require('child_process');
 function isFileNew (relativeFilePath) {
     try {
         // File exists in HEAD
-        execSync(`git cat-file -e HEAD:"${relativeFilePath}"`, { stdio: 'ignore' });
+        execFileSync('git', ['cat-file', '-e', `HEAD:${relativeFilePath}`], { stdio: 'ignore' });
         return false;
     } catch {
         return true;
@@ -25,8 +25,8 @@ function isFileNew (relativeFilePath) {
 function getFileStateFromRef (relativeFilePath, ref, branch = 'main') {
     try {
         // If the base sha wasn't provided, try to guess with merge-base
-        const sha = ref || execSync(`git merge-base HEAD ${branch}`, { encoding: 'utf8' }).trim();
-        return execSync(`git show ${sha}:"${relativeFilePath}"`, { encoding: 'utf8', stdio: 'pipe' });
+        const sha = ref || execFileSync('git', ['merge-base', 'HEAD', branch], { encoding: 'utf8' }).trim();
+        return execFileSync('git', ['show', `${sha}:${relativeFilePath}`], { encoding: 'utf8', stdio: 'pipe' });
     } catch {
         // If the file was added in this branch, this might fail, return empty string
         return '';
@@ -39,7 +39,7 @@ function getFileStateFromRef (relativeFilePath, ref, branch = 'main') {
  */
 function getDefaultBranchName () {
     try {
-        execSync('git show-ref --verify --quiet refs/heads/main', { stdio: 'ignore' });
+        execFileSync('git', ['show-ref', '--verify', '--quiet', 'refs/heads/main'], { stdio: 'ignore' });
         return 'main';
     } catch {
         return 'master';
