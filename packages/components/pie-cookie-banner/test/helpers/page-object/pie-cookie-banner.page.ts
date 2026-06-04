@@ -318,9 +318,9 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<string | null>} A Promise that resolves to the value of the aria-label attribute
      *                                   on the preference switch, or `null` if the attribute does not exist.
      */
-    async getPreferenceSwitchAriaLabel (preferenceIds: PreferenceIds) : Promise<string | null> {
-        const switchComponent = this.page.locator(getPreferenceItemSelector(preferenceIds));
-        return switchComponent.getAttribute('aria-label');
+    async getPreferenceSwitchAriaLabel (preferenceId: PreferenceIds): Promise<string | null> {
+        const switchInput = this.page.locator(`#${preferenceId} [data-test-id="switch-input"]`);
+        return switchInput.getAttribute('aria-label');
     }
 
     /**
