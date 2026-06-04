@@ -35,6 +35,9 @@
     "snacks-components-data.json",
     "snacks-components-solutions.js"
   ],
+  "dependencies": {
+    "glob": "13.0.6"
+  },
   "devDependencies": {
     "@typescript-eslint/parser": "8.46.3",
     "eslint": "8.57.0",

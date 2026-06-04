@@ -3055,6 +3055,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:8.46.3"
     eslint: "npm:8.57.0"
     eslint-plugin-eslint-plugin: "npm:6.0.0"
+    glob: "npm:13.0.6"
   peerDependencies:
     "@typescript-eslint/parser": 8.46.3
     eslint: ">=7.32.0"
