@@ -45,7 +45,7 @@ const handleError = async (github, context, message, error) => {
 const publishSnapshot = async (execa) => {
     await execa.execaCommand('yarn changeset:snapshot', { stdio: 'inherit' });
 
-    const releaseProcess = execa.execaCommand('yarn changeset:publish --no-git-tags --snapshot --tag snapshot-release');
+    const releaseProcess = execa.execaCommand('yarn changeset:publish --no-git-tag --tag snapshot-release');
     releaseProcess.stdout.pipe(process.stdout);
 
     const { stdout } = await releaseProcess;
