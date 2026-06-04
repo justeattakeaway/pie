@@ -8,6 +8,7 @@ describe('usage.js', () => {
             items: [{
                 width: '200px',
                 alt: 'foo bar',
+                caption: 'Helpful image caption',
                 src: 'some/path/to/image',
                 mobileSrc: 'some/path/to/mobile/image',
             }],

@@ -30,6 +30,11 @@
   }
 }
 
+.c-columns--nestedOverridesVisuals {
+  row-gap: var(--dt-spacing-f);
+  margin-block-end: var(--dt-spacing-f);
+}
+
 .c-columns-item {
   display: flex;
   flex-direction: column;

@@ -5,11 +5,18 @@ eleventyNavigation:
   order: 1
 shouldShowContents: true
 permalink: patterns/nested-overrides/
+eleventyComputed:
+    overrideSummaryTableData: "{% include './override-summary-table.json' %}"
 ---
 
 ## Overview
 
 Nested component overrides offer designers the flexibility to adapt components based on specific design needs while maintaining overall system consistency. Overrides ensure that nested elements support their parent components without disrupting the design language.
+
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/overview.svg",
+alt: "Illustration of a textured yellow triangle and a pink textured circle in a blue background with a double edged arrow between them."
+} %}
 
 ---
 
@@ -21,146 +28,229 @@ Overrides are useful when adjusting nested components to ensure they align with 
 
 Nested elements can be adjusted to different types, styles or colours to match the context.
 
-<!-- [image to go here] -->
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/types-of-overrides-variant.svg",
+alt: "Comparison between variant of the avatar component using different colours with either a person icon or AA typography.",
+width: 120
+} %}
 
 ### Size override
 
 Nested component can be resized to create a clear hierarchy within the component.
 
-<!-- [image to go here] -->
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/types-of-overrides-size.svg",
+alt: "Comparison between sizes of the button component.",
+width: 120
+} %}
 
 ### Alignment override
 
 Vertical alignment can be adjusted to improve layout balance.
 
-<!-- [image to go here] -->
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/types-of-overrides-alignment.svg",
+alt: "Two icons that signify top aligned and center aligned.",
+width: 120
+} %}
 
 ### Typography styling
 
 Body content styling can be modified to enhance readability.
 
-<!-- [image to go here] -->
-
----
-
-## Contents
-
-* Override summary
-* Variant overrides
-* Size & Variant overrides
-* Alignment overrides
-* Restricted overrides
-* Typography styling
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/types-of-overrides-typography.svg",
+alt: "Letters A, B, and C in low and upper case.",
+width: 120
+} %}
 
 ---
 
 ## Override summary
 
-
-| Example             | Component/Element | Variant override | Size override | Alignment overrides |
-| :------------------ | :--------------- | :--------------: | :-----------: | :-----------------: |
-| Visually supportive nested elements        |   <ul><li>Avatar</li><li>Tag</li><li>Icon</li></ul>  | Yes | No | No |
-| Bulk quantity nested components             |   <ul><li>Data table’s icon button, buttons, link</li></ul>           | Yes | No | No |
-| Nested actions in full-page overlay components      |  <ul><li>Modal</li><li>Bottom sheet</li><li>Date picker</li></ul>           | Yes | Yes | No |
-| Nested actions in non-full-page overlay components   |  <ul><li>Notification</li><li>Uploader</li></ul>| No | Yes Only decrease in size | No |
-| Nested actions with specific function or purpose   |  <ul><li>Close button</li></ul>| No | No | No |
-| Alignment with leading and trailing content   |  <ul><li>List item</li></ul>| No | No | Yes |
+{% simpleTable {
+    tableData: overrideSummaryTableData,
+    isFullWidth: true
+} %}
 
 ---
 
 ## Variant overrides
 
-### Typography styling
+### Visually supportive nested elements
 
-Within a larger component, nested elements such as tags, avatars and icons often serve as visual support. 
+Within a larger component, nested elements such as tags, avatars and icons often serve as visual support.
 
-<!-- [image to go here] -->
+<div class="c-columns c-columns--nestedOverridesVisuals">
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/variant-overrides-visual-1.svg",
+alt: "Multi line list component with two nested elements; avatar component as leading content and a tag component as trailing content.",
+caption: "List items can use avatars and tags as visually supportive nested elements.",
+width: 120
+} %}
+</div>
 
-<!-- [image to go here] -->
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/variant-overrides-visual-2.svg",
+alt: "Notification component with icon with background as a nested component.",
+caption: "Notifications can use icons with background as visually supportive nested elements.",
+width: 120
+} %}
+</div>
+</div>
 
-Overrides help in colour and style adjustments to match the parent component's theme and ensuring contrast and readability across different design contexts.  Size should remain consistent to maintain visual balance and avoid disrupting the component’s proportions.
+Overrides help in colour and style adjustments to match the parent component's theme and ensuring contrast and readability across different design contexts. Size should remain consistent to maintain visual balance and avoid disrupting the component’s proportions.
 
-### Do
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-list-item-do.svg",
+            width: "256px",
+            caption: "Nested components can be changed to different variants and styles.",
+            alt: "Two list item components with leading avatar and trailing tag as supported nested overrides."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-list-item-dont.svg",
+            width: "256px",
+            caption: "Nested components cannot be increased or decreased in size.",
+            alt: "Two list item components with sizes of leading avatar and trailing tag changed, representing unsupported nested overrides."
+        }]
+    }
+} %}
 
-<!-- [image to go here] -->
-
-Nested components can be changed to different variants and styles.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Nested components cannot be increased or decreased in size. 
-
-### Do
-
-<!-- [image to go here] -->
-
-Icons can be changed to a different one as long as it fits the context.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Icons cannot be increased or decreased in size.
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-notification-do.svg",
+            width: "256px",
+            caption: "Icons can be changed to a different one as long as it fits the context.",
+            alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-notification-dont.svg",
+            width: "256px",
+            caption: "Icons cannot be increased or decreased in size.",
+            alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
+        }]
+    }
+} %}
 
 ### Bulk quantity nested components
 
 Components that contain bulk quantity nested components, such as data tables, often include buttons, icons, and other interactive elements. These nested components can be overridden to provide designers with more flexibility while maintaining usability.
 
-<!-- [image to go here] -->
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/variant-overrides-bulk.svg",
+alt: "A data table with 3 columns and 5 rows where each row has a different nested component such as buttons, icons, and other interactive elements that are all supported nested overrides.",
+width: 120
+} %}
 
 Variants can be adjusted to better support the data table’s structure and hierarchy. However, size adjustments are not recommended, as they can disrupt consistency, affect spacing, and impact the overall usability of the table layout.
 
-### Do
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/variant-override-bulk-nested-do.svg",
+            width: "256px",
+            caption: "Icons cannot be increased or decreased in size.",
+            alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/variant-override-bulk-nested-dont.svg",
+            width: "256px",
+            caption: "Nested components cannot be increased or decreased in size.",
+            alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
+        }]
+    }
+} %}
 
-<!-- [image to go here] -->
+## Size and variant overrides
 
-Icons cannot be increased or decreased in size.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Nested components cannot be increased or decreased in size. 
-
-## Size & Variant overrides
-
-### Nested ctions in full-page overlay components
+### Nested actions in full-page overlay components
 
 Bulk action buttons, such as those in full-page overlays (e.g., modals, bottom sheets, date pickers), may need adjustments to ensure they are usable and consistent across various layouts and screen sizes.
 
-<!-- [image to go here] -->
+<div class="c-columns">
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-1.svg",
+alt: "Modal component with two actions buttons as nested overrides.",
+width: 120
+} %}
+</div>
 
-<!-- [image to go here] -->
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-2.svg",
+alt: "Bottom sheet component with two actions buttons as nested overrides.",
+width: 120
+} %}
+</div>
+</div>
 
-<!-- [image to go here] -->
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-3.svg",
+alt: "A date picker component highlighting the dates from January 18 2021 to February 5 2021 with two action buttons as nested overrides.",
+width: 120
+} %}
 
 Overrides help in scaling button sizes to fit within bulk action toolbars or containers, ensuring they are proportionate and visually balanced. Style can be adjusted to any variant, as long as it aligns with the visual hierarchy. Ensure primary actions are more prominent than secondary actions.
 
-### Do
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-modal-do.svg",
+            width: "256px",
+            caption: "Nested actions in full-page overlay components can be adjusted to different sizes, but all actions within the same set must maintain a consistent size.",
+            alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-modal-dont.svg",
+            width: "256px",
+            caption: "Nested  actions cannot have different sizes individually within the same component.",
+            alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
+        }]
+    }
+} %}
 
-<!-- [image to go here] -->
-
-Nested actions in full-page overlay components can be adjusted to different sizes, but all actions within the same set must maintain a consistent size.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Nested actions cannot have different sizes individually within the same component.
-
-### Do
-
-<!-- [image to go here] -->
-
-Nested actions in full-page overlay components can be adjusted to different variants. However, the primary action must always be more prominent than secondary actions.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Nested actions cannot use the same variant for both primary and secondary actions, nor should the primary action be less prominent than the secondary action.
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-bottom-sheet-do.svg",
+            width: "256px",
+            caption: "Nested actions in full-page overlay components can be adjusted to different variants. However, the primary action must always be more prominent than secondary actions.",
+            alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-bottom-sheet-dont.svg",
+            width: "256px",
+            caption: "Nested actions can't use the same variant for both primary and secondary actions, nor should the primary action be less prominent than the secondary action.",
+            alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
+        }]
+    }
+} %}
 
 ### Size overrides only
 
@@ -168,35 +258,67 @@ Nested actions cannot use the same variant for both primary and secondary action
 
 Action buttons within non-full-page overlays components (e.g. notifications, uploaders) may need size adjustments to ensure they match the overall layout and user expectations.
 
-<!-- [image to go here] -->
+<div class="c-columns">
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-full-notification.svg",
+alt: "A notification component with nested action buttons as nested overrides.",
+width: 120
+} %}
+</div>
 
-<!-- [image to go here] -->
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-full-uploader.svg",
+alt: "An uploader component with one nested action button as nested override.",
+width: 120
+} %}
+</div>
+</div>
 
 Nested actions can be decreased in size to fit the available space and maintain visual balance. However, the variant should remain unchanged to ensure consistency with the overall visual hierarchy.
 
-### Do
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-do-example-1.svg",
+            width: "256px",
+            caption: "Nested action(s) can be decreased in size.",
+            alt: "An uploader component with an action button in a different size but the same variant representing a supported nested override."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-dont-example-2.svg",
+            width: "256px",
+            caption: "Nested actions can't be increased in size nor changed to a different variant.",
+            alt: "Two uploader components with an action button in a different size and variant, representing an unsupported nested override."
+        }]
+    }
+} %}
 
-<!-- [image to go here] -->
-
-Nested action(s) can be decreased in size.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Nested action(s) cannot be increased in size nor changed to a different variant.
-
-### Do
-
-<!-- [image to go here] -->
-
-Nested bulk actions can be decreased in size.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Nested bulk actions cannot be increased in size nor changed to a different variant.
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-do-example-1.svg",
+            width: "256px",
+            caption: "Nested bulk actions can be decreased in size.",
+            alt: "A notification component in the information variant with a primary and ghost button representing supported nested overrides."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-dont-example-2.svg",
+            width: "256px",
+            caption: "Nested bulk actions cannot be increased in size nor changed to a different variant.",
+            alt: "A notification component in the information variant with a secondary and a ghost button, representing unsupported nested override."
+        }]
+    }
+} %}
 
 ---
 
@@ -204,21 +326,34 @@ Nested bulk actions cannot be increased in size nor changed to a different varia
 
 By default, content within components is top-aligned. However, certain nested elements may require vertical alignment adjustments to maintain a proper visual hierarchy and ensure balance within the layout.
 
-<!-- [image to go here] -->
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/alignment-override.svg",
+alt: "A list item component with leading and trailing icons top-aligned.",
+width: 120
+} %}
 
 When necessary, content can be center-aligned, ensuring that all elements—including leading and trailing content—are aligned consistently for a cohesive and well-balanced layout.
 
-### Do
-
-<!-- [image to go here] -->
-
-All content within the component should be consistently aligned.
-
-### Don't
-
-<!-- [image to go here] -->
-
-Content within the component should not have mixed alignments.
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/alignment-override-do.svg",
+            width: "256px",
+            caption: "All content within the component should be consistently aligned.",
+            alt: "A list item component with leading and trailing icons center-aligned, representing supported nested overrides."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/alignment-override-dont.svg",
+            width: "256px",
+            caption: "Content within the component should not have mixed alignments.",
+            alt: "A list item component with the leading icon centre-aligned and the trailing icons top-aligned, representing unsupported nested overrides."
+        }]
+    }
+} %}
 
 ---
 
@@ -228,19 +363,53 @@ Content within the component should not have mixed alignments.
 
 Certain nested actions that serve a specific function or purpose cannot be overwritten. For example, a close button, which is typically a standard icon or action, cannot be overridden in terms of style or size. This ensures functionality is preserved and prevents visual disruption in key interactive elements.
 
-<!-- [image to go here] -->
+<div class="c-columns">
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-1.svg",
+alt: "A tooltip component with a close icon button representing a supported nested override.",
+width: 120
+} %}
+</div>
 
-<!-- [image to go here] -->
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-2.svg",
+alt: "A toast component with one nested action button representing a supported nested override.",
+width: 120
+} %}
+</div>
+</div>
 
-<!-- [image to go here] -->
+<div class="c-columns">
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-3.svg",
+alt: "A modal component with a close icon button representing a supported nested override.",
+width: 120
+} %}
+</div>
 
-<!-- [image to go here] -->
+<div class="c-columns-item">
+{% contentPageImage {
+src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-4.svg",
+alt: "A notification component with one nested action button representing a supported nested override.",
+width: 120
+} %}
+</div>
+</div>
 
-### Don't
-
-<!-- [image to go here] -->
-
-Specific function or purpose actions should not be changed to a different variant.
+{% usage {
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/patterns/nested-overrides/restricted-override-dont.svg",
+            width: "256px",
+            caption: "Specific function or purpose actions should not be changed to a different variant.",
+            alt: "A toast and a notification component in the information variant with the close icon button changed to a different variant, representing unsupported nested overrides."
+        }]
+    }
+} %}
 
 ---
 
@@ -250,7 +419,7 @@ Typography overrides are useful to tailor text to suit different use cases and v
 
 ### Style
 
-Only body text and captions can be styled, e.g. bold or underlined. These changes should be evaluated on a case-by-case basis by the design system team.
+Only body text and captions can be styled, e.g. **bold** or _underlined_. These changes should be evaluated on a case-by-case basis by the design system team.
 
 ### Weight
 

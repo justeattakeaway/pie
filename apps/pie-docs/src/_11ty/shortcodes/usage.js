@@ -19,17 +19,22 @@ const metadata = {
 };
 
 const buildImage = ({
-    width, alt, mobileSrc, src,
+    width, alt, mobileSrc, src, caption, backdropClasses,
 }) => {
     const isImageFullContainerWidth = !width;
     const imageStyles = !isImageFullContainerWidth ? `style="--img-width: ${width};"` : ''; // If image isn't full width, set it to required width
     const imageAlt = `alt="${alt || ''}"`;
     const mobileImageMaxWidth = '600px';
 
-    return `<picture class="c-usage-img">
-            ${mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
-            <img src="${src}" ${imageStyles} ${imageAlt}>
-          </picture>`;
+    return `<div class="c-usage-image" ${imageStyles}>
+            <div class="${backdropClasses.join(' ')}">
+                <picture class="c-usage-img">
+                    ${mobileSrc ? `<source media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
+                    <img src="${src}" ${imageStyles} ${imageAlt}>
+                </picture>
+            </div>
+            ${caption ? `<p class="c-usage-caption">${caption}</p>` : ''}
+          </div>`;
 };
 
 const buildUsageCard = (usageType, {
@@ -50,15 +55,20 @@ const buildUsageCard = (usageType, {
             'aria-hidden': 'true',
         },
     });
-    const backdropClasses = ['c-usage-backdrop',
-        ...(isSecondary ? ['c-usage-backdrop-secondary'] : []),
-        ...(isImage ? ['c-usage-backdrop--hasImage'] : []),
-        ...(hasPadding ? ['c-usage-backdrop--hasPadding'] : []),
-    ];
+        const backdropClasses = ['c-usage-backdrop',
+                ...(isSecondary ? ['c-usage-backdrop-secondary'] : []),
+                ...(isImage ? ['c-usage-backdrop--hasImage'] : []),
+                ...(hasPadding ? ['c-usage-backdrop--hasPadding'] : []),
+        ];
 
-    const content = isImage
-        ? items.map((i) => buildImage(i)).join(' ')
-        : list({ type: 'bullet', items });
+        const content = isImage
+                ? items.map((i) => buildImage({
+                        ...i,
+                        backdropClasses,
+                })).join(' ')
+                : `<div class="${backdropClasses.join(' ')}">
+                    ${list({ type: 'bullet', items })}
+                </div>`;
 
     return `
     <article class="c-usage" style="--style-colour: ${styleColourValue};">
@@ -67,9 +77,7 @@ const buildUsageCard = (usageType, {
           ${svg}
           ${displayName}
         </figcaption>
-        <div class="${backdropClasses.join(' ')}">
-          ${content}
-        </div>
+                ${content}
       </figure>
     </article>`;
 };
@@ -78,8 +86,8 @@ const buildUsageCard = (usageType, {
  * A Usage HTML component – display do/dont information with images or a list of text
  * @typedef {object} UsageItem - An item containing information for either "do" or "dont".
  * @property {string} type - Type of item: "image" or "text".
- * @property {Array<{ src: string, mobileSrc?: string, width?: string }>|Array<string>} items - An array of either image objects or list of text.
- *   If type is "image", it should be an array of objects containing `src`, and optional `width` and `mobileSrc` properties.
+ * @property {Array<{ src: string, alt?: string, caption?: string, mobileSrc?: string, width?: string }>|Array<string>} items - An array of either image objects or list of text.
+ *   If type is "image", it should be an array of objects containing `src`, and optional `alt`, `caption`, `width` and `mobileSrc` properties.
  *   If type is "text", it should be an array of strings.
  *
  * @param {object} usage - Usage configuration object.
@@ -87,8 +95,15 @@ const buildUsageCard = (usageType, {
  * @param {UsageItem} usage.dont - Information for the "dont" section.
  * @returns {string} - The HTML representation of the usage component.
 */
-const usage = (props) => `<div class="c-usage-container">
-  ${Object.keys(metadata).map((usageType) => buildUsageCard(usageType, props[usageType])).join(' ')}
+const usage = (props = {}) => {
+        const cards = Object.keys(metadata)
+                .filter((usageType) => props[usageType])
+                .map((usageType) => buildUsageCard(usageType, props[usageType]))
+                .join(' ');
+
+        return `<div class="c-usage-container">
+    ${cards}
 </div>`;
+};
 
 module.exports = usage;

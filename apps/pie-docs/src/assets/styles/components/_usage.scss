@@ -66,9 +66,22 @@ $usage-bg-minHeight: 280px;
 
 .c-usage-img {
     & img {
-        width: var(--img-width);
+        width: var(--img-width, 100%);
         display: block;
         max-width: 100%;
         height: auto;
     }
+}
+
+.c-usage-image {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dt-spacing-d);
+}
+
+.c-usage-caption {
+    margin: 0;
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
+    inline-size: 100%;
 }
