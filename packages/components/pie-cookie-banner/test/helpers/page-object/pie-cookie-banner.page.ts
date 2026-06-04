@@ -311,6 +311,19 @@ export class CookieBannerComponent extends BasePage {
         return this.getModalCookieTechnologiesLinkAttribute('target');
     }
 
+
+    /**
+     * Retrieves the aria-label attribute from the preference switch associated with the specified preference ID.
+     *
+     * @param {PreferenceIds} preferenceIds The preference ID used to locate the preference switch.
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the aria-label attribute
+     *                                   on the preference switch, or `null` if the attribute does not exist.
+     */
+    async getPreferenceSwitchAriaLabel (preferenceIds: PreferenceIds) : Promise<string | null> {
+        const switchComponent = this.page.locator(getPreferenceItemSelector(preferenceIds));
+        return switchComponent.getAttribute('aria-label');
+    }
+
     /**
      * Checks whether the preference toggle associated with the specified preference IDs is checked.
      *
