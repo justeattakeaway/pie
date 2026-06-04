@@ -65,6 +65,14 @@ async function identifyCdnPackages (publishedPackages) {
 async function publishToCdn (cdnPackages) {
     console.log('Publishing packages to CDN:', cdnPackages);
 
+    // Required by the AWS CLI call below. Validate up front so a missing value
+    // fails fast with a clear message rather than a TypeError from execFileSync.
+    const bucketName = process.env.PIE_CDN_BUCKET_NAME;
+    const awsRegion = process.env.AWS_REGION;
+    if (!bucketName || !awsRegion) {
+        throw new Error('Missing required environment variables: PIE_CDN_BUCKET_NAME and AWS_REGION must be set.');
+    }
+
     // Use Array.forEach instead of for...of to avoid linting errors
     cdnPackages.forEach((pkg) => {
         try {
@@ -86,8 +94,8 @@ async function publishToCdn (cdnPackages) {
                 [
                     's3', 'sync',
                     `${sourcePath}/`,
-                    `s3://${process.env.PIE_CDN_BUCKET_NAME}/${packageName}/v${pkg.version}/`,
-                    '--region', process.env.AWS_REGION,
+                    `s3://${bucketName}/${packageName}/v${pkg.version}/`,
+                    '--region', awsRegion,
                     '--content-type', pkg.cdnContentType,
                 ],
                 { stdio: 'inherit' },

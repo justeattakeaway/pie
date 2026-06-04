@@ -215,7 +215,7 @@ There are two contexts, each with its own form:
 
 ### Spawning Commands from Scripts
 
-When a script runs a command via `child_process`, pass the command and arguments as an array — prefer `execFileSync`/`spawn` (e.g. `execFileSync('git', ['show', `${ref}:${file}`])`) over `execSync` with an interpolated string. The array form handles spaces/special characters in dynamic values (paths, refs, glob results) correctly. Reserve the plain string form for **fully static** commands that interpolate nothing.
+When a script runs a command via `child_process`, pass the command and arguments as an array — prefer `execFileSync`/`spawn` (e.g. `execFileSync('git', ['show', ref + ':' + file])`) over `execSync` with an interpolated string. The array form handles spaces/special characters in dynamic values (paths, refs, glob results) correctly. Reserve the plain string form for **fully static** commands that interpolate nothing.
 
 ## Common Commands
 
