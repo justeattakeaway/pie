@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-extraneous-dependencies */
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import { readJSONSync } from 'fs-extra/esm';
 import path from 'path';
 import writeChangeset from '@changesets/write';
@@ -116,7 +116,7 @@ export async function createIconsChangeset (changedFilesGroups) {
  * @returns File path for the generated changeset file
  */
 export async function createPieDocsChangeset (pieDocsPath) {
-    const changes = execSync(`git status --short ${pieDocsPath}`).toString().trim();
+    const changes = execFileSync('git', ['status', '--short', pieDocsPath]).toString().trim();
 
     if (!changes) return null;
 
