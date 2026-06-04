@@ -38,6 +38,6 @@
   "peerDependencies": {
     "eslint": "7.x || 8.x",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-vitest": "^0.3.20"
+    "eslint-plugin-vitest": "0.5.4"
   }
 }
