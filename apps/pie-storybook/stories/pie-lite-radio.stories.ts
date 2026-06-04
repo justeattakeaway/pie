@@ -25,7 +25,6 @@ const liteRadioStoryMeta: LiteRadioStoryMeta = {
 
 export default liteRadioStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
 const Template = ({}: LiteRadioProps) => html`
         <h2>With slotted labels</h2>
@@ -68,3 +67,57 @@ const Template = ({}: LiteRadioProps) => html`
 `;
 
 export const Default = createStory<LiteRadioProps>(Template, defaultArgs)();
+
+// eslint-disable-next-line no-empty-pattern
+const FormTemplate = ({}: LiteRadioProps) => html`
+    <form id="liteRadioForm" style="display: flex; flex-direction: column; gap: var(--dt-spacing-d); max-width: 360px;">
+        <fieldset style="border: 1px solid var(--dt-color-border-default); padding: var(--dt-spacing-d); border-radius: 4px;">
+            <legend>Favourite option</legend>
+            <div style="display: flex; flex-direction: column; gap: var(--dt-spacing-b); margin-top: var(--dt-spacing-b);">
+                <pie-lite-radio>
+                    <label for="formRadio1">Option A</label>
+                    <input name="choice" id="formRadio1" type="radio" value="a">
+                </pie-lite-radio>
+                <pie-lite-radio>
+                    <label for="formRadio2">Option B</label>
+                    <input name="choice" id="formRadio2" type="radio" checked value="b">
+                </pie-lite-radio>
+                <pie-lite-radio isError>
+                    <label for="formRadio3">Option C (error state)</label>
+                    <input name="choice" required id="formRadio3" type="radio" value="c">
+                </pie-lite-radio>
+                <pie-lite-radio>
+                    <label for="formRadio4">Option D (disabled)</label>
+                    <input name="choice" id="formRadio4" type="radio" value="d" disabled>
+                </pie-lite-radio>
+            </div>
+        </fieldset>
+
+        <div style="display: flex; gap: var(--dt-spacing-b);">
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </div>
+
+        <pre id="liteRadioOutput" style="padding: var(--dt-spacing-b); background-color: var(--dt-color-container-subtle); border-radius: 4px; min-height: 48px; margin: 0; font-size: 0.875rem;">Awaiting submission…</pre>
+    </form>
+
+    <script>
+        // var is used to prevent storybook from erroring when the script is re-run
+        var liteRadioForm = document.querySelector('#liteRadioForm');
+        var liteRadioOutput = document.querySelector('#liteRadioOutput');
+
+        liteRadioForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(liteRadioForm);
+            var result = {};
+            formData.forEach(function (value, key) { result[key] = value; });
+            liteRadioOutput.textContent = JSON.stringify(result, null, 2);
+        });
+
+        liteRadioForm.addEventListener('reset', function () {
+            liteRadioOutput.textContent = '(form reset)';
+        });
+    </script>
+`;
+
+export const ExampleForm = createStory<LiteRadioProps>(FormTemplate, defaultArgs)();
