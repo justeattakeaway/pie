@@ -35,7 +35,7 @@ To run the generator, use this command from the root directory within the monore
 
 ```sh
 $ npm install -g yo
-$ yarn yo @justeattakeaway/pie-component
+$ yo @justeattakeaway/pie-component
 ```
 
 An interactive prompt should now be displayed asking for a component name.
