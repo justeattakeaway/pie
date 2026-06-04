@@ -1,6 +1,6 @@
 /* eslint-disable camelcase, no-restricted-syntax, no-await-in-loop */
 const fs = require('fs');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 module.exports = async ({ github, context }) => {
     const { repo: { owner, repo } } = context;
@@ -26,7 +26,7 @@ module.exports = async ({ github, context }) => {
     // Write and unzip artifact
     const artifactFilePath = `${process.env.GITHUB_WORKSPACE}/tmp-labels.zip`;
     fs.writeFileSync(artifactFilePath, Buffer.from(download.data));
-    execSync(`unzip -o ${artifactFilePath}`);
+    execFileSync('unzip', ['-o', artifactFilePath]);
 
     // Read and parse artifact
     const artifactStr = fs.readFileSync(`${process.env.GITHUB_WORKSPACE}/tmp-labels.json`, 'utf-8');
