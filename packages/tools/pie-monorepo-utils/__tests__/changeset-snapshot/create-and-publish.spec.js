@@ -102,6 +102,29 @@ describe('create and publish workflow', () => {
         });
     });
 
+    describe('when run with `--no-git-tag`', () => {
+        test('should detect public packages from the npm publish success block, not "New tag:" lines', async () => {
+            // Arrange: public packages only appear in the success block (no git tags),
+            // while private packages still print "New tag:" lines and must be ignored.
+            sampleOutput = `
+                🦋  success packages published successfully:
+                🦋  @justeattakeaway/pie-css@0.0.0-snapshot-release-20260604162742
+                @justeattakeaway/pie-icons@0.0.0-snapshot-release-20260604162742
+                🦋  success found untagged projects:
+                🦋  @justeattakeaway/pie-docs@0.0.0-snapshot-release-20260604162742
+                @justeattakeaway/pie-storybook@0.0.0-snapshot-release-20260604162742
+                🦋  New tag:  @justeattakeaway/pie-docs@0.0.0-snapshot-release-20260604162742
+                🦋  New tag:  @justeattakeaway/pie-storybook@0.0.0-snapshot-release-20260604162742
+            `;
+
+            // Act
+            await workflow({ context, github }, execa);
+
+            // Assert
+            expect(expectedBody).toMatchSnapshot();
+        });
+    });
+
     describe('if exactly one component was changed', () => {
         test('should not include the note about multiple packages', async () => {
             // Arrange
