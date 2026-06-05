@@ -131,6 +131,16 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(isNecessaryPreferenceToggleDisabled).toBe(true);
     });
 
+    test('should have an aria-label matching the preference title on each switch', async () => {
+        // Arrange
+        await pieCookieBannerComponent.load();
+        await pieCookieBannerComponent.clickManagePreferencesAction();
+
+        // Assert
+        expect(await pieCookieBannerComponent.getPreferenceSwitchAriaLabel('all')).toBe('Turn all on');
+        expect(await pieCookieBannerComponent.getPreferenceSwitchAriaLabel('functional')).toBe('Functional');
+    });
+
     test('should toggle all preferences if the `all` preference node is set to true', async () => {
         // Arrange
         await pieCookieBannerComponent.load({ defaultPreferences: null });

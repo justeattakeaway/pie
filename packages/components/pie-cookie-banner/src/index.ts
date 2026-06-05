@@ -267,6 +267,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
                  </div>
                 <pie-switch
                     id="${id}"
+                    .aria="${{ label: title }}"
                     ?checked="${this.defaultPreferences?.[id] || shouldToggleAll || checked}"
                     ?disabled="${disabled}"
                     @change="${this._handleSwitchStates}">
