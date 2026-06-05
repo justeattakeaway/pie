@@ -23,5 +23,8 @@
     "@changesets/parse": "0.4.3",
     "@justeattakeaway/eslint-plugin-snacks-pie-migration": "0.7.1",
     "chalk": "4.1.2"
+  },
+  "devDependencies": {
+    "execa": "9.6.1"
   }
 }
