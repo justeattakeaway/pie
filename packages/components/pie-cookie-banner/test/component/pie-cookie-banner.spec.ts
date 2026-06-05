@@ -534,6 +534,8 @@ test.describe('PieCookieBanner - Component tests', () => {
             // Assert
             const anchor = page.locator(`pie-cookie-banner .c-cookieBanner-description a[href="${PROBE_HREF}"]`);
             await expect(anchor).toBeVisible();
-        });
+            await expect(anchor).toHaveAttribute('target', '_blank');
+            await expect(anchor).toHaveAttribute('rel', /noopener/);
+            await expect(anchor).toHaveAttribute('rel', /noreferrer/);
     });
 });
