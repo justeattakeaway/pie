@@ -190,9 +190,6 @@ test.describe('Component: `Pie switch`', () => {
             const switchEl = page.locator('pie-switch#wrapping-switch');
             await expect(switchEl).not.toHaveAttribute('checked');
 
-            // Click the label text rather than the label itself, otherwise the
-            // click can land on the switch host directly and toggle via the
-            // internal shadow-DOM label instead of the external-label code path.
             const labelText = page.getByTestId('external-label-wrapping-text');
 
             // Act
