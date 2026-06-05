@@ -40,7 +40,7 @@ import {
     type LanguageCode,
 } from './defs';
 
-import { localiseText, localiseRichText } from './localisation-utils';
+import { localiseText, localiseRichText, sanitiseDescriptionHtml } from './localisation-utils';
 
 // Valid values available to consumers
 export * from './defs';
@@ -263,7 +263,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
             <div class="c-cookieBanner-preference">
                 <div>
                     <h3 class="c-cookieBanner-subheading">${title}</h3>
-                     ${description ? html`<p class="c-cookieBanner-description">${unsafeHTML(description)}</p>` : nothing}
+                     ${description ? html`<p class="c-cookieBanner-description">${unsafeHTML(sanitiseDescriptionHtml(description))}</p>` : nothing}
                  </div>
                 <pie-switch
                     id="${id}"

@@ -135,6 +135,35 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
 }
 
 /**
+ * Sanitises an HTML string to allow only safe <a> tags.
+ * Strips all other elements (keeping their text) and removes unsafe href protocols
+ * and non-allowlisted attributes from <a> elements.
+ */
+export function sanitiseDescriptionHtml (input: string): string {
+    const SAFE_ATTRS = new Set(['href', 'rel', 'target']);
+    const BLOCKED_PROTOCOL = /^(javascript|data|vbscript)\s*:/i;
+
+    const doc = new DOMParser().parseFromString(input, 'text/html');
+    // Reverse so deepest descendants are processed first — ensures nested <a> tags
+    // survive when their parent wrapper element is unwrapped.
+    const elements = Array.from(doc.body.querySelectorAll('*')).reverse();
+
+    elements.forEach((el) => {
+        if (el.tagName !== 'A') {
+            el.replaceWith(...Array.from(el.childNodes));
+            return;
+        }
+        const href = (el.getAttribute('href') ?? '').trim();
+        if (BLOCKED_PROTOCOL.test(href)) el.removeAttribute('href');
+        Array.from(el.attributes).forEach((attr) => {
+            if (!SAFE_ATTRS.has(attr.name)) el.removeAttribute(attr.name);
+        });
+    });
+
+    return doc.body.innerHTML;
+}
+
+/**
  * Localises a rich text string by replacing custom tags with their respective enhancer functions content
  * If the key is not found, it will be used as fallback
  * @param locale {CookieBannerLocale} locale data object
