@@ -18,7 +18,7 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "check-rules": "eslint-find-rules --unused",
     "pretest": "yarn lint:scripts && yarn check-rules",
-    "test": "vitest run",
+    "test": "run -T vitest run",
     "test:ci": "yarn test --testTimeout=10000"
   },
   "license": "Apache-2.0",
@@ -38,6 +38,6 @@
   "peerDependencies": {
     "eslint": "7.x || 8.x",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-vitest": "^0.3.20"
+    "eslint-plugin-vitest": "0.5.4"
   }
 }

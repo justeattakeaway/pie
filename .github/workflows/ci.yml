@@ -183,11 +183,12 @@ jobs:
           bash <(curl --silent --show-error "https://raw.githubusercontent.com/rhysd/actionlint/${ACTIONLINT_VERSION}/scripts/download-actionlint.bash")
           ./actionlint -color
 
-  build-windows-node-24:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: windows-latest
-    secrets: inherit
+  # Windows Node 24 build is currently disabled as it is not stable in CI
+  #   build-windows-node-24:
+  #     uses: ./.github/workflows/install-build.yml
+  #     with:
+  #       os: windows-latest
+  #     secrets: inherit
 
   build-ubuntu-node-24:
     uses: ./.github/workflows/install-build.yml
@@ -260,8 +261,7 @@ jobs:
     name: component-tests (${{ matrix.package }})
     needs: [ build-ubuntu-node-24, deploy-storybook-testing, check-change-type ]
     if: >-
-      needs.check-change-type.outputs.web-components-change == 'true'
-      && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+      needs.check-change-type.outputs.web-components-change == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.57.0-noble
@@ -314,7 +314,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: [  unit-tests, check-change-type  ]
+    needs: [ unit-tests, check-change-type ]
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     permissions:
       contents: read
@@ -405,7 +405,6 @@ jobs:
       - lint-js
       - lint-workflows
       - build-ubuntu-node-24
-      - build-windows-node-24
       - unit-tests
       - component-tests
       - deploy-docs

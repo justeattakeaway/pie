@@ -21,7 +21,7 @@
     "cdnContentType": "text/css"
   },
   "scripts": {
-    "build": "run -T ts-node ./buildCss.ts && run -T ts-node ./buildInternalScss.ts",
+    "build": "run -T tsx ./buildCss.ts && run -T tsx ./buildInternalScss.ts",
     "generate:typography-docs": "node scripts/generate-typography-docs.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
