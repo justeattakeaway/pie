@@ -40,7 +40,6 @@
     "babel-loader": "8.3.0",
     "cheerio": "1.2.0",
     "fs-extra": "11.3.4",
-    "glob": "11.1.0",
     "html-minifier-terser": "7.2.0",
     "is-svg": "6.1.0",
     "prettier": "2.8.7",
