@@ -83,9 +83,9 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         const { signal } = this._abortController;
 
         this.addEventListener('click', (event: Event) => {
-        // Only programmatically click the input if the explicit target
-        // of the click was the host element itself (e.g., via an external label).
-        // This ignores clicks bubbling up from the internal shadow DOM.
+            // Only programmatically click the input if the explicit target
+            // of the click was the host element itself (e.g., via an external label).
+            // This ignores clicks bubbling up from the internal shadow DOM and prevents loops.
             if (event.composedPath()[0] === this) {
                 this.input.click();
             }
