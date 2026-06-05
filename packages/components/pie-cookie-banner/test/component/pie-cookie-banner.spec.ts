@@ -492,4 +492,37 @@ test.describe('PieCookieBanner - Component tests', () => {
             });
         });
     });
+
+    test.describe('per-category description rich text', () => {
+        const PROBE_HREF = 'https://example.com/privacy';
+        const RICH_DESCRIPTION = `Read our <a href="${PROBE_HREF}">privacy policy</a> for more info.`;
+
+        test('should render an anchor injected into a per-category description', async ({ page }) => {
+            // Arrange
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.waitForLocaleUpdate();
+
+            await page.evaluate(async ([description]) => {
+                const component = document.querySelector('pie-cookie-banner') as any;
+                component._locale = {
+                    ...component._locale,
+                    preferencesManagement: {
+                        ...component._locale.preferencesManagement,
+                        necessary: {
+                            ...component._locale.preferencesManagement.necessary,
+                            description,
+                        },
+                    },
+                };
+                await component.updateComplete;
+            }, [RICH_DESCRIPTION]);
+
+            // Act – open manage preferences so per-category descriptions are rendered
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Assert
+            const anchor = page.locator(`pie-cookie-banner .c-cookieBanner-description a[href="${PROBE_HREF}"]`);
+            await expect(anchor).toBeVisible();
+        });
+    });
 });
