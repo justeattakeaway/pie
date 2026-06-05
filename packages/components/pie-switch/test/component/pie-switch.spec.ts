@@ -160,6 +160,73 @@ test.describe('Component: `Pie switch`', () => {
         });
     });
 
+    test.describe('External labels', () => {
+        test('should toggle the switch when an external label with `for` is clicked', async ({ page }) => {
+            // Arrange
+            const switchPage = new BasePage(page, 'switch--external-labels');
+            await switchPage.load();
+
+            const switchEl = page.getByTestId('external-switch-for');
+            expect(await switchEl.isChecked()).toBe(false);
+
+            // Act
+            await page.getByTestId('external-label-for').click();
+
+            // Assert
+            expect(await switchEl.isChecked()).toBe(true);
+
+            // Act - click again to untoggle
+            await page.getByTestId('external-label-for').click();
+
+            // Assert
+            expect(await switchEl.isChecked()).toBe(false);
+        });
+
+        test('should toggle the switch when a wrapping external label is clicked', async ({ page }) => {
+            // Arrange
+            const switchPage = new BasePage(page, 'switch--external-labels');
+            await switchPage.load();
+
+            const switchEl = page.getByTestId('external-switch-wrapping');
+            expect(await switchEl.isChecked()).toBe(false);
+
+            const labelText = page.getByTestId('external-label-wrapping-text');
+
+            // Act
+            await labelText.click();
+
+            // Assert
+            expect(await switchEl.isChecked()).toBe(true);
+
+            // Act - click again to untoggle
+            await labelText.click();
+
+            // Assert
+            expect(await switchEl.isChecked()).toBe(false);
+        });
+
+        test('should toggle the switch when any of multiple associated labels is clicked', async ({ page }) => {
+            // Arrange
+            const switchPage = new BasePage(page, 'switch--external-labels');
+            await switchPage.load();
+
+            const switchEl = page.getByTestId('external-switch-multi');
+            expect(await switchEl.isChecked()).toBe(false);
+
+            // Act - click the first label
+            await page.getByTestId('external-label-multi-a').click();
+
+            // Assert
+            expect(await switchEl.isChecked()).toBe(true);
+
+            // Act - click the second label
+            await page.getByTestId('external-label-multi-b').click();
+
+            // Assert
+            expect(await switchEl.isChecked()).toBe(false);
+        });
+    });
+
     test.describe('Props: `aria`', () => {
         test.describe('when label exist', () => {
             test('should render the component with the correct aria-labels', async ({ page }) => {
