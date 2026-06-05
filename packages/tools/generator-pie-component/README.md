@@ -34,7 +34,7 @@ $ yarn build --filter=@justeattakeaway/generator-pie-component --force
 To run the generator, use this command from the root directory within the monorepo:
 
 ```sh
-$ yarn yo @justeattakeaway/pie-component
+$ npx yo @justeattakeaway/pie-component
 ```
 
 An interactive prompt should now be displayed asking for a component name.
@@ -103,4 +103,4 @@ In order to contribute to the `generator-pie-component`, it's advised to link yo
 
 To do this, run `yarn link` from the root of the `generator-pie-component` folder in the mono-repo.
 
-Once you have done this, running `yarn yo @justeattakeaway/pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).
+Once you have done this, running `npx yo @justeattakeaway/pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).
