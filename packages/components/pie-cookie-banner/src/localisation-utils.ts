@@ -135,11 +135,17 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
 }
 
 /**
- * Sanitises an HTML string to allow only safe <a> tags.
- * Strips all other elements (keeping their text) and removes unsafe href protocols
- * and non-allowlisted attributes from <a> elements.
+ * Sanitises an HTML string to allow only safe <a> tags, and normalises anchor
+ * attributes to respect the component's link-target behaviour.
+ *
+ * - Strips all non-<a> elements (keeping their text content).
+ * - Removes unsafe href protocols (javascript:, data:, vbscript:).
+ * - Removes non-allowlisted attributes (only href, rel, target survive).
+ * - Defaults missing target to linkTarget.
+ * - Adds rel="noopener noreferrer" when target="_blank" and rel is absent
+ *   (prevents reverse-tabnabbing).
  */
-export function sanitiseDescriptionHtml (input: string): string {
+export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): string {
     const SAFE_ATTRS = new Set(['href', 'rel', 'target']);
     const BLOCKED_PROTOCOL = /^(javascript|data|vbscript)\s*:/i;
 
@@ -158,6 +164,10 @@ export function sanitiseDescriptionHtml (input: string): string {
         Array.from(el.attributes).forEach((attr) => {
             if (!SAFE_ATTRS.has(attr.name)) el.removeAttribute(attr.name);
         });
+        if (!el.hasAttribute('target')) el.setAttribute('target', linkTarget);
+        if (el.getAttribute('target') === '_blank' && !el.hasAttribute('rel')) {
+            el.setAttribute('rel', 'noopener noreferrer');
+        }
     });
 
     return doc.body.innerHTML;

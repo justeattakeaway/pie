@@ -263,7 +263,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
             <div class="c-cookieBanner-preference">
                 <div>
                     <h3 class="c-cookieBanner-subheading">${title}</h3>
-                     ${description ? html`<p class="c-cookieBanner-description">${unsafeHTML(sanitiseDescriptionHtml(description))}</p>` : nothing}
+                     ${description ? html`<p class="c-cookieBanner-description">${unsafeHTML(sanitiseDescriptionHtml(description, this._linkTargetAttribute))}</p>` : nothing}
                  </div>
                 <pie-switch
                     id="${id}"

@@ -54,22 +54,22 @@ describe('sanitiseDescriptionHtml', () => {
 
     it('strips non-allowlisted attributes from <a>', () => {
         const input = '<a href="https://example.com" onclick="evil()" class="foo">link</a>';
-        expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com">link</a>');
+        expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
     });
 
     it('strips javascript: href', () => {
         const input = '<a href="javascript:alert(1)">xss</a>';
-        expect(sanitiseDescriptionHtml(input)).toBe('<a>xss</a>');
+        expect(sanitiseDescriptionHtml(input)).toBe('<a target="_blank" rel="noopener noreferrer">xss</a>');
     });
 
     it('strips data: href', () => {
         const input = '<a href="data:text/html,<script>alert(1)</script>">xss</a>';
-        expect(sanitiseDescriptionHtml(input)).toBe('<a>xss</a>');
+        expect(sanitiseDescriptionHtml(input)).toBe('<a target="_blank" rel="noopener noreferrer">xss</a>');
     });
 
     it('strips vbscript: href', () => {
         const input = '<a href="vbscript:msgbox(1)">xss</a>';
-        expect(sanitiseDescriptionHtml(input)).toBe('<a>xss</a>');
+        expect(sanitiseDescriptionHtml(input)).toBe('<a target="_blank" rel="noopener noreferrer">xss</a>');
     });
 
     it('strips non-anchor tags but keeps their text', () => {
@@ -79,12 +79,39 @@ describe('sanitiseDescriptionHtml', () => {
 
     it('preserves <a> nested inside stripped tags', () => {
         const input = '<em>Read <a href="https://example.com">more</a> here</em>';
-        expect(sanitiseDescriptionHtml(input)).toBe('Read <a href="https://example.com">more</a> here');
+        expect(sanitiseDescriptionHtml(input)).toBe('Read <a href="https://example.com" target="_blank" rel="noopener noreferrer">more</a> here');
     });
 
     it('strips script tags and does not execute content', () => {
         const input = 'Hello <script>alert(1)</script> world';
         expect(sanitiseDescriptionHtml(input)).not.toContain('<script>');
+    });
+
+    describe('anchor normalisation', () => {
+        it('sets default target="_blank" when target is absent', () => {
+            const input = '<a href="https://example.com">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+        });
+
+        it('sets provided linkTarget when target is absent', () => {
+            const input = '<a href="https://example.com">link</a>';
+            expect(sanitiseDescriptionHtml(input, '_self')).toBe('<a href="https://example.com" target="_self">link</a>');
+        });
+
+        it('adds rel="noopener noreferrer" when target="_blank" and rel is absent', () => {
+            const input = '<a href="https://example.com" target="_blank">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+        });
+
+        it('does not add rel when target is not _blank', () => {
+            const input = '<a href="https://example.com" target="_self">link</a>';
+            expect(sanitiseDescriptionHtml(input, '_self')).toBe('<a href="https://example.com" target="_self">link</a>');
+        });
+
+        it('preserves existing rel when target="_blank"', () => {
+            const input = '<a href="https://example.com" target="_blank" rel="noopener">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener">link</a>');
+        });
     });
 });
 
