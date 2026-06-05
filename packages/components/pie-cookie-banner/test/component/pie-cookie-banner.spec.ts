@@ -513,6 +513,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             await pieCookieBannerComponent.waitForLocaleUpdate();
 
             await page.evaluate(async ([description]) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const component = document.querySelector('pie-cookie-banner') as any;
                 component._locale = {
                     ...component._locale,
