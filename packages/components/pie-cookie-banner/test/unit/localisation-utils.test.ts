@@ -84,7 +84,7 @@ describe('sanitiseDescriptionHtml', () => {
 
     it('strips script tags and does not execute content', () => {
         const input = 'Hello <script>alert(1)</script> world';
-        expect(sanitiseDescriptionHtml(input)).not.toContain('<script>');
+        expect(sanitiseDescriptionHtml(input)).toBe('Hello  world');
     });
 
     describe('anchor normalisation', () => {

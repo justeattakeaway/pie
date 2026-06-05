@@ -141,7 +141,7 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
  * - Strips all non-<a> elements (keeping their text content).
  * - Removes unsafe href protocols (javascript:, data:, vbscript:).
  * - Removes non-allowlisted attributes (only href, rel, target survive).
- * - Defaults missing target to linkTarget.
+ * - Sets target to linkTarget (overrides any existing target).
  * - Adds rel="noopener noreferrer" when target="_blank" and rel is absent
  *   (prevents reverse-tabnabbing).
  */
@@ -157,6 +157,12 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
 
     elements.forEach((el) => {
         if (el.tagName !== 'A') {
+            // Remove executable/content-bearing tags entirely instead of leaving their text behind.
+            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') {
+                el.remove();
+                return;
+            }
+
             el.replaceWith(...Array.from(el.childNodes));
             return;
         }
