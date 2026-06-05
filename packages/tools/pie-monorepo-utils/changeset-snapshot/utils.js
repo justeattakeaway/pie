@@ -50,12 +50,6 @@ const publishSnapshot = async (execa) => {
 
     const { stdout } = await releaseProcess;
 
-    // We run `changeset publish` with `--no-git-tag`, so the public packages it
-    // publishes to npm do NOT emit "New tag:" lines (those are only printed when
-    // git tags are created). We therefore detect published packages from their
-    // `name@version` identifiers, which appear in changeset's publish output
-    // regardless of whether git tags were created. Identifiers are de-duplicated
-    // because private packages can be listed more than once.
     const newTags = [...new Set(Array
             .from(stdout.matchAll(/@justeattakeaway\/[\w-]+@\d+\.\d+\.\d+-snapshot-release-\d+/g))
             .map(([tag]) => tag))].filter((tag) => !/pie-(monorepo|docs|storybook)/.test(tag));
