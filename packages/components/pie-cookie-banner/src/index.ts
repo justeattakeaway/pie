@@ -9,6 +9,7 @@ import {
     property, state, queryAll,
 } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-divider';
@@ -262,7 +263,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
             <div class="c-cookieBanner-preference">
                 <div>
                     <h3 class="c-cookieBanner-subheading">${title}</h3>
-                     ${description ? html`<p class="c-cookieBanner-description">${description}</p>` : nothing}
+                     ${description ? html`<p class="c-cookieBanner-description">${unsafeHTML(description)}</p>` : nothing}
                  </div>
                 <pie-switch
                     id="${id}"
