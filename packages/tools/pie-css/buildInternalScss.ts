@@ -6,7 +6,6 @@ import { glob } from 'glob';
 const INTERNAL_DIR = 'scss/_internal';
 const DIST_DIR = 'dist';
 const NODE_MODULES_PATH = '../../../node_modules';
-const YARN_BIN = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
 
 /**
  * Discovers all .scss files under scss/_internal/ and compiles each one
@@ -40,7 +39,7 @@ async function buildInternalScss (): Promise<void> {
         console.info(`Compiling ${inputFile} -> ${outputFile}`);
 
         execFileSync(
-            YARN_BIN,
+            'yarn',
             ['run', '-T', 'sass', `--load-path=${NODE_MODULES_PATH}`, inputFile, outputFile, '--no-source-map'],
             { stdio: 'inherit' },
         );
