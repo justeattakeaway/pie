@@ -82,15 +82,14 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         this._abortController = new AbortController();
         const { signal } = this._abortController;
 
-        this._internals.labels.forEach((label) => {
-            label.addEventListener('click', (event) => {
-                // Ignore clicks that originated inside the component and bubbled
-                // back out via the shadow DOM. Without this, a wrapping <label>
-                // would re-trigger this handler and loop indefinitely.
-                if (event.target === this) return;
+        this.addEventListener('click', (event: Event) => {
+        // Only programmatically click the input if the explicit target
+        // of the click was the host element itself (e.g., via an external label).
+        // This ignores clicks bubbling up from the internal shadow DOM.
+            if (event.composedPath()[0] === this) {
                 this.input.click();
-            }, { signal });
-        });
+            }
+        }, { signal });
     }
 
     disconnectedCallback () : void {
