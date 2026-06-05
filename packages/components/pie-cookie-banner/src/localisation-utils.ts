@@ -147,7 +147,8 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
  */
 export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): string {
     const SAFE_ATTRS = new Set(['href', 'rel', 'target']);
-    const BLOCKED_PROTOCOL = /^(javascript|data|vbscript)\s*:/i;
+    const ALLOWED_PROTOCOLS = new Set(['http:', 'https:', 'mailto:', 'tel:']);
+    const PROTOCOL_RE = /^([a-z0-9+.-]+):/i;
     const normalisedLinkTarget = linkTarget === '_self' ? '_self' : '_blank';
 
     const doc = new DOMParser().parseFromString(input, 'text/html');
@@ -168,7 +169,11 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
         }
         const href = (el.getAttribute('href') ?? '').trim();
         const hrefForProtocolCheck = href.replace(/[\u0000-\u001F\u007F\s]+/g, '');
-        if (BLOCKED_PROTOCOL.test(hrefForProtocolCheck)) el.removeAttribute('href');
+        const protocolMatch = hrefForProtocolCheck.match(PROTOCOL_RE);
+        if (protocolMatch) {
+            const protocol = `${protocolMatch[1].toLowerCase()}:`;
+            if (!ALLOWED_PROTOCOLS.has(protocol)) el.removeAttribute('href');
+        }
         Array.from(el.attributes).forEach((attr) => {
             if (!SAFE_ATTRS.has(attr.name)) el.removeAttribute(attr.name);
         });
