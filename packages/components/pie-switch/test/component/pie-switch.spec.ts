@@ -166,20 +166,20 @@ test.describe('Component: `Pie switch`', () => {
             const switchPage = new BasePage(page, 'switch--external-labels');
             await switchPage.load();
 
-            const switchEl = page.getByTestId('external-switch-for');
-            expect(await switchEl.isChecked()).toBe(false);
+            const switchEl = page.locator('pie-switch#external-switch');
+            await expect(switchEl).not.toHaveAttribute('checked');
 
             // Act
             await page.getByTestId('external-label-for').click();
 
             // Assert
-            expect(await switchEl.isChecked()).toBe(true);
+            await expect(switchEl).toHaveAttribute('checked', '');
 
             // Act - click again to untoggle
             await page.getByTestId('external-label-for').click();
 
             // Assert
-            expect(await switchEl.isChecked()).toBe(false);
+            await expect(switchEl).not.toHaveAttribute('checked');
         });
 
         test('should toggle the switch when a wrapping external label is clicked', async ({ page }) => {
@@ -187,22 +187,25 @@ test.describe('Component: `Pie switch`', () => {
             const switchPage = new BasePage(page, 'switch--external-labels');
             await switchPage.load();
 
-            const switchEl = page.getByTestId('external-switch-wrapping');
-            expect(await switchEl.isChecked()).toBe(false);
+            const switchEl = page.locator('pie-switch#wrapping-switch');
+            await expect(switchEl).not.toHaveAttribute('checked');
 
+            // Click the label text rather than the label itself, otherwise the
+            // click can land on the switch host directly and toggle via the
+            // internal shadow-DOM label instead of the external-label code path.
             const labelText = page.getByTestId('external-label-wrapping-text');
 
             // Act
             await labelText.click();
 
             // Assert
-            expect(await switchEl.isChecked()).toBe(true);
+            await expect(switchEl).toHaveAttribute('checked', '');
 
             // Act - click again to untoggle
             await labelText.click();
 
             // Assert
-            expect(await switchEl.isChecked()).toBe(false);
+            await expect(switchEl).not.toHaveAttribute('checked');
         });
 
         test('should toggle the switch when any of multiple associated labels is clicked', async ({ page }) => {
@@ -210,20 +213,20 @@ test.describe('Component: `Pie switch`', () => {
             const switchPage = new BasePage(page, 'switch--external-labels');
             await switchPage.load();
 
-            const switchEl = page.getByTestId('external-switch-multi');
-            expect(await switchEl.isChecked()).toBe(false);
+            const switchEl = page.locator('pie-switch#multi-label-switch');
+            await expect(switchEl).not.toHaveAttribute('checked');
 
             // Act - click the first label
             await page.getByTestId('external-label-multi-a').click();
 
             // Assert
-            expect(await switchEl.isChecked()).toBe(true);
+            await expect(switchEl).toHaveAttribute('checked', '');
 
             // Act - click the second label
             await page.getByTestId('external-label-multi-b').click();
 
             // Assert
-            expect(await switchEl.isChecked()).toBe(false);
+            await expect(switchEl).not.toHaveAttribute('checked');
         });
     });
 
