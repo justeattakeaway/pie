@@ -148,6 +148,7 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
 export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): string {
     const SAFE_ATTRS = new Set(['href', 'rel', 'target']);
     const BLOCKED_PROTOCOL = /^(javascript|data|vbscript)\s*:/i;
+    const normalisedLinkTarget = linkTarget === '_self' ? '_self' : '_blank';
 
     const doc = new DOMParser().parseFromString(input, 'text/html');
     // Reverse so deepest descendants are processed first — ensures nested <a> tags
@@ -164,9 +165,20 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
         Array.from(el.attributes).forEach((attr) => {
             if (!SAFE_ATTRS.has(attr.name)) el.removeAttribute(attr.name);
         });
-        if (!el.hasAttribute('target')) el.setAttribute('target', linkTarget);
-        if (el.getAttribute('target') === '_blank' && !el.hasAttribute('rel')) {
-            el.setAttribute('rel', 'noopener noreferrer');
+        el.setAttribute('target', normalisedLinkTarget);
+
+        if (normalisedLinkTarget === '_blank') {
+            const relTokens = new Set(
+                (el.getAttribute('rel') ?? '')
+                    .split(/\s+/)
+                    .filter(Boolean),
+            );
+
+            relTokens.add('noopener');
+            relTokens.add('noreferrer');
+            el.setAttribute('rel', Array.from(relTokens).join(' '));
+        } else {
+            el.removeAttribute('rel');
         }
     });
 

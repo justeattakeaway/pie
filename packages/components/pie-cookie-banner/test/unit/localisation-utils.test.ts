@@ -110,7 +110,17 @@ describe('sanitiseDescriptionHtml', () => {
 
         it('preserves existing rel when target="_blank"', () => {
             const input = '<a href="https://example.com" target="_blank" rel="noopener">link</a>';
-            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener">link</a>');
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+        });
+
+        it('enforces the provided linkTarget when target is already present', () => {
+            const input = '<a href="https://example.com" target="_blank">link</a>';
+            expect(sanitiseDescriptionHtml(input, '_self')).toBe('<a href="https://example.com" target="_self">link</a>');
+        });
+
+        it('adds missing noreferrer when target="_blank" has a partial rel value', () => {
+            const input = '<a href="https://example.com" target="_blank" rel="noopener">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
         });
     });
 });
