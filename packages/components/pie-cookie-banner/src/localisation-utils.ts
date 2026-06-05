@@ -142,7 +142,7 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
  * - Removes unsafe href protocols (javascript:, data:, vbscript:).
  * - Removes non-allowlisted attributes (only href, rel, target survive).
  * - Sets target to linkTarget (overrides any existing target).
- * - Adds rel="noopener noreferrer" when target="_blank" and rel is absent
+ * - Ensures rel contains "noopener noreferrer" when target="_blank"
  *   (prevents reverse-tabnabbing).
  */
 export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): string {
