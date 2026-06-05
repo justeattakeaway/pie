@@ -30,7 +30,7 @@ yarn install
 
 exports[`create and publish workflow > if other packages were changed > should ignore monorepo/docs/storybook changes 1`] = `"No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot."`;
 
-exports[`create and publish workflow > when run with \`--no-git-tag\` (CLI 2.31.0 output) > should detect public packages from the npm publish success block, not "New tag:" lines 1`] = `
+exports[`create and publish workflow > when run with \`--no-git-tag\` > should detect public packages from the npm publish success block, not "New tag:" lines 1`] = `
 "@pie-contributor Your snapshots have been published to npm!
 
 Test the snapshots by updating your \`package.json\` with the newly-published versions:
