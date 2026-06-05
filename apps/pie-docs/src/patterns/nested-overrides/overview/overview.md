@@ -81,25 +81,22 @@ width: 120
 
 Within a larger component, nested elements such as tags, avatars and icons often serve as visual support.
 
-<div class="c-columns c-columns--nestedOverridesVisuals">
-<div class="c-columns-item">
-{% contentPageImage {
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/variant-overrides-visual-1.svg",
 alt: "Multi line list component with two nested elements; avatar component as leading content and a tag component as trailing content.",
-caption: "List items can use avatars and tags as visually supportive nested elements.",
 width: 120
 } %}
-</div>
-
-<div class="c-columns-item">
-{% contentPageImage {
+  {% endcontentItem %}
+  {% contentItem %}
+   {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/variant-overrides-visual-2.svg",
 alt: "Notification component with icon with background as a nested component.",
-caption: "Notifications can use icons with background as visually supportive nested elements.",
 width: 120
 } %}
-</div>
-</div>
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 Overrides help in colour and style adjustments to match the parent component's theme and ensuring contrast and readability across different design contexts. Size should remain consistent to maintain visual balance and avoid disrupting the component’s proportions.
 
@@ -184,23 +181,22 @@ Variants can be adjusted to better support the data table’s structure and hier
 
 Bulk action buttons, such as those in full-page overlays (e.g., modals, bottom sheets, date pickers), may need adjustments to ensure they are usable and consistent across various layouts and screen sizes.
 
-<div class="c-columns">
-<div class="c-columns-item">
-{% contentPageImage {
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-1.svg",
 alt: "Modal component with two actions buttons as nested overrides.",
 width: 120
 } %}
-</div>
-
-<div class="c-columns-item">
-{% contentPageImage {
+  {% endcontentItem %}
+  {% contentItem %}
+   {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-2.svg",
 alt: "Bottom sheet component with two actions buttons as nested overrides.",
 width: 120
 } %}
-</div>
-</div>
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-3.svg",
@@ -254,27 +250,26 @@ Overrides help in scaling button sizes to fit within bulk action toolbars or con
 
 ### Size overrides only
 
-##### Nested actions in non-full-page overlay components
+#### Nested actions in non-full-page overlay components
 
 Action buttons within non-full-page overlays components (e.g. notifications, uploaders) may need size adjustments to ensure they match the overall layout and user expectations.
 
-<div class="c-columns">
-<div class="c-columns-item">
-{% contentPageImage {
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-full-notification.svg",
 alt: "A notification component with nested action buttons as nested overrides.",
 width: 120
 } %}
-</div>
-
-<div class="c-columns-item">
-{% contentPageImage {
+  {% endcontentItem %}
+  {% contentItem %}
+   {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/size-nested-actions-full-uploader.svg",
 alt: "An uploader component with one nested action button as nested override.",
 width: 120
 } %}
-</div>
-</div>
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 Nested actions can be decreased in size to fit the available space and maintain visual balance. However, the variant should remain unchanged to ensure consistency with the overall visual hierarchy.
 
@@ -363,41 +358,39 @@ When necessary, content can be center-aligned, ensuring that all elements—incl
 
 Certain nested actions that serve a specific function or purpose cannot be overwritten. For example, a close button, which is typically a standard icon or action, cannot be overridden in terms of style or size. This ensures functionality is preserved and prevents visual disruption in key interactive elements.
 
-<div class="c-columns">
-<div class="c-columns-item">
-{% contentPageImage {
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-1.svg",
 alt: "A tooltip component with a close icon button representing a supported nested override.",
 width: 120
 } %}
-</div>
-
-<div class="c-columns-item">
-{% contentPageImage {
+  {% endcontentItem %}
+  {% contentItem %}
+   {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-2.svg",
 alt: "A toast component with one nested action button representing a supported nested override.",
 width: 120
 } %}
-</div>
-</div>
+  {% endcontentItem %}
+{% endcontentLayout %}
 
-<div class="c-columns">
-<div class="c-columns-item">
-{% contentPageImage {
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-3.svg",
 alt: "A modal component with a close icon button representing a supported nested override.",
 width: 120
 } %}
-</div>
-
-<div class="c-columns-item">
-{% contentPageImage {
+  {% endcontentItem %}
+  {% contentItem %}
+   {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/restricted-override-example-4.svg",
 alt: "A notification component with one nested action button representing a supported nested override.",
 width: 120
 } %}
-</div>
-</div>
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 {% usage {
     dont: {
@@ -413,7 +406,7 @@ width: 120
 
 ---
 
-## Typography styling
+## Typography overrides
 
 Typography overrides are useful to tailor text to suit different use cases and visual needs.
 
