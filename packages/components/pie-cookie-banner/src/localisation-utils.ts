@@ -167,7 +167,8 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
             return;
         }
         const href = (el.getAttribute('href') ?? '').trim();
-        if (BLOCKED_PROTOCOL.test(href)) el.removeAttribute('href');
+        const hrefForProtocolCheck = href.replace(/[\u0000-\u001F\u007F\s]+/g, '');
+        if (BLOCKED_PROTOCOL.test(hrefForProtocolCheck)) el.removeAttribute('href');
         Array.from(el.attributes).forEach((attr) => {
             if (!SAFE_ATTRS.has(attr.name)) el.removeAttribute(attr.name);
         });
