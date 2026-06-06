@@ -17,7 +17,6 @@
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-font-weight: var(--dt-font-body-l-weight);
-    --notification-close-btn-size: 40px; // 40px is the size of the medium icon button
     --notification-close-btn-offset: var(--dt-spacing-b);
     --notification-icon-fill: var(--dt-color-content-inverse);
     --notification-icon-background-color: var(--dt-color-container-inverse);
@@ -99,10 +98,10 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: var(--dt-spacing-d);
+        gap: var(--dt-spacing-c);
 
         &.is-dismissible {
-            max-width: calc(100% - var(--notification-close-btn-size));
+            max-width: calc(100% - var(--notification-close-btn-offset) - 40px); // 40px is the size of the medium icon button
         }
     }
 
@@ -118,10 +117,8 @@
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
-
         pie-button,
         ::slotted(pie-button) {
-
             margin-block-start: var(--dt-spacing-d);
         }
 
@@ -133,16 +130,10 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
-
-                &:has(pie-button),
-                &:has(::slotted(pie-button)) {
-                    margin-block-start: var(--dt-spacing-b);
-                }
+                gap: 0;
 
                 pie-button,
                 ::slotted(pie-button) {
-                    margin-block-start: 0;
-
                     --btn-inline-size: 100%;
                 }
             }
@@ -170,7 +161,7 @@
             --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
             --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
             --notification-font-weight: var(--dt-font-body-s-weight);
-            --notification-close-btn-offset: 0;
+            --notification-close-btn-offset: var(--dt-spacing-a);
 
             padding: var(--dt-spacing-b);
             gap: 0;
@@ -180,24 +171,16 @@
             }
 
             .c-notification-icon-close {
-                inset-block-start: 50%;
-                transform: translateY(-50%);
-            }
-
-            &:has(.has-multiline) .c-notification-icon-close,
-            &:has(.c-notification-footer pie-button) .c-notification-icon-close {
                 inset-block-start: var(--notification-close-btn-offset);
-                transform: none;
+                inset-inline-end: var(--notification-close-btn-offset);
             }
 
             .c-notification-content-section {
-                // border: 1px solid red;
                 gap: var(--dt-spacing-b);
 
                 min-height: var(--notification-content-min-height);
 
                 &.is-dismissible {
-
                     min-height: var(--notification-content-min-height-dismissible);
                     max-width: calc(100% - var(--notification-close-btn-size));
                 }
@@ -210,7 +193,6 @@
             }
 
             .c-notification-footer {
-
                 align-items: flex-end;
 
                 &.is-compact {
@@ -238,14 +220,9 @@
 .icon,
 ::slotted([slot="icon"]) {
     display: inline-flex;
-    align-self: center;
+    align-self: flex-start;
     background-color: var(--notification-icon-background-color);
     color: var(--notification-icon-fill);
     border-radius: var(--dt-radius-rounded-b);
     padding: var(--dt-spacing-a);
-}
-
-.has-multiline .icon,
-.has-multiline ::slotted([slot="icon"]) {
-    align-self: flex-start;
 }
