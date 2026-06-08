@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.79.4
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+  - @justeattakeaway/pie-css@1.1.2
+  - @justeattakeaway/pie-webc@0.10.16
+
 ## 1.79.3
 
 ### Patch Changes

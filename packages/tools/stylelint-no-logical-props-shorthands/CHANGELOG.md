@@ -1,5 +1,11 @@
 # @justeattakeaway/stylelint-no-logical-props-shorthands
 
+## 0.3.1
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.3.0
 
 ### Minor Changes
