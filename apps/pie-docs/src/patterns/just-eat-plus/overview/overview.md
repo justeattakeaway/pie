@@ -82,6 +82,7 @@ The 3D asset of our logo is treated as an illustration and should not be used in
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [Logo assets](https://www.figma.com/design/eUOZTTYaTYbmy73i0wpkL9/-Core--Brand-assets--PIE-3-?node-id=1-2360)."
 } %}
 
@@ -117,6 +118,7 @@ JET+ gradients must be applied to neutral backgrounds, we never use gradients ov
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [Gradients foundation documentation](https://www.pie.design/foundations/gradients/)."
 } %}
 
@@ -215,6 +217,7 @@ src:"../../../assets/img/patterns/just-eat-plus/gradients-dark-jet-support-02.sv
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [PIE Colours tokens](https://www.pie.design/foundations/colours/)."
 } %}
 
@@ -261,6 +264,7 @@ Please use narrow or wide respective of the context you're designing for.
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [Typography documentation](https://www.pie.design/foundations/typography/)."
 } %}
 
@@ -288,6 +292,7 @@ You can find these in our illustration library separated from our other illustra
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [JET+ illustrations](https://www.figma.com/design/vU0z8Jgaxm5SRDqnk6xY0j/-Core--Illustrations--PIE-3-?node-id=19732-1114&t=PAcCL1FFizyRNh0Q-4)."
 } %}
 

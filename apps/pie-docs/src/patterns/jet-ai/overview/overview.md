@@ -79,6 +79,7 @@ Because of this we ask that the sparkle icons not be used in any other context o
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [iconography documentation](https://pie.design/foundations/iconography/)."
 } %}
 
@@ -124,6 +125,7 @@ AI gradients must be applied to neutral backgrounds and we never use gradients o
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [Gradients foundation documentation](https://pie.design/foundations/gradients/)."
 } %}
 
@@ -253,6 +255,7 @@ If you would like additional motion pieces to support your work, please get in t
 
 {% notification {
   type: "neutral",
+  iconName: "link",
   message: "Check out the [Motion guidelines](https://pie.design/foundations/motion/)."
 } %}
 
