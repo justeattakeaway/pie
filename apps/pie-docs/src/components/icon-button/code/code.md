@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Icon Button
-    order: 2
+    order: 5
 ---
 
 ## Web

@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Motion
     parent: 'Radio'
-    order: 2
+    order: 5
 shouldShowContents: true
 eleventyComputed:
     hover: "{% include './hover.json' %}"

@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Numeric Stepper
     order: 1
-shouldShowContents: true
 permalink: components/numeric-stepper/numeric-stepper/
 ---
 

@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Tooltip
     order: 1
-shouldShowContents: true
 permalink: components/tooltip/
 ---
 

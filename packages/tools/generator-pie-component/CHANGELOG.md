@@ -1,5 +1,23 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.34.0
+
+### Minor Changes
+
+- [Fixed] - Storybook markdown import ([#2902](https://github.com/justeattakeaway/pie/pull/2902)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Import Meta and Markdown from `@storybook/addon-docs/blocks` ([#2905](https://github.com/justeattakeaway/pie/pull/2905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.33.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.33.1
 
 ### Patch Changes

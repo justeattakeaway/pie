@@ -1,5 +1,62 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- feat(pie-docs): DSW-3933 adding onboarding patterns ([#2885](https://github.com/justeattakeaway/pie/pull/2885)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] New onboarding patterns page for both Web and Apps.
+
+### Minor Changes
+
+- [Updated] - Minor eleventy version update ([#2909](https://github.com/justeattakeaway/pie/pull/2909)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+  - @justeattakeaway/pie-icons@5.27.3
+  - @justeattakeaway/pie-css@1.1.2
+  - @justeattakeaway/pie-webc@0.10.16
+
+## 4.74.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-icons-webc@1.24.2
+  - @justeattakeaway/pie-webc@0.10.15
+  - @justeattakeaway/pie-icons@5.27.2
+
+## 4.74.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.14
+
+## 4.74.0
+
+### Minor Changes
+
+- Moved web content to it's own web tab for all components, so we can support having other platform tabs ([#2867](https://github.com/justeattakeaway/pie/pull/2867)) by [@maledr5](https://github.com/maledr5)
+
+- feat(pie-docs): [Added] - Slider component Android documentation as replacement of Figma docs ([#2864](https://github.com/justeattakeaway/pie/pull/2864)) by [@joshua-king-JET](https://github.com/joshua-king-JET)
+
+### Patch Changes
+
+- [Added] - Publishing new pattern pages for Errors, Focus state, JET AI, Just Eat +, Nested overrides, Onboarding, and Selected state and new foundations page for Gradients. ([#2871](https://github.com/justeattakeaway/pie/pull/2871)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`fc9adc8`](https://github.com/justeattakeaway/pie/commit/fc9adc8e1fe3b00e2f03c0f24d802ca34d8a8ea9)]:
+  - @justeattakeaway/pie-icons-webc@1.24.1
+  - @justeattakeaway/pie-webc@0.10.13
+  - @justeattakeaway/pie-icons@5.27.1
+
 ## 4.73.7
 
 ### Patch Changes

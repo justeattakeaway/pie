@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Android
     parent: Spinner
-    order: 4
+    order: 3
 draft: true
 ---
 
