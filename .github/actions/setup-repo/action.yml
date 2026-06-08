@@ -9,34 +9,15 @@ inputs:
 runs:
   using: composite
   steps:
-      # Read tool versions from mise.toml (single source of truth)
-      - name: Read tool versions from mise.toml
-        id: mise
-        shell: bash
-        run: |
-          node_version=$(grep -E '^node\s*=' mise.toml | sed -E 's/.*"([^"]+)".*/\1/')
-          yarn_version=$(grep -E '^yarn\s*=' mise.toml | sed -E 's/.*"([^"]+)".*/\1/')
-          if [ -z "$node_version" ]; then
-            echo 'Failed to read node version from mise.toml'
-            exit 1
-          fi
-          if [ -z "$yarn_version" ]; then
-            echo 'Failed to read yarn version from mise.toml'
-            exit 1
-          fi
-          echo "node-version=$node_version" >> "$GITHUB_OUTPUT"
-          echo "yarn-version=$yarn_version" >> "$GITHUB_OUTPUT"
-      # Setup Node
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      # Install tools (Node + corepack) from mise.toml — single source of truth.
+      # node.corepack = true in mise.toml enables corepack, which activates the
+      # Yarn version pinned in package.json's packageManager field on first use.
+      - name: Setup mise
+        uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
         with:
-          node-version: ${{ steps.mise.outputs.node-version }}
-      # Enable corepack (bundled with Node) and activate the correct Yarn version
-      - name: Enable Corepack
-        shell: bash
-        run: |
-          corepack enable
-          corepack prepare yarn@${{ steps.mise.outputs.yarn-version }} --activate
+          install: true
+          cache: true
+
       - name: Get caching params
         id: cache-params
         shell: bash
