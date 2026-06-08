@@ -3018,14 +3018,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:7.11.1":
-  version: 7.11.1
-  resolution: "@justeat/pie-design-tokens@npm:7.11.1"
+"@justeat/pie-design-tokens@npm:7.13.0":
+  version: 7.13.0
+  resolution: "@justeat/pie-design-tokens@npm:7.13.0"
   dependencies:
     jsonc-parser: "npm:3.2.0"
     lodash.merge: "npm:4.6.2"
     mkdirp: "npm:1.0.4"
-  checksum: 10/00466891dbe10ed809bdc8d60001bb1c0cddabc3c345bf362024830482f0513c84a5a6b78175e72480cc5232f962ca5169a1dd89e6fa6033e021d24e79ca1e5d
+  checksum: 10/fe7c9aa46c152059c6e2d28506942ba95491c8c9961b1718ec5cda3821a64d3db9c499afde1f7a8414dd1824b60555e5c425417cb95f8e6ebd6fc0642e166c57
   languageName: node
   linkType: hard
 
@@ -3208,7 +3208,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.0"
     "@types/postcss-import": "npm:14.0.3"
     include-media: "npm:2.0.0"
     postcss: "npm:8.4.32"
@@ -3249,7 +3249,7 @@ __metadata:
     "@docsearch/css": "npm:3.9.0"
     "@docsearch/js": "npm:3.9.0"
     "@justeat/fozzie": "npm:11.2.2"
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.0"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
     "@justeattakeaway/pie-css": "npm:1.1.2"
     "@justeattakeaway/pie-icons": "npm:5.27.3"
@@ -3437,7 +3437,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.0"
     "@justeattakeaway/pie-button": "npm:1.14.2"
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
     "@justeattakeaway/pie-css": "npm:1.1.2"
@@ -3531,7 +3531,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-storybook@workspace:apps/pie-storybook"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.0"
     "@justeattakeaway/pie-css": "npm:1.1.2"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.24.3"
@@ -3663,7 +3663,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-token-map@workspace:packages/tools/pie-token-map"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.0"
     "@justeattakeaway/pie-components-config": "npm:*"
   languageName: unknown
   linkType: soft
@@ -15899,7 +15899,7 @@ __metadata:
     "@commitlint/cli": "npm:20.5.0"
     "@commitlint/config-conventional": "npm:20.5.0"
     "@custom-elements-manifest/analyzer": "npm:0.11.0"
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.0"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-icons": "workspace:*"
