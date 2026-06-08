@@ -9,9 +9,9 @@ permalink: foundations/gradients/
 
 ## Overview
 
-Gradients are a type of style that are made up of 2 or more global colour tokens that fade from one into another, set at stops between 0-100%. We use primarily linear gradient styles for use in backgrounds, containers and smaller UI elements.
+Gradients are a type of style that are made up of two or more global colour tokens that fade from one into another, set at stops between 0-100%. We use primarily linear gradient styles for use in backgrounds, containers and smaller UI elements.
 
-We use gradients to signify and visually communicate ‘special’ content in our products, like messaging, imagery and motion related to our sub-brands, Just Eat+ and the Just Eat AI Assistant. Because of this we ask to please not use gradients to convey other meanings in product.
+We use gradients to signify and visually communicate ‘special’ content in our products, like messaging, imagery and motion related to our sub-brands, Just Eat+ and the Just Eat AI Assistant. Because of this, please don't use gradients to convey other meanings in product.
 
 {% notification {
     type: "warning",
@@ -49,11 +49,11 @@ width: 230
 
 ## Using gradients in your products
 
-If you’re using gradients that belong to JET AI or JET+ we highly suggest you check out our Core [JET AI documentation](https://www.pie.design/patterns/jet-ai/) and [JET + documentation](https://www.pie.design/patterns/just-eat-plus/) for how to use these specific gradients for their intended purpose.
+If you’re using gradients that belong to JET AI or JET+ we highly suggest you check out our Core [JET AI documentation](https://www.pie.design/patterns/jet-ai/) and [JET+ documentation](https://www.pie.design/patterns/just-eat-plus/) for how to use these specific gradients for their intended purpose.
 
 {% notification {
     type: "warning",
-    message: "Please never manually adjust  the direction, stops, colours or opacity of any of our gradient styles. Doing so will detach the gradient from our styles and create an entirely new gradient."
+    message: "Please never manually adjust the direction, stops, colours or opacity of any of our gradient styles. Doing so will detach the gradient from our styles and create an entirely new gradient."
 } %}
 
 {% usage {
@@ -127,7 +127,7 @@ Please do not use gradients that have been specifically created as part of the v
 
 ### Don't use gradients in text
 
-We do not recommend using gradients for text currently as none of our gradients have been tested on text and this can have a big impact on accessibility. **Please use any of our content colours tokens for text.**
+We do not recommend using gradients for text currently as none of our gradients have been tested on text and this can have a big impact on accessibility. **Please use any of our content colour tokens for text.**
 
 {% usage {
     do: {
@@ -148,7 +148,7 @@ We do not recommend using gradients for text currently as none of our gradients 
     }
 } %}
 
-### Pair with solid colours which compliment the brand
+### Pair with solid colours which complement the brand
 
 We highly encourage using gradients alongside solid brand, container and background colours, to maximise the impact of the gradient. We suggest avoiding using too many gradients together as this can feel overwhelming.
 
