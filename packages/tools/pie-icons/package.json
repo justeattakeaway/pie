@@ -35,9 +35,9 @@
     "classnames": "2.5.1"
   },
   "devDependencies": {
-    "@babel/node": "7.29.0",
+    "@babel/node": "7.29.7",
     "@changesets/write": "0.4.0",
-    "babel-loader": "8.3.0",
+    "babel-loader": "8.4.1",
     "cheerio": "1.2.0",
     "fs-extra": "11.3.4",
     "html-minifier-terser": "7.2.0",
