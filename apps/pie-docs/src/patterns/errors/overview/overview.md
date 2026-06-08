@@ -22,7 +22,7 @@ The implementation of error states and the corresponding messages can vary from 
     dont: {
         type: usageTypes.text,
         items: [
-            "Avoid providing error messages in toasts and tooltips and pop-ups. They offer limited space to communicate the error and they disappear after a certain duration or a certain action.",
+          "Avoid using toasts, tooltips, or pop-ups for critical or blocking error messages. They offer limited space to communicate the error and can disappear after a certain duration or user action.",
             "Don't overwhelm users with technical jargon or vague messages.",
             "Don't leave users without a clear course of action."
         ]
@@ -60,7 +60,7 @@ Global errors affect the entire website or application and should be highly visi
     do: {
         type: usageTypes.text,
         items: [
-            "Apply to errors affect the entire website or application.",
+            "Apply to errors that affect the entire website or application.",
             "Explain the problem clearly and provide guidance for users to resolve the issue."
         ]
     },
@@ -85,7 +85,7 @@ Full width notification must be placed at the top of the page or screen, typical
 
 {% contentPageImage {
   src: "../../../assets/img/patterns/errors/global-full-width-01.svg",
-  alt: "Desktop mockup of full-width error notification placed at the top of the page communicating a wi-fi connectivity issue, directly below the navigation bar.",
+  alt: "Desktop mockup of full-width error notification placed at the top of the page communicating a connectivity issue, directly below the navigation bar.",
   width: 256
 } %}
 
@@ -97,7 +97,7 @@ Full width notification must be placed at the top of the page or screen, typical
 
 ### Modal
 
-Use a modal for critical errors that require immediate attention and block further interaction fully, such as session expiration that require users to login again. It overlays the page and focuses the user on the required action before they can continue.
+Use a modal for critical errors that require immediate attention and block further interaction fully, such as session expiration that require users to log in again. It overlays the page and focuses the user on the required action before they can continue.
 
 {% contentPageImage {
   src: "../../../assets/img/patterns/errors/global-modal.svg",
@@ -124,7 +124,7 @@ Both types of error can be communicated with [notification component](https://ww
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't apply to errors affect the entire website or application."
+            "Don't apply to errors that affect the entire website or application."
         ]
     }
 } %}
@@ -166,13 +166,13 @@ Field error relates to individual input field within a form or data entry sectio
         type: usageTypes.text,
         items: [
             "Apply to input field error only.",
-            "Provide clear Instructions on how to correct the error in the field, not just that an error exists."
+            "Provide clear instructions on how to correct the error in the field, not just that an error exists."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't apply to errors affect the entire website or application.",
+            "Don't apply to errors that affect the entire website or application.",
             "Don't validate fields before the input is complete."
         ]
     }
