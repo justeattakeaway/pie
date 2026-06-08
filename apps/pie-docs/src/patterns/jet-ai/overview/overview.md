@@ -11,7 +11,7 @@ permalink: patterns/jet-ai/
 
 At JET we've started using AI to assist and elevate the customer experience.
 
-We have established AI at JET with it’s own, distinct visual identity for the purpose of letting our customers quickly recognise AI generated content within our products. This is so that we can remain as transparent as possible in our use of AI.
+We have established AI at JET with its own, distinct visual identity for the purpose of letting our customers quickly recognise AI generated content within our products. This is so that we can remain as transparent as possible in our use of AI.
 
 We ask that you only use our AI branded elements for AI generated technology used in our product.
 
@@ -62,7 +62,7 @@ width: 120
     type: usageTypes.text,
     items: [
       "**Don't make changes to the gradient.** All gradients have specific uses, if you need something different, get in touch.",
-      "**Don't overlay gradients with other gradients.** Gradient usage needs to be intentional. Please do not overlay gradients with other gradients (E.g JET+)."
+      "**Don't overlay gradients with other gradients.** Gradient usage needs to be intentional. Please do not overlay gradients with other gradients (e.g. JET+)."
     ]
   }
 } %}
@@ -99,17 +99,17 @@ width: 120
     type: listTypes.ordered,
     items: [
         "**Type 1:** It's made up of 2 sparkles and should be used in all static AI content.",
-        "**Type 2:** It's made up of 1 sparkle and should only be used in designs where the icon will be animated in build.See how we use this icon animated in our motion section of these guidelines."
+        "**Type 2:** It's made up of 1 sparkle and should only be used in designs where the icon will be animated in build. See how we use this icon animated in our motion section of these guidelines."
     ]
 } %}
 
 ### Icon examples
 
-The primary AI icon is ‘Type 1’ and includes 2 sparkles. This is to be used on all static AI content where the icon does not animate. For example, it can be used along with headings to signify the use of AI in the proceeding information. We use this icon because it feels more interesting and dynamic than the alternative does when no animation is applied.
+The primary AI icon is ‘Type 1’ and includes 2 sparkles. This is to be used on all static AI content where the icon does not animate. For example, it can be used along with headings to signify the use of AI in the preceding information. We use this icon because it feels more interesting and dynamic than the alternative does when no animation is applied.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/jet-ai/icon-examples.svg",
-alt: "Examples of icon button, container and tag AI branded components with the advice 'Use along with headings to signify the use of AI in the proceeding information'.",
+alt: "Examples of icon button, container and tag AI branded components with the advice 'Use along with headings to signify the use of AI in the preceding information'.",
 width: 120
 } %}
 
@@ -192,7 +192,7 @@ alt: "Scale showing gradient stops from 0% to 100% for the dark mode ai-border-d
 
 ### Using images versus gradients
 
-We use gradients specifically for our container and borders, however we highly suggesting using this static image gradient background for content with a height of 162px or above. There is an animation for this background but this is to only be used in the AI assistants.
+We use gradients specifically for our container and borders, however we highly suggest using this static image gradient background for content with a height of 162px or above. There is an animation for this background but this is to only be used in the AI assistants.
 
 This gradient is more dynamic and works better at larger sizes. It comes in both light and dark variants and should be switched out according to the theme.
 
@@ -335,18 +335,18 @@ If you would like additional components made to support your work, please get in
     items: [{
             src: "../../../assets/img/patterns/jet-ai/components-dont.svg",
             width: "256px",
-            alt: "Container component with AI gradient fill with a tag component inside represeting incorrect layering of gradients."
+            alt: "Container component with AI gradient fill with a tag component inside representing incorrect layering of gradients."
         }]
   }
 } %}
 
 ### Layering components
 
-Avoid repetitive use of the AI icon, especially in instances where the screen content is AI only (E.g the AI assistant).
+Avoid repetitive use of the AI icon, especially in instances where the screen content is AI only (e.g. the AI assistant).
 
 Designs including AI should be subtle and simple, with little visual clutter. Allow the gradient to be the main focus, with supporting neutral components.
 
-Avoid layering gradient styles as causes additional visual clutter.
+Avoid layering gradient styles as it causes additional visual clutter.
 
 {% usage {
   do: {
@@ -361,7 +361,7 @@ Avoid layering gradient styles as causes additional visual clutter.
     type: usageTypes.text,
     items: [
       "Avoid repetitive use of the AI icon, especially in instances where the screen content is AI only (e.g. the AI assistant).",
-      "Avoid layering gradient styles as causes additional visual clutter.",
+      "Avoid layering gradient styles as it causes additional visual clutter.",
       "Avoid using component variants ghost, outline, secondary, etc as they can impact accessibility and contrast."
     ]
   }
