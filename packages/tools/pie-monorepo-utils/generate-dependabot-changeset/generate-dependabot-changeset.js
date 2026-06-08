@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
-function decodeBase64Json (base64) {
-    return JSON.parse(Buffer.from(base64, 'base64').toString('utf-8'));
+function decodeBase64 (base64) {
+    return Buffer.from(base64, 'base64').toString('utf-8');
 }
 
 function getChangedDependencies (basePkg, headPkg) {
@@ -36,7 +36,7 @@ function buildChangesetContent (packageNames, depChanges) {
 async function getFileContent (github, owner, repo, path, ref) {
     try {
         const { data } = await github.rest.repos.getContent({ owner, repo, path, ref });
-        return decodeBase64Json(data.content);
+        return JSON.parse(decodeBase64(data.content));
     } catch (err) {
         if (err.status === 404) return null;
         throw err;
@@ -46,7 +46,7 @@ async function getFileContent (github, owner, repo, path, ref) {
 async function getExistingFile (github, owner, repo, path, ref) {
     try {
         const { data } = await github.rest.repos.getContent({ owner, repo, path, ref });
-        return { sha: data.sha, content: Buffer.from(data.content, 'base64').toString('utf-8') };
+        return { sha: data.sha, content: decodeBase64(data.content) };
     } catch (err) {
         if (err.status === 404) return null;
         throw err;
