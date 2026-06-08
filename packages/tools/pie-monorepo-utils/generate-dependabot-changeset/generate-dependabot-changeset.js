@@ -7,14 +7,10 @@ function decodeBase64 (base64) {
 function getChangedDependencies (basePkg, headPkg) {
     const baseDeps = basePkg.dependencies ?? {};
     const headDeps = headPkg.dependencies ?? {};
-    const changed = [];
-    const allKeys = new Set([...Object.keys(baseDeps), ...Object.keys(headDeps)]);
-    for (const key of allKeys) {
-        if (baseDeps[key] !== headDeps[key]) {
-            changed.push(`${key} ${baseDeps[key] ?? 'added'} → ${headDeps[key] ?? 'removed'}`);
-        }
-    }
-    return changed;
+    const allKeys = [...new Set([...Object.keys(baseDeps), ...Object.keys(headDeps)])];
+    return allKeys
+        .filter((key) => baseDeps[key] !== headDeps[key])
+        .map((key) => `${key} ${baseDeps[key] ?? 'added'} → ${headDeps[key] ?? 'removed'}`);
 }
 
 function buildChangesetContent (packageNames, depChanges) {
@@ -35,7 +31,9 @@ function buildChangesetContent (packageNames, depChanges) {
 
 async function getFileContent (github, owner, repo, path, ref) {
     try {
-        const { data } = await github.rest.repos.getContent({ owner, repo, path, ref });
+        const { data } = await github.rest.repos.getContent({
+            owner, repo, path, ref,
+        });
         return JSON.parse(decodeBase64(data.content));
     } catch (err) {
         if (err.status === 404) return null;
@@ -45,7 +43,9 @@ async function getFileContent (github, owner, repo, path, ref) {
 
 async function getExistingFile (github, owner, repo, path, ref) {
     try {
-        const { data } = await github.rest.repos.getContent({ owner, repo, path, ref });
+        const { data } = await github.rest.repos.getContent({
+            owner, repo, path, ref,
+        });
         return { sha: data.sha, content: decodeBase64(data.content) };
     } catch (err) {
         if (err.status === 404) return null;
@@ -61,7 +61,9 @@ module.exports = async ({ github, context }) => {
     const headSha = pr.head.sha;
     const baseSha = pr.base.sha;
 
-    const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: prNumber, per_page: 100 });
+    const files = await github.paginate(github.rest.pulls.listFiles, {
+        owner, repo, pull_number: prNumber, per_page: 100,
+    });
 
     const packageJsonFiles = files
         .map((f) => f.filename)
@@ -69,40 +71,39 @@ module.exports = async ({ github, context }) => {
         .filter((f) => f === 'package.json' || f.endsWith('/package.json'));
 
     if (packageJsonFiles.length === 0) {
-        console.log('No package.json files changed — skipping changeset creation.');
+        console.info('No package.json files changed — skipping changeset creation.');
         return;
     }
 
-    const affectedPackages = [];
-    const allDepChanges = new Set();
-
-    for (const filePath of packageJsonFiles) {
+    const inspectedPackages = await Promise.all(packageJsonFiles.map(async (filePath) => {
         const [basePkg, headPkg] = await Promise.all([
             getFileContent(github, owner, repo, filePath, baseSha),
             getFileContent(github, owner, repo, filePath, headSha),
         ]);
 
-        if (!headPkg) continue;
-        if (!headPkg.name || headPkg.private === true) continue;
+        if (!headPkg || !headPkg.name || headPkg.private === true) return null;
 
         const changedDeps = getChangedDependencies(basePkg ?? {}, headPkg);
-        if (changedDeps.length === 0) continue;
+        if (changedDeps.length === 0) return null;
 
-        affectedPackages.push(headPkg.name);
-        changedDeps.forEach((c) => allDepChanges.add(c));
-    }
+        return { name: headPkg.name, changedDeps };
+    }));
+
+    const affected = inspectedPackages.filter(Boolean);
+    const affectedPackages = affected.map((pkg) => pkg.name);
+    const allDepChanges = [...new Set(affected.flatMap((pkg) => pkg.changedDeps))];
 
     if (affectedPackages.length === 0) {
-        console.log('No public packages with changed dependencies — skipping changeset creation.');
+        console.info('No public packages with changed dependencies — skipping changeset creation.');
         return;
     }
 
     const changesetPath = `.changeset/dependabot-pr-${prNumber}.md`;
-    const changesetContent = buildChangesetContent(affectedPackages, [...allDepChanges]);
+    const changesetContent = buildChangesetContent(affectedPackages, allDepChanges);
     const existingFile = await getExistingFile(github, owner, repo, changesetPath, headRef);
 
     if (existingFile && existingFile.content === changesetContent) {
-        console.log('Changeset already up to date — skipping commit to avoid re-triggering the workflow.');
+        console.info('Changeset already up to date — skipping commit to avoid re-triggering the workflow.');
         return;
     }
 
@@ -116,5 +117,5 @@ module.exports = async ({ github, context }) => {
         ...(existingFile ? { sha: existingFile.sha } : {}),
     });
 
-    console.log(`✅ Changeset created at ${changesetPath} for: ${affectedPackages.join(', ')}`);
+    console.info(`✅ Changeset created at ${changesetPath} for: ${affectedPackages.join(', ')}`);
 };

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import {
     describe, it, expect, vi,
 } from 'vitest';
@@ -144,7 +145,7 @@ describe('generateDependabotChangeset', () => {
             await generateDependabotChangeset({ github, context });
 
             expect(github.rest.repos.createOrUpdateFileContents).toHaveBeenCalledOnce();
-            const call = github.rest.repos.createOrUpdateFileContents.mock.calls[0][0];
+            const [[call]] = github.rest.repos.createOrUpdateFileContents.mock.calls;
             expect(call.path).toBe('.changeset/dependabot-pr-42.md');
             expect(call.branch).toBe('dependabot/npm_and_yarn/foo-1.2.3');
             expect(call.sha).toBeUndefined();
@@ -166,7 +167,7 @@ describe('generateDependabotChangeset', () => {
             });
             await generateDependabotChangeset({ github, context });
 
-            const call = github.rest.repos.createOrUpdateFileContents.mock.calls[0][0];
+            const [[call]] = github.rest.repos.createOrUpdateFileContents.mock.calls;
             const decoded = Buffer.from(call.content, 'base64').toString('utf-8');
             expect(decoded).toBe('---\n"@justeattakeaway/pie-foo": patch\n---\n\n[Changed] - Dependency updates:\n- lodash 4.0.0 → 4.1.0\n- react 18.0.0 → 18.1.0\n');
         });
@@ -192,7 +193,7 @@ describe('generateDependabotChangeset', () => {
             await generateDependabotChangeset({ github, context });
 
             expect(github.rest.repos.createOrUpdateFileContents).toHaveBeenCalledOnce();
-            const call = github.rest.repos.createOrUpdateFileContents.mock.calls[0][0];
+            const [[call]] = github.rest.repos.createOrUpdateFileContents.mock.calls;
             const decoded = Buffer.from(call.content, 'base64').toString('utf-8');
             expect(decoded).toContain('"@justeattakeaway/pie-foo": patch');
             expect(decoded).toContain('"@justeattakeaway/pie-bar": patch');
@@ -220,7 +221,7 @@ describe('generateDependabotChangeset', () => {
 
             await generateDependabotChangeset({ github, context });
 
-            const call = github.rest.repos.createOrUpdateFileContents.mock.calls[0][0];
+            const [[call]] = github.rest.repos.createOrUpdateFileContents.mock.calls;
             expect(call.sha).toBe('existing-sha-999');
         });
 
@@ -264,7 +265,7 @@ describe('generateDependabotChangeset', () => {
             await generateDependabotChangeset({ github, context });
 
             expect(github.rest.repos.createOrUpdateFileContents).toHaveBeenCalledOnce();
-            const call = github.rest.repos.createOrUpdateFileContents.mock.calls[0][0];
+            const [[call]] = github.rest.repos.createOrUpdateFileContents.mock.calls;
             const decoded = Buffer.from(call.content, 'base64').toString('utf-8');
             expect(decoded).toContain('"@justeattakeaway/pie-pub": patch');
             expect(decoded).not.toContain('pie-priv');
@@ -285,7 +286,7 @@ describe('generateDependabotChangeset', () => {
             await generateDependabotChangeset({ github, context });
 
             expect(github.paginate).toHaveBeenCalledOnce();
-            const [endpoint, params] = github.paginate.mock.calls[0];
+            const [[endpoint, params]] = github.paginate.mock.calls;
             expect(endpoint).toBe(github.rest.pulls.listFiles);
             expect(params).toMatchObject({ pull_number: 42, per_page: 100 });
         });
@@ -320,7 +321,7 @@ describe('generateDependabotChangeset', () => {
             await generateDependabotChangeset({ github, context });
 
             expect(github.rest.repos.createOrUpdateFileContents).toHaveBeenCalledOnce();
-            const call = github.rest.repos.createOrUpdateFileContents.mock.calls[0][0];
+            const [[call]] = github.rest.repos.createOrUpdateFileContents.mock.calls;
             expect(call.sha).toBe('sha-of-.changeset/dependabot-pr-42.md');
         });
     });
