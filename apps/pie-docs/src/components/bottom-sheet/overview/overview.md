@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Bottom Sheet
     order: 1
-shouldShowContents: true
 permalink: components/bottom-sheet/
 ---
 

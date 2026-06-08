@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Progress Bar
     order: 1
-shouldShowContents: true
 permalink: components/progress-bar/
 ---
 

@@ -22,8 +22,8 @@ The Web Content Accessibility Guidelines (WCAG) are the internationally recognis
 
 To help you get a better picture of how we tackle accessibility at JET, we've compiled a list of internal resources and communities which can provide more information and guidance on multiple accessibility topics.
 
-* [Inclusion, Diversity & Belonging at JET](https://kitchen.just-eat.com/home/inclusion-diversity-belonging){target=“_blank”} (JET employees)
-* [JET #accessibility-guild](https://justeat.slack.com/archives/CLJ26MQ4W){target=“_blank”} (JET employees)
+* Please search for **Inclusion, Diversity & Belonging at JET** in our JET intranet
+* JET Slack channel **#accessibility-guild**
 
 ---
 

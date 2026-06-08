@@ -10,6 +10,7 @@ test.describe('PieDataTable - Accessibility tests', () => {
         test(`should test a11y for Story: ${friendlyStoryName}`, async ({ page, makeAxeBuilder }) => {
             // Arrange
             const basePage = new BasePage(page, `data-table--${storyUrl}`);
+            basePage.waitUntilStrategy = 'networkidle';
 
             await basePage.load();
 

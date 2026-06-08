@@ -3,6 +3,9 @@ on: pull_request_target
 # By default, pull_request_target runs when the activity type is opened, synchronize, or reopened
 # https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#pull_request_target
 
+permissions:
+  contents: read
+
 jobs:
   categorise:
     runs-on: ubuntu-latest

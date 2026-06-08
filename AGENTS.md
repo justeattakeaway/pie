@@ -29,7 +29,7 @@ pie/
 ## Technology Stack
 
 - **Runtime**: Node.js 22 or 24 (specified in `package.json` engines). Versions are pinned via **Mise** (see `mise.toml` in the repo root). Install [Mise](https://mise.jdx.dev/) to have node versions switched automatically.
-- **Package Manager**: Yarn 3.x (exact version pinned in root `package.json` via `packageManager`)
+- **Package Manager**: Yarn 4.x (exact version pinned in root `package.json` via `packageManager`)
 - **Monorepo**: Turborepo
 - **Build Tool**: Vite
 - **Web Components**: Lit 3.x (exact version pinned in root `package.json` `resolutions.lit`)
@@ -168,6 +168,54 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 **Snapshot Releases:**
 - Comment `/snapit` on PR to trigger snapshot release
 - Or `/test-aperture` to create Aperture PR automatically
+
+## Adding and Running Tools
+
+**Never use `npx`** — it can silently download and execute unverified packages, bypassing version locking and introducing supply chain risk.
+
+### Adding a new external tool
+
+Install it as a `devDependency` in the appropriate `package.json` so the version is pinned in `yarn.lock` and monitored by Dependabot:
+
+```sh
+yarn add -D <package-name>
+```
+
+### Adding a new monorepo-internal bin script
+
+Declare it in the **root `package.json` `"bin"` field**, not in the source package. Yarn Berry's `run -T` only resolves binaries from packages the root workspace explicitly owns — declaring the bin at the root guarantees correct resolution:
+
+```json
+"bin": {
+  "my-tool": "./packages/tools/my-package/index.js"
+}
+```
+
+Then run `yarn install` to link the binary.
+
+### Invocation patterns
+
+There are two contexts, each with its own form:
+
+| Context | Form | Example |
+|---|---|---|
+| `package.json` scripts | `run -T <bin>` | `"build:react-wrapper": "run -T build-react-wrapper"` |
+| Shell contexts (CI steps, husky hooks) | `yarn <bin>` | `yarn commitlint --edit ${1}` |
+
+`run -T` is a Yarn script shorthand processed before the shell sees the command. In shell contexts (CI `run:` steps, husky hooks), use `yarn <bin>` instead.
+
+**Exception**: when a root `package.json` script shares a name with a binary (e.g. `changeset`), use `yarn exec <bin>` in shell contexts to bypass script lookup and invoke the binary directly.
+
+### Example: adding a new tool end-to-end
+
+1. Install the package: `yarn add -D my-tool`
+2. If it is a monorepo-internal script (not an npm package): add it to root `package.json` `"bin"` and run `yarn install`
+3. Invoke it in `package.json` scripts with `run -T my-tool`
+4. Invoke it in CI steps or husky hooks with `yarn my-tool`
+
+### Spawning Commands from Scripts
+
+When a script runs a command via `child_process`, pass the command and arguments as an array — prefer `execFileSync`/`spawn` (e.g. `execFileSync('git', ['show', ref + ':' + file])`) over `execSync` with an interpolated string. The array form handles spaces/special characters in dynamic values (paths, refs, glob results) correctly. Reserve the plain string form for **fully static** commands that interpolate nothing.
 
 ## Common Commands
 

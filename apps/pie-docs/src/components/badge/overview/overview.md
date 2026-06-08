@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Badge
     order: 1
-shouldShowContents: true
 permalink: components/badge/
 ---
 

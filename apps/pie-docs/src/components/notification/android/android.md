@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Android
     parent: Notification
-    order: 2
+    order: 3
 shouldShowContents: true
 permalink: components/notification/android/
 ---

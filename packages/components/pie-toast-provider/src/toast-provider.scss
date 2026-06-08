@@ -4,6 +4,7 @@
 
 :host {
     --toast-provider-z-index: var(--dt-z-index-toast);
+    --toast-provider-position: fixed;
     --toast-provider-offset: var(--dt-spacing-d);
 
     @include media('>md') {
@@ -12,7 +13,7 @@
 }
 
 .c-toast-provider {
-    position: fixed;
+    position: var(--toast-provider-position);
     z-index: var(--toast-provider-z-index);
 
     &.c-toast-provider--default {
