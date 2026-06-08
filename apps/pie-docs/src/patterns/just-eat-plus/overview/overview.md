@@ -9,7 +9,7 @@ permalink: patterns/just-eat-plus/
 
 ## Overview
 
-Just Eat+ is Just Eat Takeaway's subscription based loyalty proposition that offers exclusive benefits such as 'free delivery', 'members-only discounts' and 'offers & rewards' from participating restaurants, grocery stores and other partners.
+Just Eat+ is Just Eat Takeaway's subscription-based loyalty proposition that offers exclusive benefits such as 'free delivery', 'members-only discounts' and 'offers & rewards' from participating restaurants, grocery stores and other partners.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/overview.svg",
@@ -76,7 +76,7 @@ width: 120
 
 ## Logos
 
-We use two logos variants for Just Eat+, primary and secondary. These should be the only two Just Eat+ logos used in any UI elements within product.
+We use two logo variants for Just Eat+, primary and secondary. These should be the only two Just Eat+ logos used in any UI elements within product.
 
 The 3D asset of our logo is treated as an illustration and should not be used in any functional context. You can find out more information about this asset in the Imagery section.
 
@@ -88,7 +88,7 @@ The 3D asset of our logo is treated as an illustration and should not be used in
 
 ### Logo variants
 
-We use two logos variants for Just Eat+, primary and secondary. They should be used in the same way we use all other logos in our system.
+We use two logo variants for Just Eat+, primary and secondary. They should be used in the same way we use all other logos in our system.
 
 Our **primary logo** is our logo by default. This should be used for most use cases in product.
 
@@ -229,7 +229,7 @@ Just Eat Plus should primarily be communicated using gradients, however, a numbe
 
 {% notification {
   type: "warning",
-  message: "Please avoid using any other brand colours for Just Eat Plus content. Please avoid using any other brand colours for Just Eat Plus content."
+  message: "Please avoid using any other brand colours for Just Eat Plus content."
 } %}
 
 ### Colours light mode
@@ -256,7 +256,7 @@ alt: "JET+ dark mode color palette showing color swatches with hex values for da
 
 ## Typography
 
-Just Eat+ uses bold, high-impact, italic headings as part of it's core brand identity.
+Just Eat+ uses bold, high-impact, italic headings as part of its core brand identity.
 
 In our design system these are all italic headings from XXL to XS, dependent on the hierarchy of content.
 
