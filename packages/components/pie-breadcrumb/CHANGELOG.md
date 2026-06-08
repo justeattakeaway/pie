@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.8.8
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+  - @justeattakeaway/pie-link@1.3.32
+
+## 0.8.7
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-icons-webc@1.24.2
+  - @justeattakeaway/pie-link@1.3.31
+
 ## 0.8.6
 
 ### Patch Changes

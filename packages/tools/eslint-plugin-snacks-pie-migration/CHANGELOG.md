@@ -1,5 +1,13 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.7.2
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Updating internal scripts ([#2908](https://github.com/justeattakeaway/pie/pull/2908)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.7.1
 
 ### Patch Changes

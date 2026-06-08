@@ -1,5 +1,34 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.8.0
+
+### Minor Changes
+
+- [Added] - ARIA labels to switches in Manage preferences ([#2907](https://github.com/justeattakeaway/pie/pull/2907)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.16
+  - @justeattakeaway/pie-link@1.3.32
+  - @justeattakeaway/pie-modal@1.26.8
+  - @justeattakeaway/pie-switch@2.3.34
+
+## 1.7.31
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-icon-button@2.7.15
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-divider@1.5.24
+  - @justeattakeaway/pie-button@1.14.2
+  - @justeattakeaway/pie-switch@2.3.33
+  - @justeattakeaway/pie-modal@1.26.7
+  - @justeattakeaway/pie-link@1.3.31
+
 ## 1.7.30
 
 ### Patch Changes

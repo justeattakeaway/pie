@@ -1,5 +1,28 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.13.1
+
+## 0.9.0
+
+### Minor Changes
+
+- [Fixed] - the `isOpen` prop for pie-toast doesn't work as expected ([#2898](https://github.com/justeattakeaway/pie/pull/2898)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - support a new css property for pie-toast-provider to override the position
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d), [`c9ba87a`](https://github.com/justeattakeaway/pie/commit/c9ba87a076c0f808e133bb587fb8ece01ab000f4)]:
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-toast@0.13.0
+
 ## 0.8.0
 
 ### Minor Changes

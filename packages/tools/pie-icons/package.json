@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons",
-  "version": "5.27.1",
+  "version": "5.27.3",
   "description": "Common icons for use for PIE Project",
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
     "test:coverage": "run -T vitest run --coverage"
   },
   "dependencies": {
-    "@justeattakeaway/pie-monorepo-utils": "0.9.1",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.3",
     "classnames": "2.5.1"
   },
   "devDependencies": {
@@ -40,7 +40,6 @@
     "babel-loader": "8.3.0",
     "cheerio": "1.2.0",
     "fs-extra": "11.3.4",
-    "glob": "11.1.0",
     "html-minifier-terser": "7.2.0",
     "is-svg": "6.1.0",
     "prettier": "2.8.7",

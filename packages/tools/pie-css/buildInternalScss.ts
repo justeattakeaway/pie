@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import { glob } from 'glob';
 
 const INTERNAL_DIR = 'scss/_internal';
@@ -38,8 +38,9 @@ async function buildInternalScss (): Promise<void> {
     compilations.forEach(({ inputFile, outputFile }) => {
         console.info(`Compiling ${inputFile} -> ${outputFile}`);
 
-        execSync(
-            `yarn run -T sass --load-path=${NODE_MODULES_PATH} ${inputFile} ${outputFile} --no-source-map`,
+        execFileSync(
+            'yarn',
+            ['run', '-T', 'sass', `--load-path=${NODE_MODULES_PATH}`, inputFile, outputFile, '--no-source-map'],
             { stdio: 'inherit' },
         );
     });

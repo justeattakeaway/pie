@@ -578,7 +578,6 @@ exports[`components/radio.css > should render the expected CSS content 1`] = `
   cursor: var(--radio-cursor);
   background-color: var(--radio-bg-color);
   flex-shrink: 0;
-  transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
 }
 .c-radio:before {
   --circle-size: calc(var(--radio-border-width) * -1);
@@ -653,6 +652,9 @@ exports[`components/radio.css > should render the expected CSS content 1`] = `
   .c-radio:active:checked:not(:disabled):before {
     --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
   }
+}
+.c-radio {
+  transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
 }
 @media (prefers-reduced-motion: no-preference) {
   .c-radio:not(:disabled):before {

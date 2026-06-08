@@ -312,6 +312,10 @@ export class PieToast extends PieElement implements ToastProps {
     }
 
     render () {
+        if (!this.isOpen) {
+            return nothing;
+        }
+
         const {
             variant,
             message,

@@ -1,6 +1,9 @@
 name: Labeler - Get PR labels
 on: pull_request
 
+permissions:
+  contents: read
+
 jobs:
   get-missing-labels: # Fetch labels that might need to be created, store in an artifact
     runs-on: ubuntu-latest

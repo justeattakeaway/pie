@@ -29,7 +29,7 @@ pie/
 ## Technology Stack
 
 - **Runtime**: Node.js 22 or 24 (specified in `package.json` engines). Versions are pinned via **Mise** (see `mise.toml` in the repo root). Install [Mise](https://mise.jdx.dev/) to have node versions switched automatically.
-- **Package Manager**: Yarn 3.x (exact version pinned in root `package.json` via `packageManager`)
+- **Package Manager**: Yarn 4.x (exact version pinned in root `package.json` via `packageManager`)
 - **Monorepo**: Turborepo
 - **Build Tool**: Vite
 - **Web Components**: Lit 3.x (exact version pinned in root `package.json` `resolutions.lit`)
@@ -212,6 +212,10 @@ There are two contexts, each with its own form:
 2. If it is a monorepo-internal script (not an npm package): add it to root `package.json` `"bin"` and run `yarn install`
 3. Invoke it in `package.json` scripts with `run -T my-tool`
 4. Invoke it in CI steps or husky hooks with `yarn my-tool`
+
+### Spawning Commands from Scripts
+
+When a script runs a command via `child_process`, pass the command and arguments as an array — prefer `execFileSync`/`spawn` (e.g. `execFileSync('git', ['show', ref + ':' + file])`) over `execSync` with an interpolated string. The array form handles spaces/special characters in dynamic values (paths, refs, glob results) correctly. Reserve the plain string form for **fully static** commands that interpolate nothing.
 
 ## Common Commands
 
