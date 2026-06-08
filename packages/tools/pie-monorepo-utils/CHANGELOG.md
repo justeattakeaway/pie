@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.9.3
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Updating internal scripts ([#2908](https://github.com/justeattakeaway/pie/pull/2908)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Extend ticket prefix max length from 4 to 6 chars, so it allows longer prefixes such as WEBEX ([#2912](https://github.com/justeattakeaway/pie/pull/2912)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.7.2
+
 ## 0.9.2
 
 ### Patch Changes
