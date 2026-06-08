@@ -3,8 +3,8 @@ eleventyNavigation:
   key: Apps
   parent: 'Just Eat +'
   order: 2
-  draft: true
-shouldShowContents: true
+draft: true
+permalink: false
 ---
 
 ## Overview

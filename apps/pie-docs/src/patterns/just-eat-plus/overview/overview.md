@@ -140,8 +140,7 @@ The token $jetplus-brand-01 is our main brand gradient and the strongest of the 
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-jet-plus-01.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-01 token. 0% uses the token orange-30, 40% uses token orange-50 and 100% uses tomato-50.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-01 token. 0% uses the token orange-30, 40% uses token orange-50 and 100% uses tomato-50."
 } %}
 
 ### Light mode for JET+ 02 and 03 gradients
@@ -152,16 +151,14 @@ The tokens $jetplus-brand-02 and $jetplus-brand-03 are additional brand gradient
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-light-jet-plus-03.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-03 token. 0% uses the token orange-0, 40% uses token orange-10 and 100% uses tomato-5.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-03 token. 0% uses the token orange-0, 40% uses token orange-10 and 100% uses tomato-5."
 } %}
 
 **Use $jetplus-brand-02 only in areas where you need a stronger brand identity** as it is slightly darker. For example, in our braze marketing container.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-light-jet-plus-02.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-10, 40% uses token orange-20 and 100% uses tomato-30.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-10, 40% uses token orange-20 and 100% uses tomato-30."
 } %}
 
 ### Dark mode for JET+ 02 and 03 gradients
@@ -170,14 +167,12 @@ Both jetplus-brand-02 and jetplus-brand-03 switch in dark theme to equally subtl
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-dark-jet-plus-03.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-03 token. 0% uses the token orange-75, 40% uses token orange-90 and 100% uses tomato-100.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-03 token. 0% uses the token orange-75, 40% uses token orange-90 and 100% uses tomato-100."
 } %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-dark-jet-plus-02.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-70, 40% uses token orange-75 and 100% uses tomato-90.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-70, 40% uses token orange-75 and 100% uses tomato-90."
 } %}
 
 ### Light mode for JET+ support
@@ -191,14 +186,12 @@ Our support gradients; $jetplus-support-01 and $jetplus-support-02 are additiona
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-light-jet-support-01.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-01 token. 0% uses the token truffle-20, 40% uses token truffle-5 and 100% uses truffle-5.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-01 token. 0% uses the token truffle-20, 40% uses token truffle-5 and 100% uses truffle-5."
 } %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-light-jet-support-02.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-10, 40% uses token orange-10 with 0% opacity and 100% uses orange-10 with 0% opacity.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-10, 40% uses token orange-10 with 0% opacity and 100% uses orange-10 with 0% opacity."
 } %}
 
 ### Dark mode for JET+ support
@@ -212,14 +205,12 @@ Our support gradients; $jetplus-support-01 and $jetplus-support-02 both switch i
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-dark-jet-support-01.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-01 token. 0% uses the token truffle-70, 40% uses token truffle-100 and 100% uses truffle-100.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-01 token. 0% uses the token truffle-70, 40% uses token truffle-100 and 100% uses truffle-100."
 } %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/gradients-dark-jet-support-02.svg",
- alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-75, 40% uses token orange-75 with 0% opacity and 100% uses orange-75 with 0% opacity.",
- width: 120
+ alt: "Scale showing gradient stops from 0% to 100% for the jet-plus-02 token. 0% uses the token orange-75, 40% uses token orange-75 with 0% opacity and 100% uses orange-75 with 0% opacity."
 } %}
 
 {% notification {
