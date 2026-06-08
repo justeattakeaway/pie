@@ -20,6 +20,7 @@ We use gradients to signify and visually communicate ‘special’ content in ou
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/gradients/overview.svg",
+caption: "Composition made of various PIE gradients.",
 alt: "A visual showing three circles and a background made of different PIE gradients."
 } %}
 
@@ -48,16 +49,54 @@ width: 230
 
 ## Using gradients in your products
 
-If you’re using gradients that belong to AI or JET+ we highly suggest you check out our Core JET Brand Documentation for how to use these specific gradients for their intended purpose
+If you’re using gradients that belong to JET AI or JET+ we highly suggest you check out our Core [JET AI documentation](https://www.pie.design/patterns/jet-ai/) and [JET + documentation](https://www.pie.design/patterns/just-eat-plus/) for how to use these specific gradients for their intended purpose.
 
 {% notification {
     type: "warning",
     message: "Please never manually adjust  the direction, stops, colours or opacity of any of our gradient styles. Doing so will detach the gradient from our styles and create an entirely new gradient."
 } %}
 
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/style-do.svg",
+            width: "256px",
+            alt: "A screenshot of our AI gradient style in Figma."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/style-dont.svg",
+            width: "256px",
+            alt: "A screenshot of our AI gradient detached from its style in Figma."
+        }]
+    }
+} %}
+
 ### Choosing the right gradient
 
-As a rule we use stronger gradients for small UI elements and borders in components, and more subtle gradients in support as backgrounds in containers and card. Please do not use stronger gradients for backgrounds and vice versa.
+As a rule we use stronger gradients for small UI elements and borders in components, and more subtle gradients for backgrounds in containers and cards. Please do not use stronger gradients for backgrounds and vice versa.
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/choice-do.svg",
+            width: "256px",
+            alt: "A notification banner using a subtle gradient for the background."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/choice-dont.svg",
+            width: "256px",
+            alt: "A notification banner using a strong gradient for the background representing a misuse of gradients."
+        }]
+    }
+} %}
 
 ---
 
@@ -65,15 +104,72 @@ As a rule we use stronger gradients for small UI elements and borders in compone
 
 ### Use in specific approved components
 
-Please do not use gradients that have been specifically created as part of the visual identity of our sub-brands (such as AI or JET+) for other content or use cases in our products. Gradients created for a sub-brand should always be used for their specific purpose.
+Please do not use gradients that have been specifically created as part of the visual identity of our sub-brands (such as AI or JET+) for other content or use cases in our products. **Gradients created for a sub-brand should always be used for their specific purpose.**
 
-### Not using gradients in text
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/ai-component-do.svg",
+            width: "256px",
+            alt: "Our AI gradient being correctly used for AI content in a notification banner component."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/ai-component-dont.svg",
+            width: "256px",
+            alt: "Our AI gradient being incorrectly used for non AI content in a notification banner component."
+        }]
+    }
+} %}
 
-We do not suggest using gradients for text currently as none of ur gradients have been tested on text and this can have a big impact on accessibility. Please use any of our regular content colours for text.
+### Don't use gradients in text
 
-### Pairing with solid colours which compliment the brand
+We do not recommend using gradients for text currently as none of our gradients have been tested on text and this can have a big impact on accessibility. **Please use any of our content colours tokens for text.**
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/text-do.svg",
+            width: "256px",
+            alt: "Text saying 'Unlock Just Eat +' using a content token in the text."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/text-dont.svg",
+            width: "256px",
+            alt: "Text saying 'Unlock Just Eat +' using a gradient in the text, which is not recommended."
+        }]
+    }
+} %}
+
+### Pair with solid colours which compliment the brand
 
 We highly encourage using gradients alongside solid brand, container and background colours, to maximise the impact of the gradient. We suggest avoiding using too many gradients together as this can feel overwhelming.
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/pairing-do.svg",
+            width: "120px",
+            alt: "A JET+ tag using only one gradient from the JET+ brand."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/gradients/pairing-dont.svg",
+            width: "120px",
+            alt: "A JET+ tag using two gradients from the JET+ brand representing a bad practice of mixing gradients."
+        }]
+    }
+} %}
 
 ---
 
@@ -81,9 +177,15 @@ We highly encourage using gradients alongside solid brand, container and backgro
 
 ### Using JET+ and AI together
 
-In places where we need to mix two visual identities that include gradients please ensure that there is a clear hierarchy in content. For example in the AI assistant we use just the gradient border on the JET+ card to nod to the brand without the two identities clashing.
+In places where we need to mix two visual identities that include gradients please ensure that there is a clear hierarchy in content. For example, in the AI assistant we use just the gradient border on the JET+ card to nod to the brand without the two identities clashing.
 
 {% notification {
-    type: "info",
-    message: "Please reach out to the PIE team to see how we can help in regards to specific use cases."
+    type: "information",
+    message: "Please reach out to the PIE team to see how we can help in specific use cases."
+} %}
+
+{% contentPageImage {
+src:"../../../assets/img/foundations/gradients/sub-brand-mixing-example.svg",
+alt: "A screen design showing appropriate use of mixing gradient sub-brands together.",
+width: 230
 } %}

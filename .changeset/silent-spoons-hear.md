@@ -1,5 +1,6 @@
 ---
-"@justeattakeaway/pie-docs": patch
+"@justeattakeaway/pie-docs": minor
 ---
 
-[Added] New foundation page for gradient overview
+[Added] New documentation page for foundations on gradients.
+[Updated] Updated the order of the gradients page in the navigation.
