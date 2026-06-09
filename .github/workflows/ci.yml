@@ -293,25 +293,27 @@ jobs:
           PKG: ${{ matrix.package }}
         run: echo "safe=${PKG//\//__}" >> "$GITHUB_OUTPUT"
       - name: Run System / Component / a11y Tests
+        id: browser-tests
         uses: ./.github/actions/run-script
         with:
           script-name: "test:browsers:ci --filter=${{ matrix.package }}"
           concurrency: 1
       - name: Upload Browsers Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        if: always()
+        if: steps.browser-tests.outcome == 'failure'
         with:
           name: lit-browsers-report-${{ steps.pkg.outputs.safe }}
           path: lit-browsers-report/
           retention-days: 7
       - name: Run Visual Tests
+        id: visual-tests
         uses: ./.github/actions/run-script
         with:
           script-name: "test:visual:ci --filter=${{ matrix.package }}"
           concurrency: 1
       - name: Upload Visual Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        if: always()
+        if: steps.visual-tests.outcome == 'failure'
         with:
           name: lit-visual-report-${{ steps.pkg.outputs.safe }}
           path: lit-visual-report/

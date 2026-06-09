@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { toast } from 'test/helpers/page-object/selectors.ts';
 import { type ToastProps, variants } from '../../src/defs.ts';
+import type { PieToast } from '../../src/index.ts';
 
 test.describe('PieToast - Component tests', () => {
     const mainAction = {
@@ -41,10 +42,17 @@ test.describe('PieToast - Component tests', () => {
             test('should not render the toast when isOpen is false', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: Partial<ToastProps> = {
-                    isOpen: false,
-                };
-                await toastPage.load({ ...props });
+                await toastPage.load();
+
+                await page.evaluate(() => {
+                    const toast = document.querySelector('pie-toast') as PieToast;
+
+                    if(!toast) {
+                        throw new Error('Toast component not found');
+                    }
+
+                    toast.isOpen = false;
+                });
 
                 // Act
                 const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
