@@ -68,7 +68,8 @@ module.exports = async ({ github, context }) => {
     const packageJsonFiles = files
         .map((f) => f.filename)
         .filter((f) => !f.includes('node_modules/'))
-        .filter((f) => f === 'package.json' || f.endsWith('/package.json'));
+        .filter((f) => f === 'package.json' || f.endsWith('/package.json'))
+        .sort();
 
     if (packageJsonFiles.length === 0) {
         console.info('No package.json files changed — skipping changeset creation.');
@@ -90,9 +91,8 @@ module.exports = async ({ github, context }) => {
     }));
 
     const affected = inspectedPackages.filter(Boolean);
-    const affectedPackages = affected.map((pkg) => pkg.name);
-    const allDepChanges = [...new Set(affected.flatMap((pkg) => pkg.changedDeps))];
-
+    const affectedPackages = affected.map((pkg) => pkg.name).sort();
+    const allDepChanges = [...new Set(affected.flatMap((pkg) => pkg.changedDeps))].sort();
     if (affectedPackages.length === 0) {
         console.info('No public packages with changed dependencies — skipping changeset creation.');
         return;
