@@ -160,6 +160,73 @@ test.describe('Component: `Pie switch`', () => {
         });
     });
 
+    test.describe('External labels', () => {
+        test('should toggle the switch when an external label with `for` is clicked', async ({ page }) => {
+            // Arrange
+            const switchPage = new BasePage(page, 'switch--external-labels');
+            await switchPage.load();
+
+            const switchEl = page.locator('pie-switch#external-switch');
+            await expect(switchEl).not.toHaveAttribute('checked');
+
+            // Act
+            await page.getByTestId('external-label-for').click();
+
+            // Assert
+            await expect(switchEl).toHaveAttribute('checked', '');
+
+            // Act - click again to untoggle
+            await page.getByTestId('external-label-for').click();
+
+            // Assert
+            await expect(switchEl).not.toHaveAttribute('checked');
+        });
+
+        test('should toggle the switch when a wrapping external label is clicked', async ({ page }) => {
+            // Arrange
+            const switchPage = new BasePage(page, 'switch--external-labels');
+            await switchPage.load();
+
+            const switchEl = page.locator('pie-switch#wrapping-switch');
+            await expect(switchEl).not.toHaveAttribute('checked');
+
+            const labelText = page.getByTestId('external-label-wrapping-text');
+
+            // Act
+            await labelText.click();
+
+            // Assert
+            await expect(switchEl).toHaveAttribute('checked', '');
+
+            // Act - click again to untoggle
+            await labelText.click();
+
+            // Assert
+            await expect(switchEl).not.toHaveAttribute('checked');
+        });
+
+        test('should toggle the switch when any of multiple associated labels is clicked', async ({ page }) => {
+            // Arrange
+            const switchPage = new BasePage(page, 'switch--external-labels');
+            await switchPage.load();
+
+            const switchEl = page.locator('pie-switch#multi-label-switch');
+            await expect(switchEl).not.toHaveAttribute('checked');
+
+            // Act - click the first label
+            await page.getByTestId('external-label-multi-a').click();
+
+            // Assert
+            await expect(switchEl).toHaveAttribute('checked', '');
+
+            // Act - click the second label
+            await page.getByTestId('external-label-multi-b').click();
+
+            // Assert
+            await expect(switchEl).not.toHaveAttribute('checked');
+        });
+    });
+
     test.describe('Props: `aria`', () => {
         test.describe('when label exist', () => {
             test('should render the component with the correct aria-labels', async ({ page }) => {
