@@ -19,6 +19,7 @@
   - [Events](#events)
 - [Forms Usage](#forms-usage)
   - [Form Validation](#form-validation)
+- [External Labels](#external-labels)
 - [Usage Examples](#usage-examples)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
@@ -83,6 +84,39 @@ This behaviour is consistent with native HTML input elements. We may revisit thi
 const switch = document.querySelector('pie-switch');
 switch.setCustomValidity('Please toggle the switch');
 ```
+
+## External Labels
+
+In addition to the built-in `label` property, `pie-switch` can be associated with one or more external `<label>` elements: either by `for="…"` referencing the switch's `id`, or by wrapping the switch in a `<label>`. Clicking any associated label toggles the switch, mirroring native `<input type="checkbox">` behaviour. The labels will be narrated by screen readers.
+Do not use the `label` property when associating the switch with external labels.
+
+**Warning!** Be mindful of using the `aria` object property when associating with external labels as it could cause a messy screen reader narration. Always test your switches with screen readers.
+
+**Using `for="…"`:**
+
+```html
+<label for="notifications">Enable notifications</label>
+<pie-switch id="notifications" name="notifications"></pie-switch>
+```
+
+**Using a wrapping label:**
+
+```html
+<label>
+  Enable notifications
+  <pie-switch name="notifications"></pie-switch>
+</label>
+```
+
+**Multiple labels for the same switch (not a very common pattern):**
+
+```html
+<label for="notifications">Enable notifications</label>
+<pie-switch id="notifications" name="notifications"></pie-switch>
+<label for="notifications">(tap to toggle)</label>
+```
+
+Each associated label will toggle the switch when clicked, and is announced by screen readers.
 
 ## Usage Examples
 
