@@ -84,7 +84,7 @@ As a rule we use stronger gradients for small UI elements and borders in compone
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/foundations/gradients/choice-do.svg",
-            width: "256px",
+            width: "460px",
             alt: "A notification banner using a subtle gradient for the background."
         }]
     },
@@ -92,7 +92,7 @@ As a rule we use stronger gradients for small UI elements and borders in compone
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/foundations/gradients/choice-dont.svg",
-            width: "256px",
+            width: "460px",
             alt: "A notification banner using a strong gradient for the background representing a misuse of gradients."
         }]
     }
@@ -111,7 +111,7 @@ Please do not use gradients that have been specifically created as part of the v
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/foundations/gradients/ai-component-do.svg",
-            width: "256px",
+            width: "400px",
             alt: "Our AI gradient being correctly used for AI content in a notification banner component."
         }]
     },
@@ -119,7 +119,7 @@ Please do not use gradients that have been specifically created as part of the v
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/foundations/gradients/ai-component-dont.svg",
-            width: "256px",
+            width: "400px",
             alt: "Our AI gradient being incorrectly used for non AI content in a notification banner component."
         }]
     }
