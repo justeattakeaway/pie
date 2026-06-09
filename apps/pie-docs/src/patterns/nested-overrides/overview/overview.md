@@ -148,7 +148,7 @@ Components that contain bulk quantity nested components, such as data tables, of
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/variant-overrides-bulk.svg",
-alt: "A data table with 3 columns and 5 rows where each row has a different nested component such as buttons, icons, and other interactive elements that are all supported nested overrides.",
+alt: "A data table with three columns and five rows where each row has a different nested component such as buttons, icons, and other interactive elements that are all supported nested overrides.",
 width: 120
 } %}
 
@@ -161,7 +161,7 @@ Variants can be adjusted to better support the data table’s structure and hier
             src: "../../../assets/img/patterns/nested-overrides/variant-override-bulk-nested-do.svg",
             width: "256px",
             caption: "Icons cannot be increased or decreased in size.",
-            alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
+            alt: "A data table component with nested components in different variants as an example of supported nested overrides."
         }]
     },
     dont: {
@@ -170,7 +170,7 @@ Variants can be adjusted to better support the data table’s structure and hier
             src: "../../../assets/img/patterns/nested-overrides/variant-override-bulk-nested-dont.svg",
             width: "256px",
             caption: "Nested components cannot be increased or decreased in size.",
-            alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
+            alt: "A data table component representing nested components that had the size changed, representing unsupported nested overrides."
         }]
     }
 } %}
@@ -213,7 +213,7 @@ Overrides help in scaling button sizes to fit within bulk action toolbars or con
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-modal-do.svg",
             width: "256px",
             caption: "Nested actions in full-page overlay components can be adjusted to different sizes, but all actions within the same set must maintain a consistent size.",
-            alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
+            alt: "A modal component with two action buttons with the same size representing supported nested overrides."
         }]
     },
     dont: {
@@ -222,7 +222,7 @@ Overrides help in scaling button sizes to fit within bulk action toolbars or con
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-modal-dont.svg",
             width: "256px",
             caption: "Nested  actions cannot have different sizes individually within the same component.",
-            alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
+            alt: "A modal component with two action buttons of different sizes representing unsupported nested overrides."
         }]
     }
 } %}
@@ -234,7 +234,7 @@ Overrides help in scaling button sizes to fit within bulk action toolbars or con
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-bottom-sheet-do.svg",
             width: "256px",
             caption: "Nested actions in full-page overlay components can be adjusted to different variants. However, the primary action must always be more prominent than secondary actions.",
-            alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
+            alt: "A bottom sheet component with two action buttons in different variants representing supported nested overrides."
         }]
     },
     dont: {
@@ -243,7 +243,7 @@ Overrides help in scaling button sizes to fit within bulk action toolbars or con
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-bottom-sheet-dont.svg",
             width: "256px",
             caption: "Nested actions can't use the same variant for both primary and secondary actions, nor should the primary action be less prominent than the secondary action.",
-            alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
+            alt: "A bottom sheet component with two action buttons in the same variant representing unsupported nested overrides."
         }]
     }
 } %}
@@ -354,9 +354,9 @@ When necessary, content can be center-aligned, ensuring that all elements—incl
 
 ## Restricted overrides
 
-### Nested actions with specific function or purpose
+### Nested actions with specific purpose
 
-Certain nested actions that serve a specific function or purpose cannot be overwritten. For example, a close button, which is typically a standard icon or action, cannot be overridden in terms of style or size. This ensures functionality is preserved and prevents visual disruption in key interactive elements.
+Certain nested actions that serve a specific purpose cannot be overwritten. For example, a close button, which is typically a standard icon or action, cannot be overridden in terms of style or size. This ensures functionality is preserved and prevents visual disruption in key interactive elements.
 
 {% contentLayout %}
   {% contentItem %}
@@ -398,7 +398,7 @@ width: 120
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/restricted-override-dont.svg",
             width: "256px",
-            caption: "Specific function or purpose actions should not be changed to a different variant.",
+            caption: "Actions with specific purpose should not be changed to a different variant.",
             alt: "A toast and a notification component in the information variant with the close icon button changed to a different variant, representing unsupported nested overrides."
         }]
     }

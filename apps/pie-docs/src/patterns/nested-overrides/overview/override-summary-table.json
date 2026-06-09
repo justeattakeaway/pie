@@ -42,7 +42,7 @@
                     "text": "<a href=\"#bulk-quantity-nested-components\">Bulk quantity nested components</a>"
                 },
                 {
-                    "text": "<ul><li>Data table’s icon button, buttons, link</li></ul>"
+                    "text": "<ul><li>Nested icon button, buttons, link etc in a data table</li></ul>"
                 },
                 {
                     "text": "Yes"
@@ -96,7 +96,7 @@
         {
             "data": [
                 {
-                    "text": "<a href=\"#nested-actions-with-specific-function-or-purpose\">Nested actions with specific function or purpose</a>"
+                    "text": "<a href=\"#nested-actions-with-specific-purpose\">Nested actions with specific purpose</a>"
                 },
                 {
                     "text": "<ul><li>Close button</li></ul>"
@@ -115,7 +115,7 @@
         {
             "data": [
                 {
-                    "text": "<a href=\"#alignment-with-leading-and-trailing-content\">Alignment with leading and trailing content</a>"
+                    "text": "<a href=\"#alignment-overrides\">Alignment with leading and trailing content</a>"
                 },
                 {
                     "text": "<ul><li>List item</li></ul>"
