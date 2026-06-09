@@ -8,6 +8,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "private": true,
+  "packageManager": "yarn@4.15.0",
   "engines": {
     "node": "^22 || ^24"
   },
@@ -71,7 +72,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.11.3",
-    "@babel/preset-env": "7.29.2",
+    "@babel/preset-env": "7.29.7",
     "@changesets/changelog-github": "0.6.0",
     "@changesets/cli": "2.31.0",
     "@commitlint/cli": "20.5.0",
@@ -129,9 +130,12 @@
     }
   },
   "resolutions": {
-    "basic-ftp": "5.2.1",
+    "axios": "0.32.0",
+    "basic-ftp": "5.2.2",
     "lit": "3.2.0",
+    "lodash": "4.18.0",
     "tar": "7.5.16",
+    "tmp": "0.2.6",
     "typescript": "5.8.3",
     "undici": "7.24.0"
   }
