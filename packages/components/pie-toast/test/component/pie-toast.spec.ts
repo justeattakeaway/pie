@@ -47,7 +47,7 @@ test.describe('PieToast - Component tests', () => {
                 await page.evaluate(() => {
                     const toast = document.querySelector('pie-toast') as PieToast;
 
-                    if(!toast) {
+                    if (!toast) {
                         throw new Error('Toast component not found');
                     }
 
