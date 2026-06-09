@@ -270,6 +270,7 @@ If you would like additional motion pieces to support your work, please get in t
 {% contentPageImage {
 src:"../../../assets/img/patterns/jet-ai/motion-animated-background.svg",
 alt: "Examples of the light and dark mode options for JET AI animated background.",
+caption: "In AI Assistant products please use our supplied Lottie pictured above and add a blur of 80dp.",
 width: 120
 } %}
 
