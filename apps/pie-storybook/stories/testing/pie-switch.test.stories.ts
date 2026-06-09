@@ -175,11 +175,50 @@ const TestFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => 
     </form>
 `;
 
+const ExternalLabelsTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
+    <label for="external-switch" data-test-id="external-label-for">Toggle via for attribute</label>
+    <pie-switch
+        id="external-switch"
+        data-test-id="external-switch-for"
+        name="${props.name || nothing}"
+        value="${props.value || nothing}"
+        ?checked="${props.checked}"
+        @change="${changeAction}">
+    </pie-switch>
+
+    <hr />
+
+    <label data-test-id="external-label-wrapping">
+        <span data-test-id="external-label-wrapping-text">Toggle via wrapping label</span>
+        <pie-switch
+            id="wrapping-switch"
+            data-test-id="external-switch-wrapping"
+            name="${props.name || nothing}"
+            value="${props.value || nothing}"
+            @change="${changeAction}">
+        </pie-switch>
+    </label>
+
+    <hr />
+
+    <label for="multi-label-switch" data-test-id="external-label-multi-a">First label</label>
+    <label for="multi-label-switch" data-test-id="external-label-multi-b">Second label</label>
+    <pie-switch
+        id="multi-label-switch"
+        data-test-id="external-switch-multi"
+        name="${props.name || nothing}"
+        value="${props.value || nothing}"
+        @change="${changeAction}">
+    </pie-switch>
+`;
+
 const createSwitchStory = createStory(Template, defaultArgs);
 
 const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, defaultArgs);
 
 const createSwitchTestStoryWithForm = createStory<SwitchProps>(TestFormTemplate, defaultArgs);
+
+const createSwitchStoryWithExternalLabels = createStory<SwitchProps>(ExternalLabelsTemplate, defaultArgs);
 
 const formIntegrationOnly = {
     table: {
@@ -198,6 +237,8 @@ export const Default = createSwitchStory({}, {
 export const FormIntegration = createSwitchStoryWithForm();
 
 export const TestFormIntegration = createSwitchTestStoryWithForm();
+
+export const ExternalLabels = createSwitchStoryWithExternalLabels();
 
 const baseSharedPropsMatrix: Partial<Record<keyof SwitchProps, unknown[]>> = {
     checked: [true, false],
