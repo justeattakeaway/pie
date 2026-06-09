@@ -267,6 +267,12 @@ Motion in AI should always feel smooth and fluid. Our motion intentionally mimic
 
 If you would like additional motion pieces to support your work, please get in touch.
 
+{% contentPageImage {
+src:"../../../assets/img/patterns/jet-ai/motion-animated-background.svg",
+alt: "Examples of the light and dark mode options for JET AI animated background.",
+width: 120
+} %}
+
 {% notification {
   type: "information",
   message: "Contact the PIE Design Team for the Lottie assets."
@@ -402,7 +408,11 @@ width: 120
 
 - Use when accompanying content that either includes a lot of AI language or the AI icon is already in use within the content.
 - Use only on default backgrounds as this uses the AI border gradient.
-- If you're using a button on a gradient container then the inverse style can be used to avoid layering gradients and to reduce visual clutter.
+
+{% notification {
+  type: "information",
+  message: "If you're using a button on a gradient container then the inverse style can be used to avoid layering gradients and to reduce visual clutter."
+} %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/jet-ai/components-button-icon-false.svg",

@@ -339,8 +339,7 @@ We can also use the 'plus' pattern to add a bit of magic to braze and marketing 
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/just-eat-plus/imagery-illustrations-patterns.svg",
-alt: "Example of JET+ pattern which contains several plus signs using grey gradient.",
-width: 120
+alt: "Example of JET+ pattern which contains several plus signs using grey gradient."
 } %}
 
 {% notification {
