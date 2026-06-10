@@ -8,6 +8,8 @@ export interface AvatarProps {
      */
     label?: string;
 
+    type?: string;
+
     /**
      * What HTML element the avatar should be such as button, a  or div.
      */
@@ -23,6 +25,7 @@ export interface AvatarProps {
 export type DefaultProps = ComponentDefaultProps<AvatarProps, keyof Omit<AvatarProps, 'label' | 'src'>>;
 export const defaultProps: DefaultProps = {
     tag: 'div',
+    type: 'ordered-list',
 };
 
 export type Initials = {
