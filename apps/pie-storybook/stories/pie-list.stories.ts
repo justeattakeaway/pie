@@ -27,14 +27,18 @@ const listStoryMeta: ListStoryMeta = {
 export default listStoryMeta;
 
 function logSelectionChange (event: Event) {
-    const customEvent = event as CustomEvent<{ value: string; selected: boolean }>;
-    const target = event.target as HTMLElement;
-    const type = target.getAttribute('selection-type') || 'undefined';
+    console.info('change logged');
+    const list = event.target as HTMLElement;
+    const type = list.getAttribute('selection-type') || 'undefined';
     const logger = document.getElementById('logger');
     if (!logger) return;
     const entry = document.createElement('p');
     const timestamp = new Date().toLocaleTimeString();
-    entry.textContent = `[${timestamp}] [Type: ${type}] Value "${customEvent.detail.value}" selection state set to: ${customEvent.detail.selected}`;
+    const selectedValues = Array.from(list.querySelectorAll('pie-list-item'))
+        .filter((el) => (el as HTMLElement & { selected: boolean }).selected)
+        .map((el) => (el as HTMLElement & { value: string }).value)
+        .join(', ');
+    entry.textContent = `[${timestamp}] [Type: ${type}] Selected: ${selectedValues || 'none'}`;
     logger.appendChild(entry);
     logger.scrollTop = logger.scrollHeight;
 }
@@ -96,7 +100,7 @@ const Template = ({}: ListProps) => html`
     <button id="start-focus">1. Focus Here First</button>
     <p><em>Then use your keyboard (Tab, Shift+Tab, Arrows, Space) to interact with the lists below.</em></p>
 
-    <div class="demo-container" @pie-list-selection-change=${logSelectionChange}>
+    <div class="demo-container">
         <div class="box">
             <h2>Multi-Select Mode</h2>
             <p class="instruction">
@@ -105,7 +109,7 @@ const Template = ({}: ListProps) => html`
                 Press <strong>Spacebar</strong> to toggle active selection states.
             </p>
 
-            <pie-list data-test-id="pie-list" selection-type="multi">
+            <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
                 <pie-list-item value="m1">Multi Option 1</pie-list-item>
                 <pie-list-item value="m2" selected>Multi Option 2 (Initial)</pie-list-item>
                 <pie-list-item value="m3">Multi Option 3</pie-list-item>
@@ -121,7 +125,7 @@ const Template = ({}: ListProps) => html`
                 Spacebar is inactive.
             </p>
 
-            <pie-list selection-type="single">
+            <pie-list selection-type="single" @change=${logSelectionChange}>
                 <pie-list-item value="s1">Single Option 1</pie-list-item>
                 <pie-list-item value="s2">Single Option 2</pie-list-item>
                 <pie-list-item value="s3" selected>Single Option 3 (Initial)</pie-list-item>

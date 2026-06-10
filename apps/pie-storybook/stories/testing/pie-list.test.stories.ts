@@ -7,6 +7,8 @@ import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
 
 import { createStory } from '../../utilities';
 
+const EXPECTED_CHANGE_EVENT_MESSAGE = 'Change event dispatched';
+
 type ListStoryMeta = Meta<ListProps>;
 
 const defaultArgs: ListProps = {};
@@ -27,14 +29,18 @@ const listStoryMeta: ListStoryMeta = {
 export default listStoryMeta;
 
 function logSelectionChange (event: Event) {
-    const customEvent = event as CustomEvent<{ value: string; selected: boolean }>;
-    const target = event.target as HTMLElement;
-    const type = target.getAttribute('selection-type') || 'undefined';
+    console.info(EXPECTED_CHANGE_EVENT_MESSAGE);
+    const list = event.target as HTMLElement;
+    const type = list.getAttribute('selection-type') || 'undefined';
     const logger = document.getElementById('logger');
     if (!logger) return;
     const entry = document.createElement('p');
     const timestamp = new Date().toLocaleTimeString();
-    entry.textContent = `[${timestamp}] [Type: ${type}] Value "${customEvent.detail.value}" selection state set to: ${customEvent.detail.selected}`;
+    const selectedValues = Array.from(list.querySelectorAll('pie-list-item'))
+        .filter((el) => (el as HTMLElement & { selected: boolean }).selected)
+        .map((el) => (el as HTMLElement & { value: string }).value)
+        .join(', ');
+    entry.textContent = `[${timestamp}] [Type: ${type}] Selected: ${selectedValues || 'none'}`;
     logger.appendChild(entry);
     logger.scrollTop = logger.scrollHeight;
 }
@@ -96,7 +102,7 @@ const Template = ({}: ListProps) => html`
     <button id="start-focus">1. Focus Here First</button>
     <p><em>Then use your keyboard (Tab, Shift+Tab, Arrows, Space) to interact with the lists below.</em></p>
 
-    <div class="demo-container" @pie-list-selection-change=${logSelectionChange}>
+    <div class="demo-container">
         <div class="box">
             <h2>Multi-Select Mode</h2>
             <p class="instruction">
@@ -105,7 +111,7 @@ const Template = ({}: ListProps) => html`
                 Press <strong>Spacebar</strong> to toggle active selection states.
             </p>
 
-            <pie-list data-test-id="pie-list" selection-type="multi">
+            <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
                 <pie-list-item value="m1">Multi Option 1</pie-list-item>
                 <pie-list-item value="m2" selected>Multi Option 2 (Initial)</pie-list-item>
                 <pie-list-item value="m3">Multi Option 3</pie-list-item>
@@ -121,7 +127,7 @@ const Template = ({}: ListProps) => html`
                 Spacebar is inactive.
             </p>
 
-            <pie-list selection-type="single">
+            <pie-list selection-type="single" @change=${logSelectionChange}>
                 <pie-list-item value="s1">Single Option 1</pie-list-item>
                 <pie-list-item value="s2">Single Option 2</pie-list-item>
                 <pie-list-item value="s3" selected>Single Option 3 (Initial)</pie-list-item>
@@ -150,4 +156,121 @@ const Template = ({}: ListProps) => html`
     </div>
 `;
 
+const MultiSelectKeyboardNavigationTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
+        <pie-list-item data-test-id="item-1" value="m1">Option 1</pie-list-item>
+        <pie-list-item data-test-id="item-2" value="m2" selected>Option 2</pie-list-item>
+        <pie-list-item data-test-id="item-3" value="m3">Option 3</pie-list-item>
+        <pie-list-item data-test-id="item-4" value="m4" selected>Option 4</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const MultiSelectNoneSelectedTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
+        <pie-list-item data-test-id="item-1" value="m1">Option 1</pie-list-item>
+        <pie-list-item data-test-id="item-2" value="m2">Option 2</pie-list-item>
+        <pie-list-item data-test-id="item-3" value="m3">Option 3</pie-list-item>
+        <pie-list-item data-test-id="item-4" value="m4">Option 4</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const SingleSelectKeyboardNavigationTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <pie-list data-test-id="pie-list" selection-type="single" @change=${logSelectionChange}>
+        <pie-list-item data-test-id="item-1" value="s1">Option 1</pie-list-item>
+        <pie-list-item data-test-id="item-2" value="s2">Option 2</pie-list-item>
+        <pie-list-item data-test-id="item-3" value="s3" selected>Option 3</pie-list-item>
+        <pie-list-item data-test-id="item-4" value="s4">Option 4</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const SingleSelectNoneSelectedTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <pie-list data-test-id="pie-list" selection-type="single" @change=${logSelectionChange}>
+        <pie-list-item data-test-id="item-1" value="s1">Option 1</pie-list-item>
+        <pie-list-item data-test-id="item-2" value="s2">Option 2</pie-list-item>
+        <pie-list-item data-test-id="item-3" value="s3">Option 3</pie-list-item>
+        <pie-list-item data-test-id="item-4" value="s4">Option 4</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const UndefinedSelectionTypeTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <pie-list data-test-id="pie-list" @change=${logSelectionChange}>
+        <pie-list-item data-test-id="item-1" value="u1">Option 1</pie-list-item>
+        <pie-list-item data-test-id="item-2" value="u2">Option 2</pie-list-item>
+        <pie-list-item data-test-id="item-3" value="u3">Option 3</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const EmptyListTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}></pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const DynamicSlotsTemplate = () => {
+    let counter = 1;
+
+    const onAdd = () => {
+        const list = document.querySelector('pie-list[data-test-id="pie-list"]');
+        if (!list) return;
+        counter += 1;
+        const item = document.createElement('pie-list-item');
+        item.setAttribute('value', `d${counter}`);
+        item.setAttribute('data-test-id', `item-${counter}`);
+        item.textContent = `Option ${counter}`;
+        list.appendChild(item);
+    };
+
+    return html`
+        <button data-test-id="btn-before">Before</button>
+        <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
+            <pie-list-item data-test-id="item-1" value="d1">Option 1</pie-list-item>
+        </pie-list>
+        <button data-test-id="btn-add" @click=${onAdd}>Add option</button>
+        <button data-test-id="btn-after">After</button>
+    `;
+};
+
+const RuntimeSelectionTypeSwitchTemplate = () => {
+    const setType = (value: string) => {
+        const list = document.querySelector('pie-list[data-test-id="pie-list"]');
+        if (!list) return;
+        if (value === '') {
+            list.removeAttribute('selection-type');
+        } else {
+            list.setAttribute('selection-type', value);
+        }
+    };
+
+    return html`
+        <button data-test-id="btn-before">Before</button>
+        <pie-list data-test-id="pie-list" @change=${logSelectionChange}>
+            <pie-list-item data-test-id="item-1" value="r1">Option 1</pie-list-item>
+            <pie-list-item data-test-id="item-2" value="r2">Option 2</pie-list-item>
+            <pie-list-item data-test-id="item-3" value="r3">Option 3</pie-list-item>
+        </pie-list>
+        <button data-test-id="btn-after">After</button>
+        <button data-test-id="btn-set-multi" @click=${() => setType('multi')}>Multi</button>
+        <button data-test-id="btn-set-single" @click=${() => setType('single')}>Single</button>
+        <button data-test-id="btn-set-undefined" @click=${() => setType('')}>Undefined</button>
+    `;
+};
+
 export const Default = createStory<ListProps>(Template, defaultArgs)();
+export const MultiSelectKeyboardNavigation = createStory<ListProps>(MultiSelectKeyboardNavigationTemplate, defaultArgs)();
+export const MultiSelectNoneSelected = createStory<ListProps>(MultiSelectNoneSelectedTemplate, defaultArgs)();
+export const SingleSelectKeyboardNavigation = createStory<ListProps>(SingleSelectKeyboardNavigationTemplate, defaultArgs)();
+export const SingleSelectNoneSelected = createStory<ListProps>(SingleSelectNoneSelectedTemplate, defaultArgs)();
+export const UndefinedSelectionType = createStory<ListProps>(UndefinedSelectionTypeTemplate, defaultArgs)();
+export const EmptyList = createStory<ListProps>(EmptyListTemplate, defaultArgs)();
+export const DynamicSlots = createStory<ListProps>(DynamicSlotsTemplate, defaultArgs)();
+export const RuntimeSelectionTypeSwitch = createStory<ListProps>(RuntimeSelectionTypeSwitchTemplate, defaultArgs)();

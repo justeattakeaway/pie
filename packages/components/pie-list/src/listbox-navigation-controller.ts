@@ -1,6 +1,5 @@
 import { type ReactiveController, type ReactiveControllerHost } from 'lit';
-import { dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
-import { ON_LIST_SELECTION_CHANGE, type NavigableOption, type SelectionType } from './defs';
+import { type NavigableOption, type SelectionType } from './defs';
 import { MultiSelectionStrategy } from './selection-strategies/multi-selection-strategy';
 import { SingleSelectionStrategy } from './selection-strategies/single-selection-strategy';
 
@@ -129,10 +128,6 @@ export class ListboxNavigationController implements ReactiveController {
         if (option.selected === state) return;
         option.selected = state;
 
-        dispatchCustomEvent(this.host, ON_LIST_SELECTION_CHANGE, {
-            value: option.value,
-            selected: state,
-            optionElement: option,
-        });
+        this.host.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
     }
 }

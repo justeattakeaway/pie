@@ -15,13 +15,3 @@ export interface ListProps {
     selectionType?: SelectionType;
 }
 
-export interface ListSelectionChangeDetail {
-    /** The `value` of the option whose selected state changed. */
-    value: string;
-    /** The new selected state of the option. */
-    selected: boolean;
-    /** The element of the option whose state changed. */
-    optionElement: NavigableOption;
-}
-
-export const ON_LIST_SELECTION_CHANGE = 'pie-list-selection-change';

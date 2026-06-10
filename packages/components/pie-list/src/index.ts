@@ -16,7 +16,7 @@ const componentSelector = 'pie-list';
 /**
  * @tagname pie-list
  * @slot - The default slot for `pie-list-item` elements.
- * @event {CustomEvent} pie-list-selection-change - fired when an item's selected state changes.
+ * @event {Event} change - fired when an item's selected state changes.
  */
 @safeCustomElement('pie-list')
 export class PieList extends RtlMixin(PieElement) implements ListProps {
