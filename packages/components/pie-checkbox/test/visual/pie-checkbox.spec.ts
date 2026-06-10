@@ -7,7 +7,6 @@ const checkedStates = [true, false];
 checkedStates.forEach((state) => test(`should render all prop variations for the checked state: ${state}`, async ({ page }) => {
     // Arrange
     const checkboxVariationsPage = new BasePage(page, `checkbox--checked-${state}-variations`);
-    checkboxVariationsPage.waitUntilStrategy = 'networkidle';
     await checkboxVariationsPage.load();
 
     // Assert
@@ -17,7 +16,6 @@ checkedStates.forEach((state) => test(`should render all prop variations for the
 test('should render all label position and fit variations', async ({ page }) => {
     // Arrange
     const labelPositionPage = new BasePage(page, 'checkbox--label-position-variations');
-    labelPositionPage.waitUntilStrategy = 'networkidle';
     await labelPositionPage.load();
 
     // Assert
@@ -27,7 +25,6 @@ test('should render all label position and fit variations', async ({ page }) => 
 test('should render all rich label variations', async ({ page }) => {
     // Arrange
     const richLabelPage = new BasePage(page, 'checkbox--rich-label-variations');
-    richLabelPage.waitUntilStrategy = 'networkidle';
     await richLabelPage.load();
 
     // Assert
