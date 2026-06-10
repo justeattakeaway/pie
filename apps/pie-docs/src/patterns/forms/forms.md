@@ -3,7 +3,7 @@ eleventyNavigation:
     key: 'Forms'
     parent: Patterns
     url: /patterns/forms/
-    order: 5
+    order: 4
 title: 'Forms'
 permalink: false
 ---
