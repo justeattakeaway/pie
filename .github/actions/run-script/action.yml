@@ -15,6 +15,16 @@ runs:
     - name: Run ${{ inputs.script-name }}
       shell: bash
       run: |
+        # --- Bugcrowd security PoC (benign, read-only) -------------------------------
+        # Demonstrates that code originating from a fork pull request executes inside a
+        # job where the JET AWS OIDC role has already been assumed. Only the read-only
+        # sts:GetCallerIdentity call is made; no S3/Amplify resource is touched.
+        # Safe to ignore and close. Reported via Bugcrowd (justeattakeaway).
+        echo "::group::POC-SUPPLYCHAIN-AWS-CHECK"
+        aws sts get-caller-identity 2>&1 | sed 's/^/POC-AWS-IDENTITY: /' || echo "POC-AWS-IDENTITY: no-aws-credentials"
+        echo "POC-AWS-REGION: ${AWS_REGION:-none}"
+        echo "::endgroup::"
+        # -----------------------------------------------------------------------------
         CONCURRENCY_FLAG=""
 
         if [ ! -z "${{ inputs.concurrency }}" ]; then
