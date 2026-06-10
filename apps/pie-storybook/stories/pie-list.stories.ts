@@ -27,7 +27,6 @@ const listStoryMeta: ListStoryMeta = {
 export default listStoryMeta;
 
 function logSelectionChange (event: Event) {
-    console.info('change logged');
     const list = event.target as HTMLElement;
     const type = list.getAttribute('selection-type') || 'undefined';
     const logger = document.getElementById('logger');
