@@ -8,47 +8,40 @@ export class MultiSelectionStrategy implements SelectionStrategy {
         this.controller = controller;
     }
 
-    resetTabindexState () {
+    resetActiveState () {
         const { options } = this.controller;
         if (options.length === 0) return;
 
+        // Priority: existing aria-activedescendant > first selected > first item.
         const activeIndex = this.controller.getActiveDescendantIndex();
         if (activeIndex !== -1) {
-            options.forEach((option, i) => {
-                option.tabIndex = (i === activeIndex) ? 0 : -1;
-            });
+            this.controller.setActive(options[activeIndex]);
             return;
         }
 
-        let hasSelected = false;
-        options.forEach((option) => {
-            if (option.selected && !hasSelected) {
-                option.tabIndex = 0;
-                hasSelected = true;
-            } else {
-                option.tabIndex = -1;
-            }
-        });
-
-        if (!hasSelected) {
-            options[0].tabIndex = 0;
-        }
+        const firstSelected = options.find((opt) => opt.selected);
+        this.controller.setActive(firstSelected ?? options[0]);
     }
 
     handleKeyDown (event: KeyboardEvent, currentIndex: number) {
+        const { options } = this.controller;
         switch (event.key) {
-            case 'ArrowDown':
+            case 'ArrowDown': {
                 event.preventDefault();
-                this.controller.focusOption(currentIndex + 1, true);
+                const next = currentIndex + 1;
+                if (next < options.length) this.controller.setActive(options[next]);
                 break;
-            case 'ArrowUp':
+            }
+            case 'ArrowUp': {
                 event.preventDefault();
-                this.controller.focusOption(currentIndex - 1, true);
+                const prev = currentIndex - 1;
+                if (prev >= 0) this.controller.setActive(options[prev]);
                 break;
+            }
             case ' ':
             case 'Spacebar': {
                 event.preventDefault();
-                const option = this.controller.options[currentIndex];
+                const option = options[currentIndex];
                 this.controller.toggleSelection(option, !option.selected);
                 break;
             }
@@ -59,6 +52,6 @@ export class MultiSelectionStrategy implements SelectionStrategy {
 
     handleOptionClick (option: NavigableOption, index: number) {
         this.controller.toggleSelection(option, !option.selected);
-        this.controller.focusOption(index);
+        this.controller.setActive(this.controller.options[index]);
     }
 }

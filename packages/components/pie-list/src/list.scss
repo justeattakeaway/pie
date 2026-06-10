@@ -8,3 +8,12 @@
 :host([selection-type="single"]) {
     --list-item-cursor: pointer;
 }
+
+// The list itself takes DOM focus (it's the single tab stop). When that focus
+// is keyboard-driven, expose the focus-ring box-shadow to the active item via
+// a custom property; descendants read it through inheritance.
+:host(:focus-visible) {
+    outline: none;
+
+    --pie-list-active-ring: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+}

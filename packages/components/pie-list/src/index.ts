@@ -67,6 +67,13 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
         } else {
             this.removeAttribute('aria-multiselectable');
         }
+        // The list itself is the single tab stop for the activedescendant
+        // pattern. Items are not focusable.
+        if (cfg.selectable) {
+            this.setAttribute('tabindex', '0');
+        } else {
+            this.removeAttribute('tabindex');
+        }
     }
 
     private applyOptionAria (opt: PieListItem) {
@@ -81,7 +88,7 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
 
     handleSlotChange () {
         this.options.forEach((opt) => this.applyOptionAria(opt));
-        this.navController.resetTabindexState();
+        this.navController.syncActiveAttr();
     }
 
     render () {

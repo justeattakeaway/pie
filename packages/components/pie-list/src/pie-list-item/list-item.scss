@@ -12,9 +12,12 @@
     user-select: none;
 }
 
-:host(:focus-visible),
-:host([data-pie-keyboard-focus]:focus) {
-    @include p.focus;
+// Active item shows the focus ring only when the parent list is in keyboard-
+// focus mode. The parent sets --pie-list-active-ring under :focus-visible;
+// otherwise it's undefined and the box-shadow falls back to `none`.
+:host([data-active]) {
+    box-shadow: var(--pie-list-active-ring, none);
+    outline: none;
 }
 
 :host([selected]) {

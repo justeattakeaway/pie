@@ -8,22 +8,19 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         this.controller = controller;
     }
 
-    resetTabindexState () {
+    resetActiveState () {
         const { options } = this.controller;
         if (options.length === 0) return;
 
+        // Priority: existing aria-activedescendant > selected item > first item.
         const activeIndex = this.controller.getActiveDescendantIndex();
-        const selectedIndex = options.findIndex((opt) => opt.selected);
-        let targetIndex = 0;
         if (activeIndex !== -1) {
-            targetIndex = activeIndex;
-        } else if (selectedIndex !== -1) {
-            targetIndex = selectedIndex;
+            this.controller.setActive(options[activeIndex]);
+            return;
         }
 
-        options.forEach((option, i) => {
-            option.tabIndex = (i === targetIndex) ? 0 : -1;
-        });
+        const selected = options.find((opt) => opt.selected);
+        this.controller.setActive(selected ?? options[0]);
     }
 
     handleKeyDown (event: KeyboardEvent, currentIndex: number) {
@@ -40,15 +37,15 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         const { options } = this.controller;
         if (nextIndex >= 0 && nextIndex < options.length) {
             event.preventDefault();
-            this.handleSingleSelectFlow(options[nextIndex], nextIndex, true);
+            this.handleSingleSelectFlow(options[nextIndex], nextIndex);
         }
     }
 
     handleOptionClick (option: NavigableOption, index: number) {
-        this.handleSingleSelectFlow(option, index, false);
+        this.handleSingleSelectFlow(option, index);
     }
 
-    private handleSingleSelectFlow (targetOption: NavigableOption, targetIndex: number, fromKeyboard: boolean) {
+    private handleSingleSelectFlow (targetOption: NavigableOption, targetIndex: number) {
         const { options } = this.controller;
 
         options.forEach((opt, i) => {
@@ -58,6 +55,6 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         });
 
         this.controller.toggleSelection(targetOption, true);
-        this.controller.focusOption(targetIndex, fromKeyboard);
+        this.controller.setActive(targetOption);
     }
 }

@@ -6,10 +6,10 @@ import { SingleSelectionStrategy } from './selection-strategies/single-selection
 export interface SelectionStrategy {
     handleKeyDown(event: KeyboardEvent, currentIndex: number): void;
     handleOptionClick(option: NavigableOption, index: number): void;
-    resetTabindexState(): void;
+    resetActiveState(): void;
 }
 
-export const KEYBOARD_FOCUS_ATTR = 'data-pie-keyboard-focus';
+export const ACTIVE_ATTR = 'data-active';
 
 export class ListboxNavigationController implements ReactiveController {
     host: ReactiveControllerHost & HTMLElement & { selectionType: SelectionType };
@@ -34,8 +34,7 @@ export class ListboxNavigationController implements ReactiveController {
         const { signal } = this.cleanupController;
 
         this.host.addEventListener('keydown', this.handleKeyDown, { signal });
-        this.host.addEventListener('focusin', this.handleFocusIn, { signal });
-        this.host.addEventListener('focusout', this.handleFocusOut, { signal });
+        this.host.addEventListener('focus', this.handleFocus, { signal });
         this.host.addEventListener('click', this.handleClick, { signal });
     }
 
@@ -55,20 +54,18 @@ export class ListboxNavigationController implements ReactiveController {
     }
 
     // Returns the option index referenced by aria-activedescendant, or -1 if
-    // unset / pointing nowhere. Strategies use this to prefer it over selection
-    // when picking the roving item.
+    // unset / pointing nowhere. Only meaningful when items have ids — use
+    // getActiveIndex() for the canonical "which item is active now".
     getActiveDescendantIndex (): number {
         const id = this.host.getAttribute('aria-activedescendant');
         if (!id) return -1;
         return this.options.findIndex((opt) => opt.id === id);
     }
 
-    // Only sets when the option has an id — id assignment is the consumer's
-    // responsibility, and we never write an empty/dangling reference.
-    private setActiveDescendant (option: NavigableOption) {
-        if (option.id) {
-            this.host.setAttribute('aria-activedescendant', option.id);
-        }
+    // Returns the index of the option marked with data-active, or -1 if none.
+    // Works regardless of whether items have ids.
+    getActiveIndex (): number {
+        return this.options.findIndex((opt) => opt.hasAttribute(ACTIVE_ATTR));
     }
 
     private updateStrategy () {
@@ -77,53 +74,64 @@ export class ListboxNavigationController implements ReactiveController {
         if (type === 'multi') {
             if (!(this.strategy instanceof MultiSelectionStrategy)) {
                 this.strategy = new MultiSelectionStrategy(this);
-                this.resetTabindexState();
+                this.syncActiveAttr();
             }
         } else if (type === 'single') {
             if (!(this.strategy instanceof SingleSelectionStrategy)) {
                 this.strategy = new SingleSelectionStrategy(this);
-                this.resetTabindexState();
+                this.syncActiveAttr();
             }
         } else {
             this.strategy = null;
-            this.options.forEach((opt) => opt.removeAttribute('tabindex'));
+            this.options.forEach((opt) => opt.removeAttribute(ACTIVE_ATTR));
             this.host.removeAttribute('aria-activedescendant');
         }
     }
 
-    resetTabindexState () {
-        if (this.strategy) {
-            this.strategy.resetTabindexState();
+    // Mirrors aria-activedescendant to data-active without picking a fallback.
+    // Used on initial render and slot changes: respects a markup-provided
+    // active descendant, clears stale state (e.g. after the active item was
+    // removed), but doesn't preemptively commit to an active item.
+    syncActiveAttr () {
+        if (this.options.length === 0) return;
+        const activeIndex = this.getActiveDescendantIndex();
+        if (activeIndex === -1) {
+            this.options.forEach((opt) => opt.removeAttribute(ACTIVE_ATTR));
+            if (this.host.hasAttribute('aria-activedescendant')) {
+                this.host.removeAttribute('aria-activedescendant');
+            }
+            return;
+        }
+        const activeOption = this.options[activeIndex];
+        this.options.forEach((opt) => {
+            opt.toggleAttribute(ACTIVE_ATTR, opt === activeOption);
+        });
+    }
+
+    // Marks `option` as the active descendant: sets data-active on it (clearing
+    // it from any other), and aria-activedescendant on the host when the option
+    // has an id. We never write an empty/dangling aria-activedescendant.
+    setActive (option: NavigableOption) {
+        this.options.forEach((opt) => {
+            opt.toggleAttribute(ACTIVE_ATTR, opt === option);
+        });
+        if (option.id) {
+            this.host.setAttribute('aria-activedescendant', option.id);
         }
     }
 
-    private handleFocusIn = (event: FocusEvent) => {
+    private handleFocus = () => {
         if (!this.strategy) return;
-        const paths = event.composedPath();
-        const focusedOption = this.options.find((opt) => paths.includes(opt));
-
-        if (focusedOption) {
-            const index = this.options.indexOf(focusedOption);
-            this.options.forEach((opt, i) => {
-                opt.tabIndex = (i === index) ? 0 : -1;
-            });
-            // aria-activedescendant persists across focus-out (intentional).
-            this.setActiveDescendant(focusedOption);
-        }
-    };
-
-    private handleFocusOut = (event: FocusEvent) => {
-        if (!this.strategy) return;
-        const relatedTarget = event.relatedTarget as Node | null;
-        if (!this.host.contains(relatedTarget)) {
-            this.resetTabindexState();
-            this.options.forEach((opt) => opt.removeAttribute(KEYBOARD_FOCUS_ATTR));
+        // First entry into the list (no prior active item): let the strategy
+        // pick the initial active item.
+        if (this.getActiveIndex() === -1) {
+            this.strategy.resetActiveState();
         }
     };
 
     private handleKeyDown = (event: KeyboardEvent) => {
         if (!this.strategy) return;
-        const currentIndex = this.options.findIndex((opt) => opt.tabIndex === 0);
+        const currentIndex = this.getActiveIndex();
         if (currentIndex === -1) return;
 
         this.strategy.handleKeyDown(event, currentIndex);
@@ -138,17 +146,13 @@ export class ListboxNavigationController implements ReactiveController {
 
         if (clickedOption) {
             const index = this.options.indexOf(clickedOption);
-            this.setActiveDescendant(clickedOption);
+            // Pull DOM focus to the list container. The browser would do this
+            // anyway when the click target lives under a tabindex=0 ancestor,
+            // but be explicit so behavior is consistent across browsers.
+            this.host.focus();
             this.strategy.handleOptionClick(clickedOption, index);
         }
     };
-
-    focusOption (index: number, fromKeyboard = false) {
-        if (index < 0 || index >= this.options.length) return;
-        const option = this.options[index];
-        option.toggleAttribute(KEYBOARD_FOCUS_ATTR, fromKeyboard);
-        option.focus();
-    }
 
     toggleSelection (option: NavigableOption, state: boolean) {
         if (option.selected === state) return;

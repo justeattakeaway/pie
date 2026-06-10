@@ -23,13 +23,6 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: String })
     public value = '';
 
-    connectedCallback (): void {
-        super.connectedCallback();
-        if (!this.hasAttribute('tabindex')) {
-            this.tabIndex = -1;
-        }
-    }
-
     updated (changedProperties: PropertyValues<this>): void {
         // Role + aria-selected presence are owned by the parent pie-list.
         // We only keep its value in sync with `selected` when it's set.

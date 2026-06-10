@@ -28,6 +28,16 @@ const getListAttr = (page: Page, attr: string) => page.locator(componentSelector
 
 const isSelected = (page: Page, testId: string) => page.getByTestId(testId).evaluate((el) => (el as HTMLElement & { selected: boolean }).selected);
 
+const isActive = (page: Page, testId: string) => page.getByTestId(testId).getAttribute('data-active').then((v) => v !== null);
+
+const expectActiveItem = async (page: Page, testId: string) => {
+    // The list container holds DOM focus; the active option is identified
+    // visually via data-active and to AT via aria-activedescendant.
+    await expect(page.locator(componentSelector)).toBeFocused();
+    expect(await isActive(page, testId)).toBe(true);
+    expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, testId));
+};
+
 const getSelectedValues = (page: Page) => page.locator(componentSelector).evaluate((list) => Array.from(list.querySelectorAll('pie-list-item'))
     .filter((el) => (el as HTMLElement & { selected: boolean }).selected)
     .map((el) => (el as HTMLElement & { value: string }).value));
@@ -46,34 +56,35 @@ test.describe('PieList - Component tests', () => {
     });
 
     test.describe('selection-type="multi"', () => {
-        test.describe('Initial tabindex state', () => {
-            test('first selected item gets tabindex="0", others get "-1"', async ({ page }) => {
+        test.describe('Initial state', () => {
+            test('list is the single tab stop (tabindex="0"); items have no tabindex', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
 
-                expect(await getTabindex(page, 'item-1')).toBe('-1');
-                expect(await getTabindex(page, 'item-2')).toBe('0');
-                expect(await getTabindex(page, 'item-3')).toBe('-1');
-                expect(await getTabindex(page, 'item-4')).toBe('-1');
+                expect(await getListAttr(page, 'tabindex')).toBe('0');
+                expect(await getTabindex(page, 'item-1')).toBeNull();
+                expect(await getTabindex(page, 'item-2')).toBeNull();
+                expect(await getTabindex(page, 'item-3')).toBeNull();
+                expect(await getTabindex(page, 'item-4')).toBeNull();
             });
 
-            test('with no items selected, first item gets tabindex="0"', async ({ page }) => {
-                await new BasePage(page, 'list--multi-select-none-selected').load();
+            test('no item is marked active until the list is engaged', async ({ page }) => {
+                await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
 
-                expect(await getTabindex(page, 'item-1')).toBe('0');
-                expect(await getTabindex(page, 'item-2')).toBe('-1');
-                expect(await getTabindex(page, 'item-3')).toBe('-1');
-                expect(await getTabindex(page, 'item-4')).toBe('-1');
+                expect(await isActive(page, 'item-1')).toBe(false);
+                expect(await isActive(page, 'item-2')).toBe(false);
+                expect(await isActive(page, 'item-3')).toBe(false);
+                expect(await isActive(page, 'item-4')).toBe(false);
             });
         });
 
         test.describe('Tab / Shift+Tab', () => {
-            test('Tab from preceding focusable lands on the first selected item', async ({ page }) => {
+            test('Tab from preceding focusable enters at the first selected item', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
                 await focusBeforeButton(page);
 
                 await page.keyboard.press('Tab');
 
-                await expect(page.getByTestId('item-2')).toBeFocused();
+                await expectActiveItem(page, 'item-2');
             });
 
             test('Second Tab leaves the list and lands on the next focusable', async ({ page }) => {
@@ -86,22 +97,22 @@ test.describe('PieList - Component tests', () => {
                 await expect(page.getByTestId('btn-after')).toBeFocused();
             });
 
-            test('with no items selected, Tab lands on the first item', async ({ page }) => {
+            test('with no items selected, Tab enters at the first item', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-none-selected').load();
                 await focusBeforeButton(page);
 
                 await page.keyboard.press('Tab');
 
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
             });
 
-            test('Shift+Tab from following focusable lands on the first selected item', async ({ page }) => {
+            test('Shift+Tab from following focusable enters at the first selected item', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
                 await page.getByTestId('btn-after').focus();
 
                 await page.keyboard.press('Shift+Tab');
 
-                await expect(page.getByTestId('item-2')).toBeFocused();
+                await expectActiveItem(page, 'item-2');
             });
         });
 
@@ -112,47 +123,47 @@ test.describe('PieList - Component tests', () => {
                 await page.keyboard.press('Tab');
             });
 
-            test('ArrowDown moves focus to the next item without changing selection', async ({ page }) => {
+            test('ArrowDown moves active to the next item without changing selection', async ({ page }) => {
                 const events = startChangeEventCapture(page);
 
                 await page.keyboard.press('ArrowDown');
 
-                await expect(page.getByTestId('item-3')).toBeFocused();
+                await expectActiveItem(page, 'item-3');
                 expect(await isSelected(page, 'item-2')).toBe(true);
                 expect(await isSelected(page, 'item-3')).toBe(false);
                 expect(events).toEqual([]);
             });
 
-            test('ArrowUp moves focus to the previous item without changing selection', async ({ page }) => {
+            test('ArrowUp moves active to the previous item without changing selection', async ({ page }) => {
                 const events = startChangeEventCapture(page);
 
                 await page.keyboard.press('ArrowUp');
 
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
                 expect(await isSelected(page, 'item-2')).toBe(true);
                 expect(await isSelected(page, 'item-1')).toBe(false);
                 expect(events).toEqual([]);
             });
 
-            test('ArrowDown at the last item keeps focus on the last item', async ({ page }) => {
+            test('ArrowDown at the last item keeps active on the last item', async ({ page }) => {
                 await page.keyboard.press('ArrowDown');
                 await page.keyboard.press('ArrowDown');
 
-                await expect(page.getByTestId('item-4')).toBeFocused();
+                await expectActiveItem(page, 'item-4');
 
                 await page.keyboard.press('ArrowDown');
 
-                await expect(page.getByTestId('item-4')).toBeFocused();
+                await expectActiveItem(page, 'item-4');
             });
 
-            test('ArrowUp at the first item keeps focus on the first item', async ({ page }) => {
+            test('ArrowUp at the first item keeps active on the first item', async ({ page }) => {
                 await page.keyboard.press('ArrowUp');
 
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
 
                 await page.keyboard.press('ArrowUp');
 
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
             });
         });
 
@@ -163,7 +174,7 @@ test.describe('PieList - Component tests', () => {
                 await page.keyboard.press('Tab');
             });
 
-            test('Space on an unselected focused item selects it and emits change', async ({ page }) => {
+            test('Space on an unselected active item selects it and emits change', async ({ page }) => {
                 const events = startChangeEventCapture(page);
 
                 await page.keyboard.press('Space');
@@ -172,7 +183,7 @@ test.describe('PieList - Component tests', () => {
                 expect(events).toEqual([EXPECTED_CHANGE_EVENT_MESSAGE]);
             });
 
-            test('Space on a selected focused item deselects it and emits change', async ({ page }) => {
+            test('Space on a selected active item deselects it and emits change', async ({ page }) => {
                 await page.keyboard.press('Space');
                 const events = startChangeEventCapture(page);
 
@@ -201,12 +212,12 @@ test.describe('PieList - Component tests', () => {
             });
 
             ['Home', 'End', 'Enter', 'a'].forEach((key) => {
-                test(`${key} does not change focus or selection or emit change`, async ({ page }) => {
+                test(`${key} does not change active item or selection or emit change`, async ({ page }) => {
                     const events = startChangeEventCapture(page);
 
                     await page.keyboard.press(key);
 
-                    await expect(page.getByTestId('item-2')).toBeFocused();
+                    await expectActiveItem(page, 'item-2');
                     expect(await getSelectedValues(page)).toEqual(['m2', 'm4']);
                     expect(events).toEqual([]);
                 });
@@ -218,13 +229,13 @@ test.describe('PieList - Component tests', () => {
                 await new BasePage(page, 'list--multi-select-none-selected').load();
             });
 
-            test('Click on an item selects it, moves focus to it, and emits change', async ({ page }) => {
+            test('Click on an item selects it, makes it active, and emits change', async ({ page }) => {
                 const events = startChangeEventCapture(page);
 
                 await page.getByTestId('item-3').click();
 
                 expect(await isSelected(page, 'item-3')).toBe(true);
-                await expect(page.getByTestId('item-3')).toBeFocused();
+                await expectActiveItem(page, 'item-3');
                 expect(events).toEqual([EXPECTED_CHANGE_EVENT_MESSAGE]);
             });
 
@@ -240,51 +251,52 @@ test.describe('PieList - Component tests', () => {
         });
 
         test.describe('Focus restoration', () => {
-            test('after Tab away and back, focus returns to the last roving item (tracked via aria-activedescendant)', async ({ page }) => {
+            test('after Tab away and back, the previously active item is still active', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
                 await focusBeforeButton(page);
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('ArrowDown');
 
-                await expect(page.getByTestId('item-3')).toBeFocused();
+                await expectActiveItem(page, 'item-3');
 
                 await page.keyboard.press('Tab');
                 await expect(page.getByTestId('btn-after')).toBeFocused();
 
                 await page.keyboard.press('Shift+Tab');
 
-                await expect(page.getByTestId('item-3')).toBeFocused();
+                await expectActiveItem(page, 'item-3');
             });
         });
     });
 
     test.describe('selection-type="single"', () => {
-        test.describe('Initial tabindex state', () => {
-            test('selected item gets tabindex="0", others get "-1"', async ({ page }) => {
+        test.describe('Initial state', () => {
+            test('list is the single tab stop (tabindex="0"); items have no tabindex', async ({ page }) => {
                 await new BasePage(page, 'list--single-select-keyboard-navigation').load();
 
-                expect(await getTabindex(page, 'item-1')).toBe('-1');
-                expect(await getTabindex(page, 'item-2')).toBe('-1');
-                expect(await getTabindex(page, 'item-3')).toBe('0');
-                expect(await getTabindex(page, 'item-4')).toBe('-1');
+                expect(await getListAttr(page, 'tabindex')).toBe('0');
+                expect(await getTabindex(page, 'item-1')).toBeNull();
+                expect(await getTabindex(page, 'item-2')).toBeNull();
+                expect(await getTabindex(page, 'item-3')).toBeNull();
+                expect(await getTabindex(page, 'item-4')).toBeNull();
             });
 
-            test('with no items selected, first item gets tabindex="0"', async ({ page }) => {
+            test('no item is marked active until the list is engaged', async ({ page }) => {
                 await new BasePage(page, 'list--single-select-none-selected').load();
 
-                expect(await getTabindex(page, 'item-1')).toBe('0');
-                expect(await getTabindex(page, 'item-2')).toBe('-1');
+                expect(await isActive(page, 'item-1')).toBe(false);
+                expect(await isActive(page, 'item-2')).toBe(false);
             });
         });
 
         test.describe('Tab / Shift+Tab', () => {
-            test('Tab from preceding focusable lands on the selected item', async ({ page }) => {
+            test('Tab from preceding focusable enters at the selected item', async ({ page }) => {
                 await new BasePage(page, 'list--single-select-keyboard-navigation').load();
                 await focusBeforeButton(page);
 
                 await page.keyboard.press('Tab');
 
-                await expect(page.getByTestId('item-3')).toBeFocused();
+                await expectActiveItem(page, 'item-3');
             });
 
             test('Second Tab leaves the list and lands on the next focusable', async ({ page }) => {
@@ -297,13 +309,13 @@ test.describe('PieList - Component tests', () => {
                 await expect(page.getByTestId('btn-after')).toBeFocused();
             });
 
-            test('with no item selected, Tab lands on the first item', async ({ page }) => {
+            test('with no item selected, Tab enters at the first item', async ({ page }) => {
                 await new BasePage(page, 'list--single-select-none-selected').load();
                 await focusBeforeButton(page);
 
                 await page.keyboard.press('Tab');
 
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
             });
         });
 
@@ -314,53 +326,53 @@ test.describe('PieList - Component tests', () => {
                 await page.keyboard.press('Tab');
             });
 
-            test('ArrowDown moves focus AND selects the next item, deselecting the previous', async ({ page }) => {
+            test('ArrowDown moves active AND selects the next item, deselecting the previous', async ({ page }) => {
                 const events = startChangeEventCapture(page);
 
                 await page.keyboard.press('ArrowDown');
 
-                await expect(page.getByTestId('item-4')).toBeFocused();
+                await expectActiveItem(page, 'item-4');
                 expect(await isSelected(page, 'item-4')).toBe(true);
                 expect(await isSelected(page, 'item-3')).toBe(false);
                 expect(await getSelectedValues(page)).toEqual(['s4']);
                 expect(events.length).toBe(2);
             });
 
-            test('ArrowUp moves focus AND selects the previous item, deselecting the previous selection', async ({ page }) => {
+            test('ArrowUp moves active AND selects the previous item, deselecting the previous selection', async ({ page }) => {
                 const events = startChangeEventCapture(page);
 
                 await page.keyboard.press('ArrowUp');
 
-                await expect(page.getByTestId('item-2')).toBeFocused();
+                await expectActiveItem(page, 'item-2');
                 expect(await isSelected(page, 'item-2')).toBe(true);
                 expect(await isSelected(page, 'item-3')).toBe(false);
                 expect(await getSelectedValues(page)).toEqual(['s2']);
                 expect(events.length).toBe(2);
             });
 
-            test('ArrowDown at the last item is a no-op (focus stays, selection unchanged, no change event)', async ({ page }) => {
+            test('ArrowDown at the last item is a no-op (active stays, selection unchanged, no change event)', async ({ page }) => {
                 await page.keyboard.press('ArrowDown');
-                await expect(page.getByTestId('item-4')).toBeFocused();
+                await expectActiveItem(page, 'item-4');
 
                 const events = startChangeEventCapture(page);
 
                 await page.keyboard.press('ArrowDown');
 
-                await expect(page.getByTestId('item-4')).toBeFocused();
+                await expectActiveItem(page, 'item-4');
                 expect(await getSelectedValues(page)).toEqual(['s4']);
                 expect(events).toEqual([]);
             });
 
-            test('ArrowUp at the first item is a no-op (focus stays, selection unchanged, no change event)', async ({ page }) => {
+            test('ArrowUp at the first item is a no-op (active stays, selection unchanged, no change event)', async ({ page }) => {
                 await page.keyboard.press('ArrowUp');
                 await page.keyboard.press('ArrowUp');
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
 
                 const events = startChangeEventCapture(page);
 
                 await page.keyboard.press('ArrowUp');
 
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
                 expect(await getSelectedValues(page)).toEqual(['s1']);
                 expect(events).toEqual([]);
             });
@@ -383,14 +395,14 @@ test.describe('PieList - Component tests', () => {
 
                 await page.keyboard.press('Space');
 
-                await expect(page.getByTestId('item-3')).toBeFocused();
+                await expectActiveItem(page, 'item-3');
                 expect(await getSelectedValues(page)).toEqual(['s3']);
                 expect(events).toEqual([]);
             });
         });
 
         test.describe('Mouse', () => {
-            test('Click on an item selects it, deselects previous, focuses it, emits a change event per item state change', async ({ page }) => {
+            test('Click on an item selects it, deselects previous, makes it active, emits a change event per item state change', async ({ page }) => {
                 await new BasePage(page, 'list--single-select-keyboard-navigation').load();
                 const events = startChangeEventCapture(page);
 
@@ -399,7 +411,7 @@ test.describe('PieList - Component tests', () => {
                 expect(await isSelected(page, 'item-1')).toBe(true);
                 expect(await isSelected(page, 'item-3')).toBe(false);
                 expect(await getSelectedValues(page)).toEqual(['s1']);
-                await expect(page.getByTestId('item-1')).toBeFocused();
+                await expectActiveItem(page, 'item-1');
                 expect(events.length).toBe(2);
             });
 
@@ -425,9 +437,10 @@ test.describe('PieList - Component tests', () => {
             await expect(page.getByTestId('btn-after')).toBeFocused();
         });
 
-        test('list items have no tabindex attribute', async ({ page }) => {
+        test('list has no tabindex; items have no tabindex', async ({ page }) => {
             await new BasePage(page, 'list--undefined-selection-type').load();
 
+            expect(await getListAttr(page, 'tabindex')).toBeNull();
             expect(await getTabindex(page, 'item-1')).toBeNull();
             expect(await getTabindex(page, 'item-2')).toBeNull();
             expect(await getTabindex(page, 'item-3')).toBeNull();
@@ -457,21 +470,21 @@ test.describe('PieList - Component tests', () => {
     });
 
     test.describe('Slot changes', () => {
-        test('Appending an item to a list with a rover keeps the existing rover', async ({ page }) => {
+        test('Appending an item does not engage the list before focus', async ({ page }) => {
             await new BasePage(page, 'list--dynamic-slots').load();
 
-            expect(await getTabindex(page, 'item-1')).toBe('0');
+            // No item is active before the list has been engaged.
+            expect(await isActive(page, 'item-1')).toBe(false);
+            expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
 
             await page.getByTestId('btn-add').click();
 
-            expect(await getTabindex(page, 'item-1')).toBe('0');
-            expect(await getTabindex(page, 'item-2')).toBe('-1');
+            expect(await isActive(page, 'item-1')).toBe(false);
+            expect(await isActive(page, 'item-2')).toBe(false);
         });
 
-        test('Appending the first item to an empty list makes it the rover', async ({ page }) => {
+        test('Adding an item to an empty list does not preemptively set an active descendant', async ({ page }) => {
             await new BasePage(page, 'list--empty-list').load();
-            // The list has no children, so it has zero dimensions and Playwright's
-            // default "visible" wait would time out. Wait for it to be in the DOM.
             await page.locator(componentSelector).waitFor({ state: 'attached' });
 
             const itemCount = await page.evaluate(() => {
@@ -479,6 +492,7 @@ test.describe('PieList - Component tests', () => {
                 if (!list) return -1;
                 const item = document.createElement('pie-list-item');
                 item.setAttribute('value', 'new1');
+                item.setAttribute('id', 'new-1-id');
                 item.setAttribute('data-test-id', 'item-1');
                 item.textContent = 'New Option';
                 list.appendChild(item);
@@ -486,13 +500,17 @@ test.describe('PieList - Component tests', () => {
             });
             expect(itemCount).toBe(1);
 
-            await expect(page.locator('[data-test-id="pie-list"] pie-list-item').first()).toHaveAttribute('tabindex', '0');
+            expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
+            expect(await isActive(page, 'item-1')).toBe(false);
         });
 
-        test('Removing the rover promotes the next item to be the rover', async ({ page }) => {
+        test('Removing the active item clears the stale active descendant', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-none-selected').load();
 
-            expect(await getTabindex(page, 'item-1')).toBe('0');
+            // Engage the list so item-1 becomes the active descendant.
+            await focusBeforeButton(page);
+            await page.keyboard.press('Tab');
+            await expectActiveItem(page, 'item-1');
 
             await page.evaluate(() => {
                 const list = document.querySelector('pie-list[data-test-id="pie-list"]');
@@ -500,23 +518,24 @@ test.describe('PieList - Component tests', () => {
                 item1?.remove();
             });
 
-            await expect(page.getByTestId('item-2')).toHaveAttribute('tabindex', '0');
+            await expect(page.locator(componentSelector)).not.toHaveAttribute('aria-activedescendant', /.+/);
         });
     });
 
     test.describe('Runtime selection-type switching', () => {
-        test('undefined → multi: items become focusable; first item gets tabindex="0"', async ({ page }) => {
+        test('undefined → multi: list becomes tabbable (tabindex="0"); items stay non-focusable', async ({ page }) => {
             await new BasePage(page, 'list--runtime-selection-type-switch').load();
 
-            expect(await getTabindex(page, 'item-1')).toBeNull();
+            expect(await getListAttr(page, 'tabindex')).toBeNull();
 
             await page.getByTestId('btn-set-multi').click();
 
-            await expect(page.getByTestId('item-1')).toHaveAttribute('tabindex', '0');
-            await expect(page.getByTestId('item-2')).toHaveAttribute('tabindex', '-1');
+            expect(await getListAttr(page, 'tabindex')).toBe('0');
+            expect(await getTabindex(page, 'item-1')).toBeNull();
+            expect(await getTabindex(page, 'item-2')).toBeNull();
         });
 
-        test('multi → single: strategy swaps and tabindex state is reset', async ({ page }) => {
+        test('multi → single: strategy swaps; Tab still enters the list at the active item', async ({ page }) => {
             await new BasePage(page, 'list--runtime-selection-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
             await page.getByTestId('item-2').click();
@@ -524,22 +543,22 @@ test.describe('PieList - Component tests', () => {
 
             await page.getByTestId('btn-set-single').click();
 
-            await expect(page.getByTestId('item-2')).toHaveAttribute('tabindex', '0');
+            expect(await getListAttr(page, 'tabindex')).toBe('0');
             await page.getByTestId('btn-before').focus();
             await page.keyboard.press('Tab');
-            await expect(page.getByTestId('item-2')).toBeFocused();
+            await expectActiveItem(page, 'item-2');
         });
 
-        test('multi → undefined: all items lose their tabindex', async ({ page }) => {
+        test('multi → undefined: list loses tabindex; aria-activedescendant cleared', async ({ page }) => {
             await new BasePage(page, 'list--runtime-selection-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
-            await expect(page.getByTestId('item-1')).toHaveAttribute('tabindex', '0');
+            await page.getByTestId('item-1').click();
+            expect(await getListAttr(page, 'tabindex')).toBe('0');
 
             await page.getByTestId('btn-set-undefined').click();
 
-            expect(await getTabindex(page, 'item-1')).toBeNull();
-            expect(await getTabindex(page, 'item-2')).toBeNull();
-            expect(await getTabindex(page, 'item-3')).toBeNull();
+            expect(await getListAttr(page, 'tabindex')).toBeNull();
+            expect(await isActive(page, 'item-1')).toBe(false);
         });
     });
 
@@ -655,7 +674,7 @@ test.describe('PieList - Component tests', () => {
             expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
         });
 
-        test('set to the focused item id when the list receives focus via Tab', async ({ page }) => {
+        test('set to the active item id when the list receives focus via Tab', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
             await focusBeforeButton(page);
 
@@ -664,7 +683,7 @@ test.describe('PieList - Component tests', () => {
             expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, 'item-2'));
         });
 
-        test('updates as focus moves via arrow keys', async ({ page }) => {
+        test('updates as active moves via arrow keys', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
             await focusBeforeButton(page);
             await page.keyboard.press('Tab');
@@ -683,7 +702,7 @@ test.describe('PieList - Component tests', () => {
             expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, 'item-3'));
         });
 
-        test('persists on the last focused item when focus leaves the list', async ({ page }) => {
+        test('persists on the last active item when focus leaves the list', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
             await focusBeforeButton(page);
             await page.keyboard.press('Tab');
@@ -718,7 +737,7 @@ test.describe('PieList - Component tests', () => {
             expect(await getListAttr(page, 'aria-activedescendant')).toBe(itemId);
         });
 
-        test('not set when the focused/clicked item has no id (consumer owns id assignment)', async ({ page }) => {
+        test('not set when the clicked item has no id (consumer owns id assignment)', async ({ page }) => {
             await new BasePage(page, 'list--dynamic-slots').load();
             expect(await getItemId(page, 'item-1')).toBeNull();
 
@@ -728,23 +747,23 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
-    test.describe('aria-activedescendant overrides selection for rover', () => {
-        test('if set in markup, that item gets tabindex="0" instead of the selected one', async ({ page }) => {
+    test.describe('aria-activedescendant set in markup', () => {
+        test('the referenced item is marked active without engaging the list', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-with-active-descendant').load();
 
-            expect(await getTabindex(page, 'item-1')).toBe('-1');
-            expect(await getTabindex(page, 'item-2')).toBe('-1');
-            expect(await getTabindex(page, 'item-3')).toBe('0');
-            expect(await getTabindex(page, 'item-4')).toBe('-1');
+            expect(await isActive(page, 'item-1')).toBe(false);
+            expect(await isActive(page, 'item-2')).toBe(false);
+            expect(await isActive(page, 'item-3')).toBe(true);
+            expect(await isActive(page, 'item-4')).toBe(false);
         });
 
-        test('Tab from preceding focusable lands on the active-descendant item', async ({ page }) => {
+        test('Tab from preceding focusable enters the list with that item still active', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-with-active-descendant').load();
             await focusBeforeButton(page);
 
             await page.keyboard.press('Tab');
 
-            await expect(page.getByTestId('item-3')).toBeFocused();
+            await expectActiveItem(page, 'item-3');
         });
     });
 
