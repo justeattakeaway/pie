@@ -49,7 +49,7 @@ width: 230
 
 ## Using gradients in your products
 
-If you’re using gradients that belong to JET AI or JET+ we highly suggest you check out our Core [JET AI documentation](https://www.pie.design/patterns/jet-ai/) and [JET+ documentation](https://www.pie.design/patterns/just-eat-plus/) for how to use these specific gradients for their intended purpose.
+If you’re using gradients that belong to JET AI or JET+ we highly suggest you check out our Core [JET AI documentation](/patterns/jet-ai/) and [JET+ documentation](/patterns/just-eat-plus/) for how to use these specific gradients for their intended purpose.
 
 {% notification {
     type: "warning",
