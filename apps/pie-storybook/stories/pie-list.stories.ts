@@ -110,10 +110,10 @@ const Template = ({}: ListProps) => html`
             </p>
 
             <pie-list data-test-id="pie-list" selection-type="multi" aria-labelledby="multi-list-label" @change=${logSelectionChange}>
-                <pie-list-item value="m1">Multi Option 1</pie-list-item>
-                <pie-list-item value="m2" selected>Multi Option 2 (Initial)</pie-list-item>
-                <pie-list-item value="m3">Multi Option 3</pie-list-item>
-                <pie-list-item value="m4" selected>Multi Option 4 (Initial)</pie-list-item>
+                <pie-list-item id="list-item-m1" value="m1">Multi Option 1</pie-list-item>
+                <pie-list-item id="list-item-m2" value="m2" selected>Multi Option 2 (Initial)</pie-list-item>
+                <pie-list-item id="list-item-m3" value="m3">Multi Option 3</pie-list-item>
+                <pie-list-item id="list-item-m4" value="m4" selected>Multi Option 4 (Initial)</pie-list-item>
             </pie-list>
         </div>
 
@@ -126,10 +126,10 @@ const Template = ({}: ListProps) => html`
             </p>
 
             <pie-list selection-type="single" aria-labelledby="single-list-label" @change=${logSelectionChange}>
-                <pie-list-item value="s1">Single Option 1</pie-list-item>
-                <pie-list-item value="s2">Single Option 2</pie-list-item>
-                <pie-list-item value="s3" selected>Single Option 3 (Initial)</pie-list-item>
-                <pie-list-item value="s4">Single Option 4</pie-list-item>
+                <pie-list-item id="list-item-s1" value="s1">Single Option 1</pie-list-item>
+                <pie-list-item id="list-item-s2" value="s2">Single Option 2</pie-list-item>
+                <pie-list-item id="list-item-s3" value="s3" selected>Single Option 3 (Initial)</pie-list-item>
+                <pie-list-item id="list-item-s4" value="s4">Single Option 4</pie-list-item>
             </pie-list>
         </div>
 
@@ -141,9 +141,9 @@ const Template = ({}: ListProps) => html`
             </p>
 
             <pie-list aria-labelledby="undefined-list-label">
-                <pie-list-item value="u1">Plain Option 1</pie-list-item>
-                <pie-list-item value="u2">Plain Option 2</pie-list-item>
-                <pie-list-item value="u3">Plain Option 3</pie-list-item>
+                <pie-list-item id="list-item-u1" value="u1">Plain Option 1</pie-list-item>
+                <pie-list-item id="list-item-u2" value="u2">Plain Option 2</pie-list-item>
+                <pie-list-item id="list-item-u3" value="u3">Plain Option 3</pie-list-item>
             </pie-list>
         </div>
     </div>
