@@ -13,8 +13,6 @@ export * from './defs';
 
 const componentSelector = 'pie-list';
 
-let optionIdCounter = 0;
-
 /**
  * @tagname pie-list
  * @slot - The default slot for `pie-list-item` elements.
@@ -64,14 +62,7 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     }
 
     handleSlotChange () {
-        this.options.forEach((opt) => {
-            // aria-activedescendant references options by id, so ensure each has one.
-            if (!opt.id) {
-                optionIdCounter += 1;
-                opt.id = `pie-list-option-${optionIdCounter}`;
-            }
-            this.applyOptionAria(opt);
-        });
+        this.options.forEach((opt) => this.applyOptionAria(opt));
         this.navController.resetTabindexState();
     }
 

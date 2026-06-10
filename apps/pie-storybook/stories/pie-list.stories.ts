@@ -102,14 +102,14 @@ const Template = ({}: ListProps) => html`
 
     <div class="demo-container">
         <div class="box">
-            <h2>Multi-Select Mode</h2>
+            <h2 id="multi-list-label">Multi-Select Mode</h2>
             <p class="instruction">
                 <strong>Behavior:</strong> Tab focuses Option 2 (first selected). <br>
                 Arrows move focus <em>without</em> changing selections. <br>
                 Press <strong>Spacebar</strong> to toggle active selection states.
             </p>
 
-            <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
+            <pie-list data-test-id="pie-list" selection-type="multi" aria-labelledby="multi-list-label" @change=${logSelectionChange}>
                 <pie-list-item value="m1">Multi Option 1</pie-list-item>
                 <pie-list-item value="m2" selected>Multi Option 2 (Initial)</pie-list-item>
                 <pie-list-item value="m3">Multi Option 3</pie-list-item>
@@ -118,14 +118,14 @@ const Template = ({}: ListProps) => html`
         </div>
 
         <div class="box">
-            <h2>Single-Select Mode</h2>
+            <h2 id="single-list-label">Single-Select Mode</h2>
             <p class="instruction">
                 <strong>Behavior:</strong> Tab focuses Option 3 (only selected). <br>
                 Arrows move focus <strong>AND</strong> instantly select the new option while deselecting the old option.
                 Spacebar is inactive.
             </p>
 
-            <pie-list selection-type="single" @change=${logSelectionChange}>
+            <pie-list selection-type="single" aria-labelledby="single-list-label" @change=${logSelectionChange}>
                 <pie-list-item value="s1">Single Option 1</pie-list-item>
                 <pie-list-item value="s2">Single Option 2</pie-list-item>
                 <pie-list-item value="s3" selected>Single Option 3 (Initial)</pie-list-item>
@@ -134,13 +134,13 @@ const Template = ({}: ListProps) => html`
         </div>
 
         <div class="box">
-            <h2>Undefined Mode (Keyboard Disabled)</h2>
+            <h2 id="undefined-list-label">Undefined Mode (Keyboard Disabled)</h2>
             <p class="instruction">
                 <strong>Behavior:</strong> Strategy is completely dormant. Keyboard navigation, focus roving, and focus
                 rings do not engage. Completely skipped by Tab.
             </p>
 
-            <pie-list>
+            <pie-list aria-labelledby="undefined-list-label">
                 <pie-list-item value="u1">Plain Option 1</pie-list-item>
                 <pie-list-item value="u2">Plain Option 2</pie-list-item>
                 <pie-list-item value="u3">Plain Option 3</pie-list-item>

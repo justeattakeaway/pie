@@ -97,8 +97,11 @@ export class ListboxNavigationController implements ReactiveController {
             this.options.forEach((opt, i) => {
                 opt.tabIndex = (i === index) ? 0 : -1;
             });
+            // Only set when the option has an id — the consumer owns id assignment.
             // Persists after focus leaves the list (intentional — kept on focusOut).
-            this.host.setAttribute('aria-activedescendant', focusedOption.id);
+            if (focusedOption.id) {
+                this.host.setAttribute('aria-activedescendant', focusedOption.id);
+            }
         }
     };
 
@@ -127,7 +130,9 @@ export class ListboxNavigationController implements ReactiveController {
 
         if (clickedOption) {
             const index = this.options.indexOf(clickedOption);
-            this.host.setAttribute('aria-activedescendant', clickedOption.id);
+            if (clickedOption.id) {
+                this.host.setAttribute('aria-activedescendant', clickedOption.id);
+            }
             this.strategy.handleOptionClick(clickedOption, index);
         }
     };

@@ -159,10 +159,10 @@ const Template = ({}: ListProps) => html`
 const MultiSelectKeyboardNavigationTemplate = () => html`
     <button data-test-id="btn-before">Before</button>
     <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
-        <pie-list-item data-test-id="item-1" value="m1">Option 1</pie-list-item>
-        <pie-list-item data-test-id="item-2" value="m2" selected>Option 2</pie-list-item>
-        <pie-list-item data-test-id="item-3" value="m3">Option 3</pie-list-item>
-        <pie-list-item data-test-id="item-4" value="m4" selected>Option 4</pie-list-item>
+        <pie-list-item id="mk-item-1" data-test-id="item-1" value="m1">Option 1</pie-list-item>
+        <pie-list-item id="mk-item-2" data-test-id="item-2" value="m2" selected>Option 2</pie-list-item>
+        <pie-list-item id="mk-item-3" data-test-id="item-3" value="m3">Option 3</pie-list-item>
+        <pie-list-item id="mk-item-4" data-test-id="item-4" value="m4" selected>Option 4</pie-list-item>
     </pie-list>
     <button data-test-id="btn-after">After</button>
 `;
@@ -170,10 +170,10 @@ const MultiSelectKeyboardNavigationTemplate = () => html`
 const MultiSelectNoneSelectedTemplate = () => html`
     <button data-test-id="btn-before">Before</button>
     <pie-list data-test-id="pie-list" selection-type="multi" @change=${logSelectionChange}>
-        <pie-list-item data-test-id="item-1" value="m1">Option 1</pie-list-item>
-        <pie-list-item data-test-id="item-2" value="m2">Option 2</pie-list-item>
-        <pie-list-item data-test-id="item-3" value="m3">Option 3</pie-list-item>
-        <pie-list-item data-test-id="item-4" value="m4">Option 4</pie-list-item>
+        <pie-list-item id="mn-item-1" data-test-id="item-1" value="m1">Option 1</pie-list-item>
+        <pie-list-item id="mn-item-2" data-test-id="item-2" value="m2">Option 2</pie-list-item>
+        <pie-list-item id="mn-item-3" data-test-id="item-3" value="m3">Option 3</pie-list-item>
+        <pie-list-item id="mn-item-4" data-test-id="item-4" value="m4">Option 4</pie-list-item>
     </pie-list>
     <button data-test-id="btn-after">After</button>
 `;
@@ -240,6 +240,17 @@ const DynamicSlotsTemplate = () => {
     `;
 };
 
+const MultiSelectWithActiveDescendantTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <pie-list data-test-id="pie-list" selection-type="multi" aria-activedescendant="item-3-id" @change=${logSelectionChange}>
+        <pie-list-item id="item-1-id" data-test-id="item-1" value="m1">Option 1</pie-list-item>
+        <pie-list-item id="item-2-id" data-test-id="item-2" value="m2" selected>Option 2</pie-list-item>
+        <pie-list-item id="item-3-id" data-test-id="item-3" value="m3">Option 3</pie-list-item>
+        <pie-list-item id="item-4-id" data-test-id="item-4" value="m4">Option 4</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
 const RuntimeSelectionTypeSwitchTemplate = () => {
     const setType = (value: string) => {
         const list = document.querySelector('pie-list[data-test-id="pie-list"]');
@@ -254,9 +265,9 @@ const RuntimeSelectionTypeSwitchTemplate = () => {
     return html`
         <button data-test-id="btn-before">Before</button>
         <pie-list data-test-id="pie-list" @change=${logSelectionChange}>
-            <pie-list-item data-test-id="item-1" value="r1">Option 1</pie-list-item>
-            <pie-list-item data-test-id="item-2" value="r2">Option 2</pie-list-item>
-            <pie-list-item data-test-id="item-3" value="r3">Option 3</pie-list-item>
+            <pie-list-item id="rt-item-1" data-test-id="item-1" value="r1">Option 1</pie-list-item>
+            <pie-list-item id="rt-item-2" data-test-id="item-2" value="r2">Option 2</pie-list-item>
+            <pie-list-item id="rt-item-3" data-test-id="item-3" value="r3">Option 3</pie-list-item>
         </pie-list>
         <button data-test-id="btn-after">After</button>
         <button data-test-id="btn-set-multi" @click=${() => setType('multi')}>Multi</button>
@@ -274,3 +285,4 @@ export const UndefinedSelectionType = createStory<ListProps>(UndefinedSelectionT
 export const EmptyList = createStory<ListProps>(EmptyListTemplate, defaultArgs)();
 export const DynamicSlots = createStory<ListProps>(DynamicSlotsTemplate, defaultArgs)();
 export const RuntimeSelectionTypeSwitch = createStory<ListProps>(RuntimeSelectionTypeSwitchTemplate, defaultArgs)();
+export const MultiSelectWithActiveDescendant = createStory<ListProps>(MultiSelectWithActiveDescendantTemplate, defaultArgs)();

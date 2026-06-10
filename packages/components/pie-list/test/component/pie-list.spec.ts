@@ -18,6 +18,14 @@ const startChangeEventCapture = (page: Page) => {
 
 const getTabindex = (page: Page, testId: string) => page.getByTestId(testId).getAttribute('tabindex');
 
+const getRole = (page: Page, testId: string) => page.getByTestId(testId).getAttribute('role');
+
+const getAria = (page: Page, testId: string, attr: string) => page.getByTestId(testId).getAttribute(attr);
+
+const getItemId = (page: Page, testId: string) => page.getByTestId(testId).getAttribute('id');
+
+const getListAttr = (page: Page, attr: string) => page.locator(componentSelector).getAttribute(attr);
+
 const isSelected = (page: Page, testId: string) => page.getByTestId(testId).evaluate((el) => (el as HTMLElement & { selected: boolean }).selected);
 
 const getSelectedValues = (page: Page) => page.locator(componentSelector).evaluate((list) => Array.from(list.querySelectorAll('pie-list-item'))
@@ -529,6 +537,252 @@ test.describe('PieList - Component tests', () => {
             expect(await getTabindex(page, 'item-1')).toBeNull();
             expect(await getTabindex(page, 'item-2')).toBeNull();
             expect(await getTabindex(page, 'item-3')).toBeNull();
+        });
+    });
+
+    test.describe('ARIA roles', () => {
+        test('selection-type="multi": list has role="listbox", items have role="option"', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
+
+            expect(await getListAttr(page, 'role')).toBe('listbox');
+            expect(await getRole(page, 'item-1')).toBe('option');
+            expect(await getRole(page, 'item-2')).toBe('option');
+            expect(await getRole(page, 'item-3')).toBe('option');
+            expect(await getRole(page, 'item-4')).toBe('option');
+        });
+
+        test('selection-type="single": list has role="listbox", items have role="option"', async ({ page }) => {
+            await new BasePage(page, 'list--single-select-keyboard-navigation').load();
+
+            expect(await getListAttr(page, 'role')).toBe('listbox');
+            expect(await getRole(page, 'item-1')).toBe('option');
+            expect(await getRole(page, 'item-2')).toBe('option');
+            expect(await getRole(page, 'item-3')).toBe('option');
+            expect(await getRole(page, 'item-4')).toBe('option');
+        });
+
+        test('selection-type undefined: list has role="list", items have role="listitem"', async ({ page }) => {
+            await new BasePage(page, 'list--undefined-selection-type').load();
+
+            expect(await getListAttr(page, 'role')).toBe('list');
+            expect(await getRole(page, 'item-1')).toBe('listitem');
+            expect(await getRole(page, 'item-2')).toBe('listitem');
+            expect(await getRole(page, 'item-3')).toBe('listitem');
+        });
+    });
+
+    test.describe('aria-multiselectable', () => {
+        test('selection-type="multi": list has aria-multiselectable="true"', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
+            expect(await getListAttr(page, 'aria-multiselectable')).toBe('true');
+        });
+
+        test('selection-type="single": list has no aria-multiselectable', async ({ page }) => {
+            await new BasePage(page, 'list--single-select-keyboard-navigation').load();
+            expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();
+        });
+
+        test('selection-type undefined: list has no aria-multiselectable', async ({ page }) => {
+            await new BasePage(page, 'list--undefined-selection-type').load();
+            expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();
+        });
+    });
+
+    test.describe('aria-selected', () => {
+        test('selection-type="multi": items reflect their selected state', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
+
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
+            expect(await getAria(page, 'item-2', 'aria-selected')).toBe('true');
+            expect(await getAria(page, 'item-3', 'aria-selected')).toBe('false');
+            expect(await getAria(page, 'item-4', 'aria-selected')).toBe('true');
+        });
+
+        test('selection-type="single": items reflect their selected state', async ({ page }) => {
+            await new BasePage(page, 'list--single-select-keyboard-navigation').load();
+
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
+            expect(await getAria(page, 'item-2', 'aria-selected')).toBe('false');
+            expect(await getAria(page, 'item-3', 'aria-selected')).toBe('true');
+            expect(await getAria(page, 'item-4', 'aria-selected')).toBe('false');
+        });
+
+        test('selection-type undefined: items have no aria-selected', async ({ page }) => {
+            await new BasePage(page, 'list--undefined-selection-type').load();
+
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBeNull();
+            expect(await getAria(page, 'item-2', 'aria-selected')).toBeNull();
+            expect(await getAria(page, 'item-3', 'aria-selected')).toBeNull();
+        });
+
+        test('updates to "true" when an item is toggled on (multi)', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-none-selected').load();
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
+
+            await page.getByTestId('item-1').click();
+
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('true');
+        });
+
+        test('updates to "false" when an item is toggled off (multi)', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-none-selected').load();
+            await page.getByTestId('item-1').click();
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('true');
+
+            await page.getByTestId('item-1').click();
+
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
+        });
+
+        test('moves with selection on single-select arrow navigation', async ({ page }) => {
+            await new BasePage(page, 'list--single-select-keyboard-navigation').load();
+            await focusBeforeButton(page);
+            await page.keyboard.press('Tab');
+
+            await page.keyboard.press('ArrowDown');
+
+            expect(await getAria(page, 'item-3', 'aria-selected')).toBe('false');
+            expect(await getAria(page, 'item-4', 'aria-selected')).toBe('true');
+        });
+    });
+
+    test.describe('aria-activedescendant', () => {
+        test('absent on the list before any focus or click', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
+            expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
+        });
+
+        test('set to the focused item id when the list receives focus via Tab', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
+            await focusBeforeButton(page);
+
+            await page.keyboard.press('Tab');
+
+            expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, 'item-2'));
+        });
+
+        test('updates as focus moves via arrow keys', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
+            await focusBeforeButton(page);
+            await page.keyboard.press('Tab');
+
+            await page.keyboard.press('ArrowDown');
+
+            expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, 'item-3'));
+        });
+
+        test('set to the clicked item id on click', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-none-selected').load();
+            expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
+
+            await page.getByTestId('item-3').click();
+
+            expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, 'item-3'));
+        });
+
+        test('persists on the last focused item when focus leaves the list', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
+            await focusBeforeButton(page);
+            await page.keyboard.press('Tab');
+            const itemId = await getItemId(page, 'item-2');
+
+            await page.keyboard.press('Tab');
+            await expect(page.getByTestId('btn-after')).toBeFocused();
+
+            expect(await getListAttr(page, 'aria-activedescendant')).toBe(itemId);
+        });
+
+        test('removed when selection-type switches to undefined', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+            await page.getByTestId('btn-set-multi').click();
+            await page.getByTestId('item-2').click();
+            expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, 'item-2'));
+
+            await page.getByTestId('btn-set-undefined').click();
+
+            expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
+        });
+
+        test('kept when selection-type switches between multi and single', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+            await page.getByTestId('btn-set-multi').click();
+            await page.getByTestId('item-2').click();
+            const itemId = await getItemId(page, 'item-2');
+            expect(await getListAttr(page, 'aria-activedescendant')).toBe(itemId);
+
+            await page.getByTestId('btn-set-single').click();
+
+            expect(await getListAttr(page, 'aria-activedescendant')).toBe(itemId);
+        });
+
+        test('not set when the focused/clicked item has no id (consumer owns id assignment)', async ({ page }) => {
+            await new BasePage(page, 'list--dynamic-slots').load();
+            expect(await getItemId(page, 'item-1')).toBeNull();
+
+            await page.getByTestId('item-1').click();
+
+            expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
+        });
+    });
+
+    test.describe('aria-activedescendant overrides selection for rover', () => {
+        test('if set in markup, that item gets tabindex="0" instead of the selected one', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-with-active-descendant').load();
+
+            expect(await getTabindex(page, 'item-1')).toBe('-1');
+            expect(await getTabindex(page, 'item-2')).toBe('-1');
+            expect(await getTabindex(page, 'item-3')).toBe('0');
+            expect(await getTabindex(page, 'item-4')).toBe('-1');
+        });
+
+        test('Tab from preceding focusable lands on the active-descendant item', async ({ page }) => {
+            await new BasePage(page, 'list--multi-select-with-active-descendant').load();
+            await focusBeforeButton(page);
+
+            await page.keyboard.press('Tab');
+
+            await expect(page.getByTestId('item-3')).toBeFocused();
+        });
+    });
+
+    test.describe('Runtime selection-type switching: ARIA', () => {
+        test('undefined → multi: list role flips to listbox, aria-multiselectable added, items get role=option + aria-selected', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+            expect(await getListAttr(page, 'role')).toBe('list');
+            expect(await getRole(page, 'item-1')).toBe('listitem');
+
+            await page.getByTestId('btn-set-multi').click();
+
+            expect(await getListAttr(page, 'role')).toBe('listbox');
+            expect(await getListAttr(page, 'aria-multiselectable')).toBe('true');
+            expect(await getRole(page, 'item-1')).toBe('option');
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
+        });
+
+        test('multi → single: list role stays listbox, aria-multiselectable removed', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+            await page.getByTestId('btn-set-multi').click();
+            expect(await getListAttr(page, 'aria-multiselectable')).toBe('true');
+
+            await page.getByTestId('btn-set-single').click();
+
+            expect(await getListAttr(page, 'role')).toBe('listbox');
+            expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();
+            expect(await getRole(page, 'item-1')).toBe('option');
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
+        });
+
+        test('multi → undefined: list role becomes list, items become listitem, aria-selected and aria-multiselectable removed', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+            await page.getByTestId('btn-set-multi').click();
+            expect(await getRole(page, 'item-1')).toBe('option');
+
+            await page.getByTestId('btn-set-undefined').click();
+
+            expect(await getListAttr(page, 'role')).toBe('list');
+            expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();
+            expect(await getRole(page, 'item-1')).toBe('listitem');
+            expect(await getAria(page, 'item-1', 'aria-selected')).toBeNull();
         });
     });
 });

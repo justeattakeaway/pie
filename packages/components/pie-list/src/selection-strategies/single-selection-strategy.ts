@@ -14,9 +14,12 @@ export class SingleSelectionStrategy implements SelectionStrategy {
 
         const activeIndex = this.controller.getActiveDescendantIndex();
         const selectedIndex = options.findIndex((opt) => opt.selected);
-        const targetIndex = activeIndex !== -1
-            ? activeIndex
-            : (selectedIndex !== -1 ? selectedIndex : 0);
+        let targetIndex = 0;
+        if (activeIndex !== -1) {
+            targetIndex = activeIndex;
+        } else if (selectedIndex !== -1) {
+            targetIndex = selectedIndex;
+        }
 
         options.forEach((option, i) => {
             option.tabIndex = (i === targetIndex) ? 0 : -1;
