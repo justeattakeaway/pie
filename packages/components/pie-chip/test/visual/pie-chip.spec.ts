@@ -6,8 +6,6 @@ import { variants } from '../../src/defs.ts';
 
 variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     const basePage = new BasePage(page, `chip--${variant}-prop-variations`);
-    basePage.waitUntilStrategy = 'networkidle';
-
     await basePage.load();
 
     await percySnapshot(page, `PIE Chip - Variant: ${variant}`, percyWidths);
@@ -15,8 +13,6 @@ variants.forEach((variant) => test(`should render all prop variations for Varian
 
 variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant} when type='checkbox'`, async ({ page }) => {
     const basePage = new BasePage(page, `chip--${variant}-checkbox-prop-variations`);
-    basePage.waitUntilStrategy = 'networkidle';
-
     await basePage.load();
 
     await percySnapshot(page, `PIE Chip - Checkbox - Variant: ${variant}`, percyWidths);
