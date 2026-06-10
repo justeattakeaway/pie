@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.80.0
+
+### Minor Changes
+
+- [Added] - External html label association via element internals to `pie-switch` ([#2919](https://github.com/justeattakeaway/pie/pull/2919)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.17
+
 ## 1.79.4
 
 ### Patch Changes
