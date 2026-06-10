@@ -3,3 +3,8 @@
 :host {
     display: block;
 }
+
+:host([selection-type="multi"]),
+:host([selection-type="single"]) {
+    --list-item-cursor: pointer;
+}

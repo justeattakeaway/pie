@@ -1,3 +1,10 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ListItemProps {}
+export interface ListItemProps {
+    /**
+     * Whether the list item is currently selected.
+     */
+    selected?: boolean;
+    /**
+     * The value associated with this list item, emitted on selection change.
+     */
+    value?: string;
+}
