@@ -200,7 +200,7 @@ test.describe('PieList - Component tests', () => {
                 await page.keyboard.press('Tab');
             });
 
-            for (const key of ['Home', 'End', 'Enter', 'a']) {
+            ['Home', 'End', 'Enter', 'a'].forEach((key) => {
                 test(`${key} does not change focus or selection or emit change`, async ({ page }) => {
                     const events = startChangeEventCapture(page);
 
@@ -210,7 +210,7 @@ test.describe('PieList - Component tests', () => {
                     expect(await getSelectedValues(page)).toEqual(['m2', 'm4']);
                     expect(events).toEqual([]);
                 });
-            }
+            });
         });
 
         test.describe('Mouse', () => {
