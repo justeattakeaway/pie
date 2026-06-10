@@ -44,14 +44,17 @@ test.describe('PieToast - Component tests', () => {
                 const toastPage = new BasePage(page, 'toast');
                 await toastPage.load();
 
-                await page.evaluate(() => {
-                    const toast = document.querySelector('pie-toast') as PieToast;
+                await page.locator('pie-toast').waitFor({ state: 'attached' });
+
+                await page.evaluate(async () => {
+                    const toast = document.querySelector('pie-toast') as PieToast | null;
 
                     if (!toast) {
                         throw new Error('Toast component not found');
                     }
 
                     toast.isOpen = false;
+                    await toast.updateComplete;
                 });
 
                 // Act
