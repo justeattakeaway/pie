@@ -240,7 +240,7 @@ test.describe('PieList - Component tests', () => {
         });
 
         test.describe('Focus restoration', () => {
-            test('after Tab away and back, focus returns to the roving item', async ({ page }) => {
+            test('after Tab away and back, focus returns to the last roving item (tracked via aria-activedescendant)', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
                 await focusBeforeButton(page);
                 await page.keyboard.press('Tab');
@@ -253,7 +253,7 @@ test.describe('PieList - Component tests', () => {
 
                 await page.keyboard.press('Shift+Tab');
 
-                await expect(page.getByTestId('item-2')).toBeFocused();
+                await expect(page.getByTestId('item-3')).toBeFocused();
             });
         });
     });
@@ -470,6 +470,9 @@ test.describe('PieList - Component tests', () => {
 
         test('Appending the first item to an empty list makes it the rover', async ({ page }) => {
             await new BasePage(page, 'list--empty-list').load();
+            // The list has no children, so it has zero dimensions and Playwright's
+            // default "visible" wait would time out. Wait for it to be in the DOM.
+            await page.locator(componentSelector).waitFor({ state: 'attached' });
 
             const itemCount = await page.evaluate(() => {
                 const list = document.querySelector('pie-list[data-test-id="pie-list"]');
