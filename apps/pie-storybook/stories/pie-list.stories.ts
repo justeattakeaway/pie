@@ -141,9 +141,9 @@ const Template = ({}: ListProps) => html`
             </p>
 
             <pie-list aria-labelledby="undefined-list-label">
-                <pie-list-item id="list-item-u1" value="u1">Plain Option 1</pie-list-item>
-                <pie-list-item id="list-item-u2" value="u2">Plain Option 2</pie-list-item>
-                <pie-list-item id="list-item-u3" value="u3">Plain Option 3</pie-list-item>
+                <pie-list-item id="list-item-u1">Plain Option 1</pie-list-item>
+                <pie-list-item id="list-item-u2">Plain Option 2</pie-list-item>
+                <pie-list-item id="list-item-u3">Plain Option 3</pie-list-item>
             </pie-list>
         </div>
     </div>
