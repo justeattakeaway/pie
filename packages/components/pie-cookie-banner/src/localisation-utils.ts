@@ -186,8 +186,8 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
             html = html
                 .replace(/<script\b[^<]*(?:(?!<\/script\b[^>]*>)<[^<]*)*<\/script\b[^>]*>/gi, '')
                 .replace(/<style\b[^<]*(?:(?!<\/style\b[^>]*>)<[^<]*)*<\/style\b[^>]*>/gi, '')
-                .replace(/<script\b/gi, '&lt;script')
-                .replace(/<style\b/gi, '&lt;style');
+                .replace(/<script\b/gi, '')
+                .replace(/<style\b/gi, '');
         } while (html !== previousHtml);
 
         const anchors: Array<string> = [];
