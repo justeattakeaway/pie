@@ -39,7 +39,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     }
 
     render () {
-        return html`<slot></slot>`;
+        return html`<div>
+            <slot></slot>
+        </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

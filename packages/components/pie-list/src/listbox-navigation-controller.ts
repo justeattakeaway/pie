@@ -9,6 +9,8 @@ export interface SelectionStrategy {
     resetTabindexState(): void;
 }
 
+export const KEYBOARD_FOCUS_ATTR = 'data-pie-keyboard-focus';
+
 export class ListboxNavigationController implements ReactiveController {
     host: ReactiveControllerHost & HTMLElement & { selectionType: SelectionType };
     private getOptions: () => NavigableOption[];
@@ -115,6 +117,7 @@ export class ListboxNavigationController implements ReactiveController {
         const relatedTarget = event.relatedTarget as Node | null;
         if (!this.host.contains(relatedTarget)) {
             this.resetTabindexState();
+            this.options.forEach((opt) => opt.removeAttribute(KEYBOARD_FOCUS_ATTR));
         }
     };
 
@@ -140,9 +143,11 @@ export class ListboxNavigationController implements ReactiveController {
         }
     };
 
-    focusOption (index: number) {
+    focusOption (index: number, fromKeyboard = false) {
         if (index < 0 || index >= this.options.length) return;
-        this.options[index].focus();
+        const option = this.options[index];
+        option.toggleAttribute(KEYBOARD_FOCUS_ATTR, fromKeyboard);
+        option.focus();
     }
 
     toggleSelection (option: NavigableOption, state: boolean) {

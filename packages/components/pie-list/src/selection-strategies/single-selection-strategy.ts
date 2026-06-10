@@ -40,15 +40,15 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         const { options } = this.controller;
         if (nextIndex >= 0 && nextIndex < options.length) {
             event.preventDefault();
-            this.handleSingleSelectFlow(options[nextIndex], nextIndex);
+            this.handleSingleSelectFlow(options[nextIndex], nextIndex, true);
         }
     }
 
     handleOptionClick (option: NavigableOption, index: number) {
-        this.handleSingleSelectFlow(option, index);
+        this.handleSingleSelectFlow(option, index, false);
     }
 
-    private handleSingleSelectFlow (targetOption: NavigableOption, targetIndex: number) {
+    private handleSingleSelectFlow (targetOption: NavigableOption, targetIndex: number, fromKeyboard: boolean) {
         const { options } = this.controller;
 
         options.forEach((opt, i) => {
@@ -58,6 +58,6 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         });
 
         this.controller.toggleSelection(targetOption, true);
-        this.controller.focusOption(targetIndex);
+        this.controller.focusOption(targetIndex, fromKeyboard);
     }
 }

@@ -39,11 +39,11 @@ export class MultiSelectionStrategy implements SelectionStrategy {
         switch (event.key) {
             case 'ArrowDown':
                 event.preventDefault();
-                this.controller.focusOption(currentIndex + 1);
+                this.controller.focusOption(currentIndex + 1, true);
                 break;
             case 'ArrowUp':
                 event.preventDefault();
-                this.controller.focusOption(currentIndex - 1);
+                this.controller.focusOption(currentIndex - 1, true);
                 break;
             case ' ':
             case 'Spacebar': {

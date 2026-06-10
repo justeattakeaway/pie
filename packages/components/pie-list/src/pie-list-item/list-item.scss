@@ -1,7 +1,8 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    display: block;
+    display: list-item;
+    list-style-type: "";
     padding-block-start: var(--dt-spacing-b);
     padding-block-end: var(--dt-spacing-b);
     padding-inline-start: var(--dt-spacing-c);
@@ -11,7 +12,8 @@
     user-select: none;
 }
 
-:host(:focus-visible) {
+:host(:focus-visible),
+:host([data-pie-keyboard-focus]:focus) {
     @include p.focus;
 }
 
