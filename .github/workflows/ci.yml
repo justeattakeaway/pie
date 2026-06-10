@@ -80,7 +80,6 @@ jobs:
         env:
           IS_INTERNAL: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
         run: |
-          echo "Internal (push or same-repo PR): $IS_INTERNAL"
           echo "is-internal=$IS_INTERNAL" >> "$GITHUB_OUTPUT"
       # Checkout the Repo
       - name: Checkout
