@@ -28,6 +28,19 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
 
     private navController = new ListboxNavigationController(this, () => this.options);
 
+    // Per-type aria/role attributes. `none` is the lookup key for `selectionType === undefined`.
+    private static readonly ariaByType = {
+        multi:  {
+            listRole: 'listbox', itemRole: 'option', multiselectable: true, selectable: true,
+        },
+        single: {
+            listRole: 'listbox', itemRole: 'option', multiselectable: false, selectable: true,
+        },
+        none:   {
+            listRole: 'list', itemRole: 'listitem', multiselectable: false, selectable: false,
+        },
+    } as const;
+
     // Roles + aria are applied in connectedCallback (and synced on updates)
     // so SSR output is unaffected — the server sees no aria attributes.
     connectedCallback () {
@@ -42,9 +55,14 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
         }
     }
 
+    private get ariaConfig () {
+        return PieList.ariaByType[this.selectionType ?? 'none'];
+    }
+
     private updateRole () {
-        this.setAttribute('role', this.selectionType ? 'listbox' : 'list');
-        if (this.selectionType === 'multi') {
+        const cfg = this.ariaConfig;
+        this.setAttribute('role', cfg.listRole);
+        if (cfg.multiselectable) {
             this.setAttribute('aria-multiselectable', 'true');
         } else {
             this.removeAttribute('aria-multiselectable');
@@ -52,11 +70,11 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     }
 
     private applyOptionAria (opt: PieListItem) {
-        if (this.selectionType) {
-            opt.setAttribute('role', 'option');
+        const cfg = this.ariaConfig;
+        opt.setAttribute('role', cfg.itemRole);
+        if (cfg.selectable) {
             opt.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
         } else {
-            opt.setAttribute('role', 'listitem');
             opt.removeAttribute('aria-selected');
         }
     }

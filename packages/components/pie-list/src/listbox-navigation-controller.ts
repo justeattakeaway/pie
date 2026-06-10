@@ -61,6 +61,14 @@ export class ListboxNavigationController implements ReactiveController {
         return this.options.findIndex((opt) => opt.id === id);
     }
 
+    // Only sets when the option has an id — id assignment is the consumer's
+    // responsibility, and we never write an empty/dangling reference.
+    private setActiveDescendant (option: NavigableOption) {
+        if (option.id) {
+            this.host.setAttribute('aria-activedescendant', option.id);
+        }
+    }
+
     private updateStrategy () {
         const type = this.host.selectionType;
 
@@ -97,11 +105,8 @@ export class ListboxNavigationController implements ReactiveController {
             this.options.forEach((opt, i) => {
                 opt.tabIndex = (i === index) ? 0 : -1;
             });
-            // Only set when the option has an id — the consumer owns id assignment.
-            // Persists after focus leaves the list (intentional — kept on focusOut).
-            if (focusedOption.id) {
-                this.host.setAttribute('aria-activedescendant', focusedOption.id);
-            }
+            // aria-activedescendant persists across focus-out (intentional).
+            this.setActiveDescendant(focusedOption);
         }
     };
 
@@ -130,9 +135,7 @@ export class ListboxNavigationController implements ReactiveController {
 
         if (clickedOption) {
             const index = this.options.indexOf(clickedOption);
-            if (clickedOption.id) {
-                this.host.setAttribute('aria-activedescendant', clickedOption.id);
-            }
+            this.setActiveDescendant(clickedOption);
             this.strategy.handleOptionClick(clickedOption, index);
         }
     };
