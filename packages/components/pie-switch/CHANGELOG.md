@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 2.4.0
+
+### Minor Changes
+
+- [Added] - External html label association via element internals to `pie-switch` ([#2919](https://github.com/justeattakeaway/pie/pull/2919)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.3.34
 
 ### Patch Changes
