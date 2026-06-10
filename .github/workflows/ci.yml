@@ -73,10 +73,17 @@ jobs:
       web-components-change: ${{ steps.component-check.outputs.web-components-change }}
       storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
       changed-component-packages: ${{ steps.component-check.outputs.changed-component-packages }}
+      is-internal: ${{ steps.internal-check.outputs.is-internal }}
     steps:
+      - name: Determine if internal
+        id: internal-check
+        env:
+          IS_INTERNAL: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+        run: |
+          echo "is-internal=$IS_INTERNAL" >> "$GITHUB_OUTPUT"
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           fetch-depth: 0
       # Setup Repo
@@ -133,7 +140,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -151,7 +158,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -173,7 +180,7 @@ jobs:
     if: (github.event.repository.fork == false || github.event_name == 'pull_request')
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - name: Lint workflows
         shell: bash
         env:
@@ -204,7 +211,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -218,7 +225,7 @@ jobs:
 
   deploy-storybook:
     needs: [ unit-tests, check-change-type ]
-    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
     permissions:
       contents: read
       deployments: write
@@ -237,7 +244,7 @@ jobs:
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
     needs: [ unit-tests, check-change-type ]
-    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
     permissions:
       contents: read
       deployments: write
@@ -272,7 +279,7 @@ jobs:
         package: ${{ fromJson(needs.check-change-type.outputs.changed-component-packages) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           fetch-depth: 1
       - name: Setup Repo
@@ -315,7 +322,7 @@ jobs:
 
   deploy-docs:
     needs: [ unit-tests, check-change-type ]
-    if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
+    if: (needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
     permissions:
       contents: read
       deployments: write
@@ -341,7 +348,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           fetch-depth: 0
       # Setup Repo

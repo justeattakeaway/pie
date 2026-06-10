@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.8.1
+
+### Patch Changes
+
+- Updated dependencies [[`8722cb0`](https://github.com/justeattakeaway/pie/commit/8722cb0a609aca99296680c474fefae55fd4b974)]:
+  - @justeattakeaway/pie-switch@2.4.0
+
+## 1.8.0
+
+### Minor Changes
+
+- [Added] - ARIA labels to switches in Manage preferences ([#2907](https://github.com/justeattakeaway/pie/pull/2907)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.16
+  - @justeattakeaway/pie-link@1.3.32
+  - @justeattakeaway/pie-modal@1.26.8
+  - @justeattakeaway/pie-switch@2.3.34
+
 ## 1.7.31
 
 ### Patch Changes

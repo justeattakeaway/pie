@@ -1,5 +1,32 @@
 # Changelog
 
+## 5.0.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.17
+
+## 5.0.0
+
+### Major Changes
+
+- feat(pie-docs): DSW-3933 adding onboarding patterns ([#2885](https://github.com/justeattakeaway/pie/pull/2885)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] New onboarding patterns page for both Web and Apps.
+
+### Minor Changes
+
+- [Updated] - Minor eleventy version update ([#2909](https://github.com/justeattakeaway/pie/pull/2909)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+  - @justeattakeaway/pie-icons@5.27.3
+  - @justeattakeaway/pie-css@1.1.2
+  - @justeattakeaway/pie-webc@0.10.16
+
 ## 4.74.2
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-switch
 
+## 2.4.0
+
+### Minor Changes
+
+- [Added] - External html label association via element internals to `pie-switch` ([#2919](https://github.com/justeattakeaway/pie/pull/2919)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.3.34
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+
 ## 2.3.33
 
 ### Patch Changes

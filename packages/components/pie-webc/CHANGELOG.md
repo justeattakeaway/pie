@@ -1,5 +1,37 @@
 # @justeattakeaway/pie-webc
 
+## 0.10.17
+
+### Patch Changes
+
+- Updated dependencies [[`8722cb0`](https://github.com/justeattakeaway/pie/commit/8722cb0a609aca99296680c474fefae55fd4b974)]:
+  - @justeattakeaway/pie-switch@2.4.0
+  - @justeattakeaway/pie-cookie-banner@1.8.1
+
+## 0.10.16
+
+### Patch Changes
+
+- Updated dependencies [[`322235e`](https://github.com/justeattakeaway/pie/commit/322235e97d300e7d71ead3c1f33fb8316ec4d239)]:
+  - @justeattakeaway/pie-cookie-banner@1.8.0
+  - @justeattakeaway/pie-assistive-text@0.11.34
+  - @justeattakeaway/pie-avatar@0.4.36
+  - @justeattakeaway/pie-breadcrumb@0.8.8
+  - @justeattakeaway/pie-chip@0.15.32
+  - @justeattakeaway/pie-icon-button@2.7.16
+  - @justeattakeaway/pie-link@1.3.32
+  - @justeattakeaway/pie-modal@1.26.8
+  - @justeattakeaway/pie-notification@0.23.4
+  - @justeattakeaway/pie-switch@2.3.34
+  - @justeattakeaway/pie-text-input@0.29.36
+  - @justeattakeaway/pie-toast@0.13.1
+  - @justeattakeaway/pie-checkbox@1.2.3
+  - @justeattakeaway/pie-checkbox-group@1.0.27
+  - @justeattakeaway/pie-radio-group@1.0.27
+  - @justeattakeaway/pie-select@0.8.36
+  - @justeattakeaway/pie-textarea@0.18.3
+  - @justeattakeaway/pie-toast-provider@0.9.1
+
 ## 0.10.15
 
 ### Patch Changes
