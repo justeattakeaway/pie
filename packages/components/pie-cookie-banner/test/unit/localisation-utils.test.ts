@@ -1,4 +1,4 @@
-import { localiseText, localiseRichText } from '../../src/localisation-utils';
+import { localiseText, localiseRichText, sanitiseDescriptionHtml } from '../../src/localisation-utils';
 
 describe('localiseText', () => {
     describe('given insuficient parameters it will throw', () => {
@@ -38,6 +38,127 @@ describe('localiseText', () => {
                 // @ts-expect-error - Testing a generic input
                 expect(localiseText(locale, 'keyA.keyA2')).toBe('keyA.keyA2');
             });
+        });
+    });
+});
+
+describe('sanitiseDescriptionHtml', () => {
+    it('passes plain text through unchanged', () => {
+        expect(sanitiseDescriptionHtml('Plain text with no HTML.')).toBe('Plain text with no HTML.');
+    });
+
+    it('preserves a safe <a> tag with href, rel and target', () => {
+        const input = '<a href="https://example.com" rel="noopener noreferrer" target="_blank">link</a>';
+        expect(sanitiseDescriptionHtml(input)).toBe(input);
+    });
+
+    it('strips non-allowlisted attributes from <a>', () => {
+        const input = '<a href="https://example.com" onclick="evil()" class="foo">link</a>';
+        expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+    });
+
+    it('strips javascript: href', () => {
+        const input = '<a href="javascript:alert(1)">xss</a>';
+        expect(sanitiseDescriptionHtml(input)).toBe('<a target="_blank" rel="noopener noreferrer">xss</a>');
+    });
+
+    it('strips data: href', () => {
+        const input = '<a href="data:text/html,<script>alert(1)</script>">xss</a>';
+        expect(sanitiseDescriptionHtml(input)).toBe('<a target="_blank" rel="noopener noreferrer">xss</a>');
+    });
+
+    it('strips vbscript: href', () => {
+        const input = '<a href="vbscript:msgbox(1)">xss</a>';
+        expect(sanitiseDescriptionHtml(input)).toBe('<a target="_blank" rel="noopener noreferrer">xss</a>');
+    });
+
+    it('strips non-anchor tags but keeps their text', () => {
+        const input = 'See our <strong>privacy</strong> page.';
+        expect(sanitiseDescriptionHtml(input)).toBe('See our privacy page.');
+    });
+
+    it('preserves <a> nested inside stripped tags', () => {
+        const input = '<em>Read <a href="https://example.com">more</a> here</em>';
+        expect(sanitiseDescriptionHtml(input)).toBe('Read <a href="https://example.com" target="_blank" rel="noopener noreferrer">more</a> here');
+    });
+
+    it('strips script tags and does not execute content', () => {
+        const input = 'Hello <script>alert(1)</script> world';
+        expect(sanitiseDescriptionHtml(input)).toBe('Hello  world');
+    });
+
+    it('does not throw when DOMParser is unavailable (SSR fallback)', () => {
+        const originalDOMParser = globalThis.DOMParser;
+
+        Object.defineProperty(globalThis, 'DOMParser', {
+            configurable: true,
+            value: undefined,
+        });
+
+        try {
+            const input = 'Read <a href="https://example.com" onclick="evil()">policy</a> <script>alert(1)</script>';
+            expect(sanitiseDescriptionHtml(input)).toBe('Read <a href="https://example.com" target="_blank" rel="noopener noreferrer">policy</a> ');
+        } finally {
+            Object.defineProperty(globalThis, 'DOMParser', {
+                configurable: true,
+                value: originalDOMParser,
+            });
+        }
+    });
+
+    it('strips incomplete script tag fragments when DOMParser is unavailable (SSR fallback)', () => {
+        const originalDOMParser = globalThis.DOMParser;
+
+        Object.defineProperty(globalThis, 'DOMParser', {
+            configurable: true,
+            value: undefined,
+        });
+
+        try {
+            const input = 'Hello <script alert(1) <a href="https://example.com">policy</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('Hello  alert(1) <a href="https://example.com" target="_blank" rel="noopener noreferrer">policy</a>');
+        } finally {
+            Object.defineProperty(globalThis, 'DOMParser', {
+                configurable: true,
+                value: originalDOMParser,
+            });
+        }
+    });
+
+    describe('anchor normalisation', () => {
+        it('sets default target="_blank" when target is absent', () => {
+            const input = '<a href="https://example.com">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+        });
+
+        it('sets provided linkTarget when target is absent', () => {
+            const input = '<a href="https://example.com">link</a>';
+            expect(sanitiseDescriptionHtml(input, '_self')).toBe('<a href="https://example.com" target="_self">link</a>');
+        });
+
+        it('adds rel="noopener noreferrer" when target="_blank" and rel is absent', () => {
+            const input = '<a href="https://example.com" target="_blank">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+        });
+
+        it('does not add rel when target is not _blank', () => {
+            const input = '<a href="https://example.com" target="_self">link</a>';
+            expect(sanitiseDescriptionHtml(input, '_self')).toBe('<a href="https://example.com" target="_self">link</a>');
+        });
+
+        it('preserves existing rel when target="_blank"', () => {
+            const input = '<a href="https://example.com" target="_blank" rel="noopener">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+        });
+
+        it('enforces the provided linkTarget when target is already present', () => {
+            const input = '<a href="https://example.com" target="_blank">link</a>';
+            expect(sanitiseDescriptionHtml(input, '_self')).toBe('<a href="https://example.com" target="_self">link</a>');
+        });
+
+        it('adds missing noreferrer when target="_blank" has a partial rel value', () => {
+            const input = '<a href="https://example.com" target="_blank" rel="noopener">link</a>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
         });
     });
 });
