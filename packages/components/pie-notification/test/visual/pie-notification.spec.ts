@@ -16,7 +16,6 @@ export const screenWidths = {
 
 variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     const basePage = new BasePage(page, `notification--${variant}-prop-variations`);
-    basePage.waitUntilStrategy = 'networkidle';
 
     await basePage.load();
 
@@ -44,7 +43,6 @@ test.describe('Props', () => {
             test(`should render correctly the ${headingLevel} headingLevel`, async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                 };
@@ -62,7 +60,6 @@ test.describe('Props', () => {
             test('should render leadingAction when leadingAction is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                 };
@@ -76,7 +73,6 @@ test.describe('Props', () => {
             test('should not render leadingAction when leadingAction not is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     leadingAction: undefined,
@@ -93,7 +89,6 @@ test.describe('Props', () => {
             test('should not render supportingAction when leadingAction not is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     leadingAction: undefined,
@@ -109,7 +104,6 @@ test.describe('Props', () => {
             test('should render supportingAction when leadingAction and supportingAction is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -127,7 +121,6 @@ test.describe('Props', () => {
                 test(`should render action buttons with ${size} size`, async ({ page }) => {
                     // Arrange
                     const basePage = new BasePage(page, 'notification');
-                    basePage.waitUntilStrategy = 'networkidle';
                     const props: NotificationProps = {
                         ...initialValues,
                         leadingAction: {
@@ -152,7 +145,6 @@ test.describe('Props', () => {
             test('should render actions as links when href is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification--notification-with-link-actions');
-                basePage.waitUntilStrategy = 'networkidle';
 
                 await basePage.load();
 
@@ -165,7 +157,6 @@ test.describe('Props', () => {
             test('should stack buttons on small screens', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -182,7 +173,6 @@ test.describe('Props', () => {
             test('should not stack buttons on small screens', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -199,7 +189,6 @@ test.describe('Props', () => {
             test('should not stack buttons on large screens when hasStackedActions is true', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -216,7 +205,6 @@ test.describe('Props', () => {
             test('should not stack buttons on large screens when hasStackedActions is false', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -233,7 +221,6 @@ test.describe('Props', () => {
             test('should not stack buttons when hasStackedActions is true and isCompact is true regardless the screen size', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -252,7 +239,6 @@ test.describe('Props', () => {
             test('should align actions to the edge of the container', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification--is-compact');
-                basePage.waitUntilStrategy = 'networkidle';
                 await basePage.load();
 
                 // Assert
@@ -340,7 +326,6 @@ test.describe('Props', () => {
             test(`should render correctly the ${positionValue} position`, async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     position: positionValue,
@@ -359,7 +344,6 @@ test.describe('Reading direction - RTL - Right to Left', () => {
     test('should slots icons and buttons when the reading direction is RTL', async ({ page }) => {
         // Arrange
         const basePage = new BasePage(page, 'notification--notification-rtl');
-        basePage.waitUntilStrategy = 'networkidle';
         const props: NotificationProps = {
             isOpen: true,
             isDismissible: true,
@@ -375,7 +359,6 @@ test.describe('Reading direction - RTL - Right to Left', () => {
 test.describe('Slotted Action Buttons', () => {
     test('should render slotted leading action with icon', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-leading-action');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
 
@@ -384,7 +367,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should render slotted supporting action (disabled)', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-supporting-action');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
 
@@ -393,7 +375,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should render both slotted actions (leading loading, supporting ghost)', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
 
@@ -402,7 +383,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should render slotted actions in compact mode', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions-compact');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
 
@@ -411,7 +391,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should stack slotted action buttons on small screens', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
         await page.setViewportSize({ width: 375, height: 667 });
@@ -421,7 +400,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should not stack slotted action buttons on large screens', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
         await page.setViewportSize({ width: 1275, height: 900 });
@@ -431,7 +409,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should not stack slotted action buttons on small screens when hasStackedActions is false', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions-not-stacked');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
         await page.setViewportSize({ width: 375, height: 667 });
@@ -441,7 +418,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should not stack slotted action buttons on large screens when hasStackedActions is false', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions-not-stacked');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
         await page.setViewportSize({ width: 1275, height: 900 });
@@ -451,7 +427,6 @@ test.describe('Slotted Action Buttons', () => {
 
     test('should not stack slotted action buttons when hasStackedActions is true and isCompact is true', async ({ page }) => {
         const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked-compact');
-        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
 
