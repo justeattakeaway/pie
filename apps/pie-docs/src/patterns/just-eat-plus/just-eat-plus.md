@@ -3,7 +3,7 @@ eleventyNavigation:
   key: 'Just Eat +'
   parent: Patterns
   url: /patterns/just-eat-plus/
-  order: 12
+  order: 7
 title: 'Just Eat +'
 permalink: false
 ---
