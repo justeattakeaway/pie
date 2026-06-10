@@ -25,16 +25,15 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     connectedCallback (): void {
         super.connectedCallback();
-        this.setAttribute('role', 'option');
-        this.setAttribute('aria-selected', this.selected ? 'true' : 'false');
-
         if (!this.hasAttribute('tabindex')) {
             this.tabIndex = -1;
         }
     }
 
     updated (changedProperties: PropertyValues<this>): void {
-        if (changedProperties.has('selected')) {
+        // Role + aria-selected presence are owned by the parent pie-list.
+        // We only keep its value in sync with `selected` when it's set.
+        if (changedProperties.has('selected') && this.hasAttribute('aria-selected')) {
             this.setAttribute('aria-selected', this.selected ? 'true' : 'false');
         }
     }

@@ -52,6 +52,15 @@ export class ListboxNavigationController implements ReactiveController {
         return this.getOptions();
     }
 
+    // Returns the option index referenced by aria-activedescendant, or -1 if
+    // unset / pointing nowhere. Strategies use this to prefer it over selection
+    // when picking the roving item.
+    getActiveDescendantIndex (): number {
+        const id = this.host.getAttribute('aria-activedescendant');
+        if (!id) return -1;
+        return this.options.findIndex((opt) => opt.id === id);
+    }
+
     private updateStrategy () {
         const type = this.host.selectionType;
 
@@ -68,6 +77,7 @@ export class ListboxNavigationController implements ReactiveController {
         } else {
             this.strategy = null;
             this.options.forEach((opt) => opt.removeAttribute('tabindex'));
+            this.host.removeAttribute('aria-activedescendant');
         }
     }
 
@@ -87,6 +97,8 @@ export class ListboxNavigationController implements ReactiveController {
             this.options.forEach((opt, i) => {
                 opt.tabIndex = (i === index) ? 0 : -1;
             });
+            // Persists after focus leaves the list (intentional — kept on focusOut).
+            this.host.setAttribute('aria-activedescendant', focusedOption.id);
         }
     };
 
@@ -115,6 +127,7 @@ export class ListboxNavigationController implements ReactiveController {
 
         if (clickedOption) {
             const index = this.options.indexOf(clickedOption);
+            this.host.setAttribute('aria-activedescendant', clickedOption.id);
             this.strategy.handleOptionClick(clickedOption, index);
         }
     };

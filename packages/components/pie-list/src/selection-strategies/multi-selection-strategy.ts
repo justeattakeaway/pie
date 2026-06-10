@@ -12,6 +12,14 @@ export class MultiSelectionStrategy implements SelectionStrategy {
         const { options } = this.controller;
         if (options.length === 0) return;
 
+        const activeIndex = this.controller.getActiveDescendantIndex();
+        if (activeIndex !== -1) {
+            options.forEach((option, i) => {
+                option.tabIndex = (i === activeIndex) ? 0 : -1;
+            });
+            return;
+        }
+
         let hasSelected = false;
         options.forEach((option) => {
             if (option.selected && !hasSelected) {

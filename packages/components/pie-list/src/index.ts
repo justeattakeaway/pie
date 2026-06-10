@@ -1,4 +1,4 @@
-import { html, unsafeCSS } from 'lit';
+import { html, unsafeCSS, type PropertyValues } from 'lit';
 import { property, queryAssignedElements } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -12,6 +12,8 @@ import type { PieListItem } from './pie-list-item';
 export * from './defs';
 
 const componentSelector = 'pie-list';
+
+let optionIdCounter = 0;
 
 /**
  * @tagname pie-list
@@ -28,12 +30,48 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
 
     private navController = new ListboxNavigationController(this, () => this.options);
 
+    // Roles + aria are applied in connectedCallback (and synced on updates)
+    // so SSR output is unaffected — the server sees no aria attributes.
     connectedCallback () {
         super.connectedCallback();
-        this.setAttribute('role', 'listbox');
+        this.updateRole();
+    }
+
+    updated (changedProperties: PropertyValues<this>) {
+        if (changedProperties.has('selectionType')) {
+            this.updateRole();
+            this.options.forEach((opt) => this.applyOptionAria(opt));
+        }
+    }
+
+    private updateRole () {
+        this.setAttribute('role', this.selectionType ? 'listbox' : 'list');
+        if (this.selectionType === 'multi') {
+            this.setAttribute('aria-multiselectable', 'true');
+        } else {
+            this.removeAttribute('aria-multiselectable');
+        }
+    }
+
+    private applyOptionAria (opt: PieListItem) {
+        if (this.selectionType) {
+            opt.setAttribute('role', 'option');
+            opt.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
+        } else {
+            opt.setAttribute('role', 'listitem');
+            opt.removeAttribute('aria-selected');
+        }
     }
 
     handleSlotChange () {
+        this.options.forEach((opt) => {
+            // aria-activedescendant references options by id, so ensure each has one.
+            if (!opt.id) {
+                optionIdCounter += 1;
+                opt.id = `pie-list-option-${optionIdCounter}`;
+            }
+            this.applyOptionAria(opt);
+        });
         this.navController.resetTabindexState();
     }
 
