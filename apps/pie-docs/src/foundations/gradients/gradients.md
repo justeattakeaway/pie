@@ -3,6 +3,6 @@ eleventyNavigation:
     key: Gradients
     parent: Foundations
     url: /foundations/gradients/
-    order: 10
+    order: 5
 permalink: false
 ---
