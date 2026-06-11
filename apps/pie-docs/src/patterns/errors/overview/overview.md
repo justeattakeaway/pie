@@ -54,7 +54,7 @@ These error types can be conveyed through different components, forming a hierar
 
 ## Global error
 
-Global errors affect the entire website or application and should be highly visible and communicated clearly. They are typically shown either as a [full width notification component](https://www.pie.design/components/notification/web/#full-width) at the top of the interface, or a [modal component](https://www.pie.design/components/modal/) can also be used to sit on top of all content.
+Global errors affect the entire website or application and should be highly visible and communicated clearly. They are typically shown either as a [full width notification component](/components/notification/web/#full-width) at the top of the interface, or a [modal component](/components/modal/) can also be used to sit on top of all content.
 
 {% usage {
     do: {
@@ -111,7 +111,7 @@ Use a modal for critical errors that require immediate attention and block furth
 
 Page level and in-page errors relate to issues within either a specific page or a specific section within a page.
 
-Both types of error can be communicated with [notification component](https://www.pie.design/components/notification/) or [error summary component](https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=10997-226990&t=LtrKC9YjiCsqqoZj-4). The error messages should appear near their context.
+Both types of error can be communicated with [notification component](/components/notification/) or [error summary component](https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=10997-226990&t=LtrKC9YjiCsqqoZj-4). The error messages should appear near their context.
 
 {% usage {
     do: {
@@ -159,7 +159,7 @@ Use the error summary if it is a validation error or submission error that occur
 
 ## Field error
 
-Field error relates to individual input field within a form or data entry section. They provide feedback on the user's input to help users correct mistakes efficiently. Field errors can be highlighted using [assistive text](https://www.pie.design/components/assistive-text/).
+Field error relates to individual input field within a form or data entry section. They provide feedback on the user's input to help users correct mistakes efficiently. Field errors can be highlighted using [assistive text](/components/assistive-text/).
 
 {% usage {
     do: {
@@ -206,7 +206,7 @@ Detects and displays errors only after the user submits the form, with messages 
 
 ## Feedback error
 
-The [toast component](https://www.pie.design/components/toast/) can communicate errors that occur as a minor feedback about an operation or a user action that are non-critical and do not block the primary workflow or main functionality of the page or application.
+The [toast component](/components/toast/) can communicate errors that occur as a minor feedback about an operation or a user action that are non-critical and do not block the primary workflow or main functionality of the page or application.
 
 {% usage {
     do: {
