@@ -37,6 +37,8 @@
         @include p.focus;
     }
 
+    @include p.disable-pointer-events-in-slotted-icons;
+
     &.o-iconBtn--primary {
         /* Same as default styles */
 
