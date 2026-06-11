@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-docs": minor
 ---
 
-Add caption to usage shortcode
+[Changed] - Add caption under cards in usage shortcode
