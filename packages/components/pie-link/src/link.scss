@@ -40,6 +40,7 @@
     cursor: pointer;
 
     @include link-interactive-states('default');
+    @include p.disable-pointer-events-in-slotted-icons;
 
     &.c-link--default {
         /* Same as default styles */
