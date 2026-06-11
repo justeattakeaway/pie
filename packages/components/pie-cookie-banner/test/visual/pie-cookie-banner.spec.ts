@@ -7,7 +7,6 @@ let pieCookieBannerComponent: CookieBannerComponent;
 test.describe('PieCookieBanner - Visual tests`', () => {
     test.beforeEach(async ({ page }) => {
         pieCookieBannerComponent = new CookieBannerComponent(page);
-        pieCookieBannerComponent.waitUntilStrategy = 'networkidle';
     });
 
     test('should display the PieCookieBanner component successfully', async ({ page }) => {

@@ -3,6 +3,6 @@ eleventyNavigation:
     key: Iconography
     parent: Foundations
     url: /foundations/iconography/
-    order: 5
+    order: 6
 permalink: false
 ---

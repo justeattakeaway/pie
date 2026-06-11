@@ -6,7 +6,6 @@ import { avatar } from '../helpers/selectors';
 test.describe('PieAvatar - Visual tests`', () => {
     test('should display the PieAvatar default variant successfully', async ({ page }) => {
         const avatarPage = new BasePage(page, 'avatar--default');
-        avatarPage.waitUntilStrategy = 'networkidle';
         const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
         await avatarPage.load();
 
@@ -16,7 +15,6 @@ test.describe('PieAvatar - Visual tests`', () => {
 
     test('should display the PieAvatar component when label is provided', async ({ page }) => {
         const avatarPage = new BasePage(page, 'avatar--default');
-        avatarPage.waitUntilStrategy = 'networkidle';
         avatarPage.args = 'label:Alice Johnson';
         const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
         await avatarPage.load();
@@ -27,7 +25,6 @@ test.describe('PieAvatar - Visual tests`', () => {
 
     test('should display the PieAvatar component when src is provided', async ({ page }) => {
         const avatarPage = new BasePage(page, 'avatar--with-image');
-        avatarPage.waitUntilStrategy = 'networkidle';
         const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
         const avatarImg = page.getByTestId(avatar.selectors.image.dataTestId);
         await avatarPage.load();

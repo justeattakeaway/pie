@@ -3,6 +3,6 @@ eleventyNavigation:
     key: Radius
     parent: Foundations
     url: /foundations/radius/
-    order: 7
+    order: 8
 permalink: false
 ---
