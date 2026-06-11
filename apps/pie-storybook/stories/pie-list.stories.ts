@@ -208,7 +208,8 @@ const sharedStyles = html`
             outline: 2px solid #1a73e8;
             outline-offset: -2px;
         }
-        pie-list-item[disabled] {
+        pie-list[interaction-type="multi-select"] pie-list-item[disabled],
+        pie-list[interaction-type="single-select"] pie-list-item[disabled] {
             color: #999;
             font-style: italic;
         }
