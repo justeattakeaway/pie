@@ -7,7 +7,6 @@ test.describe('PieSpinner - Accessibility tests', () => {
         test(`a11y - should test the PieSpinner component WCAG compliance - ${variant}`, async ({ makeAxeBuilder, page }) => {
             // Arrange
             const spinnerPage = new BasePage(page, `spinner--${variant}`);
-            spinnerPage.waitUntilStrategy = 'networkidle';
             await spinnerPage.load();
 
             // Act
