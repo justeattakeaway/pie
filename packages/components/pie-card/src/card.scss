@@ -22,6 +22,8 @@
     outline: none;
     text-decoration: none;
 
+    @include p.disable-pointer-events-in-slotted-icons;
+
     &.is-disabled {
         --int-states-mixin-bg-color: var(--dt-color-disabled-01);
 
