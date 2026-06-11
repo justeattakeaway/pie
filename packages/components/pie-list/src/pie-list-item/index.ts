@@ -20,14 +20,21 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean, reflect: true })
     public selected = false;
 
+    @property({ type: Boolean, reflect: true })
+    public disabled = false;
+
     @property({ type: String })
     public value = '';
 
     updated (changedProperties: PropertyValues<this>): void {
-        // Role + aria-selected presence are owned by the parent pie-list.
-        // We only keep its value in sync with `selected` when it's set.
+        // Role + aria-selected/aria-disabled presence are owned by the parent
+        // pie-list. We only keep their values in sync with `selected`/`disabled`
+        // when the parent has set them.
         if (changedProperties.has('selected') && this.hasAttribute('aria-selected')) {
             this.setAttribute('aria-selected', this.selected ? 'true' : 'false');
+        }
+        if (changedProperties.has('disabled') && this.hasAttribute('aria-disabled')) {
+            this.setAttribute('aria-disabled', this.disabled ? 'true' : 'false');
         }
     }
 

@@ -7,6 +7,11 @@
 :host([selection-type="multi"]),
 :host([selection-type="single"]) {
     --list-item-cursor: pointer;
+
+    // Inheritable signals that gate disabled-item styling to selectable modes.
+    // In static lists these are unset, so [disabled] items render normally.
+    --list-item-disabled-cursor: not-allowed;
+    --list-item-disabled-opacity: 0.5;
 }
 
 // The list itself takes DOM focus (it's the single tab stop). When that focus

@@ -2,6 +2,7 @@ export type SelectionType = 'multi' | 'single' | undefined;
 
 export interface NavigableOption extends HTMLElement {
     selected: boolean;
+    disabled: boolean;
     value: string;
 }
 

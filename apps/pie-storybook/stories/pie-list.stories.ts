@@ -104,14 +104,14 @@ const Template = ({}: ListProps) => html`
             <h2 id="multi-list-label">Multi-Select Mode</h2>
             <p class="instruction">
                 <strong>Behavior:</strong> Tab focuses Option 2 (first selected). <br>
-                Arrows move focus <em>without</em> changing selections. <br>
+                Arrows move focus <em>without</em> changing selections, skipping disabled items. <br>
                 Press <strong>Spacebar</strong> to toggle active selection states.
             </p>
 
             <pie-list data-test-id="pie-list" selection-type="multi" aria-labelledby="multi-list-label" @change=${logSelectionChange}>
                 <pie-list-item id="list-item-m1" value="m1">Multi Option 1</pie-list-item>
                 <pie-list-item id="list-item-m2" value="m2" selected>Multi Option 2 (Initial)</pie-list-item>
-                <pie-list-item id="list-item-m3" value="m3">Multi Option 3</pie-list-item>
+                <pie-list-item id="list-item-m3" value="m3" disabled>Multi Option 3 (Disabled)</pie-list-item>
                 <pie-list-item id="list-item-m4" value="m4" selected>Multi Option 4 (Initial)</pie-list-item>
             </pie-list>
         </div>
@@ -120,13 +120,13 @@ const Template = ({}: ListProps) => html`
             <h2 id="single-list-label">Single-Select Mode</h2>
             <p class="instruction">
                 <strong>Behavior:</strong> Tab focuses Option 3 (only selected). <br>
-                Arrows move focus <strong>AND</strong> instantly select the new option while deselecting the old option.
-                Spacebar is inactive.
+                Arrows move focus <strong>AND</strong> instantly select the new option while deselecting the old option,
+                skipping disabled items. Spacebar is inactive.
             </p>
 
             <pie-list selection-type="single" aria-labelledby="single-list-label" @change=${logSelectionChange}>
                 <pie-list-item id="list-item-s1" value="s1">Single Option 1</pie-list-item>
-                <pie-list-item id="list-item-s2" value="s2">Single Option 2</pie-list-item>
+                <pie-list-item id="list-item-s2" value="s2" disabled>Single Option 2 (Disabled)</pie-list-item>
                 <pie-list-item id="list-item-s3" value="s3" selected>Single Option 3 (Initial)</pie-list-item>
                 <pie-list-item id="list-item-s4" value="s4">Single Option 4</pie-list-item>
             </pie-list>
@@ -136,12 +136,12 @@ const Template = ({}: ListProps) => html`
             <h2 id="undefined-list-label">Undefined Mode (Keyboard Disabled)</h2>
             <p class="instruction">
                 <strong>Behavior:</strong> Strategy is completely dormant. Keyboard navigation, focus roving, and focus
-                rings do not engage. Completely skipped by Tab.
+                rings do not engage. Completely skipped by Tab. The <code>disabled</code> prop is a no-op here.
             </p>
 
             <pie-list aria-labelledby="undefined-list-label">
                 <pie-list-item id="list-item-u1">Plain Option 1</pie-list-item>
-                <pie-list-item id="list-item-u2">Plain Option 2</pie-list-item>
+                <pie-list-item id="list-item-u2" disabled>Plain Option 2 (disabled prop ignored)</pie-list-item>
                 <pie-list-item id="list-item-u3">Plain Option 3</pie-list-item>
             </pie-list>
         </div>

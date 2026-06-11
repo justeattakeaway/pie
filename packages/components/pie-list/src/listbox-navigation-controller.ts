@@ -68,6 +68,16 @@ export class ListboxNavigationController implements ReactiveController {
         return this.options.findIndex((opt) => opt.hasAttribute(ACTIVE_ATTR));
     }
 
+    // Walks from `fromIndex` in `direction` (+1 or -1), returning the index of
+    // the next non-disabled option, or -1 if none exists in that direction.
+    findNextEnabled (fromIndex: number, direction: 1 | -1): number {
+        const { options } = this;
+        for (let i = fromIndex; i >= 0 && i < options.length; i += direction) {
+            if (!options[i].disabled) return i;
+        }
+        return -1;
+    }
+
     private updateStrategy () {
         const type = this.host.selectionType;
 
@@ -144,7 +154,7 @@ export class ListboxNavigationController implements ReactiveController {
         const paths = event.composedPath();
         const clickedOption = this.options.find((opt) => paths.includes(opt));
 
-        if (clickedOption) {
+        if (clickedOption && !clickedOption.disabled) {
             const index = this.options.indexOf(clickedOption);
             // Pull DOM focus to the list container. The browser would do this
             // anyway when the click target lives under a tabindex=0 ancestor,

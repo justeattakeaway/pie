@@ -24,3 +24,11 @@
     background-color: var(--dt-color-container-subtle);
     font-weight: var(--dt-font-body-strong-l-weight);
 }
+
+// Disabled styling is gated on inheritable signals set by the parent list in
+// selectable modes only — in a static list both variables are unset and the
+// declarations resolve to the same values as a non-disabled item (no-op).
+:host([disabled]) {
+    cursor: var(--list-item-disabled-cursor, var(--list-item-cursor, default));
+    opacity: var(--list-item-disabled-opacity, 1);
+}

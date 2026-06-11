@@ -767,6 +767,250 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
+    test.describe('Disabled items', () => {
+        test.describe('aria-disabled', () => {
+            test('selection-type="multi": items reflect their disabled state', async ({ page }) => {
+                await new BasePage(page, 'list--multi-select-with-disabled').load();
+
+                expect(await getAria(page, 'item-1', 'aria-disabled')).toBe('false');
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('true');
+                expect(await getAria(page, 'item-3', 'aria-disabled')).toBe('false');
+                expect(await getAria(page, 'item-4', 'aria-disabled')).toBe('true');
+                expect(await getAria(page, 'item-5', 'aria-disabled')).toBe('false');
+            });
+
+            test('selection-type="single": items reflect their disabled state', async ({ page }) => {
+                await new BasePage(page, 'list--single-select-with-disabled').load();
+
+                expect(await getAria(page, 'item-1', 'aria-disabled')).toBe('false');
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('true');
+                expect(await getAria(page, 'item-3', 'aria-disabled')).toBe('false');
+                expect(await getAria(page, 'item-4', 'aria-disabled')).toBe('true');
+                expect(await getAria(page, 'item-5', 'aria-disabled')).toBe('false');
+            });
+
+            test('selection-type undefined: items have no aria-disabled (disabled prop is a no-op)', async ({ page }) => {
+                await new BasePage(page, 'list--undefined-selection-type-with-disabled').load();
+
+                expect(await getAria(page, 'item-1', 'aria-disabled')).toBeNull();
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBeNull();
+                expect(await getAria(page, 'item-3', 'aria-disabled')).toBeNull();
+            });
+
+            test('updates when an item\'s disabled property changes at runtime', async ({ page }) => {
+                await new BasePage(page, 'list--runtime-disabled-toggle').load();
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('false');
+
+                await page.getByTestId('btn-toggle-item-2').click();
+
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('true');
+
+                await page.getByTestId('btn-toggle-item-2').click();
+
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('false');
+            });
+        });
+
+        test.describe('Keyboard navigation (multi)', () => {
+            test.beforeEach(async ({ page }) => {
+                await new BasePage(page, 'list--multi-select-with-disabled').load();
+                await focusBeforeButton(page);
+                await page.keyboard.press('Tab');
+            });
+
+            test('Tab enters at first non-disabled item when nothing is selected', async ({ page }) => {
+                await expectActiveItem(page, 'item-1');
+            });
+
+            test('ArrowDown skips over disabled items', async ({ page }) => {
+                await page.keyboard.press('ArrowDown');
+
+                await expectActiveItem(page, 'item-3');
+            });
+
+            test('ArrowDown skips multiple consecutive disabled items', async ({ page }) => {
+                await page.keyboard.press('ArrowDown');
+                await page.keyboard.press('ArrowDown');
+
+                await expectActiveItem(page, 'item-5');
+            });
+
+            test('ArrowDown at the last enabled item with only disabled items after is a no-op', async ({ page }) => {
+                await page.keyboard.press('ArrowDown');
+                await page.keyboard.press('ArrowDown');
+                await expectActiveItem(page, 'item-5');
+
+                await page.keyboard.press('ArrowDown');
+
+                await expectActiveItem(page, 'item-5');
+            });
+
+            test('ArrowUp skips over disabled items', async ({ page }) => {
+                await page.keyboard.press('ArrowDown');
+                await page.keyboard.press('ArrowDown');
+                await expectActiveItem(page, 'item-5');
+
+                await page.keyboard.press('ArrowUp');
+
+                await expectActiveItem(page, 'item-3');
+            });
+        });
+
+        test.describe('Keyboard navigation (single)', () => {
+            test.beforeEach(async ({ page }) => {
+                await new BasePage(page, 'list--single-select-with-disabled').load();
+                await focusBeforeButton(page);
+                await page.keyboard.press('Tab');
+            });
+
+            test('Tab enters at the selected item even though disabled items flank it', async ({ page }) => {
+                await expectActiveItem(page, 'item-3');
+            });
+
+            test('ArrowDown skips disabled items and selects the next enabled one', async ({ page }) => {
+                await page.keyboard.press('ArrowDown');
+
+                await expectActiveItem(page, 'item-5');
+                expect(await isSelected(page, 'item-5')).toBe(true);
+                expect(await isSelected(page, 'item-3')).toBe(false);
+                expect(await isSelected(page, 'item-4')).toBe(false);
+            });
+
+            test('ArrowUp skips disabled items and selects the previous enabled one', async ({ page }) => {
+                await page.keyboard.press('ArrowUp');
+
+                await expectActiveItem(page, 'item-1');
+                expect(await isSelected(page, 'item-1')).toBe(true);
+                expect(await isSelected(page, 'item-3')).toBe(false);
+                expect(await isSelected(page, 'item-2')).toBe(false);
+            });
+        });
+
+        test.describe('Mouse', () => {
+            test('Click on a disabled item in multi mode is ignored', async ({ page }) => {
+                await new BasePage(page, 'list--multi-select-with-disabled').load();
+                const events = startChangeEventCapture(page);
+
+                // Playwright's actionability check refuses to click disabled
+                // elements; bypass it with `force` so we exercise our handler.
+                await page.getByTestId('item-2').click({ force: true });
+
+                expect(await isSelected(page, 'item-2')).toBe(false);
+                expect(await isActive(page, 'item-2')).toBe(false);
+                expect(events).toEqual([]);
+            });
+
+            test('Click on a disabled item in single mode is ignored', async ({ page }) => {
+                await new BasePage(page, 'list--single-select-with-disabled').load();
+                const events = startChangeEventCapture(page);
+
+                await page.getByTestId('item-2').click({ force: true });
+
+                expect(await isSelected(page, 'item-2')).toBe(false);
+                expect(await isSelected(page, 'item-3')).toBe(true);
+                expect(events).toEqual([]);
+            });
+
+            test('Click on an enabled item next to a disabled one still works', async ({ page }) => {
+                await new BasePage(page, 'list--multi-select-with-disabled').load();
+                const events = startChangeEventCapture(page);
+
+                await page.getByTestId('item-3').click();
+
+                expect(await isSelected(page, 'item-3')).toBe(true);
+                expect(events).toEqual([EXPECTED_CHANGE_EVENT_MESSAGE]);
+            });
+        });
+
+        test.describe('Dynamic and runtime changes', () => {
+            test('an item appended with disabled set gets aria-disabled="true" and is skipped by arrow nav', async ({ page }) => {
+                await new BasePage(page, 'list--multi-select-none-selected').load();
+
+                // Append a disabled item between item-1 and the rest by inserting
+                // at the end first, then verify it's reachable via aria + skipped.
+                await page.evaluate(() => {
+                    const list = document.querySelector('pie-list[data-test-id="pie-list"]');
+                    if (!list) return;
+                    const disabled = document.createElement('pie-list-item');
+                    disabled.setAttribute('value', 'd-new');
+                    disabled.setAttribute('id', 'd-new-id');
+                    disabled.setAttribute('data-test-id', 'item-disabled');
+                    disabled.setAttribute('disabled', '');
+                    disabled.textContent = 'Disabled new';
+                    list.appendChild(disabled);
+
+                    const enabled = document.createElement('pie-list-item');
+                    enabled.setAttribute('value', 'e-new');
+                    enabled.setAttribute('id', 'e-new-id');
+                    enabled.setAttribute('data-test-id', 'item-enabled');
+                    enabled.textContent = 'Enabled new';
+                    list.appendChild(enabled);
+                });
+
+                expect(await getAria(page, 'item-disabled', 'aria-disabled')).toBe('true');
+                expect(await getAria(page, 'item-enabled', 'aria-disabled')).toBe('false');
+
+                // Walk from item-4 to verify the new disabled item is skipped.
+                await focusBeforeButton(page);
+                await page.keyboard.press('Tab');
+                await page.keyboard.press('ArrowDown');
+                await page.keyboard.press('ArrowDown');
+                await page.keyboard.press('ArrowDown');
+                await expectActiveItem(page, 'item-4');
+
+                await page.keyboard.press('ArrowDown');
+
+                await expectActiveItem(page, 'item-enabled');
+            });
+
+            test('toggling an enabled item to disabled causes arrow navigation to skip it', async ({ page }) => {
+                await new BasePage(page, 'list--runtime-disabled-toggle').load();
+                await focusBeforeButton(page);
+                await page.keyboard.press('Tab');
+                await expectActiveItem(page, 'item-1');
+
+                await page.getByTestId('btn-toggle-item-2').click();
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('true');
+
+                // The list lost focus on click; re-enter it.
+                await focusBeforeButton(page);
+                await page.keyboard.press('Tab');
+
+                await page.keyboard.press('ArrowDown');
+
+                await expectActiveItem(page, 'item-3');
+            });
+
+            test('toggling a disabled item to enabled lets arrow navigation reach it', async ({ page }) => {
+                await new BasePage(page, 'list--runtime-disabled-toggle').load();
+
+                // First make item-2 disabled to set up the "was disabled" precondition,
+                // and confirm arrow nav skips it.
+                await page.getByTestId('btn-toggle-item-2').click();
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('true');
+
+                await focusBeforeButton(page);
+                await page.keyboard.press('Tab');
+                await page.keyboard.press('ArrowDown');
+                await expectActiveItem(page, 'item-3');
+
+                // Now re-enable item-2 and verify it's reachable.
+                await page.getByTestId('btn-toggle-item-2').click();
+                expect(await getAria(page, 'item-2', 'aria-disabled')).toBe('false');
+
+                // Re-enter the list (button click moves focus); active state is
+                // preserved so ArrowUp from item-3 should now land on item-2.
+                await focusBeforeButton(page);
+                await page.keyboard.press('Tab');
+                await expectActiveItem(page, 'item-3');
+
+                await page.keyboard.press('ArrowUp');
+
+                await expectActiveItem(page, 'item-2');
+            });
+        });
+    });
+
     test.describe('Runtime selection-type switching: ARIA', () => {
         test('undefined → multi: list role flips to listbox, aria-multiselectable added, items get role=option + aria-selected', async ({ page }) => {
             await new BasePage(page, 'list--runtime-selection-type-switch').load();

@@ -12,7 +12,8 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         const { options } = this.controller;
         if (options.length === 0) return;
 
-        // Priority: existing aria-activedescendant > selected item > first item.
+        // Priority: existing aria-activedescendant > selected item > first
+        // non-disabled item (falling back to options[0] if all are disabled).
         const activeIndex = this.controller.getActiveDescendantIndex();
         if (activeIndex !== -1) {
             this.controller.setActive(options[activeIndex]);
@@ -20,22 +21,28 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         }
 
         const selected = options.find((opt) => opt.selected);
-        this.controller.setActive(selected ?? options[0]);
+        if (selected) {
+            this.controller.setActive(selected);
+            return;
+        }
+
+        const firstEnabledIndex = this.controller.findNextEnabled(0, 1);
+        this.controller.setActive(options[firstEnabledIndex === -1 ? 0 : firstEnabledIndex]);
     }
 
     handleKeyDown (event: KeyboardEvent, currentIndex: number) {
         let nextIndex = -1;
 
         if (event.key === 'ArrowDown') {
-            nextIndex = currentIndex + 1;
+            nextIndex = this.controller.findNextEnabled(currentIndex + 1, 1);
         } else if (event.key === 'ArrowUp') {
-            nextIndex = currentIndex - 1;
+            nextIndex = this.controller.findNextEnabled(currentIndex - 1, -1);
         } else {
             return;
         }
 
         const { options } = this.controller;
-        if (nextIndex >= 0 && nextIndex < options.length) {
+        if (nextIndex !== -1) {
             event.preventDefault();
             this.handleSingleSelectFlow(options[nextIndex], nextIndex);
         }

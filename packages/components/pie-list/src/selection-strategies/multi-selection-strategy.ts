@@ -12,7 +12,8 @@ export class MultiSelectionStrategy implements SelectionStrategy {
         const { options } = this.controller;
         if (options.length === 0) return;
 
-        // Priority: existing aria-activedescendant > first selected > first item.
+        // Priority: existing aria-activedescendant > first selected > first
+        // non-disabled item (falling back to options[0] if all are disabled).
         const activeIndex = this.controller.getActiveDescendantIndex();
         if (activeIndex !== -1) {
             this.controller.setActive(options[activeIndex]);
@@ -20,7 +21,13 @@ export class MultiSelectionStrategy implements SelectionStrategy {
         }
 
         const firstSelected = options.find((opt) => opt.selected);
-        this.controller.setActive(firstSelected ?? options[0]);
+        if (firstSelected) {
+            this.controller.setActive(firstSelected);
+            return;
+        }
+
+        const firstEnabledIndex = this.controller.findNextEnabled(0, 1);
+        this.controller.setActive(options[firstEnabledIndex === -1 ? 0 : firstEnabledIndex]);
     }
 
     handleKeyDown (event: KeyboardEvent, currentIndex: number) {
@@ -28,20 +35,21 @@ export class MultiSelectionStrategy implements SelectionStrategy {
         switch (event.key) {
             case 'ArrowDown': {
                 event.preventDefault();
-                const next = currentIndex + 1;
-                if (next < options.length) this.controller.setActive(options[next]);
+                const next = this.controller.findNextEnabled(currentIndex + 1, 1);
+                if (next !== -1) this.controller.setActive(options[next]);
                 break;
             }
             case 'ArrowUp': {
                 event.preventDefault();
-                const prev = currentIndex - 1;
-                if (prev >= 0) this.controller.setActive(options[prev]);
+                const prev = this.controller.findNextEnabled(currentIndex - 1, -1);
+                if (prev !== -1) this.controller.setActive(options[prev]);
                 break;
             }
             case ' ':
             case 'Spacebar': {
                 event.preventDefault();
                 const option = options[currentIndex];
+                if (option.disabled) break;
                 this.controller.toggleSelection(option, !option.selected);
                 break;
             }

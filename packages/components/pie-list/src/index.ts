@@ -81,8 +81,10 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
         opt.setAttribute('role', cfg.itemRole);
         if (cfg.selectable) {
             opt.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
+            opt.setAttribute('aria-disabled', opt.disabled ? 'true' : 'false');
         } else {
             opt.removeAttribute('aria-selected');
+            opt.removeAttribute('aria-disabled');
         }
     }
 

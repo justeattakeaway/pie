@@ -282,6 +282,63 @@ const MultiSelectWithActiveDescendantTemplate = () => html`
     <button data-test-id="btn-after">After</button>
 `;
 
+const MultiSelectWithDisabledTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <h3 id="md-list-label">Multi-select list with disabled items</h3>
+    <pie-list data-test-id="pie-list" selection-type="multi" aria-labelledby="md-list-label" @change=${logSelectionChange}>
+        <pie-list-item id="md-item-1" data-test-id="item-1" value="m1">Option 1</pie-list-item>
+        <pie-list-item id="md-item-2" data-test-id="item-2" value="m2" disabled>Option 2 (disabled)</pie-list-item>
+        <pie-list-item id="md-item-3" data-test-id="item-3" value="m3">Option 3</pie-list-item>
+        <pie-list-item id="md-item-4" data-test-id="item-4" value="m4" disabled>Option 4 (disabled)</pie-list-item>
+        <pie-list-item id="md-item-5" data-test-id="item-5" value="m5">Option 5</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const SingleSelectWithDisabledTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <h3 id="sd-list-label">Single-select list with disabled items</h3>
+    <pie-list data-test-id="pie-list" selection-type="single" aria-labelledby="sd-list-label" @change=${logSelectionChange}>
+        <pie-list-item id="sd-item-1" data-test-id="item-1" value="s1">Option 1</pie-list-item>
+        <pie-list-item id="sd-item-2" data-test-id="item-2" value="s2" disabled>Option 2 (disabled)</pie-list-item>
+        <pie-list-item id="sd-item-3" data-test-id="item-3" value="s3" selected>Option 3</pie-list-item>
+        <pie-list-item id="sd-item-4" data-test-id="item-4" value="s4" disabled>Option 4 (disabled)</pie-list-item>
+        <pie-list-item id="sd-item-5" data-test-id="item-5" value="s5">Option 5</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const UndefinedSelectionTypeWithDisabledTemplate = () => html`
+    <button data-test-id="btn-before">Before</button>
+    <h3 id="ud-list-label">Plain list with disabled items</h3>
+    <pie-list data-test-id="pie-list" aria-labelledby="ud-list-label" @change=${logSelectionChange}>
+        <pie-list-item data-test-id="item-1" value="u1">Option 1</pie-list-item>
+        <pie-list-item data-test-id="item-2" value="u2" disabled>Option 2 (disabled — but no-op)</pie-list-item>
+        <pie-list-item data-test-id="item-3" value="u3">Option 3</pie-list-item>
+    </pie-list>
+    <button data-test-id="btn-after">After</button>
+`;
+
+const RuntimeDisabledToggleTemplate = () => {
+    const toggle = (testId: string) => {
+        const item = document.querySelector(`pie-list-item[data-test-id="${testId}"]`);
+        if (!item) return;
+        (item as HTMLElement & { disabled: boolean }).disabled = !(item as HTMLElement & { disabled: boolean }).disabled;
+    };
+
+    return html`
+        <button data-test-id="btn-before">Before</button>
+        <h3 id="rd-list-label">Multi-select list with runtime-toggleable disabled</h3>
+        <pie-list data-test-id="pie-list" selection-type="multi" aria-labelledby="rd-list-label" @change=${logSelectionChange}>
+            <pie-list-item id="rd-item-1" data-test-id="item-1" value="m1">Option 1</pie-list-item>
+            <pie-list-item id="rd-item-2" data-test-id="item-2" value="m2">Option 2</pie-list-item>
+            <pie-list-item id="rd-item-3" data-test-id="item-3" value="m3">Option 3</pie-list-item>
+        </pie-list>
+        <button data-test-id="btn-after">After</button>
+        <button data-test-id="btn-toggle-item-2" @click=${() => toggle('item-2')}>Toggle item 2 disabled</button>
+    `;
+};
+
 const RuntimeSelectionTypeSwitchTemplate = () => {
     const setType = (value: string) => {
         const list = document.querySelector('pie-list[data-test-id="pie-list"]');
@@ -318,4 +375,8 @@ export const EmptyList = createStory<ListProps>(EmptyListTemplate, defaultArgs)(
 export const DynamicSlots = createStory<ListProps>(DynamicSlotsTemplate, defaultArgs)();
 export const RuntimeSelectionTypeSwitch = createStory<ListProps>(RuntimeSelectionTypeSwitchTemplate, defaultArgs)();
 export const MultiSelectWithActiveDescendant = createStory<ListProps>(MultiSelectWithActiveDescendantTemplate, defaultArgs)();
+export const MultiSelectWithDisabled = createStory<ListProps>(MultiSelectWithDisabledTemplate, defaultArgs)();
+export const SingleSelectWithDisabled = createStory<ListProps>(SingleSelectWithDisabledTemplate, defaultArgs)();
+export const UndefinedSelectionTypeWithDisabled = createStory<ListProps>(UndefinedSelectionTypeWithDisabledTemplate, defaultArgs)();
+export const RuntimeDisabledToggle = createStory<ListProps>(RuntimeDisabledToggleTemplate, defaultArgs)();
 export const Accessibility = createStory<ListProps>(AccessibilityTemplate, defaultArgs)();
