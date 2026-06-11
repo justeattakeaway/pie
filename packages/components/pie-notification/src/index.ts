@@ -101,8 +101,6 @@ export class PieNotification extends PieElement implements NotificationProps {
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
-    // private _resizeObserver: ResizeObserver | null = null;
-
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
