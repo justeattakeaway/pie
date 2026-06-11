@@ -8,7 +8,6 @@ describe('usage.js', () => {
             items: [{
                 width: '200px',
                 alt: 'foo bar',
-                caption: 'Helpful image caption',
                 src: 'some/path/to/image',
                 mobileSrc: 'some/path/to/mobile/image',
             }],
@@ -21,6 +20,21 @@ describe('usage.js', () => {
         });
 
         // assert
+        expect(result).toMatchSnapshot();
+    });
+
+    it('should render a caption below the card content when caption is provided', () => {
+        const props = {
+            type: usageTypes.text,
+            items: ['Hello World'],
+            caption: 'This is a caption',
+        };
+
+        const result = usage({
+            do: props,
+            dont: props,
+        });
+
         expect(result).toMatchSnapshot();
     });
 

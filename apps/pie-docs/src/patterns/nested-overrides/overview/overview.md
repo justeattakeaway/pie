@@ -106,18 +106,18 @@ Overrides help in colour and style adjustments to match the parent component's t
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-list-item-do.svg",
             width: "256px",
-            caption: "Nested components can be changed to different variants and styles.",
             alt: "Two list item components with leading avatar and trailing tag as supported nested overrides."
-        }]
+        }],
+        caption: "Nested components can be changed to different variants and styles."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-list-item-dont.svg",
             width: "256px",
-            caption: "Nested components cannot be increased or decreased in size.",
             alt: "Two list item components with sizes of leading avatar and trailing tag changed, representing unsupported nested overrides."
-        }]
+        }],
+        caption: "Nested components cannot be increased or decreased in size."
     }
 } %}
 
@@ -127,18 +127,18 @@ Overrides help in colour and style adjustments to match the parent component's t
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-notification-do.svg",
             width: "256px",
-            caption: "Icons can be changed to a different one as long as it fits the context.",
             alt: "Two notification components in the information variant, each using different leading icons supported nested overrides."
-        }]
+        }],
+        caption: "Icons can be changed to a different one as long as it fits the context."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/variant-overrides-visual-notification-dont.svg",
             width: "256px",
-            caption: "Icons cannot be increased or decreased in size.",
             alt: "A notification component in the information variant with the exclamation point icon changed, representing unsupported nested override."
-        }]
+        }],
+        caption: "Icons cannot be increased or decreased in size."
     }
 } %}
 
@@ -160,18 +160,18 @@ Variants can be adjusted to better support the data table’s structure and hier
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/variant-override-bulk-nested-do.svg",
             width: "256px",
-            caption: "Icons cannot be increased or decreased in size.",
             alt: "A data table component with nested components in different variants as an example of supported nested overrides."
-        }]
+        }],
+        caption: "Icons cannot be increased or decreased in size."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/variant-override-bulk-nested-dont.svg",
             width: "256px",
-            caption: "Nested components cannot be increased or decreased in size.",
             alt: "A data table component representing nested components that had the size changed, representing unsupported nested overrides."
-        }]
+        }],
+        caption: "Nested components cannot be increased or decreased in size."
     }
 } %}
 
@@ -212,18 +212,18 @@ Overrides help in scaling button sizes to fit within bulk action toolbars or con
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-modal-do.svg",
             width: "256px",
-            caption: "Nested actions in full-page overlay components can be adjusted to different sizes, but all actions within the same set must maintain a consistent size.",
             alt: "A modal component with two action buttons with the same size representing supported nested overrides."
-        }]
+        }],
+        caption: "Nested actions in full-page overlay components can be adjusted to different sizes, but all actions within the same set must maintain a consistent size."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-modal-dont.svg",
             width: "256px",
-            caption: "Nested  actions cannot have different sizes individually within the same component.",
             alt: "A modal component with two action buttons of different sizes representing unsupported nested overrides."
-        }]
+        }],
+        caption: "Nested actions cannot have different sizes individually within the same component."
     }
 } %}
 
@@ -233,18 +233,18 @@ Overrides help in scaling button sizes to fit within bulk action toolbars or con
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-bottom-sheet-do.svg",
             width: "256px",
-            caption: "Nested actions in full-page overlay components can be adjusted to different variants. However, the primary action must always be more prominent than secondary actions.",
             alt: "A bottom sheet component with two action buttons in different variants representing supported nested overrides."
-        }]
+        }],
+        caption: "Nested actions in full-page overlay components can be adjusted to different variants. However, the primary action must always be more prominent than secondary actions."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-bottom-sheet-dont.svg",
             width: "256px",
-            caption: "Nested actions can't use the same variant for both primary and secondary actions, nor should the primary action be less prominent than the secondary action.",
             alt: "A bottom sheet component with two action buttons in the same variant representing unsupported nested overrides."
-        }]
+        }],
+        caption: "Nested actions can't use the same variant for both primary and secondary actions, nor should the primary action be less prominent than the secondary action."
     }
 } %}
 
@@ -279,18 +279,18 @@ Nested actions can be decreased in size to fit the available space and maintain 
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-do-example-1.svg",
             width: "256px",
-            caption: "Nested action(s) can be decreased in size.",
             alt: "An uploader component with an action button in a different size but the same variant representing a supported nested override."
-        }]
+        }],
+        caption: "Nested action(s) can be decreased in size."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-dont-example-2.svg",
             width: "256px",
-            caption: "Nested actions can't be increased in size nor changed to a different variant.",
             alt: "Two uploader components with an action button in a different size and variant, representing an unsupported nested override."
-        }]
+        }],
+        caption: "Nested actions can't be increased in size nor changed to a different variant."
     }
 } %}
 
@@ -300,18 +300,18 @@ Nested actions can be decreased in size to fit the available space and maintain 
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-do-example-1.svg",
             width: "256px",
-            caption: "Nested bulk actions can be decreased in size.",
             alt: "A notification component in the information variant with a primary and ghost button representing supported nested overrides."
-        }]
+        }],
+        caption: "Nested bulk actions can be decreased in size."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-dont-example-2.svg",
             width: "256px",
-            caption: "Nested bulk actions cannot be increased in size nor changed to a different variant.",
             alt: "A notification component in the information variant with a secondary and a ghost button, representing unsupported nested override."
-        }]
+        }],
+        caption: "Nested bulk actions cannot be increased in size nor changed to a different variant."
     }
 } %}
 
@@ -335,18 +335,18 @@ When necessary, content can be center-aligned, ensuring that all elements—incl
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/alignment-override-do.svg",
             width: "256px",
-            caption: "All content within the component should be consistently aligned.",
             alt: "A list item component with leading and trailing icons center-aligned, representing supported nested overrides."
-        }]
+        }],
+        caption: "All content within the component should be consistently aligned."
     },
     dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/alignment-override-dont.svg",
             width: "256px",
-            caption: "Content within the component should not have mixed alignments.",
             alt: "A list item component with the leading icon centre-aligned and the trailing icons top-aligned, representing unsupported nested overrides."
-        }]
+        }],
+        caption: "Content within the component should not have mixed alignments."
     }
 } %}
 
@@ -398,9 +398,9 @@ width: 120
         items: [{
             src: "../../../assets/img/patterns/nested-overrides/restricted-override-dont.svg",
             width: "256px",
-            caption: "Actions with specific purpose should not be changed to a different variant.",
             alt: "A toast and a notification component in the information variant with the close icon button changed to a different variant, representing unsupported nested overrides."
-        }]
+        }],
+        caption: "Actions with specific purpose should not be changed to a different variant."
     }
 } %}
 

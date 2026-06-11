@@ -66,22 +66,15 @@ $usage-bg-minHeight: 280px;
 
 .c-usage-img {
     & img {
-        width: var(--img-width, 100%);
+        width: var(--img-width);
         display: block;
         max-width: 100%;
         height: auto;
     }
 }
 
-.c-usage-image {
-    display: flex;
-    flex-direction: column;
-    gap: var(--dt-spacing-d);
-}
-
 .c-usage-caption {
-    margin: 0;
-    @include p.font-size(--dt-font-body-s-size);
-    @include p.line-height(--dt-font-body-s-line-height);
-    inline-size: 100%;
+    margin-top: var(--dt-spacing-d);
+    @include p.font-size(--dt-font-caption-size);
+    @include p.line-height(--dt-font-caption-line-height);
 }

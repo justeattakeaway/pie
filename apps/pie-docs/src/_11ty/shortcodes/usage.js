@@ -19,26 +19,21 @@ const metadata = {
 };
 
 const buildImage = ({
-    width, alt, mobileSrc, src, caption, backdropClasses,
+    width, alt, mobileSrc, src,
 }) => {
     const isImageFullContainerWidth = !width;
     const imageStyles = !isImageFullContainerWidth ? `style="--img-width: ${width};"` : ''; // If image isn't full width, set it to required width
     const imageAlt = `alt="${alt || ''}"`;
     const mobileImageMaxWidth = '600px';
 
-    return `<div class="c-usage-image" ${imageStyles}>
-            <div class="${backdropClasses.join(' ')}">
-                <picture class="c-usage-img">
-                    ${mobileSrc ? `<source media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
-                    <img src="${src}" ${imageStyles} ${imageAlt}>
-                </picture>
-            </div>
-            ${caption ? `<p class="c-usage-caption">${caption}</p>` : ''}
-          </div>`;
+    return `<picture class="c-usage-img">
+            ${mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
+            <img src="${src}" ${imageStyles} ${imageAlt}>
+          </picture>`;
 };
 
 const buildUsageCard = (usageType, {
-    type, items, variant, hasPadding = true,
+    type, items, variant, hasPadding = true, caption,
 }) => {
     const {
         iconName, iconFill, styleColour, displayName,
@@ -62,13 +57,8 @@ const buildUsageCard = (usageType, {
     ];
 
     const content = isImage
-        ? items.map((i) => buildImage({
-            ...i,
-            backdropClasses,
-        })).join(' ')
-        : `<div class="${backdropClasses.join(' ')}">
-                    ${list({ type: 'bullet', items })}
-                </div>`;
+        ? items.map((i) => buildImage(i)).join(' ')
+        : list({ type: 'bullet', items });
 
     return `
     <article class="c-usage" style="--style-colour: ${styleColourValue};">
@@ -77,18 +67,22 @@ const buildUsageCard = (usageType, {
           ${svg}
           ${displayName}
         </figcaption>
-                ${content}
+        <div class="${backdropClasses.join(' ')}">
+          ${content}
+        </div>
+        ${caption ? `<p class="c-usage-caption">${caption}</p>` : ''}
       </figure>
     </article>`;
 };
 
 /**
  * A Usage HTML component – display do/dont information with images or a list of text
- * @typedef {object} UsageItem - An item containing information for either "do" or "dont".
+ * @typedef {object} UsageItem - An item containing information for either "do" or "dont". It could have only one of them.
  * @property {string} type - Type of item: "image" or "text".
- * @property {Array<{ src: string, alt?: string, caption?: string, mobileSrc?: string, width?: string }>|Array<string>} items - An array of either image objects or list of text.
- *   If type is "image", it should be an array of objects containing `src`, and optional `alt`, `caption`, `width` and `mobileSrc` properties.
+ * @property {Array<{ src: string, mobileSrc?: string, width?: string }>|Array<string>} items - An array of either image objects or list of text.
+ *   If type is "image", it should be an array of objects containing `src`, and optional `width` and `mobileSrc` properties.
  *   If type is "text", it should be an array of strings.
+ * @property {string} [caption] - Optional caption displayed below the card content.
  *
  * @param {object} usage - Usage configuration object.
  * @param {UsageItem} usage.do - Information for the "do" section.
@@ -96,14 +90,12 @@ const buildUsageCard = (usageType, {
  * @returns {string} - The HTML representation of the usage component.
 */
 const usage = (props = {}) => {
-    const cards = Object.keys(metadata)
-        .filter((usageType) => props[usageType])
-        .map((usageType) => buildUsageCard(usageType, props[usageType]))
-        .join(' ');
+    const presentTypes = Object.keys(metadata).filter((usageType) => props[usageType]);
+    const cards = presentTypes.map((usageType) => buildUsageCard(usageType, props[usageType]));
 
     return `<div class="c-usage-container">
-    ${cards}
-</div>`;
+        ${cards.join(' ')}
+    </div>`;
 };
 
 module.exports = usage;
