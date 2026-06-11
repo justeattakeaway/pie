@@ -1,5 +1,5 @@
 import { type ReactiveController, type ReactiveControllerHost } from 'lit';
-import { type NavigableOption, type SelectionType } from './defs';
+import { type NavigableOption, type InteractionType } from './defs';
 import { MultiSelectionStrategy } from './selection-strategies/multi-selection-strategy';
 import { SingleSelectionStrategy } from './selection-strategies/single-selection-strategy';
 
@@ -12,14 +12,14 @@ export interface SelectionStrategy {
 export const ACTIVE_ATTR = 'data-active';
 
 export class ListboxNavigationController implements ReactiveController {
-    host: ReactiveControllerHost & HTMLElement & { selectionType: SelectionType };
+    host: ReactiveControllerHost & HTMLElement & { interactionType: InteractionType };
     private getOptions: () => NavigableOption[];
     private strategy: SelectionStrategy | null = null;
 
     private cleanupController: AbortController | null = null;
 
     constructor (
-        host: ReactiveControllerHost & HTMLElement & { selectionType: SelectionType },
+        host: ReactiveControllerHost & HTMLElement & { interactionType: InteractionType },
         getOptions: () => NavigableOption[],
     ) {
         this.host = host;
@@ -79,14 +79,14 @@ export class ListboxNavigationController implements ReactiveController {
     }
 
     private updateStrategy () {
-        const type = this.host.selectionType;
+        const type = this.host.interactionType;
 
-        if (type === 'multi') {
+        if (type === 'multi-select') {
             if (!(this.strategy instanceof MultiSelectionStrategy)) {
                 this.strategy = new MultiSelectionStrategy(this);
                 this.syncActiveAttr();
             }
-        } else if (type === 'single') {
+        } else if (type === 'single-select') {
             if (!(this.strategy instanceof SingleSelectionStrategy)) {
                 this.strategy = new SingleSelectionStrategy(this);
                 this.syncActiveAttr();
@@ -148,7 +148,8 @@ export class ListboxNavigationController implements ReactiveController {
     };
 
     private handleClick = (event: MouseEvent) => {
-        // Ignore clicks completely if selection-type is undefined
+        // Ignore clicks unless interaction-type is a select mode (otherwise
+        // the slotted control handles its own click behaviour).
         if (!this.strategy) return;
 
         const paths = event.composedPath();

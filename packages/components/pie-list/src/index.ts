@@ -4,7 +4,7 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import styles from './list.scss?inline';
-import { type ListProps, type SelectionType } from './defs';
+import { type ListProps, type InteractionType } from './defs';
 import { ListboxNavigationController } from './listbox-navigation-controller';
 import type { PieListItem } from './pie-list-item';
 
@@ -16,27 +16,41 @@ const componentSelector = 'pie-list';
 /**
  * @tagname pie-list
  * @slot - The default slot for `pie-list-item` elements.
- * @event {Event} change - fired when an item's selected state changes.
+ * @event {Event} change - fired when an item's selected state changes
+ *   (only emitted in `multi-select` and `single-select` modes).
  */
 @safeCustomElement('pie-list')
 export class PieList extends RtlMixin(PieElement) implements ListProps {
-    @property({ type: String, attribute: 'selection-type', reflect: true })
-        selectionType: SelectionType = undefined;
+    @property({ type: String, attribute: 'interaction-type', reflect: true })
+        interactionType: InteractionType = undefined;
 
     @queryAssignedElements({ selector: 'pie-list-item' })
         options!: PieListItem[];
 
     private navController = new ListboxNavigationController(this, () => this.options);
 
-    // Per-type aria/role attributes. `none` is the lookup key for `selectionType === undefined`.
+    // Per-type aria/role attributes. `none` is the lookup key for an unset
+    // `interactionType`. `itemRole: null` means the list-item gets no role —
+    // the slotted control (radio/checkbox/switch) owns its own semantics.
+    // `selectable` means the list manages selection via the activedescendant
+    // pattern (only for the two listbox modes).
     private static readonly ariaByType = {
-        multi:  {
+        'multi-select': {
             listRole: 'listbox', itemRole: 'option', multiselectable: true, selectable: true,
         },
-        single: {
+        'single-select': {
             listRole: 'listbox', itemRole: 'option', multiselectable: false, selectable: true,
         },
-        none:   {
+        radio: {
+            listRole: 'radiogroup', itemRole: null, multiselectable: false, selectable: false,
+        },
+        checkbox: {
+            listRole: 'group', itemRole: null, multiselectable: false, selectable: false,
+        },
+        switch: {
+            listRole: 'group', itemRole: null, multiselectable: false, selectable: false,
+        },
+        none: {
             listRole: 'list', itemRole: 'listitem', multiselectable: false, selectable: false,
         },
     } as const;
@@ -49,14 +63,14 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     }
 
     updated (changedProperties: PropertyValues<this>) {
-        if (changedProperties.has('selectionType')) {
+        if (changedProperties.has('interactionType')) {
             this.updateRole();
             this.options.forEach((opt) => this.applyOptionAria(opt));
         }
     }
 
     private get ariaConfig () {
-        return PieList.ariaByType[this.selectionType ?? 'none'];
+        return PieList.ariaByType[this.interactionType ?? 'none'];
     }
 
     private updateRole () {
@@ -68,7 +82,8 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
             this.removeAttribute('aria-multiselectable');
         }
         // The list itself is the single tab stop for the activedescendant
-        // pattern. Items are not focusable.
+        // pattern. Items are not focusable. For radio/checkbox/switch the
+        // slotted controls own their own focus, so the list is not tabbable.
         if (cfg.selectable) {
             this.setAttribute('tabindex', '0');
         } else {
@@ -78,7 +93,11 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
 
     private applyOptionAria (opt: PieListItem) {
         const cfg = this.ariaConfig;
-        opt.setAttribute('role', cfg.itemRole);
+        if (cfg.itemRole) {
+            opt.setAttribute('role', cfg.itemRole);
+        } else {
+            opt.removeAttribute('role');
+        }
         if (cfg.selectable) {
             opt.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
             opt.setAttribute('aria-disabled', opt.disabled ? 'true' : 'false');

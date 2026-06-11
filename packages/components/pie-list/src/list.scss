@@ -4,8 +4,8 @@
     display: block;
 }
 
-:host([selection-type="multi"]),
-:host([selection-type="single"]) {
+:host([interaction-type="multi-select"]),
+:host([interaction-type="single-select"]) {
     --list-item-cursor: pointer;
 
     // Inheritable signals that gate disabled-item styling to selectable modes.

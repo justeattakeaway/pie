@@ -55,7 +55,7 @@ test.describe('PieList - Component tests', () => {
         await expect(page.locator(componentSelector)).toBeVisible();
     });
 
-    test.describe('selection-type="multi"', () => {
+    test.describe('interaction-type="multi-select"', () => {
         test.describe('Initial state', () => {
             test('list is the single tab stop (tabindex="0"); items have no tabindex', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
@@ -269,7 +269,7 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
-    test.describe('selection-type="single"', () => {
+    test.describe('interaction-type="single-select"', () => {
         test.describe('Initial state', () => {
             test('list is the single tab stop (tabindex="0"); items have no tabindex', async ({ page }) => {
                 await new BasePage(page, 'list--single-select-keyboard-navigation').load();
@@ -427,9 +427,9 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
-    test.describe('selection-type undefined', () => {
+    test.describe('interaction-type none', () => {
         test('Tab from preceding focusable skips the list entirely', async ({ page }) => {
-            await new BasePage(page, 'list--undefined-selection-type').load();
+            await new BasePage(page, 'list--none-interaction-type').load();
             await focusBeforeButton(page);
 
             await page.keyboard.press('Tab');
@@ -438,7 +438,7 @@ test.describe('PieList - Component tests', () => {
         });
 
         test('list has no tabindex; items have no tabindex', async ({ page }) => {
-            await new BasePage(page, 'list--undefined-selection-type').load();
+            await new BasePage(page, 'list--none-interaction-type').load();
 
             expect(await getListAttr(page, 'tabindex')).toBeNull();
             expect(await getTabindex(page, 'item-1')).toBeNull();
@@ -447,7 +447,7 @@ test.describe('PieList - Component tests', () => {
         });
 
         test('Click on an item does not change selection or emit a change event', async ({ page }) => {
-            await new BasePage(page, 'list--undefined-selection-type').load();
+            await new BasePage(page, 'list--none-interaction-type').load();
             const events = startChangeEventCapture(page);
 
             await page.getByTestId('item-1').click();
@@ -457,7 +457,7 @@ test.describe('PieList - Component tests', () => {
         });
 
         test('keyboard events on a programmatically focused item are ignored', async ({ page }) => {
-            await new BasePage(page, 'list--undefined-selection-type').load();
+            await new BasePage(page, 'list--none-interaction-type').load();
             await page.getByTestId('item-1').evaluate((el) => (el as HTMLElement).focus());
             const events = startChangeEventCapture(page);
 
@@ -466,6 +466,57 @@ test.describe('PieList - Component tests', () => {
 
             expect(await getSelectedValues(page)).toEqual([]);
             expect(events).toEqual([]);
+        });
+    });
+
+    // For radio/checkbox/switch the list is a semantic grouping container;
+    // it must not interfere with the slotted controls' own focus and selection.
+    const slottedControlCases = [
+        { type: 'radio', story: 'list--radio-interaction-type', listRole: 'radiogroup' },
+        { type: 'checkbox', story: 'list--checkbox-interaction-type', listRole: 'group' },
+        { type: 'switch', story: 'list--switch-interaction-type', listRole: 'group' },
+    ] as const;
+
+    slottedControlCases.forEach(({ type, story, listRole }) => {
+        test.describe(`interaction-type="${type}"`, () => {
+            test(`list has role="${listRole}"; no tabindex; no aria-multiselectable`, async ({ page }) => {
+                await new BasePage(page, story).load();
+
+                expect(await getListAttr(page, 'role')).toBe(listRole);
+                expect(await getListAttr(page, 'tabindex')).toBeNull();
+                expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();
+                expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
+            });
+
+            test('items have no role and no aria-selected / aria-disabled', async ({ page }) => {
+                await new BasePage(page, story).load();
+
+                expect(await getRole(page, 'item-1')).toBeNull();
+                expect(await getAria(page, 'item-1', 'aria-selected')).toBeNull();
+                expect(await getAria(page, 'item-1', 'aria-disabled')).toBeNull();
+                expect(await getRole(page, 'item-2')).toBeNull();
+                expect(await getAria(page, 'item-2', 'aria-selected')).toBeNull();
+            });
+
+            test('Tab from preceding focusable does not stop on the list', async ({ page }) => {
+                await new BasePage(page, story).load();
+                await focusBeforeButton(page);
+
+                // First Tab lands on the first slotted interactive control, not the list.
+                await page.keyboard.press('Tab');
+                await expect(page.locator(componentSelector)).not.toBeFocused();
+            });
+
+            test('clicking an item does not engage list selection logic', async ({ page }) => {
+                await new BasePage(page, story).load();
+
+                // Click on the list-item itself (not its inner control). The list
+                // must not toggle selection or set aria-activedescendant.
+                await page.getByTestId('item-2').click({ position: { x: 0, y: 0 } });
+
+                expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
+                expect(await getAria(page, 'item-2', 'aria-selected')).toBeNull();
+            });
         });
     });
 
@@ -522,9 +573,9 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
-    test.describe('Runtime selection-type switching', () => {
-        test('undefined → multi: list becomes tabbable (tabindex="0"); items stay non-focusable', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+    test.describe('Runtime interaction-type switching', () => {
+        test('none → multi-select: list becomes tabbable (tabindex="0"); items stay non-focusable', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
 
             expect(await getListAttr(page, 'tabindex')).toBeNull();
 
@@ -535,8 +586,8 @@ test.describe('PieList - Component tests', () => {
             expect(await getTabindex(page, 'item-2')).toBeNull();
         });
 
-        test('multi → single: strategy swaps; Tab still enters the list at the active item', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+        test('multi-select → single-select: strategy swaps; Tab still enters the list at the active item', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
             await page.getByTestId('item-2').click();
             expect(await isSelected(page, 'item-2')).toBe(true);
@@ -549,13 +600,13 @@ test.describe('PieList - Component tests', () => {
             await expectActiveItem(page, 'item-2');
         });
 
-        test('multi → undefined: list loses tabindex; aria-activedescendant cleared', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+        test('multi-select → none: list loses tabindex; aria-activedescendant cleared', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
             await page.getByTestId('item-1').click();
             expect(await getListAttr(page, 'tabindex')).toBe('0');
 
-            await page.getByTestId('btn-set-undefined').click();
+            await page.getByTestId('btn-set-none').click();
 
             expect(await getListAttr(page, 'tabindex')).toBeNull();
             expect(await isActive(page, 'item-1')).toBe(false);
@@ -563,7 +614,7 @@ test.describe('PieList - Component tests', () => {
     });
 
     test.describe('ARIA roles', () => {
-        test('selection-type="multi": list has role="listbox", items have role="option"', async ({ page }) => {
+        test('interaction-type="multi-select": list has role="listbox", items have role="option"', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
 
             expect(await getListAttr(page, 'role')).toBe('listbox');
@@ -573,7 +624,7 @@ test.describe('PieList - Component tests', () => {
             expect(await getRole(page, 'item-4')).toBe('option');
         });
 
-        test('selection-type="single": list has role="listbox", items have role="option"', async ({ page }) => {
+        test('interaction-type="single-select": list has role="listbox", items have role="option"', async ({ page }) => {
             await new BasePage(page, 'list--single-select-keyboard-navigation').load();
 
             expect(await getListAttr(page, 'role')).toBe('listbox');
@@ -583,8 +634,8 @@ test.describe('PieList - Component tests', () => {
             expect(await getRole(page, 'item-4')).toBe('option');
         });
 
-        test('selection-type undefined: list has role="list", items have role="listitem"', async ({ page }) => {
-            await new BasePage(page, 'list--undefined-selection-type').load();
+        test('interaction-type none: list has role="list", items have role="listitem"', async ({ page }) => {
+            await new BasePage(page, 'list--none-interaction-type').load();
 
             expect(await getListAttr(page, 'role')).toBe('list');
             expect(await getRole(page, 'item-1')).toBe('listitem');
@@ -594,24 +645,24 @@ test.describe('PieList - Component tests', () => {
     });
 
     test.describe('aria-multiselectable', () => {
-        test('selection-type="multi": list has aria-multiselectable="true"', async ({ page }) => {
+        test('interaction-type="multi-select": list has aria-multiselectable="true"', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
             expect(await getListAttr(page, 'aria-multiselectable')).toBe('true');
         });
 
-        test('selection-type="single": list has no aria-multiselectable', async ({ page }) => {
+        test('interaction-type="single-select": list has no aria-multiselectable', async ({ page }) => {
             await new BasePage(page, 'list--single-select-keyboard-navigation').load();
             expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();
         });
 
-        test('selection-type undefined: list has no aria-multiselectable', async ({ page }) => {
-            await new BasePage(page, 'list--undefined-selection-type').load();
+        test('interaction-type none: list has no aria-multiselectable', async ({ page }) => {
+            await new BasePage(page, 'list--none-interaction-type').load();
             expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();
         });
     });
 
     test.describe('aria-selected', () => {
-        test('selection-type="multi": items reflect their selected state', async ({ page }) => {
+        test('interaction-type="multi-select": items reflect their selected state', async ({ page }) => {
             await new BasePage(page, 'list--multi-select-keyboard-navigation').load();
 
             expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
@@ -620,7 +671,7 @@ test.describe('PieList - Component tests', () => {
             expect(await getAria(page, 'item-4', 'aria-selected')).toBe('true');
         });
 
-        test('selection-type="single": items reflect their selected state', async ({ page }) => {
+        test('interaction-type="single-select": items reflect their selected state', async ({ page }) => {
             await new BasePage(page, 'list--single-select-keyboard-navigation').load();
 
             expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
@@ -629,8 +680,8 @@ test.describe('PieList - Component tests', () => {
             expect(await getAria(page, 'item-4', 'aria-selected')).toBe('false');
         });
 
-        test('selection-type undefined: items have no aria-selected', async ({ page }) => {
-            await new BasePage(page, 'list--undefined-selection-type').load();
+        test('interaction-type none: items have no aria-selected', async ({ page }) => {
+            await new BasePage(page, 'list--none-interaction-type').load();
 
             expect(await getAria(page, 'item-1', 'aria-selected')).toBeNull();
             expect(await getAria(page, 'item-2', 'aria-selected')).toBeNull();
@@ -714,19 +765,19 @@ test.describe('PieList - Component tests', () => {
             expect(await getListAttr(page, 'aria-activedescendant')).toBe(itemId);
         });
 
-        test('removed when selection-type switches to undefined', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+        test('removed when interaction-type switches to none', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
             await page.getByTestId('item-2').click();
             expect(await getListAttr(page, 'aria-activedescendant')).toBe(await getItemId(page, 'item-2'));
 
-            await page.getByTestId('btn-set-undefined').click();
+            await page.getByTestId('btn-set-none').click();
 
             expect(await getListAttr(page, 'aria-activedescendant')).toBeNull();
         });
 
-        test('kept when selection-type switches between multi and single', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+        test('kept when interaction-type switches between multi-select and single-select', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
             await page.getByTestId('item-2').click();
             const itemId = await getItemId(page, 'item-2');
@@ -769,7 +820,7 @@ test.describe('PieList - Component tests', () => {
 
     test.describe('Disabled items', () => {
         test.describe('aria-disabled', () => {
-            test('selection-type="multi": items reflect their disabled state', async ({ page }) => {
+            test('interaction-type="multi-select": items reflect their disabled state', async ({ page }) => {
                 await new BasePage(page, 'list--multi-select-with-disabled').load();
 
                 expect(await getAria(page, 'item-1', 'aria-disabled')).toBe('false');
@@ -779,7 +830,7 @@ test.describe('PieList - Component tests', () => {
                 expect(await getAria(page, 'item-5', 'aria-disabled')).toBe('false');
             });
 
-            test('selection-type="single": items reflect their disabled state', async ({ page }) => {
+            test('interaction-type="single-select": items reflect their disabled state', async ({ page }) => {
                 await new BasePage(page, 'list--single-select-with-disabled').load();
 
                 expect(await getAria(page, 'item-1', 'aria-disabled')).toBe('false');
@@ -789,8 +840,8 @@ test.describe('PieList - Component tests', () => {
                 expect(await getAria(page, 'item-5', 'aria-disabled')).toBe('false');
             });
 
-            test('selection-type undefined: items have no aria-disabled (disabled prop is a no-op)', async ({ page }) => {
-                await new BasePage(page, 'list--undefined-selection-type-with-disabled').load();
+            test('interaction-type none: items have no aria-disabled (disabled prop is a no-op)', async ({ page }) => {
+                await new BasePage(page, 'list--none-interaction-type-with-disabled').load();
 
                 expect(await getAria(page, 'item-1', 'aria-disabled')).toBeNull();
                 expect(await getAria(page, 'item-2', 'aria-disabled')).toBeNull();
@@ -1011,9 +1062,9 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
-    test.describe('Runtime selection-type switching: ARIA', () => {
-        test('undefined → multi: list role flips to listbox, aria-multiselectable added, items get role=option + aria-selected', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+    test.describe('Runtime interaction-type switching: ARIA', () => {
+        test('none → multi-select: list role flips to listbox, aria-multiselectable added, items get role=option + aria-selected', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
             expect(await getListAttr(page, 'role')).toBe('list');
             expect(await getRole(page, 'item-1')).toBe('listitem');
 
@@ -1025,8 +1076,8 @@ test.describe('PieList - Component tests', () => {
             expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
         });
 
-        test('multi → single: list role stays listbox, aria-multiselectable removed', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+        test('multi-select → single-select: list role stays listbox, aria-multiselectable removed', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
             expect(await getListAttr(page, 'aria-multiselectable')).toBe('true');
 
@@ -1038,12 +1089,12 @@ test.describe('PieList - Component tests', () => {
             expect(await getAria(page, 'item-1', 'aria-selected')).toBe('false');
         });
 
-        test('multi → undefined: list role becomes list, items become listitem, aria-selected and aria-multiselectable removed', async ({ page }) => {
-            await new BasePage(page, 'list--runtime-selection-type-switch').load();
+        test('multi-select → none: list role becomes list, items become listitem, aria-selected and aria-multiselectable removed', async ({ page }) => {
+            await new BasePage(page, 'list--runtime-interaction-type-switch').load();
             await page.getByTestId('btn-set-multi').click();
             expect(await getRole(page, 'item-1')).toBe('option');
 
-            await page.getByTestId('btn-set-undefined').click();
+            await page.getByTestId('btn-set-none').click();
 
             expect(await getListAttr(page, 'role')).toBe('list');
             expect(await getListAttr(page, 'aria-multiselectable')).toBeNull();

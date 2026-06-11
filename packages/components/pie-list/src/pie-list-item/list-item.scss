@@ -10,6 +10,13 @@
     cursor: var(--list-item-cursor, default);
     color: var(--dt-color-content-default-solid);
     user-select: none;
+    position: relative;
+}
+
+::slotted(label)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
 }
 
 // Active item shows the focus ring only when the parent list is in keyboard-

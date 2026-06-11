@@ -3,6 +3,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
+import '@justeattakeaway/pie-webc/components/switch';
 import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
 
 import { createStory } from '../utilities';
@@ -28,7 +29,7 @@ export default listStoryMeta;
 
 function logSelectionChange (event: Event) {
     const list = event.target as HTMLElement;
-    const type = list.getAttribute('selection-type') || 'undefined';
+    const type = list.getAttribute('interaction-type') || 'none';
     const logger = document.getElementById('logger');
     if (!logger) return;
     const entry = document.createElement('p');
@@ -108,7 +109,7 @@ const Template = ({}: ListProps) => html`
                 Press <strong>Spacebar</strong> to toggle active selection states.
             </p>
 
-            <pie-list data-test-id="pie-list" selection-type="multi" aria-labelledby="multi-list-label" @change=${logSelectionChange}>
+            <pie-list data-test-id="pie-list" interaction-type="multi-select" aria-labelledby="multi-list-label" @change=${logSelectionChange}>
                 <pie-list-item id="list-item-m1" value="m1">Multi Option 1</pie-list-item>
                 <pie-list-item id="list-item-m2" value="m2" selected>Multi Option 2 (Initial)</pie-list-item>
                 <pie-list-item id="list-item-m3" value="m3" disabled>Multi Option 3 (Disabled)</pie-list-item>
@@ -124,7 +125,7 @@ const Template = ({}: ListProps) => html`
                 skipping disabled items. Spacebar is inactive.
             </p>
 
-            <pie-list selection-type="single" aria-labelledby="single-list-label" @change=${logSelectionChange}>
+            <pie-list interaction-type="single-select" aria-labelledby="single-list-label" @change=${logSelectionChange}>
                 <pie-list-item id="list-item-s1" value="s1">Single Option 1</pie-list-item>
                 <pie-list-item id="list-item-s2" value="s2" disabled>Single Option 2 (Disabled)</pie-list-item>
                 <pie-list-item id="list-item-s3" value="s3" selected>Single Option 3 (Initial)</pie-list-item>
@@ -190,7 +191,8 @@ const sharedStyles = html`
             padding-inline-start: 2rem;
         }
         pie-list-item:last-child { border-block-end: none; }
-        pie-list[selection-type] pie-list-item:not([disabled]):hover {
+        pie-list[interaction-type="multi-select"] pie-list-item:not([disabled]):hover,
+        pie-list[interaction-type="single-select"] pie-list-item:not([disabled]):hover {
             background-color: #f5f8ff;
         }
         pie-list-item[selected]::before {
@@ -226,7 +228,7 @@ const MultiSelectTemplate = () => html`
         <button data-test-id="btn-before">Before list</button>
     </div>
 
-    <pie-list selection-type="multi" aria-labelledby="multi-sr-label" @change=${logSelectionChange}>
+    <pie-list interaction-type="multi-select" aria-labelledby="multi-sr-label" @change=${logSelectionChange}>
         <pie-list-item id="topping-cheese" value="cheese" selected>Extra cheese</pie-list-item>
         <pie-list-item id="topping-pepperoni" value="pepperoni">Pepperoni</pie-list-item>
         <pie-list-item id="topping-anchovies" value="anchovies" disabled>Anchovies (out of stock)</pie-list-item>
@@ -258,7 +260,7 @@ const SingleSelectTemplate = () => html`
         <button data-test-id="btn-before">Before list</button>
     </div>
 
-    <pie-list selection-type="single" aria-labelledby="single-sr-label" @change=${logSelectionChange}>
+    <pie-list interaction-type="single-select" aria-labelledby="single-sr-label" @change=${logSelectionChange}>
         <pie-list-item id="pay-card" value="card" selected>Credit or debit card</pie-list-item>
         <pie-list-item id="pay-paypal" value="paypal">PayPal</pie-list-item>
         <pie-list-item id="pay-applepay" value="applepay" disabled>Apple Pay (unavailable on this device)</pie-list-item>
@@ -276,11 +278,109 @@ const SingleSelectTemplate = () => html`
     </div>
 `;
 
+const slotControlStyles = html`
+    <style>
+        pie-list-item {
+            padding-block: 8px;
+            padding-inline: 12px;
+        }
+        pie-list-item input,
+        pie-list-item pie-switch {
+            vertical-align: middle;
+            margin-inline-end: 8px;
+        }
+        pie-list-item pie-switch {
+            display: inline-block;
+        }
+        pie-list-item label {
+            cursor: pointer;
+            vertical-align: middle;
+        }
+    </style>
+`;
+
+const RadioGroupTemplate = () => html`
+    ${sharedStyles}
+    ${slotControlStyles}
+    <h2 id="radio-sr-label">Choose a delivery slot</h2>
+    <p class="instruction">
+        <code>interaction-type="radio"</code>. List exposes <code>role="radiogroup"</code>; items
+        carry no role. Native radios handle their own keyboard navigation.
+    </p>
+
+    <pie-list interaction-type="radio" aria-labelledby="radio-sr-label">
+        <pie-list-item>
+            <input id="slot-asap" type="radio" name="delivery-slot" value="asap" checked />
+            <label for="slot-asap">As soon as possible</label>
+        </pie-list-item>
+        <pie-list-item>
+            <input id="slot-1830" type="radio" name="delivery-slot" value="1830" />
+            <label for="slot-1830">18:30 – 18:45</label>
+        </pie-list-item>
+        <pie-list-item>
+            <input id="slot-1900" type="radio" name="delivery-slot" value="1900" />
+            <label for="slot-1900">19:00 – 19:15</label>
+        </pie-list-item>
+    </pie-list>
+`;
+
+const CheckboxGroupTemplate = () => html`
+    ${sharedStyles}
+    ${slotControlStyles}
+    <h2 id="checkbox-sr-label">Order preferences</h2>
+    <p class="instruction">
+        <code>interaction-type="checkbox"</code>. List exposes <code>role="group"</code>; items
+        carry no role. Each checkbox owns its own checked state and keyboard interaction.
+    </p>
+
+    <pie-list interaction-type="checkbox" aria-labelledby="checkbox-sr-label">
+        <pie-list-item>
+            <input id="pref-cutlery" type="checkbox" name="pref" value="cutlery" checked />
+            <label for="pref-cutlery">Include cutlery</label>
+        </pie-list-item>
+        <pie-list-item>
+            <input id="pref-contactless" type="checkbox" name="pref" value="contactless" />
+            <label for="pref-contactless">Contactless delivery</label>
+        </pie-list-item>
+        <pie-list-item>
+            <input id="pref-leave-at-door" type="checkbox" name="pref" value="leave-at-door" />
+            <label for="pref-leave-at-door">Leave at door</label>
+        </pie-list-item>
+    </pie-list>
+`;
+
+const SwitchGroupTemplate = () => html`
+    ${sharedStyles}
+    ${slotControlStyles}
+    <h2 id="switch-sr-label">Notification settings</h2>
+    <p class="instruction">
+        <code>interaction-type="switch"</code>. List exposes <code>role="group"</code>; items
+        carry no role. Each <code>pie-switch</code> owns its own state and interactions; a
+        sibling <code>&lt;label for&gt;</code> targets it via the element's <code>id</code>
+        (works because <code>pie-switch</code> is form-associated).
+    </p>
+
+    <pie-list interaction-type="switch" aria-labelledby="switch-sr-label">
+        <pie-list-item>
+            <pie-switch id="notif-orders" checked></pie-switch>
+            <label for="notif-orders">Order updates</label>
+        </pie-list-item>
+        <pie-list-item>
+            <pie-switch id="notif-promos"></pie-switch>
+            <label for="notif-promos">Promotions and offers</label>
+        </pie-list-item>
+        <pie-list-item>
+            <pie-switch id="notif-recs"></pie-switch>
+            <label for="notif-recs">Restaurant recommendations</label>
+        </pie-list-item>
+    </pie-list>
+`;
+
 const StaticListTemplate = () => html`
     ${sharedStyles}
     <h2 id="static-sr-label">Ingredients</h2>
     <p class="instruction">
-        Static (informational) list — no <code>selection-type</code>. Tab skips the list entirely; the
+        Static (informational) list — no <code>interaction-type</code> (or <code>interaction-type="none"</code>). Tab skips the list entirely; the
         list and its items expose <code>role="list"</code> / <code>"listitem"</code> to the screen reader.
         The <code>disabled</code> property has no effect here (no <code>aria-disabled</code>, no styling).
     </p>
@@ -290,11 +390,11 @@ const StaticListTemplate = () => html`
     </div>
 
     <pie-list aria-labelledby="static-sr-label">
-        <pie-list-item value="flour">Flour</pie-list-item>
-        <pie-list-item value="tomato">Tomato sauce</pie-list-item>
-        <pie-list-item value="mozzarella" disabled>Mozzarella (disabled attr — should have no visible/SR effect)</pie-list-item>
-        <pie-list-item value="basil">Basil</pie-list-item>
-        <pie-list-item value="oil">Olive oil</pie-list-item>
+        <pie-list-item>Flour</pie-list-item>
+        <pie-list-item>Tomato sauce</pie-list-item>
+        <pie-list-item disabled>Mozzarella (disabled attr — should have no visible/SR effect)</pie-list-item>
+        <pie-list-item>Basil</pie-list-item>
+        <pie-list-item>Olive oil</pie-list-item>
     </pie-list>
 
     <div class="nav">
@@ -305,4 +405,7 @@ const StaticListTemplate = () => html`
 export const Default = createStory<ListProps>(Template, defaultArgs)();
 export const MultiSelect = createStory<ListProps>(MultiSelectTemplate, defaultArgs)();
 export const SingleSelect = createStory<ListProps>(SingleSelectTemplate, defaultArgs)();
+export const RadioGroup = createStory<ListProps>(RadioGroupTemplate, defaultArgs)();
+export const CheckboxGroup = createStory<ListProps>(CheckboxGroupTemplate, defaultArgs)();
+export const SwitchGroup = createStory<ListProps>(SwitchGroupTemplate, defaultArgs)();
 export const StaticList = createStory<ListProps>(StaticListTemplate, defaultArgs)();
