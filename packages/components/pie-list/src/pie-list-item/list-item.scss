@@ -1,8 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    display: list-item;
-    list-style-type: "";
+    display: block;
     padding-block-start: var(--dt-spacing-b);
     padding-block-end: var(--dt-spacing-b);
     padding-inline-start: var(--dt-spacing-c);
@@ -10,6 +9,15 @@
     cursor: var(--list-item-cursor, default);
     color: var(--dt-color-content-default-solid);
     position: relative;
+}
+
+// Scoped to the static-list case only: `role="listitem"` is narrated as
+// "selectable list item" by VoiceOver; `display: list-item` suppresses that.
+// In select modes (`role="option"`) the marker box appears to be exposed as
+// a separate AX node on iOS, causing double label announcement.
+:host([role="listitem"]) {
+    display: list-item;
+    list-style-type: "";
 }
 
 ::slotted(label):after {
