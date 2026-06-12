@@ -2108,6 +2108,10 @@
                     "displayName": "Cutlery Filled"
                 },
                 {
+                    "name": "delivery",
+                    "displayName": "Delivery"
+                },
+                {
                     "name": "delivery-fee",
                     "displayName": "Delivery Fee"
                 },
