@@ -4,6 +4,10 @@
     display: block;
 }
 
+::slotted(:not(pie-list-item)) {
+    display: none;
+}
+
 :host([interaction-type="multi-select"]),
 :host([interaction-type="single-select"]) {
     --list-item-cursor: pointer;
