@@ -1,5 +1,49 @@
+@use "sass:string";
+@use "sass:list";
+
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
     display: block;
+}
+
+// would place in pie-css
+@mixin enforce-slot-elements($allowed-elements) {
+    /* 1. Hide anything that isn't on the allow-list */
+    ::slotted(:not(#{$allowed-elements})) {
+        display: none;
+    }
+
+    /* 2. Hook for styling the allowed elements */
+    $allowlist-selectors: ();
+
+    @each $el in $allowed-elements {
+        $allowlist-selectors: list.append($allowlist-selectors, string.unquote("::slotted(#{$el})"), comma);
+    }
+
+    #{$allowlist-selectors} {
+        @content;
+    }
+}
+
+@include enforce-slot-elements(('pie-list-item'));
+
+
+:host([interaction-type="multi-select"]),
+:host([interaction-type="single-select"]) {
+    --list-item-cursor: pointer;
+
+    // Inheritable signals that gate disabled-item styling to selectable modes.
+    // In static lists these are unset, so [disabled] items render normally.
+    --list-item-disabled-cursor: not-allowed;
+    --list-item-disabled-opacity: 0.5;
+}
+
+// The list itself takes DOM focus (it's the single tab stop). When that focus
+// is keyboard-driven, expose the focus-ring box-shadow to the active item via
+// a custom property; descendants read it through inheritance.
+:host(:focus-visible) {
+    outline: none;
+
+    --pie-list-active-ring: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
 }

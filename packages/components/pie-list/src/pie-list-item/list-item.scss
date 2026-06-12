@@ -1,1 +1,48 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    display: block;
+    padding-block-start: var(--dt-spacing-b);
+    padding-block-end: var(--dt-spacing-b);
+    padding-inline-start: var(--dt-spacing-c);
+    padding-inline-end: var(--dt-spacing-c);
+    cursor: var(--list-item-cursor, default);
+    color: var(--dt-color-content-default-solid);
+    position: relative;
+}
+
+// Scoped to the static-list case only: `role="listitem"` is narrated as
+// "selectable list item" by VoiceOver; `display: list-item` suppresses that.
+// In select modes (`role="option"`) the marker box appears to be exposed as
+// a separate AX node on iOS, causing double label announcement.
+:host([role="listitem"]) {
+    display: list-item;
+    list-style-type: "";
+}
+
+::slotted(label):after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+// Active item shows the focus ring only when the parent list is in keyboard-
+// focus mode. The parent sets --pie-list-active-ring under :focus-visible;
+// otherwise it's undefined and the box-shadow falls back to `none`.
+:host([data-active]) {
+    box-shadow: var(--pie-list-active-ring, none);
+    outline: none;
+}
+
+:host([selected]) {
+    background-color: var(--dt-color-container-subtle);
+    font-weight: var(--dt-font-body-strong-l-weight);
+}
+
+// Disabled styling is gated on inheritable signals set by the parent list in
+// selectable modes only — in a static list both variables are unset and the
+// declarations resolve to the same values as a non-disabled item (no-op).
+:host([disabled]) {
+    cursor: var(--list-item-disabled-cursor, var(--list-item-cursor, default));
+    opacity: var(--list-item-disabled-opacity, 1);
+}

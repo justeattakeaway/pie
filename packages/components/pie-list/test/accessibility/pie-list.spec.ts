@@ -4,7 +4,7 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 test.describe('PieList - Accessibility tests', () => {
     test('a11y - should test the PieList component WCAG compliance', async ({ page, makeAxeBuilder }) => {
         // Arrange
-        const basePage = new BasePage(page, 'list--default');
+        const basePage = new BasePage(page, 'list--accessibility');
 
         await basePage.load();
 
