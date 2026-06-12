@@ -135,6 +135,146 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
 }
 
 /**
+ * Sanitises an HTML string to allow only safe <a> tags, and normalises anchor
+ * attributes to respect the component's link-target behaviour.
+ *
+ * - Strips all non-<a> elements (keeping their text content).
+ * - Removes unsafe href protocols (javascript:, data:, vbscript:).
+ * - Removes non-allowlisted attributes (only href, rel, target survive).
+ * - Sets target to linkTarget (overrides any existing target).
+ * - Ensures rel contains "noopener noreferrer" when target="_blank"
+ *   (prevents reverse-tabnabbing).
+ */
+export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): string {
+    const SAFE_ATTRS = new Set(['href', 'rel', 'target']);
+    const ALLOWED_PROTOCOLS = new Set(['http:', 'https:', 'mailto:', 'tel:']);
+    const PROTOCOL_RE = /^([a-z0-9+.-]+):/i;
+    const normalisedLinkTarget = linkTarget === '_self' ? '_self' : '_blank';
+
+    const normaliseHrefForProtocolCheck = (href: string) => Array.from(href)
+        .filter((char) => {
+            const charCode = char.charCodeAt(0);
+            return char.trim() !== '' && charCode > 31 && charCode !== 127;
+        })
+        .join('');
+
+    const ensureRelForTarget = (existingRel: string) => {
+        if (normalisedLinkTarget !== '_blank') return '';
+
+        const relTokens = new Set(existingRel
+            .split(/\s+/)
+            .filter(Boolean));
+
+        relTokens.add('noopener');
+        relTokens.add('noreferrer');
+        return Array.from(relTokens).join(' ');
+    };
+
+    const escapeAttr = (value: string) => value
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+    const sanitiseDescriptionHtmlWithoutDomParser = () => {
+        // SSR fallback for Node environments where DOMParser is unavailable.
+        let html = input;
+        let previousHtml: string;
+
+        do {
+            previousHtml = html;
+            html = html
+                .replace(/<script\b[^<]*(?:(?!<\/script\b[^>]*>)<[^<]*)*<\/script\b[^>]*>/gi, '')
+                .replace(/<style\b[^<]*(?:(?!<\/style\b[^>]*>)<[^<]*)*<\/style\b[^>]*>/gi, '')
+                .replace(/<script\b/gi, '')
+                .replace(/<style\b/gi, '');
+        } while (html !== previousHtml);
+
+        const anchors: Array<string> = [];
+
+        html = html.replace(/<a\b[^>]*>[\s\S]*?<\/a>/gi, (anchorHtml) => {
+            const openTagMatch = anchorHtml.match(/^<a\b([^>]*)>/i);
+            const innerHtmlMatch = anchorHtml.match(/>([\s\S]*)<\/a>$/i);
+            const attrString = openTagMatch?.[1] ?? '';
+            const innerText = escapeAttr(innerHtmlMatch?.[1] ?? '');
+
+            const attrs = new Map<string, string>();
+            attrString.replace(/([^\s=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'`=<>]+)))?/g, (_m, name, dq, sq, bare) => {
+                const value = dq ?? sq ?? bare ?? '';
+                attrs.set(String(name).toLowerCase(), value);
+                return '';
+            });
+
+            const href = (attrs.get('href') ?? '').trim();
+            const hrefForProtocolCheck = normaliseHrefForProtocolCheck(href);
+            const protocolMatch = hrefForProtocolCheck.match(PROTOCOL_RE);
+            const isHrefAllowed = !protocolMatch || ALLOWED_PROTOCOLS.has(`${protocolMatch[1].toLowerCase()}:`);
+
+            const rel = ensureRelForTarget(attrs.get('rel') ?? '');
+            const attrParts: Array<string> = [];
+
+            if (href && isHrefAllowed) attrParts.push(`href="${escapeAttr(href)}"`);
+            attrParts.push(`target="${normalisedLinkTarget}"`);
+            if (rel) attrParts.push(`rel="${escapeAttr(rel)}"`);
+
+            anchors.push(`<a ${attrParts.join(' ')}>${innerText}</a>`);
+            return `__PIE_ANCHOR_PLACEHOLDER_${anchors.length - 1}__`;
+        });
+
+        html = html
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+        anchors.forEach((anchor, index) => {
+            html = html.replace(`__PIE_ANCHOR_PLACEHOLDER_${index}__`, anchor);
+        });
+
+        return html;
+    };
+
+    if (typeof DOMParser === 'undefined') {
+        return sanitiseDescriptionHtmlWithoutDomParser();
+    }
+
+    const doc = new DOMParser().parseFromString(input, 'text/html');
+    // Reverse so deepest descendants are processed first — ensures nested <a> tags
+    // survive when their parent wrapper element is unwrapped.
+    const elements = Array.from(doc.body.querySelectorAll('*')).reverse();
+
+    elements.forEach((el) => {
+        if (el.tagName !== 'A') {
+            // Remove executable/content-bearing tags entirely instead of leaving their text behind.
+            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') {
+                el.remove();
+                return;
+            }
+
+            el.replaceWith(...Array.from(el.childNodes));
+            return;
+        }
+        const href = (el.getAttribute('href') ?? '').trim();
+        const hrefForProtocolCheck = normaliseHrefForProtocolCheck(href);
+        const protocolMatch = hrefForProtocolCheck.match(PROTOCOL_RE);
+        if (protocolMatch) {
+            const protocol = `${protocolMatch[1].toLowerCase()}:`;
+            if (!ALLOWED_PROTOCOLS.has(protocol)) el.removeAttribute('href');
+        }
+        Array.from(el.attributes).forEach((attr) => {
+            if (!SAFE_ATTRS.has(attr.name)) el.removeAttribute(attr.name);
+        });
+        el.setAttribute('target', normalisedLinkTarget);
+
+        if (normalisedLinkTarget === '_blank') {
+            el.setAttribute('rel', ensureRelForTarget(el.getAttribute('rel') ?? ''));
+        } else {
+            el.removeAttribute('rel');
+        }
+    });
+
+    return doc.body.innerHTML;
+}
+
+/**
  * Localises a rich text string by replacing custom tags with their respective enhancer functions content
  * If the key is not found, it will be used as fallback
  * @param locale {CookieBannerLocale} locale data object
