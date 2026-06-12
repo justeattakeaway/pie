@@ -36,7 +36,7 @@ width: 120
 
 ### Size override
 
-Nested component can be resized to create a clear hierarchy within the component.
+Nested components can be resized to create a clear hierarchy within the component.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/nested-overrides/types-of-overrides-size.svg",
@@ -162,7 +162,7 @@ Variants can be adjusted to better support the data table’s structure and hier
             width: "256px",
             alt: "A data table component with nested components in different variants as an example of supported nested overrides."
         }],
-        caption: "Icons cannot be increased or decreased in size."
+        caption: "Nested components can be adjusted to different variants."
     },
     dont: {
         type: usageTypes.image,
@@ -286,10 +286,9 @@ Nested actions can be decreased in size to fit the available space and maintain 
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-dont-example-2.svg",
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-dont-example-1.svg",
             width: "256px",
             alt: "Two uploader components with an action button in a different size and variant, representing an unsupported nested override."
-        }],
         caption: "Nested actions can't be increased in size nor changed to a different variant."
     }
 } %}
@@ -298,7 +297,7 @@ Nested actions can be decreased in size to fit the available space and maintain 
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-do-example-1.svg",
+            src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-do-example-2.svg",
             width: "256px",
             alt: "A notification component in the information variant with a primary and ghost button representing supported nested overrides."
         }],
@@ -356,7 +355,7 @@ When necessary, content can be center-aligned, ensuring that all elements—incl
 
 ### Nested actions with specific purpose
 
-Certain nested actions that serve a specific purpose cannot be overwritten. For example, a close button, which is typically a standard icon or action, cannot be overridden in terms of style or size. This ensures functionality is preserved and prevents visual disruption in key interactive elements.
+Certain nested actions that serve a specific purpose cannot be overridden. For example, a close button, which is typically a standard icon or action, cannot be overridden in terms of style or size. This ensures functionality is preserved and prevents visual disruption in key interactive elements.
 
 {% contentLayout %}
   {% contentItem %}

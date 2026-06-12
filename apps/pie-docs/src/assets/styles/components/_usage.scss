@@ -21,6 +21,10 @@ $usage-bg-minHeight: 280px;
     margin: 0;
     @include p.font-size(--dt-font-caption-size);
     @include p.line-height(--dt-font-caption-line-height);
+
+    &:empty {
+        display: none;
+    }
 }
 
 .c-usage-container {
