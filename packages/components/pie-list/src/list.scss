@@ -9,14 +9,14 @@
 
 // would place in pie-css
 @mixin enforce-slot-elements($allowed-elements) {
-
-  /* 1. Hide anything that isn't on the allow-list */
+    /* 1. Hide anything that isn't on the allow-list */
     ::slotted(:not(#{$allowed-elements})) {
         display: none;
     }
 
     /* 2. Hook for styling the allowed elements */
     $allowlist-selectors: ();
+
     @each $el in $allowed-elements {
         $allowlist-selectors: list.append($allowlist-selectors, string.unquote("::slotted(#{$el})"), comma);
     }
