@@ -1,4 +1,4 @@
-name: codeql
+name: CodeQL
 
 on:
   push:
@@ -13,8 +13,12 @@ permissions: read-all
 
 jobs:
   analyze:
-    name: analyze
+    name: analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        language: [javascript-typescript, actions]
 
     permissions:
       security-events: write
@@ -28,10 +32,10 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@03e4368ac7daa2bd82b3e85262f3bf87ee112f57 # v3.36.0
         with:
-          languages: javascript-typescript
-          config-file: ./.github/codeql/codeql-config.yml
+          languages: ${{ matrix.language }}
+          config-file: ./.github/codeql/${{ matrix.language }}.yml
 
       - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@03e4368ac7daa2bd82b3e85262f3bf87ee112f57 # v3.36.0
         with:
-          category: /language:javascript-typescript
+          category: /language:${{ matrix.language }}
