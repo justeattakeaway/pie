@@ -289,6 +289,7 @@ Nested actions can be decreased in size to fit the available space and maintain 
             src: "../../../assets/img/patterns/nested-overrides/size-nested-actions-full-dont-example-1.svg",
             width: "256px",
             alt: "Two uploader components with an action button in a different size and variant, representing an unsupported nested override."
+        }],
         caption: "Nested actions can't be increased in size nor changed to a different variant."
     }
 } %}
