@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.10.17",
+  "version": "0.10.18",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -827,7 +827,7 @@
     "@justeattakeaway/pie-list": "0.0.28",
     "@justeattakeaway/pie-lottie-player": "0.4.4",
     "@justeattakeaway/pie-modal": "1.26.8",
-    "@justeattakeaway/pie-notification": "0.23.4",
+    "@justeattakeaway/pie-notification": "0.24.0",
     "@justeattakeaway/pie-radio": "1.1.14",
     "@justeattakeaway/pie-radio-group": "1.0.27",
     "@justeattakeaway/pie-select": "0.8.36",
