@@ -33,7 +33,7 @@ The background blur is a visual effect used to distort the content behind the UI
     alt: "Visual example of how blur tokens work on an image"
 } %}
 
---- 
+---
 
 ## Using blur in your products
 
@@ -48,7 +48,7 @@ Here are some tips to keep in mind when using our blur tokens:
 
 To make sure the content is always legible and accessible use $content-solid tokens on the text and icons.
 
-We don’t recommend using text with opacity as it can comprise accessibility and user experience. Learn more about the options available [here](/foundations/colour).
+We don’t recommend using text with opacity as it can compromise accessibility and user experience. Learn more about the options available [in the Colours documentation](/foundations/colour).
 
 ### Pair container fill and blur tokens
 

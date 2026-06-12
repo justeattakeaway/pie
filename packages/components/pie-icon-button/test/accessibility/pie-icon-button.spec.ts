@@ -5,7 +5,6 @@ import { variants } from '../../src/defs.ts';
 variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, page }) => {
     // Arrange
     const iconButtonPage = new BasePage(page, `icon-button--${variant}-variations`);
-    iconButtonPage.waitUntilStrategy = 'networkidle';
     await iconButtonPage.load();
 
     // Act

@@ -11,7 +11,6 @@ test.describe('PieLottiePlayer - Visual tests', () => {
         };
 
         const lottiePlayerPage = new LottiePlayerDefaultPage(page);
-        lottiePlayerPage.waitUntilStrategy = 'networkidle';
         await lottiePlayerPage.load({ ...props });
 
         // Assert
