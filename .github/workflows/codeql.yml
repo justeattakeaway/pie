@@ -11,12 +11,17 @@ on:
 
 permissions: read-all
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   analyze:
     name: analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         language: [javascript-typescript, actions]
 
