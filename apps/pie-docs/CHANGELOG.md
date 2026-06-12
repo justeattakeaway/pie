@@ -1,5 +1,22 @@
 # Changelog
 
+## 5.1.0
+
+### Minor Changes
+
+- [Added] - New error patterns documentation. ([#2897](https://github.com/justeattakeaway/pie/pull/2897)) by [@joshua-king-JET](https://github.com/joshua-king-JET)
+
+- [Added] New JET AI and JET+ pattern docs. ([#2918](https://github.com/justeattakeaway/pie/pull/2918)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Updated] Updated order of pattern documentation in nav and index so it's displayed in alphabetical order.
+
+## 5.0.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.17
+
 ## 5.0.0
 
 ### Major Changes

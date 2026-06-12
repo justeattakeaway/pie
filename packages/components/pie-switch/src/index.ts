@@ -62,6 +62,8 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     @query('label')
     public focusTarget!: HTMLElement;
 
+    private _abortController!: AbortController;
+
     @state()
     private _isAnimationAllowed = false;
 
@@ -72,6 +74,27 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         this.input.addEventListener('invalid', (event) => {
             this.dispatchEvent(new Event('invalid', event));
         });
+    }
+
+    connectedCallback (): void {
+        super.connectedCallback();
+
+        this._abortController = new AbortController();
+        const { signal } = this._abortController;
+
+        this.addEventListener('click', (event: Event) => {
+            // Only programmatically click the input if the explicit target
+            // of the click was the host element itself (e.g., via an external label).
+            // This ignores clicks bubbling up from the internal shadow DOM and prevents loops.
+            if (event.composedPath()[0] === this) {
+                this.input.click();
+            }
+        }, { signal });
+    }
+
+    disconnectedCallback () : void {
+        super.disconnectedCallback();
+        this._abortController?.abort();
     }
 
     protected updated (): void {
