@@ -1,3 +1,2 @@
 paths-ignore:
-  - '**/*.scss'
-  - '**/*.css'
+  - 'packages/tools/generator-pie-component/src/app/templates/**'
