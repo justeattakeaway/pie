@@ -33,7 +33,7 @@ const buildImage = ({
 };
 
 const buildUsageCard = (usageType, {
-    type, items, variant, hasPadding = true, caption,
+    type, items, variant, hasPadding = true,
 }) => {
     const {
         iconName, iconFill, styleColour, displayName,
@@ -70,7 +70,6 @@ const buildUsageCard = (usageType, {
         <div class="${backdropClasses.join(' ')}">
           ${content}
         </div>
-        ${caption ? `<p class="c-usage-caption">${caption}</p>` : ''}
       </figure>
     </article>`;
 };
@@ -91,11 +90,14 @@ const buildUsageCard = (usageType, {
 */
 const usage = (props = {}) => {
     const presentTypes = Object.keys(metadata).filter((usageType) => props[usageType]);
+    const isSingleCard = presentTypes.length === 1;
     const cards = presentTypes.map((usageType) => buildUsageCard(usageType, props[usageType]));
+    const captions = presentTypes.map((usageType) => `<p class="c-usage-caption">${props[usageType].caption || ''}</p>`);
 
-    return `<div class="c-usage-container">
-        ${cards.join(' ')}
-    </div>`;
+    return `<div class="c-usage-container${isSingleCard ? ' c-usage-container--single' : ''}">
+  ${cards.join(' ')}
+  ${captions.join(' ')}
+</div>`;
 };
 
 module.exports = usage;
