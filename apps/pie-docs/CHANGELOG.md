@@ -1,5 +1,20 @@
 # Changelog
 
+## 5.2.0
+
+### Minor Changes
+
+- [Added] - added size small as a props with styling according to figma ([#2814](https://github.com/justeattakeaway/pie/pull/2814)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+- [Added] New documentation page for foundations on gradients. ([#2887](https://github.com/justeattakeaway/pie/pull/2887)) by [@mollyinye](https://github.com/mollyinye)
+
+  [Updated] Updated the order of the gradients page in the navigation.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.18
+
 ## 5.1.0
 
 ### Minor Changes

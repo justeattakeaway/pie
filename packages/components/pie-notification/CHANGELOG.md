@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - added size small as a props with styling according to figma ([#2814](https://github.com/justeattakeaway/pie/pull/2814)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
 ## 0.23.4
 
 ### Patch Changes
