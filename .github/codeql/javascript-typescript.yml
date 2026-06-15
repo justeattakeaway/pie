@@ -1,0 +1,2 @@
+paths-ignore:
+  - 'packages/tools/generator-pie-component/src/app/templates/**'
