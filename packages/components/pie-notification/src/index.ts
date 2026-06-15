@@ -8,13 +8,17 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { validPropertyValues, dispatchCustomEvent, safeCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import {
+    property,
+    queryAssignedElements,
+} from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
     type ActionProps,
     variants,
     positions,
+    sizes,
     headingLevels,
     actionSizes,
     componentSelector,
@@ -62,6 +66,10 @@ export class PieNotification extends PieElement implements NotificationProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, positions, defaultProps.position)
     public position = defaultProps.position;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size = defaultProps.size;
 
     @property({ type: Boolean })
     public isDismissible = defaultProps.isDismissible;
@@ -273,7 +281,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         const {
             text,
             ariaLabel,
-            size = defaultActionButtonProps.size,
+            size: actionSize,
             href,
             target,
             rel,
@@ -285,7 +293,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         }
 
         const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
-        const buttonSize = size && actionSizes.includes(size) ? size : defaultActionButtonProps.size;
+        const buttonSize = actionSize && actionSizes.includes(actionSize) ? actionSize : defaultActionButtonProps.size;
         const isLink = !!href;
 
         return html`
@@ -311,6 +319,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         const {
             variant,
             position,
+            size,
             heading,
             isDismissible,
             isCompact,
@@ -329,6 +338,7 @@ export class PieNotification extends PieElement implements NotificationProps {
             [componentClass]: true,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--${position}`]: true,
+            [`${componentClass}--${size}`]: true,
             'is-compact': isCompact,
         };
 
