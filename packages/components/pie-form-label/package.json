@@ -43,9 +43,9 @@
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.3",
     "@justeattakeaway/pie-css": "1.1.2",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.3",
-    "@justeattakeaway/pie-switch": "2.4.0",
-    "@justeattakeaway/pie-text-input": "0.29.36",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.4",
+    "@justeattakeaway/pie-switch": "2.4.1",
+    "@justeattakeaway/pie-text-input": "0.29.37",
     "@justeattakeaway/pie-wrapper-react": "0.14.5"
   },
   "dependencies": {

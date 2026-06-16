@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-toast
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - promote toast and toast provider to stable ([#2947](https://github.com/justeattakeaway/pie/pull/2947)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons-webc@1.25.0
+  - @justeattakeaway/pie-icon-button@2.7.17
+
 ## 0.13.1
 
 ### Patch Changes
