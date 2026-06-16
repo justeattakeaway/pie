@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.81.2
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-css@1.1.3
+  - @justeattakeaway/pie-webc@0.10.20
+
 ## 1.81.1
 
 ### Patch Changes

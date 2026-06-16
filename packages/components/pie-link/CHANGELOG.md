@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-link
 
+## 1.3.34
+
+### Patch Changes
+
+- [Fixed] - enable hover only for devices that support it ([#2929](https://github.com/justeattakeaway/pie/pull/2929)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.3.33
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.7.18
+
+### Patch Changes
+
+- [Fixed] - enable hover only for devices that support it ([#2929](https://github.com/justeattakeaway/pie/pull/2929)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.7.17
 
 ### Patch Changes

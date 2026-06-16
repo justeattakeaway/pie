@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-notification
 
+## 0.24.2
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-icon-button@2.7.18
+
 ## 0.24.1
 
 ### Patch Changes
