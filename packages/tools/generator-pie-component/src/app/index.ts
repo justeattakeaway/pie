@@ -8,7 +8,6 @@ import prompts from './prompts';
 import { transformName } from './utils';
 import type { Props } from './types';
 
-
 export default class extends Generator {
     props: Props;
 

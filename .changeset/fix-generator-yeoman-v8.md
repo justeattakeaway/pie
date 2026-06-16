@@ -14,4 +14,4 @@ Several APIs changed silently across that major version jump:
 
 - **`npm-check-updates` step removed** — Now redundant given the workspace-version fix above, and it caused a Yarn 4 error when the brand-new workspace package wasn't yet registered in the lockfile.
 
-[Fixed] - `pie-webc/componentService.js` now skips component directories that have no `package.json` (with a console warning) instead of throwing and leaving `pie-webc/package.json` unwritten.
+- `pie-webc/componentService.js` now skips component directories that have no `package.json` (with a console warning) instead of throwing and leaving `pie-webc/package.json` unwritten.
