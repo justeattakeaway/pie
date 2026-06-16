@@ -177,6 +177,10 @@ export class ComponentService {
             const componentName = folder.replace('pie-', '');
             const packageName = `@justeattakeaway/${folder}`;
             const componentPackageJsonPath = this.path.join(fullFolderPath, 'package.json');
+            if (!this.fs.existsSync(componentPackageJsonPath)) {
+                console.warn(chalk.yellow(`Skipping ${folder}: no package.json found`));
+                return;
+            }
             const componentPackageJsonData = this.fs.readFileSync(componentPackageJsonPath, 'utf-8');
             const componentPackageJson = JSON.parse(componentPackageJsonData);
 
