@@ -1,5 +1,45 @@
 # Changelog
 
+## 5.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-css@1.1.3
+  - @justeattakeaway/pie-webc@0.10.20
+
+## 5.3.0
+
+### Minor Changes
+
+- [Changed] - Add caption under cards in usage shortcode ([#2873](https://github.com/justeattakeaway/pie/pull/2873)) by [@juanfelipecr](https://github.com/juanfelipecr)
+
+- [Added] - New pattern docs for Nested overrides. ([#2873](https://github.com/justeattakeaway/pie/pull/2873)) by [@juanfelipecr](https://github.com/juanfelipecr)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2945](https://github.com/justeattakeaway/pie/pull/2945)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons@5.28.0
+  - @justeattakeaway/pie-icons-webc@1.25.0
+  - @justeattakeaway/pie-webc@0.10.19
+
+## 5.2.0
+
+### Minor Changes
+
+- [Added] - added size small as a props with styling according to figma ([#2814](https://github.com/justeattakeaway/pie/pull/2814)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+- [Added] New documentation page for foundations on gradients. ([#2887](https://github.com/justeattakeaway/pie/pull/2887)) by [@mollyinye](https://github.com/mollyinye)
+
+  [Updated] Updated the order of the gradients page in the navigation.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.18
+
 ## 5.1.0
 
 ### Minor Changes

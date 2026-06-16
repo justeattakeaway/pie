@@ -3,19 +3,8 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 $usage-container-gap: 20px;
+$usage-caption-gap: 16px;
 $usage-bg-minHeight: 280px;
-
-.c-usage-container {
-    display: flex;
-    flex-direction: column;
-    gap: $usage-container-gap;
-    margin-block-start: var(--dt-spacing-e);
-    margin-block-end: var(--dt-spacing-f);
-
-    @include f.media('>=narrowMid') {
-        flex-direction: row;
-    }
-}
 
 .c-usage {
     width: 100%;
@@ -25,6 +14,55 @@ $usage-bg-minHeight: 280px;
         flex-direction: column;
         height: 100%;
         margin: 0;
+    }
+}
+
+.c-usage-caption {
+    margin: 0;
+    @include p.font-size(--dt-font-caption-size);
+    @include p.line-height(--dt-font-caption-line-height);
+
+    &:empty {
+        display: none;
+    }
+}
+
+.c-usage-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $usage-caption-gap $usage-container-gap;
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-f);
+
+    @include f.media('>=narrowMid') {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    // On narrow screens, interleave cards and captions so each caption sits below its card
+    &:has(.c-usage-caption:not(:empty)) {
+        .c-usage:nth-child(1) { grid-row: 1; }
+
+        .c-usage:nth-child(2) { grid-row: 3; }
+
+        .c-usage-caption:nth-child(3) { grid-row: 2; }
+
+        .c-usage-caption:nth-child(4) { grid-row: 4; }
+
+        @include f.media('>=narrowMid') {
+            .c-usage:nth-child(1),
+            .c-usage:nth-child(2),
+            .c-usage-caption:nth-child(3),
+            .c-usage-caption:nth-child(4) {
+                grid-row: unset;
+            }
+        }
+    }
+
+    &.c-usage-container--single {
+        .c-usage,
+        .c-usage-caption {
+            grid-column: 1 / -1;
+        }
     }
 }
 

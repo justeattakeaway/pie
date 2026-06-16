@@ -13,6 +13,7 @@ test.describe('PIE - Page Visual Tests', () => {
         { route: '/components/card/', name: 'Content Page with Table of Contents' },
         { route: '/components/card/code', name: 'Content Page with Tabs' },
         { route: '/foundations/colour/tokens/alias/light/', name: 'Page with Toggles' },
+        { route: '/patterns/nested-overrides/', name: 'Usage shortcode examples' },
         { route: '/foo/bar/baz/', name: '404 Page' },
     ];
 

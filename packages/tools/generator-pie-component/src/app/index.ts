@@ -8,9 +8,6 @@ import prompts from './prompts';
 import { transformName } from './utils';
 import type { Props } from './types';
 
-// Regex as string used to restrict package upgrades after scaffolding
-const packagesToUpgrade = '/^@justeattakeaway//';
-
 export default class extends Generator {
     props: Props;
 
@@ -30,45 +27,93 @@ export default class extends Generator {
         };
     }
 
+    _readWorkspacePackageVersion (relativePath: string): string {
+        try {
+            const content = fs.readFileSync(this.destinationPath(relativePath), 'utf-8');
+            return JSON.parse(content).version as string;
+        } catch {
+            return '0.0.0';
+        }
+    }
+
     async writing () {
         const {
             fileName, componentPath, storyPath, testStoryPath,
         } = this.props;
-        const processDestinationPath = (filePath: string) => filePath.replace(/\b(placeholder)\b/g, fileName).replace(/__/g, '');
 
+        const workspaceDeps = {
+            pieComponentsConfigVersion: this._readWorkspacePackageVersion('configs/pie-components-config/package.json'),
+            pieCssVersion: this._readWorkspacePackageVersion('packages/tools/pie-css/package.json'),
+            pieWebcCoreVersion: this._readWorkspacePackageVersion('packages/components/pie-webc-core/package.json'),
+            pieMonorepoUtilsVersion: this._readWorkspacePackageVersion('packages/tools/pie-monorepo-utils/package.json'),
+        };
+
+        // Copy all component files that don't need path renaming.
+        // processDestinationPath was removed in mem-fs-editor v12 / yeoman-generator v8,
+        // so files whose names contain "placeholder" or "__" are excluded here and
+        // copied individually below with explicit renamed destination paths.
         this.fs.copyTpl(
             this.templatePath('**/*'),
             this.destinationPath(componentPath),
             this.props,
             undefined,
             {
-                globOptions: { dot: true, ignore: ['**/pie-placeholder.__stories__.ts', '**/pie-placeholder.mdx', '**/pie-placeholder.__test__.__stories__.ts'] },
-                processDestinationPath,
+                globOptions: {
+                    dot: true,
+                    ignore: [
+                        '**/pie-placeholder.__stories__.ts',
+                        '**/pie-placeholder.mdx',
+                        '**/pie-placeholder.__test__.__stories__.ts',
+                        '**/__package__.json',
+                        '**/placeholder.scss',
+                        '**/pie-placeholder.__spec__.ts',
+                    ],
+                },
             },
         );
 
+        // Component files that need renaming
         this.fs.copyTpl(
-            this.templatePath('**/pie-placeholder.__stories__.ts'),
-            this.destinationPath(storyPath),
+            this.templatePath('__package__.json'),
+            this.destinationPath(`${componentPath}package.json`),
+            { ...this.props, ...workspaceDeps },
+        );
+        this.fs.copyTpl(
+            this.templatePath('src/placeholder.scss'),
+            this.destinationPath(`${componentPath}src/${fileName}.scss`),
             this.props,
-            undefined,
-            { processDestinationPath },
+        );
+        this.fs.copyTpl(
+            this.templatePath('test/accessibility/pie-placeholder.__spec__.ts'),
+            this.destinationPath(`${componentPath}test/accessibility/pie-${fileName}.spec.ts`),
+            this.props,
+        );
+        this.fs.copyTpl(
+            this.templatePath('test/component/pie-placeholder.__spec__.ts'),
+            this.destinationPath(`${componentPath}test/component/pie-${fileName}.spec.ts`),
+            this.props,
+        );
+        this.fs.copyTpl(
+            this.templatePath('test/visual/pie-placeholder.__spec__.ts'),
+            this.destinationPath(`${componentPath}test/visual/pie-${fileName}.spec.ts`),
+            this.props,
         );
 
+        // Storybook files
         this.fs.copyTpl(
-            this.templatePath('**/pie-placeholder.__test__.__stories__.ts'),
-            this.destinationPath(testStoryPath),
+            this.templatePath('pie-placeholder.__stories__.ts'),
+            this.destinationPath(`${storyPath}pie-${fileName}.stories.ts`),
             this.props,
-            undefined,
-            { processDestinationPath },
         );
-
         this.fs.copyTpl(
-            this.templatePath('**/pie-placeholder.mdx'),
-            this.destinationPath(storyPath),
+            this.templatePath('pie-placeholder.__test__.__stories__.ts'),
+            this.destinationPath(`${testStoryPath}pie-${fileName}.test.stories.ts`),
             this.props,
-            undefined,
-            { processDestinationPath },
+        );
+        this.fs.copyTpl(
+            this.templatePath('pie-placeholder.mdx'),
+            this.destinationPath(`${storyPath}pie-${fileName}.mdx`),
+            this.props,
         );
 
         // Update YAML and config files
@@ -162,16 +207,12 @@ export default class extends Generator {
     }
 
     async end () {
-        const { componentPath } = this.props;
-
+        // spawnCommandSync in yeoman-generator v8 takes (fullCommandString, options) — not (command, args, options).
         this.log(chalk('Updating pie-webc...'));
-        this.spawnCommandSync('yarn', ['add-components']);
-
-        this.log(chalk('Checking for package updates...'));
-        this.spawnCommandSync('yarn', ['npm-check-updates', '-u', packagesToUpgrade], { cwd: this.destinationPath(componentPath) });
+        this.spawnCommandSync('yarn add-components');
 
         this.log(chalk('Updating lock file...'));
-        this.spawnCommandSync('yarn', [], { cwd: this.destinationPath() });
+        this.spawnCommandSync('yarn', { cwd: this.destinationPath() });
 
         this.log(chalk.greenBright('Your new component has been created!'));
     }

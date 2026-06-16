@@ -95,9 +95,11 @@
       "cache": true,
       "inputs": [
         "$TURBO_DEFAULT$",
-        "!README.md",
-        "!CHANGELOG.md",
-        "!docs/**",
+        "!$TURBO_ROOT$/**/AGENTS.md",
+        "!$TURBO_ROOT$/**/CLAUDE.md",
+        "!$TURBO_ROOT$/**/CHANGELOG.md",
+        "!$TURBO_ROOT$/**/README.md",
+        "!$TURBO_ROOT$/**/docs/*.md",
         "$TURBO_ROOT$/configs/pie-components-config/playwright-native-config.ts",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.html",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.ts"
@@ -108,9 +110,11 @@
       "cache": true,
       "inputs": [
         "$TURBO_DEFAULT$",
-        "!README.md",
-        "!CHANGELOG.md",
-        "!docs/**",
+        "!$TURBO_ROOT$/**/AGENTS.md",
+        "!$TURBO_ROOT$/**/CLAUDE.md",
+        "!$TURBO_ROOT$/**/CHANGELOG.md",
+        "!$TURBO_ROOT$/**/README.md",
+        "!$TURBO_ROOT$/**/docs/*.md",
         "$TURBO_ROOT$/configs/pie-components-config/playwright-native-config.ts",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.html",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.ts"
@@ -120,9 +124,11 @@
       "cache": false,
       "inputs": [
         "$TURBO_DEFAULT$",
-        "!README.md",
-        "!CHANGELOG.md",
-        "!docs/**",
+        "!$TURBO_ROOT$/**/AGENTS.md",
+        "!$TURBO_ROOT$/**/CLAUDE.md",
+        "!$TURBO_ROOT$/**/CHANGELOG.md",
+        "!$TURBO_ROOT$/**/README.md",
+        "!$TURBO_ROOT$/**/docs/*.md",
         "$TURBO_ROOT$/configs/pie-components-config/playwright-native-visual-config.ts",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.html",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.ts"
@@ -132,9 +138,11 @@
       "cache": false,
       "inputs": [
         "$TURBO_DEFAULT$",
-        "!README.md",
-        "!CHANGELOG.md",
-        "!docs/**",
+        "!$TURBO_ROOT$/**/AGENTS.md",
+        "!$TURBO_ROOT$/**/CLAUDE.md",
+        "!$TURBO_ROOT$/**/CHANGELOG.md",
+        "!$TURBO_ROOT$/**/README.md",
+        "!$TURBO_ROOT$/**/docs/*.md",
         "$TURBO_ROOT$/configs/pie-components-config/playwright-native-visual-config.ts",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.html",
         "$TURBO_ROOT$/configs/pie-components-config/playwright/index.ts"

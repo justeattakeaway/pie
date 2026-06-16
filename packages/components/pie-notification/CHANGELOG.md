@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-notification
 
+## 0.24.2
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-icon-button@2.7.18
+
+## 0.24.1
+
+### Patch Changes
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons-webc@1.25.0
+  - @justeattakeaway/pie-icon-button@2.7.17
+
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - added size small as a props with styling according to figma ([#2814](https://github.com/justeattakeaway/pie/pull/2814)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
 ## 0.23.4
 
 ### Patch Changes

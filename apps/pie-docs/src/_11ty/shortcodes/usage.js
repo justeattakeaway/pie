@@ -76,19 +76,28 @@ const buildUsageCard = (usageType, {
 
 /**
  * A Usage HTML component – display do/dont information with images or a list of text
- * @typedef {object} UsageItem - An item containing information for either "do" or "dont".
+ * @typedef {object} UsageItem - An item containing information for either "do" or "dont". It could have only one of them.
  * @property {string} type - Type of item: "image" or "text".
  * @property {Array<{ src: string, mobileSrc?: string, width?: string }>|Array<string>} items - An array of either image objects or list of text.
  *   If type is "image", it should be an array of objects containing `src`, and optional `width` and `mobileSrc` properties.
  *   If type is "text", it should be an array of strings.
+ * @property {string} [caption] - Optional caption displayed below the card content.
  *
  * @param {object} usage - Usage configuration object.
  * @param {UsageItem} usage.do - Information for the "do" section.
  * @param {UsageItem} usage.dont - Information for the "dont" section.
  * @returns {string} - The HTML representation of the usage component.
 */
-const usage = (props) => `<div class="c-usage-container">
-  ${Object.keys(metadata).map((usageType) => buildUsageCard(usageType, props[usageType])).join(' ')}
+const usage = (props = {}) => {
+    const presentTypes = Object.keys(metadata).filter((usageType) => props[usageType]);
+    const isSingleCard = presentTypes.length === 1;
+    const cards = presentTypes.map((usageType) => buildUsageCard(usageType, props[usageType]));
+    const captions = presentTypes.map((usageType) => `<p class="c-usage-caption">${props[usageType].caption || ''}</p>`);
+
+    return `<div class="c-usage-container${isSingleCard ? ' c-usage-container--single' : ''}">
+  ${cards.join(' ')}
+  ${captions.join(' ')}
 </div>`;
+};
 
 module.exports = usage;
