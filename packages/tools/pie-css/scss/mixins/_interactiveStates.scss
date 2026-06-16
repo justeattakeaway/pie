@@ -13,25 +13,27 @@
 @mixin interactive-states($bg-color, $mode: default, $level: '01') {
     // Needed for webviews and safari <16.2
     // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix#browser_compatibility
-    &:hover:not(:disabled, .is-disabled, .is-dismissible) {
-        @if $mode == 'alt' {
-            --hover-modifier: calc(-1 * var(--dt-color-hover-02));
-        } @else if $mode == 'inverse' {
-            --hover-modifier: var(--dt-color-hover-02);
-        } @else {
-            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
-        }
+    @media (hover: hover) { // @media (hover: hover) prevents the hover state from getting stuck on touch devices
+        &:hover:not(:disabled, .is-disabled, .is-dismissible) {
+            @if $mode == 'alt' {
+                --hover-modifier: calc(-1 * var(--dt-color-hover-02));
+            } @else if $mode == 'inverse' {
+                --hover-modifier: var(--dt-color-hover-02);
+            } @else {
+                --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+            }
 
-        // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
-        @if $mode == 'transparent' {
-            --hover-modifier: var(--dt-color-hover-01);
-            --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
-        }
-        @if $mode == 'transparent-inverse' {
-            --hover-modifier: var(--dt-color-hover-02);
-            --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
-        } @else {
-            --int-states-mixin-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+            // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
+            @if $mode == 'transparent' {
+                --hover-modifier: var(--dt-color-hover-01);
+                --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
+            }
+            @if $mode == 'transparent-inverse' {
+                --hover-modifier: var(--dt-color-hover-02);
+                --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+            } @else {
+                --int-states-mixin-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+            }
         }
     }
 
@@ -58,9 +60,11 @@
     }
 
     @supports (background-color: color-mix(in srgb, black, white)) {
-        &:hover:not(:disabled, .is-disabled, .is-dismissible) {
-            /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-            --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}), var(#{$bg-color}));
+        @media (hover: hover) {
+            &:hover:not(:disabled, .is-disabled, .is-dismissible) {
+                /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+                --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}), var(#{$bg-color}));
+            }
         }
 
         &:active:not(:disabled, .is-disabled, .is-dismissible),
