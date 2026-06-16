@@ -13,7 +13,7 @@ export class MultiSelectionStrategy implements SelectionStrategy {
         if (options.length === 0) return;
 
         // Priority: existing aria-activedescendant > first selected > first
-        // non-disabled item (falling back to options[0] if all are disabled).
+        // non-disabled option (falling back to options[0] if all are disabled).
         const activeIndex = this.controller.getActiveDescendantIndex();
         if (activeIndex !== -1) {
             this.controller.setActive(options[activeIndex]);

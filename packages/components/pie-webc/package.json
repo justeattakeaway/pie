@@ -15,6 +15,7 @@
     "docs/**/*.md"
   ],
   "exports": {
+    "./docs/*": "./docs/*",
     "./components/assistive-text.js": {
       "import": "./components/assistive-text.js",
       "require": "./components/assistive-text.js",
@@ -495,6 +496,46 @@
       "require": "./react/list-item.js",
       "types": "./react/list-item.d.ts"
     },
+    "./components/listbox": {
+      "import": "./components/listbox.js",
+      "require": "./components/listbox.js",
+      "types": "./components/listbox.d.ts"
+    },
+    "./components/listbox.js": {
+      "import": "./components/listbox.js",
+      "require": "./components/listbox.js",
+      "types": "./components/listbox.d.ts"
+    },
+    "./react/listbox": {
+      "import": "./react/listbox.js",
+      "require": "./react/listbox.js",
+      "types": "./react/listbox.d.ts"
+    },
+    "./react/listbox.js": {
+      "import": "./react/listbox.js",
+      "require": "./react/listbox.js",
+      "types": "./react/listbox.d.ts"
+    },
+    "./components/listbox-option": {
+      "import": "./components/listbox-option.js",
+      "require": "./components/listbox-option.js",
+      "types": "./components/listbox-option.d.ts"
+    },
+    "./components/listbox-option.js": {
+      "import": "./components/listbox-option.js",
+      "require": "./components/listbox-option.js",
+      "types": "./components/listbox-option.d.ts"
+    },
+    "./react/listbox-option": {
+      "import": "./react/listbox-option.js",
+      "require": "./react/listbox-option.js",
+      "types": "./react/listbox-option.d.ts"
+    },
+    "./react/listbox-option.js": {
+      "import": "./react/listbox-option.js",
+      "require": "./react/listbox-option.js",
+      "types": "./react/listbox-option.d.ts"
+    },
     "./components/lottie-player.js": {
       "import": "./components/lottie-player.js",
       "require": "./components/lottie-player.js",
@@ -794,8 +835,7 @@
       "import": "./react/toast-provider.js",
       "require": "./react/toast-provider.js",
       "types": "./react/toast-provider.d.ts"
-    },
-    "./docs/*": "./docs/*"
+    }
   },
   "scripts": {
     "lint:scripts": "run -T eslint .",
@@ -825,6 +865,7 @@
     "@justeattakeaway/pie-icon-button": "2.7.18",
     "@justeattakeaway/pie-link": "1.3.34",
     "@justeattakeaway/pie-list": "0.0.28",
+    "@justeattakeaway/pie-listbox": "0.0.0",
     "@justeattakeaway/pie-lottie-player": "0.4.4",
     "@justeattakeaway/pie-modal": "1.26.10",
     "@justeattakeaway/pie-notification": "0.24.2",

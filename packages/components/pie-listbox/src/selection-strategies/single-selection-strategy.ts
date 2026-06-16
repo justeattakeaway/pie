@@ -12,8 +12,8 @@ export class SingleSelectionStrategy implements SelectionStrategy {
         const { options } = this.controller;
         if (options.length === 0) return;
 
-        // Priority: existing aria-activedescendant > selected item > first
-        // non-disabled item (falling back to options[0] if all are disabled).
+        // Priority: existing aria-activedescendant > selected option > first
+        // non-disabled option (falling back to options[0] if all are disabled).
         const activeIndex = this.controller.getActiveDescendantIndex();
         if (activeIndex !== -1) {
             this.controller.setActive(options[activeIndex]);

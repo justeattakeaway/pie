@@ -1,5 +1,5 @@
 import { type ReactiveController, type ReactiveControllerHost } from 'lit';
-import { type NavigableOption, type InteractionType } from './defs';
+import { type NavigableOption, type SelectionMode } from './defs';
 import { MultiSelectionStrategy } from './selection-strategies/multi-selection-strategy';
 import { SingleSelectionStrategy } from './selection-strategies/single-selection-strategy';
 
@@ -12,14 +12,14 @@ export interface SelectionStrategy {
 export const ACTIVE_ATTR = 'data-active';
 
 export class ListboxNavigationController implements ReactiveController {
-    host: ReactiveControllerHost & HTMLElement & { interactionType: InteractionType };
+    host: ReactiveControllerHost & HTMLElement & { selectionMode: SelectionMode };
     private getOptions: () => NavigableOption[];
     private strategy: SelectionStrategy | null = null;
 
     private cleanupController: AbortController | null = null;
 
     constructor (
-        host: ReactiveControllerHost & HTMLElement & { interactionType: InteractionType },
+        host: ReactiveControllerHost & HTMLElement & { selectionMode: SelectionMode },
         getOptions: () => NavigableOption[],
     ) {
         this.host = host;
@@ -54,8 +54,8 @@ export class ListboxNavigationController implements ReactiveController {
     }
 
     // Returns the option index referenced by aria-activedescendant, or -1 if
-    // unset / pointing nowhere. Only meaningful when items have ids — use
-    // getActiveIndex() for the canonical "which item is active now".
+    // unset / pointing nowhere. Only meaningful when options have ids — use
+    // getActiveIndex() for the canonical "which option is active now".
     getActiveDescendantIndex (): number {
         const id = this.host.getAttribute('aria-activedescendant');
         if (!id) return -1;
@@ -63,7 +63,7 @@ export class ListboxNavigationController implements ReactiveController {
     }
 
     // Returns the index of the option marked with data-active, or -1 if none.
-    // Works regardless of whether items have ids.
+    // Works regardless of whether options have ids.
     getActiveIndex (): number {
         return this.options.findIndex((opt) => opt.hasAttribute(ACTIVE_ATTR));
     }
@@ -79,29 +79,23 @@ export class ListboxNavigationController implements ReactiveController {
     }
 
     private updateStrategy () {
-        const type = this.host.interactionType;
+        const mode = this.host.selectionMode;
 
-        if (type === 'multi-select') {
+        if (mode === 'multiple') {
             if (!(this.strategy instanceof MultiSelectionStrategy)) {
                 this.strategy = new MultiSelectionStrategy(this);
                 this.syncActiveAttr();
             }
-        } else if (type === 'single-select') {
-            if (!(this.strategy instanceof SingleSelectionStrategy)) {
-                this.strategy = new SingleSelectionStrategy(this);
-                this.syncActiveAttr();
-            }
-        } else {
-            this.strategy = null;
-            this.options.forEach((opt) => opt.removeAttribute(ACTIVE_ATTR));
-            this.host.removeAttribute('aria-activedescendant');
+        } else if (!(this.strategy instanceof SingleSelectionStrategy)) {
+            this.strategy = new SingleSelectionStrategy(this);
+            this.syncActiveAttr();
         }
     }
 
     // Mirrors aria-activedescendant to data-active without picking a fallback.
     // Used on initial render and slot changes: respects a markup-provided
-    // active descendant, clears stale state (e.g. after the active item was
-    // removed), but doesn't preemptively commit to an active item.
+    // active descendant, clears stale state (e.g. after the active option was
+    // removed), but doesn't preemptively commit to an active option.
     syncActiveAttr () {
         if (this.options.length === 0) return;
         const activeIndex = this.getActiveDescendantIndex();
@@ -132,8 +126,8 @@ export class ListboxNavigationController implements ReactiveController {
 
     private handleFocus = () => {
         if (!this.strategy) return;
-        // First entry into the list (no prior active item): let the strategy
-        // pick the initial active item.
+        // First entry into the listbox (no prior active option): let the
+        // strategy pick the initial active option.
         if (this.getActiveIndex() === -1) {
             this.strategy.resetActiveState();
         }
@@ -148,8 +142,6 @@ export class ListboxNavigationController implements ReactiveController {
     };
 
     private handleClick = (event: MouseEvent) => {
-        // Ignore clicks unless interaction-type is a select mode (otherwise
-        // the slotted control handles its own click behaviour).
         if (!this.strategy) return;
 
         const paths = event.composedPath();
@@ -157,9 +149,10 @@ export class ListboxNavigationController implements ReactiveController {
 
         if (clickedOption && !clickedOption.disabled) {
             const index = this.options.indexOf(clickedOption);
-            // Pull DOM focus to the list container. The browser would do this
-            // anyway when the click target lives under a tabindex=0 ancestor,
-            // but be explicit so behavior is consistent across browsers.
+            // Pull DOM focus to the listbox container. The browser would do
+            // this anyway when the click target lives under a tabindex=0
+            // ancestor, but be explicit so behavior is consistent across
+            // browsers.
             this.host.focus();
             this.strategy.handleOptionClick(clickedOption, index);
         }

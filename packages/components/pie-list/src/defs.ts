@@ -1,35 +1,23 @@
-export type InteractionType =
-    | 'multi-select'
-    | 'single-select'
+export type ListVariant =
+    | 'static'
     | 'radio'
     | 'checkbox'
-    | 'switch'
-    | 'none'
-    | undefined;
-
-export interface NavigableOption extends HTMLElement {
-    selected: boolean;
-    disabled: boolean;
-    value: string;
-}
+    | 'switch';
 
 export interface ListProps {
     /**
-     * Determines the interaction behaviour of the list and the ARIA semantics
-     * applied to it and its items.
+     * Determines the ARIA semantics applied to the list.
      *
-     * - `multi-select`: listbox where multiple items can be selected. Keyboard
-     *   navigation and selection are managed by the list.
-     * - `single-select`: listbox where one item is selected at a time. Keyboard
-     *   navigation and selection are managed by the list.
+     * - `static` (default): purely presentational list (`role="list"` /
+     *   `role="listitem"`) for informational content or navigation lists.
      * - `radio`: container for slotted radio controls (`role="radiogroup"`).
-     *   Items have no role; the slotted control owns its semantics.
+     *   Items have no role; the slotted control owns its own semantics.
      * - `checkbox`: container for slotted checkbox controls (`role="group"`).
-     *   Items have no role; the slotted control owns its semantics.
+     *   Items have no role; the slotted control owns its own semantics.
      * - `switch`: container for slotted switch controls (`role="group"`).
-     *   Items have no role; the slotted control owns its semantics.
-     * - `none` (default): purely presentational list (`role="list"` /
-     *   `role="listitem"`) for static content.
+     *   Items have no role; the slotted control owns its own semantics.
+     *
+     * For listbox-style selection (single or multiple), use `pie-listbox`.
      */
-    interactionType?: InteractionType;
+    variant?: ListVariant;
 }

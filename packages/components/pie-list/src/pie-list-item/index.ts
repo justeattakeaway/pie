@@ -1,5 +1,4 @@
-import { html, unsafeCSS, type PropertyValues } from 'lit';
-import { property } from 'lit/decorators.js';
+import { html, unsafeCSS } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 
@@ -13,31 +12,12 @@ const componentSelector = 'pie-list-item';
 
 /**
  * @tagname pie-list-item
- * @slot - Default slot for the item's content.
+ * @slot - Default slot for the item's content (text, an `<a>`, or a
+ *   form control like `<input type="radio|checkbox">` or `pie-switch`
+ *   with a `<label>`).
  */
 @safeCustomElement('pie-list-item')
 export class PieListItem extends PieElement implements ListItemProps {
-    @property({ type: Boolean, reflect: true })
-    public selected = false;
-
-    @property({ type: Boolean, reflect: true })
-    public disabled = false;
-
-    @property({ type: String })
-    public value = '';
-
-    updated (changedProperties: PropertyValues<this>): void {
-        // Role + aria-selected/aria-disabled presence are owned by the parent
-        // pie-list. We only keep their values in sync with `selected`/`disabled`
-        // when the parent has set them.
-        if (changedProperties.has('selected') && this.hasAttribute('aria-selected')) {
-            this.setAttribute('aria-selected', this.selected ? 'true' : 'false');
-        }
-        if (changedProperties.has('disabled') && this.hasAttribute('aria-disabled')) {
-            this.setAttribute('aria-disabled', this.disabled ? 'true' : 'false');
-        }
-    }
-
     render () {
         return html`<div>
             <slot></slot>
