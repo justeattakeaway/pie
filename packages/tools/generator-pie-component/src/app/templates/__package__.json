@@ -35,12 +35,12 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-monorepo-utils": "0.4.0",
-    "@justeattakeaway/pie-components-config": "0.0.0",
-    "@justeattakeaway/pie-css": "0.0.0"
+    "@justeattakeaway/pie-monorepo-utils": "<%= pieMonorepoUtilsVersion %>",
+    "@justeattakeaway/pie-components-config": "<%= pieComponentsConfigVersion %>",
+    "@justeattakeaway/pie-css": "<%= pieCssVersion %>"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.0.0"
+    "@justeattakeaway/pie-webc-core": "<%= pieWebcCoreVersion %>"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
