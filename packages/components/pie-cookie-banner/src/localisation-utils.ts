@@ -1,4 +1,5 @@
 import { type TemplateResult } from 'lit';
+import DOMPurify from 'dompurify';
 
 import { type CookieBannerLocale, type CustomTagEnhancers } from './defs';
 
@@ -138,140 +139,55 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
  * Sanitises an HTML string to allow only safe <a> tags, and normalises anchor
  * attributes to respect the component's link-target behaviour.
  *
+ * Uses DOMPurify for the core sanitisation:
  * - Strips all non-<a> elements (keeping their text content).
  * - Removes unsafe href protocols (javascript:, data:, vbscript:).
  * - Removes non-allowlisted attributes (only href, rel, target survive).
+ *
+ * A post-sanitisation hook then enforces target/rel:
  * - Sets target to linkTarget (overrides any existing target).
  * - Ensures rel contains "noopener noreferrer" when target="_blank"
  *   (prevents reverse-tabnabbing).
+ *
+ * In SSR / non-browser environments (no `window`), all HTML is stripped and
+ * only the text content is returned — the client will re-render with the full
+ * sanitisation pass after hydration.
  */
 export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): string {
-    const SAFE_ATTRS = new Set(['href', 'rel', 'target']);
-    const ALLOWED_PROTOCOLS = new Set(['http:', 'https:', 'mailto:', 'tel:']);
-    const PROTOCOL_RE = /^([a-z0-9+.-]+):/i;
-    const normalisedLinkTarget = linkTarget === '_self' ? '_self' : '_blank';
-
-    const normaliseHrefForProtocolCheck = (href: string) => Array.from(href)
-        .filter((char) => {
-            const charCode = char.charCodeAt(0);
-            return char.trim() !== '' && charCode > 31 && charCode !== 127;
-        })
-        .join('');
-
-    const ensureRelForTarget = (existingRel: string) => {
-        if (normalisedLinkTarget !== '_blank') return '';
-
-        const relTokens = new Set(existingRel
-            .split(/\s+/)
-            .filter(Boolean));
-
-        relTokens.add('noopener');
-        relTokens.add('noreferrer');
-        return Array.from(relTokens).join(' ');
-    };
-
-    const escapeAttr = (value: string) => value
-        .replace(/&/g, '&amp;')
-        .replace(/"/g, '&quot;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-
-    const sanitiseDescriptionHtmlWithoutDomParser = () => {
-        // SSR fallback for Node environments where DOMParser is unavailable.
-        let html = input;
-        let previousHtml: string;
-
-        do {
-            previousHtml = html;
-            html = html
-                .replace(/<script\b[^<]*(?:(?!<\/script\b[^>]*>)<[^<]*)*<\/script\b[^>]*>/gi, '')
-                .replace(/<style\b[^<]*(?:(?!<\/style\b[^>]*>)<[^<]*)*<\/style\b[^>]*>/gi, '')
-                .replace(/<script\b/gi, '')
-                .replace(/<style\b/gi, '');
-        } while (html !== previousHtml);
-
-        const anchors: Array<string> = [];
-
-        html = html.replace(/<a\b[^>]*>[\s\S]*?<\/a>/gi, (anchorHtml) => {
-            const openTagMatch = anchorHtml.match(/^<a\b([^>]*)>/i);
-            const innerHtmlMatch = anchorHtml.match(/>([\s\S]*)<\/a>$/i);
-            const attrString = openTagMatch?.[1] ?? '';
-            const innerText = escapeAttr(innerHtmlMatch?.[1] ?? '');
-
-            const attrs = new Map<string, string>();
-            attrString.replace(/([^\s=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'`=<>]+)))?/g, (_m, name, dq, sq, bare) => {
-                const value = dq ?? sq ?? bare ?? '';
-                attrs.set(String(name).toLowerCase(), value);
-                return '';
-            });
-
-            const href = (attrs.get('href') ?? '').trim();
-            const hrefForProtocolCheck = normaliseHrefForProtocolCheck(href);
-            const protocolMatch = hrefForProtocolCheck.match(PROTOCOL_RE);
-            const isHrefAllowed = !protocolMatch || ALLOWED_PROTOCOLS.has(`${protocolMatch[1].toLowerCase()}:`);
-
-            const rel = ensureRelForTarget(attrs.get('rel') ?? '');
-            const attrParts: Array<string> = [];
-
-            if (href && isHrefAllowed) attrParts.push(`href="${escapeAttr(href)}"`);
-            attrParts.push(`target="${normalisedLinkTarget}"`);
-            if (rel) attrParts.push(`rel="${escapeAttr(rel)}"`);
-
-            anchors.push(`<a ${attrParts.join(' ')}>${innerText}</a>`);
-            return `__PIE_ANCHOR_PLACEHOLDER_${anchors.length - 1}__`;
-        });
-
-        html = html
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-
-        anchors.forEach((anchor, index) => {
-            html = html.replace(`__PIE_ANCHOR_PLACEHOLDER_${index}__`, anchor);
-        });
-
-        return html;
-    };
-
-    if (typeof DOMParser === 'undefined') {
-        return sanitiseDescriptionHtmlWithoutDomParser();
+    if (typeof window === 'undefined') {
+        return input.replace(/<[^>]*>/g, '');
     }
 
-    const doc = new DOMParser().parseFromString(input, 'text/html');
-    // Reverse so deepest descendants are processed first — ensures nested <a> tags
-    // survive when their parent wrapper element is unwrapped.
-    const elements = Array.from(doc.body.querySelectorAll('*')).reverse();
+    const normalisedLinkTarget = linkTarget === '_self' ? '_self' : '_blank';
 
-    elements.forEach((el) => {
-        if (el.tagName !== 'A') {
-            // Remove executable/content-bearing tags entirely instead of leaving their text behind.
-            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') {
-                el.remove();
-                return;
-            }
+    const enforceAnchorAttributes = (node: Element) => {
+        if (node.tagName !== 'A') return;
 
-            el.replaceWith(...Array.from(el.childNodes));
+        node.setAttribute('target', normalisedLinkTarget);
+
+        if (normalisedLinkTarget !== '_blank') {
+            node.removeAttribute('rel');
             return;
         }
-        const href = (el.getAttribute('href') ?? '').trim();
-        const hrefForProtocolCheck = normaliseHrefForProtocolCheck(href);
-        const protocolMatch = hrefForProtocolCheck.match(PROTOCOL_RE);
-        if (protocolMatch) {
-            const protocol = `${protocolMatch[1].toLowerCase()}:`;
-            if (!ALLOWED_PROTOCOLS.has(protocol)) el.removeAttribute('href');
-        }
-        Array.from(el.attributes).forEach((attr) => {
-            if (!SAFE_ATTRS.has(attr.name)) el.removeAttribute(attr.name);
-        });
-        el.setAttribute('target', normalisedLinkTarget);
 
-        if (normalisedLinkTarget === '_blank') {
-            el.setAttribute('rel', ensureRelForTarget(el.getAttribute('rel') ?? ''));
-        } else {
-            el.removeAttribute('rel');
-        }
-    });
+        const relTokens = new Set((node.getAttribute('rel') ?? '')
+            .split(/\s+/)
+            .filter(Boolean));
+        relTokens.add('noopener');
+        relTokens.add('noreferrer');
+        node.setAttribute('rel', Array.from(relTokens).join(' '));
+    };
 
-    return doc.body.innerHTML;
+    DOMPurify.addHook('afterSanitizeAttributes', enforceAnchorAttributes);
+
+    try {
+        return DOMPurify.sanitize(input, {
+            ALLOWED_TAGS: ['a'],
+            ALLOWED_ATTR: ['href', 'rel', 'target'],
+        }) as string;
+    } finally {
+        DOMPurify.removeHook('afterSanitizeAttributes');
+    }
 }
 
 /**

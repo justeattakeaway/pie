@@ -87,41 +87,17 @@ describe('sanitiseDescriptionHtml', () => {
         expect(sanitiseDescriptionHtml(input)).toBe('Hello  world');
     });
 
-    it('does not throw when DOMParser is unavailable (SSR fallback)', () => {
-        const originalDOMParser = globalThis.DOMParser;
+    it('strips all HTML when window is unavailable (SSR fallback)', () => {
+        const originalWindow = globalThis.window;
 
-        Object.defineProperty(globalThis, 'DOMParser', {
-            configurable: true,
-            value: undefined,
-        });
+        // @ts-expect-error - simulating SSR environment
+        delete globalThis.window;
 
         try {
             const input = 'Read <a href="https://example.com" onclick="evil()">policy</a> <script>alert(1)</script>';
-            expect(sanitiseDescriptionHtml(input)).toBe('Read <a href="https://example.com" target="_blank" rel="noopener noreferrer">policy</a> ');
+            expect(sanitiseDescriptionHtml(input)).toBe('Read policy alert(1)');
         } finally {
-            Object.defineProperty(globalThis, 'DOMParser', {
-                configurable: true,
-                value: originalDOMParser,
-            });
-        }
-    });
-
-    it('strips incomplete script tag fragments when DOMParser is unavailable (SSR fallback)', () => {
-        const originalDOMParser = globalThis.DOMParser;
-
-        Object.defineProperty(globalThis, 'DOMParser', {
-            configurable: true,
-            value: undefined,
-        });
-
-        try {
-            const input = 'Hello <script alert(1) <a href="https://example.com">policy</a>';
-            expect(sanitiseDescriptionHtml(input)).toBe('Hello  alert(1) <a href="https://example.com" target="_blank" rel="noopener noreferrer">policy</a>');
-        } finally {
-            Object.defineProperty(globalThis, 'DOMParser', {
-                configurable: true,
-                value: originalDOMParser,
-            });
+            globalThis.window = originalWindow;
         }
     });
 
