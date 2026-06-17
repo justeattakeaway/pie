@@ -27,6 +27,7 @@ describe('ComponentService', () => {
 
         // Suppress console output
         vi.spyOn(console, 'info').mockImplementation(() => {}); // eslint-disable-line @typescript-eslint/no-empty-function
+        vi.spyOn(console, 'warn').mockImplementation(() => {}); // eslint-disable-line @typescript-eslint/no-empty-function
     });
 
     describe('ensureDirectoryExists', () => {
@@ -197,6 +198,8 @@ describe('ComponentService', () => {
 
             fsMock.readFileSync.mockReturnValue('{"version": "1.1.1"}'); // Component package.json
             fsMock.readdirSync.mockReturnValue(['pie-component-name']); // Default, overridden by some tests
+            // Return true for package.json checks, false for src directory checks (sub-components)
+            fsMock.existsSync.mockImplementation((p) => !p.endsWith('/src'));
         });
 
         it('should ignore non-component folders', () => {
