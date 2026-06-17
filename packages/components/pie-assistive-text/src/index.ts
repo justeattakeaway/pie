@@ -29,6 +29,22 @@ export class PieAssistiveText extends PieElement implements AssistiveTextProps {
     @property({ type: Boolean })
     public isVisuallyHidden = defaultProps.isVisuallyHidden;
 
+    connectedCallback (): void {
+        super.connectedCallback();
+        this.updateLiveRegionAttributes();
+    }
+
+    protected updated (): void {
+        this.updateLiveRegionAttributes();
+    }
+
+    private updateLiveRegionAttributes (): void {
+        const isError = this.variant === 'error';
+        this.setAttribute('role', isError ? 'alert' : 'status');
+        this.setAttribute('aria-live', isError ? 'assertive' : 'polite');
+        this.setAttribute('aria-atomic', 'true');
+    }
+
     /**
      * Renders the assistive-text icon content.
      * @private

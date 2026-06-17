@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, type PropertyValues, nothing,
+    html, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
@@ -243,14 +243,13 @@ export class PieTextInput extends FormControlMixin(RtlMixin(DelegatesFocusMixin(
                 <slot name="trailingIcon"></slot>
                 <slot name="trailingText"></slot>
             </div>
-            ${assistiveText ? html`
-                <pie-assistive-text
-                    id="${assistiveTextIdValue}"
-                    variant=${ifDefined(status)}
-                    data-test-id="pie-text-input-assistive-text">
-                    ${assistiveText}
-                </pie-assistive-text>
-            ` : nothing}`;
+            <pie-assistive-text
+                id="${assistiveTextIdValue}"
+                variant=${ifDefined(status)}
+                ?isVisuallyHidden=${!assistiveText}
+                data-test-id="pie-text-input-assistive-text">
+                ${assistiveText || ''}
+            </pie-assistive-text>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

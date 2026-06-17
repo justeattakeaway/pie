@@ -297,8 +297,63 @@ const ExampleFormTemplate: TemplateFunction<TextInputProps & { showEmailField?: 
     defaultValue,
     disabled,
     showEmailField = false,
-}: TextInputProps & { showEmailField?: boolean }) => html`
-  <form id="testForm" @submit="${onSubmit}">
+}: TextInputProps & { showEmailField?: boolean }) => {
+    const setUsernameValidationState = (form: HTMLFormElement, state: 'default' | 'error' | 'success', message = '') => {
+        const usernameField = form.querySelector('#username') as (TextInputPropsBase & HTMLElement) | null;
+
+        if (!usernameField) {
+            return;
+        }
+
+        usernameField.status = state;
+        usernameField.assistiveText = message;
+    };
+
+    const handleValidatedSubmit = (event: Event) => {
+        event.preventDefault();
+
+        const form = event.currentTarget as HTMLFormElement;
+        const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+        const usernameField = form.querySelector('#username') as (TextInputPropsBase & HTMLElement) | null;
+        const usernameValue = usernameField?.value?.trim();
+
+        if (!usernameValue) {
+            setUsernameValidationState(form, 'error', 'Please enter a username before submitting.');
+
+            if (output) {
+                output.innerText = '';
+            }
+
+            return;
+        }
+
+        setUsernameValidationState(form, 'success', 'Username looks good.');
+
+        if (output) {
+            const formData = new FormData(form);
+            const formDataObj: { [key: string]: FormDataEntryValue } = {};
+
+            formData.forEach((formValue, key) => {
+                formDataObj[key] = formValue;
+            });
+
+            output.innerText = JSON.stringify(formDataObj);
+        }
+    };
+
+    const handleValidatedReset = (event: Event) => {
+        const form = event.currentTarget as HTMLFormElement;
+        const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+
+        setUsernameValidationState(form, 'default');
+
+        if (output) {
+            output.innerText = '';
+        }
+    };
+
+    return html`
+  <form id="testForm" @submit="${handleValidatedSubmit}" @reset="${handleValidatedReset}">
       <pie-form-label for="username">Username:</pie-form-label>
       <pie-text-input
           class="form-field"
@@ -330,9 +385,10 @@ const ExampleFormTemplate: TemplateFunction<TextInputProps & { showEmailField?: 
   </form>
   <div id="formDataOutput"></div>
 `;
+};
 
 const DisabledFieldsetTemplate: TemplateFunction<TextInputProps> = () => html`
-    <form id="testForm" @submit="${onSubmit}" action="/foo" method="POST">
+        <form id="testForm" @submit="${onSubmit}" action="/foo" method="post">
       <fieldset disabled>
         <pie-text-input type="text" name="username" value="excluded"></pie-text-input>
       </fieldset>

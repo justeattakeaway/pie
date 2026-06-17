@@ -1,6 +1,5 @@
 import {
     html,
-    nothing,
     unsafeCSS,
     type TemplateResult,
 } from 'lit';
@@ -212,17 +211,14 @@ export class PieSelect extends FormControlMixin(RtlMixin(DelegatesFocusMixin(Pie
      * Renders the assistive text if available.
      * @returns A template result with the assistive text
      */
-    private renderAssistiveText (): TemplateResult | typeof nothing {
-        if (!this.assistiveText) {
-            return nothing;
-        }
-
+    private renderAssistiveText (): TemplateResult {
         return html`
             <pie-assistive-text
                 id="${assistiveTextIdValue}"
                 variant="${ifDefined(this.status)}"
+                ?isVisuallyHidden="${!this.assistiveText}"
                 data-test-id="pie-select-assistive-text">
-                ${this.assistiveText}
+                ${this.assistiveText || ''}
             </pie-assistive-text>
         `;
     }
