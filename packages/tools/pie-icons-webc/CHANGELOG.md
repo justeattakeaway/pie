@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.25.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2945](https://github.com/justeattakeaway/pie/pull/2945)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Restaurant
+
+  - delivery-large
+  - delivery
+
+  [Updated] - Icons
+
+  ## NEW
+
+  - nationwide
+  - revolut
+
 ## 1.24.3
 
 ### Patch Changes

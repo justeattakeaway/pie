@@ -1,0 +1,8 @@
+// Prevents slotted icons from intercepting pointer events, which confuses
+// the browser active state tracking when the icon is replaced during a touch interaction
+// Use when a pie-icon component might be slotted into a button
+@mixin disable-pointer-events-in-slotted-icons() {
+    ::slotted(.c-pieIcon) {
+        pointer-events: none;
+    }
+}

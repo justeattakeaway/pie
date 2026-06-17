@@ -47,6 +47,7 @@
     font-weight: var(--dt-font-interactive-xs-weight);
 
     @include p.interactive-states('--dt-color-interactive-secondary');
+    @include p.disable-pointer-events-in-slotted-icons;
 
     &.c-chip--default {
         // same as default styles
@@ -104,7 +105,7 @@
             --chip-color: var(--dt-color-content-disabled-solid);
         }
 
-        &.c-chip--outline, 
+        &.c-chip--outline,
         &.c-chip--translucent {
             --chip-border-color: var(--dt-color-disabled-01);
         }

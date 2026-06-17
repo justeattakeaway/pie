@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.0.1
+
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - promote toast and toast provider to stable ([#2947](https://github.com/justeattakeaway/pie/pull/2947)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2fdc996`](https://github.com/justeattakeaway/pie/commit/2fdc996321619f5a19e0d73fcd9bd252b0248c29)]:
+  - @justeattakeaway/pie-toast@1.0.0
+
 ## 0.9.1
 
 ### Patch Changes
