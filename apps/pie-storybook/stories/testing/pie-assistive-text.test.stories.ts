@@ -8,7 +8,7 @@ import {
     type AssistiveTextProps as AssistiveTextBaseProps,
     variants,
     defaultProps,
-} from '../../../../packages/components/pie-assistive-text/src/defs';
+} from '@justeattakeaway/pie-webc/components/assistive-text';
 
 import { type SlottedComponentProps } from '../../types';
 import {
