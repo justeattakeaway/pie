@@ -315,9 +315,10 @@ const ExampleFormTemplate: TemplateFunction<TextInputProps & { showEmailField?: 
         const form = event.currentTarget as HTMLFormElement;
         const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
         const usernameField = form.querySelector('#username') as (TextInputPropsBase & HTMLElement) | null;
+        const isUsernameDisabled = Boolean(usernameField?.disabled);
         const usernameValue = usernameField?.value?.trim();
 
-        if (!usernameValue) {
+        if (!isUsernameDisabled && !usernameValue) {
             setUsernameValidationState(form, 'error', 'Please enter a username before submitting.');
 
             if (output) {
@@ -327,7 +328,9 @@ const ExampleFormTemplate: TemplateFunction<TextInputProps & { showEmailField?: 
             return;
         }
 
-        setUsernameValidationState(form, 'success', 'Username looks good.');
+        if (!isUsernameDisabled) {
+            setUsernameValidationState(form, 'success', 'Username looks good.');
+        }
 
         if (output) {
             const formData = new FormData(form);

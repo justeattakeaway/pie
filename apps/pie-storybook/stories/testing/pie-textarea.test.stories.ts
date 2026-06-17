@@ -217,9 +217,10 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
         const form = event.currentTarget as HTMLFormElement;
         const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
         const descriptionField = form.querySelector('#description') as (TextareaProps & HTMLElement) | null;
+        const isDescriptionDisabled = Boolean(descriptionField?.disabled);
         const descriptionValue = descriptionField?.value?.trim();
 
-        if (!descriptionValue) {
+        if (!isDescriptionDisabled && !descriptionValue) {
             setDescriptionValidationState(form, 'error', 'Please enter a description before submitting.');
 
             if (output) {
@@ -229,7 +230,9 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
             return;
         }
 
-        setDescriptionValidationState(form, 'success', 'Description looks good.');
+        if (!isDescriptionDisabled) {
+            setDescriptionValidationState(form, 'success', 'Description looks good.');
+        }
 
         if (output) {
             const formData = new FormData(form);
