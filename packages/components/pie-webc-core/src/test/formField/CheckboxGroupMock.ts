@@ -27,6 +27,8 @@ export class CheckboxGroupMock extends LitElement {
 
     #selection: SelectionController | null = null;
 
+    #listeners: AbortController | null = null;
+
     // Enabled checkboxes only — disabled ones can't be selected.
     #checkboxes = (): CheckboxElement[] => [...this.querySelectorAll<CheckboxElement>('checkbox-mock:not([disabled])')];
 
@@ -46,12 +48,14 @@ export class CheckboxGroupMock extends LitElement {
             },
         });
 
-        this.addEventListener('change', this.#onChange);
+        this.#listeners = new AbortController();
+        this.addEventListener('change', this.#onChange, { signal: this.#listeners.signal });
     }
 
     public disconnectedCallback (): void {
         super.disconnectedCallback();
-        this.removeEventListener('change', this.#onChange);
+        this.#listeners?.abort();
+        this.#listeners = null;
     }
 
     public updated (): void {

@@ -46,9 +46,12 @@ export class RadioMock extends LitElement {
 
     #unsubscribe?: () => void;
 
+    #listeners: AbortController | null = null;
+
     public connectedCallback (): void {
         super.connectedCallback();
-        this.addEventListener('click', this.#onHostClick);
+        this.#listeners = new AbortController();
+        this.addEventListener('click', this.#onHostClick, { signal: this.#listeners.signal });
         this.dispatchEvent(new FieldContextRequestEvent((value, unsubscribe) => {
             this._ctx = value;
             this.#unsubscribe = unsubscribe;
@@ -57,7 +60,8 @@ export class RadioMock extends LitElement {
 
     public disconnectedCallback (): void {
         super.disconnectedCallback();
-        this.removeEventListener('click', this.#onHostClick);
+        this.#listeners?.abort();
+        this.#listeners = null;
         this.#unsubscribe?.();
     }
 

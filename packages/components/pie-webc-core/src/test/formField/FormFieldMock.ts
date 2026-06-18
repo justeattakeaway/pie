@@ -41,16 +41,20 @@ export class FormFieldMock extends LitElement {
 
     #control: ActivatableControl | null = null;
 
+    #listeners: AbortController | null = null;
+
     public connectedCallback (): void {
         super.connectedCallback();
-        this.addEventListener(FIELD_CONTEXT_EVENT, this.#onContextRequest);
-        this.addEventListener('click', this.#onClick);
+        this.#listeners = new AbortController();
+        const { signal } = this.#listeners;
+        this.addEventListener(FIELD_CONTEXT_EVENT, this.#onContextRequest, { signal });
+        this.addEventListener('click', this.#onClick, { signal });
     }
 
     public disconnectedCallback (): void {
         super.disconnectedCallback();
-        this.removeEventListener(FIELD_CONTEXT_EVENT, this.#onContextRequest);
-        this.removeEventListener('click', this.#onClick);
+        this.#listeners?.abort();
+        this.#listeners = null;
         this.#subscribers.clear();
     }
 

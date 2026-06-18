@@ -31,6 +31,8 @@ export class RadioGroupMock extends LitElement {
 
     #selection: SelectionController | null = null;
 
+    #listeners: AbortController | null = null;
+
     /** Whether focus is currently within the group (to tell tab-in from arrow movement). */
     #hasFocus = false;
 
@@ -58,16 +60,17 @@ export class RadioGroupMock extends LitElement {
             },
         });
 
-        this.addEventListener('radio-mock-select', this.#onSelect);
-        this.addEventListener('focusin', this.#onFocusin);
-        this.addEventListener('focusout', this.#onFocusout);
+        this.#listeners = new AbortController();
+        const { signal } = this.#listeners;
+        this.addEventListener('radio-mock-select', this.#onSelect, { signal });
+        this.addEventListener('focusin', this.#onFocusin, { signal });
+        this.addEventListener('focusout', this.#onFocusout, { signal });
     }
 
     public disconnectedCallback (): void {
         super.disconnectedCallback();
-        this.removeEventListener('radio-mock-select', this.#onSelect);
-        this.removeEventListener('focusin', this.#onFocusin);
-        this.removeEventListener('focusout', this.#onFocusout);
+        this.#listeners?.abort();
+        this.#listeners = null;
     }
 
     public updated (): void {
