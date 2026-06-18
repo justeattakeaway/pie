@@ -45,7 +45,29 @@ const avatarStoryMeta: AvatarStoryMeta = {
 export default avatarStoryMeta;
 
 const Template = ({ label, tag, src }: AvatarProps) => html`
-    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}" src="${ifDefined(src)}"></pie-avatar>
+    <style>
+    :root {
+        --stripe-thickness: 10px;
+    }
+    .stripes {
+        background-color: var(--dt-color-support-positive-02);
+        background-image: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent var(--stripe-thickness),
+            color-mix(in srgb, var(--dt-color-support-positive) 35%, transparent) var(--stripe-thickness),
+            color-mix(in srgb, var(--dt-color-support-positive) 35%, transparent) calc(var(--stripe-thickness) * 2)
+        );
+
+        /* Presentation styles for the demo */
+        padding: 24px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        line-height: 1.5;
+        width: 200px;
+    }
+    </style>
+    <div class="stripes"></div>
 `;
 
 const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);
