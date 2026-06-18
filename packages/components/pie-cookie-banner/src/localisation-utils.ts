@@ -178,9 +178,9 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
         node.setAttribute('rel', Array.from(relTokens).join(' '));
     };
 
-    DOMPurify.addHook('afterSanitizeAttributes', enforceAnchorAttributes);
-
     try {
+        DOMPurify.addHook('afterSanitizeAttributes', enforceAnchorAttributes);
+
         return DOMPurify.sanitize(input, {
             ALLOWED_TAGS: ['a'],
             ALLOWED_ATTR: ['href', 'rel', 'target'],
