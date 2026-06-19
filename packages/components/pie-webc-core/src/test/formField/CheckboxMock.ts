@@ -4,7 +4,7 @@ import {
 import {
     customElement, property, state,
 } from 'lit/decorators.js';
-import { type FieldA11y, FieldContextRequestEvent } from './fieldContext.ts';
+import { type FieldA11y, FieldContextRequestEvent, fieldDescription } from './fieldContext.ts';
 
 const componentSelector = 'checkbox-mock';
 
@@ -85,7 +85,9 @@ export class CheckboxMock extends LitElement {
                 .checked=${this.checked}
                 ?disabled=${this.disabled}
                 aria-label=${this._a11y.label || nothing}
-                aria-description=${this._a11y.description || nothing}
+                aria-description=${fieldDescription(this._a11y) || nothing}
+                aria-required=${this._a11y.required ? 'true' : nothing}
+                aria-invalid=${this._a11y.invalid ? 'true' : nothing}
                 @change=${this.#onNativeChange}
             />
         `;

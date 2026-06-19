@@ -5,6 +5,8 @@ import { SelectionController } from '../../controllers/selection/selectionContro
 
 const componentSelector = 'radio-group-mock';
 
+const NAVIGATION_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End']);
+
 type RadioElement = HTMLElement & { value: string; checked: boolean };
 
 /**
@@ -33,9 +35,6 @@ export class RadioGroupMock extends LitElement {
 
     #listeners: AbortController | null = null;
 
-    /** Whether focus is currently within the group (to tell tab-in from arrow movement). */
-    #hasFocus = false;
-
     // Enabled radios only — disabled ones are excluded from navigation and selection.
     #radios = (): RadioElement[] => [...this.querySelectorAll<RadioElement>('radio-mock:not([disabled])')];
 
@@ -63,8 +62,9 @@ export class RadioGroupMock extends LitElement {
         this.#listeners = new AbortController();
         const { signal } = this.#listeners;
         this.addEventListener('radio-mock-select', this.#onSelect, { signal });
-        this.addEventListener('focusin', this.#onFocusin, { signal });
-        this.addEventListener('focusout', this.#onFocusout, { signal });
+        // Registered after the roving controller's own keydown listener, so by the
+        // time this runs roving has already moved focus to the next radio.
+        this.addEventListener('keydown', this.#onNavigationKeydown, { signal });
     }
 
     public disconnectedCallback (): void {
@@ -85,31 +85,21 @@ export class RadioGroupMock extends LitElement {
         return event.composedPath().find((node): node is RadioElement => node instanceof HTMLElement && node.localName === 'radio-mock');
     }
 
-    #ownsNode (node: EventTarget | null): boolean {
-        if (!(node instanceof Node)) return false;
-        return this.#radios().some((radio) => radio === node || radio.contains(node) || (radio.shadowRoot?.contains(node) ?? false));
-    }
-
     #onSelect = (event: Event): void => {
+        // A radio was clicked/activated — select it.
         const radio = this.#radioOf(event);
         if (radio) this.#selection?.replace(radio);
     };
 
-    #onFocusin = (event: Event): void => {
-        const radio = this.#radioOf(event);
-        const movedWithinGroup = this.#hasFocus;
-        this.#hasFocus = true;
-        // Selection follows focus for movement *within* the group (arrow keys),
-        // not for the initial tab into it. (relatedTarget is unreliable across
-        // shadow boundaries, so we track focus residency instead.)
-        if (radio && movedWithinGroup) this.#selection?.replace(radio);
-    };
-
-    #onFocusout = (): void => {
-        // After focus settles, clear the flag if it has left the group entirely.
-        queueMicrotask(() => {
-            if (!this.#ownsNode(document.activeElement)) this.#hasFocus = false;
-        });
+    #onNavigationKeydown = (event: KeyboardEvent): void => {
+        // Selection follows focus: on a navigation key, the roving controller has
+        // just moved focus to the next radio, so select whatever is now active.
+        // (Reading the active item per-keystroke is robust against parent
+        // re-renders, unlike tracking focus residency.) Tab is not a navigation
+        // key, so the initial tab into the group does not select.
+        if (!NAVIGATION_KEYS.has(event.key)) return;
+        const active = this.#roving?.activeItem;
+        if (active) this.#selection?.replace(active);
     };
 
     public render () {

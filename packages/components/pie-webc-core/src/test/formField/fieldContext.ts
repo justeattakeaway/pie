@@ -4,7 +4,20 @@
 export interface FieldA11y {
     label: string;
     description: string;
+    required?: boolean;
+    invalid?: boolean;
+    errorMessage?: string;
 }
+
+/**
+ * The combined description a control should expose: the field's description, plus
+ * the error message when the field is invalid.
+ */
+export const fieldDescription = (context: FieldA11y): string => {
+    const parts = [context.description];
+    if (context.invalid && context.errorMessage) parts.push(context.errorMessage);
+    return parts.filter(Boolean).join('. ');
+};
 
 /** Event name for the (hand-rolled) field context protocol. */
 export const FIELD_CONTEXT_EVENT = 'pie-mock-field-context-request';

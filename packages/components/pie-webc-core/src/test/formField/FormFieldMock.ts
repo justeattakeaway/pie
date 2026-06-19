@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import {
     type FieldA11y,
     type FieldContextCallback,
@@ -35,7 +35,15 @@ export class FormFieldMock extends LitElement {
         :host { display: block; }
     `;
 
-    #a11y: FieldA11y = { label: '', description: '' };
+    @property({ type: Boolean })
+    public required = false;
+
+    @property({ type: Boolean })
+    public invalid = false;
+
+    #a11y: FieldA11y = {
+        label: '', description: '', required: false, invalid: false, errorMessage: '',
+    };
 
     #subscribers = new Set<FieldContextCallback>();
 
@@ -58,12 +66,12 @@ export class FormFieldMock extends LitElement {
         this.#subscribers.clear();
     }
 
-    public firstUpdated (): void {
+    public updated (): void {
+        // Recompute after each render (cheap, guarded) so changes to the marked
+        // text or the required/invalid properties are published to the control.
         this.#recompute();
     }
 
-    // Recomputed only on connect and slotchange (not per render) — so reading the
-    // marked text and publishing happens only when content actually changes.
     #recompute = (): void => {
         const text = (selector: string) => [...this.querySelectorAll<HTMLElement>(selector)]
             .map((el) => el.textContent?.trim())
@@ -73,9 +81,17 @@ export class FormFieldMock extends LitElement {
         const next: FieldA11y = {
             label: text('[data-field-label]'),
             description: text('[data-field-description]'),
+            required: this.required,
+            invalid: this.invalid,
+            errorMessage: text('[data-field-error]'),
         };
 
-        if (next.label === this.#a11y.label && next.description === this.#a11y.description) return;
+        const unchanged = next.label === this.#a11y.label &&
+            next.description === this.#a11y.description &&
+            next.required === this.#a11y.required &&
+            next.invalid === this.#a11y.invalid &&
+            next.errorMessage === this.#a11y.errorMessage;
+        if (unchanged) return;
 
         this.#a11y = next;
         this.#subscribers.forEach((callback) => callback(next, () => this.#subscribers.delete(callback)));

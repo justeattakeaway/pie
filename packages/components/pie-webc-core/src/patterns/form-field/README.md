@@ -113,6 +113,14 @@ controllers — see the [controllers recipes](../../controllers/README.md):
 onto each control's `checked`. Disabled options are excluded from `getItems` (navigation/selection) and
 drop out of the tab order via their native input.
 
+> **Selection-follows-focus must not depend on focus-residency state.** Implement it by selecting the
+> item the navigation controller moved to — read `roving.activeItem` on the navigation **keydown**
+> (which fires after roving has moved focus), and select that. Do **not** track residency with
+> `focusin`/`focusout` + a "has focus" flag: when the consumer owns the value, selecting triggers a
+> parent re-render, whose transient blur resets that flag and silently breaks every subsequent arrow.
+> Tab is not a navigation key, so a tab *into* the group still doesn't select. Clicks select via the
+> control's intent event.
+
 ## Role contracts (the checklist)
 
 **Form control**

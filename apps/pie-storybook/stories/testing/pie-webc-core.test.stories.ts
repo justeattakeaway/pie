@@ -11,6 +11,7 @@ import '@justeattakeaway/pie-webc-core/src/test/formField/CheckboxMock';
 import '@justeattakeaway/pie-webc-core/src/test/formField/RadioMock';
 import '@justeattakeaway/pie-webc-core/src/test/formField/RadioGroupMock';
 import '@justeattakeaway/pie-webc-core/src/test/formField/CheckboxGroupMock';
+import '@justeattakeaway/pie-webc-core/src/test/formField/DemoFormMock';
 import { EXPECTED_MOCK_EVENT_MESSAGE } from '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/constants';
 /**
  * Mock stories for testing pie-webc-core functionality
@@ -480,6 +481,15 @@ export const CheckboxGroupCards = () => controllerStory(
     `,
 );
 CheckboxGroupCards.storyName = 'Checkbox Group - Fully clickable cards';
+
+/**
+ * PoC: a complex form stress-testing the form-field + controllers pattern across
+ * many control types (text input, textarea, radio group in cards, checkbox group,
+ * single checkbox), mixed layouts, disabled options, required fields and live
+ * validation. The form is the consumer — it owns every value (shown live).
+ */
+export const ComplexForm = () => html`<demo-form-mock></demo-form-mock>`;
+ComplexForm.storyName = 'Complex form (stress test)';
 
 /**
  * Story for testing SelectionController in a multi-select listbox

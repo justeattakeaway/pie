@@ -4,7 +4,7 @@ import {
 import {
     customElement, property, state,
 } from 'lit/decorators.js';
-import { type FieldA11y, FieldContextRequestEvent } from './fieldContext.ts';
+import { type FieldA11y, FieldContextRequestEvent, fieldDescription } from './fieldContext.ts';
 
 const componentSelector = 'radio-mock';
 
@@ -95,7 +95,9 @@ export class RadioMock extends LitElement {
                 .checked=${this.checked}
                 ?disabled=${this.disabled}
                 aria-label=${this.#label || nothing}
-                aria-description=${this._ctx.description || nothing}
+                aria-description=${fieldDescription(this._ctx) || nothing}
+                aria-required=${this._ctx.required ? 'true' : nothing}
+                aria-invalid=${this._ctx.invalid ? 'true' : nothing}
                 @keydown=${this.#onKeydown}
             />
             ${this.label ? html`<span aria-hidden="true">${this.label}</span>` : nothing}
