@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.2.0
+
+### Minor Changes
+
+- [Changed] - visually-hidden mixin update to include clip-path ([#2953](https://github.com/justeattakeaway/pie/pull/2953)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 1.1.3
 
 ### Patch Changes

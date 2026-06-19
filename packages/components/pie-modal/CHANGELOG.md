@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-modal
 
+## 1.26.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.14.4
+  - @justeattakeaway/pie-icon-button@2.7.19
+  - @justeattakeaway/pie-spinner@1.4.17
+  - @justeattakeaway/pie-webc-core@15.0.0
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
 ## 1.26.10
 
 ### Patch Changes

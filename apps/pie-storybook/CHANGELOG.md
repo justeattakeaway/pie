@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.82.0
+
+### Minor Changes
+
+- [Fixed] - assistive text to announce correctly in screen readers ([#2954](https://github.com/justeattakeaway/pie/pull/2954)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - Updated form components and Storybook stories to pass assistive copy via `pie-assistive-text` `message` prop instead of slot content, aligning usage with the new `pie-assistive-text` API. ([#2954](https://github.com/justeattakeaway/pie/pull/2954)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`da31857`](https://github.com/justeattakeaway/pie/commit/da318577ba5f2fd6f9d31b1c8312d0b37c772ba0)]:
+  - @justeattakeaway/pie-css@1.2.0
+  - @justeattakeaway/pie-webc@0.10.21
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
 ## 1.81.2
 
 ### Patch Changes
