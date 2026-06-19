@@ -8,6 +8,11 @@ export interface AssistiveTextProps {
      */
     variant?: typeof variants[number];
 
+    /**
+     * The assistive message text.
+     */
+    message?: string;
+
      /**
      * If true, hides the component visually but leaves it accessible for screen readers.
      */
@@ -18,5 +23,6 @@ export type DefaultProps = ComponentDefaultProps<AssistiveTextProps>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',
+    message: '',
     isVisuallyHidden: false,
 };

@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, type PropertyValues, nothing,
+    html, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
@@ -191,16 +191,13 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     };
 
     private renderAssistiveText () {
-        if (!this.assistiveText) {
-            return nothing;
-        }
-
         return html`
             <pie-assistive-text
                 id="${assistiveTextIdValue}"
                 variant=${ifDefined(this.status)}
+                message=${this.assistiveText || ''}
+                ?isVisuallyHidden=${!this.assistiveText}
                 data-test-id="pie-textarea-assistive-text">
-                ${this.assistiveText}
             </pie-assistive-text>
         `;
     }
