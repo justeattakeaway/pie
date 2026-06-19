@@ -230,14 +230,7 @@
     align-items: flex-start;
 
     input {
-        display: block;
-        position: absolute;
-        height: 1px;
-        width: 1px;
-        overflow: hidden;
-        clip: rect(1px, 1px, 1px, 1px);
-        clip-path: inset(1px);
-        white-space: nowrap;
+        @include p.visually-hidden;
     }
 
     label {
