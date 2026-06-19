@@ -1,0 +1,30 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    display: block;
+    padding-block-start: var(--dt-spacing-b);
+    padding-block-end: var(--dt-spacing-b);
+    padding-inline-start: var(--dt-spacing-c);
+    padding-inline-end: var(--dt-spacing-c);
+    cursor: pointer;
+    color: var(--dt-color-content-default-solid);
+    position: relative;
+}
+
+// Active option shows the focus ring only when the parent listbox is in
+// keyboard-focus mode. The parent sets --pie-listbox-active-ring under
+// :focus-visible; otherwise it's undefined and box-shadow falls back to `none`.
+:host([data-active]) {
+    box-shadow: var(--pie-listbox-active-ring, none);
+    outline: none;
+}
+
+:host([selected]) {
+    background-color: var(--dt-color-container-subtle);
+    font-weight: var(--dt-font-body-strong-l-weight);
+}
+
+:host([disabled]) {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

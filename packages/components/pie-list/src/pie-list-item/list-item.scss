@@ -1,1 +1,27 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    display: block;
+    padding-block-start: var(--dt-spacing-b);
+    padding-block-end: var(--dt-spacing-b);
+    padding-inline-start: var(--dt-spacing-c);
+    padding-inline-end: var(--dt-spacing-c);
+    color: var(--dt-color-content-default-solid);
+    position: relative;
+}
+
+// Scoped to the static-list case: `role="listitem"` is narrated as
+// "selectable list item" by VoiceOver; `display: list-item` suppresses that.
+:host([role="listitem"]) {
+    display: list-item;
+    list-style-type: "";
+}
+
+// When the slotted content is a <label>, lay an absolute pseudo-element
+// over the whole row so the entire item is the click target for the form
+// control referenced by `for`.
+::slotted(label):after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
