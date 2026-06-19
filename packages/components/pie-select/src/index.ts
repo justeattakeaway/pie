@@ -216,9 +216,9 @@ export class PieSelect extends FormControlMixin(RtlMixin(DelegatesFocusMixin(Pie
             <pie-assistive-text
                 id="${assistiveTextIdValue}"
                 variant="${ifDefined(this.status)}"
+                message="${this.assistiveText || ''}"
                 ?isVisuallyHidden="${!this.assistiveText}"
                 data-test-id="pie-select-assistive-text">
-                ${this.assistiveText || ''}
             </pie-assistive-text>
         `;
     }

@@ -28,13 +28,28 @@ test.describe('PieAssistiveText - Component tests', () => {
         await expect(assistiveTextComponent).toHaveClass(/c-assistiveText--default/);
     });
 
+    test('should render the `message` prop content', async ({ page }) => {
+    // Arrange
+        const assistiveTextPage = new BasePage(page, 'assistive-text--default');
+        const props: AssistiveTextProps = {
+            message: 'Form hint message',
+        };
+        await assistiveTextPage.load({ ...props });
+
+        // Act
+        const assistiveTextComponent = page.getByTestId(assistiveText.selectors.container.dataTestId);
+
+        // Assert
+        await expect(assistiveTextComponent).toContainText('Form hint message');
+    });
+
     test('should set polite live region attributes when variant is `default`', async ({ page }) => {
     // Arrange
         const assistiveTextPage = new BasePage(page, 'assistive-text--default');
         await assistiveTextPage.load();
 
         // Act
-        const assistiveTextComponent = page.locator('pie-assistive-text');
+        const assistiveTextComponent = page.getByTestId(assistiveText.selectors.container.dataTestId);
 
         // Assert
         await expect(assistiveTextComponent).toHaveAttribute('role', 'status');
@@ -51,7 +66,7 @@ test.describe('PieAssistiveText - Component tests', () => {
         await assistiveTextPage.load({ ...props });
 
         // Act
-        const assistiveTextComponent = page.locator('pie-assistive-text');
+        const assistiveTextComponent = page.getByTestId(assistiveText.selectors.container.dataTestId);
 
         // Assert
         await expect(assistiveTextComponent).toHaveAttribute('role', 'alert');
@@ -68,7 +83,7 @@ test.describe('PieAssistiveText - Component tests', () => {
         await assistiveTextPage.load({ ...props });
 
         // Act
-        const assistiveTextComponent = page.locator('pie-assistive-text');
+        const assistiveTextComponent = page.getByTestId(assistiveText.selectors.container.dataTestId);
 
         // Assert
         await expect(assistiveTextComponent).toHaveAttribute('role', 'status');

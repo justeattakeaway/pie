@@ -436,8 +436,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
                 <pie-assistive-text
                     id=${assistiveTextId}
                     variant=${status}
+                    message=${assistiveText}
                     data-test-id="pie-radio-group-assistive-text">
-                        ${assistiveText}
                     </pie-assistive-text>`
             : nothing}
         `;

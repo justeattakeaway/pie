@@ -134,9 +134,9 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
                 <pie-assistive-text
                     id="${assistiveTextId}"
                     variant=${status}
+                    message=${assistiveText}
                     class="c-checkboxGroup-assistiveText"
                     data-test-id="pie-checkbox-group-assistive-text">
-                        ${assistiveText}
                 </pie-assistive-text>`}
         `;
     }

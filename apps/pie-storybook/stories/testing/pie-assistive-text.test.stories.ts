@@ -5,22 +5,20 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-webc/components/assistive-text';
 import '@justeattakeaway/pie-webc/components/button';
 import {
-    type AssistiveTextProps as AssistiveTextBaseProps,
+    type AssistiveTextProps,
     variants,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/assistive-text';
 
-import { type SlottedComponentProps } from '../../types';
 import {
-    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+    createStory, createVariantStory, type TemplateFunction,
 } from '../../utilities';
 
-type AssistiveTextProps = SlottedComponentProps<AssistiveTextBaseProps>;
 type AssistiveTextStoryMeta = Meta<AssistiveTextProps>;
 
 const defaultArgs: AssistiveTextProps = {
     ...defaultProps,
-    slot: 'Assistive Text',
+    message: 'Assistive Text',
 };
 
 const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
@@ -42,8 +40,8 @@ const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
                 summary: defaultProps.isVisuallyHidden,
             },
         },
-        slot: {
-            description: 'Content to place within the assistive-text',
+        message: {
+            description: 'The assistive message text.',
             control: 'text',
         },
     },
@@ -54,13 +52,13 @@ export default assistiveTextStoryMeta;
 
 const Template : TemplateFunction<AssistiveTextProps> = ({
     variant,
+    message,
     isVisuallyHidden,
-    slot,
 }) => html`
     <pie-assistive-text
         variant="${ifDefined(variant)}"
+        message="${ifDefined(message)}"
         ?isVisuallyHidden="${isVisuallyHidden}">
-        ${sanitizeAndRenderHTML(slot)}
     </pie-assistive-text>
 `;
 
@@ -76,7 +74,7 @@ const ActivityStatusAnnouncementsTemplate: TemplateFunction<AssistiveTextProps> 
     };
 
     const onStatusAction = (variant: keyof typeof statusMessages) => () => {
-        const assistiveText = document.querySelector('#activity-status-message') as (AssistiveTextBaseProps & HTMLElement) | null;
+        const assistiveText = document.querySelector('#activity-status-message') as (AssistiveTextProps & HTMLElement) | null;
 
         if (!assistiveText) {
             return;
@@ -84,13 +82,15 @@ const ActivityStatusAnnouncementsTemplate: TemplateFunction<AssistiveTextProps> 
 
         assistiveText.variant = variant;
         assistiveText.isVisuallyHidden = false;
-        assistiveText.textContent = statusMessages[variant];
+        assistiveText.message = statusMessages[variant];
     };
 
     return html`
         <div data-test-id="activity-status-wrapper" style="display: grid; gap: var(--dt-spacing-c); max-width: 32rem;">
-            <pie-assistive-text id="activity-status-message" data-test-id="activity-status-message">
-                Status updates will appear here.
+            <pie-assistive-text
+                id="activity-status-message"
+                data-test-id="activity-status-message"
+                message="Status updates will appear here.">
             </pie-assistive-text>
 
             <div style="display: flex; gap: var(--dt-spacing-b); flex-wrap: wrap;">
@@ -119,7 +119,7 @@ const ActivityStatusAnnouncementsTemplate: TemplateFunction<AssistiveTextProps> 
 
 const propsMatrix: Partial<Record<keyof AssistiveTextProps, unknown[]>> = {
     variant: ['default', 'error', 'success'],
-    slot: ['Hello World'],
+    message: ['Hello World'],
     isVisuallyHidden: [true, false],
 };
 

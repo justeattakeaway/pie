@@ -195,9 +195,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             <pie-assistive-text
                 id="${assistiveTextIdValue}"
                 variant=${ifDefined(this.status)}
+                message=${this.assistiveText || ''}
                 ?isVisuallyHidden=${!this.assistiveText}
                 data-test-id="pie-textarea-assistive-text">
-                ${this.assistiveText || ''}
             </pie-assistive-text>
         `;
     }

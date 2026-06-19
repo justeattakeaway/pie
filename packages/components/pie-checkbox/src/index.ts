@@ -232,8 +232,8 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
                     id="${assistiveTextId}"
                     variant=${status}
                     ?isVisuallyHidden=${_visuallyHiddenError}
+                    message=${assistiveText}
                     data-test-id="pie-checkbox-assistive-text">
-                        ${assistiveText}
                 </pie-assistive-text>` : nothing}
         </div>`;
     }

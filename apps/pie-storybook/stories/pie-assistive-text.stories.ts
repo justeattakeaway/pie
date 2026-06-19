@@ -3,17 +3,15 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/assistive-text';
-import { type AssistiveTextProps as AssistiveTextBaseProps, variants, defaultProps } from '@justeattakeaway/pie-webc/components/assistive-text';
+import { type AssistiveTextProps, variants, defaultProps } from '@justeattakeaway/pie-webc/components/assistive-text';
 
-import { type SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
 
-type AssistiveTextProps = SlottedComponentProps<AssistiveTextBaseProps>;
 type AssistiveTextStoryMeta = Meta<AssistiveTextProps>;
 
 const defaultArgs: AssistiveTextProps = {
     ...defaultProps,
-    slot: 'Assistive Text',
+    message: 'Assistive Text',
 };
 
 const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
@@ -35,8 +33,8 @@ const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
                 summary: defaultProps.isVisuallyHidden,
             },
         },
-        slot: {
-            description: 'Content to place within the assistive-text',
+        message: {
+            description: 'The assistive message text.',
             control: 'text',
         },
     },
@@ -53,13 +51,13 @@ export default assistiveTextStoryMeta;
 
 const Template : TemplateFunction<AssistiveTextProps> = ({
     variant,
+    message,
     isVisuallyHidden,
-    slot,
 }) => html`
     <pie-assistive-text
         variant="${ifDefined(variant)}"
+        message="${ifDefined(message)}"
         ?isVisuallyHidden="${isVisuallyHidden}">
-        ${sanitizeAndRenderHTML(slot)}
     </pie-assistive-text>
 `;
 

@@ -18,7 +18,6 @@ const componentSelector = 'pie-assistive-text';
 
 /**
  * @tagname pie-assistive-text
- * @slot - Default slot
  */
 @safeCustomElement('pie-assistive-text')
 export class PieAssistiveText extends PieElement implements AssistiveTextProps {
@@ -26,24 +25,11 @@ export class PieAssistiveText extends PieElement implements AssistiveTextProps {
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;
 
+    @property({ type: String })
+    public message = defaultProps.message;
+
     @property({ type: Boolean })
     public isVisuallyHidden = defaultProps.isVisuallyHidden;
-
-    connectedCallback (): void {
-        super.connectedCallback();
-        this.updateLiveRegionAttributes();
-    }
-
-    protected updated (): void {
-        this.updateLiveRegionAttributes();
-    }
-
-    private updateLiveRegionAttributes (): void {
-        const isError = this.variant === 'error';
-        this.setAttribute('role', isError ? 'alert' : 'status');
-        this.setAttribute('aria-live', isError ? 'assertive' : 'polite');
-        this.setAttribute('aria-atomic', 'true');
-    }
 
     /**
      * Renders the assistive-text icon content.
@@ -59,8 +45,10 @@ export class PieAssistiveText extends PieElement implements AssistiveTextProps {
     render () {
         const {
             variant,
+            message,
             isVisuallyHidden,
         } = this;
+        const isError = variant === 'error';
 
         const classes = {
             'c-assistiveText': true,
@@ -71,9 +59,12 @@ export class PieAssistiveText extends PieElement implements AssistiveTextProps {
         return html`
         <p
             class="${classMap(classes)}"
+            role="${isError ? 'alert' : 'status'}"
+            aria-live="${isError ? 'assertive' : 'polite'}"
+            aria-atomic="true"
             data-test-id="pie-assistive-text">
             ${this.renderIcon()}
-            <slot></slot>
+            ${message}
         </p>`;
     }
 
