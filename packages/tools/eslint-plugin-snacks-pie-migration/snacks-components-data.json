@@ -1,11 +1,11 @@
 {
   "Breadcrumbs": {
     "piePackage": "@justeattakeaway/pie-breadcrumb",
-    "status": "beta"
+    "status": "stable"
   },
   "BreadcrumbsItem": {
     "piePackage": "@justeattakeaway/pie-breadcrumb",
-    "status": "beta"
+    "status": "stable"
   },
   "Button": {
     "piePackage": "@justeattakeaway/pie-button",
@@ -37,7 +37,7 @@
   },
   "ErrorMessage": {
     "piePackage": "@justeattakeaway/pie-assistive-text",
-    "status": "beta"
+    "status": "stable"
   },
   "IconButton": {
     "piePackage": "@justeattakeaway/pie-icon-button",
