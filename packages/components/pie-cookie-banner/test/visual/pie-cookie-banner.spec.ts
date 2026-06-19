@@ -30,4 +30,29 @@ test.describe('PieCookieBanner - Visual tests`', () => {
             await percySnapshot(page, `PieCookieBanner hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`);
         });
     });
+
+    test('should render rich text (anchor) in a per-category description within manage preferences', async ({ page }) => {
+        await pieCookieBannerComponent.load();
+        await pieCookieBannerComponent.waitForLocaleUpdate();
+
+        await page.evaluate(async () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const component = document.querySelector('pie-cookie-banner') as any;
+            component._locale = {
+                ...component._locale,
+                preferencesManagement: {
+                    ...component._locale.preferencesManagement,
+                    necessary: {
+                        ...component._locale.preferencesManagement.necessary,
+                        description: 'Read our <a href="https://example.com/privacy">privacy policy</a> for more info.',
+                    },
+                },
+            };
+            await component.updateComplete;
+        });
+
+        await pieCookieBannerComponent.clickManagePreferencesAction();
+
+        await percySnapshot(page, 'PieCookieBanner - Rich text in per-category description');
+    });
 });

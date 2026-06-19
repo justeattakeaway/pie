@@ -3191,6 +3191,7 @@ __metadata:
     "@justeattakeaway/pie-switch": "npm:2.4.1"
     "@justeattakeaway/pie-webc-core": "npm:14.0.2"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
+    dompurify: "npm:3.4.8"
   languageName: unknown
   linkType: soft
 
