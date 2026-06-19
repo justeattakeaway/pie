@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 1.0.0
+
+### Major Changes
+
+- [Chanaged] - move the componet to stable ([#2954](https://github.com/justeattakeaway/pie/pull/2954)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-link@1.3.35
+  - @justeattakeaway/pie-webc-core@15.0.0
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
 ## 0.8.10
 
 ### Patch Changes

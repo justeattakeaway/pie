@@ -1,5 +1,12 @@
 # Changelog
 
+## 5.28.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.5
+
 ## 5.28.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-card",
-  "version": "0.27.2",
+  "version": "0.27.3",
   "description": "PIE Design System Card built using Web Components",
   "repository": {
     "type": "git",
@@ -44,12 +44,12 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.3",
-    "@justeattakeaway/pie-css": "1.1.3",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.4",
+    "@justeattakeaway/pie-css": "1.2.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.5",
     "@justeattakeaway/pie-wrapper-react": "0.14.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "14.0.2"
+    "@justeattakeaway/pie-webc-core": "15.0.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
