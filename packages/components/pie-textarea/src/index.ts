@@ -78,6 +78,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @property({ type: Number })
     public maxlength: TextareaProps['maxlength'];
 
+    @property({ type: Number })
+    public rows: TextareaProps['rows'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
@@ -217,6 +220,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             status,
             assistiveText,
             maxlength,
+            rows,
         } = this;
 
         const classes = {
@@ -249,6 +253,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     maxlength=${ifDefined(maxlength)}
+                    rows=${ifDefined(rows)}
                 ></textarea>
             </div>
             ${this.renderAssistiveText()}
