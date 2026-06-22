@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-chip
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - moved the chip to stable ([#2957](https://github.com/justeattakeaway/pie/pull/2957)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.15.35
 
 ### Patch Changes
