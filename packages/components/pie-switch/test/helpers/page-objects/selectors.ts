@@ -18,10 +18,6 @@ const pieSwitch = {
                 dataTestId: 'switch-label-trailing',
             },
         },
-        ariaDescription: {
-            description: 'The selector for the switch aria description',
-            dataTestId: 'switch-description',
-        },
     },
 };
 

@@ -36,11 +36,12 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Prop            | Options                                | Description                                                                                                                       | Default     |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------|
 | `checked`        | `true`, `false`                        | Same as the HTML `checked` attribute; indicates whether the switch is on or off.                                                 | `false`     |
+| `defaultChecked` | `true`, `false`                        | Same as the HTML `checked` attribute default value; used when resetting the parent form.                                          | `false`     |
 | `disabled`       | `true`, `false`                        | Same as the HTML `disabled` attribute; indicates whether the switch is disabled or not.                                          | `false`     |
 | `required`       | `true`, `false`                        | Same as the HTML `required` attribute; indicates whether the switch must be turned on when submitted as part of a form.          | `false`     |
 | `label`          | —                                      | The label text for the switch.                                                                                                   | —           |
 | `labelPlacement` | `"leading"`, `"trailing"`              | Set the placement of the label. Leading will have the label before the switch, taking writing direction into account.            | `"leading"` |
-| `aria`           | `{ label?: string, describedBy?: string }` | The ARIA labels used for the switch.                                                                                             | `undefined` |
+| `aria`           | `{ label?: string }`                       | The ARIA labels used for the switch.                                                                                             | `undefined` |
 | `name`           | —                                      | Indicates the name of the switch (for use with forms).                                                                            | —           |
 | `value`          | —                                      | Indicates the value of the switch (for use with forms).                                                                           | `"on"`      |
 

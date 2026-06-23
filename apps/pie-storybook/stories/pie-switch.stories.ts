@@ -16,7 +16,6 @@ const defaultArgs: SwitchProps = {
     label: 'Label',
     aria: {
         label: 'switch label',
-        describedBy: 'switch description',
     },
     name: 'switch',
     value: 'switchValue',
@@ -107,6 +106,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
         checked,
+        defaultChecked,
         disabled,
         label,
         labelPlacement,
@@ -125,6 +125,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
             .aria="${aria}"
             ?required="${required}"
             ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
             @change="${changeAction}">
         </pie-switch>`;
@@ -222,7 +223,6 @@ const MultiSwitchFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchPro
     name: 'onion',
     aria: {
         label: 'a custom label for the onion switch',
-        describedBy: 'a custom description for the onion switch',
     },
     value: 'onion_yes',
     checked: false,

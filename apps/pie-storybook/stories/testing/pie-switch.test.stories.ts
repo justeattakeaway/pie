@@ -2,6 +2,7 @@ import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/switch';
+import '@justeattakeaway/pie-webc/components/text-input';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -16,7 +17,6 @@ const defaultArgs: SwitchProps = {
     label: 'Label',
     aria: {
         label: 'switch label',
-        describedBy: 'switch description',
     },
     name: 'switch',
     value: 'switchValue',
@@ -126,6 +126,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
         checked,
+        defaultChecked,
         disabled,
         label,
         labelPlacement,
@@ -144,6 +145,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
             .aria="${aria}"
             ?required="${required}"
             ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
             @change="${changeAction}">
         </pie-switch>`;
@@ -183,6 +185,7 @@ const ExternalLabelsTemplate: TemplateFunction<SwitchProps> = (props: SwitchProp
         name="${props.name || nothing}"
         value="${props.value || nothing}"
         ?checked="${props.checked}"
+        ?defaultChecked="${props.defaultChecked}"
         @change="${changeAction}">
     </pie-switch>
 
@@ -195,6 +198,7 @@ const ExternalLabelsTemplate: TemplateFunction<SwitchProps> = (props: SwitchProp
             data-test-id="external-switch-wrapping"
             name="${props.name || nothing}"
             value="${props.value || nothing}"
+            ?defaultChecked="${props.defaultChecked}"
             @change="${changeAction}">
         </pie-switch>
     </label>
@@ -208,8 +212,31 @@ const ExternalLabelsTemplate: TemplateFunction<SwitchProps> = (props: SwitchProp
         data-test-id="external-switch-multi"
         name="${props.name || nothing}"
         value="${props.value || nothing}"
+        ?defaultChecked="${props.defaultChecked}"
         @change="${changeAction}">
     </pie-switch>
+
+    <hr />
+
+    <label for="external-text-input" data-test-id="external-text-input-label-for">Text input via for attribute</label>
+    <pie-text-input
+        id="external-text-input"
+        data-test-id="external-text-input-for"
+        name="external-text-input"
+        type="text">
+    </pie-text-input>
+
+    <hr />
+
+    <label data-test-id="external-text-input-label-wrapping">
+        <span data-test-id="external-text-input-label-wrapping-text">Text input via wrapping label</span>
+        <pie-text-input
+            id="wrapping-text-input"
+            data-test-id="external-text-input-wrapping"
+            name="wrapping-text-input"
+            type="text">
+        </pie-text-input>
+    </label>
 `;
 
 const createSwitchStory = createStory(Template, defaultArgs);

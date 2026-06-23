@@ -116,12 +116,6 @@
     color: var(--dt-color-content-default-solid);
 }
 
-// The description is only required for screen readers so we need to visually hide the description
-.c-switch-description {
-    @include p.visually-hidden;
-}
-
-
 .c-switch-wrapper--allow-animation {
     /* stylelint-disable-next-line no-descending-specificity */
     .c-switch {

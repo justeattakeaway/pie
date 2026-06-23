@@ -3,8 +3,7 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 export const labelPlacements = ['leading', 'trailing'] as const;
 
 type AriaProps = {
-    label?: string,
-    describedBy?: string
+    label?: string
 };
 
 export interface SwitchProps {
@@ -16,6 +15,10 @@ export interface SwitchProps {
      * Same as the HTML checked attribute - indicates whether the switch is on or off
      */
     checked?: boolean;
+    /**
+     * Same as the HTML checked attribute default value - used when the parent form is reset
+     */
+    defaultChecked?: boolean;
     /**
      * Same as the HTML required attribute - indicates whether the switch must be turned or not
      */
@@ -53,6 +56,7 @@ export type DefaultProps = ComponentDefaultProps<SwitchProps, keyof Omit<SwitchP
 
 export const defaultProps: DefaultProps = {
     checked: false,
+    defaultChecked: false,
     disabled: false,
     labelPlacement: 'leading',
     required: false,

@@ -5,6 +5,7 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { live } from 'lit/directives/live.js';
 import 'element-internals-polyfill';
 
 import {
@@ -43,6 +44,9 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
+
+    @property({ type: Boolean, reflect: true })
+    public defaultChecked = defaultProps.defaultChecked;
 
     @property({ type: Boolean, reflect: true })
     public required = defaultProps.required;
@@ -167,6 +171,23 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     }
 
     /**
+     * Called when the containing form is reset.
+     * Resets checked state back to defaultChecked and emits a change event when needed.
+     */
+    public formResetCallback () : void {
+        if (this.checked === this.defaultChecked) {
+            return;
+        }
+
+        this.checked = this.defaultChecked;
+
+        const changeEvent = new Event('change', { bubbles: true, composed: true });
+        this.dispatchEvent(changeEvent);
+
+        this.handleFormAssociation();
+    }
+
+    /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
      */
@@ -207,23 +228,6 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             </span>`;
     }
 
-    private renderAriaDescription () {
-        if (!this.aria?.describedBy) {
-            return nothing;
-        }
-
-        // we apply aria-hidden to the element containing the description because it prevent some screen readers such as Apple VoiceOver from announcing the description once
-        // on the input and again separately. The description is still announced once, when the input is focused/selected.
-        return html`
-            <div
-                aria-hidden="true"
-                id="switch-description"
-                data-test-id="switch-description"
-                class="c-switch-description">
-                ${this.aria.describedBy}
-            </div>`;
-    }
-
     render () {
         const {
             label,
@@ -254,17 +258,15 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         type="checkbox"
                         class="c-switch-input"
                         .required=${required}
-                        .checked="${checked}"
+                        .checked="${live(checked)}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label || label)}"
-                        aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
+                        aria-label="${ifDefined(aria?.label || label)}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </div>
                 ${this.renderSwitchLabel('trailing')}
-                ${this.renderAriaDescription()}
             </label>`;
     }
 }
