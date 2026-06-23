@@ -115,6 +115,10 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
             this.handleResize();
         }
+
+        if ((changedProperties.has('rows') || changedProperties.has('resize')) && (this.resize === 'auto' && this.rows !== undefined && this.rows < 2)) {
+            console.warn('pie-textarea: `rows` can be adjusted and set to `1` manually when `resize` is set to `manual`');
+        }
     }
 
     private _throttledResize = throttle(() => {
