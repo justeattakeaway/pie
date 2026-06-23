@@ -29,7 +29,7 @@
   },
   "Chip": {
     "piePackage": "@justeattakeaway/pie-chip",
-    "status": "beta"
+    "status": "stable"
   },
   "Divider": {
     "piePackage": "@justeattakeaway/pie-divider",
