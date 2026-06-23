@@ -65,26 +65,93 @@ caption: "The image above shows Figma’s Auto layout controls."
 
 ---
 
-## Recommended plugins
+## Use Figma slots
 
-We use a variety of plugins to enhance and speed up the way we work in the PIE team. These are just suggestions and are not mandatory, but we think they can be helpful when using PIE foundations and components within your designs.
+Guidance on how to use Figma slots in PIE components and in your own designs.
 
-{% card {
-  items: [
-        {
-          linkText: "Themer",
-          href: "https://www.figma.com/community/plugin/731176732337510831",
-          src: "../../../assets/img/designers/getting-started/best-practices/themer.svg"
-        },
-        {
-          linkText: "Contrast",
-          href: "https://www.figma.com/community/plugin/748533339900865323",
-          src: "../../../assets/img/designers/getting-started/best-practices/contrast.svg"
-        },
-        {
-          linkText: "Instance finder",
-          href: "https://www.figma.com/community/plugin/741895659787979282",
-          src: "../../../assets/img/designers/getting-started/best-practices/instance-finder.svg"
-        }
-    ]
-} %}
+### What is Figma slot?
+
+Figma slot is a feature in Figma that enables more flexible component usage by allowing designers to add, edit, and organise content within predefined areas of a component.
+
+---> image placeholder
+
+### Do's and don'ts
+
+**Do**
+- Use slots when flexibility and reusability are priorities.
+- Use slots when a component needs to support varying content.
+- Use slots when you want to reduce the number of variants.
+
+**Don't**
+
+- Don't use slots when the content within the component or UI element should be fixed.
+
+### How to use components with a Figma slot?
+
+**Do**
+
+- Apply spacing and padding to maintain visual balance.
+- Use resizing options (Hug contents, Fixed width, Fill container) in auto layout to organise the content.
+
+**Don't**
+
+- Don't detach the components to use the slots.
+
+#### Step 1
+
+Hover over the slot of a component instance.
+
+---> image placeholder
+
+#### Step 2
+
+Search for the components you want to put into the slot.
+
+OR
+
+Drag and drop the content you prepared (e.g. text, images, or nested components) into the slot area of the component.
+
+---> image placeholder
+
+Some components may include preferred instances where users can use the predefined elements from the design system.
+
+---> image placeholder
+
+#### Step 3
+
+Apply appropriate spacing and padding tokens to maintain visual consistency.
+
+---> image placeholder
+
+#### Step 4
+
+Use Auto Layout and the resizing options for the height and width to organise content for responsiveness.
+
+---> image placeholder
+
+### Create and use slots in your designs
+
+Slots are not limited to design system components, they can also be applied across your own designs wherever flexibility is needed. Instead of creating multiple variants for different content, slots allow you to adapt a single component for multiple use cases.
+
+
+#### Step 1
+
+Create a component for the element where you want to include a slot.
+
+---> image placeholder
+
+#### Step 2
+
+Select the area where you want the slot to be (with/without predefined content).
+
+---> image placeholder
+
+#### Step 3
+
+Apply slot settings based on your design requirements.
+
+---> image placeholder
+
+By using slots, elements such as bars, labels, or content blocks can be easily repositioned or replaced within a container across different instances without creating additional variants or detaching components.
+
+---> image placeholder
