@@ -205,15 +205,12 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     }
 
     /**
-     * If a label is provided, renders it if `labelPlacement` matches the given position.
-     * If no label is provided, or `labelPlacement` does not match the given position, nothing is rendered.
-     *
-     * @private
+     * Renders the visible switch label, or nothing when no label is set.
      */
-    private renderSwitchLabel (placement : SwitchProps['labelPlacement']) {
+    private renderSwitchLabel () {
         const { label, labelPlacement } = this;
 
-        if (!label || labelPlacement !== placement) {
+        if (!label) {
             return nothing;
         }
 
@@ -231,6 +228,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     render () {
         const {
             label,
+            labelPlacement,
             aria,
             checked,
             disabled,
@@ -241,13 +239,13 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         const classes = {
             'c-switch-wrapper': true,
             'c-switch-wrapper--allow-animation': _isAnimationAllowed,
+            [`c-switch-wrapper--label-${labelPlacement}`]: true,
         };
 
         return html`
             <label
                 class="${classMap(classes)}"
                 ?disabled=${disabled}>
-                ${this.renderSwitchLabel('leading')}
                 <div
                     data-test-id="switch-component"
                     class="c-switch"
@@ -266,7 +264,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </div>
-                ${this.renderSwitchLabel('trailing')}
+                ${this.renderSwitchLabel()}
             </label>`;
     }
 }

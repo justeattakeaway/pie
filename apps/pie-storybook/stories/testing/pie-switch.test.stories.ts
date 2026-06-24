@@ -2,7 +2,6 @@ import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/switch';
-import '@justeattakeaway/pie-webc/components/text-input';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -216,27 +215,6 @@ const ExternalLabelsTemplate: TemplateFunction<SwitchProps> = (props: SwitchProp
         @change="${changeAction}">
     </pie-switch>
 
-    <hr />
-
-    <label for="external-text-input" data-test-id="external-text-input-label-for">Text input via for attribute</label>
-    <pie-text-input
-        id="external-text-input"
-        data-test-id="external-text-input-for"
-        name="external-text-input"
-        type="text">
-    </pie-text-input>
-
-    <hr />
-
-    <label data-test-id="external-text-input-label-wrapping">
-        <span data-test-id="external-text-input-label-wrapping-text">Text input via wrapping label</span>
-        <pie-text-input
-            id="wrapping-text-input"
-            data-test-id="external-text-input-wrapping"
-            name="wrapping-text-input"
-            type="text">
-        </pie-text-input>
-    </label>
 `;
 
 const createSwitchStory = createStory(Template, defaultArgs);
