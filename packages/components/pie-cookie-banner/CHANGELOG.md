@@ -1,5 +1,42 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.9.0
+
+### Minor Changes
+
+- [Added] - Rich text (<a>) support for per-category cookie descriptions, sanitised with DOMPurify ([#2916](https://github.com/justeattakeaway/pie/pull/2916)) by [@kianiehsan66](https://github.com/kianiehsan66)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-modal@1.26.11
+  - @justeattakeaway/pie-button@1.14.4
+  - @justeattakeaway/pie-divider@1.5.25
+  - @justeattakeaway/pie-icon-button@2.7.19
+  - @justeattakeaway/pie-link@1.3.35
+  - @justeattakeaway/pie-switch@2.4.2
+  - @justeattakeaway/pie-webc-core@15.0.0
+
+## 1.8.3
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-button@1.14.3
+  - @justeattakeaway/pie-icon-button@2.7.18
+  - @justeattakeaway/pie-link@1.3.34
+  - @justeattakeaway/pie-modal@1.26.10
+
+## 1.8.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.17
+  - @justeattakeaway/pie-link@1.3.33
+  - @justeattakeaway/pie-modal@1.26.9
+  - @justeattakeaway/pie-switch@2.4.1
+
 ## 1.8.1
 
 ### Patch Changes

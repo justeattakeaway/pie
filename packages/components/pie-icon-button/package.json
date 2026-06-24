@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icon-button",
-  "version": "2.7.16",
+  "version": "2.7.19",
   "description": "PIE Design System Icon Button built using Web Components",
   "repository": {
     "type": "git",
@@ -44,14 +44,14 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.3",
-    "@justeattakeaway/pie-css": "1.1.2",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.3",
+    "@justeattakeaway/pie-css": "1.2.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.6",
     "@justeattakeaway/pie-wrapper-react": "0.14.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "1.24.3",
-    "@justeattakeaway/pie-spinner": "1.4.16",
-    "@justeattakeaway/pie-webc-core": "14.0.2"
+    "@justeattakeaway/pie-icons-webc": "1.25.1",
+    "@justeattakeaway/pie-spinner": "1.4.17",
+    "@justeattakeaway/pie-webc-core": "15.0.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

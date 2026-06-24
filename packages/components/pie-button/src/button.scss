@@ -16,6 +16,7 @@ $prefix: 'o-btn';
 // Base button styles
 .o-btn {
     @include btn.button-base($include-icon-selector: false);
+    @include p.disable-pointer-events-in-slotted-icons;
 
     // ************************
     // Button Variant Modifiers

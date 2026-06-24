@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-cookie-banner",
   "description": "PIE Design System Cookie Banner built using Web Components",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -50,18 +50,19 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.3",
-    "@justeattakeaway/pie-css": "1.1.2",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.3",
+    "@justeattakeaway/pie-css": "1.2.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.6",
     "@justeattakeaway/pie-wrapper-react": "0.14.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "1.14.2",
-    "@justeattakeaway/pie-divider": "1.5.24",
-    "@justeattakeaway/pie-icon-button": "2.7.16",
-    "@justeattakeaway/pie-link": "1.3.32",
-    "@justeattakeaway/pie-modal": "1.26.8",
-    "@justeattakeaway/pie-switch": "2.4.0",
-    "@justeattakeaway/pie-webc-core": "14.0.2"
+    "@justeattakeaway/pie-button": "1.14.4",
+    "@justeattakeaway/pie-divider": "1.5.25",
+    "@justeattakeaway/pie-icon-button": "2.7.19",
+    "@justeattakeaway/pie-link": "1.3.35",
+    "@justeattakeaway/pie-modal": "1.26.11",
+    "@justeattakeaway/pie-switch": "2.4.2",
+    "@justeattakeaway/pie-webc-core": "15.0.0",
+    "dompurify": "3.4.8"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

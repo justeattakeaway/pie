@@ -45,7 +45,7 @@ jobs:
 
     # Configure AWS credentials using OIDC
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
+      uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
       with:
         role-to-assume: ${{ inputs.aws-role-arn }}
         role-session-name: github-actions-changeset-${{ github.run_id }}
@@ -58,7 +58,7 @@ jobs:
         os: ${{ inputs.os }}
     - name: Generate GitHub App token
       id: get-token
-      uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+      uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
       with:
         app-id: ${{ vars.GH_APP_ID }}
         private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
@@ -87,7 +87,7 @@ jobs:
     - name: Create latest release PR
       id: changesets-main
       if: contains(github.ref_name, 'main')
-      uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
+      uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
       env:
         GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
@@ -104,7 +104,7 @@ jobs:
       run: yarn exec changeset pre enter beta
     - name: Create beta release PR
       if: contains(github.ref_name, 'beta')
-      uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
+      uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
       env:
         GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
@@ -119,7 +119,7 @@ jobs:
       run: yarn exec changeset pre enter next
     - name: Create feature release PR
       if: contains(github.ref_name, 'feature')
-      uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
+      uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
       env:
         GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:

@@ -1,5 +1,33 @@
 # @justeattakeaway/pie-chip
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - moved the chip to stable ([#2957](https://github.com/justeattakeaway/pie/pull/2957)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.15.35
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.17
+  - @justeattakeaway/pie-webc-core@15.0.0
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
+## 0.15.34
+
+### Patch Changes
+
+- [Fixed] - enable hover only for devices that support it ([#2929](https://github.com/justeattakeaway/pie/pull/2929)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.15.33
+
+### Patch Changes
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons-webc@1.25.0
+
 ## 0.15.32
 
 ### Patch Changes

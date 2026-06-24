@@ -101,12 +101,11 @@ test.describe('PieCheckboxGroup - Component tests', () => {
                     await checkboxGroupPage.load({ ...props });
 
                     // Act
-                    const checkboxComponents = await page.locator('pie-checkbox').all();
+                    const checkboxComponents = page.locator('pie-checkbox');
+                    const checkboxCount = await checkboxComponents.count();
 
                     // Assert
-                    checkboxComponents.forEach(async (checkbox) => {
-                        await expect(checkbox.locator('input')).toBeDisabled();
-                    });
+                    await Promise.all(Array.from({ length: checkboxCount }, (_, i) => expect(checkboxComponents.nth(i).locator('input')).toBeDisabled()));
                 });
             });
             test.describe('when false', () => {
@@ -119,12 +118,11 @@ test.describe('PieCheckboxGroup - Component tests', () => {
                     await checkboxGroupPage.load({ ...props });
 
                     // Act
-                    const checkboxComponents = await page.locator('pie-checkbox').all();
+                    const checkboxComponents = page.locator('pie-checkbox');
+                    const checkboxCount = await checkboxComponents.count();
 
                     // Assert
-                    checkboxComponents.forEach(async (checkbox) => {
-                        await expect(checkbox.locator('input')).not.toBeDisabled();
-                    });
+                    await Promise.all(Array.from({ length: checkboxCount }, (_, i) => expect(checkboxComponents.nth(i).locator('input')).not.toBeDisabled()));
                 });
             });
             test('the slotted checkbox component should be disabled if checkbox itself is disabled', async ({ page }) => {

@@ -34,14 +34,11 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Prop              | Options                           | Description                                                                                                                                                                                                                                   | Default   |
 |-------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | `variant`         | `"default"`, `"error"`, `"success"` | Sets the type of message displayed to one of three potential options: `error`, `success` or `default`. `error` and `success` include an icon and are used for validation messages. `default` provides users with extra context and guidance. | `default` |
+| `message`         | `string`                           | The assistive message text content.                                                                                                                                                                                                          | `""`      |
 | `isVisuallyHidden`| `true`, `false`                    | If true, hides the component visually but leaves it accessible for screen readers.                                                                                                                                                           | `false`   |
 
-
 ### Slots
-
-| Slot     | Description                                                  |
-|----------|--------------------------------------------------------------|
-| `default`| The default, unnamed slot is used to pass in text to the component. |
+This component does not have any slots. All content is controlled through properties.
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
@@ -60,8 +57,9 @@ import '@justeattakeaway/pie-webc/components/assistive-text.js'
 ```
 
 ```html
-<pie-assistive-text variant="success">
-  Your request has been submitted.
+<pie-assistive-text
+  variant="success"
+  message="Your request has been submitted.">
 </pie-assistive-text>
 
 <script type="module" src="/main.js"></script>
@@ -75,8 +73,9 @@ import '@justeattakeaway/pie-webc/components/assistive-text.js';
 ```
 
 ```html
-<pie-assistive-text variant="success">
-  Your request has been submitted.
+<pie-assistive-text
+  variant="success"
+  message="Your request has been submitted.">
 </pie-assistive-text>
 ```
 
@@ -85,9 +84,10 @@ import '@justeattakeaway/pie-webc/components/assistive-text.js';
 ```jsx
 import { PieAssistiveText } from '@justeattakeaway/pie-webc/react/assistive-text.js';
 
-<PieAssistiveText variant="success">
-  Your request has been submitted.
-</PieAssistiveText>
+<PieAssistiveText
+  variant="success"
+  message="Your request has been submitted."
+/>
 ```
 
 ## Questions and Support

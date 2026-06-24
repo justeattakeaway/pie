@@ -159,7 +159,7 @@ export const CardWithImage = createCardStory({
         distinctio, officia et soluta
         dicta consequuntur commodi officiis
         tempora asperiores aspernatur atque quas.</p>
-        <img src="https://picsum.photos/200/300?image=0" alt="Sample image" />
+        <img src="./static/images/pie-logo.svg" alt="PIE logo" />
     </div>`,
 });
 

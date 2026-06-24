@@ -1,4 +1,5 @@
 import { type TemplateResult } from 'lit';
+import DOMPurify from 'dompurify';
 
 import { type CookieBannerLocale, type CustomTagEnhancers } from './defs';
 
@@ -132,6 +133,61 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
 
             return enhancerFn(tagContent);
         });
+}
+
+/**
+ * Sanitises an HTML string to allow only safe <a> tags, and normalises anchor
+ * attributes to respect the component's link-target behaviour.
+ *
+ * Uses DOMPurify for the core sanitisation:
+ * - Strips all non-<a> elements (keeping their text content).
+ * - Removes unsafe href protocols (javascript:, data:, vbscript:).
+ * - Removes non-allowlisted attributes (only href, rel, target survive).
+ *
+ * A post-sanitisation hook then enforces target/rel:
+ * - Sets target to linkTarget (overrides any existing target).
+ * - Ensures rel contains "noopener noreferrer" when target="_blank"
+ *   (prevents reverse-tabnabbing).
+ *
+ * In SSR / non-browser environments (no `window`), all HTML is stripped and
+ * only the text content is returned — the client will re-render with the full
+ * sanitisation pass after hydration.
+ */
+export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): string {
+    if (typeof window === 'undefined') {
+        return input.replace(/<[^>]*>/g, '');
+    }
+
+    const normalisedLinkTarget = linkTarget === '_self' ? '_self' : '_blank';
+
+    const enforceAnchorAttributes = (node: Element) => {
+        if (node.tagName !== 'A') return;
+
+        node.setAttribute('target', normalisedLinkTarget);
+
+        if (normalisedLinkTarget !== '_blank') {
+            node.removeAttribute('rel');
+            return;
+        }
+
+        const relTokens = new Set((node.getAttribute('rel') ?? '')
+            .split(/\s+/)
+            .filter(Boolean));
+        relTokens.add('noopener');
+        relTokens.add('noreferrer');
+        node.setAttribute('rel', Array.from(relTokens).join(' '));
+    };
+
+    try {
+        DOMPurify.addHook('afterSanitizeAttributes', enforceAnchorAttributes);
+
+        return DOMPurify.sanitize(input, {
+            ALLOWED_TAGS: ['a'],
+            ALLOWED_ATTR: ['href', 'rel', 'target'],
+        }) as string;
+    } finally {
+        DOMPurify.removeHook('afterSanitizeAttributes');
+    }
 }
 
 /**
