@@ -14,9 +14,6 @@ type SwitchStoryMeta = Meta<SwitchProps>;
 const defaultArgs: SwitchProps = {
     ...defaultProps,
     label: 'Label',
-    aria: {
-        label: 'switch label',
-    },
     name: 'switch',
     value: 'switchValue',
 };
@@ -33,7 +30,7 @@ const switchStoryMeta: SwitchStoryMeta = {
             },
         },
         defaultChecked: {
-            description: 'Same as the HTML checked attribute default value - indicates whether the switch is checked by default and is used when resetting the parent form',
+            description: 'The default checked state of the switch (not necessarily the same as the current checked state). Used when the switch is part of a form that is reset.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.defaultChecked,

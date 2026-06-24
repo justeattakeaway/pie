@@ -2,6 +2,7 @@ import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/switch';
+import '@justeattakeaway/pie-webc/components/button';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -175,8 +176,10 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
     ...props,
 })}
     </section>
-    <button id="resetButton" type="reset">Reset</button>
-    <button id="submitButton" type="submit">Submit</button>
+    <div style="display: flex; gap: var(--dt-spacing-b); align-items: center; margin-top: var(--dt-spacing-c);">
+        <pie-button id="resetButton" type="reset" variant="secondary">Reset</pie-button>
+        <pie-button id="submitButton" type="submit">Submit</pie-button>
+    </div>
     </form>
     <div id="formDataOutput"></div>
 `;
