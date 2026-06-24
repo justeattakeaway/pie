@@ -1,6 +1,7 @@
 import {
     html, unsafeCSS, nothing,
 } from 'lit';
+import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -63,7 +64,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     @query('input[type="checkbox"]')
     private input!: HTMLInputElement;
 
-    @query('label')
+    @query('label, input[type="checkbox"]')
     public focusTarget!: HTMLElement;
 
     private _abortController!: AbortController;
@@ -82,6 +83,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
     connectedCallback (): void {
         super.connectedCallback();
+        this.setAttribute('role', 'presentation');
 
         this._abortController = new AbortController();
         const { signal } = this._abortController;
@@ -207,6 +209,15 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     /**
      * Renders the visible switch label, or nothing when no label is set.
      */
+    private getExternalLabelText (): string | undefined {
+        const text = Array.from(this._internals?.labels ?? [])
+            .map((el) => el.textContent?.trim())
+            .filter(Boolean)
+            .join(' ');
+
+        return text || undefined;
+    }
+
     private renderSwitchLabel () {
         const { label, labelPlacement } = this;
 
@@ -242,8 +253,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             [`c-switch-wrapper--label-${labelPlacement}`]: true,
         };
 
-        return html`
-            <label
+        const tag = unsafeStatic(label ? 'label' : 'div');
+
+        return staticHtml`
+            <${tag}
                 class="${classMap(classes)}"
                 ?disabled=${disabled}>
                 <div
@@ -259,13 +272,13 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         .checked="${live(checked)}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label || label)}">
+                        aria-label="${ifDefined(aria?.label || label || this.getExternalLabelText())}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </div>
                 ${this.renderSwitchLabel()}
-            </label>`;
+            </${tag}>`;
     }
 }
 
