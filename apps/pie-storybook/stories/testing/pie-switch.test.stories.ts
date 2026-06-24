@@ -31,6 +31,12 @@ const switchStoryMeta: SwitchStoryMeta = {
                 summary: defaultProps.checked,
             },
         },
+        defaultChecked: {
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.defaultChecked,
+            },
+        },
         disabled: {
             control: 'boolean',
             defaultValue: {

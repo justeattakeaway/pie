@@ -36,7 +36,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Prop            | Options                                | Description                                                                                                                       | Default     |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------|
 | `checked`        | `true`, `false`                        | Same as the HTML `checked` attribute; indicates whether the switch is on or off.                                                 | `false`     |
-| `defaultChecked` | `true`, `false`                        | Same as the HTML `checked` attribute default value; used when resetting the parent form.                                          | `false`     |
+| `defaultChecked` | `true`, `false`                        | Same as the HTML `checked` attribute default value; indicates whether the switch is checked by default and is used when resetting the parent form. | `false`     |
 | `disabled`       | `true`, `false`                        | Same as the HTML `disabled` attribute; indicates whether the switch is disabled or not.                                          | `false`     |
 | `required`       | `true`, `false`                        | Same as the HTML `required` attribute; indicates whether the switch must be turned on when submitted as part of a form.          | `false`     |
 | `label`          | —                                      | The label text for the switch.                                                                                                   | —           |

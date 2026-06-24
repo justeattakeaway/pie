@@ -32,6 +32,13 @@ const switchStoryMeta: SwitchStoryMeta = {
                 summary: defaultProps.checked,
             },
         },
+        defaultChecked: {
+            description: 'Same as the HTML checked attribute default value - indicates whether the switch is checked by default and is used when resetting the parent form',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.defaultChecked,
+            },
+        },
         disabled: {
             description: 'Same as the HTML disabled attribute - indicates whether the switch is disabled or not',
             control: 'boolean',

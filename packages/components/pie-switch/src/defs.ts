@@ -16,7 +16,7 @@ export interface SwitchProps {
      */
     checked?: boolean;
     /**
-     * Same as the HTML checked attribute default value - used when the parent form is reset
+        * Same as the HTML checked attribute default value - indicates whether the switch is checked by default and is used when resetting the parent form
      */
     defaultChecked?: boolean;
     /**
