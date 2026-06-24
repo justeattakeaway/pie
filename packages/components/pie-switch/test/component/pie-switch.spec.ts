@@ -277,7 +277,7 @@ test.describe('Component: `Pie switch`', () => {
             const switchName = 'switch';
             const switchValue = 'switchValue';
 
-            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const switchPage = new BasePage(page, 'switch--form-integration');
             const props: Partial<SwitchProps> = {
                 required: true,
             };
@@ -290,8 +290,8 @@ test.describe('Component: `Pie switch`', () => {
             await page.click('#submitButton');
 
             // Assert
-            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
-            const formDataObj = JSON.parse(formDataJson || '{}');
+            const formDataOutput = await page.$eval('#formDataOutput', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataOutput || '{}');
 
             // Check if the switch value is in the form data
             expect(switchName in formDataObj).toBe(true);
@@ -300,7 +300,7 @@ test.describe('Component: `Pie switch`', () => {
 
         test('form should be invalid and not submit if the switch is required but not set', async ({ page }) => {
         //     // Arrange
-            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const switchPage = new BasePage(page, 'switch--form-integration');
             const props: Partial<SwitchProps> = {
                 required: true,
             };
@@ -311,13 +311,13 @@ test.describe('Component: `Pie switch`', () => {
             await page.click('#submitButton');
 
             // Assert
-            const formDataJsonElement = await page.$('#formDataJson');
-            expect(formDataJsonElement).toBeNull();
+            const formDataOutput = await page.$eval('#formDataOutput', (el) => el.textContent?.trim() ?? '');
+            expect(formDataOutput).toBe('');
         });
 
         test('should not be included in the submitted form data if disabled and checked', async ({ page }) => {
             // Arrange
-            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const switchPage = new BasePage(page, 'switch--form-integration');
             const props: Partial<SwitchProps> = {
                 checked: true,
                 disabled: true,
@@ -328,15 +328,15 @@ test.describe('Component: `Pie switch`', () => {
             await page.click('#submitButton');
 
             // Assert
-            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
-            const formDataObj = JSON.parse(formDataJson || '{}');
+            const formDataOutput = await page.$eval('#formDataOutput', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataOutput || '{}');
 
             expect(formDataObj.switch).toBeUndefined();
         });
 
         test('should not be included in the submitted form data if disabled and not checked', async ({ page }) => {
             // Arrange
-            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const switchPage = new BasePage(page, 'switch--form-integration');
             const props: Partial<SwitchProps> = {
                 disabled: true,
             };
@@ -346,15 +346,15 @@ test.describe('Component: `Pie switch`', () => {
             await page.click('#submitButton');
 
             // Assert
-            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
-            const formDataObj = JSON.parse(formDataJson || '{}');
+            const formDataOutput = await page.$eval('#formDataOutput', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataOutput || '{}');
 
             expect(formDataObj.switch).toBeUndefined();
         });
 
         test('should reset checked state to defaultChecked true when form is reset', async ({ page }) => {
             // Arrange
-            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const switchPage = new BasePage(page, 'switch--form-integration');
             const props: Partial<SwitchProps> = {
                 checked: false,
                 defaultChecked: true,
@@ -375,7 +375,7 @@ test.describe('Component: `Pie switch`', () => {
 
         test('should reset checked state to defaultChecked false when form is reset', async ({ page }) => {
             // Arrange
-            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const switchPage = new BasePage(page, 'switch--form-integration');
             const props: Partial<SwitchProps> = {
                 checked: false,
                 defaultChecked: false,

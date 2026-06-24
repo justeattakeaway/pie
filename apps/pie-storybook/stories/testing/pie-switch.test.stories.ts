@@ -91,37 +91,50 @@ const changeAction = () => console.info(EXPECTED_EVENT_MESSAGE);
 const submitAction = (event: Event) => {
     event.preventDefault(); // Prevent the actual submission
 
-    const formLog = document.querySelector('#formLog') as HTMLElement;
+    const form = event.currentTarget as HTMLFormElement;
+    const formLog = form.parentElement?.querySelector('#formLog') as HTMLElement | null;
+    const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
 
     // Display a success message to the user when they submit the form
-    formLog.innerHTML = 'Form submitted!';
-    formLog.style.display = 'block';
+    if (formLog) {
+        formLog.innerHTML = 'Form submitted!';
+        formLog.style.display = 'block';
+    }
 
-    // Reset the success message after roughly 8 seconds
-    setTimeout(() => {
-        formLog.innerHTML = '';
-        formLog.style.display = 'none';
-    }, 8000);
-};
-
-const submitActionTestForm = (event: Event) => {
-    event.preventDefault(); // Prevent the actual submission
-
-    const form = document.querySelector('#testForm') as HTMLFormElement;
-
-    // Serialize form data
+    // Serialize form data into an object so tests can assert submitted payload.
     const formData = new FormData(form);
     const formDataObj: Record<string, unknown> = {};
 
-    // Serialize form data into an object
-    formData.forEach((value, key) => { formDataObj[key] = value; });
+    formData.forEach((value, key) => {
+        formDataObj[key] = value;
+    });
 
-    // Append serialized form data as JSON to a hidden element
-    const dataHolder = document.createElement('div');
-    dataHolder.id = 'formDataJson';
-    dataHolder.textContent = JSON.stringify(formDataObj);
-    dataHolder.style.display = 'none';
-    document.body.appendChild(dataHolder);
+    if (output) {
+        output.innerText = JSON.stringify(formDataObj);
+    }
+
+    // Reset the success message after roughly 8 seconds
+    setTimeout(() => {
+        if (formLog) {
+            formLog.innerHTML = '';
+            formLog.style.display = 'none';
+        }
+    }, 8000);
+};
+
+const resetAction = (event: Event) => {
+    const form = event.currentTarget as HTMLFormElement;
+    const formLog = form.parentElement?.querySelector('#formLog') as HTMLElement | null;
+    const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+
+    if (formLog) {
+        formLog.innerHTML = '';
+        formLog.style.display = 'none';
+    }
+
+    if (output) {
+        output.innerText = '';
+    }
 };
 
 const Template : TemplateFunction<SwitchProps> = (props) => {
@@ -155,28 +168,17 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
 
 const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
     <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
-    <form id="testForm" @submit="${submitAction}">
+    <form id="testForm" @submit="${submitAction}" @reset="${resetAction}">
 
     <section>
     ${Template({
     ...props,
 })}
     </section>
-    <button id="submitButton" type="submit"">Submit</button>
-    </form>
-`;
-
-const TestFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
-    <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
-    <form id="testForm" @submit="${submitActionTestForm}" action="/default-endpoint" method="POST">
-
-    <section>
-    ${Template({
-    ...props,
-})}
-    </section>
+    <button id="resetButton" type="reset">Reset</button>
     <button id="submitButton" type="submit">Submit</button>
     </form>
+    <div id="formDataOutput"></div>
 `;
 
 const ExternalLabelsTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
@@ -224,8 +226,6 @@ const createSwitchStory = createStory(Template, defaultArgs);
 
 const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, defaultArgs);
 
-const createSwitchTestStoryWithForm = createStory<SwitchProps>(TestFormTemplate, defaultArgs);
-
 const createSwitchStoryWithExternalLabels = createStory<SwitchProps>(ExternalLabelsTemplate, defaultArgs);
 
 const formIntegrationOnly = {
@@ -243,8 +243,6 @@ export const Default = createSwitchStory({}, {
 });
 
 export const FormIntegration = createSwitchStoryWithForm();
-
-export const TestFormIntegration = createSwitchTestStoryWithForm();
 
 export const ExternalLabels = createSwitchStoryWithExternalLabels();
 
