@@ -83,7 +83,6 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
     connectedCallback (): void {
         super.connectedCallback();
-        this.setAttribute('role', 'presentation');
 
         this._abortController = new AbortController();
         const { signal } = this._abortController;
@@ -206,18 +205,6 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         return this.input.validationMessage;
     }
 
-    /**
-     * Renders the visible switch label, or nothing when no label is set.
-     */
-    private getExternalLabelText (): string | undefined {
-        const text = Array.from(this._internals?.labels ?? [])
-            .map((el) => el.textContent?.trim())
-            .filter(Boolean)
-            .join(' ');
-
-        return text || undefined;
-    }
-
     private renderSwitchLabel () {
         const { label, labelPlacement } = this;
 
@@ -272,7 +259,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         .checked="${live(checked)}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label || label || this.getExternalLabelText())}">
+                        aria-label="${ifDefined(aria?.label || label)}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
