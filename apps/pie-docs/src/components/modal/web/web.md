@@ -32,7 +32,6 @@ shouldShowContents: true
     }
 } %}
 
-
 ---
 
 ## Anatomy
@@ -353,6 +352,7 @@ You can use the Passive modifier for the footer in instances where the user does
 #### Narrow modal
 
 The Narrow modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
+
 - Small: **3:1**
 - Medium: **16:9**
 - Large: **4:3**
@@ -387,6 +387,7 @@ The Narrow modal component supports three fixed aspect ratios for imagery. To pr
 #### Wide modal
 
 The wide modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
+
 - Small: **4:1**
 - Medium: **3:1**
 - Large: **21:9**
@@ -415,39 +416,6 @@ The wide modal component supports three fixed aspect ratios for imagery. To prev
   src: "../../../assets/img/components/modal/imagery-usage-wide-ratio-large.svg",
   alt: "A wide Modal with an image assigned with a large aspect ratio.",
   width: 478
-} %}
-
-### Overrides
-
-#### Title
-
-{% contentPageImage {
-    src: "../../../assets/img/components/modal/overrides-title.svg",
-    alt: "Two Modals are displayed, the first in regular style title, the second in emphasised style.",
-    shouldShowPadding: true
-} %}
-
-{% list {
-    type: listTypes.ordered,
-    items: [
-        "**Title:** Title can be overridden to use any of the **Heading** font tokens. As a  default state, the title will use **Heading M / Narrow**. When the prominent toggle is engaged, **Heading XL / Narrow italic** is applied."
-    ]
-} %}
-
-#### Buttons
-
-{% contentPageImage {
-    src: "../../../assets/img/components/modal/overrides-buttons.svg",
-    alt: "A Modal with custom buttons in its footer.",
-    shouldShowPadding: true,
-    width: 600
-} %}
-
-{% list {
-    type: listTypes.ordered,
-    items: [
-        "**Buttons:** The Button's size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
-    ]
 } %}
 
 ---
@@ -516,18 +484,102 @@ The wide small and optionally medium size, has the corresponding responsive opti
 
 ## Content
 
-### Overrides
-
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/content-overrides.svg",
-    alt: "A Modal with 75% width on a mobile screen.",
+    src: "../../../assets/img/components/modal/content-overview.svg",
+    alt: "A Modal component with each content section highlighted.",
     width: 336
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Buttons:** The [Button's](/components/button/) size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
+        "**Title:** Always display.",
+        "**Close button:** Displayed by default.",
+        "**Body:** Text or slot.",
+        "**Primary action:** Displayed by default.",
+        "**Secondary action:** Displayed by default.",
+        "**Footer content:** Text or slot."
+    ]
+} %}
+
+### Title
+
+- Ensure the title clearly communicates the purpose or topic of the dialog.
+- Keep the title brief and to the point, avoiding unnecessary wording.
+- Make sure the title directly relates to the content of the dialog, helping users understand its significance.
+- Maintain consistency in tone and style with the rest of the application's UI for a cohesive user experience.
+- Titles have the ability to toggle on and off prominence: **Default (Heading M/Narrow)** and **Prominent (Heading XL/Narrow italic)**.
+- Close action has the ability to toggle on and off.
+
+### Body
+
+- Provide clear and concise information or instructions that help users understand the context or purpose of the dialog.
+- Include only essential details relevant to the user's current task or decision-making process, avoiding unnecessary information.
+
+### Primary and Secondary buttons (Call to action)
+
+- Clearly label each call to action to indicate its purpose and the outcome of selecting it.
+- Use verbs that prompt immediate action and clearly convey what will happen when the user selects the option.
+- Use language that is familiar and understandable to the target audience, avoiding technical or industry-specific terms that may confuse users.
+
+### Footer content
+
+- Use it for non-interactive, secondary information such as disclaimers, terms and conditions, legal text, and specific offer restrictions.
+- Do not use it for primary actions or critical messaging. Content here must be purely supplementary and non-essential to completing the main task of the modal.
+- Keep footer content clear and concise, ensuring it supports rather than distracts from the primary task.
+- **For engineers only:** The footer can be used to house action buttons when you need fine-grained control over button disabled states or custom interactions (e.g. checkboxes that must be ticked to enable the CTA button, using CTA to close the modal).
+
+### Overrides
+
+#### Title
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/overrides-title.svg",
+    alt: "Two Modals are displayed, the first in regular style title, the second in emphasised style.",
+    shouldShowPadding: true
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Title:** Title can be overridden to use any of the **Heading** font tokens. As a  default state, the title will use **Heading M / Narrow**. When the prominent toggle is engaged, **Heading XL / Narrow italic** is applied."
+    ]
+} %}
+
+#### Buttons
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/overrides-buttons.svg",
+    alt: "A Modal with custom buttons in its footer.",
+    shouldShowPadding: true,
+    width: 600
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Buttons:** The Button's size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
+    ]
+} %}
+
+### Slots available
+
+{% notification {
+  type: "information",
+  message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)."
+} %}
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviours-slots-slots-available.svg",
+  alt: "A diagram displaying the available slots for the Modal content and footer.",
+  width: 600
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Body Slot:** Available as a variant",
+        "**Footer slot:** Hidden by default"
     ]
 } %}
 
@@ -567,53 +619,6 @@ If the user tries to continue without selecting the checkbox, it enters an error
   src: "../../../assets/img/components/modal/behaviours-checkbox-error-on-continuation.svg",
   alt: "Two Modals are displayed, where the second is in an error state due to an unselected checkbox.",
   width: 600
-} %}
-
-### Slot
-
-Our Dialogs use Slots which ensure the component is flexible without the need to detach it from it's original instance. If you want to learn more about slots and how to use them, please check the [Slots documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/-Core--Apps-Component-Documentation--PIE-3-?node-id=1186-22660&t=R7r9Jyli06pRl2MI-4).
-
-{% notification {
-  type: "information",
-  message: "This [video](https://www.youtube.com/watch?v=4zchQIxeBNM) will show you the steps you need to use a Slot."
-} %}
-
-### Quick guide for working with slots
-
-Slots within components can be swapped for any type of content. Here are the steps you need to take when working with slots within your components:
-
-{% list {
-    type: listTypes.ordered,
-    items: [
-        "Create a new frame.",
-        "Design the contents that will replace the slot inside the new frame.",
-        "Once you're happy with the contents, make it a ❖ component (Cmnd+Alt+K).",
-        "Give your component a meaningful name so you can find it during step 5.",
-        "Select the nested Slot within the original component and replace it with the component you created.",
-        "Make sure your new component uses Auto layout so it can be resized properly."
-    ]
-} %}
-
-{% contentPageImage {
-  src: "../../../assets/img/components/modal/behaviours-slots-quick-guide.svg",
-  alt: "A diagram showing how to use the Modal content slot.",
-  width: 600
-} %}
-
-### Slots available
-
-{% contentPageImage {
-  src: "../../../assets/img/components/modal/behaviours-slots-slots-available.svg",
-  alt: "A diagram displaying the available slots for the Modal content and footer.",
-  width: 600
-} %}
-
-{% list {
-    type: listTypes.ordered,
-    items: [
-        "**Body Slot:** Available as a variant",
-        "**Footer slot:** Hidden by default"
-    ]
 } %}
 
 ---
