@@ -66,7 +66,7 @@ caption: "The image above shows Figma’s Auto layout controls."
 
 Guidance on how to use Figma slots in PIE components and in your own designs.
 
-### What is Figma slot?
+### What is a Figma slot?
 
 Figma slot is a feature in Figma that enables more flexible component usage by allowing designers to add, edit, and organise content within predefined areas of a component.
 

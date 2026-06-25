@@ -11,7 +11,7 @@ description: This page provides different resources for working with agentic AIs
 
 A skill.md is a structured markdown file used to extend the functionality of an AI agent. It allows the agent to perform repetitive tasks following instructions with special knowledge of a specific domain.
 
-Contact us on the `#help-designsystem` channel in you have any questions about how to use these skills or if you want to request a new skill to be added to the list.
+Contact us on the `#help-designsystem` channel if you have any questions about how to use these skills or if you want to request a new skill to be added to the list.
 
 {% notification {
   type: "warning",
