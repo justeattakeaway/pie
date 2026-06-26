@@ -1,34 +1,189 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/accordion';
-import { type AccordionProps } from '@justeattakeaway/pie-webc/components/accordion';
+import '@justeattakeaway/pie-icons-webc/dist/IconRestaurantFilled.js';
+import {
+    type AccordionProps,
+    headingLevels,
+    sizes,
+    iconSizes,
+    defaultProps,
+} from '@justeattakeaway/pie-webc/components/accordion';
 
-import { createStory } from '../utilities';
+import { type SlottedComponentProps } from '../types';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
-type AccordionStoryMeta = Meta<AccordionProps>;
+type AccordionStoryProps = SlottedComponentProps<AccordionProps>;
+type AccordionStoryMeta = Meta<AccordionStoryProps>;
 
-const defaultArgs: AccordionProps = {};
+const defaultArgs: AccordionStoryProps = {
+    ...defaultProps,
+    headingLabel: 'Delivery information',
+    slot: 'Your order will be delivered between 30 and 45 minutes after placing your order.',
+};
 
 const accordionStoryMeta: AccordionStoryMeta = {
     title: 'Components/Accordion',
     component: 'pie-accordion',
-    argTypes: {},
+    argTypes: {
+        isOpen: {
+            description: 'When `true`, the accordion panel is expanded.',
+            control: 'boolean',
+            defaultValue: { summary: defaultProps.isOpen },
+        },
+        headingLabel: {
+            description: 'The text content for the accordion heading button.',
+            control: 'text',
+        },
+        headingLevel: {
+            description: 'The HTML heading element level (h1-h6) wrapping the trigger.',
+            control: 'select',
+            options: headingLevels,
+            defaultValue: { summary: defaultProps.headingLevel },
+        },
+        secondaryLabel: {
+            description: 'Optional secondary line of text displayed below the heading label.',
+            control: 'text',
+        },
+        iconSize: {
+            description: 'Controls the icon slot wrapper size.',
+            control: 'select',
+            options: iconSizes,
+            defaultValue: { summary: defaultProps.iconSize },
+        },
+        size: {
+            description: 'Controls the responsive layout. `auto` is responsive; `narrow`/`wide` force the respective layout.',
+            control: 'select',
+            options: sizes,
+            defaultValue: { summary: defaultProps.size },
+        },
+        isEmphasisReduced: {
+            description: 'When `true`, applies reduced-emphasis typography to the heading.',
+            control: 'boolean',
+            defaultValue: { summary: defaultProps.isEmphasisReduced },
+        },
+        isDividerEnabled: {
+            description: 'When `true` (default), renders a `pie-divider` at the bottom.',
+            control: 'boolean',
+            defaultValue: { summary: defaultProps.isDividerEnabled },
+        },
+        slot: {
+            description: 'Content placed in the default slot (accordion panel body).',
+            control: 'text',
+        },
+    },
     args: defaultArgs,
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/-Core--Web-Component-Documentation--PIE-3-?node-id=21880-4486',
         },
     },
 };
 
 export default accordionStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: AccordionProps) => html`
-    <pie-accordion></pie-accordion>
+const toggleAction = action('pie-accordion-toggle');
+
+const Template: TemplateFunction<AccordionStoryProps> = ({
+    isOpen,
+    headingLabel,
+    headingLevel,
+    secondaryLabel,
+    iconSize,
+    size,
+    isEmphasisReduced,
+    isDividerEnabled,
+    slot,
+}) => html`
+    <div style="min-width: 320px;">
+        <pie-accordion
+            headingLabel="${headingLabel}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?isOpen="${isOpen}"
+            ?isEmphasisReduced="${isEmphasisReduced}"
+            ?isDividerEnabled="${isDividerEnabled}"
+            iconSize="${ifDefined(iconSize)}"
+            size="${ifDefined(size)}"
+            secondaryLabel="${ifDefined(secondaryLabel)}"
+            @pie-accordion-toggle="${toggleAction}">
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-accordion>
+    </div>
 `;
 
-export const Default = createStory<AccordionProps>(Template, defaultArgs)();
+const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
+    isOpen,
+    headingLabel,
+    headingLevel,
+    secondaryLabel,
+    iconSize,
+    size,
+    isEmphasisReduced,
+    isDividerEnabled,
+    slot,
+}) => html`
+    <div style="min-width: 320px;">
+        <pie-accordion
+            headingLabel="${headingLabel}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?isOpen="${isOpen}"
+            ?isEmphasisReduced="${isEmphasisReduced}"
+            ?isDividerEnabled="${isDividerEnabled}"
+            iconSize="${ifDefined(iconSize)}"
+            size="${ifDefined(size)}"
+            secondaryLabel="${ifDefined(secondaryLabel)}"
+            @pie-accordion-toggle="${toggleAction}">
+            <icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-accordion>
+    </div>
+`;
+
+const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, size }) => html`
+    <pie-accordion
+        headingLabel="Delivery information"
+        headingLevel="${ifDefined(headingLevel)}"
+        size="${ifDefined(size)}"
+        ?isOpen="${true}"
+        @pie-accordion-toggle="${toggleAction}">
+        Your order will be delivered between 30 and 45 minutes after placing your order.
+    </pie-accordion>
+    <pie-accordion
+        headingLabel="Payment methods"
+        headingLevel="${ifDefined(headingLevel)}"
+        size="${ifDefined(size)}"
+        @pie-accordion-toggle="${toggleAction}">
+        We accept Visa, Mastercard, PayPal, and cash on delivery.
+    </pie-accordion>
+    <pie-accordion
+        headingLabel="Allergen information"
+        headingLevel="${ifDefined(headingLevel)}"
+        size="${ifDefined(size)}"
+        secondaryLabel="Updated today"
+        @pie-accordion-toggle="${toggleAction}">
+        Please contact the restaurant directly for allergen information about specific dishes.
+    </pie-accordion>
+    <pie-accordion
+        headingLabel="Restaurant contact"
+        headingLevel="${ifDefined(headingLevel)}"
+        size="${ifDefined(size)}"
+        ?isDividerEnabled="${false}"
+        @pie-accordion-toggle="${toggleAction}">
+        Call +44 20 7123 4567 or email hello@restaurant.com
+    </pie-accordion>
+`;
+
+const createAccordionStory = createStory<AccordionStoryProps>(Template, defaultArgs);
+
+export const Default = createAccordionStory();
+export const Open = createAccordionStory({ isOpen: true });
+export const WithIcon = createStory<AccordionStoryProps>(WithIconTemplate, defaultArgs)();
+export const WithSecondaryLabel = createAccordionStory({ secondaryLabel: 'Available in your area' });
+export const EmphasisReduced = createAccordionStory({ isEmphasisReduced: true });
+export const Stacked = createStory<AccordionStoryProps>(StackedTemplate, defaultArgs)();
+export const SizeWide = createAccordionStory({ size: 'wide' });
+export const SizeNarrow = createAccordionStory({ size: 'narrow' });
