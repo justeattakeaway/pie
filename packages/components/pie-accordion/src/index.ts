@@ -93,6 +93,7 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
                         ${secondaryLabel ? html`<span class="c-accordion-secondaryLabel">${secondaryLabel}</span>` : nothing}
                     </span>
                     <icon-chevron-up
+                        size="m"
                         aria-hidden="true"
                         class="c-accordion-chevron"
                     ></icon-chevron-up>

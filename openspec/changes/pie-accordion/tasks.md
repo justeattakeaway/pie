@@ -55,15 +55,15 @@
 
 ## 7. Storybook Stories
 
-- [ ] 7.1 Create a default story with `headingLabel`, default props, and a paragraph of slotted content
-- [ ] 7.2 Add stories for `isOpen: true` (expanded) and `isOpen: false` (collapsed)
-- [ ] 7.3 Add a story for `isEmphasisReduced`
-- [ ] 7.4 Add a story for `size="narrow"` and `size="wide"`
-- [ ] 7.5 Add a story with icon slot populated
-- [ ] 7.6 Add a story with `secondaryLabel`
-- [ ] 7.7 Add a story with `isDividerEnabled: false`
-- [ ] 7.8 Add a stacked example (3–4 accordions) showing typical real-world usage
-- [ ] 7.9 Add an RTL story
+- [x] 7.1 Create a default story with `headingLabel`, default props, and a paragraph of slotted content
+- [x] 7.2 Add stories for `isOpen: true` (expanded) and `isOpen: false` (collapsed)
+- [x] 7.3 Add a story for `isEmphasisReduced`
+- [x] 7.4 Add a story for `size="narrow"` and `size="wide"`
+- [x] 7.5 Add a story with icon slot populated
+- [x] 7.6 Add a story with `secondaryLabel`
+- [x] 7.7 Add a story with `isDividerEnabled: false`
+- [x] 7.8 Add a stacked example (3–4 accordions) showing typical real-world usage
+- [x] 7.9 Add an RTL story
 
 ## 8. Browser Tests
 
@@ -82,3 +82,4 @@
 
 - [ ] 9.1 Update `README.md` with all required sections: npm badge, Table of Contents, Documentation (Properties, Slots, Events, CSS Variables), Usage Examples, Questions and Support, Contributing
 - [ ] 9.2 Run `yarn changeset` and write entry: `[Added] - New pie-accordion component`
+- [ ] 9.3 Add `package.json` `pieMetadata` entry
