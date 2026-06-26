@@ -64,6 +64,9 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     @query('input[type="checkbox"]')
     private input!: HTMLInputElement;
 
+    @query('.c-switch')
+    private switchBody!: HTMLElement;
+
     @query('label, input[type="checkbox"]')
     public focusTarget!: HTMLElement;
 
@@ -98,7 +101,8 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             // of the click was the host element itself (e.g., via an external label).
             // This ignores clicks bubbling up from the internal shadow DOM and prevents loops.
             // Also forward clicks from the visual switch body when no internal label exists.
-            if (source === this || (!this.label && source instanceof HTMLElement && source.closest('.c-switch'))) {
+            const isInsideSwitchBody = !this.label && event.composedPath().includes(this.switchBody);
+            if (source === this || isInsideSwitchBody) {
                 this.input.click();
             }
         }, { signal });
