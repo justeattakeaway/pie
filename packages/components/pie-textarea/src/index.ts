@@ -112,12 +112,12 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this.handleInput(null, this.value);
         }
 
-        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
+        if (this.resize === 'auto' && ((changedProperties.has('resize') || changedProperties.has('size')) || changedProperties.has('rows'))) {
             this.handleResize();
         }
 
-        if ((changedProperties.has('rows') || changedProperties.has('resize')) && (this.resize === 'auto' && this.rows !== undefined && this.rows < 2)) {
-            console.warn('pie-textarea: `rows` can be adjusted and set to `1` manually when `resize` is set to `manual`');
+        if (this.resize === 'manual' && ((changedProperties.has('rows') || changedProperties.has('size')))) {
+            this._textarea.style.height = '';
         }
     }
 

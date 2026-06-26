@@ -82,7 +82,7 @@ export interface TextareaProps {
     maxlength?: number;
 
     /**
-     * The number of rows to display in the textarea. Defaults to 2 if resize is set to auto, can be set to 1 if resize is set to manual.
+     * The number of visible rows in the textarea. Defaults to 2 when resize is auto, with a maximum of 6 rows. Can be set to 1 when resize is manual, in which case there is no maximum.
      */
     rows?: number;
 }
