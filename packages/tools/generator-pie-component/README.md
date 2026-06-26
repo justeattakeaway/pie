@@ -29,6 +29,9 @@ Build the generator package locally (it is recommended you force the build)
 $ yarn build --filter=@justeattakeaway/generator-pie-component --force
 ```
 
+The warning message below is not meaningful and can be ignored:
+> no output files found for task @justeattakeaway/generator-pie-component#build. Please check your `outputs` key in `turbo.json`
+
 ### Generating a new component
 
 To run the generator, use this command from the root directory within the monorepo:
