@@ -7,6 +7,8 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import styles from './accordion.scss?inline';
 import { type AccordionProps } from './defs';
+import '@justeattakeaway/pie-divider';
+import '@justeattakeaway/pie-icons-webc/dist/IconChevronUp.js';
 
 // Valid values available to consumers
 export * from './defs';
