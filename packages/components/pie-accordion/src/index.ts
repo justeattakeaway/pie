@@ -1,5 +1,6 @@
-import { html, unsafeCSS } from 'lit';
+import { nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
+import { html, unsafeStatic } from 'lit/static-html.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
     RtlMixin,
@@ -26,7 +27,6 @@ const componentSelector = 'pie-accordion';
 /**
  * @tagname pie-accordion
  * @slot icon - Optional leading icon displayed in the trigger.
- * @slot secondary - Optional secondary text. Overrides the secondaryLabel prop.
  * @slot - Default slot for the accordion panel content.
  * @event {CustomEvent} pie-accordion-toggle - Dispatched when the trigger is clicked. Detail: { isOpen: boolean }
  */
@@ -68,7 +68,49 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
     }
 
     render () {
-        return html`<h1 data-test-id="pie-accordion">Hello world!</h1>`;
+        const {
+            headingLevel, headingLabel, secondaryLabel, isOpen, isDividerEnabled,
+        } = this;
+        const tag = unsafeStatic(headingLevel ?? 'h2');
+
+        return html`
+            <${tag}
+                id="${this._headingId}"
+                part="heading"
+                class="c-accordion-heading"
+            >
+                <button
+                    id="${this._buttonId}"
+                    class="c-accordion-trigger"
+                    aria-expanded="${isOpen}"
+                    aria-controls="${this._panelId}"
+                    @click="${this._handleTriggerClick}"
+                    data-test-id="${this._buttonId}"
+                >
+                    <slot name="icon" part="icon" class="c-accordion-icon"></slot>
+                    <span class="c-accordion-labels">
+                        <span class="c-accordion-headingLabel">${headingLabel}</span>
+                        ${secondaryLabel ? html`<span class="c-accordion-secondaryLabel">${secondaryLabel}</span>` : nothing}
+                    </span>
+                    <icon-chevron-up
+                        aria-hidden="true"
+                        class="c-accordion-chevron"
+                    ></icon-chevron-up>
+                </button>
+            </${tag}>
+            <div
+                id="${this._panelId}"
+                role="region"
+                aria-labelledby="${this._buttonId}"
+                part="panel"
+                class="c-accordion-panel"
+                ?hidden="${!isOpen}"
+                data-test-id="${this._panelId}"
+            >
+                <slot></slot>
+            </div>
+            ${isDividerEnabled ? html`<pie-divider></pie-divider>` : nothing}
+        `;
     }
 
     static styles = unsafeCSS(styles);

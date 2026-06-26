@@ -20,15 +20,15 @@
 
 ## 4. Render / Markup
 
-- [ ] 4.1 Implement the heading wrapper using `staticHtml` + `unsafeStatic` from `lit/static-html.js` to render the dynamic `headingLevel` element with correct `id`
-- [ ] 4.2 Render the trigger `<button>` inside the heading with `aria-expanded`, `aria-controls`, and `id` attributes
-- [ ] 4.3 Render the `<slot name="icon">` inside the button with `part="icon"`
-- [ ] 4.4 Render `headingLabel` text node inside the button
-- [ ] 4.5 Conditionally render `secondaryLabel` text below heading text when set
-- [ ] 4.6 Render `<pie-icon-chevron-up>` with `aria-hidden="true"` at the trailing edge of the button
-- [ ] 4.7 Render the panel `<div>` with `role="region"`, `aria-labelledby` (button ID), `part="panel"`, and the default `<slot>`
-- [ ] 4.8 Apply/remove the `hidden` attribute on the panel based on `isOpen`
-- [ ] 4.9 Conditionally render `<pie-divider>` after the panel when `isDividerEnabled` is `true`
+- [x] 4.1 Implement the heading wrapper using `staticHtml` + `unsafeStatic` from `lit/static-html.js` to render the dynamic `headingLevel` element with correct `id`
+- [x] 4.2 Render the trigger `<button>` inside the heading with `aria-expanded`, `aria-controls`, and `id` attributes
+- [x] 4.3 Render the `<slot name="icon">` inside the button with `part="icon"`
+- [x] 4.4 Render `headingLabel` text node inside the button
+- [x] 4.5 Conditionally render `secondaryLabel` text below heading text when set
+- [x] 4.6 Render `<pie-icon-chevron-up>` with `aria-hidden="true"` at the trailing edge of the button
+- [x] 4.7 Render the panel `<div>` with `role="region"`, `aria-labelledby` (button ID), `part="panel"`, and the default `<slot>`
+- [x] 4.8 Apply/remove the `hidden` attribute on the panel based on `isOpen`
+- [x] 4.9 Conditionally render `<pie-divider>` after the panel when `isDividerEnabled` is `true`
 
 ## 5. Styling
 
