@@ -32,18 +32,18 @@
 
 ## 5. Styling
 
-- [ ] 5.1 Set up container query on the host element in `accordion.scss` for responsive `auto` mode
-- [ ] 5.2 Implement wide layout styles (default above breakpoint)
-- [ ] 5.3 Implement narrow layout styles (below breakpoint, or forced via `size="narrow"`)
-- [ ] 5.4 Add `[size="narrow"]` and `[size="wide"]` host attribute selectors to override container query
-- [ ] 5.5 Style the trigger button: full-width, flex layout, cursor pointer, background transparent, no default border
-- [ ] 5.6 Apply heading typography tokens: `--dt-font-heading-s-size--narrow` and `--dt-font-heading-s-line-height--narrow` by default; override with `--dt-font-heading-s-size--wide` and `--dt-font-heading-s-line-height--wide` inside `@media (min-width: $breakpoint-wide)`
-- [ ] 5.7 Apply reduced typography tokens when `isEmphasisReduced` is `true` (host `[isemphasisreduced]` selector)
-- [ ] 5.8 Apply secondary label typography tokens (Body Large/Large, 16px, Regular)
-- [ ] 5.9 Apply chevron rotation: `transform: rotate(180deg)` when `isOpen` is `false`
-- [ ] 5.10 Implement Default, Hover, Active, and Focus interactive states on the button
-- [ ] 5.11 Suppress hover styles on touch devices using `@media (hover: none)`
-- [ ] 5.12 Implement RTL layout: swap icon and chevron using logical CSS properties and `:host-context([dir="rtl"])` or `RtlMixin`-driven class
+- [x] 5.1 Set up container query on the host element in `accordion.scss` for responsive `auto` mode
+- [x] 5.2 Implement wide layout styles (default above breakpoint)
+- [x] 5.3 Implement narrow layout styles (below breakpoint, or forced via `size="narrow"`)
+- [x] 5.4 Add `[size="narrow"]` and `[size="wide"]` host attribute selectors to override container query
+- [x] 5.5 Style the trigger button: full-width, flex layout, cursor pointer, background transparent, no default border
+- [x] 5.6 Apply heading typography tokens: `--dt-font-heading-s-size--narrow` and `--dt-font-heading-s-line-height--narrow` by default; override with `--dt-font-heading-s-size--wide` and `--dt-font-heading-s-line-height--wide` inside `@media (min-width: $breakpoint-wide)`
+- [x] 5.7 Apply reduced typography tokens when `isEmphasisReduced` is `true` (host `[isemphasisreduced]` selector)
+- [x] 5.8 Apply secondary label typography tokens (Body Large/Large, 16px, Regular)
+- [x] 5.9 Apply chevron rotation: `transform: rotate(180deg)` when `isOpen` is `false`
+- [x] 5.10 Implement Default, Hover, Active, and Focus interactive states on the button
+- [x] 5.11 Suppress hover styles on touch devices using `@media (hover: none)`
+- [x] 5.12 Implement RTL layout: swap icon and chevron using logical CSS properties and `:host-context([dir="rtl"])` or `RtlMixin`-driven class
 
 ## 6. Accessibility
 
