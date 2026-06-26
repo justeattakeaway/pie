@@ -47,11 +47,11 @@
 
 ## 6. Accessibility
 
-- [ ] 6.1 Verify that `aria-expanded` toggles correctly with `isOpen` via browser test
-- [ ] 6.2 Verify that `aria-controls` on the button matches `id` on the panel
-- [ ] 6.3 Verify the panel has `role="region"` and correct `aria-labelledby`
-- [ ] 6.4 Verify keyboard: Space and Enter dispatch `pie-accordion-toggle`; Tab moves focus without toggling
-- [ ] 6.5 Run axe-core accessibility test via the existing accessibility test setup
+- [x] 6.1 Verify that `aria-expanded` toggles correctly with `isOpen` via browser test
+- [x] 6.2 Verify that `aria-controls` on the button matches `id` on the panel
+- [x] 6.3 Verify the panel has `role="region"` and correct `aria-labelledby`
+- [x] 6.4 Verify keyboard: Space and Enter dispatch `pie-accordion-toggle`; Tab moves focus without toggling
+- [x] 6.5 Run axe-core accessibility test via the existing accessibility test setup
 
 ## 7. Storybook Stories
 
