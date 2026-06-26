@@ -7,10 +7,10 @@
 
 ## 2. Dependencies
 
-- [ ] 2.1 Add `@justeattakeaway/pie-divider` as a dependency in `package.json`
-- [ ] 2.2 Add `@justeattakeaway/pie-icons-webc` as a dependency in `package.json`
-- [ ] 2.3 Import `PieDivider` and register it in `index.ts`
-- [ ] 2.4 Import `IconChevronUp` from `@justeattakeaway/pie-icons-webc` in `index.ts`
+- [x] 2.1 Add `@justeattakeaway/pie-divider` as a dependency in `package.json`
+- [x] 2.2 Add `@justeattakeaway/pie-icons-webc` as a dependency in `package.json`
+- [x] 2.3 Import `PieDivider` and register it in `index.ts`
+- [x] 2.4 Import `IconChevronUp` from `@justeattakeaway/pie-icons-webc` in `index.ts`
 
 ## 3. Component Class
 
