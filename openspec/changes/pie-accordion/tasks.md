@@ -14,9 +14,9 @@
 
 ## 3. Component Class
 
-- [ ] 3.1 Declare all props as `@property` decorated class members in `PieAccordion`
-- [ ] 3.2 Declare IDs for heading, button, and panel elements
-- [ ] 3.3 Implement `_handleTriggerClick` method that dispatches `pie-accordion-toggle` via `dispatchCustomEvent` with `{ isOpen: this.isOpen }`
+- [x] 3.1 Declare all props as `@property` decorated class members in `PieAccordion`
+- [x] 3.2 Declare IDs for heading, button, and panel elements
+- [x] 3.3 Implement `_handleTriggerClick` method that dispatches `pie-accordion-toggle` via `dispatchCustomEvent` with `{ isOpen: this.isOpen }`
 
 ## 4. Render / Markup
 
