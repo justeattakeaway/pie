@@ -13,6 +13,10 @@ type SwitchStoryMeta = Meta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
     ...defaultProps,
+    aria: {
+        label: 'switch label',
+        describedBy: 'switch description',
+    },
     label: 'Label',
     name: 'switch',
     value: 'switchValue',
@@ -227,6 +231,7 @@ const MultiSwitchFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchPro
     name: 'onion',
     aria: {
         label: 'a custom label for the onion switch',
+        describedBy: 'a custom description for the onion switch',
     },
     value: 'onion_yes',
     checked: false,

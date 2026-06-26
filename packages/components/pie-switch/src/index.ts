@@ -212,6 +212,23 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         return this.input.validationMessage;
     }
 
+    private renderAriaDescription () {
+        if (!this.aria?.describedBy) {
+            return nothing;
+        }
+
+        // we apply aria-hidden to the element containing the description because it prevents some screen readers such as Apple VoiceOver from announcing the description once
+        // on the input and again separately. The description is still announced once, when the input is focused/selected.
+        return html`
+            <div
+                aria-hidden="true"
+                id="switch-description"
+                data-test-id="switch-description"
+                class="c-switch-description">
+                ${this.aria.describedBy}
+            </div>`;
+    }
+
     private renderSwitchLabel () {
         const { label, labelPlacement } = this;
 
@@ -266,12 +283,14 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         .checked="${live(checked)}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label || label)}">
+                        aria-label="${ifDefined(aria?.label || label)}"
+                        aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </div>
                 ${this.renderSwitchLabel()}
+                ${this.renderAriaDescription()}
             </${tag}>`;
     }
 }

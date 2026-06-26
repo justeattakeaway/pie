@@ -249,6 +249,46 @@ test.describe('Component: `Pie switch`', () => {
                 await expect(switchInput).toHaveAttribute('aria-label', 'Aria label');
             });
         });
+
+        test.describe('when describedBy exist', () => {
+            const ariaDescriptionText = 'Aria description';
+
+            test('should render the component with the correct description id', async ({ page }) => {
+                // Arrange
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    aria: {
+                        describedBy: ariaDescriptionText,
+                    },
+                };
+
+                await switchPage.load({ ...props });
+
+                // Act
+                const switchInput = page.getByTestId(pieSwitch.selectors.input.dataTestId);
+
+                // Assert
+                await expect(switchInput).toHaveAttribute('aria-describedby', 'switch-description');
+            });
+
+            test('should render a description element with the correct text', async ({ page }) => {
+                // Arrange
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    aria: {
+                        describedBy: ariaDescriptionText,
+                    },
+                };
+
+                await switchPage.load({ ...props });
+
+                // Act
+                const ariaDescriptionElement = page.getByTestId(pieSwitch.selectors.ariaDescription.dataTestId);
+
+                // Assert
+                await expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
+            });
+        });
     });
 
     test.describe('Props: `LabelProps`', () => {

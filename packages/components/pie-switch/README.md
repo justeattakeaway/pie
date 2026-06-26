@@ -41,7 +41,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `required`       | `true`, `false`                        | Same as the HTML `required` attribute; indicates whether the switch must be turned on when submitted as part of a form.          | `false`     |
 | `label`          | —                                      | The label text for the switch.                                                                                                   | —           |
 | `labelPlacement` | `"leading"`, `"trailing"`              | Set the placement of the label. Leading will have the label before the switch, taking writing direction into account.            | `"leading"` |
-| `aria`           | `{ label?: string }`                       | The ARIA labels used for the switch.                                                                                             | `undefined` |
+| `aria`           | `{ label?: string, describedBy?: string }` | The ARIA labels used for the switch.                                                                                             | `undefined` |
 | `name`           | —                                      | Indicates the name of the switch (for use with forms).                                                                            | —           |
 | `value`          | —                                      | Indicates the value of the switch (for use with forms).                                                                           | `"on"`      |
 

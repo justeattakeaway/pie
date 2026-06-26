@@ -116,6 +116,11 @@
     color: var(--dt-color-content-default-solid);
 }
 
+// The description is only required for screen readers so we need to visually hide the description
+.c-switch-description {
+    @include p.visually-hidden;
+}
+
 .c-switch-wrapper--label-leading {
     flex-direction: row-reverse;
 }

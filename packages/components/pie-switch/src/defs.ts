@@ -3,7 +3,8 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 export const labelPlacements = ['leading', 'trailing'] as const;
 
 type AriaProps = {
-    label?: string
+    label?: string,
+    describedBy?: string
 };
 
 export interface SwitchProps {

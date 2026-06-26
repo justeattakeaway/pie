@@ -14,6 +14,10 @@ type SwitchStoryMeta = Meta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
     ...defaultProps,
+    aria: {
+        label: 'switch label',
+        describedBy: 'switch description',
+    },
     label: 'Label',
     name: 'switch',
     value: 'switchValue',
