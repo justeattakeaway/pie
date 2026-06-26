@@ -158,10 +158,12 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
         return input.replace(/<[^>]*>/g, '');
     }
 
+    // Define the allowed tags in uppercase to match node.tagName
+    const ALLOWED_LINK_TAGS = ['A', 'PIE-LINK'];
     const normalisedLinkTarget = linkTarget === '_self' ? '_self' : '_blank';
 
     const enforceAnchorAttributes = (node: Element) => {
-        if (node.tagName !== 'A') return;
+        if (!ALLOWED_LINK_TAGS.includes(node.tagName)) return;
 
         node.setAttribute('target', normalisedLinkTarget);
 
@@ -182,7 +184,8 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
         DOMPurify.addHook('afterSanitizeAttributes', enforceAnchorAttributes);
 
         return DOMPurify.sanitize(input, {
-            ALLOWED_TAGS: ['a'],
+            // Convert to lowercase for DOMPurify's config config
+            ALLOWED_TAGS: ALLOWED_LINK_TAGS.map((tag) => tag.toLowerCase()),
             ALLOWED_ATTR: ['href', 'rel', 'target'],
         }) as string;
     } finally {

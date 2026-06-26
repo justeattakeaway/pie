@@ -17,6 +17,8 @@ const defaultArgs: CookieBannerProps = {
     ...defaultProps,
     cookieTechnologiesLink: `${Language.ENGLISH}/technologies`,
     cookieStatementLink: `${Language.ENGLISH}/cookiestatement`,
+    personalizedLabel: `${Language.ENGLISH}/personalized-label`,
+    personalizedDescription: `${Language.ENGLISH}/personalized-description`,
     defaultPreferences: {
         functional: true,
         personalized: true,
@@ -84,6 +86,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
         language,
         cookieStatementLink,
         cookieTechnologiesLink,
+        personalizedLabel,
+        personalizedDescription,
         defaultPreferences,
         openLinksInSameTab,
     } = props;
@@ -93,6 +97,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             country=${country}
             language=${language}
             .cookieStatementLink=${cookieStatementLink}
+            .personalizedLabel=${personalizedLabel}
+            .personalizedDescription=${personalizedDescription}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             .openLinksInSameTab="${openLinksInSameTab}"

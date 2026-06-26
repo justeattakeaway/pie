@@ -21,6 +21,8 @@ export class CookieBannerComponent extends BasePage {
     private readonly bodyCookieStatementLinkLocator: Locator;
     private readonly bodyCookieTechnologiesLinkLocator: Locator;
     private readonly modalDescriptionLocator: Locator;
+    private readonly personalizedLabelLocator: Locator;
+    private readonly personalizedDescriptionLocator: Locator;
     readonly modalComponent: ModalComponent;
 
     constructor (page: Page) {
@@ -36,6 +38,8 @@ export class CookieBannerComponent extends BasePage {
         this.bodyCookieStatementLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieStatementLink.dataTestId);
         this.bodyCookieTechnologiesLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieTechnologiesLink.dataTestId);
         this.modalDescriptionLocator = page.getByTestId(cookieBanner.selectors.modalDescription.dataTestId);
+        this.personalizedLabelLocator = page.getByTestId(cookieBanner.selectors.personalizedLabel.dataTestId);
+        this.personalizedDescriptionLocator = page.getByTestId(cookieBanner.selectors.personalizedDescription.dataTestId);
         this.modalComponent = new ModalComponent(page);
     }
 
@@ -247,6 +251,113 @@ export class CookieBannerComponent extends BasePage {
      */
     async getBannerCookieStatementLinkAttribute (attribute: string) : Promise<string | null> {
         return this.descriptionLocator.locator(this.bodyCookieStatementLinkLocator).getAttribute(attribute);
+    }
+
+    /**
+     * Retrieves the text content of the personalized preference label.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the text content of the
+     *                                   personalized preference label, or `null` if not found.
+     */
+    async getPersonalizedLabelText () : Promise<string | null> {
+        return this.personalizedLabelLocator.textContent();
+    }
+
+    /**
+     * Retrieves the text content of the personalized preference description paragraph.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the text content of the
+     *                                   personalized preference description, or `null` if not found.
+     */
+    async getPersonalizedDescriptionText () : Promise<string | null> {
+        return this.personalizedDescriptionLocator.textContent();
+    }
+
+    /**
+     * Sets the personalized preference label.
+     *
+     * @param {string} value The text to set as the personalized preference label.
+     * @returns {Promise<void>} A Promise that resolves when the label has been set.
+     */
+    async setPersonalizedLabel (value: string) : Promise<void> {
+        await this.page.evaluate(async (val) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const component = document.querySelector('pie-cookie-banner') as any;
+            if (!component) return;
+            component.personalizedLabel = val;
+            await component.updateComplete;
+        }, value);
+    }
+
+    /**
+     * Sets the personalized preference description paragraph.
+     *
+     * @param {string} value The text to set as the personalized preference description.
+     * @returns {Promise<void>} A Promise that resolves when the description has been set.
+     */
+
+    async setPersonalizedDescription (value: string) : Promise<void> {
+        await this.page.evaluate(async (val) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const component = document.querySelector('pie-cookie-banner') as any;
+            if (!component) return;
+            component.personalizedDescription = val;
+            await component.updateComplete;
+        }, value);
+    }
+
+    /**
+     * Retrieves the value of the specified attribute from an anchor link inside
+     * the personalized preference description.
+     *
+     * @param {string} attribute The name of the attribute to retrieve from the anchor element.
+     * @returns {Promise<string | null>} A Promise that resolves to the attribute value, or `null` if not found.
+     */
+    async getPersonalizedDescriptionLinkAttribute (attribute: string) : Promise<string | null> {
+        return this.personalizedDescriptionLocator.locator('a').getAttribute(attribute);
+    }
+
+    /**
+     * Retrieves the text content of the anchor link inside the personalized preference description.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the text content of the anchor,
+     *                                   or `null` if not found.
+     */
+    async getPersonalizedDescriptionLinkText () : Promise<string | null> {
+        return this.personalizedDescriptionLocator.locator('a').textContent();
+    }
+
+    /**
+     * Retrieves the inner HTML of the personalized preference description paragraph.
+     *
+     * @returns {Promise<string>} A Promise that resolves to the inner HTML string.
+     */
+    async getPersonalizedDescriptionInnerHtml () : Promise<string> {
+        return this.personalizedDescriptionLocator.innerHTML();
+    }
+
+    /**
+     * Retrieves the text content of a preference label by preference id.
+     * The preference label element uses `data-test-id="${id}-label"`.
+     *
+     * @param {PreferenceIds} preferenceId The preference ID whose label to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the text content, or `null` if not found.
+     */
+    async getPreferenceLabelText (preferenceId: PreferenceIds) : Promise<string | null> {
+        const labelLocator = this.page.getByTestId(`${preferenceId}-label`);
+        return labelLocator.textContent();
+    }
+
+    /**
+     * Retrieves the text content of a preference description paragraph by preference id.
+     * The preference description element uses `data-test-id="${id}-description"`.
+     *
+     * @param {PreferenceIds} preferenceId The preference ID whose description to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the text content, or `null` if not found.
+     */
+    async getPreferenceDescriptionText (preferenceId: PreferenceIds) : Promise<string | null> {
+        const descriptionLocator = this.page.getByTestId(`${preferenceId}-description`);
+        return descriptionLocator.textContent();
     }
 
     /**

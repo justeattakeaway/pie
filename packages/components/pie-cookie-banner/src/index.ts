@@ -75,6 +75,12 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     public cookieStatementLink = defaultProps.cookieStatementLink;
 
     @property({ type: String })
+    public personalizedLabel = defaultProps.personalizedLabel;
+
+    @property({ type: String })
+    public personalizedDescription = defaultProps.personalizedDescription;
+
+    @property({ type: String })
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
     @property({ type: String })
@@ -160,6 +166,34 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
 
     private _localiseRichText (key: string) {
         return localiseRichText(this._locale, key, this._customTagEnhancers);
+    }
+
+    /**
+     * Renders a preference label.
+     * For the personalized preference, uses the consumer-supplied `personalizedLabel`
+     * prop when provided (allowing consumers to embed their own label),
+     * and falls back to the built-in locale string otherwise.
+     */
+    private _renderPreferenceLabel (id: PreferenceIds) {
+        if (id === 'personalized' && this.personalizedLabel) {
+            return this.personalizedLabel;
+        }
+        return this._localiseText(`preferencesManagement.${id}.title`);
+    }
+
+    /**
+     * Renders a preference description.
+     * For the personalized preference, uses the consumer-supplied `personalizedDescription`
+     * prop when provided (allowing consumers to embed their own privacy policy link using
+     * plain HTML `<a>` tags), and falls back to the built-in locale string otherwise.
+     * All other preferences use the plain locale text with HTML sanitisation.
+     */
+    private _renderPreferenceDescription (id: PreferenceIds, description: string) {
+        if (id === 'personalized' && this.personalizedDescription) {
+            return unsafeHTML(sanitiseDescriptionHtml(this.personalizedDescription, this._linkTargetAttribute));
+        }
+
+        return unsafeHTML(sanitiseDescriptionHtml(description, this._linkTargetAttribute));
     }
 
     /**
@@ -250,7 +284,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     private renderPreference ({
         id, checked, disabled, hasDivider, hasDescription,
     }: Preference) {
-        const title = this._localiseText(`preferencesManagement.${id}.title`);
+        const title = this._renderPreferenceLabel(id);
         const descriptionLocaleKey = `preferencesManagement.${id}.description`;
         // Ensure not to display fallback text as description as its expected that some items might not have its own description
         const description = hasDescription && this._localiseText(descriptionLocaleKey);
@@ -258,13 +292,12 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
 
         const shouldToggleAll =
             requiredToggleAllKeys.every((key) => this.defaultPreferences?.[key as PreferenceIds] === true);
-
         return html`
             <div class="c-cookieBanner-preference">
                 <div>
                     <h3 class="c-cookieBanner-subheading">${title}</h3>
-                     ${description ? html`<p class="c-cookieBanner-description">${unsafeHTML(sanitiseDescriptionHtml(description, this._linkTargetAttribute))}</p>` : nothing}
-                 </div>
+                    ${description ? html`<p class="c-cookieBanner-description" data-test-id="${id}-description">${this._renderPreferenceDescription(id, description)}</p>` : nothing}
+                </div>
                 <pie-switch
                     id="${id}"
                     .aria="${{ label: title }}"
