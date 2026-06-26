@@ -1,9 +1,9 @@
 ## 1. Props and Types
 
-- [ ] 1.1 Define `AccordionProps` interface in `defs.ts` with all props: `isOpen`, `headingLabel`, `headingLevel`, `secondaryLabel`, `iconSize` (TODO placeholder), `size`, `isEmphasisReduced`, `isDividerEnabled`
-- [ ] 1.2 Define prop default values and valid string union types (`headingLevel`, `size`, `iconSize`)
-- [ ] 1.3 Add `AccordionToggleDetail` type for the `pie-accordion-toggle` event detail (`{ isOpen: boolean }`)
-- [ ] 1.4 Export all types from `defs.ts`
+- [x] 1.1 Define `AccordionProps` interface in `defs.ts` with all props: `isOpen`, `headingLabel`, `headingLevel`, `secondaryLabel`, `iconSize` (TODO placeholder), `size`, `isEmphasisReduced`, `isDividerEnabled`
+- [x] 1.2 Define prop default values and valid string union types (`headingLevel`, `size`, `iconSize`)
+- [x] 1.3 Add `AccordionToggleDetail` type for the `pie-accordion-toggle` event detail (`{ isOpen: boolean }`)
+- [x] 1.4 Export all types from `defs.ts`
 
 ## 2. Dependencies
 
