@@ -21,6 +21,7 @@ export class CookieBannerComponent extends BasePage {
     private readonly bodyCookieStatementLinkLocator: Locator;
     private readonly bodyCookieTechnologiesLinkLocator: Locator;
     private readonly modalDescriptionLocator: Locator;
+    private readonly personalizedLabelLocator: Locator;
     private readonly personalizedDescriptionLocator: Locator;
     readonly modalComponent: ModalComponent;
 
@@ -37,6 +38,7 @@ export class CookieBannerComponent extends BasePage {
         this.bodyCookieStatementLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieStatementLink.dataTestId);
         this.bodyCookieTechnologiesLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieTechnologiesLink.dataTestId);
         this.modalDescriptionLocator = page.getByTestId(cookieBanner.selectors.modalDescription.dataTestId);
+        this.personalizedLabelLocator = page.getByTestId(cookieBanner.selectors.personalizedLabel.dataTestId);
         this.personalizedDescriptionLocator = page.getByTestId(cookieBanner.selectors.personalizedDescription.dataTestId);
         this.modalComponent = new ModalComponent(page);
     }
@@ -258,7 +260,7 @@ export class CookieBannerComponent extends BasePage {
      *                                   personalized preference label, or `null` if not found.
      */
     async getPersonalizedLabelText () : Promise<string | null> {
-        return this.getPreferenceLabelText('personalized');
+        return this.personalizedLabelLocator.textContent();
     }
 
     /**
