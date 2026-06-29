@@ -9,7 +9,6 @@ import {
     type PieAccordion,
     headingLevels,
     sizes,
-    iconSizes,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/accordion';
 
@@ -38,10 +37,6 @@ const accordionStoryMeta: AccordionStoryMeta = {
         },
         secondaryLabel: {
             control: 'text',
-        },
-        iconSize: {
-            control: 'select',
-            options: iconSizes,
         },
         size: {
             control: 'select',
@@ -76,7 +71,7 @@ const Template: TemplateFunction<AccordionProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-    iconSize,
+
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -88,7 +83,7 @@ const Template: TemplateFunction<AccordionProps> = ({
         ?isOpen="${isOpen}"
         ?isEmphasisReduced="${isEmphasisReduced}"
         ?isDividerHidden="${isDividerHidden}"
-        iconSize="${ifDefined(iconSize)}"
+
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @pie-accordion-toggle="${handleToggle}">
@@ -105,7 +100,7 @@ const WithIconTemplate: TemplateFunction<AccordionProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-    iconSize,
+
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -117,7 +112,7 @@ const WithIconTemplate: TemplateFunction<AccordionProps> = ({
         ?isOpen="${isOpen}"
         ?isEmphasisReduced="${isEmphasisReduced}"
         ?isDividerHidden="${isDividerHidden}"
-        iconSize="${ifDefined(iconSize)}"
+
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @pie-accordion-toggle="${handleToggle}">
@@ -133,7 +128,7 @@ const RTLTemplate: TemplateFunction<AccordionProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-    iconSize,
+
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -146,7 +141,7 @@ const RTLTemplate: TemplateFunction<AccordionProps> = ({
             ?isOpen="${isOpen}"
             ?isEmphasisReduced="${isEmphasisReduced}"
             ?isDividerHidden="${isDividerHidden}"
-            iconSize="${ifDefined(iconSize)}"
+    
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
             @pie-accordion-toggle="${handleToggle}">
@@ -206,7 +201,7 @@ const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-    iconSize,
+
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -219,7 +214,7 @@ const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
         ?isOpen="${isOpen}"
         ?isEmphasisReduced="${isEmphasisReduced}"
         ?isDividerHidden="${isDividerHidden}"
-        iconSize="${ifDefined(iconSize)}"
+
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @pie-accordion-toggle="${handleToggle}">

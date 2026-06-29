@@ -1,4 +1,4 @@
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
@@ -10,7 +10,6 @@ import {
     type PieAccordion,
     headingLevels,
     sizes,
-    iconSizes,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/accordion';
 
@@ -48,12 +47,6 @@ const accordionStoryMeta: AccordionStoryMeta = {
         secondaryLabel: {
             description: 'Optional secondary line of text displayed below the heading label.',
             control: 'text',
-        },
-        iconSize: {
-            description: 'Controls the icon slot wrapper size.',
-            control: 'select',
-            options: iconSizes,
-            defaultValue: { summary: defaultProps.iconSize },
         },
         size: {
             description: 'Controls the responsive layout. `auto` is responsive; `narrow`/`wide` force the respective layout.',
@@ -100,7 +93,6 @@ const Template: TemplateFunction<AccordionStoryProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-    iconSize,
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -113,7 +105,6 @@ const Template: TemplateFunction<AccordionStoryProps> = ({
             ?isOpen="${isOpen}"
             ?isEmphasisReduced="${isEmphasisReduced}"
             ?isDividerHidden="${isDividerHidden}"
-            iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
             @pie-accordion-toggle="${handleToggle}">
@@ -127,7 +118,6 @@ const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-    iconSize,
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -140,7 +130,6 @@ const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
             ?isOpen="${isOpen}"
             ?isEmphasisReduced="${isEmphasisReduced}"
             ?isDividerHidden="${isDividerHidden}"
-            iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
             @pie-accordion-toggle="${handleToggle}">

@@ -2,8 +2,6 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['auto', 'narrow', 'wide'] as const;
-// TODO: iconSize dimensions pending design confirmation
-export const iconSizes = ['default', 'large'] as const;
 
 export interface AccordionProps {
     /**
@@ -23,11 +21,6 @@ export interface AccordionProps {
      * Optional secondary line of text displayed below the heading label.
      */
     secondaryLabel?: string;
-    /**
-     * Controls the icon slot wrapper size.
-     * @todo Pending design confirmation of exact dimensions.
-     */
-    iconSize?: typeof iconSizes[number];
     /**
      * Controls the responsive layout behaviour.
      * 'auto' responds to container width via CSS container queries;
@@ -54,7 +47,6 @@ export const defaultProps: DefaultProps = {
     isOpen: false,
     headingLabel: '',
     headingLevel: 'h2',
-    iconSize: 'default',
     size: 'auto',
     isEmphasisReduced: false,
     isDividerHidden: false,
