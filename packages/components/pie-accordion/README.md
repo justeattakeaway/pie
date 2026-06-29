@@ -1,4 +1,5 @@
 # @justeattakeaway/pie-accordion
+
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-accordion) | [Design Documentation](https://pie.design/components/accordion) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-accordion)
 
 <p>
@@ -7,7 +8,7 @@
   </a>
 </p>
 
-`@justeattakeaway/pie-accordion` is a Web Component built using the Lit library. It offers a simple and accessible button component for web applications.
+`@justeattakeaway/pie-accordion` is a Web Component built using the Lit library. It offers a simple and accessible accordion component for web applications.
 
 ## Table of Contents
 
@@ -30,26 +31,38 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ## Documentation
 
 ### Properties
-| Prop             | Options                                                                                                                                                                  | Description                                                                                                                                                                                                         | Default        |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| | | | |
+
+| Prop | Options | Description | Default |
+|------|---------|-------------|---------|
+| `isOpen` | `true`, `false` | When `true`, the accordion panel is expanded. **This is a controlled property - you are responsible for updating its value in response to the `pie-accordion-toggle` event.** | `false` |
+| `headingLabel` | String | The text content for the accordion heading button. | `''` |
+| `headingLevel` | `"h1"`, `"h2"`, `"h3"`, `"h4"`, `"h5"`, `"h6"` | The HTML heading element level used to wrap the trigger button. | `"h2"` |
+| `secondaryLabel` | String | Optional secondary line of text displayed below the heading label. | `undefined` |
+| `iconSize` | `"default"`, `"large"` | Controls the size of the icon slot wrapper. | `"default"` |
+| `size` | `"auto"`, `"narrow"`, `"wide"` | Controls the responsive layout. `"auto"` responds to the viewport width; `"narrow"` and `"wide"` force the respective layout regardless of viewport. | `"auto"` |
+| `isEmphasisReduced` | `true`, `false` | When `true`, applies reduced-emphasis typography to the heading label. | `false` |
+| `isDividerHidden` | `true`, `false` | When `true`, hides the `pie-divider` rendered at the bottom of the accordion. | `false` |
 
 ### Slots
-| Slot     | Description                                                                                                                                                                                                                                                                         |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  | |
+
+| Slot | Description |
+|------|-------------|
+| `default` | The accordion panel content, displayed when the accordion is expanded. |
+| `icon` | An optional leading icon displayed inside the trigger button. We recommend using [@justeattakeaway/pie-icons-webc](https://www.npmjs.com/package/@justeattakeaway/pie-icons-webc). |
 
 ### CSS Variables
-| Variable | Description                                                                                                                                                                                                                 | Default |
-|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| | | |
+
+This component does not expose any CSS variables for style overrides.
 
 ### Events
-| Event | Type                                                                                                                                                                                                                 | Description |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| | | |
+
+| Event | Type | Description |
+|-------|------|-------------|
+| `pie-accordion-toggle` | `CustomEvent<{ isOpen: boolean }>` | Dispatched when the trigger button is clicked. The `detail.isOpen` value reflects the state **at the time of the click**, before any consumer update. |
 
 ## Usage Examples
+
+`pie-accordion` is a controlled component. You are responsible for listening to `pie-accordion-toggle` and updating the `isOpen` property yourself.
 
 **For HTML:**
 
@@ -60,8 +73,18 @@ import '@justeattakeaway/pie-webc/components/accordion.js'
 
 ```html
 <!-- pass js file into <script> tag -->
-
 <script type="module" src="/main.js"></script>
+
+<pie-accordion id="my-accordion" headingLabel="Delivery information">
+    Your order will be delivered between 30 and 45 minutes after placing your order.
+</pie-accordion>
+
+<script>
+    const accordion = document.getElementById('my-accordion');
+    accordion.addEventListener('pie-accordion-toggle', () => {
+        accordion.isOpen = !accordion.isOpen;
+    });
+</script>
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
@@ -69,15 +92,40 @@ import '@justeattakeaway/pie-webc/components/accordion.js'
 ```js
 // Vue templates (using Nuxt 3)
 import '@justeattakeaway/pie-webc/components/accordion.js'
-
 ```
 
 **For React Applications:**
 
 ```jsx
 import { PieAccordion } from '@justeattakeaway/pie-webc/react/accordion.js';
+import { useState } from 'react';
 
+export default function AccordionExample () {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <PieAccordion
+            headingLabel="Delivery information"
+            isOpen={isOpen}
+            onPieAccordionToggle={() => setIsOpen(!isOpen)}>
+            Your order will be delivered between 30 and 45 minutes after placing your order.
+        </PieAccordion>
+    );
+}
 ```
+
+### With an icon
+
+We recommend using [@justeattakeaway/pie-icons-webc](https://www.npmjs.com/package/@justeattakeaway/pie-icons-webc) for the `icon` slot:
+
+```html
+<pie-accordion headingLabel="Delivery information">
+    <icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>
+    Your order will be delivered between 30 and 45 minutes after placing your order.
+</pie-accordion>
+```
+
+To follow the visual spec, the icon should have `size="m"`.
 
 ## Questions and Support
 
