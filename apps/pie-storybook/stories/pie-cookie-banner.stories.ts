@@ -17,8 +17,6 @@ const defaultArgs: CookieBannerProps = {
     ...defaultProps,
     cookieTechnologiesLink: `${Language.ENGLISH}/technologies`,
     cookieStatementLink: `${Language.ENGLISH}/cookiestatement`,
-    personalizedLabel: 'Personalised ads',
-    personalizedDescription: 'We use personalised ads. Read our <a href="https://example.com/privacy">privacy policy</a>.',
     defaultPreferences: {
         functional: true,
         personalized: true,

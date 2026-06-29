@@ -391,8 +391,26 @@ test.describe('PieCookieBanner - Component tests', () => {
             await pieCookieBannerComponent.clickManagePreferencesAction();
 
             // Act
-            const linkHref = await pieCookieBannerComponent.getPersonalizedDescriptionLinkAttribute('href');
-            const linkText = await pieCookieBannerComponent.getPersonalizedDescriptionLinkText();
+            const linkHref = await pieCookieBannerComponent.getPersonalizedDescriptionLinkAttribute('href', 'a');
+            const linkText = await pieCookieBannerComponent.getPersonalizedDescriptionLinkText('a');
+
+            // Assert
+            expect(linkHref).toBe(privacyPolicyHref);
+            expect(linkText).toBe('Privacy Policy');
+        });
+
+        test('should render a Lit component correctly when personalizedDescription contains a <pie-link> tag', async () => {
+            // Arrange
+            const privacyPolicyHref = '/privacy-policy';
+            const overrideHtml = `Read our <pie-link href="${privacyPolicyHref}">Privacy Policy</pie-link> for details.`;
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedDescription(overrideHtml);
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const linkHref = await pieCookieBannerComponent.getPersonalizedDescriptionLinkAttribute('href', 'pie-link');
+            const linkText = await pieCookieBannerComponent.getPersonalizedDescriptionLinkText('pie-link');
 
             // Assert
             expect(linkHref).toBe(privacyPolicyHref);

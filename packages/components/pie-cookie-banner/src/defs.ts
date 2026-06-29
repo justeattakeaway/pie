@@ -110,8 +110,9 @@ export interface CookieBannerProps {
      * "Manage preferences" modal. When provided, this string replaces the locale-defined
      * description for the personalised preference. Consumers can include plain text,
      * HTML anchor tags (e.g. `<a href="...">Privacy Policy</a>`), or `<pie-link>` tags
-     * to embed a privacy policy link. When omitted or set to an empty string, the built-in
-     * locale string is used.
+     * to embed a privacy policy link. The HTML is sanitised, so only the allowed link
+     * attributes are preserved and any others are stripped or normalised. When omitted or
+     * set to an empty string, the built-in locale string is used.
      */
     personalizedDescription?: string;
 

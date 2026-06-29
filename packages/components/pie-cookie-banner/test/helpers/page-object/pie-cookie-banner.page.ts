@@ -316,18 +316,19 @@ export class CookieBannerComponent extends BasePage {
      * @param {string} attribute The name of the attribute to retrieve from the anchor element.
      * @returns {Promise<string | null>} A Promise that resolves to the attribute value, or `null` if not found.
      */
-    async getPersonalizedDescriptionLinkAttribute (attribute: string) : Promise<string | null> {
-        return this.personalizedDescriptionLocator.locator('a').getAttribute(attribute);
+    async getPersonalizedDescriptionLinkAttribute (attribute: string, element: 'a' | 'pie-link' = 'a') : Promise<string | null> {
+        return this.personalizedDescriptionLocator.locator(element).getAttribute(attribute);
     }
 
     /**
      * Retrieves the text content of the anchor link inside the personalized preference description.
      *
+     * @param {('a' | 'pie-link')} element The type of element to locate within the personalized preference description.
      * @returns {Promise<string | null>} A Promise that resolves to the text content of the anchor,
      *                                   or `null` if not found.
      */
-    async getPersonalizedDescriptionLinkText () : Promise<string | null> {
-        return this.personalizedDescriptionLocator.locator('a').textContent();
+    async getPersonalizedDescriptionLinkText (element: 'a' | 'pie-link' = 'a') : Promise<string | null> {
+        return this.personalizedDescriptionLocator.locator(element).textContent();
     }
 
     /**

@@ -67,7 +67,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             },
         },
         personalizedDescription: {
-            description: 'An optional consumer override for the personalised preference description. Supports plain text or HTML anchor or `<pie-link>` tags (e.g. <a href="...">Privacy Policy</a>). When omitted or empty, the built-in locale string is used.',
+            description: 'An optional consumer override for the personalised preference description. Supports plain text or HTML anchor or `<pie-link>` tags (e.g. `<a href="...">Privacy Policy</a>`). When omitted or empty, the built-in locale string is used.',
             control: 'text',
             defaultValue: {
                 summary: defaultProps.personalizedDescription,
