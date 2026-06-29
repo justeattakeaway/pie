@@ -72,7 +72,7 @@
     font-size: calc(var(--dt-font-body-l-size) * 1px);
     line-height: calc(var(--dt-font-body-l-line-height) * 1px);
     font-weight: var(--dt-font-body-l-weight);
-    color: var(--dt-color-content-secondary);
+    color: var(--dt-color-content-subdued);
 }
 
 .c-accordion-chevron {
@@ -85,13 +85,16 @@
 :host(:not([isopen])) .c-accordion-chevron {
     transform: rotate(180deg);
 }
+
 .c-accordion-panel {
-    padding-inline: var(--dt-spacing-d);
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
     padding-block-start: var(--dt-spacing-a);
     padding-block-end: var(--dt-spacing-d);
 
     background-color: var(--dt-color-container-default);
 }
+
 // Panel hidden state
 .c-accordion-panel[hidden] {
     display: none;
