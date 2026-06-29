@@ -126,14 +126,15 @@ test.describe('PieAccordion - Component tests', () => {
             expect(event.isOpen).toBe(false);
         });
 
-        test('should not toggle panel when no consumer updates isOpen', async ({ page }) => {
+        test('should show panel when isOpen is set to true externally', async ({ page }) => {
             await loadAccordion(page, { isOpen: false });
             const panel = page.getByTestId(accordion.selectors.panel.dataTestId);
-            const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
 
-            await trigger.click();
+            await page.evaluate(() => {
+                (document.querySelector('pie-accordion') as HTMLElement & { isOpen: boolean }).isOpen = true;
+            });
 
-            await expect(panel).toHaveAttribute('hidden');
+            await expect(panel).not.toHaveAttribute('hidden');
         });
     });
 
