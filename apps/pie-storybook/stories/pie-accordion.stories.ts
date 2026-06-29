@@ -65,10 +65,10 @@ const accordionStoryMeta: AccordionStoryMeta = {
             control: 'boolean',
             defaultValue: { summary: defaultProps.isEmphasisReduced },
         },
-        isDividerEnabled: {
-            description: 'When `true` (default), renders a `pie-divider` at the bottom.',
+        isDividerHidden: {
+            description: 'When `true`, hides the `pie-divider` at the bottom of the accordion.',
             control: 'boolean',
-            defaultValue: { summary: defaultProps.isDividerEnabled },
+            defaultValue: { summary: defaultProps.isDividerHidden },
         },
         slot: {
             description: 'Content placed in the default slot (accordion panel body).',
@@ -96,7 +96,7 @@ const Template: TemplateFunction<AccordionStoryProps> = ({
     iconSize,
     size,
     isEmphasisReduced,
-    isDividerEnabled,
+    isDividerHidden,
     slot,
 }) => html`
     <div style="min-width: 320px;">
@@ -105,7 +105,7 @@ const Template: TemplateFunction<AccordionStoryProps> = ({
             headingLevel="${ifDefined(headingLevel)}"
             ?isOpen="${isOpen}"
             ?isEmphasisReduced="${isEmphasisReduced}"
-            ?isDividerEnabled="${isDividerEnabled}"
+            ?isDividerHidden="${isDividerHidden}"
             iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
@@ -123,7 +123,7 @@ const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
     iconSize,
     size,
     isEmphasisReduced,
-    isDividerEnabled,
+    isDividerHidden,
     slot,
 }) => html`
     <div style="min-width: 320px;">
@@ -132,7 +132,7 @@ const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
             headingLevel="${ifDefined(headingLevel)}"
             ?isOpen="${isOpen}"
             ?isEmphasisReduced="${isEmphasisReduced}"
-            ?isDividerEnabled="${isDividerEnabled}"
+            ?isDividerHidden="${isDividerHidden}"
             iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
@@ -171,7 +171,7 @@ const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, 
         headingLabel="Restaurant contact"
         headingLevel="${ifDefined(headingLevel)}"
         size="${ifDefined(size)}"
-        ?isDividerEnabled="${false}"
+        ?isDividerHidden="${true}"
         @pie-accordion-toggle="${toggleAction}">
         Call +44 20 7123 4567 or email hello@restaurant.com
     </pie-accordion>
@@ -185,5 +185,6 @@ export const WithIcon = createStory<AccordionStoryProps>(WithIconTemplate, defau
 export const WithSecondaryLabel = createAccordionStory({ secondaryLabel: 'Available in your area' });
 export const EmphasisReduced = createAccordionStory({ isEmphasisReduced: true });
 export const Stacked = createStory<AccordionStoryProps>(StackedTemplate, defaultArgs)();
+export const NoDivider = createAccordionStory({ isDividerHidden: true });
 export const SizeWide = createAccordionStory({ size: 'wide' });
 export const SizeNarrow = createAccordionStory({ size: 'narrow' });
