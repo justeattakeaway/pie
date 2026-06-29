@@ -1,6 +1,6 @@
 ## 1. Props and Types
 
-- [x] 1.1 Define `AccordionProps` interface in `defs.ts` with all props: `isOpen`, `headingLabel`, `headingLevel`, `secondaryLabel`, `iconSize` (TODO placeholder), `size`, `isEmphasisReduced`, `isDividerEnabled`
+- [x] 1.1 Define `AccordionProps` interface in `defs.ts` with all props: `isOpen`, `headingLabel`, `headingLevel`, `secondaryLabel`, `iconSize` (TODO placeholder), `size`, `isEmphasisReduced`, `isDividerHidden`
 - [x] 1.2 Define prop default values and valid string union types (`headingLevel`, `size`, `iconSize`)
 - [x] 1.3 Add `AccordionToggleDetail` type for the `pie-accordion-toggle` event detail (`{ isOpen: boolean }`)
 - [x] 1.4 Export all types from `defs.ts`
@@ -28,7 +28,7 @@
 - [x] 4.6 Render `<pie-icon-chevron-up>` with `aria-hidden="true"` at the trailing edge of the button
 - [x] 4.7 Render the panel `<div>` with `role="region"`, `aria-labelledby` (button ID), `part="panel"`, and the default `<slot>`
 - [x] 4.8 Apply/remove the `hidden` attribute on the panel based on `isOpen`
-- [x] 4.9 Conditionally render `<pie-divider>` after the panel when `isDividerEnabled` is `true`
+- [x] 4.9 Conditionally render `<pie-divider>` after the panel when `isDividerHidden` is `true`
 
 ## 5. Styling
 
@@ -61,7 +61,7 @@
 - [x] 7.4 Add a story for `size="narrow"` and `size="wide"`
 - [x] 7.5 Add a story with icon slot populated
 - [x] 7.6 Add a story with `secondaryLabel`
-- [x] 7.7 Add a story with `isDividerEnabled: false`
+- [x] 7.7 Add a story with `isDividerHidden: false`
 - [x] 7.8 Add a stacked example (3–4 accordions) showing typical real-world usage
 - [x] 7.9 Add an RTL story
 
@@ -74,7 +74,7 @@
 - [ ] 8.5 Test: Space/Enter key dispatches `pie-accordion-toggle`; Tab does not
 - [ ] 8.6 Test: `headingLevel` renders the correct heading element
 - [ ] 8.7 Test: `secondaryLabel` renders/hides correctly
-- [ ] 8.8 Test: `isDividerEnabled` shows/hides `pie-divider`
+- [ ] 8.8 Test: `isDividerHidden` shows/hides `pie-divider`
 - [ ] 8.9 Test: `isEmphasisReduced` applies the correct CSS class/attribute
 - [ ] 8.10 Test: RTL — icon and chevron positions are mirrored
 
