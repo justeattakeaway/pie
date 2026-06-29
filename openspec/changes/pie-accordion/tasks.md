@@ -67,16 +67,16 @@
 
 ## 8. Browser Tests
 
-- [ ] 8.1 Run `test:browsers-setup` for `pie-accordion` before writing tests
-- [ ] 8.2 Test: trigger click dispatches `pie-accordion-toggle` with correct `isOpen` detail
-- [ ] 8.3 Test: panel visibility toggles with `isOpen` prop
-- [ ] 8.4 Test: `aria-expanded` reflects `isOpen`
-- [ ] 8.5 Test: Space/Enter key dispatches `pie-accordion-toggle`; Tab does not
-- [ ] 8.6 Test: `headingLevel` renders the correct heading element
-- [ ] 8.7 Test: `secondaryLabel` renders/hides correctly
-- [ ] 8.8 Test: `isDividerHidden` shows/hides `pie-divider`
-- [ ] 8.9 Test: `isEmphasisReduced` applies the correct CSS class/attribute
-- [ ] 8.10 Test: RTL — icon and chevron positions are mirrored
+- [x] 8.1 Run `test:browsers-setup` for `pie-accordion` before writing tests
+- [x] 8.2 Test: trigger click dispatches `pie-accordion-toggle` with correct `isOpen` detail
+- [x] 8.3 Test: panel visibility toggles with `isOpen` prop
+- [x] 8.4 Test: `aria-expanded` reflects `isOpen`
+- [x] 8.5 Test: Space/Enter key dispatches `pie-accordion-toggle`; Tab does not
+- [x] 8.6 Test: `headingLevel` renders the correct heading element
+- [x] 8.7 Test: `secondaryLabel` renders/hides correctly
+- [x] 8.8 Test: `isDividerHidden` shows/hides `pie-divider`
+- [x] 8.9 Test: `isEmphasisReduced` applies the correct CSS class/attribute
+- [x] 8.10 Test: RTL — icon and chevron positions are mirrored
 
 ## 9. README and Changeset
 

@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
@@ -13,7 +13,7 @@ import {
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/accordion';
 
-import { createStory, type TemplateFunction } from '../../utilities';
+import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
 type AccordionStoryMeta = Meta<AccordionProps>;
 
@@ -99,12 +99,6 @@ const Template: TemplateFunction<AccordionProps> = ({
 const createAccordionStory = createStory<AccordionProps>(Template, defaultArgs);
 
 export const Default = createAccordionStory();
-export const Open = createAccordionStory({ isOpen: true });
-export const EmphasisReduced = createAccordionStory({ isEmphasisReduced: true });
-export const WithSecondaryLabel = createAccordionStory({ secondaryLabel: 'Available in your area' });
-export const SizeNarrow = createAccordionStory({ size: 'narrow' });
-export const SizeWide = createAccordionStory({ size: 'wide' });
-export const NoDivider = createAccordionStory({ isDividerHidden: true });
 
 const WithIconTemplate: TemplateFunction<AccordionProps> = ({
     isOpen,
@@ -204,3 +198,44 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
 `;
 
 export const Stacked = createStory<AccordionProps>(StackedTemplate, defaultArgs)();
+
+type AccordionVariantProps = AccordionProps & { icon?: boolean };
+
+const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
+    isOpen,
+    headingLabel,
+    headingLevel,
+    secondaryLabel,
+    iconSize,
+    size,
+    isEmphasisReduced,
+    isDividerHidden,
+    icon,
+}) => html`
+    <pie-accordion
+        data-test-id="test-accordion"
+        headingLabel="${headingLabel}"
+        headingLevel="${ifDefined(headingLevel)}"
+        ?isOpen="${isOpen}"
+        ?isEmphasisReduced="${isEmphasisReduced}"
+        ?isDividerHidden="${isDividerHidden}"
+        iconSize="${ifDefined(iconSize)}"
+        size="${ifDefined(size)}"
+        secondaryLabel="${ifDefined(secondaryLabel)}"
+        @pie-accordion-toggle="${handleToggle}">
+        ${icon ? html`<icon-restaurant-filled slot="icon"></icon-restaurant-filled>` : nothing}
+        <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+    </pie-accordion>
+`;
+
+const propsMatrix: Partial<Record<keyof AccordionVariantProps, unknown[]>> = {
+    isOpen: [false, true],
+    isEmphasisReduced: [false, true],
+    isDividerHidden: [false, true],
+    size: ['narrow', 'wide'],
+    icon: [false, true],
+    headingLabel: ['Delivery information'],
+    secondaryLabel: ['Available in your area', ''],
+};
+
+export const Variants = createVariantStory<AccordionVariantProps>(VariantTemplate, propsMatrix);
