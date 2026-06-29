@@ -7,6 +7,7 @@ import '@justeattakeaway/pie-webc/components/accordion';
 import '@justeattakeaway/pie-icons-webc/dist/IconRestaurantFilled.js';
 import {
     type AccordionProps,
+    type PieAccordion,
     headingLevels,
     sizes,
     iconSizes,
@@ -88,6 +89,12 @@ export default accordionStoryMeta;
 
 const toggleAction = action('pie-accordion-toggle');
 
+const handleToggle = (event: CustomEvent) => {
+    const accordion = event.target as PieAccordion;
+    accordion.isOpen = !accordion.isOpen;
+    toggleAction(event.detail);
+};
+
 const Template: TemplateFunction<AccordionStoryProps> = ({
     isOpen,
     headingLabel,
@@ -109,7 +116,7 @@ const Template: TemplateFunction<AccordionStoryProps> = ({
             iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
-            @pie-accordion-toggle="${toggleAction}">
+            @pie-accordion-toggle="${handleToggle}">
             ${sanitizeAndRenderHTML(slot)}
         </pie-accordion>
     </div>
@@ -136,7 +143,7 @@ const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
             iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
-            @pie-accordion-toggle="${toggleAction}">
+            @pie-accordion-toggle="${handleToggle}">
             <icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>
             ${sanitizeAndRenderHTML(slot)}
         </pie-accordion>
@@ -149,14 +156,14 @@ const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, 
         headingLevel="${ifDefined(headingLevel)}"
         size="${ifDefined(size)}"
         ?isOpen="${true}"
-        @pie-accordion-toggle="${toggleAction}">
+        @pie-accordion-toggle="${handleToggle}">
         Your order will be delivered between 30 and 45 minutes after placing your order.
     </pie-accordion>
     <pie-accordion
         headingLabel="Payment methods"
         headingLevel="${ifDefined(headingLevel)}"
         size="${ifDefined(size)}"
-        @pie-accordion-toggle="${toggleAction}">
+        @pie-accordion-toggle="${handleToggle}">
         We accept Visa, Mastercard, PayPal, and cash on delivery.
     </pie-accordion>
     <pie-accordion
@@ -164,7 +171,7 @@ const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, 
         headingLevel="${ifDefined(headingLevel)}"
         size="${ifDefined(size)}"
         secondaryLabel="Updated today"
-        @pie-accordion-toggle="${toggleAction}">
+        @pie-accordion-toggle="${handleToggle}">
         Please contact the restaurant directly for allergen information about specific dishes.
     </pie-accordion>
     <pie-accordion
@@ -172,7 +179,7 @@ const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, 
         headingLevel="${ifDefined(headingLevel)}"
         size="${ifDefined(size)}"
         ?isDividerHidden="${true}"
-        @pie-accordion-toggle="${toggleAction}">
+        @pie-accordion-toggle="${handleToggle}">
         Call +44 20 7123 4567 or email hello@restaurant.com
     </pie-accordion>
 `;

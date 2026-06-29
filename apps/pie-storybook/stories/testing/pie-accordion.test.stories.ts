@@ -6,6 +6,7 @@ import '@justeattakeaway/pie-webc/components/accordion';
 import '@justeattakeaway/pie-icons-webc/dist/IconRestaurantFilled.js';
 import {
     type AccordionProps,
+    type PieAccordion,
     headingLevels,
     sizes,
     iconSizes,
@@ -64,7 +65,9 @@ const accordionStoryMeta: AccordionStoryMeta = {
 
 export default accordionStoryMeta;
 
-const toggleAction = () => {
+const handleToggle = (event: CustomEvent) => {
+    const accordion = event.target as PieAccordion;
+    accordion.isOpen = !accordion.isOpen;
     console.info('pie-accordion-toggle');
 };
 
@@ -88,7 +91,7 @@ const Template: TemplateFunction<AccordionProps> = ({
         iconSize="${ifDefined(iconSize)}"
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
-        @pie-accordion-toggle="${toggleAction}">
+        @pie-accordion-toggle="${handleToggle}">
         <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
     </pie-accordion>
 `;
@@ -123,7 +126,7 @@ const WithIconTemplate: TemplateFunction<AccordionProps> = ({
         iconSize="${ifDefined(iconSize)}"
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
-        @pie-accordion-toggle="${toggleAction}">
+        @pie-accordion-toggle="${handleToggle}">
         <icon-restaurant-filled slot="icon"></icon-restaurant-filled>
         <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
     </pie-accordion>
@@ -152,7 +155,7 @@ const RTLTemplate: TemplateFunction<AccordionProps> = ({
             iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
-            @pie-accordion-toggle="${toggleAction}">
+            @pie-accordion-toggle="${handleToggle}">
             <p>محتوى القسم المنسدل هنا</p>
         </pie-accordion>
     </div>
@@ -171,14 +174,14 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
             headingLevel="${ifDefined(headingLevel)}"
             size="${ifDefined(size)}"
             ?isOpen="${true}"
-            @pie-accordion-toggle="${toggleAction}">
+            @pie-accordion-toggle="${handleToggle}">
             <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
         </pie-accordion>
         <pie-accordion
             headingLabel="Payment methods"
             headingLevel="${ifDefined(headingLevel)}"
             size="${ifDefined(size)}"
-            @pie-accordion-toggle="${toggleAction}">
+            @pie-accordion-toggle="${handleToggle}">
             <p>We accept Visa, Mastercard, PayPal, and cash on delivery.</p>
         </pie-accordion>
         <pie-accordion
@@ -186,7 +189,7 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
             headingLevel="${ifDefined(headingLevel)}"
             size="${ifDefined(size)}"
             secondaryLabel="Updated today"
-            @pie-accordion-toggle="${toggleAction}">
+            @pie-accordion-toggle="${handleToggle}">
             <p>Please contact the restaurant directly for allergen information about specific dishes.</p>
         </pie-accordion>
         <pie-accordion
@@ -194,7 +197,7 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
             headingLevel="${ifDefined(headingLevel)}"
             size="${ifDefined(size)}"
             ?isDividerHidden="${false}"
-            @pie-accordion-toggle="${toggleAction}">
+            @pie-accordion-toggle="${handleToggle}">
             <p>Call +44 20 7123 4567 or email hello@restaurant.com</p>
         </pie-accordion>
     </div>
