@@ -2,7 +2,7 @@
 import {
     describe, it, expect, vi,
 } from 'vitest';
-import dependabotSlackDigest from '../../dependabot-slack-digest/dependabot-slack-digest.js';
+import dependabotSlackMessage from '../../dependabot-slack-message/dependabot-slack-message.js';
 
 function makeContext () {
     return {
@@ -55,13 +55,13 @@ function makeGithub ({ openPrs = [], checkRunsByRef = {} } = {}) {
     };
 }
 
-describe('dependabot-slack-digest', () => {
+describe('dependabot-slack-message', () => {
     it('returns null when there are no Dependabot PRs', async () => {
         const github = makeGithub({
             openPrs: [makePr({ number: 1, login: 'a-human' })],
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         expect(result).toBeNull();
         // Human PRs should never have their checks inspected.
@@ -74,7 +74,7 @@ describe('dependabot-slack-digest', () => {
             checkRunsByRef: { 'sha-1': [checkRun({ conclusion: 'failure' })] },
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         expect(result).toBeNull();
     });
@@ -86,7 +86,7 @@ describe('dependabot-slack-digest', () => {
             checkRunsByRef: { 'sha-1': [checkRun({ name: 'percy', status: 'in_progress', conclusion: null })] },
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         expect(result).toBeNull();
     });
@@ -104,7 +104,7 @@ describe('dependabot-slack-digest', () => {
             },
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         const text = JSON.stringify(result);
         expect(text).toContain('deps(npm): bump babel');
@@ -123,7 +123,7 @@ describe('dependabot-slack-digest', () => {
             },
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         expect(result).not.toBeNull();
     });
@@ -139,7 +139,7 @@ describe('dependabot-slack-digest', () => {
             },
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         // The newer run failed, so the PR is not ready.
         expect(result).toBeNull();
@@ -151,7 +151,7 @@ describe('dependabot-slack-digest', () => {
             checkRunsByRef: { 'sha-1': [checkRun()] },
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         expect(result.blocks[0].text.text).toContain(':dependabot:');
         expect(result.blocks[0].text.text).toContain('1 Dependabot PR ready for review in the PIE Monorepo');
@@ -167,7 +167,7 @@ describe('dependabot-slack-digest', () => {
             checkRunsByRef: { a: [checkRun()], b: [checkRun()] },
         });
 
-        const result = await dependabotSlackDigest({ github, context: makeContext() });
+        const result = await dependabotSlackMessage({ github, context: makeContext() });
 
         expect(result.blocks[0].text.text).toContain('2 Dependabot PRs ready for review in the PIE Monorepo');
     });
