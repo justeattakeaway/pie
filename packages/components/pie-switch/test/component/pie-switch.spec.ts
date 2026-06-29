@@ -173,7 +173,7 @@ test.describe('Component: `Pie switch`', () => {
             await page.getByTestId('external-label-for').click();
 
             // Assert
-            await expect(switchEl).not.toHaveAttribute('checked');
+            await expect(switchEl).toHaveAttribute('checked', '');
 
             // Act - click again to untoggle
             await page.getByTestId('external-label-for').click();
@@ -196,7 +196,7 @@ test.describe('Component: `Pie switch`', () => {
             await labelText.click();
 
             // Assert
-            await expect(switchEl).not.toHaveAttribute('checked');
+            await expect(switchEl).toHaveAttribute('checked', '');
 
             // Act - click again to untoggle
             await labelText.click();
@@ -217,7 +217,7 @@ test.describe('Component: `Pie switch`', () => {
             await page.getByTestId('external-label-multi-a').click();
 
             // Assert
-            await expect(switchEl).not.toHaveAttribute('checked');
+            await expect(switchEl).toHaveAttribute('checked', '');
 
             // Act - click the second label
             await page.getByTestId('external-label-multi-b').click();
@@ -410,7 +410,7 @@ test.describe('Component: `Pie switch`', () => {
             });
 
             // Assert
-            await expect(switchEl).not.toHaveAttribute('checked');
+            await expect(switchEl).toHaveAttribute('checked', '');
         });
 
         test('should reset checked state to defaultChecked false when form is reset', async ({ page }) => {
@@ -426,7 +426,7 @@ test.describe('Component: `Pie switch`', () => {
 
             // Act
             await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
-            await expect(switchEl).not.toHaveAttribute('checked');
+            await expect(switchEl).toHaveAttribute('checked', '');
 
             await page.$eval('#testForm', (form) => {
                 (form as HTMLFormElement).reset();
