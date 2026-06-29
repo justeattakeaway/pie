@@ -13,7 +13,6 @@ import {
     type AccordionProps,
     headingLevels,
     sizes,
-    iconSizes,
     defaultProps,
 } from './defs';
 import '@justeattakeaway/pie-divider';
@@ -44,10 +43,6 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
 
     @property({ type: String })
     public secondaryLabel?: string;
-
-    @property({ type: String, reflect: true })
-    @validPropertyValues(componentSelector, iconSizes, defaultProps.iconSize)
-    public iconSize = defaultProps.iconSize;
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)

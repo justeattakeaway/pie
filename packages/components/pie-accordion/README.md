@@ -38,7 +38,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `headingLabel` | String | The text content for the accordion heading button. | `''` |
 | `headingLevel` | `"h1"`, `"h2"`, `"h3"`, `"h4"`, `"h5"`, `"h6"` | The HTML heading element level used to wrap the trigger button. | `"h2"` |
 | `secondaryLabel` | String | Optional secondary line of text displayed below the heading label. | `undefined` |
-| `iconSize` | `"default"`, `"large"` | Controls the size of the icon slot wrapper. | `"default"` |
+
 | `size` | `"auto"`, `"narrow"`, `"wide"` | Controls the responsive layout. `"auto"` responds to the viewport width; `"narrow"` and `"wide"` force the respective layout regardless of viewport. | `"auto"` |
 | `isEmphasisReduced` | `true`, `false` | When `true`, applies reduced-emphasis typography to the heading label. | `false` |
 | `isDividerHidden` | `true`, `false` | When `true`, hides the `pie-divider` rendered at the bottom of the accordion. | `false` |
