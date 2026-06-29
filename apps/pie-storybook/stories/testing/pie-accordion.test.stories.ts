@@ -49,7 +49,7 @@ const accordionStoryMeta: AccordionStoryMeta = {
         isEmphasisReduced: {
             control: 'boolean',
         },
-        isDividerEnabled: {
+        isDividerHidden: {
             control: 'boolean',
         },
     },
@@ -76,7 +76,7 @@ const Template: TemplateFunction<AccordionProps> = ({
     iconSize,
     size,
     isEmphasisReduced,
-    isDividerEnabled,
+    isDividerHidden,
 }) => html`
     <pie-accordion
         data-test-id="test-accordion"
@@ -84,7 +84,7 @@ const Template: TemplateFunction<AccordionProps> = ({
         headingLevel="${ifDefined(headingLevel)}"
         ?isOpen="${isOpen}"
         ?isEmphasisReduced="${isEmphasisReduced}"
-        ?isDividerEnabled="${isDividerEnabled}"
+        ?isDividerHidden="${isDividerHidden}"
         iconSize="${ifDefined(iconSize)}"
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
@@ -101,7 +101,7 @@ export const EmphasisReduced = createAccordionStory({ isEmphasisReduced: true })
 export const WithSecondaryLabel = createAccordionStory({ secondaryLabel: 'Available in your area' });
 export const SizeNarrow = createAccordionStory({ size: 'narrow' });
 export const SizeWide = createAccordionStory({ size: 'wide' });
-export const NoDivider = createAccordionStory({ isDividerEnabled: false });
+export const NoDivider = createAccordionStory({ isDividerHidden: true });
 
 const WithIconTemplate: TemplateFunction<AccordionProps> = ({
     isOpen,
@@ -111,7 +111,7 @@ const WithIconTemplate: TemplateFunction<AccordionProps> = ({
     iconSize,
     size,
     isEmphasisReduced,
-    isDividerEnabled,
+    isDividerHidden,
 }) => html`
     <pie-accordion
         data-test-id="test-accordion"
@@ -119,7 +119,7 @@ const WithIconTemplate: TemplateFunction<AccordionProps> = ({
         headingLevel="${ifDefined(headingLevel)}"
         ?isOpen="${isOpen}"
         ?isEmphasisReduced="${isEmphasisReduced}"
-        ?isDividerEnabled="${isDividerEnabled}"
+        ?isDividerHidden="${isDividerHidden}"
         iconSize="${ifDefined(iconSize)}"
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
@@ -139,7 +139,7 @@ const RTLTemplate: TemplateFunction<AccordionProps> = ({
     iconSize,
     size,
     isEmphasisReduced,
-    isDividerEnabled,
+    isDividerHidden,
 }) => html`
     <div dir="rtl">
         <pie-accordion
@@ -148,7 +148,7 @@ const RTLTemplate: TemplateFunction<AccordionProps> = ({
             headingLevel="${ifDefined(headingLevel)}"
             ?isOpen="${isOpen}"
             ?isEmphasisReduced="${isEmphasisReduced}"
-            ?isDividerEnabled="${isDividerEnabled}"
+            ?isDividerHidden="${isDividerHidden}"
             iconSize="${ifDefined(iconSize)}"
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
@@ -193,7 +193,7 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
             headingLabel="Restaurant contact"
             headingLevel="${ifDefined(headingLevel)}"
             size="${ifDefined(size)}"
-            ?isDividerEnabled="${false}"
+            ?isDividerHidden="${false}"
             @pie-accordion-toggle="${toggleAction}">
             <p>Call +44 20 7123 4567 or email hello@restaurant.com</p>
         </pie-accordion>

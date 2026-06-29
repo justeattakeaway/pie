@@ -39,9 +39,9 @@ export interface AccordionProps {
      */
     isEmphasisReduced?: boolean;
     /**
-     * When true (default), renders a pie-divider at the bottom of the accordion.
+     * When true, hides the pie-divider at the bottom of the accordion.
      */
-    isDividerEnabled?: boolean;
+    isDividerHidden?: boolean;
 }
 
 export type AccordionToggleDetail = {
@@ -57,5 +57,5 @@ export const defaultProps: DefaultProps = {
     iconSize: 'default',
     size: 'auto',
     isEmphasisReduced: false,
-    isDividerEnabled: true,
+    isDividerHidden: false,
 };

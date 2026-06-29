@@ -56,8 +56,8 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
     @property({ type: Boolean, reflect: true })
     public isEmphasisReduced = defaultProps.isEmphasisReduced;
 
-    @property({ type: Boolean })
-    public isDividerEnabled = defaultProps.isDividerEnabled;
+    @property({ type: Boolean, reflect: true })
+    public isDividerHidden = defaultProps.isDividerHidden;
 
     private readonly _headingId = 'accordion-heading';
     private readonly _buttonId = 'accordion-button';
@@ -69,7 +69,7 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
 
     render () {
         const {
-            headingLevel, headingLabel, secondaryLabel, isOpen, isDividerEnabled,
+            headingLevel, headingLabel, secondaryLabel, isOpen, isDividerHidden,
         } = this;
         const tag = unsafeStatic(headingLevel ?? 'h2');
 
@@ -110,7 +110,7 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
             >
                 <slot></slot>
             </div>
-            ${isDividerEnabled ? html`<pie-divider></pie-divider>` : nothing}
+            ${isDividerHidden ? nothing : html`<pie-divider></pie-divider>`}
         `;
     }
 
