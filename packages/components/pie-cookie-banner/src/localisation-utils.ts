@@ -184,7 +184,7 @@ export function sanitiseDescriptionHtml (input: string, linkTarget = '_blank'): 
         DOMPurify.addHook('afterSanitizeAttributes', enforceAnchorAttributes);
 
         return DOMPurify.sanitize(input, {
-            // Convert to lowercase for DOMPurify's config
+            // Convert to lowercase for DOMPurify's tag list
             ALLOWED_TAGS: ALLOWED_LINK_TAGS.map((tag) => tag.toLowerCase()),
             ALLOWED_ATTR: ['href', 'rel', 'target'],
         }) as string;

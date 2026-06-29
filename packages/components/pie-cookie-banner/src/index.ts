@@ -170,9 +170,8 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
 
     /**
      * Renders a preference label.
-     * For the personalized preference, uses the consumer-supplied `personalizedLabel`
-     * prop when provided (allowing consumers to embed their own label),
-     * and falls back to the built-in locale string otherwise.
+     * For the personalised preference, uses the consumer-supplied `personalizedLabel`
+     * prop when provided as plain text, and falls back to the built-in locale string otherwise.
      */
     private _renderPreferenceLabel (id: PreferenceIds) {
         if (id === 'personalized' && this.personalizedLabel) {
@@ -183,9 +182,9 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
 
     /**
      * Renders a preference description.
-     * For the personalized preference, uses the consumer-supplied `personalizedDescription`
+     * For the personalised preference, uses the consumer-supplied `personalizedDescription`
      * prop when provided (allowing consumers to embed their own privacy policy link using
-     * plain HTML `<a>` tags), and falls back to the built-in locale string otherwise.
+     * plain HTML `<a>` or `<pie-link>` tags), and falls back to the built-in locale string otherwise.
      * All other preferences use the plain locale text with HTML sanitisation.
      */
     private _renderPreferenceDescription (id: PreferenceIds, description: string) {

@@ -60,14 +60,14 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             },
         },
         personalizedLabel: {
-            description: 'An optional consumer override for the personalized preference label. When provided, this string replaces the locale-defined label for the personalized preference. Consumers can include plain text. When omitted or empty, the built-in locale string is used.',
+            description: 'An optional consumer override for the personalised preference label. When provided, this string replaces the locale-defined label for the personalised preference. Consumers can include plain text. When omitted or empty, the built-in locale string is used.',
             control: 'text',
             defaultValue: {
                 summary: defaultProps.personalizedLabel,
             },
         },
         personalizedDescription: {
-            description: 'An optional consumer override for the personalized preference description. Supports plain text or HTML anchor tags (e.g. <a href="...">Privacy Policy</a>). When omitted or empty, the built-in locale string is used.',
+            description: 'An optional consumer override for the personalised preference description. Supports plain text or HTML anchor tags (e.g. <a href="...">Privacy Policy</a>). When omitted or empty, the built-in locale string is used.',
             control: 'text',
             defaultValue: {
                 summary: defaultProps.personalizedDescription,

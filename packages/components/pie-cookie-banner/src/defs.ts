@@ -98,19 +98,20 @@ export interface CookieBannerProps {
     cookieStatementLink: string;
 
     /**
-     * An optional override for the personalized preference label rendered in the
+     * An optional override for the personalised preference label rendered in the
      * "Manage preferences" modal. When provided, this string replaces the locale-defined
-     * label for the personalized preference. Consumers can include plain text.
+     * label for the personalised preference. Consumers can include plain text.
      * When omitted or set to an empty string, the built-in locale string is used.
      */
     personalizedLabel?: string;
 
     /**
-     * An optional override for the personalized preference description rendered in the
+     * An optional override for the personalised preference description rendered in the
      * "Manage preferences" modal. When provided, this string replaces the locale-defined
-     * description for the personalized preference. Consumers can include plain text or
-     * HTML anchor tags (e.g. `<a href="...">Privacy Policy</a>`) to embed a privacy
-     * policy link. When omitted or set to an empty string, the built-in locale string is used.
+     * description for the personalised preference. Consumers can include plain text,
+     * HTML anchor tags (e.g. `<a href="...">Privacy Policy</a>`), or `<pie-link>` tags
+     * to embed a privacy policy link. When omitted or set to an empty string, the built-in
+     * locale string is used.
      */
     personalizedDescription?: string;
 

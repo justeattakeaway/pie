@@ -52,9 +52,19 @@ describe('sanitiseDescriptionHtml', () => {
         expect(sanitiseDescriptionHtml(input)).toBe(input);
     });
 
+    it('preserves a safe <pie-link> tag with href, rel and target', () => {
+        const input = '<pie-link href="https://example.com" rel="noopener noreferrer" target="_blank">link</pie-link>';
+        expect(sanitiseDescriptionHtml(input)).toBe(input);
+    });
+
     it('strips non-allowlisted attributes from <a>', () => {
         const input = '<a href="https://example.com" onclick="evil()" class="foo">link</a>';
         expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
+    });
+
+    it('strips non-allowlisted attributes from <pie-link>', () => {
+        const input = '<pie-link href="https://example.com" onclick="evil()" class="foo">link</pie-link>';
+        expect(sanitiseDescriptionHtml(input)).toBe('<pie-link href="https://example.com" target="_blank" rel="noopener noreferrer">link</pie-link>');
     });
 
     it('strips javascript: href', () => {
@@ -87,6 +97,11 @@ describe('sanitiseDescriptionHtml', () => {
         expect(sanitiseDescriptionHtml(input)).toBe('Hello  world');
     });
 
+    it('strips invalid pie-link href values', () => {
+        const input = '<pie-link href="javascript:alert(1)">xss</pie-link>';
+        expect(sanitiseDescriptionHtml(input)).toBe('<pie-link target="_blank" rel="noopener noreferrer">xss</pie-link>');
+    });
+
     it('strips all HTML when window is unavailable (SSR fallback)', () => {
         const originalWindow = globalThis.window;
 
@@ -107,9 +122,19 @@ describe('sanitiseDescriptionHtml', () => {
             expect(sanitiseDescriptionHtml(input)).toBe('<a href="https://example.com" target="_blank" rel="noopener noreferrer">link</a>');
         });
 
+        it('sets default target="_blank" on pie-link when target is absent', () => {
+            const input = '<pie-link href="https://example.com">link</pie-link>';
+            expect(sanitiseDescriptionHtml(input)).toBe('<pie-link href="https://example.com" target="_blank" rel="noopener noreferrer">link</pie-link>');
+        });
+
         it('sets provided linkTarget when target is absent', () => {
             const input = '<a href="https://example.com">link</a>';
             expect(sanitiseDescriptionHtml(input, '_self')).toBe('<a href="https://example.com" target="_self">link</a>');
+        });
+
+        it('sets provided linkTarget on pie-link when target is absent', () => {
+            const input = '<pie-link href="https://example.com">link</pie-link>';
+            expect(sanitiseDescriptionHtml(input, '_self')).toBe('<pie-link href="https://example.com" target="_self">link</pie-link>');
         });
 
         it('adds rel="noopener noreferrer" when target="_blank" and rel is absent', () => {
