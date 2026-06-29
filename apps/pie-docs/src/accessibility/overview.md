@@ -39,7 +39,6 @@ The build-it-once, use-it-everywhere model means the **accessibility knowledge**
 
 Many accessibility features come free in the components, but it's important to make sure they are integrated correctly, **in a fully accessible way**. Depending on how components are used, there may be more design and implementation considerations.
 
-
 ---
 
 ## Assistive technology support

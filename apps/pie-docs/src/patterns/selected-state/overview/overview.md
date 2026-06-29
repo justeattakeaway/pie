@@ -65,9 +65,9 @@ width: 200
 
 ### Iconography
 
-In components using a specific placeholder slot, use the tick icon.
+- In components using a specific placeholder slot, use the tick icon.
 
-In components using placeholder slots with different size options, use a 24x24px tick icon, and set it to $color-content-brand colour.
+- In components using placeholder slots with different size options, use a 24x24px tick icon, and set it to $color-content-brand colour.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/selected-state/visual-iconography.svg",
@@ -77,9 +77,9 @@ width: 200
 
 ### Component variant
 
-Use UI controls like radio buttons or checkboxes to indicate selections.
+- Use UI controls like radio buttons or checkboxes to indicate selections.
 
-Make sure you're using the 'selected' variant of the component.
+- Make sure you're using the 'selected' variant of the component.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/selected-state/component-examples.svg",

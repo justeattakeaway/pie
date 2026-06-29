@@ -120,6 +120,8 @@ Hover over the slot of a component instance.
 
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/slot-how-to-step-1.svg",
+alt: "Example of hovering over the slot of a component instance.",
+caption: "Example of hovering over the slot of a component instance.",
 width: "400px"
 } %}
 
@@ -161,7 +163,8 @@ Apply appropriate spacing and padding tokens to maintain visual consistency.
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/slot-how-to-step-3.svg",
 width: "400px",
-alt: "Example of applying appropriate spacing and padding tokens to maintain visual consistency."
+alt: "Example of applying appropriate spacing and padding tokens to maintain visual consistency.",
+caption: "Example of applying appropriate spacing and padding tokens to maintain visual consistency."
 } %}
 
 #### Step 4
@@ -171,7 +174,8 @@ Use Auto Layout and the resizing options for the height and width to organise co
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/slot-how-to-step-4.svg",
 width: "400px",
-alt: "Example of using Auto Layout and the resizing options for the height and width to organise content for responsiveness."
+alt: "Example of using Auto Layout and the resizing options for the height and width to organise content for responsiveness.",
+caption: "Example of using Auto Layout and the resizing options for the height and width to organise content for responsiveness."
 } %}
 
 ---
@@ -187,7 +191,8 @@ Create a component for the element where you want to include a slot.
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/slot-create-step-1.svg",
 width: "600px",
-alt: "Example of creating a component for the element where you want to include a slot."
+alt: "Example of creating a component for the element where you want to include a slot.",
+caption: "Example of creating a component for the element where you want to include a slot."
 } %}
 
 #### Step 2
@@ -197,7 +202,8 @@ Select the area where you want the slot to be (with/without predefined content).
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/slot-create-step-2.svg",
 width: "600px",
-alt: "Example of selecting the area where you want the slot to be (with/without predefined content)."
+alt: "Example of selecting the area where you want the slot to be (with/without predefined content).",
+caption: "Example of selecting the area where you want the slot to be (with/without predefined content)."
 } %}
 
 #### Step 3
@@ -207,7 +213,8 @@ Apply slot settings based on your design requirements.
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/slot-create-step-3-example-1.svg",
 width: "300px",
-alt: "Example of Figma UI for defining slot settings based on your design requirements."
+alt: "Example of Figma UI for defining slot settings based on your design requirements.",
+caption: "Example of Figma UI for defining slot settings based on your design requirements."
 } %}
 
 By using slots, elements such as bars, labels, or content blocks can be easily repositioned or replaced within a container across different instances without creating additional variants or detaching components.
@@ -215,5 +222,6 @@ By using slots, elements such as bars, labels, or content blocks can be easily r
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/slot-create-step-3-example-2.svg",
 width: "500px",
-alt: "Example of using slots to easily reposition or replace elements within a container across different instances without creating additional variants or detaching components."
+alt: "Example of using slots to easily reposition or replace elements within a container across different instances without creating additional variants or detaching components.",
+caption: "Example of using slots to easily reposition or replace elements within a container across different instances without creating additional variants or detaching components."
 } %}

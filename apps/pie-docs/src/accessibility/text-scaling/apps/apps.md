@@ -7,7 +7,7 @@ shouldShowContents: true
 permalink: accessibility/text-scaling/
 ---
 
-## What's dynamic text scaling?
+## Overview
 
 Text scaling, also known as dynamic text, allows users to adjust the size of text based on their preferences. This enhances accessibility for people with visual impairments or who prefer larger type. Both iOS and Android platforms support dynamic text in settings.
 
@@ -18,7 +18,7 @@ alt: "Illustration of the bottom of a mobile screen showing a slider with stops 
 
 ---
 
-## Text scaling is different from zoom
+## Text scaling versus zoom
 
 While both text scaling and zooming can enhance readability, they are fundamentally different in their implementation and user experience.
 
@@ -31,21 +31,25 @@ While both text scaling and zooming can enhance readability, they are fundamenta
 
 This feature adjusts the size of text dynamically based on user settings or preferences. This affects only the text elements within the application, allowing for a more tailored and accessible experience. The layout and design of the application should accommodate these changes without compromising usability.
 
-#### Text on default size
-
-{% contentPageImage {
-src:"../../../assets/img/accessibility/text-scaling/different-text-size-default.svg",
-alt: "Example of an accordion component with text at the default size.",
-width: 200
-} %}
-
-#### Text @2x size
-
-{% contentPageImage {
-src:"../../../assets/img/accessibility/text-scaling/different-text-size-200.svg",
-alt: "Example of an accordion component with text at 2x size.",
-width: 200
-} %}
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Text on default size</h4>
+    {% contentPageImage {
+    src:"../../../assets/img/accessibility/text-scaling/different-text-size-default.svg",
+    alt: "Example of an accordion component with text at the default size.",
+    width: 200
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Text @2x size</h4>
+    {% contentPageImage {
+      title: "Text @2x size",
+      src: "../../../assets/img/accessibility/text-scaling/different-text-size-200.svg",
+      width: 200,
+      alt: "Example of an accordion component with text at 2x size."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Zoom
 
@@ -53,21 +57,27 @@ This feature enlarges all visual elements, including text, images, and UI compon
 
 This setting can cause elements to become misaligned or require users to scroll both vertically and horizontally (dragging the elements on the screen) to view content that was previously visible.
 
-#### No zoom applied
+{% contentLayout %}
+  {% contentItem %}
+    <h4>No zoom applied</h4>
+    {% contentPageImage {
+    src:"../../../assets/img/accessibility/text-scaling/different-zoom-default.svg",
+    alt: "Example of a mobile screen with no zoom applied.",
+    width: 200
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Zoom @2x</h4>
+    {% contentPageImage {
+      title: "Zoom @2x",
+      src: "../../../assets/img/accessibility/text-scaling/different-zoom-200.svg",
+      width: 200,
+      alt: "Example of a mobile screen with zoom applied at 2x."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
-{% contentPageImage {
-src:"../../../assets/img/accessibility/text-scaling/different-zoom-default.svg",
-alt: "Example of a mobile screen with no zoom applied.",
-width: 200
-} %}
-
-#### Zoom @2x
-
-{% contentPageImage {
-src:"../../../assets/img/accessibility/text-scaling/different-zoom-200.svg",
-alt: "Example of a mobile screen with zoom applied at 2x.",
-width: 200
-} %}
+---
 
 ## How text scaling affects components
 
@@ -82,17 +92,19 @@ Text scaling may affect the alignment and positioning of images and icons. Ensur
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-typography-do.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied correctly."
-        }]
+        }],
+    caption: "Card component with text scaling applied correctly."
   },
   dont: {
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-typography-dont.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied incorrectly where buttons and image elements are scaled together with the text."
-        }]
+        }],
+    caption: "Card component with text scaling applied incorrectly where icon buttons and image elements are scaled together with the text."
   }
 } %}
 
@@ -107,17 +119,19 @@ On iOS, an option for that is 'Large Content Viewer' for the bottom bar navigati
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-navigation-do.svg",
-            width: "200px",
+            width: "400px",
             alt: "Navigation component with text scaling applied correctly."
-        }]
+        }],
+        caption: "Navigation component with text scaling applied correctly."
   },
   dont: {
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-navigation-dont.svg",
-            width: "200px",
+            width: "400px",
             alt: "Navigation component with text scaling applied incorrectly where text is truncated."
-        }]
+        }],
+    caption: "Navigation component with text scaling applied incorrectly where text is truncated."
   }
 } %}
 
@@ -130,17 +144,44 @@ Increase the size of meaningful interface icons as font size increases. Make sur
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-icon-do.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied correctly where text and icons scale appropriately."
-        }]
+        }],
+    caption: "Card component with text scaling applied correctly where text and icons scale appropriately. Rating and Tag elements have icon and text scaled together."
   },
   dont: {
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-icon-dont.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied incorrectly where text and icons do not scale appropriately."
-        }]
+        }],
+    caption: "Card component with text scaling applied incorrectly. Rating and Tag elements have text resized while the icon does not."
+  }
+} %}
+
+For tags we recommend adding an additional 8px padding to the right and left sides, regardless of if the icons scale or not. Please always ensure icons remain aligned to the centre of tags.
+
+For BA Customer Tags, please see specific [Customer Tag documentation](https://www.figma.com/design/7Auqy3S8J787NywZ0gtgZm/-BA--Customer-%E2%80%93-JE---TA--PIE-3-?node-id=42422-4959&t=HumpDbFovuPRMeK6-11).
+
+{% usage {
+  do: {
+    type: usageTypes.image,
+    items: [{
+            src: "../../../assets/img/accessibility/text-scaling/affect-icon-padding-do.svg",
+            width: "300px",
+            alt: "Example of tag sized x2 with additional 8px padding to the left and right."
+        }],
+    caption: "Example of tag sized x2 with additional 8px padding to the left and right."
+  },
+  dont: {
+    type: usageTypes.image,
+    items: [{
+            src: "../../../assets/img/accessibility/text-scaling/affect-icon-padding-dont.svg",
+            width: "300px",
+            alt: "Example of tag sized x2 without additional 8px padding to the left and right."
+        }],
+    caption: "Example of tag sized x2 without additional 8px padding to the left and right."
   }
 } %}
 
@@ -155,17 +196,19 @@ In case truncation happens on important information offer an alternative for the
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-truncation-do.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied correctly where text wraps appropriately."
-        }]
+        }],
+    caption: "Card component with text scaling applied correctly where text wraps appropriately."
   },
   dont: {
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-truncation-dont.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied incorrectly where text truncates."
-        }]
+        }],
+    caption: "Card component with text scaling applied incorrectly where text truncates."
   }
 } %}
 
@@ -178,17 +221,44 @@ Components must be flexible enough to accommodate various text sizes. This may i
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-layout-do.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied correctly where layout adjusts appropriately."
-        }]
+        }],
+    caption: "Card component with text scaling applied correctly where layout adjusts appropriately."
   },
   dont: {
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/accessibility/text-scaling/affect-layout-dont.svg",
-            width: "200px",
+            width: "300px",
             alt: "Card component with text scaling applied incorrectly where layout does not adjust appropriately and content legibility is compromised."
-        }]
+        }],
+    caption: "Card component with text scaling applied incorrectly where layout does not adjust appropriately and content legibility is compromised."
+  }
+} %}
+
+### Container shape and behaviour
+
+For round or pill shaped UI elements, such as buttons, chips and tags; ensure the container always retains it’s shape as it resizes. Text should never overshoot it’s container.
+
+{% usage {
+  do: {
+    type: usageTypes.image,
+    items: [{
+            src: "../../../assets/img/accessibility/text-scaling/affect-truncation-do.svg",
+            width: "300px",
+            alt: "Card component with text scaling applied correctly where text wraps appropriately."
+        }],
+    caption: "Card component with text scaling applied correctly where text wraps appropriately."
+  },
+  dont: {
+    type: usageTypes.image,
+    items: [{
+            src: "../../../assets/img/accessibility/text-scaling/affect-truncation-dont.svg",
+            width: "300px",
+            alt: "Card component with text scaling applied incorrectly where text truncates."
+        }],
+    caption: "Card component with text scaling applied incorrectly where text truncates."
   }
 } %}
 
