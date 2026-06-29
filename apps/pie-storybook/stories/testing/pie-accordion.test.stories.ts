@@ -116,7 +116,7 @@ const WithIconTemplate: TemplateFunction<AccordionProps> = ({
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @pie-accordion-toggle="${handleToggle}">
-        <icon-restaurant-filled slot="icon"></icon-restaurant-filled>
+        <icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>
         <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
     </pie-accordion>
 `;
@@ -141,7 +141,7 @@ const RTLTemplate: TemplateFunction<AccordionProps> = ({
             ?isOpen="${isOpen}"
             ?isEmphasisReduced="${isEmphasisReduced}"
             ?isDividerHidden="${isDividerHidden}"
-    
+
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
             @pie-accordion-toggle="${handleToggle}">
@@ -218,7 +218,7 @@ const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @pie-accordion-toggle="${handleToggle}">
-        ${icon ? html`<icon-restaurant-filled slot="icon"></icon-restaurant-filled>` : nothing}
+        ${icon ? html`<icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>` : nothing}
         <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
     </pie-accordion>
 `;
