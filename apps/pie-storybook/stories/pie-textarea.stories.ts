@@ -123,7 +123,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         rows: {
-            description: 'The number of visible rows in the textarea. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual`, which has no maximum height on pointer devices but is capped at 6 rows on touch devices.',
+            description: 'The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized.',
             control: 'number',
             defaultValue: {
                 summary: '2',
