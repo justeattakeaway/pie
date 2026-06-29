@@ -6,7 +6,7 @@ const DEPENDABOT_LOGIN = 'dependabot[bot]';
 /**
  * Determines whether a PR's CI has passed, based solely on the `check-all-jobs`
  * job. Percy is a separate manual visual gate and is intentionally not
- * considered here — the digest message is itself the prompt to do that review.
+ * considered here — the Slack message is itself the prompt to do that review.
  *
  * @param {Array<{ name: string, status: string, conclusion: string, started_at: string }>} checkRuns
  * @returns {boolean}
