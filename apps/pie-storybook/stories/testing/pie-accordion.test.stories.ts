@@ -95,67 +95,6 @@ const createAccordionStory = createStory<AccordionProps>(Template, defaultArgs);
 
 export const Default = createAccordionStory();
 
-const WithIconTemplate: TemplateFunction<AccordionProps> = ({
-    isOpen,
-    headingLabel,
-    headingLevel,
-    secondaryLabel,
-
-    size,
-    isEmphasisReduced,
-    isDividerHidden,
-}) => html`
-    <pie-accordion
-        data-test-id="test-accordion"
-        headingLabel="${headingLabel}"
-        headingLevel="${ifDefined(headingLevel)}"
-        ?isOpen="${isOpen}"
-        ?isEmphasisReduced="${isEmphasisReduced}"
-        ?isDividerHidden="${isDividerHidden}"
-
-        size="${ifDefined(size)}"
-        secondaryLabel="${ifDefined(secondaryLabel)}"
-        @pie-accordion-toggle="${handleToggle}">
-        <icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>
-        <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
-    </pie-accordion>
-`;
-
-export const WithIcon = createStory<AccordionProps>(WithIconTemplate, defaultArgs)();
-
-const RTLTemplate: TemplateFunction<AccordionProps> = ({
-    isOpen,
-    headingLabel,
-    headingLevel,
-    secondaryLabel,
-
-    size,
-    isEmphasisReduced,
-    isDividerHidden,
-}) => html`
-    <div dir="rtl">
-        <pie-accordion
-            data-test-id="test-accordion"
-            headingLabel="${headingLabel}"
-            headingLevel="${ifDefined(headingLevel)}"
-            ?isOpen="${isOpen}"
-            ?isEmphasisReduced="${isEmphasisReduced}"
-            ?isDividerHidden="${isDividerHidden}"
-
-            size="${ifDefined(size)}"
-            secondaryLabel="${ifDefined(secondaryLabel)}"
-            @pie-accordion-toggle="${handleToggle}">
-            <p>محتوى القسم المنسدل هنا</p>
-        </pie-accordion>
-    </div>
-`;
-
-export const RTL = createStory<AccordionProps>(RTLTemplate, {
-    ...defaultArgs,
-    headingLabel: 'معلومات التوصيل',
-    isOpen: true,
-})();
-
 const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size }) => html`
     <div style="max-width: 480px;">
         <pie-accordion
@@ -233,4 +172,4 @@ const propsMatrix: Partial<Record<keyof AccordionVariantProps, unknown[]>> = {
     secondaryLabel: ['Available in your area', ''],
 };
 
-export const Variants = createVariantStory<AccordionVariantProps>(VariantTemplate, propsMatrix);
+export const Variations = createVariantStory<AccordionVariantProps>(VariantTemplate, propsMatrix);

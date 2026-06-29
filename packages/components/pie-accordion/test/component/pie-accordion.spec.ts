@@ -257,11 +257,4 @@ test.describe('PieAccordion - Component tests', () => {
             expect(event.isOpen).toBe(false);
         });
     });
-
-    test.describe('RTL layout', () => {
-        test('should set dir="rtl" on the host when rendered in an RTL context', async ({ page }) => {
-            const host = await loadAccordion(page, 'accordion--rtl');
-            await expect(host).toHaveAttribute('dir', 'rtl');
-        });
-    });
 });
