@@ -61,7 +61,7 @@ Use the built-in shortcodes rather than raw HTML so pages stay consistent. Commo
 - Links to other pages on the docs site must use relative paths, not full URLs. For example, use `/components/notification/web/#full-width` not `https://pie.design/components/notification/web/#full-width`.
 - Do not include Slack channel links in content. Reference the channel name instead.
 - Do not link to any JET (Just Eat Takeaway) intranet or internal-only URL.
-- When linking to an asset in Google Drive, check its sharing settings first and set the visibility appropriately before adding the link.
+- When linking to an asset in Google Drive or Figma, check its sharing settings first and set the visibility appropriately before adding the link.
 - Do not link to Storybook paths that may have changed or been removed.
 
 ### Tone and voice
