@@ -80,6 +80,6 @@
 
 ## 9. README and Changeset
 
-- [ ] 9.1 Update `README.md` with all required sections: npm badge, Table of Contents, Documentation (Properties, Slots, Events, CSS Variables), Usage Examples, Questions and Support, Contributing
-- [ ] 9.2 Run `yarn changeset` and write entry: `[Added] - New pie-accordion component`
-- [ ] 9.3 Add `package.json` `pieMetadata` entry
+- [x] 9.1 Update `README.md` with all required sections: npm badge, Table of Contents, Documentation (Properties, Slots, Events, CSS Variables), Usage Examples, Questions and Support, Contributing
+- [x] 9.2 Run `yarn changeset` and write entry: `[Added] - New pie-accordion component`
+- [x] 9.3 Add `package.json` `pieMetadata` entry

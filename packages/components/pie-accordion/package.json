@@ -15,7 +15,9 @@
   "pieMetadata": {
     "componentStatus": "alpha",
     "replaces": {
-      "snacks": []
+      "snacks": [
+        "Toggler"
+      ]
     }
   },
   "scripts": {
