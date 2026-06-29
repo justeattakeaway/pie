@@ -71,7 +71,7 @@
     }
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.11.3",
+    "@axe-core/playwright": "4.12.1",
     "@babel/preset-env": "7.29.7",
     "@changesets/changelog-github": "0.6.0",
     "@changesets/cli": "2.31.0",
@@ -85,10 +85,10 @@
     "@justeattakeaway/pie-webc-testing": "workspace:*",
     "@justeattakeaway/pie-wrapper-react": "workspace:*",
     "@justeattakeaway/stylelint-config-pie": "workspace:*",
-    "@percy/cli": "1.31.14",
-    "@percy/playwright": "1.0.9",
-    "@playwright/experimental-ct-react": "1.57.0",
-    "@playwright/test": "1.57.0",
+    "@percy/cli": "1.32.2",
+    "@percy/playwright": "1.1.0",
+    "@playwright/experimental-ct-react": "1.61.1",
+    "@playwright/test": "1.61.1",
     "@stylistic/stylelint-plugin": "4.0.0",
     "@types/node": "24.10.1",
     "@typescript-eslint/eslint-plugin": "5.62.0",
