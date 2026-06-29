@@ -295,7 +295,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
         return html`
             <div class="c-cookieBanner-preference">
                 <div>
-                    <h3 class="c-cookieBanner-subheading">${title}</h3>
+                    <h3 class="c-cookieBanner-subheading" data-test-id="${id}-label">${title}</h3>
                     ${description ? html`<p class="c-cookieBanner-description" data-test-id="${id}-description">${this._renderPreferenceDescription(id, description)}</p>` : nothing}
                 </div>
                 <pie-switch

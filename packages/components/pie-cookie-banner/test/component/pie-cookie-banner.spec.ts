@@ -318,6 +318,23 @@ test.describe('PieCookieBanner - Component tests', () => {
             expect(labelText).not.toContain('Custom');
         });
 
+        test('should fall back to the locale label when personalizedLabel is cleared to an empty string', async () => {
+            // Arrange - set an override then clear it to verify the locale fallback is restored
+            const overrideText = 'Custom personalized label';
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedLabel(overrideText);
+            await pieCookieBannerComponent.setPersonalizedLabel('');
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const labelText = await pieCookieBannerComponent.getPersonalizedLabelText();
+
+            // Assert
+            expect(labelText).toBeTruthy();
+            expect(labelText).not.toContain(overrideText);
+        });
+
         test('should not affect other preference labels when personalizedLabel is provided', async () => {
             // Arrange
             const overrideText = 'Custom personalized label';

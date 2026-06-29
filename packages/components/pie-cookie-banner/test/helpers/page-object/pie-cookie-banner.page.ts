@@ -21,7 +21,6 @@ export class CookieBannerComponent extends BasePage {
     private readonly bodyCookieStatementLinkLocator: Locator;
     private readonly bodyCookieTechnologiesLinkLocator: Locator;
     private readonly modalDescriptionLocator: Locator;
-    private readonly personalizedLabelLocator: Locator;
     private readonly personalizedDescriptionLocator: Locator;
     readonly modalComponent: ModalComponent;
 
@@ -38,7 +37,6 @@ export class CookieBannerComponent extends BasePage {
         this.bodyCookieStatementLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieStatementLink.dataTestId);
         this.bodyCookieTechnologiesLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieTechnologiesLink.dataTestId);
         this.modalDescriptionLocator = page.getByTestId(cookieBanner.selectors.modalDescription.dataTestId);
-        this.personalizedLabelLocator = page.getByTestId(cookieBanner.selectors.personalizedLabel.dataTestId);
         this.personalizedDescriptionLocator = page.getByTestId(cookieBanner.selectors.personalizedDescription.dataTestId);
         this.modalComponent = new ModalComponent(page);
     }
@@ -260,7 +258,7 @@ export class CookieBannerComponent extends BasePage {
      *                                   personalized preference label, or `null` if not found.
      */
     async getPersonalizedLabelText () : Promise<string | null> {
-        return this.personalizedLabelLocator.textContent();
+        return this.getPreferenceLabelText('personalized');
     }
 
     /**
@@ -270,7 +268,7 @@ export class CookieBannerComponent extends BasePage {
      *                                   personalized preference description, or `null` if not found.
      */
     async getPersonalizedDescriptionText () : Promise<string | null> {
-        return this.personalizedDescriptionLocator.textContent();
+        return this.getPreferenceDescriptionText('personalized');
     }
 
     /**
@@ -280,10 +278,12 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<void>} A Promise that resolves when the label has been set.
      */
     async setPersonalizedLabel (value: string) : Promise<void> {
+        await this.componentLocator.waitFor({ state: 'attached' });
+
         await this.page.evaluate(async (val) => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const component = document.querySelector('pie-cookie-banner') as any;
-            if (!component) return;
+            if (!component) throw new Error('pie-cookie-banner component not found');
             component.personalizedLabel = val;
             await component.updateComplete;
         }, value);
@@ -295,12 +295,13 @@ export class CookieBannerComponent extends BasePage {
      * @param {string} value The text to set as the personalized preference description.
      * @returns {Promise<void>} A Promise that resolves when the description has been set.
      */
-
     async setPersonalizedDescription (value: string) : Promise<void> {
+        await this.componentLocator.waitFor({ state: 'attached' });
+
         await this.page.evaluate(async (val) => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const component = document.querySelector('pie-cookie-banner') as any;
-            if (!component) return;
+            if (!component) throw new Error('pie-cookie-banner component not found');
             component.personalizedDescription = val;
             await component.updateComplete;
         }, value);
