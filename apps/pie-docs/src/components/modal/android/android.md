@@ -510,11 +510,11 @@ Use language that is familiar and understandable to the target audience, avoidin
 Use it for non-interactive, secondary information. This includes disclaimers, terms and conditions, legal text, and specific offer restrictions.
 Do not use it for primary actions or critical messaging. Content here must be purely supplementary and non-essential to completing the main task of the modal.
 
----
 
-## Overrides
 
-### Title overrides
+### Overrides
+
+#### Title overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-title.svg",
@@ -529,7 +529,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
     ]
 } %}
 
-### Buttons overrides
+#### Buttons overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-buttons.svg",
@@ -541,6 +541,27 @@ Do not use it for primary actions or critical messaging. Content here must be pu
     type: listTypes.ordered,
     items: [
         "**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
+    ]
+} %}
+
+### Slots available
+
+{% notification {
+  type: "information",
+  message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)."
+} %}
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviours-slots-slots-available.svg",
+  alt: "A diagram displaying the available slots for the Modal content and footer.",
+  width: 600
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+     "**Body Slot:** Available as a variant",
+        "**Footer slot:** Hidden by default"
     ]
 } %}
 
