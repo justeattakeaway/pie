@@ -47,6 +47,18 @@ describe('sanitiseDescriptionHtml', () => {
         expect(sanitiseDescriptionHtml('Plain text with no HTML.')).toBe('Plain text with no HTML.');
     });
 
+    it('sanitises a personalizedDescription-style anchor override', () => {
+        const input = 'Read our <a href="https://example.com/privacy">privacy policy</a> for details.';
+
+        expect(sanitiseDescriptionHtml(input)).toBe('Read our <a href="https://example.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a> for details.');
+    });
+
+    it('sanitises a personalizedDescription-style pie-link override', () => {
+        const input = 'Read our <pie-link href="https://example.com/privacy">privacy policy</pie-link> for details.';
+
+        expect(sanitiseDescriptionHtml(input)).toBe('Read our <pie-link href="https://example.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</pie-link> for details.');
+    });
+
     it('preserves a safe <a> tag with href, rel and target', () => {
         const input = '<a href="https://example.com" rel="noopener noreferrer" target="_blank">link</a>';
         expect(sanitiseDescriptionHtml(input)).toBe(input);
