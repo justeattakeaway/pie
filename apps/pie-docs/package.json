@@ -33,10 +33,10 @@
     "@11ty/eleventy": "3.1.6",
     "@11ty/eleventy-navigation": "1.0.5",
     "@justeattakeaway/pie-monorepo-utils": "0.9.6",
-    "autoprefixer": "10.5.0",
+    "autoprefixer": "10.5.2",
     "eleventy-plugin-rev": "2.0.0",
     "eleventy-sass": "3.0.0-beta.0",
-    "markdown-it-attrs": "4.3.1"
+    "markdown-it-attrs": "4.5.0"
   },
   "dependencies": {
     "@docsearch/css": "3.9.0",

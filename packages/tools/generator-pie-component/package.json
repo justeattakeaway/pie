@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/yeoman-generator": "6.0.0",
     "rollup-plugin-copy": "3.5.0",
-    "rollup-plugin-delete": "2.0.0"
+    "rollup-plugin-delete": "2.2.0"
   },
   "license": "Apache-2.0"
 }
