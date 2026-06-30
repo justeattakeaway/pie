@@ -2,9 +2,8 @@
 eleventyNavigation:
   key: 'Text Scaling'
   parent: Accessibility
-  # url: /accessibility/text-scaling/
-  order: 4
+  url: /accessibility/text-scaling/
+  order: 3
 title: 'Text Scaling'
-draft: true
 permalink: false
 ---

@@ -8,19 +8,19 @@ eleventyComputed:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
+## Dos and Don’ts
 
 {% usage {
     do: {
         type: usageTypes.text,
         items: [
-            "Use the component to provide feedback on the user's status, outcome of an action, or info on a task.  "
+            "Use the component to provide feedback on the user’s status, outcome of an action, or info on a task.  "
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't use notification pinned to the top of the interface. See below for full usage guidelines between notification and toast."
+            "Don’t use notification pinned to the top of the interface. See below for full usage guidelines between notification and toast."
         ]
     }
 } %}
@@ -53,7 +53,7 @@ shouldShowContents: true
 
 ### Neutral
 
-Neutral notification provides generic messages to users that may not be related to the current action or task they're performing. Does not require immediate action and can be dismissed on a timer or persist, depending on the content.
+Neutral notification provides generic messages to users that may not be related to the current action or task they’re performing. Does not require immediate action and can be dismissed on a timer or persist, depending on the content.
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/variation-neutral.svg",
@@ -84,7 +84,7 @@ Translucent notifications appear on top of content, creating a layered effect.
 
 ### Info
 
-Provide additional information to users that may not be related to the current action or task they're performing. Do not require immediate action and can be dismissed on a timer or persist, depending on the content.
+Provide additional information to users that may not be related to the current action or task they’re performing. Do not require immediate action and can be dismissed on a timer or persist, depending on the content.
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/variation-info.svg",
@@ -228,6 +228,56 @@ When the user is not required to take action against the notification.
 
 ---
 
+## Sizes
+
+We provide two sizes for both inline and full width notifications in the Narrow variant. The Wide variant only has large size as the default.
+
+### Narrow
+
+#### Large
+
+The narrow - large variant uses 16px spacing around the content and small size action and close buttons.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-large.svg",
+      width: "380px",
+      alt: "A narrow notification in large size with a leading icon, title, supporting text, dismiss button and two action buttons."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-large-compact.svg",
+      width: "380px",
+      alt: "A narrow notification in large size with the compact modifier, showing a leading icon, title, supporting text and two action buttons inline."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Small
+
+The small variant further reduces the overall visual size. Spacing around the content is reduced to 8px, and actions use the XSmall size. Text tokens are scaled down to match the tighter layout. This variant is ideal for highly compact interfaces or simple messaging, where minimal disruption is preferred.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-small.svg",
+      width: "380px",
+      alt: "A narrow notification in small size with a leading icon, title, supporting text, dismiss button and two action buttons."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/sizes-narrow-small-compact.svg",
+      width: "380px",
+      alt: "A narrow notification in small size with the compact modifier, showing a leading icon, title, supporting text and two action buttons inline."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
 ## Usage
 
 
@@ -251,7 +301,7 @@ Notifications provide limited space for content, and therefore the content must 
 - Be concise and avoid repeating or paraphrasing the title.
 - Limit content to one or two short sentences.
 
-### Overrides   
+### Overrides
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/content-overrides-anatomy.svg",
@@ -264,7 +314,7 @@ Notifications provide limited space for content, and therefore the content must 
     items: [
         "**Leading icon:** Leading icon can be overridden, but the chosen icon must be appropriate for the message context. Find more information in the [Modifiers: Icon](#icons) section.",
         "**Supporting text:** The supporting text can include a [link](/components/link) or bold type, when the string is a complete sentence or more.",
-        "**Buttons:** The default [Button's](/components/button/#sizes) size is Small-Productive, it can be decreased to XS. When used as a pair, ensure both buttons are the same size."
+        "**Buttons:** The default [Button’s](/components/button/#sizes) size is Small-Productive, it can be decreased to XS. When used as a pair, ensure both buttons are the same size."
     ]
 } %}
 
@@ -329,7 +379,7 @@ All props are available in narrow screen sizes.
 
 {% notification {
   type: "warning",
-  message: "It's recommended that the compact prop isn't used below 600px, due to available horizontal space."
+  message: "It’s recommended that the compact prop isn’t used below 600px, due to available horizontal space."
 } %}
 
 {% contentPageImage {

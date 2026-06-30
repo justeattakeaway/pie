@@ -80,12 +80,18 @@ export interface TextareaProps {
      * The maximum number of characters allowed in the textarea.
      */
     maxlength?: number;
+
+    /**
+     * The number of visible text rows. Defaults to 2 when resize is auto, with a maximum of 6 rows.
+     * Can be set to 1 when resize is manual (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized.
+     */
+    rows?: number;
 }
 
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue'| 'maxlength'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue' | 'maxlength' | 'rows'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
