@@ -71,7 +71,6 @@ const Template: TemplateFunction<AccordionProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -83,7 +82,6 @@ const Template: TemplateFunction<AccordionProps> = ({
         ?isOpen="${isOpen}"
         ?isEmphasisReduced="${isEmphasisReduced}"
         ?isDividerHidden="${isDividerHidden}"
-
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @pie-accordion-toggle="${handleToggle}">
@@ -140,7 +138,6 @@ const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
     headingLabel,
     headingLevel,
     secondaryLabel,
-
     size,
     isEmphasisReduced,
     isDividerHidden,
@@ -153,7 +150,6 @@ const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
         ?isOpen="${isOpen}"
         ?isEmphasisReduced="${isEmphasisReduced}"
         ?isDividerHidden="${isDividerHidden}"
-
         size="${ifDefined(size)}"
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @pie-accordion-toggle="${handleToggle}">
