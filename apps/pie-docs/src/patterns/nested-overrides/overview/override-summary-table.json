@@ -1,0 +1,135 @@
+{
+    "headings": [
+        {
+            "text": "Example"
+        },
+        {
+            "text": "Component/Element"
+        },
+        {
+            "text": "Variant override"
+        },
+        {
+            "text": "Size override"
+        },
+        {
+            "text": "Alignment override"
+        }
+    ],
+    "rows": [
+        {
+            "data": [
+                {
+                    "text": "<a href=\"#visually-supportive-nested-elements\">Visually supportive nested elements</a>"
+                },
+                {
+                    "text": "<ul><li>Avatar</li><li>Tag</li><li>Icon</li></ul>"
+                },
+                {
+                    "text": "Yes"
+                },
+                {
+                    "text": "No"
+                },
+                {
+                    "text": "No"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "<a href=\"#bulk-quantity-nested-components\">Bulk quantity nested components</a>"
+                },
+                {
+                    "text": "<ul><li>Nested icon button, buttons, link etc in a data table</li></ul>"
+                },
+                {
+                    "text": "Yes"
+                },
+                {
+                    "text": "No"
+                },
+                {
+                    "text": "No"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "<a href=\"#nested-actions-in-full-page-overlay-components\">Nested actions in full-page overlay components</a>"
+                },
+                {
+                    "text": "<ul><li>Modal</li><li>Bottom sheet</li><li>Date picker</li></ul>"
+                },
+                {
+                    "text": "Yes"
+                },
+                {
+                    "text": "Yes"
+                },
+                {
+                    "text": "No"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "<a href=\"#nested-actions-in-non-full-page-overlay-components\">Nested actions in non-full-page overlay components</a>"
+                },
+                {
+                    "text": "<ul><li>Notification</li><li>Uploader</li></ul>"
+                },
+                {
+                    "text": "No"
+                },
+                {
+                    "text": "Yes<br><small>Only decrease in size</small>"
+                },
+                {
+                    "text": "No"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "<a href=\"#nested-actions-with-specific-purpose\">Nested actions with specific purpose</a>"
+                },
+                {
+                    "text": "<ul><li>Close button</li></ul>"
+                },
+                {
+                    "text": "No"
+                },
+                {
+                    "text": "No"
+                },
+                {
+                    "text": "No"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "<a href=\"#alignment-overrides\">Alignment with leading and trailing content</a>"
+                },
+                {
+                    "text": "<ul><li>List item</li></ul>"
+                },
+                {
+                    "text": "No"
+                },
+                {
+                    "text": "No"
+                },
+                {
+                    "text": "Yes"
+                }
+            ]
+        }
+    ]
+}

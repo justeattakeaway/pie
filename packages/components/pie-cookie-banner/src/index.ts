@@ -9,6 +9,7 @@ import {
     property, state, queryAll,
 } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-divider';
@@ -39,7 +40,7 @@ import {
     type LanguageCode,
 } from './defs';
 
-import { localiseText, localiseRichText } from './localisation-utils';
+import { localiseText, localiseRichText, sanitiseDescriptionHtml } from './localisation-utils';
 
 // Valid values available to consumers
 export * from './defs';
@@ -262,10 +263,11 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
             <div class="c-cookieBanner-preference">
                 <div>
                     <h3 class="c-cookieBanner-subheading">${title}</h3>
-                     ${description ? html`<p class="c-cookieBanner-description">${description}</p>` : nothing}
+                     ${description ? html`<p class="c-cookieBanner-description">${unsafeHTML(sanitiseDescriptionHtml(description, this._linkTargetAttribute))}</p>` : nothing}
                  </div>
                 <pie-switch
                     id="${id}"
+                    .aria="${{ label: title }}"
                     ?checked="${this.defaultPreferences?.[id] || shouldToggleAll || checked}"
                     ?disabled="${disabled}"
                     @change="${this._handleSwitchStates}">

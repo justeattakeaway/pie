@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, type PropertyValues, nothing,
+    html, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
@@ -75,6 +75,12 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @property({ type: String })
     public placeholder: TextareaProps['placeholder'];
 
+    @property({ type: Number })
+    public maxlength: TextareaProps['maxlength'];
+
+    @property({ type: Number })
+    public rows: TextareaProps['rows'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
@@ -106,8 +112,12 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this.handleInput(null, this.value);
         }
 
-        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
+        if (this.resize === 'auto' && ((changedProperties.has('resize') || changedProperties.has('size')) || changedProperties.has('rows'))) {
             this.handleResize();
+        }
+
+        if (this.resize === 'manual' && ((changedProperties.has('rows') || changedProperties.has('size') || changedProperties.has('resize')))) {
+            this._textarea.style.height = '';
         }
     }
 
@@ -188,16 +198,13 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     };
 
     private renderAssistiveText () {
-        if (!this.assistiveText) {
-            return nothing;
-        }
-
         return html`
             <pie-assistive-text
                 id="${assistiveTextIdValue}"
                 variant=${ifDefined(this.status)}
+                message=${this.assistiveText || ''}
+                ?isVisuallyHidden=${!this.assistiveText}
                 data-test-id="pie-textarea-assistive-text">
-                ${this.assistiveText}
             </pie-assistive-text>
         `;
     }
@@ -216,6 +223,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             required,
             status,
             assistiveText,
+            maxlength,
+            rows,
         } = this;
 
         const classes = {
@@ -247,6 +256,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
                     @input=${this.handleInput}
                     @change=${this.handleChange}
+                    maxlength=${ifDefined(maxlength)}
+                    rows=${ifDefined(rows)}
                 ></textarea>
             </div>
             ${this.renderAssistiveText()}

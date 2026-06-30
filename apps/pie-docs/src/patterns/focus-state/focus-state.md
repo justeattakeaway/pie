@@ -1,10 +1,9 @@
 ---
 eleventyNavigation:
-  key: 'Focus State'
-  parent: Patterns
-  # url: /patterns/focus-state/
-  order: 7
+    key: 'Focus State'
+    parent: Patterns
+    url: /patterns/focus-state/
+    order: 3
 title: 'Focus State'
-draft: true
 permalink: false
 ---

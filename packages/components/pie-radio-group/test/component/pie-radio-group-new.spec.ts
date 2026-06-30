@@ -2,7 +2,7 @@ import {
     test, expect, type Page, type Expect,
 } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { type PieRadio } from '@justeattakeaway/pie-radio';
+import { type PieRadio } from '@justeattakeaway/pie-radio/src/index.ts';
 import { radio } from '@justeattakeaway/pie-radio/test/helpers/page-object/selectors.ts';
 import { radioGroup } from '../helpers/page-object/selectors.ts';
 import { type RadioGroupProps, statusTypes } from '../../src/defs.ts';

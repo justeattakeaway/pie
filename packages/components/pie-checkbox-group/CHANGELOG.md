@@ -1,5 +1,89 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 1.1.0
+
+### Minor Changes
+
+- [Changed] - Updated form components and Storybook stories to pass assistive copy via `pie-assistive-text` `message` prop instead of slot content, aligning usage with the new `pie-assistive-text` API. ([#2954](https://github.com/justeattakeaway/pie/pull/2954)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`868c1dd`](https://github.com/justeattakeaway/pie/commit/868c1dd968df04a5d3950006396491469b1a3f8e), [`868c1dd`](https://github.com/justeattakeaway/pie/commit/868c1dd968df04a5d3950006396491469b1a3f8e)]:
+  - @justeattakeaway/pie-assistive-text@1.0.0
+  - @justeattakeaway/pie-webc-core@15.0.0
+
+## 1.0.28
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.35
+
+## 1.0.27
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.34
+
+## 1.0.26
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-assistive-text@0.11.33
+  - @justeattakeaway/pie-webc-core@14.0.2
+
+## 1.0.25
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.32
+
+## 1.0.24
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.31
+
+## 1.0.23
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-assistive-text@0.11.30
+
+## 1.0.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.29
+
+## 1.0.21
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9)]:
+  - @justeattakeaway/pie-assistive-text@0.11.28
+
+## 1.0.20
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.27
+
 ## 1.0.19
 
 ### Patch Changes

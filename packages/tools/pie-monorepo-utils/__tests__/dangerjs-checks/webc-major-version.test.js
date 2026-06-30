@@ -37,7 +37,7 @@ describe('webc-major-version check', () => {
             pr: {},
             flags: { isAutomationPR: false, isDependabotPR: false },
         });
-        expect(execSync).toHaveBeenCalledWith('npx detect-webc-major-version', { stdio: 'pipe' });
+        expect(execSync).toHaveBeenCalledWith('yarn detect-webc-major-version', { stdio: 'pipe' });
         expect(fail).not.toHaveBeenCalled();
     });
 

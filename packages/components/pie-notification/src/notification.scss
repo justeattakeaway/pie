@@ -17,7 +17,7 @@
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-font-weight: var(--dt-font-body-l-weight);
-    --notification-close-icon-offset: var(--dt-spacing-b);
+    --notification-close-btn-offset: var(--dt-spacing-b);
     --notification-icon-fill: var(--dt-color-content-inverse);
     --notification-icon-background-color: var(--dt-color-container-inverse);
     --icon-size-override: 24px;
@@ -28,7 +28,6 @@
     position: relative;
     display: flex;
     flex-direction: var(--notification-direction);
-    gap: var(--dt-spacing-d);
     font-family: var(--notification-font-family);
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
@@ -69,13 +68,17 @@
         --notification-icon-fill: var(--dt-color-content-light);
     }
 
-     &.c-notification--translucent {
+    &.c-notification--translucent {
         --notification-background-color: var(--dt-color-container-prominent);
 
         backdrop-filter: blur(var(--dt-blur-prominent));
-
     }
 
+    &.c-notification--small {
+        --notification-close-btn-size: 40px;
+        --notification-content-min-height: 20px; // 36px total - 8px padding top - 8px padding bottom
+        --notification-content-min-height-dismissible: 32px; // 48px total - 8px padding top - 8px padding bottom
+    }
 
     &-heading {
         margin: 0;
@@ -98,14 +101,14 @@
         gap: var(--dt-spacing-c);
 
         &.is-dismissible {
-            max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
+            max-width: calc(100% - var(--notification-close-btn-offset) - 40px); // 40px is the size of the medium icon button
         }
     }
 
     &-icon-close {
         position: absolute;
-        inset-block-start: var(--notification-close-icon-offset);
-        inset-inline-end: var(--notification-close-icon-offset);
+        inset-block-start: var(--notification-close-btn-offset);
+        inset-inline-end: var(--notification-close-btn-offset);
     }
 
     &-footer {
@@ -113,6 +116,11 @@
         flex-direction: row;
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
+
+        pie-button,
+        ::slotted(pie-button) {
+            margin-block-start: var(--dt-spacing-d);
+        }
 
         &.is-compact {
             align-self: center;
@@ -122,6 +130,12 @@
         &.c-notification-footer--stacked {
             @include media('<md') {
                 flex-direction: column-reverse;
+                gap: 0;
+
+                pie-button,
+                ::slotted(pie-button) {
+                    --btn-inline-size: 100%;
+                }
             }
 
             @include media('>=md') {
@@ -129,6 +143,76 @@
                     width: auto;
                 }
             }
+        }
+
+        // Enforce only pie-button in the action slots
+        ::slotted(:not(pie-button)) {
+            display: none;
+        }
+    }
+
+    @include media('<md') {
+        &.c-notification--small {
+            --notification-heading-font-family: var(--dt-font-heading-xs-family);
+            --notification-heading-font-size: #{p.font-size(--dt-font-heading-xs-size--narrow)};
+            --notification-heading-line-height: #{p.line-height(--dt-font-heading-xs-line-height--narrow)};
+            --notification-heading-font-weight: var(--dt-font-heading-xs-weight);
+            --notification-font-family: var(--dt-font-body-s-family);
+            --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
+            --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+            --notification-font-weight: var(--dt-font-body-s-weight);
+            --notification-close-btn-offset: var(--dt-spacing-a);
+
+            padding: var(--dt-spacing-b);
+            gap: 0;
+
+            &.is-compact {
+                gap: var(--dt-spacing-b);
+            }
+
+            .c-notification-icon-close {
+                inset-block-start: var(--notification-close-btn-offset);
+                inset-inline-end: var(--notification-close-btn-offset);
+            }
+
+            .c-notification-content-section {
+                gap: var(--dt-spacing-b);
+
+                min-height: var(--notification-content-min-height);
+
+                &.is-dismissible {
+                    min-height: var(--notification-content-min-height-dismissible);
+                    max-width: calc(100% - var(--notification-close-btn-size));
+                }
+            }
+
+            &.is-compact .c-notification-content-section {
+                flex: 1;
+                min-width: 0;
+
+            }
+
+            .c-notification-footer {
+                align-items: flex-end;
+
+                &.is-compact {
+                    align-self: stretch;
+                    align-items: center;
+                }
+
+                pie-button,
+                ::slotted(pie-button) {
+                    margin-block-start: var(--dt-spacing-b);
+                }
+            }
+        }
+    }
+}
+
+:host([isCompact]) {
+    .c-notification-footer {
+        pie-button, ::slotted(pie-button) {
+            margin-block-start: 0;
         }
     }
 }

@@ -1,5 +1,103 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.25.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@15.0.0
+
+## 1.25.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2945](https://github.com/justeattakeaway/pie/pull/2945)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Restaurant
+
+  - delivery-large
+  - delivery
+
+  [Updated] - Icons
+
+  ## NEW
+
+  - nationwide
+  - revolut
+
+## 1.24.3
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+## 1.24.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-webc-core@14.0.2
+
+## 1.24.1
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+## 1.24.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2855](https://github.com/justeattakeaway/pie/pull/2855)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Age limit
+
+  - over-16-large
+  - over-16
+  - over-18-large
+  - over-18
+  - over-21-large
+  - over-21
+
+  ## Restaurant
+
+  - chef-large
+  - chef
+
+## 1.23.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Elements
+
+  - lightning-filled-large
+  - lightning-filled
+
+## 1.22.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2797](https://github.com/justeattakeaway/pie/pull/2797)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Chevron
+
+  - chevron-collapse-large
+  - chevron-collapse
+
+  ## Functionality
+
+  - column-large
+  - column
+
+  ## Technology
+
+  - tree-trace-large
+  - tree-trace
+
 ## 1.21.5
 
 ### Patch Changes

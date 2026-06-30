@@ -1,5 +1,33 @@
 # @justeattakeaway/pie-spinner
 
+## 1.4.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@15.0.0
+
+## 1.4.16
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-webc-core@14.0.2
+
+## 1.4.15
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+## 1.4.14
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.4.13
 
 ### Patch Changes

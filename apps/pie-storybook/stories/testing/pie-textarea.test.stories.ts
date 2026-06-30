@@ -115,6 +115,18 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: false,
             },
         },
+        maxlength: {
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        rows: {
+            control: 'number',
+            defaultValue: {
+                summary: '2',
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -133,6 +145,8 @@ const Template = ({
     assistiveText,
     status,
     placeholder,
+    maxlength,
+    rows,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -175,24 +189,13 @@ const Template = ({
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
+            status=${ifDefined(status)}
+            maxlength=${ifDefined(maxlength)}
+            rows=${ifDefined(rows)}
+            data-test-id="pie-textarea-container">
         </pie-textarea>
         <div id="output"></div>
     `;
-};
-
-const onSubmit = (event: Event) => {
-    event.preventDefault();
-    const form = document.querySelector('#testForm') as HTMLFormElement;
-    const output = document.querySelector('#formDataOutput') as HTMLDivElement;
-
-    const formData = new FormData(form);
-    const formDataObj: { [key: string]: FormDataEntryValue } = {};
-    formData.forEach((value, key) => {
-        formDataObj[key] = value;
-    });
-
-    output.innerText = JSON.stringify(formDataObj);
 };
 
 const shortContent = 'The default height is enough for two lines of text, but it should grow if you type more.';
@@ -203,7 +206,65 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
     defaultValue,
     disabled,
     showAdditionalField = false,
-}) => html`
+}) => {
+    const setDescriptionValidationState = (form: HTMLFormElement, state: 'default' | 'error' | 'success', message = '') => {
+        const descriptionField = form.querySelector('#description') as (TextareaProps & HTMLElement) | null;
+
+        if (!descriptionField) {
+            return;
+        }
+
+        descriptionField.status = state;
+        descriptionField.assistiveText = message;
+    };
+
+    const onSubmit = (event: Event) => {
+        event.preventDefault();
+
+        const form = event.currentTarget as HTMLFormElement;
+        const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+        const descriptionField = form.querySelector('#description') as (TextareaProps & HTMLElement) | null;
+        const isDescriptionDisabled = Boolean(descriptionField?.disabled);
+        const descriptionValue = descriptionField?.value?.trim();
+
+        if (!isDescriptionDisabled && !descriptionValue) {
+            setDescriptionValidationState(form, 'error', 'Please enter a description before submitting.');
+
+            if (output) {
+                output.innerText = '';
+            }
+
+            return;
+        }
+
+        if (!isDescriptionDisabled) {
+            setDescriptionValidationState(form, 'success', 'Description looks good.');
+        }
+
+        if (output) {
+            const formData = new FormData(form);
+            const formDataObj: { [key: string]: FormDataEntryValue } = {};
+
+            formData.forEach((value, key) => {
+                formDataObj[key] = value;
+            });
+
+            output.innerText = JSON.stringify(formDataObj);
+        }
+    };
+
+    const handleValidatedReset = (event: Event) => {
+        const form = event.currentTarget as HTMLFormElement;
+        const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+
+        setDescriptionValidationState(form, 'default');
+
+        if (output) {
+            output.innerText = '';
+        }
+    };
+
+    return html`
     <style>
         .form {
             display: flex;
@@ -227,17 +288,25 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
         }
     </style>
 
-    <form id="testForm" class="form" @submit="${onSubmit}" >
+    <form id="testForm" class="form" @submit="${onSubmit}" @reset="${handleValidatedReset}">
         <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" ?disabled="${disabled}">
+        <pie-textarea
+            class="form-field"
+            id="description"
+            name="description"
+            defaultValue="${ifDefined(defaultValue)}"
+            ?disabled="${disabled}"
+            data-test-id="pie-textarea-container">
         </pie-textarea>
         ${showAdditionalField ? html`
             <pie-form-label for="comment">Comment:</pie-form-label>
             <pie-textarea
-            class="form-field"
-            id="comment"
-            name="comment"
-            value="commentsTextareaValue">
+                class="form-field"
+                id="comment"
+                name="comment"
+                value="commentsTextareaValue"
+                data-test-id="pie-textarea-container">
+            </pie-textarea>
         ` : nothing}
 
         <div class="form-btns">
@@ -247,6 +316,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
     </form>
     <div id="formDataOutput"></div>
 `;
+};
 
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>

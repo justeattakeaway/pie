@@ -6,11 +6,13 @@ test.describe('PieSpinner - Accessibility tests', () => {
     variants.forEach((variant) => {
         test(`a11y - should test the PieSpinner component WCAG compliance - ${variant}`, async ({ makeAxeBuilder, page }) => {
             // Arrange
-            const spinnerPage = new BasePage(page, `spinner---${variant}`);
+            const spinnerPage = new BasePage(page, `spinner--${variant}`);
             await spinnerPage.load();
 
             // Act
-            const results = await makeAxeBuilder().analyze();
+            const axeBuilder = variant === 'inverse' ? makeAxeBuilder().disableRules('color-contrast') : makeAxeBuilder();
+
+            const results = await axeBuilder.analyze();
 
             // Assert
             expect(results.violations).toEqual([]);

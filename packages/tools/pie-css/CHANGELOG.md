@@ -1,5 +1,31 @@
 # @justeattakeaway/pie-css
 
+## 1.2.0
+
+### Minor Changes
+
+- [Changed] - visually-hidden mixin update to include clip-path ([#2953](https://github.com/justeattakeaway/pie/pull/2953)) by [@dandel10n](https://github.com/dandel10n)
+
+## 1.1.3
+
+### Patch Changes
+
+- [Fixed] - enable hover only for devices that support it ([#2929](https://github.com/justeattakeaway/pie/pull/2929)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 1.1.2
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Updating internal scripts ([#2908](https://github.com/justeattakeaway/pie/pull/2908)) by [@siggerzz](https://github.com/siggerzz)
+
+## 1.1.1
+
+### Patch Changes
+
+- [Changed] - Updated build script for typography utility classes docs ([#2818](https://github.com/justeattakeaway/pie/pull/2818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.1.0
 
 ### Minor Changes

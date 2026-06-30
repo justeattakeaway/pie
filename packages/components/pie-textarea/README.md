@@ -43,11 +43,13 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `autoFocus`    | `true`, `false`                                              | If true, focuses the textarea on first render. Only one element should have `autofocus`. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus).                                                              | `false`     |
 | `defaultValue` | `string`                                                     | Value used during a form reset to replace the current value.                                                                                                                                                                                     | `undefined` |
 | `disabled`     | `true`, `false`                                              | When true, the user cannot edit or interact with the textarea.                                                                                                                                                                                   | `false`     |
+| `maxlength`    | `number`                                                     | The maximum number of characters the textarea can hold.                                                                                                                                                                                          | `undefined` |
 | `name`         | `string`                                                     | Name of the textarea (used in form key/value pairs).                                                                                                                                                                                             | `undefined` |
 | `placeholder`  | `string`                                                     | Placeholder text shown when textarea is empty.                                                                                                                                                                                                   | `""`        |
 | `readonly`     | `true`, `false`                                              | When true, the user cannot edit the textarea. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly).                                                                                       | `false`     |
 | `required`     | `true`, `false`                                              | If true, textarea must have a value for valid form submission. Does not block form submission by itself.                                                                                                                                         | `false`     |
 | `resize`       | `"auto"`, `"manual"`                                         | Controls resizing behavior. `auto` resizes vertically as needed; `manual` allows user resizing but no auto resizing.                                                                                                                             | `"auto"`    |
+| `rows`         | `number`                                                     | The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized. | `undefined` |
 | `size`         | `"small"`, `"medium"`, `"large"`                             | Sets the visual size of the textarea.                                                                                                                                                                                                            | `"medium"`  |
 | `status`       | `"default"`, `"error"`, `"success"`                          | Status of the component. If not `default`, `assistiveText` must be provided for accessibility.                                                                                                                                                   | `"default"` |
 | `value`        | `string`                                                     | Value of the textarea (used in form key/value pairs).                                                                                                                                                                                            | `""`        |
@@ -76,11 +78,12 @@ const textarea = document.querySelector('pie-textarea');
 console.log(textarea.validity.valid);
 ```
 
-This getter can be useful for reducing the amount of validation code in your application. For example, if you want to create a textarea that requires attention, you can set the `required` property on the component. You can then check the validity of the input in your application code:
+This getter can be useful for reducing the amount of validation code in your application. For example, if you want to create a textarea that should be at most 200 characters long and requires a value, you can set the `maxlength` and `required` properties on the component. You can then check the validity of the textarea in your application code:
 
 ```html
 <pie-textarea
   id="my-textarea"
+  maxlength="200"
   required>
 </pie-textarea>
 ```
@@ -92,7 +95,7 @@ const isValid = textarea.validity.valid;
 // We could use this to drive the status and assistiveText properties on our textarea (this would likely be inside a submit event handler in a real application)
 if (!isValid) {
   textarea.status = 'error';
-  textarea.assistiveText = 'This textarea is required';
+  textarea.assistiveText = 'Please enter a value of no more than 200 characters';
 }
 ```
 
@@ -137,6 +140,7 @@ import '@justeattakeaway/pie-webc/components/textarea.js';
     name="my-textarea"
     placeholder="Please enter a value"
     autocomplete="on"
+    maxlength="200"
     value=""
     autoFocus
     readonly>
@@ -154,6 +158,7 @@ import '@justeattakeaway/pie-webc/components/textarea.js';
     name="my-textarea"
     placeholder="Please enter a value"
     autocomplete="on"
+    maxlength="200"
     value=""
     autoFocus
     readonly>
@@ -169,6 +174,7 @@ import { PieTextarea } from '@justeattakeaway/pie-webc/react/textarea.js';
     name="my-textarea"
     placeholder="Please enter a value"
     autocomplete="on"
+    maxlength="200"
     value=""
     autoFocus
     readonly>

@@ -9,11 +9,14 @@ import {
     variants,
     headingLevels,
     positions,
+    sizes,
     actionSizes,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/notification';
 
+import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
@@ -76,6 +79,14 @@ const notificationStoryMeta: NotificationStoryMeta = {
             options: positions,
             defaultValue: {
                 summary: defaultProps.position,
+            },
+        },
+        size: {
+            description: 'Sets the size of the notification.',
+            control: 'select',
+            options: sizes,
+            defaultValue: {
+                summary: defaultProps.size,
             },
         },
         isDismissible: {
@@ -173,6 +184,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     isCompact,
     variant,
     position,
+    size,
     heading,
     headingLevel,
     hideIcon,
@@ -187,6 +199,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         ?isOpen="${isOpen}"
         variant="${ifDefined(variant)}"
         position="${ifDefined(position)}"
+        size="${ifDefined(size)}"
         ?isCompact="${isCompact}"
         ?isDismissible="${isDismissible}"
         heading="${ifDefined(heading)}"
@@ -212,6 +225,10 @@ export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
 export const Translucent = createNotificationStory({ variant: 'translucent' });
+export const NoActions = createNotificationStory({
+    leadingAction: undefined,
+    supportingAction: undefined,
+});
 export const WithLinkActions = createNotificationStory({
     variant: 'info',
     heading: 'Update Available',
@@ -230,3 +247,57 @@ export const WithLinkActions = createNotificationStory({
         download: 'update-notes.pdf',
     },
 });
+
+const SlottedActionsTemplate: TemplateFunction<NotificationProps> = ({
+    aria,
+    isOpen,
+    isDismissible,
+    isCompact,
+    variant,
+    position,
+    heading,
+    headingLevel,
+    hideIcon,
+    hasStackedActions,
+    slot,
+    iconSlot,
+}) => html`
+    <pie-notification
+        .aria="${aria}"
+        ?isOpen="${isOpen}"
+        ?isDismissible="${isDismissible}"
+        ?isCompact="${isCompact}"
+        variant="${ifDefined(variant)}"
+        position="${ifDefined(position)}"
+        heading="${ifDefined(heading)}"
+        headingLevel="${ifDefined(headingLevel)}"
+        ?hideIcon="${hideIcon}"
+        ?hasStackedActions="${hasStackedActions}"
+        @pie-notification-close="${pieNotificationClose}"
+        @pie-notification-open="${pieNotificationOpen}">
+            ${iconSlot}
+            ${sanitizeAndRenderHTML(slot)}
+            <pie-button
+                slot="supportingAction"
+                variant="ghost"
+                size="small-productive"
+                disabled>
+                Cancel
+            </pie-button>
+            <pie-button
+                slot="leadingAction"
+                variant="primary"
+                size="small-productive"
+                isLoading>
+                Saving...
+            </pie-button>
+    </pie-notification>`;
+
+export const WithSlottedActions = createStory<NotificationProps>(SlottedActionsTemplate, {
+    ...defaultArgs,
+    variant: 'success',
+    heading: 'Slotted Actions (Loading & Disabled)',
+    slot: 'This notification has a loading leading action and a disabled supporting action, both using slotted pie-buttons.',
+    leadingAction: undefined,
+    supportingAction: undefined,
+})(undefined, { controls: { exclude: ['leadingAction', 'supportingAction'] } });

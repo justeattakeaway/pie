@@ -8,7 +8,6 @@ import { variants, type CardProps } from '../../src/defs.ts';
 test.describe('PieCard - Visual tests`', () => {
     variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
         const variantPage = new BasePage(page, `card--${variant}-variants`);
-        variantPage.waitUntilStrategy = 'networkidle';
         await variantPage.load();
 
         await percySnapshot(page, `PIE Card - Variant: ${variant}`, percyWidths);
@@ -19,7 +18,6 @@ test.describe('PieCard - `padding` prop', async () => {
     const paddingTokens = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
     paddingTokens.forEach((paddingToken) => test(`should render the padding variants for padding token value: ${paddingToken}`, async ({ page }) => {
         const paddingVariantPage = new BasePage(page, `card--padding-${paddingToken}-variants`);
-        paddingVariantPage.waitUntilStrategy = 'networkidle';
 
         await paddingVariantPage.load();
         await percySnapshot(page, `PIE Card - Padding values: ${paddingToken}`, percyWidths);
@@ -33,7 +31,6 @@ test.describe('PieCard - Disabled Prop Visual Tests', () => {
         };
 
         const cardWithImagePage = new CardWithImagePage(page);
-        cardWithImagePage.waitUntilStrategy = 'networkidle';
         await cardWithImagePage.load({ ...props });
 
         await expect.soft(cardWithImagePage.cardComponent.componentLocator.locator('img')).toHaveCSS('opacity', '0.5');
@@ -46,7 +43,6 @@ test.describe('PieCard - Disabled Prop Visual Tests', () => {
         };
 
         const cardWithImagePage = new CardWithImagePage(page);
-        cardWithImagePage.waitUntilStrategy = 'networkidle';
         await cardWithImagePage.load({ ...props });
 
         await expect.soft(cardWithImagePage.cardComponent.componentLocator.locator('img')).not.toHaveCSS('opacity', '0.5');

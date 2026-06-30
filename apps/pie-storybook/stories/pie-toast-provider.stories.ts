@@ -11,6 +11,7 @@ import {
 } from '@justeattakeaway/pie-webc/components/toast-provider';
 import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/modal';
 
 import { createStory } from '../utilities';
 
@@ -152,3 +153,74 @@ const Template = ({ options = defaultProps.options, position, '--toast-provider-
 };
 
 export const Default = createStory<ToastProviderProps>(Template, defaultArgs)();
+
+const MultipleProvidersTemplate = () => {
+    const openModal = () => {
+        const modal = document.querySelector('pie-modal') as any;
+        if (modal) modal.isOpen = true;
+    };
+
+    return html`
+    <pie-toast-provider id="main"></pie-toast-provider>
+
+    <p style="margin: 0 0 var(--dt-spacing-d); color: var(--dt-color-content-subdued);">
+        This page has multiple providers: one at page level (<code>id="main"</code>) and one inside a modal (<code>id="modal"</code>). Each has its own independent toast queue.
+    </p>
+
+    <div style="display: flex; gap: var(--dt-spacing-d); flex-wrap: wrap; margin-bottom: var(--dt-spacing-e);">
+        <pie-button
+            @click=${() => {
+        toaster.create({
+            message: 'Item saved successfully',
+            variant: 'success',
+            providerId: 'main',
+        });
+    }}>
+            Create Toast on Page
+        </pie-button>
+
+        <pie-button
+            variant="ghost"
+            @click=${() => toaster.clearAll('main')}>
+            Clear Main Toasts
+        </pie-button>
+    </div>
+
+    <pie-button
+        variant="secondary"
+        @click=${openModal}>
+        Open Modal
+    </pie-button>
+
+    <pie-modal
+        heading="Modal with its own Toast Provider"
+        isDismissible>
+        <pie-toast-provider id="modal" position="bottom-center"></pie-toast-provider>
+
+        <p style="margin: 0 0 var(--dt-spacing-d); color: var(--dt-color-content-subdued);">
+            This modal has its own toast provider (<code>id="modal"</code>). Toasts created here are scoped to the modal.
+        </p>
+
+        <div style="display: flex; gap: var(--dt-spacing-d); flex-wrap: wrap; justify-content: center; padding-bottom: var(--dt-spacing-i);">
+            <pie-button
+                @click=${() => {
+        toaster.create({
+            message: 'Form submitted!',
+            variant: 'success',
+            providerId: 'modal',
+        });
+    }}>
+                Toast on Modal
+            </pie-button>
+
+            <pie-button
+                variant="ghost"
+                @click=${() => toaster.clearAll('modal')}>
+                Clear Modal Toasts
+            </pie-button>
+        </div>
+    </pie-modal>
+`;
+};
+
+export const MultipleProviders = createStory<ToastProviderProps>(MultipleProvidersTemplate, defaultArgs)();

@@ -1,0 +1,5 @@
+[tools]
+node = { version = "24.11.1", postinstall = "corepack enable" }
+
+[settings]
+node.corepack = true

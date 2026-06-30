@@ -8,7 +8,6 @@ import '@justeattakeaway/pie-webc/components/textarea';
 import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-webc/components/textarea';
-import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-webc/components/link';
 
@@ -116,6 +115,21 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '',
             },
         },
+        maxlength: {
+            description: 'The maximum number of characters the textarea can hold.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        rows: {
+            description: 'The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized.',
+            control: 'number',
+            defaultValue: {
+                summary: '2',
+            },
+        },
+
     },
     args: defaultArgs,
     parameters: {
@@ -140,6 +154,8 @@ const Template = ({
     assistiveText,
     status,
     placeholder,
+    maxlength,
+    rows,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -176,48 +192,12 @@ const Template = ({
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
+            status=${ifDefined(status)}
+            maxlength=${ifDefined(maxlength)}
+            rows=${ifDefined(rows)}>
         </pie-textarea>
     `;
 };
-
-const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
-    defaultValue,
-}) => html`
-    <style>
-        .form {
-            display: flex;
-            flex-direction: column;
-            padding: var(--dt-spacing-d);
-        }
-
-        .form-field {
-            display: block;
-            margin-bottom: var(--dt-spacing-d);
-        }
-
-        .form-btns {
-            margin-top: var(--dt-spacing-c);
-            display: flex;
-            gap: var(--dt-spacing-a)
-        }
-
-        .form-btns > .form-btn:first-of-type {
-            margin-left: auto;
-        }
-    </style>
-
-    <form class="form">
-        <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}">
-        </pie-textarea>
-
-        <div class="form-btns">
-            <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
-            <pie-button class="form-btn" type="submit">Submit</pie-button>
-        </div>
-    </form>
-`;
 
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
@@ -226,15 +206,17 @@ const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps
     `;
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
-const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
 const CreateTextareaStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
 
 export const Default = CreateTextareaStory({}, {
     argTypes: {
-        defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
+        defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },
 });
-export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)();
-export const ExampleForm = CreateTextareaStoryWithForm();
+export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)({}, {
+    argTypes: {
+        defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
+    },
+});
 
 export default textareaStoryMeta;

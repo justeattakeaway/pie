@@ -1,0 +1,36 @@
+name: Dependabot Changeset
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+concurrency:
+  group: dependabot-changeset-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  generate-changeset:
+    if: github.actor == 'dependabot[bot]' && startsWith(github.event.pull_request.title, 'deps(npm)')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App token
+        id: get-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ vars.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Generate changeset
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          github-token: ${{ steps.get-token.outputs.token }}
+          script: |
+            const script = require('./packages/tools/pie-monorepo-utils/generate-dependabot-changeset/generate-dependabot-changeset.js');
+            await script({ github, context });

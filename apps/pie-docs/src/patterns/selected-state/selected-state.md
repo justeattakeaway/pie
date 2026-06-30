@@ -2,9 +2,8 @@
 eleventyNavigation:
   key: 'Selected State'
   parent: Patterns
-  # url: /patterns/selected-state/
-  order: 10
+  url: /patterns/selected-state/
+  order: 12
 title: 'Selected State'
-draft: true
 permalink: false
 ---

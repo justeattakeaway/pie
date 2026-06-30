@@ -1,20 +1,29 @@
 import { test } from '@playwright/test';
 import PERCY_BREAKPOINTS from './percy-breakpoints';
 import { percySnapshot } from '../playwright/playwright-helper';
-import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
 test.describe('PIE - Page Visual Tests', () => {
     test.beforeEach(async ({ page, baseURL }) => {
         await page.goto(baseURL);
     });
 
-    expectedRoutesJson.forEach((route) => {
-        test(`Should take a screenshot of the requested route: - ${route}`, async ({ page }) => {
+    const templateVariants = [
+        { route: '/', name: 'Home Page' },
+        { route: '/all-about-pie/what-is-pie/', name: 'Content Page' },
+        { route: '/components/card/', name: 'Content Page with Table of Contents' },
+        { route: '/components/card/code', name: 'Content Page with Tabs' },
+        { route: '/foundations/colour/tokens/alias/light/', name: 'Page with Toggles' },
+        { route: '/patterns/nested-overrides/', name: 'Usage shortcode examples' },
+        { route: '/foo/bar/baz/', name: '404 Page' },
+    ];
+
+    templateVariants.forEach((variant) => {
+        test(`Should take a screenshot of the requested route: - ${variant.name}`, async ({ page }) => {
             // Arrange
-            await page.goto(route, { waitUntil: 'networkidle' });
+            await page.goto(variant.route, { waitUntil: 'networkidle' });
 
             // Assert
-            await percySnapshot(page, `PIE - ${route}`);
+            await percySnapshot(page, `PIE - ${variant.name}`);
         });
     });
 });

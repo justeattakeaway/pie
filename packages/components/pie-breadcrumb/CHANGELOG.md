@@ -1,5 +1,114 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 1.0.0
+
+### Major Changes
+
+- [Chanaged] - move the componet to stable ([#2954](https://github.com/justeattakeaway/pie/pull/2954)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-link@1.3.35
+  - @justeattakeaway/pie-webc-core@15.0.0
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
+## 0.8.10
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-link@1.3.34
+
+## 0.8.9
+
+### Patch Changes
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons-webc@1.25.0
+  - @justeattakeaway/pie-link@1.3.33
+
+## 0.8.8
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+  - @justeattakeaway/pie-link@1.3.32
+
+## 0.8.7
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-icons-webc@1.24.2
+  - @justeattakeaway/pie-link@1.3.31
+
+## 0.8.6
+
+### Patch Changes
+
+- Updated dependencies [[`fc9adc8`](https://github.com/justeattakeaway/pie/commit/fc9adc8e1fe3b00e2f03c0f24d802ca34d8a8ea9)]:
+  - @justeattakeaway/pie-icons-webc@1.24.1
+  - @justeattakeaway/pie-link@1.3.30
+
+## 0.8.5
+
+### Patch Changes
+
+- Updated dependencies [[`c272cb5`](https://github.com/justeattakeaway/pie/commit/c272cb59073e8864ed538228d35b7ade776732d2)]:
+  - @justeattakeaway/pie-icons-webc@1.24.0
+  - @justeattakeaway/pie-link@1.3.29
+
+## 0.8.4
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-link@1.3.28
+
+## 0.8.3
+
+### Patch Changes
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-link@1.3.27
+
+## 0.8.2
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9)]:
+  - @justeattakeaway/pie-link@1.3.26
+
+## 0.8.1
+
+### Patch Changes
+
+- [Changed] - When `isCompact` is true and only one breadcrumb item exists, the item is now displayed as the current page instead of being hidden. ([#2822](https://github.com/justeattakeaway/pie/pull/2822)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - `aria` prop support on `pie-breadcrumb` and `pie-breadcrumb-item` components, allowing consumers to set a custom `aria-label` on the nav element and individual item links ([#2815](https://github.com/justeattakeaway/pie/pull/2815)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.7.30
+
+### Patch Changes
+
+- Updated dependencies [[`71f09eb`](https://github.com/justeattakeaway/pie/commit/71f09ebaa83ad17c2a23e93b131965f473a916c0)]:
+  - @justeattakeaway/pie-icons-webc@1.22.0
+  - @justeattakeaway/pie-link@1.3.25
+
 ## 0.7.29
 
 ### Patch Changes

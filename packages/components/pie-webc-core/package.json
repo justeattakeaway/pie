@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
-  "version": "14.0.1",
+  "version": "15.0.0",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "dist/index.js",
@@ -20,7 +20,7 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
-    "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers": "run -T playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:watch": "run -T vitest"
   },
@@ -31,9 +31,6 @@
     "@justeattakeaway/pie-css": "1.x"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.0"
-  },
-  "volta": {
-    "extends": "../../../package.json"
+    "@justeattakeaway/pie-components-config": "0.21.3"
   }
 }

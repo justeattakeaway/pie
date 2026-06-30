@@ -189,10 +189,10 @@ function onChange (event: CustomEvent) {
     console.info(`change event received: value=${selectElement?.value}, isTrusted=${event.isTrusted}`);
 }
 
-const onSubmit = (event: Event) => {
-    event.preventDefault();
-    const form = document.querySelector('#testForm') as HTMLFormElement;
-    const output = document.querySelector('#formDataOutput') as HTMLDivElement;
+const writeFormDataToOutput = (form: HTMLFormElement, output: HTMLDivElement | null) => {
+    if (!output) {
+        return;
+    }
 
     const formData = new FormData(form);
     const formDataObj: { [key: string]: FormDataEntryValue } = {};
@@ -231,8 +231,53 @@ const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
     disabled,
     options,
     value,
-}: SelectProps) => html`
-  <form id="testForm" @submit="${onSubmit}">
+}: SelectProps) => {
+    const setFoodValidationState = (form: HTMLFormElement, state: 'default' | 'error', message = '') => {
+        const foodField = form.querySelector('#food') as (SelectBaseProps & HTMLElement) | null;
+
+        if (!foodField) {
+            return;
+        }
+
+        foodField.status = state;
+        foodField.assistiveText = message;
+    };
+
+    const onSubmit = (event: Event) => {
+        event.preventDefault();
+
+        const form = event.currentTarget as HTMLFormElement;
+        const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+        const foodField = form.querySelector('#food') as (SelectBaseProps & HTMLElement) | null;
+        const selectedValue = String(foodField?.value ?? '').trim();
+
+        if (!selectedValue) {
+            setFoodValidationState(form, 'error', 'Please select a food option before submitting.');
+
+            if (output) {
+                output.innerText = '';
+            }
+
+            return;
+        }
+
+        setFoodValidationState(form, 'default', 'Food selection looks good.');
+        writeFormDataToOutput(form, output);
+    };
+
+    const handleValidatedReset = (event: Event) => {
+        const form = event.currentTarget as HTMLFormElement;
+        const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+
+        setFoodValidationState(form, 'default');
+
+        if (output) {
+            output.innerText = '';
+        }
+    };
+
+    return html`
+    <form id="testForm" @submit="${onSubmit}" @reset="${handleValidatedReset}">
       <pie-form-label for="food">Food:</pie-form-label>
       <pie-select
           class="form-field"
@@ -252,13 +297,24 @@ const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
   </form>
   <div id="formDataOutput"></div>
 `;
+};
 
 const ExampleFormWithSelectedOptionTemplate: TemplateFunction<SelectProps> = ({
     disabled,
     options,
     value,
-}: SelectProps) => html`
-  <form id="testForm" @submit="${onSubmit}">
+}: SelectProps) => {
+    const onSubmit = (event: Event) => {
+        event.preventDefault();
+
+        const form = event.currentTarget as HTMLFormElement;
+        const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
+
+        writeFormDataToOutput(form, output);
+    };
+
+    return html`
+    <form id="testForm" @submit="${onSubmit}">
       <pie-form-label for="food">Food:</pie-form-label>
       <pie-select
           class="form-field"
@@ -278,6 +334,7 @@ const ExampleFormWithSelectedOptionTemplate: TemplateFunction<SelectProps> = ({
   </form>
   <div id="formDataOutput"></div>
 `;
+};
 
 export const Default = createStory<SelectProps>(Template, defaultArgs)();
 export const DisabledOptions = createStory<SelectProps>(Template, disabledOptionsArgs)();

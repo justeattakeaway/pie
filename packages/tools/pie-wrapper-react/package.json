@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-wrapper-react",
-  "version": "0.14.4",
+  "version": "0.14.5",
   "description": "Common react wrapper for use for PIE custom elements",
   "repository": {
     "type": "git",
@@ -12,9 +12,6 @@
   "files": [
     "./scripts/add-react-wrapper.js"
   ],
-  "bin": {
-    "build-react-wrapper": "./index.js"
-  },
   "keywords": [
     "PIE"
   ],
@@ -26,15 +23,12 @@
     "test:ci": "yarn test"
   },
   "devDependencies": {
-    "@babel/preset-react": "7.28.5",
+    "@babel/preset-react": "7.29.7",
     "@lit/react": "1.0.5",
     "@types/react": "18.3.11"
   },
   "dependencies": {
     "fs-extra": "9.1.0"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   },
   "customElements": "custom-elements.json"
 }

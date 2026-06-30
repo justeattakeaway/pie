@@ -5,12 +5,24 @@
             "displayName": "Age limit",
             "icons": [
                 {
+                    "name": "over-16",
+                    "displayName": "Over 16"
+                },
+                {
                     "name": "over-16-filled",
                     "displayName": "Over 16 Filled"
                 },
                 {
+                    "name": "over-18",
+                    "displayName": "Over 18"
+                },
+                {
                     "name": "over-18-filled",
                     "displayName": "Over 18 Filled"
+                },
+                {
+                    "name": "over-21",
+                    "displayName": "Over 21"
                 },
                 {
                     "name": "over-21-filled",
@@ -451,6 +463,18 @@
             "displayName": "Chevron",
             "icons": [
                 {
+                    "name": "chevron-collapse",
+                    "displayName": "Chevron Collapse"
+                },
+                {
+                    "name": "chevron-double-left",
+                    "displayName": "Chevron Double Left"
+                },
+                {
+                    "name": "chevron-double-right",
+                    "displayName": "Chevron Double Right"
+                },
+                {
                     "name": "chevron-down",
                     "displayName": "Chevron Down"
                 },
@@ -463,20 +487,12 @@
                     "displayName": "Chevron Right"
                 },
                 {
-                    "name": "chevron-up",
-                    "displayName": "Chevron Up"
-                },
-                {
-                    "name": "chevron-double-left",
-                    "displayName": "Chevron Double Left"
-                },
-                {
-                    "name": "chevron-double-right",
-                    "displayName": "Chevron Double Right"
-                },
-                {
                     "name": "chevron-split",
                     "displayName": "Chevron Split"
+                },
+                {
+                    "name": "chevron-up",
+                    "displayName": "Chevron Up"
                 }
             ]
         },
@@ -763,6 +779,10 @@
                 {
                     "name": "lightning",
                     "displayName": "Lightning"
+                },
+                {
+                    "name": "lightning-filled",
+                    "displayName": "Lightning Filled"
                 },
                 {
                     "name": "moon",
@@ -1075,6 +1095,10 @@
                 {
                     "name": "close-circle-filled",
                     "displayName": "Close Circle Filled"
+                },
+                {
+                    "name": "column",
+                    "displayName": "Column"
                 },
                 {
                     "name": "double-check",
@@ -2064,6 +2088,10 @@
             "displayName": "Restaurant",
             "icons": [
                 {
+                    "name": "chef",
+                    "displayName": "Chef"
+                },
+                {
                     "name": "collect",
                     "displayName": "Collect"
                 },
@@ -2078,6 +2106,10 @@
                 {
                     "name": "cutlery-filled",
                     "displayName": "Cutlery Filled"
+                },
+                {
+                    "name": "delivery",
+                    "displayName": "Delivery"
                 },
                 {
                     "name": "delivery-fee",
@@ -2466,6 +2498,10 @@
                 {
                     "name": "robot",
                     "displayName": "Robot"
+                },
+                {
+                    "name": "tree-trace",
+                    "displayName": "Tree Trace"
                 }
             ]
         },

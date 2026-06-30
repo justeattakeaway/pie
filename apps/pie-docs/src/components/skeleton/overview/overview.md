@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Skeleton
     order: 1
-shouldShowContents: true
 permalink: components/skeleton/
 ---
 

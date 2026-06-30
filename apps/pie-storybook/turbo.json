@@ -20,7 +20,7 @@
       ]
     },
     "build": {
-      "cache": true,
+      "cache": false,
       "dependsOn": [
         "^build",
         "^generate:component-statuses",
@@ -31,17 +31,7 @@
       ]
     },
     "build:testing": {
-      "cache": true,
-      "dependsOn": [
-        "^build",
-        "^generate:component-statuses"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
-    },
-    "build:chromatic": {
-      "cache": true,
+      "cache": false,
       "dependsOn": [
         "^build",
         "^generate:component-statuses"

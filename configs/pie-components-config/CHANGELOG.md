@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-components-config
 
+## 0.21.3
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.21.2
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.21.1
+
+### Patch Changes
+
+- [Updated] - `cem-plugin-module-file-extensions` from `peerDependencies` > `devDependencies` ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.21.0
 
 ### Minor Changes

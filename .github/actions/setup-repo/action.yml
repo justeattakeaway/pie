@@ -2,9 +2,6 @@ name: setup-repo
 description: Sets up the repo
 
 inputs:
-  node-version:
-    description: 'The node version required for the GitHub action job.'
-    required: true
   os:
     description: 'The operating system required for the GitHub action job.'
     required: true
@@ -12,14 +9,44 @@ inputs:
 runs:
   using: composite
   steps:
-      # Setup Node
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      # Install tools (Node + corepack) from mise.toml — single source of truth.
+      # node.corepack = true in mise.toml enables corepack, which activates the
+      # Yarn version pinned in package.json's packageManager field on first use.
+      - name: Setup mise
+        uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
         with:
-          node-version: ${{ inputs.node-version }}
-          cache: "yarn"
-      # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
+          install: true
+          cache: true
+
+      - name: Get caching params
+        id: cache-params
+        shell: bash
+        run: |
+          echo "::group::Cache params"
+          node_version=$(node -v)
+          yarn_version=$(yarn -v)
+          yarn_cache_path=$(yarn config get cacheFolder)
+          yarn_state_path=$(yarn config get installStatePath)
+          echo "node-version=$node_version" >> "$GITHUB_OUTPUT"
+          echo "yarn-version=$yarn_version" >> "$GITHUB_OUTPUT"
+          echo "yarn-cache-path=$yarn_cache_path" >> "$GITHUB_OUTPUT"
+          echo "yarn-state-path=$yarn_state_path" >> "$GITHUB_OUTPUT"
+          echo "node:        $node_version"
+          echo "yarn:        $yarn_version"
+          echo "cacheFolder: $yarn_cache_path"
+          echo "stateFile:   $yarn_state_path"
+          echo "::endgroup::"
+      # Cache node_modules across runs so the Yarn link step can be skipped on hit
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: |
+            **/node_modules
+            ${{ steps.cache-params.outputs.yarn-cache-path }}
+            ${{ steps.cache-params.outputs.yarn-state-path }}
+          key: y9rn4-${{ runner.os }}-${{ runner.arch }}-node-${{ steps.cache-params.outputs.node-version }}-${{ hashFiles('**/yarn.lock') }}
+      # Install deps only when cache misses. Use --immutable so CI fails on lockfile drift.
       - name: Install Dependencies
         shell: bash
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn add
+        run: yarn install --immutable

@@ -12,7 +12,7 @@ export class BasePage {
     path: string;
     args: string;
     globals: string;
-    waitUntilStrategy: 'load' | 'networkidle' = 'load';
+    waitUntilStrategy: 'load' | 'networkidle' = 'networkidle';
 
     constructor (page: Page, componentName: string, componentTag = 'data-test-id') {
         this.page = page;
@@ -56,7 +56,15 @@ export class BasePage {
         const flattenQueries = (obj: Record<string, unknown>, prefix = ''): string[] => Object.entries(obj).flatMap(([key, value]) => {
             const newKey = prefix ? `${prefix}.${key}` : key;
 
-            if (typeof value === 'object' && value !== null) {
+            if (value === undefined) {
+                return `${newKey}:!undefined`;
+            }
+
+            if (value === null) {
+                return `${newKey}:!null`;
+            }
+
+            if (typeof value === 'object') {
                 return flattenQueries(value as Record<string, unknown>, newKey);
             }
             return `${newKey}:${value}`;

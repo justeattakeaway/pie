@@ -43,17 +43,16 @@ const handleError = async (github, context, message, error) => {
  * @returns {Array<string>} The tags of the newly published snapshots
  */
 const publishSnapshot = async (execa) => {
-    await execa.command('yarn changeset:snapshot', { stdio: 'inherit' });
+    await execa.execaCommand('yarn changeset:snapshot', { stdio: 'inherit' });
 
-    const releaseProcess = execa.command('yarn changeset:publish --no-git-tags --snapshot --tag snapshot-release');
+    const releaseProcess = execa.execaCommand('yarn changeset:publish --no-git-tag --tag snapshot-release');
     releaseProcess.stdout.pipe(process.stdout);
 
     const { stdout } = await releaseProcess;
 
-    const newTags = Array
-        .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
-        .map(([, tag]) => tag)
-        .filter((tag) => !/pie-(monorepo|docs|storybook)|@justeattakeaway\/pie-docs/.test(tag));
+    const newTags = [...new Set(Array
+            .from(stdout.matchAll(/@justeattakeaway\/[\w-]+@\d+\.\d+\.\d+-snapshot-release-\d+/g))
+            .map(([tag]) => tag))].filter((tag) => !/pie-(monorepo|docs|storybook)/.test(tag));
 
     return newTags;
 };

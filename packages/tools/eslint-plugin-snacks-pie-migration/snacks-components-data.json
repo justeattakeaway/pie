@@ -1,11 +1,11 @@
 {
   "Breadcrumbs": {
     "piePackage": "@justeattakeaway/pie-breadcrumb",
-    "status": "beta"
+    "status": "stable"
   },
   "BreadcrumbsItem": {
     "piePackage": "@justeattakeaway/pie-breadcrumb",
-    "status": "beta"
+    "status": "stable"
   },
   "Button": {
     "piePackage": "@justeattakeaway/pie-button",
@@ -29,7 +29,7 @@
   },
   "Chip": {
     "piePackage": "@justeattakeaway/pie-chip",
-    "status": "beta"
+    "status": "stable"
   },
   "Divider": {
     "piePackage": "@justeattakeaway/pie-divider",
@@ -37,7 +37,7 @@
   },
   "ErrorMessage": {
     "piePackage": "@justeattakeaway/pie-assistive-text",
-    "status": "beta"
+    "status": "stable"
   },
   "IconButton": {
     "piePackage": "@justeattakeaway/pie-icon-button",
@@ -101,6 +101,6 @@
   },
   "Toast": {
     "piePackage": "@justeattakeaway/pie-toast",
-    "status": "beta"
+    "status": "stable"
   }
 }

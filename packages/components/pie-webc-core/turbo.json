@@ -6,18 +6,16 @@
   "tasks": {
     "test:browsers": {
       "cache": true,
-      "dependsOn": [],
       "inputs": [
-        "./**",
-        "../../../apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
+        "$TURBO_EXTENDS$",
+        "$TURBO_ROOT$/apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
       ]
     },
     "test:browsers:ci": {
       "cache": true,
-      "dependsOn": ["build"],
       "inputs": [
-        "./**",
-        "../../../apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
+        "$TURBO_EXTENDS$",
+        "$TURBO_ROOT$/apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
       ]
     }
   }

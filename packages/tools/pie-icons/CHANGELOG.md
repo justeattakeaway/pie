@@ -1,5 +1,129 @@
 # Changelog
 
+## 5.28.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.6
+
+## 5.28.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.5
+
+## 5.28.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2945](https://github.com/justeattakeaway/pie/pull/2945)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Restaurant
+
+  - delivery-large
+  - delivery
+
+  [Updated] - Icons
+
+  ## NEW
+
+  - nationwide
+  - revolut
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.4
+
+## 5.27.3
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Updating internal scripts ([#2908](https://github.com/justeattakeaway/pie/pull/2908)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1), [`290d7c9`](https://github.com/justeattakeaway/pie/commit/290d7c9d5fa990e342087bf9dfdaacc581d49f66)]:
+  - @justeattakeaway/pie-monorepo-utils@0.9.3
+
+## 5.27.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-monorepo-utils@0.9.2
+
+## 5.27.1
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+## 5.27.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2855](https://github.com/justeattakeaway/pie/pull/2855)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Age limit
+
+  - over-16-large
+  - over-16
+  - over-18-large
+  - over-18
+  - over-21-large
+  - over-21
+
+  ## Restaurant
+
+  - chef-large
+  - chef
+
+## 5.26.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2847](https://github.com/justeattakeaway/pie/pull/2847)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Elements
+
+  - lightning-filled-large
+  - lightning-filled
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.1
+
+## 5.25.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2797](https://github.com/justeattakeaway/pie/pull/2797)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Chevron
+
+  - chevron-collapse-large
+  - chevron-collapse
+
+  ## Functionality
+
+  - column-large
+  - column
+
+  ## Technology
+
+  - tree-trace-large
+  - tree-trace
+
+### Patch Changes
+
+- [Fixed] - icons workflow warning message ([#2789](https://github.com/justeattakeaway/pie/pull/2789)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 5.24.1
 
 ### Patch Changes

@@ -14,11 +14,16 @@ describe('scss compiled output', () => {
         const scssToTest = await fs.readFile(path.join(__dirname, 'validityTest.scss'), 'utf8');
         const css = compileCss(scssToTest);
 
+        // clip-path is valid in browsers, but the W3C validator used here does not recognise it
+        const acceptedErrors = ['Property “clip-path” doesn\'t exist'];
+
         // Act
         const result = await cssValidator.validateText(css);
 
+        const validationErrors = result.errors.filter((error) => !acceptedErrors.includes(error.message));
+
         // Assert
-        expect(result.valid).toBe(true);
+        expect(validationErrors).toHaveLength(0);
     });
 });
 

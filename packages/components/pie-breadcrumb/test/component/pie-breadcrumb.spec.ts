@@ -92,5 +92,61 @@ test.describe('PieBreadcrumb - Component tests', () => {
                 await expect(lastItem).not.toBeVisible();
             });
         });
+
+        test.describe('aria', () => {
+            test.describe('pie-breadcrumb', () => {
+                test('should set aria-label on the nav element to "Breadcrumb" by default', async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'breadcrumb--default');
+                    await basePage.load();
+
+                    // Act
+                    const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
+
+                    // Assert
+                    await expect(breadcrumbComponent).toHaveAttribute('aria-label', 'Breadcrumb');
+                });
+
+                test('should set aria-label on the nav element when aria.label is provided', async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'breadcrumb--default');
+                    await basePage.load({ aria: { label: 'Site navigation' } });
+
+                    // Act
+                    const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
+
+                    // Assert
+                    await expect(breadcrumbComponent).toHaveAttribute('aria-label', 'Site navigation');
+                });
+            });
+
+            test.describe('pie-breadcrumb-item', () => {
+                test('should not set aria-label on the link by default', async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'breadcrumb--default');
+                    await basePage.load();
+
+                    // Act
+                    const firstItem = page.locator('pie-breadcrumb-item').first();
+                    const link = firstItem.locator('pie-link').locator('a');
+
+                    // Assert
+                    await expect(link).not.toHaveAttribute('aria-label');
+                });
+
+                test('should set aria-label on the link when aria.label is provided', async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'breadcrumb--item-with-aria-label');
+                    await basePage.load();
+
+                    // Act
+                    const firstItem = page.locator('pie-breadcrumb-item').first();
+                    const link = firstItem.locator('pie-link').locator('a');
+
+                    // Assert
+                    await expect(link).toHaveAttribute('aria-label', 'Go to home');
+                });
+            });
+        });
     });
 });

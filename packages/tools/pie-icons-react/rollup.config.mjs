@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [
@@ -16,7 +16,7 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            typescript(),
+            typescript({ tsconfig: './tsconfig.json', noEmit: false, declarationDir: 'esm' }),
             nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
         ],
     },
@@ -34,7 +34,7 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            typescript(),
+            typescript({ tsconfig: './tsconfig.json', noEmit: false, declarationDir: 'dist' }),
             nodeResolve({
                 resolveOnly: ['@justeattakeaway/pie-icons-configs'],
             })

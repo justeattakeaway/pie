@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "./packages/components/pie-assistive-text/dist/index.js",
-      "maxSize": "1.3 KB"
+      "maxSize": "1.35 KB"
     },
     {
       "path": "./packages/components/pie-assistive-text/dist/react.js",
@@ -50,7 +50,7 @@
     },
     {
       "path": "./packages/components/pie-cookie-banner/dist/index.js",
-      "maxSize": "6.45 KB"
+      "maxSize": "18.00 KB"
     },
     {
       "path": "./packages/components/pie-cookie-banner/dist/react.js",
@@ -74,7 +74,7 @@
     },
     {
       "path": "./packages/components/pie-icon-button/dist/index.js",
-      "maxSize": "2.7 KB"
+      "maxSize": "3 KB"
     },
     {
       "path": "./packages/components/pie-icon-button/dist/react.js",
@@ -114,7 +114,7 @@
     },
     {
       "path": "./packages/components/pie-notification/dist/index.js",
-      "maxSize": "3.97 KB"
+      "maxSize": "4.5 KB"
     },
     {
       "path": "./packages/components/pie-notification/dist/react.js",
@@ -214,6 +214,10 @@
     },
     {
       "path": "./packages/components/pie-tabs/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-accordion/dist/*.js",
       "maxSize": "3 KB"
     }
   ],

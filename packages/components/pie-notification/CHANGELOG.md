@@ -1,5 +1,112 @@
 # @justeattakeaway/pie-notification
 
+## 0.24.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.19
+  - @justeattakeaway/pie-webc-core@15.0.0
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
+## 0.24.2
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-icon-button@2.7.18
+
+## 0.24.1
+
+### Patch Changes
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons-webc@1.25.0
+  - @justeattakeaway/pie-icon-button@2.7.17
+
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - added size small as a props with styling according to figma ([#2814](https://github.com/justeattakeaway/pie/pull/2814)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+## 0.23.4
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+  - @justeattakeaway/pie-icon-button@2.7.16
+
+## 0.23.3
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-icon-button@2.7.15
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-icons-webc@1.24.2
+
+## 0.23.2
+
+### Patch Changes
+
+- Updated dependencies [[`fc9adc8`](https://github.com/justeattakeaway/pie/commit/fc9adc8e1fe3b00e2f03c0f24d802ca34d8a8ea9)]:
+  - @justeattakeaway/pie-icons-webc@1.24.1
+  - @justeattakeaway/pie-icon-button@2.7.14
+
+## 0.23.1
+
+### Patch Changes
+
+- Updated dependencies [[`c272cb5`](https://github.com/justeattakeaway/pie/commit/c272cb59073e8864ed538228d35b7ade776732d2)]:
+  - @justeattakeaway/pie-icons-webc@1.24.0
+  - @justeattakeaway/pie-icon-button@2.7.13
+
+## 0.23.0
+
+### Minor Changes
+
+- [Changed] - Tidy up markup in Notification template to remove nested landmarks ([#2853](https://github.com/justeattakeaway/pie/pull/2853)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-icon-button@2.7.12
+
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - Support for `leadingAction` and `supportingAction` slots, allowing consumers to pass custom `pie-button` elements for full control over action rendering (e.g. icons, loading states, disabled states) ([#2824](https://github.com/justeattakeaway/pie/pull/2824)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-icon-button@2.7.11
+
+## 0.21.25
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9)]:
+  - @justeattakeaway/pie-icon-button@2.7.10
+
+## 0.21.24
+
+### Patch Changes
+
+- Updated dependencies [[`71f09eb`](https://github.com/justeattakeaway/pie/commit/71f09ebaa83ad17c2a23e93b131965f473a916c0)]:
+  - @justeattakeaway/pie-icons-webc@1.22.0
+  - @justeattakeaway/pie-icon-button@2.7.9
+
 ## 0.21.23
 
 ### Patch Changes

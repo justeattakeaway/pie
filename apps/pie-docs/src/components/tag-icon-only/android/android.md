@@ -2,8 +2,7 @@
 eleventyNavigation:
     key: Android
     parent: Tag - Icon Only
-    order: 2
-draft: true
+    order: 3
 ---
 
 {% notification {

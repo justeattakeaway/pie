@@ -34,6 +34,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | --- | --- | --- | --- |
 | `variant` | `"neutral"`, `"neutral-alternative"`, `"info"`, `"success"`, `"warning"`, `"error"`, `"translucent"` | Sets the variant of the notification. | `"neutral"` |
 | `position` | `"inline-content"`, `"full-width"` | Defines the proper styles, whether the component appears within the content or at the top of the interface. | `"inline-content"` |
+| `size` | `"small"`, `"large"` | Sets the size of the notification. When `small`, renders with reduced dimensions on narrow screens (below the `md` breakpoint). On wide screens, both sizes render identically. | `"large"` |
 | `heading` | — | The heading text of the notification. | `undefined` |
 | `headingLevel` | `h2`, `h3`, `h4`, `h5`, `h6` | The HTML tag to use for the notification's heading. | `h2` |
 | `isDismissible` | `true`, `false` | When true, allows dismissing the notification by clicking on the close button. | `false` |
@@ -50,6 +51,10 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |-----------|-------------------------------------------------------------------------|
 | `default` | The default slot is used to pass text into the notification component.  |
 | `icon`    | Used to pass in an icon to the notification component.                  |
+| `leadingAction` | Used to pass a custom `pie-button` for the leading action. Only `pie-button` elements are supported; other elements will be hidden. |
+| `supportingAction` | Used to pass a custom `pie-button` for the supporting action. Only `pie-button` elements are supported; other elements will be hidden. |
+
+> **Important:** Do not mix props and slots for action buttons. Use **either** the `leadingAction`/`supportingAction` props **or** the `leadingAction`/`supportingAction` slots — not a combination of both. Additionally, do not provide both a prop-based action and a slotted action for the same slot (e.g. setting the `leadingAction` prop while also slotting a `pie-button` into `leadingAction`).
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
@@ -57,10 +62,12 @@ This component does not expose any CSS variables for style overrides.
 ### Events
 | Event                                          | Type          | Description                                                |
 |------------------------------------------------|---------------|------------------------------------------------------------|
-| `pie-notification-leading-action-click`        | `CustomEvent` | Triggered when the user clicks on the leading action.      |
-| `pie-notification-supporting-action-click`     | `CustomEvent` | Triggered when the user clicks on the supporting action.   |
+| `pie-notification-leading-action-click`        | `CustomEvent` | Triggered when the user clicks on the leading action. Only emitted for prop-based actions; slotted actions do not emit this event. |
+| `pie-notification-supporting-action-click`     | `CustomEvent` | Triggered when the user clicks on the supporting action. Only emitted for prop-based actions; slotted actions do not emit this event. |
 | `pie-notification-close`                       | `CustomEvent` | Triggered when the user closes the notification.           |
 | `pie-notification-open`                        | `CustomEvent` | Triggered when the user opens the notification.            |
+
+> **Note:** When using slotted actions, the `pie-notification-leading-action-click` and `pie-notification-supporting-action-click` events are **not** emitted. Since you provide your own `pie-button`, you should attach click handlers directly to the slotted button.
 
 ## Usage Examples
 
@@ -106,6 +113,86 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
 <PieNotification title="Heading">
   <IconPlaceholder slot="icon"></IconPlaceholder>
   Content
+</PieNotification>
+```
+
+### With Slotted Actions
+
+For more control over action buttons (e.g. adding icons, loading states, or disabled states), you can slot your own `pie-button` elements. Only `pie-button` elements are supported in the action slots; other elements will be hidden.
+
+When using slotted actions, `pie-notification-leading-action-click` and `pie-notification-supporting-action-click` events are **not** emitted. Attach click handlers directly to your slotted buttons instead.
+
+**For HTML:**
+
+```html
+<pie-notification heading="Item added" variant="success" isOpen>
+    Your item has been added to the basket.
+    <pie-button
+        slot="leadingAction"
+        variant="primary"
+        size="small-productive"
+        onclick="handleConfirm()">
+        <icon-plus-circle slot="icon"></icon-plus-circle>
+        Confirm
+    </pie-button>
+    <pie-button
+        slot="supportingAction"
+        variant="ghost"
+        size="small-productive"
+        onclick="handleCancel()">
+        Cancel
+    </pie-button>
+</pie-notification>
+```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```html
+<!-- Vue templates (using Nuxt 3) -->
+<pie-notification heading="Item added" variant="success" isOpen>
+    Your item has been added to the basket.
+    <pie-button
+        slot="leadingAction"
+        variant="primary"
+        size="small-productive"
+        @click="handleConfirm">
+        <icon-plus-circle slot="icon"></icon-plus-circle>
+        Confirm
+    </pie-button>
+    <pie-button
+        slot="supportingAction"
+        variant="ghost"
+        size="small-productive"
+        @click="handleCancel">
+        Cancel
+    </pie-button>
+</pie-notification>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieNotification } from '@justeattakeaway/pie-webc/react/notification.js';
+import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
+import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc/dist/react/IconPlusCircle.js';
+
+<PieNotification heading="Item added" variant="success" isOpen>
+    Your item has been added to the basket.
+    <PieButton
+        slot="leadingAction"
+        variant="primary"
+        size="small-productive"
+        onClick={handleConfirm}>
+        <IconPlusCircle slot="icon" />
+        Confirm
+    </PieButton>
+    <PieButton
+        slot="supportingAction"
+        variant="ghost"
+        size="small-productive"
+        onClick={handleCancel}>
+        Cancel
+    </PieButton>
 </PieNotification>
 ```
 

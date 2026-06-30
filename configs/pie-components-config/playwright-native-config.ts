@@ -23,7 +23,7 @@ export function getPlaywrightNativeConfig() {
         /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
         use: {
             /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-            trace: 'on',
+            trace: 'retain-on-failure',
             testIdAttribute: 'data-test-id',
         },
 
@@ -33,7 +33,6 @@ export function getPlaywrightNativeConfig() {
                 name: 'component:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
-                    channel: 'chrome',
                 },
                 testMatch: ['**/test/component/*.spec.{js,ts}'],
             },
@@ -41,13 +40,12 @@ export function getPlaywrightNativeConfig() {
                 name: 'a11y:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
-                    channel: 'chrome',
                 },
                 testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
         ],
         webServer: !process.env.CI ? {
-            command: 'npx turbo dev:testing --filter=@justeattakeaway/pie-storybook',
+            command: 'yarn turbo dev:testing --filter=@justeattakeaway/pie-storybook',
             url: 'http://localhost:6007',
             timeout: 120 * 10000,
             reuseExistingServer: !process.env.CI,

@@ -7,6 +7,7 @@ import {
     headingLevels,
     positions,
     actionSizes,
+    sizes,
 } from '../../src/defs.ts';
 
 export const screenWidths = {
@@ -15,7 +16,6 @@ export const screenWidths = {
 
 variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     const basePage = new BasePage(page, `notification--${variant}-prop-variations`);
-    basePage.waitUntilStrategy = 'networkidle';
 
     await basePage.load();
 
@@ -43,7 +43,6 @@ test.describe('Props', () => {
             test(`should render correctly the ${headingLevel} headingLevel`, async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                 };
@@ -61,7 +60,6 @@ test.describe('Props', () => {
             test('should render leadingAction when leadingAction is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                 };
@@ -75,7 +73,6 @@ test.describe('Props', () => {
             test('should not render leadingAction when leadingAction not is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     leadingAction: undefined,
@@ -92,7 +89,6 @@ test.describe('Props', () => {
             test('should not render supportingAction when leadingAction not is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     leadingAction: undefined,
@@ -108,7 +104,6 @@ test.describe('Props', () => {
             test('should render supportingAction when leadingAction and supportingAction is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -126,7 +121,6 @@ test.describe('Props', () => {
                 test(`should render action buttons with ${size} size`, async ({ page }) => {
                     // Arrange
                     const basePage = new BasePage(page, 'notification');
-                    basePage.waitUntilStrategy = 'networkidle';
                     const props: NotificationProps = {
                         ...initialValues,
                         leadingAction: {
@@ -151,7 +145,6 @@ test.describe('Props', () => {
             test('should render actions as links when href is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification--notification-with-link-actions');
-                basePage.waitUntilStrategy = 'networkidle';
 
                 await basePage.load();
 
@@ -164,7 +157,6 @@ test.describe('Props', () => {
             test('should stack buttons on small screens', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -181,7 +173,6 @@ test.describe('Props', () => {
             test('should not stack buttons on small screens', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -198,7 +189,6 @@ test.describe('Props', () => {
             test('should not stack buttons on large screens when hasStackedActions is true', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -215,7 +205,6 @@ test.describe('Props', () => {
             test('should not stack buttons on large screens when hasStackedActions is false', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -232,7 +221,6 @@ test.describe('Props', () => {
             test('should not stack buttons when hasStackedActions is true and isCompact is true regardless the screen size', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     supportingAction: secondaryAction,
@@ -251,11 +239,84 @@ test.describe('Props', () => {
             test('should align actions to the edge of the container', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification--is-compact');
-                basePage.waitUntilStrategy = 'networkidle';
                 await basePage.load();
 
                 // Assert
                 await percySnapshot(page, 'PieNotification - isCompact - should align actions to the edge of the container');
+            });
+        });
+
+        test.describe('size', () => {
+            sizes.forEach((size) => {
+                test(`should render correctly with size ${size} on narrow screen`, async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'notification');
+                    basePage.waitUntilStrategy = 'networkidle';
+                    const props: NotificationProps = {
+                        ...initialValues,
+                        size,
+                        heading: 'Notification Title',
+                    };
+
+                    await basePage.load({ ...props });
+                    await page.setViewportSize({ width: 375, height: 667 });
+
+                    // Assert
+                    await percySnapshot(page, `PieNotification - size = ${size} - narrow screen`);
+                });
+
+                test(`should render correctly with size ${size} on wide screen`, async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'notification');
+                    basePage.waitUntilStrategy = 'networkidle';
+                    const props: NotificationProps = {
+                        ...initialValues,
+                        size,
+                        heading: 'Notification Title',
+                    };
+
+                    await basePage.load({ ...props });
+                    await page.setViewportSize({ width: 1275, height: 900 });
+
+                    // Assert
+                    await percySnapshot(page, `PieNotification - size = ${size} - wide screen`);
+                });
+            });
+
+            test('should render correctly with size small and isCompact on narrow screen', async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'notification');
+                basePage.waitUntilStrategy = 'networkidle';
+                const props: NotificationProps = {
+                    ...initialValues,
+                    size: 'small',
+                    isCompact: true,
+                    heading: 'Notification Title',
+                };
+
+                await basePage.load({ ...props });
+                await page.setViewportSize({ width: 375, height: 667 });
+
+                // Assert
+                await percySnapshot(page, 'PieNotification - size = small, isCompact = true - narrow screen');
+            });
+
+            test('should render correctly with size small and isCompact on wide screen', async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'notification');
+                basePage.waitUntilStrategy = 'networkidle';
+                const props: NotificationProps = {
+                    ...initialValues,
+                    size: 'small',
+                    isCompact: true,
+                    heading: 'Notification Title',
+                };
+
+                await basePage.load({ ...props });
+                await page.setViewportSize({ width: 1275, height: 900 });
+
+                // Assert
+                await percySnapshot(page, 'PieNotification - size = small, isCompact = true - wide screen');
             });
         });
     });
@@ -265,7 +326,6 @@ test.describe('Props', () => {
             test(`should render correctly the ${positionValue} position`, async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                basePage.waitUntilStrategy = 'networkidle';
                 const props: NotificationProps = {
                     ...initialValues,
                     position: positionValue,
@@ -284,7 +344,6 @@ test.describe('Reading direction - RTL - Right to Left', () => {
     test('should slots icons and buttons when the reading direction is RTL', async ({ page }) => {
         // Arrange
         const basePage = new BasePage(page, 'notification--notification-rtl');
-        basePage.waitUntilStrategy = 'networkidle';
         const props: NotificationProps = {
             isOpen: true,
             isDismissible: true,
@@ -294,5 +353,83 @@ test.describe('Reading direction - RTL - Right to Left', () => {
 
         // Assert
         await percySnapshot(page, 'PieNotification - Reading direction - RTL - Right to Left');
+    });
+});
+
+test.describe('Slotted Action Buttons', () => {
+    test('should render slotted leading action with icon', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-leading-action');
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Leading Action with Icon', screenWidths);
+    });
+
+    test('should render slotted supporting action (disabled)', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-supporting-action');
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Supporting Action Disabled', screenWidths);
+    });
+
+    test('should render both slotted actions (leading loading, supporting ghost)', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions');
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions', screenWidths);
+    });
+
+    test('should render slotted actions in compact mode', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-compact');
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Compact', screenWidths);
+    });
+
+    test('should stack slotted action buttons on small screens', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
+
+        await basePage.load();
+        await page.setViewportSize({ width: 375, height: 667 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked - Small Screen');
+    });
+
+    test('should not stack slotted action buttons on large screens', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked');
+
+        await basePage.load();
+        await page.setViewportSize({ width: 1275, height: 900 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked - Large Screen');
+    });
+
+    test('should not stack slotted action buttons on small screens when hasStackedActions is false', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-not-stacked');
+
+        await basePage.load();
+        await page.setViewportSize({ width: 375, height: 667 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Not Stacked - Small Screen');
+    });
+
+    test('should not stack slotted action buttons on large screens when hasStackedActions is false', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-not-stacked');
+
+        await basePage.load();
+        await page.setViewportSize({ width: 1275, height: 900 });
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Not Stacked - Large Screen');
+    });
+
+    test('should not stack slotted action buttons when hasStackedActions is true and isCompact is true', async ({ page }) => {
+        const basePage = new BasePage(page, 'notification--slotted-both-actions-stacked-compact');
+
+        await basePage.load();
+
+        await percySnapshot(page, 'PieNotification - Slotted Both Actions Stacked Compact - Should Not Stack', screenWidths);
     });
 });

@@ -1,5 +1,43 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.10.0
+
+### Minor Changes
+
+- Update eslint rules for PIE migration ([#2959](https://github.com/justeattakeaway/pie/pull/2959)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+## 0.9.0
+
+### Minor Changes
+
+- Update eslint rules for PIE migration ([#2956](https://github.com/justeattakeaway/pie/pull/2956)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+## 0.8.0
+
+### Minor Changes
+
+- Update eslint rules for PIE migration ([#2949](https://github.com/justeattakeaway/pie/pull/2949)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+## 0.7.2
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Updating internal scripts ([#2908](https://github.com/justeattakeaway/pie/pull/2908)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.7.1
+
+### Patch Changes
+
+- [Changed] - component medatata extraction into a shareable function to enable the package release automation ([#2842](https://github.com/justeattakeaway/pie/pull/2842)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - skill guidance for Snacks Text and Heading components migration ([#2819](https://github.com/justeattakeaway/pie/pull/2819)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.6.0
 
 ### Minor Changes

@@ -1,5 +1,52 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.9.6
+
+### Patch Changes
+
+- Updated dependencies [[`031bb82`](https://github.com/justeattakeaway/pie/commit/031bb8292ad3dd813616c5eb17f2a14d1347d3b9)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.10.0
+
+## 0.9.5
+
+### Patch Changes
+
+- Updated dependencies [[`5f7804f`](https://github.com/justeattakeaway/pie/commit/5f7804fc63373b6ad8d626fbc1ba1b8c1b2f368b)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.9.0
+
+## 0.9.4
+
+### Patch Changes
+
+- Updated dependencies [[`ef9672c`](https://github.com/justeattakeaway/pie/commit/ef9672c608b4c519fa1ea68c54db9198fc277a4d)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.8.0
+
+## 0.9.3
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Updating internal scripts ([#2908](https://github.com/justeattakeaway/pie/pull/2908)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Extend ticket prefix max length from 4 to 6 chars, so it allows longer prefixes such as WEBEX ([#2912](https://github.com/justeattakeaway/pie/pull/2912)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.7.2
+
+## 0.9.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`0929ebb`](https://github.com/justeattakeaway/pie/commit/0929ebba0fc06cac1c2a21f65f1c6216172eaf7c)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.7.1
+
 ## 0.9.0
 
 ### Minor Changes

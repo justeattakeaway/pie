@@ -6,7 +6,6 @@ import { thumbnail } from '../helpers/selectors.ts';
 
 variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     const basePage = new BasePage(page, `thumbnail--${variant}-prop-variations`);
-    basePage.waitUntilStrategy = 'networkidle';
     await basePage.load();
 
     const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
@@ -17,7 +16,6 @@ variants.forEach((variant) => test(`should render all prop variations for Varian
 
 test('should render all prop variants for background variants', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--background-prop-variations');
-    basePage.waitUntilStrategy = 'networkidle';
     await basePage.load();
 
     const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
@@ -28,7 +26,6 @@ test('should render all prop variants for background variants', async ({ page })
 
 test('should render all prop variations for the 4by3 aspect ratio', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--aspect-ratio-4-by-3-prop-variations');
-    basePage.waitUntilStrategy = 'networkidle';
     await basePage.load();
 
     const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
@@ -39,7 +36,6 @@ test('should render all prop variations for the 4by3 aspect ratio', async ({ pag
 
 test('should render all prop variations for the 16by9 aspect ratio', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--aspect-ratio-16-by-9-prop-variations');
-    basePage.waitUntilStrategy = 'networkidle';
     await basePage.load();
 
     const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
@@ -48,9 +44,8 @@ test('should render all prop variations for the 16by9 aspect ratio', async ({ pa
     await percySnapshot(page, 'PIE Thumbnail - aspectRatio: 16by9', { widths: [1280] });
 });
 
-test.skip('should render the component default placeholder on image load failure', async ({ page }) => {
+test('should render the component default placeholder on image load failure', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--invalid-src-and-default-placeholder');
-    basePage.waitUntilStrategy = 'networkidle';
     await basePage.load();
 
     const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
@@ -61,7 +56,6 @@ test.skip('should render the component default placeholder on image load failure
 
 test('should not render the component default placeholder if the `hideDefaultPlaceholder` is set to true', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--default');
-    basePage.waitUntilStrategy = 'networkidle';
     await basePage.load({
         src: 'invalid-url',
         hideDefaultPlaceholder: true,
@@ -75,7 +69,6 @@ test('should not render the component default placeholder if the `hideDefaultPla
 
 test('should render a custom placeholder on image load failure if the `placeholder` prop is set', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--invalid-src-and-custom-placeholder');
-    basePage.waitUntilStrategy = 'networkidle';
     await basePage.load();
 
     const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();

@@ -1,5 +1,97 @@
 # @justeattakeaway/pie-chip
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - moved the chip to stable ([#2957](https://github.com/justeattakeaway/pie/pull/2957)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.15.35
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.17
+  - @justeattakeaway/pie-webc-core@15.0.0
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
+## 0.15.34
+
+### Patch Changes
+
+- [Fixed] - enable hover only for devices that support it ([#2929](https://github.com/justeattakeaway/pie/pull/2929)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.15.33
+
+### Patch Changes
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons-webc@1.25.0
+
+## 0.15.32
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+
+## 0.15.31
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-spinner@1.4.16
+  - @justeattakeaway/pie-icons-webc@1.24.2
+
+## 0.15.30
+
+### Patch Changes
+
+- Updated dependencies [[`fc9adc8`](https://github.com/justeattakeaway/pie/commit/fc9adc8e1fe3b00e2f03c0f24d802ca34d8a8ea9)]:
+  - @justeattakeaway/pie-icons-webc@1.24.1
+
+## 0.15.29
+
+### Patch Changes
+
+- Updated dependencies [[`c272cb5`](https://github.com/justeattakeaway/pie/commit/c272cb59073e8864ed538228d35b7ade776732d2)]:
+  - @justeattakeaway/pie-icons-webc@1.24.0
+
+## 0.15.28
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-spinner@1.4.15
+
+## 0.15.27
+
+### Patch Changes
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+
+## 0.15.26
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9)]:
+  - @justeattakeaway/pie-spinner@1.4.14
+
+## 0.15.25
+
+### Patch Changes
+
+- Updated dependencies [[`71f09eb`](https://github.com/justeattakeaway/pie/commit/71f09ebaa83ad17c2a23e93b131965f473a916c0)]:
+  - @justeattakeaway/pie-icons-webc@1.22.0
+
 ## 0.15.24
 
 ### Patch Changes

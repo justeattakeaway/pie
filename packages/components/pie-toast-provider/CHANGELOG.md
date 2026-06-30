@@ -1,5 +1,108 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.0.2
+  - @justeattakeaway/pie-webc-core@15.0.0
+
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.0.1
+
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - promote toast and toast provider to stable ([#2947](https://github.com/justeattakeaway/pie/pull/2947)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2fdc996`](https://github.com/justeattakeaway/pie/commit/2fdc996321619f5a19e0d73fcd9bd252b0248c29)]:
+  - @justeattakeaway/pie-toast@1.0.0
+
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.13.1
+
+## 0.9.0
+
+### Minor Changes
+
+- [Fixed] - the `isOpen` prop for pie-toast doesn't work as expected ([#2898](https://github.com/justeattakeaway/pie/pull/2898)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - support a new css property for pie-toast-provider to override the position
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d), [`c9ba87a`](https://github.com/justeattakeaway/pie/commit/c9ba87a076c0f808e133bb587fb8ece01ab000f4)]:
+  - @justeattakeaway/pie-webc-core@14.0.2
+  - @justeattakeaway/pie-toast@0.13.0
+
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - Support for multiple `pie-toast-provider` instances ([#2875](https://github.com/justeattakeaway/pie/pull/2875)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.7.45
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.44
+
+## 0.7.44
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.43
+
+## 0.7.43
+
+### Patch Changes
+
+- [Updated] - `@custom-elements-manifest/analyzer` to version that fixes issue with new version of TS - https://github.com/open-wc/custom-elements-manifest/blob/master/packages/analyzer/CHANGELOG.md#release-094 ([#2850](https://github.com/justeattakeaway/pie/pull/2850)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-toast@0.12.42
+
+## 0.7.42
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.41
+
+## 0.7.41
+
+### Patch Changes
+
+- [Updated] - custom-elements-manifest.config to use shared config from @justeattakeaway/pie-components-config ([#2826](https://github.com/justeattakeaway/pie/pull/2826)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`c5428be`](https://github.com/justeattakeaway/pie/commit/c5428be201dd7b55ded2928f7308a56ca7fa1da9)]:
+  - @justeattakeaway/pie-toast@0.12.40
+
+## 0.7.40
+
+### Patch Changes
+
+- [Changed] - tests approach to ensure results consistency ([#2795](https://github.com/justeattakeaway/pie/pull/2795)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.39
+
 ## 0.7.39
 
 ### Patch Changes

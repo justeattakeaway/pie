@@ -1,5 +1,18 @@
 # Changelog
 
+## 15.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`da31857`](https://github.com/justeattakeaway/pie/commit/da318577ba5f2fd6f9d31b1c8312d0b37c772ba0)]:
+  - @justeattakeaway/pie-css@1.2.0
+
+## 14.0.2
+
+### Patch Changes
+
+- [Changed] - script invocation patterns, replacing npx with yarn ([#2891](https://github.com/justeattakeaway/pie/pull/2891)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 14.0.1
 
 ### Patch Changes

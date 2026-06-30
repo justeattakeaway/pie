@@ -11,6 +11,7 @@
     --card-border-color: transparent;
 
     display: block;
+    height: 100%;
     position: relative;
     color: var(--card-color);
     background-color: var(--int-states-mixin-bg-color);
@@ -20,6 +21,8 @@
     user-select: none;
     outline: none;
     text-decoration: none;
+
+    @include p.disable-pointer-events-in-slotted-icons;
 
     &.is-disabled {
         --int-states-mixin-bg-color: var(--dt-color-disabled-01);

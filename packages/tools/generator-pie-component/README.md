@@ -26,8 +26,11 @@
 Build the generator package locally (it is recommended you force the build)
 
 ```sh
-$ yarn build --filter=generator-pie-component --force
+$ yarn build --filter=@justeattakeaway/generator-pie-component --force
 ```
+
+The warning message below is not meaningful and can be ignored:
+> no output files found for task @justeattakeaway/generator-pie-component#build. Please check your `outputs` key in `turbo.json`
 
 ### Generating a new component
 
@@ -43,6 +46,7 @@ Once you have completed all the prompts, your scaffolded component will be gener
 
 ### Setting up Visual Regression Testing:
 
+- Access the Percy platform and ensure to select the `JUST EAT` team first. It can be selected in the avatar dropdown.
 - Create a Percy project for the component on the Percy website.
 - From the "Project settings" page, copy the project token value.
 - You need to add the new token value as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME`. Visual tests will not work/run if this is not set up correctly.
@@ -75,7 +79,7 @@ export default viteConfig({
 });
 ```
 
-- Run `npx add-components` from the monorepo root to update the `webc` package exports.
+- Run `yarn add-components` from the monorepo root to update the `webc` package exports.
 
 ## Local development
 
@@ -88,13 +92,13 @@ yarn
 To build the `generator-pie-component` package, run the following command:
 
 ```bash
-yarn build --filter=generator-pie-component
+yarn build --filter=@justeattakeaway/generator-pie-component
 ```
 
 You can also build the component in `watch` mode if desired with the following command:
 
 ```bash
-yarn watch --filter=generator-pie-component
+yarn watch --filter=@justeattakeaway/generator-pie-component
 ```
 
 ## Contributing

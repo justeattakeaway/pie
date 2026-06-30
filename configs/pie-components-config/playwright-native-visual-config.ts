@@ -13,14 +13,13 @@ export function getPlaywrightNativeVisualConfig() {
         forbidOnly: !!process.env.CI,
         /* Retry on CI only */
         retries: process.env.CI ? 2 : 0,
-        /* Opt out of parallel tests on CI. */
         workers: '50%',
         /* Reporter to use. See https://playwright.dev/docs/test-reporters */
         reporter: [['html', { outputFolder: '../../../lit-visual-report' }]],
         /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
         use: {
             /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-            trace: 'on',
+            trace: 'retain-on-failure',
             testIdAttribute: 'data-test-id',
             discovery: {
                 disallowedHostnames: [
@@ -36,7 +35,6 @@ export function getPlaywrightNativeVisualConfig() {
                 grepInvert: /@mobile/,
                 use: {
                     ...devices['Desktop Chrome'],
-                    channel: 'chrome',
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },
@@ -45,7 +43,6 @@ export function getPlaywrightNativeVisualConfig() {
                 grep: /@mobile/,
                 use: {
                     ...devices['Galaxy S8'],
-                    channel: 'chrome',
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },

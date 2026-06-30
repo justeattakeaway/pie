@@ -1,5 +1,201 @@
 # Changelog
 
+## 1.82.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.22
+
+## 1.82.0
+
+### Minor Changes
+
+- [Fixed] - assistive text to announce correctly in screen readers ([#2954](https://github.com/justeattakeaway/pie/pull/2954)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - Updated form components and Storybook stories to pass assistive copy via `pie-assistive-text` `message` prop instead of slot content, aligning usage with the new `pie-assistive-text` API. ([#2954](https://github.com/justeattakeaway/pie/pull/2954)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`da31857`](https://github.com/justeattakeaway/pie/commit/da318577ba5f2fd6f9d31b1c8312d0b37c772ba0)]:
+  - @justeattakeaway/pie-css@1.2.0
+  - @justeattakeaway/pie-webc@0.10.21
+  - @justeattakeaway/pie-icons-webc@1.25.1
+
+## 1.81.2
+
+### Patch Changes
+
+- Updated dependencies [[`a73efa4`](https://github.com/justeattakeaway/pie/commit/a73efa4ec337007d3e6fda0817441aef63e16e37)]:
+  - @justeattakeaway/pie-css@1.1.3
+  - @justeattakeaway/pie-webc@0.10.20
+
+## 1.81.1
+
+### Patch Changes
+
+- Updated dependencies [[`2dea535`](https://github.com/justeattakeaway/pie/commit/2dea535e7d9877684d01872684ad54238fb00914)]:
+  - @justeattakeaway/pie-icons-webc@1.25.0
+  - @justeattakeaway/pie-webc@0.10.19
+
+## 1.81.0
+
+### Minor Changes
+
+- [Added] - added size small as a props with styling according to figma ([#2814](https://github.com/justeattakeaway/pie/pull/2814)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.18
+
+## 1.80.0
+
+### Minor Changes
+
+- [Added] - External html label association via element internals to `pie-switch` ([#2919](https://github.com/justeattakeaway/pie/pull/2919)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.17
+
+## 1.79.4
+
+### Patch Changes
+
+- [Updated] - Internal dependencies ([#2913](https://github.com/justeattakeaway/pie/pull/2913)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1)]:
+  - @justeattakeaway/pie-icons-webc@1.24.3
+  - @justeattakeaway/pie-css@1.1.2
+  - @justeattakeaway/pie-webc@0.10.16
+
+## 1.79.3
+
+### Patch Changes
+
+- Updated dependencies [[`383b940`](https://github.com/justeattakeaway/pie/commit/383b9408d880e6fcd3576a80a9fd2c42cd75bb9d)]:
+  - @justeattakeaway/pie-icons-webc@1.24.2
+  - @justeattakeaway/pie-webc@0.10.15
+
+## 1.79.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.14
+
+## 1.79.1
+
+### Patch Changes
+
+- [Updated] - Dependencies ([#2874](https://github.com/justeattakeaway/pie/pull/2874)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`fc9adc8`](https://github.com/justeattakeaway/pie/commit/fc9adc8e1fe3b00e2f03c0f24d802ca34d8a8ea9)]:
+  - @justeattakeaway/pie-icons-webc@1.24.1
+  - @justeattakeaway/pie-webc@0.10.13
+
+## 1.79.0
+
+### Minor Changes
+
+- [Added] - Demo story to pie-card showing how to create card grids where cards on each row match the height of the tallest card in that row ([#2882](https://github.com/justeattakeaway/pie/pull/2882)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.12
+
+## 1.78.0
+
+### Minor Changes
+
+- [Added] - maxlength prop to the pie-textarea component ([#2840](https://github.com/justeattakeaway/pie/pull/2840)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+- [Deleted] - Example Form story for pie-textarea ([#2870](https://github.com/justeattakeaway/pie/pull/2870)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.11
+
+## 1.77.1
+
+### Patch Changes
+
+- Updated dependencies [[`c272cb5`](https://github.com/justeattakeaway/pie/commit/c272cb59073e8864ed538228d35b7ade776732d2)]:
+  - @justeattakeaway/pie-icons-webc@1.24.0
+  - @justeattakeaway/pie-webc@0.10.10
+
+## 1.77.0
+
+### Minor Changes
+
+- [Added] - Notification story with no actions ([#2853](https://github.com/justeattakeaway/pie/pull/2853)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`65bccca`](https://github.com/justeattakeaway/pie/commit/65bccca98915636b68b630d8e5e57ecc45ba6f15)]:
+  - @justeattakeaway/pie-webc@0.10.9
+
+## 1.76.0
+
+### Minor Changes
+
+- [Added] - LabelFit and LabelPosition properties for Checkbox label styling ([#2848](https://github.com/justeattakeaway/pie/pull/2848)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.8
+
+## 1.75.6
+
+### Patch Changes
+
+- [Changed] - readded skipped tests now chromatic removed ([#2846](https://github.com/justeattakeaway/pie/pull/2846)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - Support for `leadingAction` and `supportingAction` slots, allowing consumers to pass custom `pie-button` elements for full control over action rendering (e.g. icons, loading states, disabled states) ([#2824](https://github.com/justeattakeaway/pie/pull/2824)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`3f64f23`](https://github.com/justeattakeaway/pie/commit/3f64f23a59c0e3055bc56c9c9cd72f25b8129d18)]:
+  - @justeattakeaway/pie-icons-webc@1.23.0
+  - @justeattakeaway/pie-webc@0.10.7
+
+## 1.75.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.6
+
+## 1.75.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.5
+
+## 1.75.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.4
+
+## 1.75.2
+
+### Patch Changes
+
+- [Fixed] - small readme and docs update to pie-tag ([#2744](https://github.com/justeattakeaway/pie/pull/2744)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Moved typography utility class docs to the introduction section and tidied up the page. Also link to it from the css setup page. ([#2818](https://github.com/justeattakeaway/pie/pull/2818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`42a5c27`](https://github.com/justeattakeaway/pie/commit/42a5c2725e86e3af2c46df142b26e062945a957a), [`71f09eb`](https://github.com/justeattakeaway/pie/commit/71f09ebaa83ad17c2a23e93b131965f473a916c0)]:
+  - @justeattakeaway/pie-css@1.1.1
+  - @justeattakeaway/pie-icons-webc@1.22.0
+  - @justeattakeaway/pie-webc@0.10.3
+
 ## 1.75.1
 
 ### Patch Changes

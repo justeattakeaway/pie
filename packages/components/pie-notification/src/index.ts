@@ -8,13 +8,17 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { validPropertyValues, dispatchCustomEvent, safeCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import {
+    property,
+    queryAssignedElements,
+} from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
     type ActionProps,
     variants,
     positions,
+    sizes,
     headingLevels,
     actionSizes,
     componentSelector,
@@ -47,6 +51,8 @@ export * from './defs';
  * @event {CustomEvent} pie-notification-open - When the notification is opened.
  * @slot - Default slot
  * @slot icon - The icon slot
+ * @slot leadingAction - An optional slot for a custom `pie-button` to replace the prop-based leading action button.
+ * @slot supportingAction - An optional slot for a custom `pie-button` to replace the prop-based supporting action button.
  */
 @safeCustomElement('pie-notification')
 export class PieNotification extends PieElement implements NotificationProps {
@@ -61,10 +67,14 @@ export class PieNotification extends PieElement implements NotificationProps {
     @validPropertyValues(componentSelector, positions, defaultProps.position)
     public position = defaultProps.position;
 
+    @property({ type: String })
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size = defaultProps.size;
+
     @property({ type: Boolean })
     public isDismissible = defaultProps.isDismissible;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public isCompact = defaultProps.isCompact;
 
     @property({ type: String })
@@ -83,7 +93,7 @@ export class PieNotification extends PieElement implements NotificationProps {
     @property({ type: Object })
     public supportingAction: NotificationProps['supportingAction'];
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public hasStackedActions = defaultProps.hasStackedActions;
 
     @property({ type: Object })
@@ -105,6 +115,36 @@ export class PieNotification extends PieElement implements NotificationProps {
     }
 
     /**
+     * Renders the supporting action - either from slot or props.
+     * Supporting action only renders when a leading action is also present (via prop or slot).
+     *
+     * @private
+     */
+    private renderSupportingAction () {
+        const { supportingAction, leadingAction } = this;
+
+        if (supportingAction && leadingAction?.text) {
+            return this.renderActionButton(supportingAction, 'supporting');
+        }
+
+        return nothing;
+    }
+
+    /**
+     * Renders the leading action from props.
+     *
+     * @private
+     */
+    private renderLeadingAction () {
+        const { leadingAction } = this;
+        if (leadingAction) {
+            return this.renderActionButton(leadingAction, 'leading');
+        }
+
+        return nothing;
+    }
+
+    /**
      * Template for the footer area
      * Called within the main render function.
      *
@@ -112,20 +152,26 @@ export class PieNotification extends PieElement implements NotificationProps {
      */
     private renderFooter () {
         const {
-            leadingAction, supportingAction, isCompact, hasStackedActions,
+            isCompact, hasStackedActions,
         } = this;
+
+        // The footer is always rendered so that action slots exist in the DOM.
+        // When no buttons are present (prop or slotted), the footer collapses
+        // to zero height because spacing is applied via margin on the buttons themselves.
         const classes = {
             [`${componentClass}-footer`]: true,
             'is-compact': isCompact,
             [`${componentClass}-footer--stacked`]: hasStackedActions && !isCompact,
         };
         return html`
-            <footer
+            <div
                 class="${classMap(classes)}"
                 data-test-id="${componentSelector}-footer">
-                    ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
-                    ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
-            </footer>
+                    ${this.renderSupportingAction()}
+                    <slot name="supportingAction"></slot>
+                    ${this.renderLeadingAction()}
+                    <slot name="leadingAction"></slot>
+            </div>
         `;
     }
 
@@ -235,7 +281,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         const {
             text,
             ariaLabel,
-            size = defaultActionButtonProps.size,
+            size: actionSize,
             href,
             target,
             rel,
@@ -247,7 +293,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         }
 
         const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
-        const buttonSize = size && actionSizes.includes(size) ? size : defaultActionButtonProps.size;
+        const buttonSize = actionSize && actionSizes.includes(actionSize) ? actionSize : defaultActionButtonProps.size;
         const isLink = !!href;
 
         return html`
@@ -273,11 +319,11 @@ export class PieNotification extends PieElement implements NotificationProps {
         const {
             variant,
             position,
+            size,
             heading,
             isDismissible,
             isCompact,
             hideIcon,
-            leadingAction,
             isOpen,
             aria,
         } = this;
@@ -292,6 +338,7 @@ export class PieNotification extends PieElement implements NotificationProps {
             [componentClass]: true,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--${position}`]: true,
+            [`${componentClass}--${size}`]: true,
             'is-compact': isCompact,
         };
 
@@ -310,15 +357,15 @@ export class PieNotification extends PieElement implements NotificationProps {
                 aria-label="${!heading && ifDefined(aria?.label)}">
                 ${showCloseButton ? this.renderCloseButton() : nothing}
 
-                <section class="${classMap(contentSectionClasses)}">
+                <div class="${classMap(contentSectionClasses)}">
                     ${!hideIcon ? this.renderIcon() : nothing}
-                    <article>
+                    <div>
                         ${heading ? this.renderNotificationHeading() : nothing}
                         <slot></slot>
-                    </article>
-                </section>
+                    </div>
+                </div>
 
-                ${leadingAction?.text ? this.renderFooter() : nothing}
+                ${this.renderFooter()}
             </div>`;
     }
 }

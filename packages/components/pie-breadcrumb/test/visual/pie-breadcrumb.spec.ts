@@ -10,7 +10,6 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
     test('should truncate the breadcrumb text when the label is too long (bigger than 250px)', async ({ page }) => {
         // Arrange
         const basePage = new BasePage(page, 'breadcrumb--with-long-text');
-        basePage.waitUntilStrategy = 'networkidle';
         await basePage.load();
 
         // Assert
@@ -21,7 +20,6 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
         test(`should render items in writing direction: ${direction}`, async ({ page }) => {
             // Arrange
             const basePage = new BasePage(page, 'breadcrumb--default');
-            basePage.waitUntilStrategy = 'networkidle';
             await basePage.load({}, { writingDirection: direction });
 
             // Assert
@@ -33,11 +31,28 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
         test(`should render PieBreadcrumb with variant: ${variant}`, async ({ page }) => {
             // Arrange
             const selectVariationsPage = new BasePage(page, `breadcrumb--${variant}-prop-variation`);
-            selectVariationsPage.waitUntilStrategy = 'networkidle';
             await selectVariationsPage.load();
 
             // Assert
             await percySnapshot(page, `PieBreadcrumb - Variant: ${variant}`);
         });
+    });
+
+    test('should render a single item breadcrumb', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'breadcrumb--single-item');
+        await basePage.load();
+
+        // Assert
+        await percySnapshot(page, 'PieBreadcrumb - Single Item');
+    });
+
+    test('should render a single item breadcrumb in compact mode', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'breadcrumb--single-item-compact');
+        await basePage.load();
+
+        // Assert
+        await percySnapshot(page, 'PieBreadcrumb - Single Item Compact');
     });
 });

@@ -1,11 +1,12 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import path from 'path';
-import { execFileSync, execSync } from 'child_process';
+import { execSync, execFileSync } from 'child_process';
 import {
     emptyDirSync, removeSync, readJSONSync, writeJsonSync,
 } from 'fs-extra/esm';
 import slugify from 'slugify';
+import { appendToGithubEnv, configureGitUser } from '@justeattakeaway/pie-monorepo-utils/utils/github-utils.js';
 
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
@@ -16,7 +17,7 @@ import { findMonorepoRoot } from './helpers.mjs';
 const config = getConfig();
 
 function getChangedFilePaths (startingPath, cwd) {
-    const changesStr = execSync(`git status --short ${startingPath}`).toString().trim();
+    const changesStr = execFileSync('git', ['status', '--short', startingPath]).toString().trim();
     if (changesStr === '') return [];
 
     return changesStr.split('\n').map((line) => path.join(cwd, line.substring(3).trim()));
@@ -34,7 +35,7 @@ function getChangedFilesGroups () {
         D: 'removed',
     };
     const assetsPath = path.join(process.cwd(), '/src/assets');
-    const changes = execSync(`git status --short ${assetsPath}`).toString().trim();
+    const changes = execFileSync('git', ['status', '--short', assetsPath]).toString().trim();
     if (changes === '') return {};
 
     const groupedChanges = changes.split('\n')
@@ -181,7 +182,7 @@ async function updateIcons () {
 
     // git add them so it makes easier to track what changed with "git status --short"
     console.info('git add files');
-    execSync(`git add ${allFilesPaths.map(({ destFilePath }) => destFilePath).join(' ')}`);
+    execFileSync('git', ['add', ...allFilesPaths.map(({ destFilePath }) => destFilePath)]);
 
     // get list of new or modified files
     const modifiedFilesPaths = getChangedFilePaths(config.assetsPath, process.cwd());
@@ -194,7 +195,7 @@ async function updateIcons () {
 
         // create and checkout branch
         const branchName = `update-icons-${Math.floor(Date.now() / 1000)}`;
-        execSync(`git checkout -b ${branchName}`);
+        execFileSync('git', ['checkout', '-b', branchName]);
 
         // add new icons to iconData.json file
         const changedFilesGroups = getChangedFilesGroups();
@@ -209,27 +210,21 @@ async function updateIcons () {
         const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);
         const changesetFilePath = await createIconsChangeset(changedFilesGroups);
 
-        // check if is running on GHA and setup the git user
-        if (process.env.GITHUB_ACTIONS) {
-            // configure git and push
-            const gitUserName = process.env.GIT_USER_NAME || 'github-actions[bot]';
-            const gitUserEmail = process.env.GIT_USER_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com';
-
-            execFileSync('git', ['config', '--global', 'user.name', gitUserName]);
-            execFileSync('git', ['config', '--global', 'user.email', gitUserEmail]);
-        }
+        // setup the git user for CI environment
+        configureGitUser();
 
         const gitUpdatedPaths = [changesetFilePath, iconsDataFilePath, pieDocsTestsPath, pieDocsChangesetFilePath]
-            .filter(Boolean).join(' ');
+            .filter(Boolean);
 
         // commit changes
-        execSync(`git add ${gitUpdatedPaths} && git commit --no-verify -m "feat(pie-icons): update icons"`);
+        execFileSync('git', ['add', ...gitUpdatedPaths]);
+        execFileSync('git', ['commit', '--no-verify', '-m', 'feat(pie-icons): update icons']);
 
         // push if is running on GHA
         if (process.env.GITHUB_ACTIONS) {
-            execSync(`git push --set-upstream origin ${branchName} --no-verify`);
-            execSync(`echo "BRANCH_NAME=${branchName}" >> $GITHUB_ENV`);
-            execSync(`echo "CHANGESET_FILE_PATH=${changesetFilePath}" >> $GITHUB_ENV`);
+            execFileSync('git', ['push', '--set-upstream', 'origin', branchName, '--no-verify']);
+            appendToGithubEnv('BRANCH_NAME', branchName);
+            appendToGithubEnv('CHANGESET_FILE_PATH', changesetFilePath);
         }
     }
 

@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Show More
     order: 1
-shouldShowContents: true
 permalink: components/show-more/
 ---
 

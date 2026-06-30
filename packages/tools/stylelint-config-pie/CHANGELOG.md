@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`da31857`](https://github.com/justeattakeaway/pie/commit/da318577ba5f2fd6f9d31b1c8312d0b37c772ba0)]:
+  - @justeattakeaway/pie-css@1.2.0
+
+## 3.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`de178ad`](https://github.com/justeattakeaway/pie/commit/de178ad7140252380280fd2c01ab2e16eb15175b), [`c68895c`](https://github.com/justeattakeaway/pie/commit/c68895c3e191be73aa54c81a31e4fa38f88c2ba1)]:
+  - @justeattakeaway/stylelint-no-logical-props-shorthands@0.3.1
+  - @justeattakeaway/pie-css@1.1.2
+
 ## 3.0.1
 
 ### Patch Changes
