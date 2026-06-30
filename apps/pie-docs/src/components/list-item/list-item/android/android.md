@@ -591,7 +591,7 @@ The interactive variation includes all interactive states, while the non-interac
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Default</h4>
+  <h3>Default</h3>
     {% contentPageImage {
       src: "../../../../assets/img/components/list-item/list-item/android/interactive-states-default.svg",
       width: "300px",
@@ -599,7 +599,7 @@ The interactive variation includes all interactive states, while the non-interac
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>Active</h4>
+  <h3>Active</h3>
     {% contentPageImage {
       src: "../../../../assets/img/components/list-item/list-item/android/interactive-states-active.svg",
       width: "300px ",
@@ -608,7 +608,7 @@ The interactive variation includes all interactive states, while the non-interac
   {% endcontentItem %}
 {% endcontentLayout %}
 
-#### Disabled
+### Disabled
 
  {% contentPageImage {
       src: "../../../../assets/img/components/list-item/list-item/android/interactive-states-disabled.svg",

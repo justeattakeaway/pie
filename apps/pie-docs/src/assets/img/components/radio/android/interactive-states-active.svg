@@ -1,0 +1,16 @@
+<svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_27592_15391" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="11" y="10" width="20" height="20">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11 20C11 14.48 15.48 10 21 10C26.52 10 31 14.48 31 20C31 25.52 26.52 30 21 30C15.48 30 11 25.52 11 20ZM13 20C13 24.42 16.58 28 21 28C25.42 28 29 24.42 29 20C29 15.58 25.42 12 21 12C16.58 12 13 15.58 13 20Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_27592_15391)">
+<rect x="9" y="8" width="24" height="24" fill="#8C867E"/>
+</g>
+<path opacity="0.12" fill-rule="evenodd" clip-rule="evenodd" d="M21 40C32.0457 40 41 31.0457 41 20C41 8.9543 32.0457 0 21 0C9.9543 0 1 8.9543 1 20C1 31.0457 9.9543 40 21 40Z" fill="#8C867E"/>
+<mask id="mask1_27592_15391" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="69" y="10" width="20" height="20">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M79 10C73.48 10 69 14.48 69 20C69 25.52 73.48 30 79 30C84.52 30 89 25.52 89 20C89 14.48 84.52 10 79 10ZM79 28C74.58 28 71 24.42 71 20C71 15.58 74.58 12 79 12C83.42 12 87 15.58 87 20C87 24.42 83.42 28 79 28ZM84 20C84 22.7614 81.7614 25 79 25C76.2386 25 74 22.7614 74 20C74 17.2386 76.2386 15 79 15C81.7614 15 84 17.2386 84 20Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_27592_15391)">
+<rect x="67" y="8" width="24" height="24" fill="#F36805"/>
+</g>
+<path opacity="0.12" fill-rule="evenodd" clip-rule="evenodd" d="M79 40C90.0457 40 99 31.0457 99 20C99 8.9543 90.0457 0 79 0C67.9543 0 59 8.9543 59 20C59 31.0457 67.9543 40 79 40Z" fill="#F36805"/>
+</svg>
