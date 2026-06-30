@@ -17,6 +17,11 @@ export interface SwitchProps {
      */
     checked?: boolean;
     /**
+     * The default checked state of the switch (not necessarily the same as the current checked state).
+        * Used when the switch is part of a form that is reset.
+     */
+    defaultChecked?: boolean;
+    /**
      * Same as the HTML required attribute - indicates whether the switch must be turned or not
      */
     required?: boolean;
@@ -53,6 +58,7 @@ export type DefaultProps = ComponentDefaultProps<SwitchProps, keyof Omit<SwitchP
 
 export const defaultProps: DefaultProps = {
     checked: false,
+    defaultChecked: false,
     disabled: false,
     labelPlacement: 'leading',
     required: false,
