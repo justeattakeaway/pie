@@ -1,13 +1,13 @@
-# @justeattakeaway/pie-<%= fileName %>
-[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-<%= fileName %>) | [Design Documentation](https://pie.design/components/<%= fileName %>) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-<%= fileName %>)
+# @justeattakeaway/pie-accordion
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-accordion) | [Design Documentation](https://pie.design/components/accordion) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-accordion)
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-<%= fileName %>">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-<%= fileName %>.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-accordion">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-accordion.svg">
   </a>
 </p>
 
-`@justeattakeaway/pie-<%= fileName %>` is a Web Component built using the Lit library. It offers a simple and accessible `<%= fileName %>` component for web applications.
+`@justeattakeaway/pie-accordion` is a Web Component built using the Lit library. It offers a simple and accessible button component for web applications.
 
 ## Table of Contents
 
@@ -55,7 +55,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-webc/components/<%= fileName %>.js'
+import '@justeattakeaway/pie-webc/components/accordion.js'
 ```
 
 ```html
@@ -68,14 +68,14 @@ import '@justeattakeaway/pie-webc/components/<%= fileName %>.js'
 
 ```js
 // Vue templates (using Nuxt 3)
-import '@justeattakeaway/pie-webc/components/<%= fileName %>.js'
+import '@justeattakeaway/pie-webc/components/accordion.js'
 
 ```
 
 **For React Applications:**
 
 ```jsx
-import { Pie<%= componentName %> } from '@justeattakeaway/pie-webc/react/<%= fileName %>.js';
+import { PieAccordion } from '@justeattakeaway/pie-webc/react/accordion.js';
 
 ```
 
