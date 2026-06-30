@@ -32,7 +32,6 @@ Alerts are a surface that overlays the page’s main content and is used to disp
   message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=11866-11762&t=K4Ml6sd4MuQwwwA0-0) for this component."
 } %}
 
-
 {% contentPageImage {
   src:"../../../../assets/img/patterns/overlay-patterns/android-guidance/android-alert.svg",
   alt: "",
@@ -89,7 +88,7 @@ A modal bottom sheet is a surface that slides up from the bottom of the screen, 
         type: usageTypes.text,
         items: [
             "Don’t use them for multi-step flows. Use a full screen sheet instead.",
-            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the [decision tree](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/branch/OsUnZnAk7zDlRrpFGmYn5O/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=4069-10711&t=PwNqsYzFgOzV9G81-0) for alternatives."       
+            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the [decision tree](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/branch/OsUnZnAk7zDlRrpFGmYn5O/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=4069-10711&t=PwNqsYzFgOzV9G81-0) for alternatives."
             ]
     }
 } %}
@@ -120,7 +119,7 @@ A full-screen bottom sheet is a surface anchored to the bottom of the screen tha
         items: [
             "Don’t use them for multi-step flows. Use a screen instead.",
             "Don’t use with an overlay scrim.",
-            "They are not triggered by the user."     
+            "They are not triggered by the user."
             ]
     }
 } %}
@@ -200,8 +199,6 @@ Also known as Dialog - Native, a system native dialog is a pre-built element pro
   alt: "",
   width: "280px"
 } %}
-
-
 
 {% usage {
     do: {
