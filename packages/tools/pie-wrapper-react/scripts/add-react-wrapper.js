@@ -92,6 +92,100 @@ function formatEventName (eventName) {
 }
 
 /**
+ * Determines whether a component behaves like a controlled text input.
+ *
+ * A component is treated as a controlled input when it exposes a `value` field
+ * and dispatches an `input` event. These are the components for which `@lit/react`'s
+ * generic wrapper is insufficient, because it does not replicate the controlled-input
+ * value tracking that ReactDOM applies to native form controls.
+ *
+ * @param {object} componentClass - the component declaration from the custom elements manifest
+ * @return {boolean} - true if the component should receive the controlled-input wrapper
+ */
+function isControlledInputComponent (componentClass) {
+    const hasValueField = (componentClass.members || [])
+        .some((member) => member.kind === 'field' && member.name === 'value');
+    const hasInputEvent = (componentClass.events || [])
+        .some((event) => event.name === 'input');
+
+    return hasValueField && hasInputEvent;
+}
+
+/**
+ * Generates a controlled-input-aware React wrapper for input-like components.
+ *
+ * `@lit/react`'s `createComponent` writes the `value` prop onto the custom element
+ * whenever it changes between renders, but it does not implement the value tracking
+ * that ReactDOM applies to native form controls. As a result a stale `value` (for
+ * example while a user is typing and parent state updates are debounced) can overwrite
+ * the user's latest keystroke.
+ *
+ * The generated wrapper replicates React's controlled-input contract: `value` is only
+ * written to the element when the controlled value genuinely changes since it was last
+ * applied, so in-flight user input is never clobbered. The `value` prop is therefore not
+ * forwarded to the underlying `createComponent` element and is managed here instead.
+ *
+ * @param {string} componentName - the component class name (e.g. `PieTextInput`)
+ * @param {string} propsTypeDefinition - the composed React props type for the component
+ * @return {string} - the source code for the controlled wrapper and its export
+ */
+function generateControlledWrapper (componentName, propsTypeDefinition) {
+    return `type ${componentName}WrapperProps = ${propsTypeDefinition};
+
+// Use a layout effect on the client (so value writes happen before paint) and a
+// regular effect on the server to avoid React's "useLayoutEffect does nothing on
+// the server" warning during SSR.
+const useIsomorphic${componentName}LayoutEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
+const ${componentName}Controlled = React.forwardRef<${componentName}Lit, ${componentName}WrapperProps>((props, forwardedRef) => {
+    const { value, children, ...restProps } = props as ${componentName}WrapperProps & { value?: string | number | null };
+    const elementRef = React.useRef<${componentName}Lit | null>(null);
+    const lastAppliedValueRef = React.useRef<string | number | null | undefined>(undefined);
+
+    const setElementRef = React.useCallback((node: ${componentName}Lit | null) => {
+        elementRef.current = node;
+
+        if (typeof forwardedRef === 'function') {
+            forwardedRef(node);
+        } else if (forwardedRef) {
+            (forwardedRef as React.MutableRefObject<${componentName}Lit | null>).current = node;
+        }
+    }, [forwardedRef]);
+
+    useIsomorphic${componentName}LayoutEffect(() => {
+        const element = elementRef.current;
+
+        if (!element) {
+            return;
+        }
+
+        // Only write when the controlled value has actually changed since we last
+        // applied it. This prevents a re-render carrying an already-applied value
+        // from overwriting characters the user has typed in the meantime.
+        if (value !== lastAppliedValueRef.current) {
+            lastAppliedValueRef.current = value;
+
+            const nextValue = value == null ? '' : String(value);
+
+            if (element.value !== nextValue) {
+                element.value = nextValue;
+            }
+        }
+    });
+
+    return React.createElement(
+        ${componentName}React,
+        { ...restProps, ref: setElementRef } as unknown as React.ComponentProps<typeof ${componentName}React>,
+        children,
+    );
+});
+
+${componentName}Controlled.displayName = '${componentName}';
+
+export const ${componentName} = ${componentName}Controlled as React.ForwardRefExoticComponent<${componentName}WrapperProps>;`;
+}
+
+/**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
  *
  * @param {JSON} - A JSON file of custom components and their attributes, generated from the @custom-elements-manifest/analyzer package
@@ -186,8 +280,12 @@ export function addReactWrapper (customElementsObject) {
 
             const componentPropsExportName = `${component.class.name.replace(/^Pie/, '')}Props`;
 
-            // Create the main source code
-            componentSrc = `import * as React from 'react';
+            // The composed React props type, shared by the standard and controlled exports.
+            const propsTypeDefinition = `React.PropsWithChildren<Omit<React.PropsWithoutRef<${componentPropsExportName}>, 'children'>>
+    & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}`;
+
+            // Shared header: imports, the createComponent element, and optional types.
+            const header = `import * as React from 'react';
 import { createComponent${component.class.events?.length > 0 ? ', type EventName' : ''} } from '@lit/react';
 import { ${component.class.name} as ${component.class.name}Lit } from './index';
 import { type ${componentPropsExportName} } from './defs';
@@ -208,11 +306,21 @@ ${component.reactBaseType}` : ''
     eventsTypeDefinition ? `
 
 ${eventsTypeDefinition}` : ''
-}
+}`;
 
-export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithChildren<Omit<React.PropsWithoutRef<${componentPropsExportName}>, 'children'>>
-    & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;
+            // Input-like components need a controlled-input-aware wrapper; everything else
+            // can be exported directly from the generic createComponent element.
+            if (isControlledInputComponent(component.class)) {
+                componentSrc = `${header}
+
+${generateControlledWrapper(component.class.name, propsTypeDefinition)}
 `;
+            } else {
+                componentSrc = `${header}
+
+export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<${propsTypeDefinition}>;
+`;
+            }
             let reactFile;
 
             if (component.path !== 'pie-wrapper-react') {
