@@ -378,7 +378,7 @@ Avoid layering gradient styles as it causes additional visual clutter.
   do: {
     type: usageTypes.image,
     items: [{
-            src: "../../../assets/img/patterns/jet-ai/components-do.svg",
+            src: "../../../assets/img/patterns/jet-ai/components-layering-do.svg",
             width: "256px",
             alt: "Mobile screen using JET AI branded background with little visual clutter."
         }]
@@ -386,7 +386,7 @@ Avoid layering gradient styles as it causes additional visual clutter.
   dont: {
     type: usageTypes.image,
     items: [{
-            src: "../../../assets/img/patterns/jet-ai/components-dont.svg",
+            src: "../../../assets/img/patterns/jet-ai/components-layering-dont.svg",
             width: "256px",
             alt: "Mobile screen using JET AI branded background with excessive use of the AI icon and layered gradient styles causing visual clutter."
         }]
