@@ -7,7 +7,7 @@
   </a>
 </p>
 
-`@justeattakeaway/pie-<%= fileName %>` is a Web Component built using the Lit library. It offers a simple and accessible button component for web applications.
+`@justeattakeaway/pie-<%= fileName %>` is a Web Component built using the Lit library. It offers a simple and accessible `<%= fileName %>` component for web applications.
 
 ## Table of Contents
 
