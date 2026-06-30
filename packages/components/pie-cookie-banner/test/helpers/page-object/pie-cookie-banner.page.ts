@@ -1,6 +1,7 @@
 import { type Locator, type Page } from '@playwright/test';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.component.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { type PieCookieBanner } from '../../../src/index.ts';
 import { cookieBanner } from './selectors.ts';
 import { type PreferenceIds } from '../../../src/defs.ts';
 
@@ -283,8 +284,7 @@ export class CookieBannerComponent extends BasePage {
         await this.componentLocator.waitFor({ state: 'attached' });
 
         await this.page.evaluate(async (val) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const component = document.querySelector('pie-cookie-banner') as any;
+            const component = document.querySelector('pie-cookie-banner') as PieCookieBanner;
             if (!component) throw new Error('pie-cookie-banner component not found');
             component.personalizedLabel = val;
             await component.updateComplete;
@@ -301,8 +301,7 @@ export class CookieBannerComponent extends BasePage {
         await this.componentLocator.waitFor({ state: 'attached' });
 
         await this.page.evaluate(async (val) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const component = document.querySelector('pie-cookie-banner') as any;
+            const component = document.querySelector('pie-cookie-banner') as PieCookieBanner;
             if (!component) throw new Error('pie-cookie-banner component not found');
             component.personalizedDescription = val;
             await component.updateComplete;
@@ -459,10 +458,9 @@ export class CookieBannerComponent extends BasePage {
         await this.componentLocator.waitFor({ state: 'attached' });
 
         await this.page.evaluate(([prop, val]) => {
-            const component = document.querySelector('pie-cookie-banner');
+            const component = document.querySelector('pie-cookie-banner') as PieCookieBanner | null;
             if (component) {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (component as any)[prop as keyof any] = val;
+                (component as PieCookieBanner & Record<string, string>)[prop] = val;
             }
         }, [property, value]);
     }

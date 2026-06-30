@@ -294,15 +294,11 @@ test.describe('PieCookieBanner - Component tests', () => {
         test('should render the personalizedLabel override in the personalized preference label', async () => {
             // Arrange
             const overrideText = 'Custom personalized label';
-            await pieCookieBannerComponent.load();
-            await pieCookieBannerComponent.setPersonalizedLabel(overrideText);
+            await pieCookieBannerComponent.load({ personalizedLabel: overrideText });
             await pieCookieBannerComponent.clickManagePreferencesAction();
 
-            // Act
-            const labelText = await pieCookieBannerComponent.getPersonalizedLabelText();
-
-            // Assert
-            expect(labelText).toBe(overrideText);
+            // Act & Assert
+            expect(await pieCookieBannerComponent.getPersonalizedLabelText()).toBe(overrideText);
         });
 
         test('should render the locale label when personalizedLabel is not provided', async () => {
@@ -310,36 +306,26 @@ test.describe('PieCookieBanner - Component tests', () => {
             await pieCookieBannerComponent.load();
             await pieCookieBannerComponent.clickManagePreferencesAction();
 
-            // Act
-            const labelText = await pieCookieBannerComponent.getPersonalizedLabelText();
-
-            // Assert
-            expect(labelText).toBeTruthy();
-            expect(labelText).not.toContain('Custom');
+            // Act & Assert
+            expect(await pieCookieBannerComponent.getPersonalizedLabelText()).not.toContain('Custom');
         });
 
         test('should fall back to the locale label when personalizedLabel is cleared to an empty string', async () => {
-            // Arrange - set an override then clear it to verify the locale fallback is restored
+            // Arrange - set an override and then reload with an empty value to verify the locale fallback is restored
             const overrideText = 'Custom personalized label';
 
-            await pieCookieBannerComponent.load();
-            await pieCookieBannerComponent.setPersonalizedLabel(overrideText);
-            await pieCookieBannerComponent.setPersonalizedLabel('');
+            await pieCookieBannerComponent.load({ personalizedLabel: overrideText });
+            await pieCookieBannerComponent.load({ personalizedLabel: '' });
             await pieCookieBannerComponent.clickManagePreferencesAction();
 
             // Act
-            const labelText = await pieCookieBannerComponent.getPersonalizedLabelText();
-
-            // Assert
-            expect(labelText).toBeTruthy();
-            expect(labelText).not.toContain(overrideText);
+            expect(await pieCookieBannerComponent.getPersonalizedLabelText()).not.toContain(overrideText);
         });
 
         test('should not affect other preference labels when personalizedLabel is provided', async () => {
             // Arrange
             const overrideText = 'Custom personalized label';
-            await pieCookieBannerComponent.load();
-            await pieCookieBannerComponent.setPersonalizedLabel(overrideText);
+            await pieCookieBannerComponent.load({ personalizedLabel: overrideText });
             await pieCookieBannerComponent.clickManagePreferencesAction();
 
             // Act
