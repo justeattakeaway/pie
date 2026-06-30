@@ -14,6 +14,6 @@ test.describe('Pie<%= componentName %> - Component tests', () => {
         const <%= componentNameCamelCase %> = page.locator(componentSelector);
 
         // Assert
-        expect(<%= componentNameCamelCase %>).toBeVisible();
+        await expect(<%= componentNameCamelCase %>).toBeVisible();
     });
 });

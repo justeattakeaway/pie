@@ -3113,6 +3113,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-accordion@npm:0.0.0, @justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "npm:0.21.3"
+    "@justeattakeaway/pie-css": "npm:1.2.0"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
+    "@justeattakeaway/pie-webc-core": "npm:15.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-assistive-text@npm:1.0.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
@@ -3732,6 +3743,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
+    "@justeattakeaway/pie-accordion": "npm:0.0.0"
     "@justeattakeaway/pie-assistive-text": "npm:1.0.0"
     "@justeattakeaway/pie-avatar": "npm:0.4.38"
     "@justeattakeaway/pie-breadcrumb": "npm:1.0.0"

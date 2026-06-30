@@ -29,6 +29,9 @@ Build the generator package locally (it is recommended you force the build)
 $ yarn build --filter=@justeattakeaway/generator-pie-component --force
 ```
 
+The warning message below is not meaningful and can be ignored:
+> no output files found for task @justeattakeaway/generator-pie-component#build. Please check your `outputs` key in `turbo.json`
+
 ### Generating a new component
 
 To run the generator, use this command from the root directory within the monorepo:
@@ -43,6 +46,7 @@ Once you have completed all the prompts, your scaffolded component will be gener
 
 ### Setting up Visual Regression Testing:
 
+- Access the Percy platform and ensure to select the `JUST EAT` team first. It can be selected in the avatar dropdown.
 - Create a Percy project for the component on the Percy website.
 - From the "Project settings" page, copy the project token value.
 - You need to add the new token value as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME`. Visual tests will not work/run if this is not set up correctly.
