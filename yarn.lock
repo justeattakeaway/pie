@@ -3055,14 +3055,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:7.11.1":
-  version: 7.11.1
-  resolution: "@justeat/pie-design-tokens@npm:7.11.1"
+"@justeat/pie-design-tokens@npm:7.13.1":
+  version: 7.13.1
+  resolution: "@justeat/pie-design-tokens@npm:7.13.1"
   dependencies:
     jsonc-parser: "npm:3.2.0"
     lodash.merge: "npm:4.6.2"
     mkdirp: "npm:1.0.4"
-  checksum: 10/00466891dbe10ed809bdc8d60001bb1c0cddabc3c345bf362024830482f0513c84a5a6b78175e72480cc5232f962ca5169a1dd89e6fa6033e021d24e79ca1e5d
+  checksum: 10/ca0cd0ef0c92c5227a98f35a60e5a63cb95989508943c94a2b2632f24fbca9e067f35c5aec737bf369bf5f0cc09e9fe1355266f19bb0022645783f2aad7f2905
   languageName: node
   linkType: hard
 
@@ -3171,7 +3171,7 @@ __metadata:
     "@justeattakeaway/pie-spinner": "npm:1.4.17"
     "@justeattakeaway/pie-webc-core": "npm:15.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
-    element-internals-polyfill: "npm:1.3.11"
+    element-internals-polyfill: "npm:1.3.13"
   languageName: unknown
   linkType: soft
 
@@ -3249,7 +3249,7 @@ __metadata:
     "@justeattakeaway/pie-switch": "npm:2.4.2"
     "@justeattakeaway/pie-webc-core": "npm:15.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
-    dompurify: "npm:3.4.8"
+    dompurify: "npm:3.4.11"
   languageName: unknown
   linkType: soft
 
@@ -3257,7 +3257,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.1"
     "@types/postcss-import": "npm:14.0.3"
     include-media: "npm:2.0.0"
     postcss: "npm:8.5.15"
@@ -3298,7 +3298,7 @@ __metadata:
     "@docsearch/css": "npm:3.9.0"
     "@docsearch/js": "npm:3.9.0"
     "@justeat/fozzie": "npm:11.2.2"
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.1"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
     "@justeattakeaway/pie-css": "npm:1.2.0"
     "@justeattakeaway/pie-icons": "npm:5.28.2"
@@ -3310,12 +3310,12 @@ __metadata:
     "@types/markdown-it": "npm:14.1.2"
     "@webcomponents/template-shadowroot": "npm:0.2.1"
     autoprefixer: "npm:10.5.0"
-    cssnano: "npm:7.1.7"
+    cssnano: "npm:7.1.9"
     dree: "npm:5.1.5"
     eleventy-plugin-rev: "npm:2.0.0"
     eleventy-plugin-toc: "npm:1.1.5"
     eleventy-sass: "npm:3.0.0-beta.0"
-    markdown-it: "npm:14.1.1"
+    markdown-it: "npm:14.2.0"
     markdown-it-anchor: "npm:9.2.0"
     markdown-it-attrs: "npm:4.3.1"
     node-html-parser: "npm:7.1.0"
@@ -3486,7 +3486,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.1"
     "@justeattakeaway/pie-button": "npm:1.14.4"
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
     "@justeattakeaway/pie-css": "npm:1.2.0"
@@ -3580,7 +3580,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-storybook@workspace:apps/pie-storybook"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.1"
     "@justeattakeaway/pie-css": "npm:1.2.0"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.25.1"
@@ -3594,7 +3594,7 @@ __metadata:
     "@storybook/web-components": "npm:10.4.6"
     "@storybook/web-components-vite": "npm:10.4.6"
     "@types/dompurify": "npm:3.2.0"
-    dompurify: "npm:3.4.8"
+    dompurify: "npm:3.4.11"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-syntax-highlighter: "npm:16.1.1"
@@ -3614,7 +3614,7 @@ __metadata:
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
     "@justeattakeaway/pie-webc-core": "npm:15.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
-    element-internals-polyfill: "npm:1.3.11"
+    element-internals-polyfill: "npm:1.3.13"
   languageName: unknown
   linkType: soft
 
@@ -3653,7 +3653,7 @@ __metadata:
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
     "@justeattakeaway/pie-webc-core": "npm:15.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
-    element-internals-polyfill: "npm:1.3.11"
+    element-internals-polyfill: "npm:1.3.13"
   languageName: unknown
   linkType: soft
 
@@ -3712,7 +3712,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-token-map@workspace:packages/tools/pie-token-map"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.1"
     "@justeattakeaway/pie-components-config": "npm:*"
   languageName: unknown
   linkType: soft
@@ -9506,7 +9506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano-preset-default@npm:^7.0.15":
+"cssnano-preset-default@npm:^7.0.17":
   version: 7.0.17
   resolution: "cssnano-preset-default@npm:7.0.17"
   dependencies:
@@ -9555,15 +9555,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano@npm:7.1.7":
-  version: 7.1.7
-  resolution: "cssnano@npm:7.1.7"
+"cssnano@npm:7.1.9":
+  version: 7.1.9
+  resolution: "cssnano@npm:7.1.9"
   dependencies:
-    cssnano-preset-default: "npm:^7.0.15"
+    cssnano-preset-default: "npm:^7.0.17"
     lilconfig: "npm:^3.1.3"
   peerDependencies:
-    postcss: ^8.5.10
-  checksum: 10/94b38a509b1f5e4b73a9f485197802fdb570fe119ee19c45da131be47c2946106e8d60175b7e7048b495f1c11a740a2da4361803a8648c7aed3aedabb0e45427
+    postcss: ^8.5.13
+  checksum: 10/619d855f2938a035ace3de0318cbadef86deef0d7ff5894e1346e117de6776a609e9e19ffdfe89e076241e6c0e92a31b3ccef85b1ddece9493acfc00ca991d70
   languageName: node
   linkType: hard
 
@@ -10122,7 +10122,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:*, dompurify@npm:3.4.8":
+"dompurify@npm:*":
   version: 3.4.8
   resolution: "dompurify@npm:3.4.8"
   dependencies:
@@ -10131,6 +10131,18 @@ __metadata:
     "@types/trusted-types":
       optional: true
   checksum: 10/d661322889a8938bfb99ee27853e9e78661949398e803f344865fd94f8378a494efadd329faea0b16e8085efae1bfeed5f5df372909c3a2be3e583686a0a48fa
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:3.4.11":
+  version: 3.4.11
+  resolution: "dompurify@npm:3.4.11"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.7"
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 10/d0473e1a22ed9cc23d86ef426717bce866913d1a725512a9478985bd917b272e0faba5f1d6ad8b2e37f3f4219206c4385162d7c984cfedcd23396e1e6ae0bc5e
   languageName: node
   linkType: hard
 
@@ -10281,10 +10293,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"element-internals-polyfill@npm:1.3.11":
-  version: 1.3.11
-  resolution: "element-internals-polyfill@npm:1.3.11"
-  checksum: 10/8e86562c84cac451801c8d1593e8d8d7224a91e85037f0b651072a628f7e3b23155c3d520d369be9a733e9675f7fc0763a6ca61f54f5485f6840eb5709bf269e
+"element-internals-polyfill@npm:1.3.13":
+  version: 1.3.13
+  resolution: "element-internals-polyfill@npm:1.3.13"
+  checksum: 10/1ba6394f06dab57331394da4210229f3cde9c88ce0f186f0fc32dc37f14d6646720f8d98ca9e5788cb81441a718802141eb458a4cee7c98de3ae7cbcbe527db5
   languageName: node
   linkType: hard
 
@@ -13957,7 +13969,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"linkify-it@npm:^5.0.0, linkify-it@npm:^5.0.1":
+"linkify-it@npm:^5.0.1":
   version: 5.0.1
   resolution: "linkify-it@npm:5.0.1"
   dependencies:
@@ -14392,23 +14404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it@npm:14.1.1":
-  version: 14.1.1
-  resolution: "markdown-it@npm:14.1.1"
-  dependencies:
-    argparse: "npm:^2.0.1"
-    entities: "npm:^4.4.0"
-    linkify-it: "npm:^5.0.0"
-    mdurl: "npm:^2.0.0"
-    punycode.js: "npm:^2.3.1"
-    uc.micro: "npm:^2.1.0"
-  bin:
-    markdown-it: bin/markdown-it.mjs
-  checksum: 10/088822c8aa9346ba4af6a205f6ee0f4baae55e3314f040dc5c28c897d57d0f979840c71872b3582a6a6e572d8c851c54e323c82f4559011dfa2e96224fc20fc2
-  languageName: node
-  linkType: hard
-
-"markdown-it@npm:^14.2.0":
+"markdown-it@npm:14.2.0, markdown-it@npm:^14.2.0":
   version: 14.2.0
   resolution: "markdown-it@npm:14.2.0"
   dependencies:
@@ -16400,7 +16396,7 @@ __metadata:
     "@commitlint/cli": "npm:20.5.0"
     "@commitlint/config-conventional": "npm:20.5.0"
     "@custom-elements-manifest/analyzer": "npm:0.11.0"
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.13.1"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-icons": "workspace:*"
