@@ -559,6 +559,39 @@ test.describe('PieTextarea - Component tests', () => {
                 expect(isValid).toBe(true);
             });
         });
+
+        test.describe('rows', () => {
+            test('should render textarea with the number of rows provided', async ({ page }) => {
+                // Arrange
+                const props: Partial<TextareaProps> = {
+                    rows: 5,
+                };
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ ...props });
+
+                // Act
+                const component = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(component).toHaveAttribute('rows', '5');
+            });
+
+            test('should render textarea with 1 row when `rows` is set to 1 and `resize` is set to `manual`', async ({ page }) => {
+                // Arrange
+                const props: Partial<TextareaProps> = {
+                    rows: 1,
+                    resize: 'manual',
+                };
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ ...props });
+
+                // Act
+                const component = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(component).toHaveAttribute('rows', '1');
+            });
+        });
     });
 
     test.describe('Form integration', () => {
