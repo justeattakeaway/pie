@@ -14,6 +14,6 @@ test.describe('PieAccordion - Component tests', () => {
         const accordion = page.locator(componentSelector);
 
         // Assert
-        expect(accordion).toBeVisible();
+        await expect(accordion).toBeVisible();
     });
 });
