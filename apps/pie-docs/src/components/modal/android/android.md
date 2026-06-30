@@ -465,20 +465,6 @@ This interaction is enabled by default. Designers need to ask engineers to disab
     width: 300
 } %}
 
-### Slots available
-
-The purpose of chips is to provide a visual representation of a specific entity or attribute, such as a selected option or a labelled category. Chips can also be interactive, allowing users to remove or modify the selected choices.
-Chips are commonly used in various contexts, including filtering options, search results or any situation where concise and visually distinct information needs to be displayed.
-
-{% list {
-    type: listTypes.ordered,
-    items: [
-        "**Header slot:** Hidden by default.",
-        "**Body slot:** Available as a variant.",
-        "**Footer slot:** Hidden by default."
-    ]
-} %}
-
 ---
 
 ## Content
