@@ -4,3 +4,19 @@
 .docs-story:has([id*='inverse']) {
     background-color: var(--dt-color-background-dark);
 }
+
+// Sets a container context so .responsive-story-container can use container queries
+body {
+    container-type: inline-size;
+}
+
+// Responsive story wrapper - constrains width to specific breakpoints
+.responsive-story-container {
+    @container (min-width: 480px) {
+        width: 480px;
+    }
+
+    @container (min-width: 640px) {
+        width: 640px;
+    }
+}

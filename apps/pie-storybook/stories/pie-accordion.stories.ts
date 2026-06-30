@@ -98,7 +98,7 @@ const Template: TemplateFunction<AccordionStoryProps> = ({
     isDividerHidden,
     slot,
 }) => html`
-    <div style="min-width: 320px;">
+    <div class="responsive-story-container">
         <pie-accordion
             headingLabel="${headingLabel}"
             headingLevel="${ifDefined(headingLevel)}"
@@ -123,7 +123,7 @@ const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
     isDividerHidden,
     slot,
 }) => html`
-    <div style="min-width: 320px;">
+    <div class="responsive-story-container">
         <pie-accordion
             headingLabel="${headingLabel}"
             headingLevel="${ifDefined(headingLevel)}"
@@ -140,37 +140,39 @@ const WithIconTemplate: TemplateFunction<AccordionStoryProps> = ({
 `;
 
 const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, size }) => html`
-    <pie-accordion
-        headingLabel="Delivery information"
-        headingLevel="${ifDefined(headingLevel)}"
-        size="${ifDefined(size)}"
-        ?isOpen="${true}"
-        @pie-accordion-toggle="${handleToggle}">
-        Your order will be delivered between 30 and 45 minutes after placing your order.
-    </pie-accordion>
-    <pie-accordion
-        headingLabel="Payment methods"
-        headingLevel="${ifDefined(headingLevel)}"
-        size="${ifDefined(size)}"
-        @pie-accordion-toggle="${handleToggle}">
-        We accept Visa, Mastercard, PayPal, and cash on delivery.
-    </pie-accordion>
-    <pie-accordion
-        headingLabel="Allergen information"
-        headingLevel="${ifDefined(headingLevel)}"
-        size="${ifDefined(size)}"
-        secondaryLabel="Updated today"
-        @pie-accordion-toggle="${handleToggle}">
-        Please contact the restaurant directly for allergen information about specific dishes.
-    </pie-accordion>
-    <pie-accordion
-        headingLabel="Restaurant contact"
-        headingLevel="${ifDefined(headingLevel)}"
-        size="${ifDefined(size)}"
-        ?isDividerHidden="${true}"
-        @pie-accordion-toggle="${handleToggle}">
-        Call +44 20 7123 4567 or email hello@restaurant.com
-    </pie-accordion>
+    <div class="responsive-story-container">
+        <pie-accordion
+            headingLabel="Delivery information"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            ?isOpen="${true}"
+            @pie-accordion-toggle="${handleToggle}">
+            Your order will be delivered between 30 and 45 minutes after placing your order.
+        </pie-accordion>
+        <pie-accordion
+            headingLabel="Payment methods"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            @pie-accordion-toggle="${handleToggle}">
+            We accept Visa, Mastercard, PayPal, and cash on delivery.
+        </pie-accordion>
+        <pie-accordion
+            headingLabel="Allergen information"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            secondaryLabel="Updated today"
+            @pie-accordion-toggle="${handleToggle}">
+            Please contact the restaurant directly for allergen information about specific dishes.
+        </pie-accordion>
+        <pie-accordion
+            headingLabel="Restaurant contact"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            ?isDividerHidden="${true}"
+            @pie-accordion-toggle="${handleToggle}">
+            Call +44 20 7123 4567 or email hello@restaurant.com
+        </pie-accordion>
+    </div>
 `;
 
 const createAccordionStory = createStory<AccordionStoryProps>(Template, defaultArgs);
