@@ -42,7 +42,7 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
     public headingLevel = defaultProps.headingLevel;
 
     @property({ type: String })
-    public secondaryLabel?: string;
+    public secondaryLabel: AccordionProps['secondaryLabel'];
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
