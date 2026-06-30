@@ -3722,7 +3722,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    lit: "npm:3.2.0"
+    lit: "npm:3.3.3"
   peerDependencies:
     "@justeattakeaway/pie-css": 1.x
   languageName: unknown
@@ -13985,7 +13985,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-element@npm:^4.0.4, lit-element@npm:^4.1.0":
+"lit-element@npm:^4.0.4, lit-element@npm:^4.2.0":
   version: 4.2.2
   resolution: "lit-element@npm:4.2.2"
   dependencies:
@@ -13996,7 +13996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-html@npm:^3.1.2, lit-html@npm:^3.2.0, lit-html@npm:^3.3.0":
+"lit-html@npm:^3.1.2, lit-html@npm:^3.3.0":
   version: 3.3.3
   resolution: "lit-html@npm:3.3.3"
   dependencies:
@@ -14005,14 +14005,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:3.2.0":
-  version: 3.2.0
-  resolution: "lit@npm:3.2.0"
+"lit@npm:3.3.3":
+  version: 3.3.3
+  resolution: "lit@npm:3.3.3"
   dependencies:
-    "@lit/reactive-element": "npm:^2.0.4"
-    lit-element: "npm:^4.1.0"
-    lit-html: "npm:^3.2.0"
-  checksum: 10/7f9f84f797f85a81a5c9c77a00bc0b7240194263aa32d1b47f8260de0b82dbd475dec0cefcbcf936799c070a63b2258183689d19a7d86e2c31ef74b01a2b16ad
+    "@lit/reactive-element": "npm:^2.1.0"
+    lit-element: "npm:^4.2.0"
+    lit-html: "npm:^3.3.0"
+  checksum: 10/238a6574447f6499b7a4c6e30a4da89907b095ea48d6291fb1de570e937745b84550ced459f9c51632c3010c964403e2d6ebe65caf1500f03779b6049f229f12
   languageName: node
   linkType: hard
 
