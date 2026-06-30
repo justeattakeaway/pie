@@ -95,7 +95,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             country=${country}
             language=${language}
             .cookieStatementLink=${cookieStatementLink}
-            .personalizedLabel=${personalizedLabel}
+            personalizedLabel=${personalizedLabel}
             .personalizedDescription=${personalizedDescription}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
