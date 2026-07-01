@@ -5,6 +5,7 @@ import { cookieBanner } from './selectors.ts';
 import { type PreferenceIds } from '../../../src/defs.ts';
 
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
+const getPreferenceInputSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-input"]`;
 
 export type Level = 'action' | 'body';
 
@@ -178,7 +179,7 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<boolean>} A Promise that resolves to a boolean value indicating whether the preference toggle is checked (`true`) or not (`false`).
      */
     async isPreferenceToggleChecked (preferenceIds: PreferenceIds) : Promise<boolean> {
-        const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
+        const preferenceToggle = this.page.locator(getPreferenceInputSelector(preferenceIds));
         return preferenceToggle.isChecked();
     }
 
@@ -189,7 +190,7 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<boolean>} A Promise that resolves to a boolean value indicating whether the preference toggle is disabled (`true`) or not (`false`).
      */
     async isPreferenceToggleDisabled (preferenceIds: PreferenceIds) : Promise<boolean> {
-        const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
+        const preferenceToggle = this.page.locator(getPreferenceInputSelector(preferenceIds));
         return preferenceToggle.isDisabled();
     }
 
