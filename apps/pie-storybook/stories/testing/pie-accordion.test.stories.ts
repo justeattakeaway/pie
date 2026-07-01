@@ -75,18 +75,20 @@ const Template: TemplateFunction<AccordionProps> = ({
     isEmphasisReduced,
     isDividerHidden,
 }) => html`
-    <pie-accordion
-        data-test-id="test-accordion"
-        headingLabel="${headingLabel}"
-        headingLevel="${ifDefined(headingLevel)}"
-        ?isOpen="${isOpen}"
-        ?isEmphasisReduced="${isEmphasisReduced}"
-        ?isDividerHidden="${isDividerHidden}"
-        size="${ifDefined(size)}"
-        secondaryLabel="${ifDefined(secondaryLabel)}"
-        @toggle="${handleToggle}">
-        <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
-    </pie-accordion>
+    <div class="responsive-story-container">
+        <pie-accordion
+            data-test-id="test-accordion"
+            headingLabel="${headingLabel}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?isOpen="${isOpen}"
+            ?isEmphasisReduced="${isEmphasisReduced}"
+            ?isDividerHidden="${isDividerHidden}"
+            size="${ifDefined(size)}"
+            secondaryLabel="${ifDefined(secondaryLabel)}"
+            @toggle="${handleToggle}">
+            <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+        </pie-accordion>
+    </div>
 `;
 
 const createAccordionStory = createStory<AccordionProps>(Template, defaultArgs);
@@ -94,7 +96,7 @@ const createAccordionStory = createStory<AccordionProps>(Template, defaultArgs);
 export const Default = createAccordionStory();
 
 const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size }) => html`
-    <div style="max-width: 480px;">
+    <div class="responsive-story-container">
         <pie-accordion
             headingLabel="Delivery information"
             headingLevel="${ifDefined(headingLevel)}"
