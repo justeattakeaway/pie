@@ -34,11 +34,10 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Prop | Options | Description | Default |
 |------|---------|-------------|---------|
-| `isOpen` | `true`, `false` | When `true`, the accordion panel is expanded. **This is a controlled property - you are responsible for updating its value in response to the `pie-accordion-toggle` event.** | `false` |
+| `isOpen` | `true`, `false` | When `true`, the accordion panel is expanded. **This is a controlled property - you are responsible for updating its value in response to the `toggle` event.** | `false` |
 | `headingLabel` | String | The text content for the accordion heading button. | `''` |
 | `headingLevel` | `"h1"`, `"h2"`, `"h3"`, `"h4"`, `"h5"`, `"h6"` | The HTML heading element level used to wrap the trigger button. | `"h2"` |
 | `secondaryLabel` | String | Optional secondary line of text displayed below the heading label. | `undefined` |
-
 | `size` | `"auto"`, `"narrow"`, `"wide"` | Controls the responsive layout. `"auto"` responds to the viewport width; `"narrow"` and `"wide"` force the respective layout regardless of viewport. | `"auto"` |
 | `isEmphasisReduced` | `true`, `false` | When `true`, applies reduced-emphasis typography to the heading label. | `false` |
 | `isDividerHidden` | `true`, `false` | When `true`, hides the `pie-divider` rendered at the bottom of the accordion. | `false` |
@@ -58,11 +57,11 @@ This component does not expose any CSS variables for style overrides.
 
 | Event | Type | Description |
 |-------|------|-------------|
-| `pie-accordion-toggle` | `CustomEvent<{ isOpen: boolean }>` | Dispatched when the trigger button is clicked. The `detail.isOpen` value reflects the state **at the time of the click**, before any consumer update. |
+| `toggle` | `Event` | Dispatched when the trigger button is clicked. |
 
 ## Usage Examples
 
-`pie-accordion` is a controlled component. You are responsible for listening to `pie-accordion-toggle` and updating the `isOpen` property yourself.
+`pie-accordion` is a controlled component. You are responsible for listening to `toggle` and updating the `isOpen` property yourself.
 
 **For HTML:**
 
@@ -81,7 +80,7 @@ import '@justeattakeaway/pie-webc/components/accordion.js'
 
 <script>
     const accordion = document.getElementById('my-accordion');
-    accordion.addEventListener('pie-accordion-toggle', () => {
+    accordion.addEventListener('toggle', () => {
         accordion.isOpen = !accordion.isOpen;
     });
 </script>
@@ -107,7 +106,7 @@ export default function AccordionExample () {
         <PieAccordion
             headingLabel="Delivery information"
             isOpen={isOpen}
-            onPieAccordionToggle={() => setIsOpen(!isOpen)}>
+            onToggle={() => setIsOpen(!isOpen)}>
             Your order will be delivered between 30 and 45 minutes after placing your order.
         </PieAccordion>
     );

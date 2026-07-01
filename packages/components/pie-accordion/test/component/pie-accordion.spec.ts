@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { type PieAccordion } from 'src/index.ts';
 import { accordion } from '../helpers/page-object/selectors.ts';
 
 declare global {
@@ -17,8 +18,9 @@ const loadAccordion = async (page: BasePage['page'], storyName = 'accordion--def
 const attachToggleListener = async (page: BasePage['page']) => {
     await page.evaluate(() => {
         window.__accordionEvents = [];
-        document.querySelector('pie-accordion')!.addEventListener('pie-accordion-toggle', (e) => {
-            window.__accordionEvents.push(structuredClone((e as CustomEvent).detail));
+        document.querySelector('pie-accordion')!.addEventListener('toggle', (e) => {
+            const target = e.target as PieAccordion;
+            if (target) window.__accordionEvents.push({ isOpen: target.isOpen });
         });
     });
 };
@@ -160,7 +162,7 @@ test.describe('PieAccordion - Component tests', () => {
             });
         });
         test.describe('Keyboard interaction', () => {
-            test('should dispatch pie-accordion-toggle when Space is pressed on the trigger', async ({ page }) => {
+            test('should dispatch toggle when Space is pressed on the trigger', async ({ page }) => {
                 await loadAccordion(page, 'accordion--default');
                 await attachToggleListener(page);
 
@@ -175,7 +177,7 @@ test.describe('PieAccordion - Component tests', () => {
                 expect(events).toHaveLength(1);
             });
 
-            test('should dispatch pie-accordion-toggle when Enter is pressed on the trigger', async ({ page }) => {
+            test('should dispatch toggle when Enter is pressed on the trigger', async ({ page }) => {
                 await loadAccordion(page, 'accordion--default');
                 await attachToggleListener(page);
 
@@ -190,7 +192,7 @@ test.describe('PieAccordion - Component tests', () => {
                 expect(events).toHaveLength(1);
             });
 
-            test('should not dispatch pie-accordion-toggle when Tab is pressed on the trigger', async ({ page }) => {
+            test('should not dispatch toggle when Tab is pressed on the trigger', async ({ page }) => {
                 await loadAccordion(page, 'accordion--default');
                 await attachToggleListener(page);
 
@@ -244,7 +246,7 @@ test.describe('PieAccordion - Component tests', () => {
     });
 
     test.describe('Toggle event', () => {
-        test('should dispatch pie-accordion-toggle with current isOpen value on click', async ({ page }) => {
+        test('should dispatch toggle with current isOpen value on click', async ({ page }) => {
             await loadAccordion(page, 'accordion--default', { isOpen: false });
             await attachToggleListener(page);
 
@@ -254,7 +256,7 @@ test.describe('PieAccordion - Component tests', () => {
             await page.waitForFunction((c) => window.__accordionEvents.length > c, countBefore);
 
             const [event] = await page.evaluate(() => window.__accordionEvents);
-            expect(event.isOpen).toBe(false);
+            expect(event.isOpen).toBe(true); // It should be true as the story handles state management and flip the state
         });
     });
 });
