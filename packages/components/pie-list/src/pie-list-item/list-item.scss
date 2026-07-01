@@ -3,13 +3,11 @@
 :host {
     --list-item-inline-padding-default: var(--dt-spacing-d);
     --list-item-block-padding-default: var(--dt-spacing-d);
-
-    display: block;
     border: 1px dashed hotpink;
 
     // TODO: document --list-item-inline-padding-override in component readme
-    padding-inline: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
-    padding-block: var(--list-item-block-padding-default);
+    padding-inline-start: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));padding-inline-end: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
+    padding-block-start: var(--list-item-block-padding-default);padding-block-end: var(--list-item-block-padding-default);
 
     // Layout
     display: flex;
@@ -19,6 +17,7 @@
 
 .c-listItem-text {
     flex: 1;
+
     // Add a tiny bit of padding to the flex gap to make up 16px total
     padding-inline-end: var(--dt-spacing-a);
 }
@@ -42,10 +41,6 @@
     background: red;
 }
 
-:host([is-bold]) .c-listItem-primaryText {
-    font-weight: bold;
-}
-
 @include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'));
 
 // typography
@@ -54,10 +49,16 @@
     @include p.font-theme('font-body-l');
     color: var(--dt-color-content-default);
 }
+
+:host([is-bold]) .c-listItem-primaryText {
+    @include p.font-theme('font-body-strong-l');
+}
+
 .c-listItem-secondaryText {
     @include p.font-theme('font-body-s');
     color: var(--dt-color-content-subdued);
 }
+
 .c-listItem-metaText {
     @include p.font-theme('font-body-s');
     color: var(--dt-color-content-subdued);
