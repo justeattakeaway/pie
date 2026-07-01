@@ -6,7 +6,6 @@ import {
     RtlMixin,
     safeCustomElement,
     validPropertyValues,
-    dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './accordion.scss?inline';
 import {
@@ -27,7 +26,7 @@ const componentSelector = 'pie-accordion';
  * @tagname pie-accordion
  * @slot icon - Optional leading icon displayed in the trigger.
  * @slot - Default slot for the accordion panel content.
- * @event {CustomEvent} pie-accordion-toggle - Dispatched when the trigger is clicked. Detail: { isOpen: boolean }
+ * @event {Event} toggle - Dispatched when the trigger is clicked
  */
 @safeCustomElement('pie-accordion')
 export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps {
@@ -59,7 +58,7 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
     private readonly _panelId = 'accordion-panel';
 
     private _handleTriggerClick (): void {
-        dispatchCustomEvent(this, 'pie-accordion-toggle', { isOpen: this.isOpen });
+        this.dispatchEvent(new Event('toggle', { bubbles: true, composed: true }));
     }
 
     render () {
