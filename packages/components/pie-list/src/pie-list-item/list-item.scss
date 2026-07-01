@@ -1,1 +1,21 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    --list-item-inline-padding-default: var(--dt-spacing-d);
+
+    display: block;
+    border: 1px dashed hotpink;
+
+    // TODO: document --list-item-inline-padding-override in component readme
+    padding-inline: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
+}
+
+:host([is-compact]) {
+    background: red;
+}
+
+:host([is-bold]) .c-listItem-primaryText {
+    font-weight: bold;
+}
+
+@include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'));
