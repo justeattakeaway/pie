@@ -315,7 +315,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             const overrideText = 'Custom personalized label';
 
             await pieCookieBannerComponent.load({ personalizedLabel: overrideText });
-            await pieCookieBannerComponent.load({ personalizedLabel: '' });
+            await pieCookieBannerComponent.setPersonalizedLabel('');
             await pieCookieBannerComponent.clickManagePreferencesAction();
 
             // Act
