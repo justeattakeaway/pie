@@ -27,6 +27,8 @@ export * from './defs';
 
 const componentSelector = 'pie-switch';
 
+const isSafari = (): boolean => typeof navigator !== 'undefined' && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
 /**
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
@@ -72,16 +74,23 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
     private _abortController!: AbortController;
 
+    private _labelMutationObserver?: MutationObserver;
+
     @state()
     private _isAnimationAllowed = false;
 
+    @state()
+    private _associatedLabelText?: string;
+
     protected firstUpdated (): void {
+        const { signal } = this._abortController;
         this.handleFormAssociation();
         // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
         // for consumers to listen to: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
         this.input.addEventListener('invalid', (event) => {
             this.dispatchEvent(new Event('invalid', event));
-        });
+        }, { signal });
+        this.updateAssociatedLabelText();
     }
 
     connectedCallback (): void {
@@ -111,10 +120,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     disconnectedCallback () : void {
         super.disconnectedCallback();
         this._abortController?.abort();
-    }
-
-    protected updated (): void {
-        this.handleFormAssociation();
+        this._labelMutationObserver?.disconnect();
     }
 
     static styles = unsafeCSS(styles);
@@ -136,6 +142,41 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                 this._internals.setValidity(this.validity, this.validationMessage, this.input);
             }
         }
+    }
+
+    /**
+     * Safari doesn't compute the accessible name of a form-associated custom element from its
+     * associated <label> the way other browsers do, so this mirrors the label text onto
+     * `_associatedLabelText` (used as a fallback aria-label) as a Safari-only workaround.
+     * https://bugs.webkit.org/show_bug.cgi?id=259124
+     */
+    private updateAssociatedLabelText () : void {
+        if (!isSafari()) {
+            return;
+        }
+
+        this._labelMutationObserver?.disconnect();
+
+        const associatedLabels = Array.from(this._internals.labels ?? []);
+
+        if (!associatedLabels.length) {
+            this._associatedLabelText = undefined;
+            return;
+        }
+
+        this._labelMutationObserver = new MutationObserver(() => this.updateAssociatedLabelText());
+
+        associatedLabels.forEach((label) => {
+            this._labelMutationObserver?.observe(label, { childList: true, characterData: true, subtree: true });
+        });
+
+        const labelText = associatedLabels
+            .map((label) => label.textContent?.replace(/\s+/g, ' ').trim() ?? '')
+            .filter(Boolean)
+            .join(' ')
+            .trim();
+
+        this._associatedLabelText = labelText || undefined;
     }
 
     /**
@@ -260,7 +301,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             disabled,
             required,
             _isAnimationAllowed,
+            _associatedLabelText,
         } = this;
+
+        const ariaLabel = aria?.label || label || _associatedLabelText;
 
         const classes = {
             'c-switch-wrapper': true,
@@ -283,11 +327,11 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         role="switch"
                         type="checkbox"
                         class="c-switch-input"
-                        .required=${required}
-                        .checked="${live(checked)}"
-                        .disabled="${disabled}"
+                        ?required=${required}
+                        ?checked="${live(checked)}"
+                        ?disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label || label)}"
+                        aria-label="${ifDefined(ariaLabel)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
