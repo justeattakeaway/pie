@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.82.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.23
+
 ## 1.82.1
 
 ### Patch Changes
