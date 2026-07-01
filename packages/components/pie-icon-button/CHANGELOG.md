@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.7.20
+
+### Patch Changes
+
+- Updated dependencies [[`a320798`](https://github.com/justeattakeaway/pie/commit/a320798003252582e5c8360e8510a43cf74e3d36)]:
+  - @justeattakeaway/pie-webc-core@15.0.1
+  - @justeattakeaway/pie-spinner@1.4.18
+  - @justeattakeaway/pie-icons-webc@1.25.2
+
 ## 2.7.19
 
 ### Patch Changes
