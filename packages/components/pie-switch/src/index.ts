@@ -27,6 +27,8 @@ export * from './defs';
 
 const componentSelector = 'pie-switch';
 
+const isSafari = (): boolean => typeof navigator !== 'undefined' && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
 /**
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
@@ -148,12 +150,20 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         }
     }
 
+    /**
+     * Safari doesn't compute the accessible name of a form-associated custom element from its
+     * associated <label> the way other browsers do, so this mirrors the label text onto
+     * `_associatedLabelText` (used as a fallback aria-label) as a Safari-only workaround.
+     * https://bugs.webkit.org/show_bug.cgi?id=259124
+     */
     private updateAssociatedLabelText () : void {
-        const associatedLabels = Array.from(this._internals.labels ?? []);
+        if (!isSafari()) {
+            return;
+        }
 
-        // Re-observe on every call rather than diffing: cheap for the handful of labels
-        // a switch can have, and guarantees we never watch a label that's no longer associated.
         this._labelMutationObserver?.disconnect();
+
+        const associatedLabels = Array.from(this._internals.labels ?? []);
 
         if (!associatedLabels.length) {
             this._associatedLabelText = undefined;
@@ -164,15 +174,8 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             this._labelMutationObserver ??= new MutationObserver(() => this.updateAssociatedLabelText());
         }
 
-        associatedLabels.forEach((associatedLabel) => {
-            const labelElement = associatedLabel as HTMLElement;
-
-            // Their text is copied into the switch's own aria-label below, so hide the
-            // native labels from the accessibility tree to avoid the text being announced twice.
-            labelElement.setAttribute('aria-hidden', 'true');
-
-            // Attributes aren't observed, so setting aria-hidden above doesn't retrigger this.
-            this._labelMutationObserver?.observe(labelElement, { childList: true, characterData: true, subtree: true });
+        associatedLabels.forEach((label) => {
+            this._labelMutationObserver?.observe(label, { childList: true, characterData: true, subtree: true });
         });
 
         const labelText = associatedLabels
