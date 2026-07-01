@@ -72,7 +72,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
     private _abortController!: AbortController;
 
-    private _labelMutationObserver = new MutationObserver(() => this.updateAssociatedLabelText());
+    private _labelMutationObserver?: MutationObserver;
 
     @state()
     private _isAnimationAllowed = false;
@@ -118,7 +118,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     disconnectedCallback () : void {
         super.disconnectedCallback();
         this._abortController?.abort();
-        this._labelMutationObserver.disconnect();
+        this._labelMutationObserver?.disconnect();
     }
 
     protected updated (): void {
@@ -153,11 +153,15 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
         // Re-observe on every call rather than diffing: cheap for the handful of labels
         // a switch can have, and guarantees we never watch a label that's no longer associated.
-        this._labelMutationObserver.disconnect();
+        this._labelMutationObserver?.disconnect();
 
         if (!associatedLabels.length) {
             this._associatedLabelText = undefined;
             return;
+        }
+
+        if (typeof MutationObserver !== 'undefined') {
+            this._labelMutationObserver ??= new MutationObserver(() => this.updateAssociatedLabelText());
         }
 
         associatedLabels.forEach((associatedLabel) => {
@@ -168,7 +172,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             labelElement.setAttribute('aria-hidden', 'true');
 
             // Attributes aren't observed, so setting aria-hidden above doesn't retrigger this.
-            this._labelMutationObserver.observe(labelElement, { childList: true, characterData: true, subtree: true });
+            this._labelMutationObserver?.observe(labelElement, { childList: true, characterData: true, subtree: true });
         });
 
         const labelText = associatedLabels
