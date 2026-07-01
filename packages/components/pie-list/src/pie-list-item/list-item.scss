@@ -7,7 +7,7 @@
     // The list component will add a border to each list-item that follows another. This ensures the height accounts for the added border.
     --list-item-block-end-padding-default: calc(var(--list-item-block-padding-default) - var(--list-item-size-modifier));
 
-    // TODO: document --list-item-inline-padding-override in component readme
+    // TODO: document --list-item-inline-padding-override in component readme (any spacing token or 0)
     padding-inline-start: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
     padding-inline-end: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
 
@@ -16,6 +16,7 @@
 
     // Layout
     display: flex;
+    // TODO: document --list-item-alignment-override in component readme (only recommend using 'center')
     align-items: var(--list-item-alignment-override, flex-start);
     gap: var(--dt-spacing-c);
     min-height: 56px;
