@@ -133,6 +133,37 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
 
 export const Stacked = createStory<AccordionProps>(StackedTemplate, defaultArgs)();
 
+const IconRegularSizeTemplate: TemplateFunction<AccordionProps> = () => html`
+    <div class="responsive-story-container">
+        <pie-accordion
+            headingLabel="Delivery information"
+            secondaryLabel="Regular icon size"
+            ?isOpen="${false}"
+            @toggle="${handleToggle}">
+            <icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>
+            <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+        </pie-accordion>
+    </div>
+`;
+
+export const IconRegularSize = createStory<AccordionProps>(IconRegularSizeTemplate, defaultArgs)();
+
+// Using a xxl size icon as placeholder while we look into how to provide the icon with background pattern
+const IconLargeSizeTemplate: TemplateFunction<AccordionProps> = () => html`
+    <div class="responsive-story-container">
+        <pie-accordion
+            headingLabel="Delivery information"
+            secondaryLabel="Regular icon size"
+            ?isOpen="${false}"
+            @toggle="${handleToggle}">
+            <icon-restaurant-filled slot="icon" size="xxl"></icon-restaurant-filled>
+            <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+        </pie-accordion>
+    </div>
+`;
+
+export const IconLargeSize = createStory<AccordionProps>(IconLargeSizeTemplate, defaultArgs)();
+
 type AccordionVariantProps = AccordionProps & { icon?: boolean };
 
 const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
