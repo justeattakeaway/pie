@@ -1,10 +1,12 @@
 import {
     html, unsafeCSS, nothing,
 } from 'lit';
+import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { live } from 'lit/directives/live.js';
 import 'element-internals-polyfill';
 
 import {
@@ -45,6 +47,9 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     public checked = defaultProps.checked;
 
     @property({ type: Boolean, reflect: true })
+    public defaultChecked = defaultProps.defaultChecked;
+
+    @property({ type: Boolean, reflect: true })
     public required = defaultProps.required;
 
     @property({ type: String })
@@ -59,7 +64,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     @query('input[type="checkbox"]')
     private input!: HTMLInputElement;
 
-    @query('label')
+    @query('.c-switch')
+    private switchBody!: HTMLElement;
+
+    @query('label, input[type="checkbox"]')
     public focusTarget!: HTMLElement;
 
     private _abortController!: AbortController;
@@ -83,10 +91,18 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         const { signal } = this._abortController;
 
         this.addEventListener('click', (event: Event) => {
+            const [source] = event.composedPath();
+
+            if (this.disabled || source === this.input) {
+                return;
+            }
+
             // Only programmatically click the input if the explicit target
             // of the click was the host element itself (e.g., via an external label).
             // This ignores clicks bubbling up from the internal shadow DOM and prevents loops.
-            if (event.composedPath()[0] === this) {
+            // Also forward clicks from the visual switch body when no internal label exists.
+            const isInsideSwitchBody = !this.label && event.composedPath().includes(this.switchBody);
+            if (source === this || isInsideSwitchBody) {
                 this.input.click();
             }
         }, { signal });
@@ -167,6 +183,23 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     }
 
     /**
+     * Called when the containing form is reset.
+     * Resets checked state back to defaultChecked and emits a change event when needed.
+     */
+    public formResetCallback () : void {
+        if (this.checked === this.defaultChecked) {
+            return;
+        }
+
+        this.checked = this.defaultChecked;
+
+        const changeEvent = new Event('change', { bubbles: true, composed: true });
+        this.dispatchEvent(changeEvent);
+
+        this.handleFormAssociation();
+    }
+
+    /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
      */
@@ -183,16 +216,27 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         return this.input.validationMessage;
     }
 
-    /**
-     * If a label is provided, renders it if `labelPlacement` matches the given position.
-     * If no label is provided, or `labelPlacement` does not match the given position, nothing is rendered.
-     *
-     * @private
-     */
-    private renderSwitchLabel (placement : SwitchProps['labelPlacement']) {
+    private renderAriaDescription () {
+        if (!this.aria?.describedBy) {
+            return nothing;
+        }
+
+        // we apply aria-hidden to the element containing the description because it prevents some screen readers such as Apple VoiceOver from announcing the description once
+        // on the input and again separately. The description is still announced once, when the input is focused/selected.
+        return html`
+            <div
+                aria-hidden="true"
+                id="switch-description"
+                data-test-id="switch-description"
+                class="c-switch-description">
+                ${this.aria.describedBy}
+            </div>`;
+    }
+
+    private renderSwitchLabel () {
         const { label, labelPlacement } = this;
 
-        if (!label || labelPlacement !== placement) {
+        if (!label) {
             return nothing;
         }
 
@@ -207,26 +251,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             </span>`;
     }
 
-    private renderAriaDescription () {
-        if (!this.aria?.describedBy) {
-            return nothing;
-        }
-
-        // we apply aria-hidden to the element containing the description because it prevent some screen readers such as Apple VoiceOver from announcing the description once
-        // on the input and again separately. The description is still announced once, when the input is focused/selected.
-        return html`
-            <div
-                aria-hidden="true"
-                id="switch-description"
-                data-test-id="switch-description"
-                class="c-switch-description">
-                ${this.aria.describedBy}
-            </div>`;
-    }
-
     render () {
         const {
             label,
+            labelPlacement,
             aria,
             checked,
             disabled,
@@ -237,13 +265,15 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         const classes = {
             'c-switch-wrapper': true,
             'c-switch-wrapper--allow-animation': _isAnimationAllowed,
+            [`c-switch-wrapper--label-${labelPlacement}`]: true,
         };
 
-        return html`
-            <label
+        const tag = unsafeStatic(label ? 'label' : 'div');
+
+        return staticHtml`
+            <${tag}
                 class="${classMap(classes)}"
                 ?disabled=${disabled}>
-                ${this.renderSwitchLabel('leading')}
                 <div
                     data-test-id="switch-component"
                     class="c-switch"
@@ -254,7 +284,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         type="checkbox"
                         class="c-switch-input"
                         .required=${required}
-                        .checked="${checked}"
+                        .checked="${live(checked)}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
                         aria-label="${ifDefined(aria?.label || label)}"
@@ -263,9 +293,9 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </div>
-                ${this.renderSwitchLabel('trailing')}
+                ${this.renderSwitchLabel()}
                 ${this.renderAriaDescription()}
-            </label>`;
+            </${tag}>`;
     }
 }
 

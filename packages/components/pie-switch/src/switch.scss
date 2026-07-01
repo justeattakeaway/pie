@@ -121,6 +121,13 @@
     @include p.visually-hidden;
 }
 
+.c-switch-wrapper--label-leading {
+    flex-direction: row-reverse;
+}
+
+.c-switch-wrapper--label-trailing {
+    flex-direction: row;
+}
 
 .c-switch-wrapper--allow-animation {
     /* stylelint-disable-next-line no-descending-specificity */
