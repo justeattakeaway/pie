@@ -72,8 +72,13 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
     private _abortController!: AbortController;
 
+    private _labelMutationObserver = new MutationObserver(() => this.updateAssociatedLabelText());
+
     @state()
     private _isAnimationAllowed = false;
+
+    @state()
+    private _associatedLabelText?: string;
 
     protected firstUpdated (): void {
         this.handleFormAssociation();
@@ -106,15 +111,20 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                 this.input.click();
             }
         }, { signal });
+
+        this.updateAssociatedLabelText();
     }
 
     disconnectedCallback () : void {
         super.disconnectedCallback();
         this._abortController?.abort();
+        this._labelMutationObserver.disconnect();
     }
 
     protected updated (): void {
         this.handleFormAssociation();
+
+        this.updateAssociatedLabelText();
     }
 
     static styles = unsafeCSS(styles);
@@ -136,6 +146,38 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                 this._internals.setValidity(this.validity, this.validationMessage, this.input);
             }
         }
+    }
+
+    private updateAssociatedLabelText () : void {
+        const associatedLabels = Array.from(this._internals.labels ?? []);
+
+        // Re-observe on every call rather than diffing: cheap for the handful of labels
+        // a switch can have, and guarantees we never watch a label that's no longer associated.
+        this._labelMutationObserver.disconnect();
+
+        if (!associatedLabels.length) {
+            this._associatedLabelText = undefined;
+            return;
+        }
+
+        associatedLabels.forEach((associatedLabel) => {
+            const labelElement = associatedLabel as HTMLElement;
+
+            // Their text is copied into the switch's own aria-label below, so hide the
+            // native labels from the accessibility tree to avoid the text being announced twice.
+            labelElement.setAttribute('aria-hidden', 'true');
+
+            // Attributes aren't observed, so setting aria-hidden above doesn't retrigger this.
+            this._labelMutationObserver.observe(labelElement, { childList: true, characterData: true, subtree: true });
+        });
+
+        const labelText = associatedLabels
+            .map((label) => label.textContent?.replace(/\s+/g, ' ').trim() ?? '')
+            .filter(Boolean)
+            .join(' ')
+            .trim();
+
+        this._associatedLabelText = labelText || undefined;
     }
 
     /**
@@ -260,7 +302,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             disabled,
             required,
             _isAnimationAllowed,
+            _associatedLabelText,
         } = this;
+
+        const ariaLabel = aria?.label || label || _associatedLabelText;
 
         const classes = {
             'c-switch-wrapper': true,
@@ -287,7 +332,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         .checked="${live(checked)}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label || label)}"
+                        aria-label="${ifDefined(ariaLabel)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
