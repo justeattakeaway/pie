@@ -63,7 +63,7 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -205,7 +205,7 @@ If the option label exceeds the width of the form element, the popover container
 
 ---
 
-## Behaviors
+## Behaviours
 
 ### Preselection
 

@@ -13,6 +13,7 @@
     "components",
     "components/accordion",
     "components/assistive-text",
+    "components/assistive-text/apps",
     "components/assistive-text/code",
     "components/assistive-text/web",
     "components/avatar",
