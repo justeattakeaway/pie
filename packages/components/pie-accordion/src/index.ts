@@ -1,5 +1,6 @@
 import { nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
@@ -15,7 +16,7 @@ import {
     defaultProps,
 } from './defs';
 import '@justeattakeaway/pie-divider';
-import '@justeattakeaway/pie-icons-webc/dist/IconChevronUp.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconChevronDown.js';
 
 // Valid values available to consumers
 export * from './defs';
@@ -63,9 +64,16 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
 
     render () {
         const {
-            headingLevel, headingLabel, secondaryLabel, isOpen, isDividerHidden,
+            headingLevel, headingLabel, secondaryLabel, isOpen, isEmphasisReduced, isDividerHidden, size,
         } = this;
         const tag = unsafeStatic(headingLevel ?? 'h2');
+        const classes = {
+            'c-accordion-trigger': true,
+            'is-open': isOpen,
+            'is-reduced-emphasis': isEmphasisReduced,
+            'size-wide': size === 'wide',
+            'size-narrow': size === 'narrow',
+        };
 
         return html`
             <${tag}
@@ -75,7 +83,7 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
             >
                 <button
                     id="${this._buttonId}"
-                    class="c-accordion-trigger"
+                    class="${classMap(classes)}"
                     aria-expanded="${isOpen}"
                     aria-controls="${this._panelId}"
                     @click="${this._handleTriggerClick}"
@@ -86,11 +94,11 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
                         <span class="c-accordion-headingLabel">${headingLabel}</span>
                         ${secondaryLabel ? html`<span class="c-accordion-secondaryLabel">${secondaryLabel}</span>` : nothing}
                     </span>
-                    <icon-chevron-up
+                    <icon-chevron-down
                         size="m"
                         aria-hidden="true"
                         class="c-accordion-chevron"
-                    ></icon-chevron-up>
+                    ></icon-chevron-down>
                 </button>
             </${tag}>
             <div

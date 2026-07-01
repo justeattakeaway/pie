@@ -36,18 +36,33 @@
     @media (pointer: fine) {
         cursor: pointer;
     }
-}
 
-// Forced narrow - overrides media query via source order
-:host([size="narrow"]) .c-accordion-trigger {
-    font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
-    line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
-}
+    &.is-open {
+        icon-chevron-down {
+            transform: rotate(180deg);
+        }
+    }
 
-// Forced wide - overrides media query via source order
-:host([size="wide"]) .c-accordion-trigger {
-    font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
+    // Reduced emphasis - overrides heading-s weight/size with body/large on the label
+    &.is-reduced-emphasis {
+        .c-accordion-headingLabel {
+            font-size: calc(var(--dt-font-body-l-size) * 1px);
+            line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+            font-weight: var(--dt-font-body-l-weight);
+        }
+    }
+
+    // Forced narrow - overrides media query via source order
+    &.size-narrow {
+        font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
+        line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
+    }
+
+    // Forced wide - overrides media query via source order
+    &.size-wide {
+        font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
+        line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
+    }
 }
 
 // Labels wrapper
@@ -58,13 +73,6 @@
     align-items: flex-start;
     text-align: start;
     overflow: hidden;
-}
-
-// Reduced emphasis - overrides heading-s weight/size with body/large on the label
-:host([isemphasisreduced]) .c-accordion-headingLabel {
-    font-size: calc(var(--dt-font-body-l-size) * 1px);
-    line-height: calc(var(--dt-font-body-l-line-height) * 1px);
-    font-weight: var(--dt-font-body-l-weight);
 }
 
 // Secondary label - body/large (non-responsive, regular weight)
@@ -80,10 +88,6 @@
     display: flex;
     align-items: center;
     color: inherit;
-}
-
-:host(:not([isopen])) .c-accordion-chevron {
-    transform: rotate(180deg);
 }
 
 .c-accordion-panel {
