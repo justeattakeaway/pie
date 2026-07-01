@@ -25,6 +25,13 @@ export interface ListItemProps {
      * Sets the primary text to use a bold font-weight.
      */
     isBold: boolean
+
+    /**
+     * Reduces the block padding to suit larger slotted media (such as a pie-thumbnail).
+     *
+     * **Note**: This has no effect when `secondaryText` is set, and should not be combined with `isCompact`.
+     */
+    hasMedia: boolean
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
@@ -32,4 +39,5 @@ export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListI
 export const defaultProps: DefaultProps = {
     isCompact: false,
     isBold: false,
+    hasMedia: false,
 };

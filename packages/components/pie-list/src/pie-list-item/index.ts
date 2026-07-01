@@ -28,6 +28,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean, attribute: 'is-bold', reflect: true })
         isBold = defaultProps.isBold;
 
+    @property({ type: Boolean, attribute: 'has-media', reflect: true })
+        hasMedia = defaultProps.hasMedia;
+
     connectedCallback () {
         if (!this.hasAttribute('role')) {
             this.setAttribute('role', 'listitem');

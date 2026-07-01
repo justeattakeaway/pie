@@ -3,6 +3,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
+import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
@@ -34,6 +35,7 @@ export default listStoryMeta;
 const leadingIcon = html`<icon-placeholder slot="leading"></icon-placeholder>`;
 const trailingIcon = html`<icon-placeholder slot="trailing"></icon-placeholder>`;
 const trailingTag = html`<pie-tag slot="trailing">Label</pie-tag>`;
+const leadingThumbnail = html`<pie-thumbnail slot="leading" size="40" backgroundColor="strong" variant="outline"></pie-thumbnail>`;
 
 /**
  * Wraps a `pie-list` block in a fixed-width container so that every story
@@ -178,6 +180,41 @@ const MetaTextTemplate = () => withLayout(html`
 `);
 
 export const MetaText = createStory<ListProps>(MetaTextTemplate, defaultArgs)();
+
+/**
+ * `has-media` reduces the block padding to suit a larger slotted pie-thumbnail.
+ * The reduced padding only applies when there is no secondary text — the last
+ * two items show padding reverting to normal.
+ */
+const MediaTemplate = () => withLayout(html`
+    <h2>Primary text only</h2>
+    <pie-list>
+        <pie-list-item has-media primaryText="Primary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+        <pie-list-item has-media primaryText="Primary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+        <pie-list-item has-media primaryText="Primary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+    </pie-list>
+
+    <h2>With secondary text</h2>
+    <pie-list>
+        <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+        <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+        <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const Media = createStory<ListProps>(MediaTemplate, defaultArgs)();
 
 /**
  * `is-compact` reduces the vertical space of each item.

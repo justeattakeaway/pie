@@ -33,6 +33,13 @@
     min-height: 48px;
 }
 
+// Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
+// when the primary text stands alone (`:only-child` == no secondary text) — with
+// secondary text the default padding is kept so two lines of text sit correctly.
+:host([has-media]):has(.c-listItem-primaryText:only-child) {
+    --list-item-block-padding-default: var(--dt-spacing-b);
+}
+
 .c-listItem-text {
     flex: 1;
 
@@ -65,6 +72,14 @@
 
 ::slotted(.c-pieIcon) {
     --icon-size-override: 24px
+}
+
+// Media (pie-avatar / pie-thumbnail) is too large for a compact item, so it is
+// not displayed when `is-compact` is set.
+// TODO: add icon with background here once it exists
+:host([is-compact]) ::slotted(pie-avatar),
+:host([is-compact]) ::slotted(pie-thumbnail) {
+    display: none;
 }
 
 // typography
