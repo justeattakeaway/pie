@@ -86,7 +86,7 @@ If there is a Radio Button grouping, they can be laid out vertically or horizont
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/radio/android/alignment-horizontal.svg",
-      width: "360px",
+      width: "340px",
       alt: "A group of radio buttons with label stacked horizontally."
     } %}
   {% endcontentItem %}

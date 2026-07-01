@@ -3,6 +3,7 @@ eleventyNavigation:
     key: iOS
     parent: Radio
     order: 4
+shouldShowContents: true
 ---
 
 ## Dos and Don’ts
@@ -85,7 +86,7 @@ If there is a Radio Button grouping, they can be laid out vertically or horizont
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/radio/ios/alignment-horizontal.svg",
-      width: "360px",
+      width: "340px",
       alt: "A group of radio buttons with label stacked horizontally."
     } %}
   {% endcontentItem %}
@@ -178,7 +179,7 @@ Outlines the atomic level interactive elements for the component.
   <h3>Active</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/radio/ios/interactive-states-active.svg",
-      width: "120px",
+      width: "90px",
       alt: "A radio button in an active state."
     } %}
   {% endcontentItem %}
