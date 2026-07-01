@@ -16,7 +16,7 @@
     --int-states-mixin-bg-color: var(--dt-color-container-default);
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     gap: var(--dt-spacing-d);
     padding: var(--dt-spacing-d);
