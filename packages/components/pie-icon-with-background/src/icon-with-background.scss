@@ -1,0 +1,222 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    display: inline-block;
+}
+
+.c-iconWithBackground {
+    // Default CSS custom property values (overridden by size/variant/emphasis modifiers below)
+    --iconWithBackground-size: 32px;
+    --iconWithBackground-bg-color: var(--dt-color-container-inverse);
+    --iconWithBackground-icon-color: var(--dt-color-content-inverse);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--iconWithBackground-size);
+    height: var(--iconWithBackground-size);
+    background-color: var(--iconWithBackground-bg-color);
+    color: var(--iconWithBackground-icon-color);
+
+    // Container sizes (spec: circle small=24, medium=32, large=40, xlarge=56)
+    &.c-iconWithBackground--small {
+        --iconWithBackground-size: 24px;
+    }
+
+    &.c-iconWithBackground--medium {
+        --iconWithBackground-size: 32px;
+    }
+
+    &.c-iconWithBackground--large {
+        --iconWithBackground-size: 40px;
+    }
+
+    &.c-iconWithBackground--xlarge {
+        --iconWithBackground-size: 56px;
+    }
+
+    // Shapes
+    &.c-iconWithBackground--circle {
+        border-radius: 50%;
+    }
+
+    &.c-iconWithBackground--square {
+        border-radius: var(--dt-radius-rounded-b);
+    }
+
+    // Disabled state
+    &.c-iconWithBackground--disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    // Variant × Emphasis colour pairs
+    // ─────────────────────────────────────────────────────────────────────────
+
+    &.c-iconWithBackground--neutral {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-container-inverse);
+            --iconWithBackground-icon-color: var(--dt-color-content-inverse);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-container-strong);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    &.c-iconWithBackground--neutral-alternative {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-container-default);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-container-subtle);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Brand 01 – Orange
+    &.c-iconWithBackground--brand-01 {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-01);
+            --iconWithBackground-icon-color: var(--dt-color-content-dark);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-02);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Brand 02 – Orange subtle
+    &.c-iconWithBackground--brand-02 {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-02);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-02);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Brand 03 – Cupcake
+    &.c-iconWithBackground--brand-03 {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-03);
+            --iconWithBackground-icon-color: var(--dt-color-content-dark);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-03-subtle);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Brand 04 – Berry
+    &.c-iconWithBackground--brand-04 {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-04);
+            --iconWithBackground-icon-color: var(--dt-color-content-dark);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-04-subtle);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Brand 05 – Turmeric
+    &.c-iconWithBackground--brand-05 {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-05);
+            --iconWithBackground-icon-color: var(--dt-color-content-dark);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-05-subtle);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Brand 06 – Aubergine
+    &.c-iconWithBackground--brand-06 {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-06);
+            --iconWithBackground-icon-color: var(--dt-color-content-light);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-06-subtle);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Brand 08 – Latte
+    &.c-iconWithBackground--brand-08 {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-08);
+            --iconWithBackground-icon-color: var(--dt-color-content-dark);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-brand-08-subtle);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Error
+    &.c-iconWithBackground--error {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-error);
+            --iconWithBackground-icon-color: var(--dt-color-content-light);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-error-02);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Warning
+    &.c-iconWithBackground--warning {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-warning);
+            --iconWithBackground-icon-color: var(--dt-color-content-dark);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-warning-02);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Success
+    &.c-iconWithBackground--success {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-positive);
+            --iconWithBackground-icon-color: var(--dt-color-content-inverse);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-positive-02);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+
+    // Information
+    &.c-iconWithBackground--information {
+        &.c-iconWithBackground--strong {
+            --iconWithBackground-bg-color: var(--dt-color-support-info);
+            --iconWithBackground-icon-color: var(--dt-color-content-inverse);
+        }
+
+        &.c-iconWithBackground--subtle {
+            --iconWithBackground-bg-color: var(--dt-color-support-info-02);
+            --iconWithBackground-icon-color: var(--dt-color-content-default);
+        }
+    }
+}
