@@ -1,15 +1,60 @@
 @use 'sass:string';
 @use 'sass:list';
 
-@mixin enforce-slot-elements($allowed-elements) {
-    ::slotted(:not(#{$allowed-elements})) {
-        display: none;
-    }
+/// Enforces a strict allowlist of elements for one or more web component slots.
+/// Any slotted elements not in the allowlist will be hidden (`display: none`).
+///
+/// @param {List} $allowed-elements - A list of permitted CSS selectors (e.g., `('h1', 'p')`).
+/// @param {ArgList} $slot-names... - 0 or more slot names. If omitted, targets the default slot.
+/// @content The styles to apply exclusively to the allowed elements.
+///
+/// @example scss - Usage for the default slot (0 slot names)
+///   @include enforce-slot-elements(('p', 'span')) {
+///     font-size: 1rem;
+///   }
+///
+/// @example scss - Usage for a specific named slot (1 slot name)
+///   @include enforce-slot-elements(('h1', 'h2'), 'header-slot') {
+///     color: blue;
+///   }
+///
+/// @example scss - Usage for multiple named slots (1+ slot names)
+///   @include enforce-slot-elements(('img', 'picture'), 'hero-image', 'footer-image') {
+///     max-width: 100%;
+///   }
+@mixin enforce-slot-elements($allowed-elements, $slot-names...) {
+    // 1. If no slot names are passed, default to an empty string (targets default slot)
+    $slots-to-process: if(list.length($slot-names) == 0, (''), $slot-names);
 
+    $hide-selectors: ();
     $allowlist-selectors: ();
 
-    @each $el in $allowed-elements {
-        $allowlist-selectors: list.append($allowlist-selectors, string.unquote('::slotted(#{$el})'), comma);
+    // 2. Loop through every slot name provided
+    @each $slot in $slots-to-process {
+        // Create the specific attribute selector for this loop iteration
+        $slot-selector: if($slot != '', '[slot="#{$slot}"]', '');
+
+        // 3. Build the 'hide' selector for this specific slot
+        $hide-selectors: list.append(
+            $hide-selectors,
+            string.unquote('::slotted(#{$slot-selector}:not(#{$allowed-elements}))'),
+            comma
+        );
+
+        // 4. Build the 'allowlist' selectors for this specific slot
+        @each $el in $allowed-elements {
+            $combined-selector: '#{$el}#{$slot-selector}';
+            $allowlist-selectors: list.append(
+                $allowlist-selectors,
+                string.unquote('::slotted(#{$combined-selector})'),
+                comma
+            );
+        }
+    }
+
+    // 5. Output the final comma-separated selectors
+    #{$hide-selectors} {
+        display: none;
     }
 
     #{$allowlist-selectors} {

@@ -6,8 +6,10 @@
     border: 1px dashed hotpink;
 
     // TODO: document --list-item-inline-padding-override in component readme
-    padding-inline-start: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));padding-inline-end: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
-    padding-block-start: var(--list-item-block-padding-default);padding-block-end: var(--list-item-block-padding-default);
+    padding-inline-start: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
+    padding-inline-end: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
+    padding-block-start: var(--list-item-block-padding-default);
+    padding-block-end: var(--list-item-block-padding-default);
 
     // Layout
     display: flex;
@@ -41,7 +43,7 @@
     background: red;
 }
 
-@include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'));
+@include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'), 'leading', 'trailing');
 
 // typography
 
