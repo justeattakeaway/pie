@@ -13,11 +13,11 @@ type SwitchStoryMeta = Meta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
     ...defaultProps,
-    label: 'Label',
     aria: {
         label: 'switch label',
         describedBy: 'switch description',
     },
+    label: 'Label',
     name: 'switch',
     value: 'switchValue',
 };
@@ -31,6 +31,13 @@ const switchStoryMeta: SwitchStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.checked,
+            },
+        },
+        defaultChecked: {
+            description: 'The default checked state of the switch (not necessarily the same as the current checked state). Used when the switch is part of a form that is reset.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.defaultChecked,
             },
         },
         disabled: {
@@ -107,6 +114,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
         checked,
+        defaultChecked,
         disabled,
         label,
         labelPlacement,
@@ -125,6 +133,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
             .aria="${aria}"
             ?required="${required}"
             ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
             @change="${changeAction}">
         </pie-switch>`;

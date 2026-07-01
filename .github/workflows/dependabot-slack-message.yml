@@ -1,0 +1,50 @@
+name: Dependabot Slack Message
+
+# Posts a single Slack message listing the open Dependabot PRs whose CI
+# (the `check-all-jobs` job) has passed and are ready for review.
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Monday
+    - cron: "0 9 * * 3" # Wednesday
+  workflow_dispatch:
+
+concurrency:
+  group: dependabot-slack-message
+  cancel-in-progress: true
+
+permissions:
+  pull-requests: read
+  checks: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Build message of CI-green Dependabot PRs
+        id: build
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        env:
+          PAYLOAD_PATH: ${{ runner.temp }}/slack-payload.json
+        with:
+          script: |
+            const script = require('./packages/tools/pie-monorepo-utils/dependabot-slack-message/dependabot-slack-message.js');
+            const payload = await script({ github, context });
+            if (!payload) {
+              core.setOutput('has_prs', 'false');
+              return;
+            }
+            require('fs').writeFileSync(process.env.PAYLOAD_PATH, JSON.stringify(payload));
+            core.setOutput('has_prs', 'true');
+
+      - name: Notify Slack
+        if: steps.build.outputs.has_prs == 'true'
+        uses: slackapi/slack-github-action@fcfb566f8b0aab22203f066d80ca1d7e4b5d05b3 # v1.27.1
+        with:
+          channel-id: ${{ secrets.REVIEWS_SLACK_CHANNEL_ID }}
+          payload-file-path: ${{ runner.temp }}/slack-payload.json
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

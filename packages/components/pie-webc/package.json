@@ -15,6 +15,27 @@
     "docs/**/*.md"
   ],
   "exports": {
+    "./docs/*": "./docs/*",
+    "./components/accordion": {
+      "import": "./components/accordion.js",
+      "require": "./components/accordion.js",
+      "types": "./components/accordion.d.ts"
+    },
+    "./components/accordion.js": {
+      "import": "./components/accordion.js",
+      "require": "./components/accordion.js",
+      "types": "./components/accordion.d.ts"
+    },
+    "./react/accordion": {
+      "import": "./react/accordion.js",
+      "require": "./react/accordion.js",
+      "types": "./react/accordion.d.ts"
+    },
+    "./react/accordion.js": {
+      "import": "./react/accordion.js",
+      "require": "./react/accordion.js",
+      "types": "./react/accordion.d.ts"
+    },
     "./components/assistive-text.js": {
       "import": "./components/assistive-text.js",
       "require": "./components/assistive-text.js",
@@ -794,8 +815,7 @@
       "import": "./react/toast-provider.js",
       "require": "./react/toast-provider.js",
       "types": "./react/toast-provider.d.ts"
-    },
-    "./docs/*": "./docs/*"
+    }
   },
   "scripts": {
     "lint:scripts": "run -T eslint .",
@@ -810,6 +830,7 @@
     "chalk": "5.6.2"
   },
   "dependencies": {
+    "@justeattakeaway/pie-accordion": "0.0.0",
     "@justeattakeaway/pie-assistive-text": "1.0.0",
     "@justeattakeaway/pie-avatar": "0.4.38",
     "@justeattakeaway/pie-breadcrumb": "1.0.0",

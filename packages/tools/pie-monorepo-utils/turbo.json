@@ -9,6 +9,9 @@
       "outputs": [
         "./dist/component-statuses.json"
       ]
+    },
+    "generate:copilot-instructions": {
+      "cache": false
     }
   }
 }
