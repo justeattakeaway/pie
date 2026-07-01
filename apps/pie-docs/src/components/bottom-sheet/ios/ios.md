@@ -338,17 +338,15 @@ Used when the content inside the bottom sheet is longer than the total height of
 
 ---
 
-## Slot (nested component)
-
-Our Bottom Sheets use nested Slots which help us make the component flexible without the need to detach it from it’s original instance. If you want to learn more about slots and how to use them, please check the [Slots documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/-Core--Apps-Component-Documentation--PIE-3-?node-id=29-31).
-
----
-
 ## Content
 
-A bottom sheet causes all content and UI elements behind it to display a scrim. Tapping the scrim dismisses both the bottom sheet and scrim from view.
-The contents of the bottom sheet can be customised by detaching the instance. For more information on how to create custom bottom sheets check the ‘Custom bottom sheets’ section.
+- A bottom sheet causes all content and UI elements behind it to display a scrim. Tapping the scrim dismisses both the bottom sheet and scrim from view.
 
+- The contents of the bottom sheet can be customised by using the figma slot.
+
+{% notification { type: "information", message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)." } %}
+
+  
 ### Overrides
 
 {% contentPageImage {

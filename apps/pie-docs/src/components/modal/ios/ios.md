@@ -455,20 +455,6 @@ This interaction is enabled by default. Designers need to ask engineers to disab
     width: 300
 } %}
 
-### Slots available
-
-The purpose of chips is to provide a visual representation of a specific entity or attribute, such as a selected option or a labelled category. Chips can also be interactive, allowing users to remove or modify the selected choices.
-Chips are commonly used in various contexts, including filtering options, search results or any situation where concise and visually distinct information needs to be displayed.
-
-{% list {
-    type: listTypes.ordered,
-    items: [
-        "**Header slot:** Hidden by default.",
-        "**Body slot:** Available as a variant.",
-        "**Footer slot:** Hidden by default."
-    ]
-} %}
-
 ---
 
 ## Content
@@ -500,11 +486,9 @@ Use language that is familiar and understandable to the target audience, avoidin
 Use it for non-interactive, secondary information. This includes disclaimers, terms and conditions, legal text, and specific offer restrictions.
 Do not use it for primary actions or critical messaging. Content here must be purely supplementary and non-essential to completing the main task of the alert.
 
----
+### Overrides
 
-## Overrides
-
-### Title overrides
+#### Title overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-title.svg",
@@ -519,7 +503,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
     ]
 } %}
 
-### Buttons overrides
+#### Buttons overrides
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal-apps/content-overrides-buttons.svg",
@@ -531,6 +515,27 @@ Do not use it for primary actions or critical messaging. Content here must be pu
     type: listTypes.ordered,
     items: [
         "**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
+    ]
+} %}
+
+### Slots available
+
+{% notification {
+  type: "information",
+  message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)."
+} %}
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviours-slots-slots-available.svg",
+  alt: "A diagram displaying the available slots for the Modal content and footer.",
+  width: 600
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+     "**Body Slot:** Available as a variant",
+        "**Footer slot:** Hidden by default"
     ]
 } %}
 
