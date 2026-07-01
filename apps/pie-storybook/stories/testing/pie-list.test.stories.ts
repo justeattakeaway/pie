@@ -183,7 +183,7 @@ export const MetaText = createStory<ListProps>(MetaTextTemplate, defaultArgs)();
 
 /**
  * `has-media` reduces the block padding to suit a larger slotted pie-thumbnail.
- * The reduced padding only applies when there is no secondary text — the last
+ * The reduced padding only applies when there is no secondary text. The last
  * two items show padding reverting to normal.
  */
 const MediaTemplate = () => withLayout(html`
