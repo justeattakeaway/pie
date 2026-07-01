@@ -3,6 +3,7 @@
 :host {
     --list-item-inline-padding-default: var(--dt-spacing-d);
     --list-item-block-padding-default: var(--dt-spacing-d);
+
     // The list component will add a border to each list-item that follows another. This ensures the height accounts for the added border.
     --list-item-block-end-padding-default: calc(var(--list-item-block-padding-default) - var(--list-item-size-modifier));
 
