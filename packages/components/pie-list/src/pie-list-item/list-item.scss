@@ -16,6 +16,7 @@
 
     // Layout
     display: flex;
+
     // TODO: document --list-item-alignment-override in component readme (only recommend using 'center')
     align-items: var(--list-item-alignment-override, flex-start);
     gap: var(--dt-spacing-c);
