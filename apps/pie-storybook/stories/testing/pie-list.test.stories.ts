@@ -80,6 +80,22 @@ const Template = ({}: ListProps) => html`
         </pie-list-item>
     </pie-list>
 
+    <h2>Compact list</h2>
+    <pie-list>
+        <pie-list-item
+            is-compact
+            primaryText="Primary text">
+        </pie-list-item>
+        <pie-list-item
+            is-compact
+            primaryText="Primary text">
+        </pie-list-item>
+        <pie-list-item
+            is-compact
+            primaryText="Primary text">
+        </pie-list-item>
+    </pie-list>
+
     <h2>Custom Padding override</h2>
     <pie-list style="--list-item-inline-padding-override: var(--dt-spacing-f);">
     <pie-list-item

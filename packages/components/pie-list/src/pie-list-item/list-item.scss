@@ -25,6 +25,8 @@
 }
 
 :host([is-compact]) {
+    --list-item-block-padding-default: var(--dt-spacing-c);
+
     min-height: 48px;
 }
 
