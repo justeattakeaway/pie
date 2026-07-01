@@ -59,6 +59,20 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
                 summary: defaultProps.openLinksInSameTab,
             },
         },
+        personalizedLabel: {
+            description: 'An optional consumer override for the personalised preference label. When provided, this string replaces the locale-defined label for the personalised preference. Consumers can include plain text. When omitted or empty, the built-in locale string is used.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultProps.personalizedLabel,
+            },
+        },
+        personalizedDescription: {
+            description: 'An optional consumer override for the personalised preference description. Supports plain text or HTML anchor or `<pie-link>` tags (e.g. `<a href="...">Privacy Policy</a>`). When omitted or empty, the built-in locale string is used.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultProps.personalizedDescription,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -84,6 +98,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
         language,
         cookieStatementLink,
         cookieTechnologiesLink,
+        personalizedLabel,
+        personalizedDescription,
         defaultPreferences,
         openLinksInSameTab,
     } = props;
@@ -94,6 +110,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             language=${language}
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
+            personalizedLabel=${personalizedLabel}
+            .personalizedDescription=${personalizedDescription}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             .openLinksInSameTab="${openLinksInSameTab}"
             .defaultPreferences="${defaultPreferences}"
