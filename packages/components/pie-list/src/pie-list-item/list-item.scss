@@ -3,18 +3,29 @@
 :host {
     --list-item-inline-padding-default: var(--dt-spacing-d);
     --list-item-block-padding-default: var(--dt-spacing-d);
-    border: 1px dashed hotpink;
+
+    --list-item-block-end-padding-default: calc(var(--list-item-block-padding-default) - var(--list-item-size-modifier));
 
     // TODO: document --list-item-inline-padding-override in component readme
     padding-inline-start: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
     padding-inline-end: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
+
     padding-block-start: var(--list-item-block-padding-default);
-    padding-block-end: var(--list-item-block-padding-default);
+    padding-block-end: var(--list-item-block-end-padding-default, var(--list-item-block-padding-default));
 
     // Layout
     display: flex;
     align-items: flex-start;
     gap: var(--dt-spacing-c);
+    min-height: 56px;
+}
+
+:host:has(.c-listItem-secondaryText) {
+    min-height: 76px;
+}
+
+:host([is-compact]) {
+    min-height: 48px;
 }
 
 .c-listItem-text {
@@ -37,10 +48,6 @@
 // Flush trailing content to the end of the list-item
 .c-listItem-trailing {
     margin-inline-start: auto;
-}
-
-:host([is-compact]) {
-    background: red;
 }
 
 @include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'), 'leading', 'trailing');
