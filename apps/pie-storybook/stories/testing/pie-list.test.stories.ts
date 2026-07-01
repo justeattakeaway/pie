@@ -31,6 +31,7 @@ export default listStoryMeta;
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
 const Template = ({}: ListProps) => html`
+    <button>Focus anchor</button>
     <pie-list style="min-width: 350px; display: flex; flex-direction: column; gap: 10px;">
         <pie-list-item
             primaryText="Primary text"
@@ -90,6 +91,7 @@ const Template = ({}: ListProps) => html`
             <icon-placeholder slot="trailing"></icon-placeholder>
         </pie-list-item>
     </pie-list>
+    <button>Focus anchor</button>
 `;
 
 export const Default = createStory<ListProps>(Template, defaultArgs)();

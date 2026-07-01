@@ -28,10 +28,18 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean, attribute: 'is-bold', reflect: true })
         isBold = defaultProps.isBold;
 
+    connectedCallback () {
+        if (!this.hasAttribute('role')) {
+            this.setAttribute('role', 'listitem');
+        }
+
+        super.connectedCallback();
+    }
+
     _renderSecondaryText () {
         const { secondaryText } = this;
         if (secondaryText) {
-            return html`<span>${secondaryText}</span>`;
+            return html`<span class="c-listItem-secondaryText u-font-body-s">${secondaryText}</span>`;
         }
 
         return nothing;
@@ -41,7 +49,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     _renderTrailingContent () {
         const { metaText } = this;
         if (metaText) {
-            return html`<span class="c-listItem-metaText c-listItem-trailing">${metaText}</span>`;
+            return html`<span class="c-listItem-metaText c-listItem-trailing u-font-body-s">${metaText}</span>`;
         }
 
         return html`<div class="c-listItem-trailing"><slot name="trailing"></slot></div>`;
@@ -57,10 +65,12 @@ export class PieListItem extends PieElement implements ListItemProps {
         <div class="c-listItem-leading">
             <slot name="leading"></slot>
         </div>
+
         <div class="c-listItem-text">
-            <span class="c-listItem-primaryText">${primaryText}</span>
+            <span class="c-listItem-primaryText u-font-body-l">${primaryText}</span>
             ${this._renderSecondaryText()}
         </div>
+
         ${this._renderTrailingContent()}`;
     }
 

@@ -2,12 +2,40 @@
 
 :host {
     --list-item-inline-padding-default: var(--dt-spacing-d);
+    --list-item-block-padding-default: var(--dt-spacing-d);
 
     display: block;
     border: 1px dashed hotpink;
 
     // TODO: document --list-item-inline-padding-override in component readme
     padding-inline: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
+    padding-block: var(--list-item-block-padding-default);
+
+    // Layout
+    display: flex;
+    align-items: flex-start;
+    gap: var(--dt-spacing-c);
+}
+
+.c-listItem-text {
+    flex: 1;
+    // Add a tiny bit of padding to the flex gap to make up 16px total
+    padding-inline-end: var(--dt-spacing-a);
+}
+
+// Ensures that empty slots do not create a flex-gap in the container.
+.c-listItem-leading, slot[name="leading"] {
+    display: contents;
+}
+
+// Vertically stack the text items
+.c-listItem-text > * {
+    display: block;
+}
+
+// Flush trailing content to the end of the list-item
+.c-listItem-trailing {
+    margin-inline-start: auto;
 }
 
 :host([is-compact]) {
@@ -19,3 +47,18 @@
 }
 
 @include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'));
+
+// typography
+
+.c-listItem-primaryText {
+    @include p.font-theme('font-body-l');
+    color: var(--dt-color-content-default);
+}
+.c-listItem-secondaryText {
+    @include p.font-theme('font-body-s');
+    color: var(--dt-color-content-subdued);
+}
+.c-listItem-metaText {
+    @include p.font-theme('font-body-s');
+    color: var(--dt-color-content-subdued);
+}
