@@ -3,7 +3,6 @@
 :host {
     --list-item-inline-padding-default: var(--dt-spacing-d);
     --list-item-block-padding-default: var(--dt-spacing-d);
-
     --list-item-block-end-padding-default: calc(var(--list-item-block-padding-default) - var(--list-item-size-modifier));
 
     // TODO: document --list-item-inline-padding-override in component readme
