@@ -83,12 +83,14 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     private _associatedLabelText?: string;
 
     protected firstUpdated (): void {
+        const { signal } = this._abortController;
         this.handleFormAssociation();
         // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
         // for consumers to listen to: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
         this.input.addEventListener('invalid', (event) => {
             this.dispatchEvent(new Event('invalid', event));
-        });
+        }, { signal });
+        this.updateAssociatedLabelText();
     }
 
     connectedCallback (): void {
@@ -113,20 +115,12 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                 this.input.click();
             }
         }, { signal });
-
-        this.updateAssociatedLabelText();
     }
 
     disconnectedCallback () : void {
         super.disconnectedCallback();
         this._abortController?.abort();
         this._labelMutationObserver?.disconnect();
-    }
-
-    protected updated (): void {
-        this.handleFormAssociation();
-
-        this.updateAssociatedLabelText();
     }
 
     static styles = unsafeCSS(styles);
