@@ -85,6 +85,9 @@ function ensureDirExists (directoryPath) {
 }
 
 function build () {
+    // remove any previously generated icons so stale files
+    fs.rmSync(ICONS_DIR, { recursive: true, force: true });
+
     // check if /icons directory exists, if not create it
     ensureDirExists(ICONS_DIR);
 
