@@ -3,6 +3,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
+import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
 import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
@@ -31,8 +32,13 @@ export default listStoryMeta;
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
 const Template = ({}: ListProps) => html`
+    <style>
+        pie-list {
+            max-width: 450px;
+        }
+    </style>
     <button>Focus anchor</button>
-    <pie-list style="min-width: 350px; display: flex; flex-direction: column; gap: 10px;">
+    <pie-list>
         <pie-list-item
             primaryText="Primary text"
             secondaryText="Secondary text"
@@ -53,6 +59,7 @@ const Template = ({}: ListProps) => html`
 
         <pie-list-item
             primaryText="Primary text">
+            <pie-tag slot="trailing">Label</pie-tag>
         </pie-list-item>
 
         <pie-list-item
@@ -99,6 +106,44 @@ const Template = ({}: ListProps) => html`
         </pie-list-item>
     </pie-list>
 
+    <h2>Tags</h2>
+    <pie-list>
+        <pie-list-item
+            primaryText="Primary text"
+            secondaryText="Secondary text">
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item
+            primaryText="Primary text"
+            secondaryText="Secondary text">
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item
+            primaryText="Primary text"
+            secondaryText="Secondary text">
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+    </pie-list>
+
+    <h3>Tags (compact)</h3>
+    <pie-list>
+        <pie-list-item
+            is-compact
+            primaryText="Primary text">
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item
+            is-compact
+            primaryText="Primary text">
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item
+            is-compact
+            primaryText="Primary text">
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+    </pie-list>
+
     <h2>Alignment override</h2>
     <pie-list style="--list-item-alignment-override: center;">
         <pie-list-item
@@ -134,6 +179,55 @@ const Template = ({}: ListProps) => html`
         <pie-list-item
             primaryText="Primary text">
             <icon-placeholder slot="trailing"></icon-placeholder>
+        </pie-list-item>
+    </pie-list>
+
+    <h2>Edge cases</h2>
+    <h3>Long text</h3>
+    <pie-list>
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            secondaryText="Secondary text that goes on far too long" Secondary text that goes on far too long"
+            metaText="Some very long awful meta text Some very long awful meta text">
+            <icon-placeholder slot="leading"></icon-placeholder>
+        </pie-list-item>
+
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            secondaryText="Secondary text that goes on far too long" Secondary text that goes on far too long"
+            metaText="Some very long awful meta text Some very long awful meta text">
+            <icon-placeholder slot="leading"></icon-placeholder>
+        </pie-list-item>
+
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            secondaryText="Secondary text that goes on far too long" Secondary text that goes on far too long"
+            metaText="Some very long awful meta text Some very long awful meta text">
+            <icon-placeholder slot="leading"></icon-placeholder>
+        </pie-list-item>
+    </pie-list>
+
+    <h3>Long text + center aligned</h3>
+    <pie-list style="--list-item-alignment-override: center;">
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            secondaryText="Secondary text that goes on far too long" Secondary text that goes on far too long Secondary text that goes on far too long" Secondary text that goes on far too long">
+            <icon-placeholder slot="leading"></icon-placeholder>
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            secondaryText="Secondary text that goes on far too long" Secondary text that goes on far too long Secondary text that goes on far too long" Secondary text that goes on far too long">
+            <icon-placeholder slot="leading"></icon-placeholder>
+            <pie-tag slot="trailing">Label</pie-tag>
+        </pie-list-item>
+
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            secondaryText="Secondary text that goes on far too long" Secondary text that goes on far too long Secondary text that goes on far too long" Secondary text that goes on far too long">
+            <icon-placeholder slot="leading"></icon-placeholder>
+            <pie-tag slot="trailing">Label</pie-tag>
         </pie-list-item>
     </pie-list>
     <button>Focus anchor</button>

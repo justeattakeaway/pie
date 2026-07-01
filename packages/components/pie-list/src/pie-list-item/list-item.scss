@@ -55,6 +55,11 @@
     margin-inline-start: auto;
 }
 
+.c-listItem-metaText {
+    display: block;
+    max-width: calc(100% / 3);
+}
+
 @include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'), 'leading', 'trailing');
 
 ::slotted(.c-pieIcon) {
