@@ -164,9 +164,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             return;
         }
 
-        if (typeof MutationObserver !== 'undefined') {
-            this._labelMutationObserver ??= new MutationObserver(() => this.updateAssociatedLabelText());
-        }
+        this._labelMutationObserver = new MutationObserver(() => this.updateAssociatedLabelText());
 
         associatedLabels.forEach((label) => {
             this._labelMutationObserver?.observe(label, { childList: true, characterData: true, subtree: true });
@@ -329,9 +327,9 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         role="switch"
                         type="checkbox"
                         class="c-switch-input"
-                        .required=${required}
-                        .checked="${live(checked)}"
-                        .disabled="${disabled}"
+                        ?required=${required}
+                        ?checked="${live(checked)}"
+                        ?disabled="${disabled}"
                         @change="${this.handleChange}"
                         aria-label="${ifDefined(ariaLabel)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
