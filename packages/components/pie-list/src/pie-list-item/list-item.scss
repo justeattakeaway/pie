@@ -16,7 +16,7 @@
 
     // Layout
     display: flex;
-    align-items: flex-start;
+    align-items: var(--list-item-alignment-override, flex-start);
     gap: var(--dt-spacing-c);
     min-height: 56px;
 }
@@ -27,7 +27,7 @@
 
 :host([is-compact]) {
     --list-item-block-padding-default: var(--dt-spacing-c);
-
+    align-items: center;
     min-height: 48px;
 }
 
@@ -39,7 +39,8 @@
 }
 
 // Ensures that empty slots do not create a flex-gap in the container.
-.c-listItem-leading, slot[name="leading"] {
+.c-listItem-leading, slot[name="leading"],
+.c-listItem-trailing, slot[name="trailing"] {
     display: contents;
 }
 
@@ -54,6 +55,10 @@
 }
 
 @include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'), 'leading', 'trailing');
+
+::slotted(.c-pieIcon) {
+    --icon-size-override: 24px
+}
 
 // typography
 

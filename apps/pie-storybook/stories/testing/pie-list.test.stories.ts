@@ -85,21 +85,38 @@ const Template = ({}: ListProps) => html`
         <pie-list-item
             is-compact
             primaryText="Primary text">
+            <icon-placeholder slot="trailing"></icon-placeholder>
         </pie-list-item>
         <pie-list-item
             is-compact
             primaryText="Primary text">
+            <icon-placeholder slot="trailing"></icon-placeholder>
         </pie-list-item>
         <pie-list-item
             is-compact
             primaryText="Primary text">
+            <icon-placeholder slot="trailing"></icon-placeholder>
+        </pie-list-item>
+    </pie-list>
+
+    <h2>Alignment override</h2>
+    <pie-list style="--list-item-alignment-override: center;">
+        <pie-list-item
+            primaryText="Primary text"
+            secondaryText="Secondary text">
+            <icon-placeholder slot="trailing"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item
+            primaryText="Primary text"
+            secondaryText="Secondary text">
+            <icon-placeholder slot="trailing"></icon-placeholder>
         </pie-list-item>
     </pie-list>
 
     <h2>Custom Padding override</h2>
     <pie-list style="--list-item-inline-padding-override: var(--dt-spacing-f);">
-    <pie-list-item
-    primaryText="Primary text">
+        <pie-list-item
+        primaryText="Primary text">
             <icon-placeholder slot="trailing"></icon-placeholder>
         </pie-list-item>
         <pie-list-item
