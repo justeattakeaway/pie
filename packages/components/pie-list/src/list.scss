@@ -3,3 +3,5 @@
 :host {
     display: block;
 }
+
+@include p.enforce-slot-elements(('pie-list-item'));

@@ -1,0 +1,17 @@
+@use "sass:string";
+@use "sass:list";
+
+@mixin enforce-slot-elements($allowed-elements) {
+    ::slotted(:not(#{$allowed-elements})) {
+        display: none;
+    }
+
+    $allowlist-selectors: ();
+    @each $el in $allowed-elements {
+        $allowlist-selectors: list.append($allowlist-selectors, string.unquote("::slotted(#{$el})"), comma);
+    }
+
+    #{$allowlist-selectors} {
+        @content;
+    }
+}
