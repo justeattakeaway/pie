@@ -17,7 +17,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         primaryText!: ListItemProps['primaryText'];
 
     @property({ type: String })
-        secondaryText: ListItemProps['metaText'];
+        secondaryText: ListItemProps['secondaryText'];
 
     @property({ type: String })
         metaText: ListItemProps['metaText'];
@@ -32,11 +32,11 @@ export class PieListItem extends PieElement implements ListItemProps {
         hasMedia = defaultProps.hasMedia;
 
     connectedCallback () {
+        super.connectedCallback();
+
         if (!this.hasAttribute('role')) {
             this.setAttribute('role', 'listitem');
         }
-
-        super.connectedCallback();
     }
 
     _renderSecondaryText () {
