@@ -497,7 +497,6 @@ Use it for non-interactive, secondary information. This includes disclaimers, te
 Do not use it for primary actions or critical messaging. Content here must be purely supplementary and non-essential to completing the main task of the modal.
 
 
-
 ### Overrides
 
 #### Title overrides
@@ -534,7 +533,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 
 {% notification {
   type: "information",
-  message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)."
+  message: "Find out more about using the slot in the [Figma slot guide](/designers/getting-started/best-practices/#use-figma-slots)."
 } %}
 
 {% contentPageImage {
@@ -546,8 +545,8 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 {% list {
     type: listTypes.ordered,
     items: [
-     "**Body Slot:** Available as a variant",
-        "**Footer slot:** Hidden by default"
+     "**Body slot:** Available as a variant",
+     "**Footer slot:** Hidden by default"
     ]
 } %}
 

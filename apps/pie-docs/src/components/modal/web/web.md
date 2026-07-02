@@ -566,7 +566,7 @@ The wide small and optionally medium size, has the corresponding responsive opti
 
 {% notification {
   type: "information",
-  message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)."
+  message: "Find out more about using the slot in the [Figma slot guide](/designers/getting-started/best-practices/#use-figma-slots)."
 } %}
 
 {% contentPageImage {
@@ -578,7 +578,7 @@ The wide small and optionally medium size, has the corresponding responsive opti
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Body Slot:** Available as a variant",
+        "**Body slot:** Available as a variant",
         "**Footer slot:** Hidden by default"
     ]
 } %}

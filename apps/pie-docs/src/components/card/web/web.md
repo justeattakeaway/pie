@@ -83,7 +83,7 @@ ___
 
 The card container comes with a slot, so you can add any content you like to the card. For the internal spacing of the card container, make sure to use PIE spacing tokens. You can find more information about these tokens in the spacing documentation.
 
-{% notification { type: "information", message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)." } %}
+{% notification { type: "information", message: "Find out more about using the slot in the [Figma slot guide](/designers/getting-started/best-practices/#use-figma-slots)." } %}
 
 {% contentLayout %}
   {% contentItem %}

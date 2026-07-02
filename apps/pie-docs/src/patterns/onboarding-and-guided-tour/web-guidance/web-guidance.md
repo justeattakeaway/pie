@@ -49,7 +49,7 @@ Use a Modal when you need to provide users with a high-level introduction to the
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [Modal documentation](https://www.pie.design/components/modal/web/)."
+  message: "Check out the [Modal documentation](/components/modal/web/)."
 } %}
 
 #### Actions
@@ -103,7 +103,7 @@ Use a Tooltip to guide users through specific features or highlight particular a
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [Tooltip documentation](https://www.pie.design/components/tooltip/)."
+  message: "Check out the [Tooltip documentation](/components/tooltip/)."
 } %}
 
 {% notification {

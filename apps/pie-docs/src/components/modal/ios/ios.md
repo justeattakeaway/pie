@@ -522,7 +522,7 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 
 {% notification {
   type: "information",
-  message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)."
+  message: "Find out more about using the slot in the [Figma slot guide](/designers/getting-started/best-practices/#use-figma-slots)."
 } %}
 
 {% contentPageImage {
@@ -534,8 +534,8 @@ Do not use it for primary actions or critical messaging. Content here must be pu
 {% list {
     type: listTypes.ordered,
     items: [
-     "**Body Slot:** Available as a variant",
-        "**Footer slot:** Hidden by default"
+     "**Body slot:** Available as a variant",
+     "**Footer slot:** Hidden by default"
     ]
 } %}
 
