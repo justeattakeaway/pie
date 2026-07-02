@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-switch": patch
 ---
 
-[Fixed] - Annouce labels properly by screen readers in Safari
+[Fixed] - Announce external labels properly by screen readers in Safari
