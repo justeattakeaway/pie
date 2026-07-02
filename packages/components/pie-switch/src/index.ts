@@ -328,7 +328,7 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         type="checkbox"
                         class="c-switch-input"
                         ?required=${required}
-                        ?checked="${live(checked)}"
+                        .checked="${live(checked)}"
                         ?disabled="${disabled}"
                         @change="${this.handleChange}"
                         aria-label="${ifDefined(ariaLabel)}"

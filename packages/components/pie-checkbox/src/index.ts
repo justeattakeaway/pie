@@ -210,11 +210,11 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
                 type="checkbox"
                 id="inputId"
                 .value=${value}
-                ?checked=${live(checked)}
+                .checked=${live(checked)}
                 name=${ifDefined(name)}
                 ?disabled=${componentDisabled}
                 ?required=${required}
-                ?indeterminate=${indeterminate}
+                .indeterminate=${indeterminate}
                 aria-invalid=${status === 'error' ? 'true' : 'false'}
                 aria-describedby=${ifDefined(assistiveText ? assistiveTextId : undefined)}
                 @change=${this._handleChange}
