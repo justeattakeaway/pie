@@ -24,7 +24,7 @@
 ///   }
 @mixin enforce-slot-elements($allowed-elements, $slot-names...) {
     // 1. If no slot names are passed, default to an empty string (targets default slot)
-    $slots-to-process: if(sass(list.length($slot-names) == 0): (''); else: $slot-names);
+    $slots-to-process: if(sass(list.length($slot-names) == 0): ('') ; else: $slot-names);
     $hide-selectors: ();
     $allowlist-selectors: ();
 
