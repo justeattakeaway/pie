@@ -305,6 +305,28 @@ const RemovedPaddingTemplate = () => withLayout(html`
 
 export const RemovedPadding = createStory<ListProps>(RemovedPaddingTemplate, defaultArgs)();
 
+/**
+ * Verifies the divider border pie-list applies between items. Deliberately
+ * omits `withLayout`'s decorative purple border so the real divider (and its
+ * absence on the last item) is visible without visual noise.
+ */
+const BordersTemplate = () => html`
+    <style>
+        pie-list {
+            min-width: 300px;
+            max-width: 500px;
+        }
+    </style>
+    <pie-list>
+        <pie-list-item primaryText="Primary text"></pie-list-item>
+        <pie-list-item primaryText="Primary text"></pie-list-item>
+        <pie-list-item primaryText="Primary text"></pie-list-item>
+        <pie-list-item primaryText="Primary text"></pie-list-item>
+    </pie-list>
+`;
+
+export const Borders = createStory<ListProps>(BordersTemplate, defaultArgs)();
+
 // Edge cases -----------------------------------------------------------------
 
 /**

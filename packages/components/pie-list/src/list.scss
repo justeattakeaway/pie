@@ -6,8 +6,7 @@
     ::slotted(*:nth-last-child(n+2)) {
         // This allows list-items following other list-items to have 1px stripped off of their padding to account for the added border.
         --list-item-size-modifier: 1px;
-
-        border-bottom: var(--list-item-size-modifier) solid var(--dt-color-divider-default);
+        --list-item-border-override: var(--list-item-size-modifier) solid var(--dt-color-divider-default);
     }
 }
 

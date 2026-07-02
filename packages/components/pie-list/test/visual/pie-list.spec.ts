@@ -20,6 +20,7 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--long-text-centre-aligned', snapshotName: 'PieList - Long text, centre aligned' },
     { storyId: 'list--alignment-override', snapshotName: 'PieList - Alignment override' },
     { storyId: 'list--removed-padding', snapshotName: 'PieList - Removed inline padding' },
+    { storyId: 'list--borders', snapshotName: 'PieList - Borders between items' },
 ];
 
 test.describe('PieList - Visual tests', () => {

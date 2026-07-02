@@ -65,16 +65,23 @@ export class PieListItem extends PieElement implements ListItemProps {
         if (!primaryText) return nothing;
 
         return html`
-        <div class="c-listItem-leading">
-            <slot name="leading"></slot>
-        </div>
+        <div
+            class="c-listItem-container"
+            ?is-compact=${this.isCompact}
+            ?is-bold=${this.isBold}
+            ?has-media=${this.hasMedia}
+        >
+            <div class="c-listItem-leading">
+                <slot name="leading"></slot>
+            </div>
 
-        <div class="c-listItem-text">
-            <span class="c-listItem-primaryText">${primaryText}</span>
-            ${this._renderSecondaryText()}
-        </div>
+            <div class="c-listItem-text">
+                <span class="c-listItem-primaryText">${primaryText}</span>
+                ${this._renderSecondaryText()}
+            </div>
 
-        ${this._renderTrailingContent()}`;
+            ${this._renderTrailingContent()}
+        </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

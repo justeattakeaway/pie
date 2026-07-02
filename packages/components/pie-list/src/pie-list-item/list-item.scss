@@ -1,6 +1,12 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
+    // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
+    display: contents;
+}
+
+// Using an internal container div rather than applying directly to the host due to safari and firefox compat issues
+.c-listItem-container {
     --list-item-inline-padding-default: var(--dt-spacing-d);
     --list-item-block-padding-default: var(--dt-spacing-d);
 
@@ -21,16 +27,17 @@
     align-items: var(--list-item-alignment-override, flex-start);
     gap: var(--dt-spacing-c);
     min-height: 56px;
+    border-bottom: var(--list-item-border-override, none);
 }
 
 // Two lines of text (primary + secondary) need top-alignment so leading/trailing
 // content sits level with the first line, not centred across both lines.
-:host:has(.c-listItem-secondaryText) {
+.c-listItem-container:has(.c-listItem-secondaryText) {
     align-items: var(--list-item-alignment-override, flex-start);
     min-height: 76px;
 }
 
-:host([is-compact]) {
+.c-listItem-container[is-compact] {
     --list-item-block-padding-default: var(--dt-spacing-c);
     align-items: var(--list-item-alignment-override, center);
     min-height: 48px;
@@ -39,7 +46,7 @@
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
 // when the primary text stands alone (`:only-child` == no secondary text). With
 // secondary text the default padding is kept so two lines of text sit correctly.
-:host([has-media]):has(.c-listItem-primaryText:only-child) {
+.c-listItem-container[has-media]:has(.c-listItem-primaryText:only-child) {
     --list-item-block-padding-default: var(--dt-spacing-b);
 }
 
@@ -82,10 +89,10 @@
 // padding for media and prevents accidental misuse. Media is also hidden in compact
 // items, where it is not permitted (`is-compact` is for single-line items only).
 // TODO: add icon with background here once it exists
-:host(:not([has-media])) ::slotted(pie-avatar),
-:host(:not([has-media])) ::slotted(pie-thumbnail),
-:host([is-compact]) ::slotted(pie-avatar),
-:host([is-compact]) ::slotted(pie-thumbnail) {
+.c-listItem-container:not([has-media]) ::slotted(pie-avatar),
+.c-listItem-container:not([has-media]) ::slotted(pie-thumbnail),
+.c-listItem-container[is-compact] ::slotted(pie-avatar),
+.c-listItem-container[is-compact] ::slotted(pie-thumbnail) {
     display: none;
 }
 
@@ -96,7 +103,7 @@
     color: var(--dt-color-content-default);
 }
 
-:host([is-bold]) .c-listItem-primaryText {
+.c-listItem-container[is-bold] .c-listItem-primaryText {
     @include p.font-theme('font-body-strong-l');
 }
 
