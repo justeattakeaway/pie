@@ -5,6 +5,16 @@
   "envMode": "loose",
   "tasks": {
     "transit": {
+      "cache": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!$TURBO_ROOT$/**/AGENTS.md",
+        "!$TURBO_ROOT$/**/CLAUDE.md",
+        "!$TURBO_ROOT$/**/CHANGELOG.md",
+        "!$TURBO_ROOT$/**/README.md",
+        "!$TURBO_ROOT$/**/docs/*.md"
+      ],
+      "outputs": [],
       "dependsOn": [
         "^transit"
       ]
