@@ -203,6 +203,28 @@ test.describe('PieAccordion - Component tests', () => {
                 const events = await page.evaluate(() => window.__accordionEvents);
                 expect(events).toHaveLength(0);
             });
+
+            test('should move focus through accordion triggers and nested focusable elements in tab order', async ({ page }) => {
+                await loadAccordion(page, 'accordion--focusable-nested-elements');
+
+                await page.keyboard.press('Tab');
+                await expect(page.locator('#accordion-1')).toBeFocused();
+
+                await page.keyboard.press('Tab');
+                await expect(page.locator('#accordion-2')).toBeFocused();
+
+                await page.keyboard.press('Tab');
+                await expect(page.locator('pie-link')).toBeFocused();
+
+                await page.keyboard.press('Tab');
+                await expect(page.locator('pie-text-input')).toBeFocused();
+
+                await page.keyboard.press('Tab');
+                await expect(page.locator('pie-button')).toBeFocused();
+
+                await page.keyboard.press('Tab');
+                await expect(page.locator('#accordion-3')).toBeFocused();
+            });
         });
     });
 

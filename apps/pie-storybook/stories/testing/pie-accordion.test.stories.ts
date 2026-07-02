@@ -209,11 +209,13 @@ export const Variations = createVariantStory<AccordionVariantProps>(VariantTempl
 const FocusableNestedElementsTemplate: TemplateFunction<AccordionProps> = () => html`
     <div class="responsive-story-container">
         <pie-accordion
+            id="accordion-1"
             headingLabel="Delivery information"
             @toggle="${handleToggle}">
             <div>Your order will be delivered between 30 and 45 minutes after placing your order.</div>
         </pie-accordion>
         <pie-accordion
+            id="accordion-2"
             headingLabel="Payment methods"
             ?isOpen="${true}"
             @toggle="${handleToggle}">
@@ -225,6 +227,7 @@ const FocusableNestedElementsTemplate: TemplateFunction<AccordionProps> = () => 
             </div>
         </pie-accordion>
         <pie-accordion
+            id="accordion-3"
             headingLabel="Allergen information"
             @toggle="${handleToggle}">
             <div>Please contact the restaurant directly for allergen information about specific dishes.</div>
