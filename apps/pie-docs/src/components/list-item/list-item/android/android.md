@@ -365,7 +365,11 @@ width: 200
 
 The divider is used to visually separate individual list items from each other. Dividers should never be used on the last item within a group.
 
-> IMAGE PLACEHOLDER
+{% contentPageImage {
+src:"../../../../assets/img/components/list-item/list-item/android/divider.svg",
+alt: "Example of three list item components stacked vertically with dividers.",
+width: 200
+} %}
 
 ---
 
@@ -408,7 +412,7 @@ width: 200
 
 {% notification {
   type: "information",
-  message: "Find more information in the [Selected state patterns documentation](https://www.pie.design/patterns/selected-state/)."
+  message: "Find more information in the [Selected state patterns documentation](/patterns/selected-state/)."
 } %}
 
 {% contentPageImage {
@@ -694,5 +698,5 @@ In case truncation happens on important information offer an alternative for the
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [Text scaling documentation](https://www.pie.design/accessibility/text-scaling/) for more information."
+  message: "Check out the [Text scaling documentation](/accessibility/text-scaling/) for more information."
 } %}

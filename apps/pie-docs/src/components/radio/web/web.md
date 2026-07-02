@@ -29,7 +29,7 @@ shouldShowContents: true
 ## Anatomy
 
 {% contentPageImage {
-    src:"../../../assets/img/components/radio//web/anatomy.svg",
+    src:"../../../assets/img/components/radio/web/anatomy.svg",
     alt: "Anatomy of a radio button.",
     width: 70
 } %}

@@ -1,0 +1,22 @@
+{
+    "headings": [
+        "Property",
+        "Cubic Bezier",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "Translate Y",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Moves up 16px from point of origin at 400ms"
+        ],
+        [
+            "Opacity",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Cookie banner gently fades into view at 400ms"
+        ]
+    ]
+}

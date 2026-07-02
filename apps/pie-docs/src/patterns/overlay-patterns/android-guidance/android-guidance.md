@@ -12,8 +12,6 @@ eleventyComputed:
 
 You can follow this decision tree to choose the most appropriate UI component based on the specific context, importance, and user interaction requirements of your product interface.
 
-You can take a closer look at this in our [overlay patterns](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/branch/OsUnZnAk7zDlRrpFGmYn5O/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=4069-10711&t=LIROnRWvF2NN8lc1-0) file.
-
 {% contentPageImage {
   src:"../../../../assets/img/patterns/overlay-patterns/android-guidance/android-decision-tree.svg",
   alt: "",
@@ -22,14 +20,14 @@ You can take a closer look at this in our [overlay patterns](https://www.figma.
 
 ---
 
-## Alert modal
+## Dialog modal
 
-Alerts are a surface that overlays the page’s main content and is used to display information, gather input or confirm actions.
+Dialogs are a surface that overlays the page’s main content and is used to display information, gather input or confirm actions.
 
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=11866-11762&t=K4Ml6sd4MuQwwwA0-0) for this component."
+  message: "Check out our [full Android Modal Dialog documentation](/components/modal/android/) for this component."
 } %}
 
 {% contentPageImage {
@@ -42,29 +40,36 @@ Alerts are a surface that overlays the page’s main content and is used to disp
     do: {
         type: usageTypes.text,
         items: [
+            "Use dialogs in the neutral-alternative variant to display critical information and display urgent messages.",
+            "Choose variants in brand colours for promotional and non-critical content.",
             "Use them to display important information that needs user’s action or dismissal.",
             "Use them when the user needs to perform one specific task.",
-            "They are triggered by the user."
+            "They are triggered by the user.",
+            "All content meets AA accessibility standards and is read by assistive technologies."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use them for multi-step flows."
+            "Don't allow excessive content length. Dialog modals are for focused tasks, so check out this documentation for alternatives.",
+            "Don’t use them for multi-step flows.",
+            "Don't use dialogs for minor notifications",
+            "Limit and avoid excessive interruptions",
+            "Don't add crucial information to images"
         ]
     }
 } %}
 
 ---
 
-## Bottom sheet - modal
+## Bottom sheet
 
 A modal bottom sheet is a surface that slides up from the bottom of the screen, remaining attached while displaying additional information or actions, all while keeping the main content visible.
 
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=3840-18187&t=aqQQP3ok34g8ou6q-0) for this component."
+  message: "Check out our [full Bottom Sheet documentation](/components/bottom-sheet/android/) for this component."
 } %}
 
 {% contentPageImage {
@@ -88,14 +93,14 @@ A modal bottom sheet is a surface that slides up from the bottom of the screen, 
         type: usageTypes.text,
         items: [
             "Don’t use them for multi-step flows. Use a full screen sheet instead.",
-            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the [decision tree](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/branch/OsUnZnAk7zDlRrpFGmYn5O/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=4069-10711&t=PwNqsYzFgOzV9G81-0) for alternatives."
+            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the decision tree for alternatives."
             ]
     }
 } %}
 
 ---
 
-## Bottom sheet - full screen 
+## Bottom sheet - full screen
 
 A full-screen bottom sheet is a surface anchored to the bottom of the screen that keeps the main content visible. It can be dragged up to reveal additional information when needed.
 
@@ -191,7 +196,7 @@ Also known as Dialog - Native, a system native dialog is a pre-built element pro
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=5687-29811&t=Su4qQErsSRpq95Mx-0) for this component."
+  message: "Check out our [full System Dialog documentation](/components/modal-native/android/) for this component."
 } %}
 
 {% contentPageImage {
@@ -225,7 +230,7 @@ A toast shows short updates about app processes at the bottom of the screen.
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/toast/) for this component."
+  message: "Check out our [full Toast documentation](/components/toast/) for this component."
 } %}
 
 {% contentPageImage {
@@ -261,7 +266,7 @@ A tooltip is a contextual message that appears when users interact with an eleme
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/tooltip/) for this component."
+  message: "Check out our [full Tooltip documentation](/components/tooltip/) for this component."
 } %}
 
 {% contentPageImage {

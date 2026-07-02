@@ -106,7 +106,7 @@ All content should use sentence case.
 
 {% notification {
   type: "neutral",
-  message: "Check out the [form label documentation](https://www.pie.design/components/form-label/).",
+  message: "Check out the [form label documentation](/components/form-label/).",
   iconName: "link"
 } %}
 

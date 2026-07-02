@@ -3,7 +3,6 @@ eleventyNavigation:
   key: iOS
   parent: 'Modal - Native'
   order: 3
-draft: true
 ---
 
 {% notification {

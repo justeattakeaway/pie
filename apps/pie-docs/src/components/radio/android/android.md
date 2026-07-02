@@ -106,7 +106,7 @@ If there is a Radio Button grouping, they can be laid out vertically or horizont
 ## Overflow
 
 - If you are tight on space, consider rewording the label.
-- Long labels may wrap to a second line, and this is preferable to truncation - text should wrap beneath the Radio Button so the control and label are top aligned.
+- Long labels may wrap to a second line, and this is preferable to truncation. Text should wrap beneath the Radio Button so the control and label are top aligned.
 
 {% contentPageImage {
 src:"../../../assets/img/components/radio/android/overflow.svg",
