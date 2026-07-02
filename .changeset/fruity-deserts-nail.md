@@ -5,4 +5,4 @@
 "@justeattakeaway/pie-storybook": patch
 ---
 
-[Fixed] - bind boolean att with the ? syntax
+[Fixed] - component styles flicker on SSR
