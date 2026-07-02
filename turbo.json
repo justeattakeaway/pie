@@ -4,6 +4,21 @@
   "globalDependencies": ["mise.toml"],
   "envMode": "loose",
   "tasks": {
+    "transit": {
+      "cache": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!$TURBO_ROOT$/**/AGENTS.md",
+        "!$TURBO_ROOT$/**/CLAUDE.md",
+        "!$TURBO_ROOT$/**/CHANGELOG.md",
+        "!$TURBO_ROOT$/**/README.md",
+        "!$TURBO_ROOT$/**/docs/*.md"
+      ],
+      "outputs": [],
+      "dependsOn": [
+        "^transit"
+      ]
+    },
     "build": {
       "cache": true,
       "dependsOn": [
@@ -20,8 +35,7 @@
         "create:manifest"
       ],
       "inputs": [
-        "src/**",
-        "custom-elements.json"
+        "$TURBO_DEFAULT$"
       ],
       "outputs": [
         "src/**/react.ts"
@@ -93,6 +107,9 @@
     },
     "test:browsers": {
       "cache": true,
+      "dependsOn": [
+        "transit"
+      ],
       "inputs": [
         "$TURBO_DEFAULT$",
         "!$TURBO_ROOT$/**/AGENTS.md",
@@ -108,6 +125,9 @@
     },
     "test:browsers:ci": {
       "cache": true,
+      "dependsOn": [
+        "transit"
+      ],
       "inputs": [
         "$TURBO_DEFAULT$",
         "!$TURBO_ROOT$/**/AGENTS.md",

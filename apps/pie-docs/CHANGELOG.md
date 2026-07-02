@@ -1,5 +1,28 @@
 # Changelog
 
+## 5.4.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.24
+  - @justeattakeaway/pie-icons-webc@1.25.2
+
+## 5.4.0
+
+### Minor Changes
+
+- [Added] New page for Accessibility/Text Scaling (route + content + images). ([#2961](https://github.com/justeattakeaway/pie/pull/2961)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] New documentation for Focus State and Selected State.
+  [Updated] Modal and Notification documentation content.
+  [Updated] Minor doc updates on Agentic AI resources, and JET AI images.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.23
+
 ## 5.3.3
 
 ### Patch Changes

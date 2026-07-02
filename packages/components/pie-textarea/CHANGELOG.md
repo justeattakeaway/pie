@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-textarea
 
+## 0.20.1
+
+### Patch Changes
+
+- Updated dependencies [[`a320798`](https://github.com/justeattakeaway/pie/commit/a320798003252582e5c8360e8510a43cf74e3d36)]:
+  - @justeattakeaway/pie-webc-core@15.0.1
+  - @justeattakeaway/pie-assistive-text@1.0.1
+
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - rows prop to the pie-textarea component ([#2962](https://github.com/justeattakeaway/pie/pull/2962)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.19.0
 
 ### Minor Changes
