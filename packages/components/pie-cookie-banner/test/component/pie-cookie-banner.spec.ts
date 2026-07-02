@@ -290,6 +290,170 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
+    test.describe('`personalizedLabel` prop', () => {
+        test('should render the personalizedLabel override in the personalized preference label', async () => {
+            // Arrange
+            const overrideText = 'Custom personalized label';
+            await pieCookieBannerComponent.load({ personalizedLabel: overrideText });
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act & Assert
+            expect(await pieCookieBannerComponent.getPersonalizedLabelText()).toBe(overrideText);
+        });
+
+        test('should render the locale label when personalizedLabel is not provided', async () => {
+            // Arrange - load without setting personalizedLabel to test true default behaviour
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act & Assert
+            expect(await pieCookieBannerComponent.getPersonalizedLabelText()).not.toContain('Custom');
+        });
+
+        test('should fall back to the locale label when personalizedLabel is cleared to an empty string', async () => {
+            // Arrange - set an override and then reload with an empty value to verify the locale fallback is restored
+            const overrideText = 'Custom personalized label';
+
+            await pieCookieBannerComponent.load({ personalizedLabel: overrideText });
+            await pieCookieBannerComponent.setPersonalizedLabel('');
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            expect(await pieCookieBannerComponent.getPersonalizedLabelText()).not.toContain(overrideText);
+        });
+
+        test('should not affect other preference labels when personalizedLabel is provided', async () => {
+            // Arrange
+            const overrideText = 'Custom personalized label';
+            await pieCookieBannerComponent.load({ personalizedLabel: overrideText });
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const labelText = await pieCookieBannerComponent.getPersonalizedLabelText();
+
+            // Assert
+            expect(labelText).toBe(overrideText);
+            const analyticalLabelText = await pieCookieBannerComponent.getPreferenceLabelText('analytical');
+            expect(analyticalLabelText).not.toBe(overrideText);
+        });
+    });
+
+    test.describe('`personalizedDescription` prop', () => {
+        test('should render the personalizedDescription override in the personalized preference description', async () => {
+            // Arrange
+            const overrideText = 'Custom personalized description with our Privacy Policy.';
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedDescription(overrideText);
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const descriptionText = await pieCookieBannerComponent.getPersonalizedDescriptionText();
+
+            // Assert
+            expect(descriptionText).toContain('Custom personalized description');
+        });
+
+        test('should render the locale description when personalizedDescription is not provided', async () => {
+            // Arrange - load without setting personalizedDescription to test true default behaviour
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const descriptionText = await pieCookieBannerComponent.getPersonalizedDescriptionText();
+
+            // Assert
+            expect(descriptionText).toBeTruthy();
+            expect(descriptionText).not.toContain('Custom');
+        });
+
+        test('should render an HTML link correctly when personalizedDescription contains an anchor tag', async () => {
+            // Arrange
+            const privacyPolicyHref = '/privacy-policy';
+            const overrideHtml = `Read our <a href="${privacyPolicyHref}">Privacy Policy</a> for details.`;
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedDescription(overrideHtml);
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const linkHref = await pieCookieBannerComponent.getPersonalizedDescriptionLinkAttribute('href', 'a');
+            const linkText = await pieCookieBannerComponent.getPersonalizedDescriptionLinkText('a');
+
+            // Assert
+            expect(linkHref).toBe(privacyPolicyHref);
+            expect(linkText).toBe('Privacy Policy');
+        });
+
+        test('should render a Lit component correctly when personalizedDescription contains a <pie-link> tag', async () => {
+            // Arrange
+            const privacyPolicyHref = '/privacy-policy';
+            const overrideHtml = `Read our <pie-link href="${privacyPolicyHref}">Privacy Policy</pie-link> for details.`;
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedDescription(overrideHtml);
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const linkHref = await pieCookieBannerComponent.getPersonalizedDescriptionLinkAttribute('href', 'pie-link');
+            const linkText = await pieCookieBannerComponent.getPersonalizedDescriptionLinkText('pie-link');
+
+            // Assert
+            expect(linkHref).toBe(privacyPolicyHref);
+            expect(linkText).toBe('Privacy Policy');
+        });
+
+        test('should not affect other preference descriptions when personalizedDescription is provided', async () => {
+            // Arrange
+            const overrideText = 'Custom text for personalized only';
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedDescription(overrideText);
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const analyticalDescriptionText = await pieCookieBannerComponent.getPreferenceDescriptionText('analytical');
+            const necessaryDescriptionText = await pieCookieBannerComponent.getPreferenceDescriptionText('necessary');
+
+            // Assert
+            expect(analyticalDescriptionText).not.toContain(overrideText);
+            expect(necessaryDescriptionText).not.toContain(overrideText);
+        });
+
+        test('should fall back to the locale description when personalizedDescription is cleared to an empty string', async () => {
+            // Arrange - set an override then clear it to verify the locale fallback is restored
+            const overrideText = 'Custom personalized description';
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedDescription(overrideText);
+            await pieCookieBannerComponent.setPersonalizedDescription('');
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const descriptionText = await pieCookieBannerComponent.getPersonalizedDescriptionText();
+
+            // Assert
+            expect(descriptionText).toBeTruthy();
+            expect(descriptionText).not.toContain(overrideText);
+        });
+
+        test('should not render a script tag when personalizedDescription contains a script element', async () => {
+            // Arrange
+            const maliciousHtml = 'Safe text <script>alert("xss")</script> more text';
+
+            await pieCookieBannerComponent.load();
+            await pieCookieBannerComponent.setPersonalizedDescription(maliciousHtml);
+            await pieCookieBannerComponent.clickManagePreferencesAction();
+
+            // Act
+            const renderedHtml = await pieCookieBannerComponent.getPersonalizedDescriptionInnerHtml();
+
+            // Assert
+            expect(renderedHtml).not.toContain('<script>');
+            expect(renderedHtml).not.toContain('alert(');
+        });
+    });
+
     test.describe('`cookieTechnologiesLink` prop', () => {
         test.describe('when not populated', () => {
             test('should set a default cookie technology link of empty string within the description container', async () => {

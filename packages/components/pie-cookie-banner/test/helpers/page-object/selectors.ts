@@ -40,6 +40,14 @@ const cookieBanner = {
             description: 'The selector for the cookie technologies link in the body',
             dataTestId: 'cookie-technology-link',
         },
+        personalizedLabel: {
+            description: 'The selector for the personalized preference label',
+            dataTestId: 'personalized-label',
+        },
+        personalizedDescription: {
+            description: 'The selector for the personalized preference description paragraph',
+            dataTestId: 'personalized-description',
+        },
         modalDescription: {
             description: 'The selector for the modal description',
             dataTestId: 'modal-description',

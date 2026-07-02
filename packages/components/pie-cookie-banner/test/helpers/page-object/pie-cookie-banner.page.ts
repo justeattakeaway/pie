@@ -1,6 +1,7 @@
 import { type Locator, type Page } from '@playwright/test';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.component.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { type PieCookieBanner } from '../../../src/index.ts';
 import { cookieBanner } from './selectors.ts';
 import { type PreferenceIds } from '../../../src/defs.ts';
 
@@ -21,6 +22,8 @@ export class CookieBannerComponent extends BasePage {
     private readonly bodyCookieStatementLinkLocator: Locator;
     private readonly bodyCookieTechnologiesLinkLocator: Locator;
     private readonly modalDescriptionLocator: Locator;
+    private readonly personalizedLabelLocator: Locator;
+    private readonly personalizedDescriptionLocator: Locator;
     readonly modalComponent: ModalComponent;
 
     constructor (page: Page) {
@@ -36,6 +39,8 @@ export class CookieBannerComponent extends BasePage {
         this.bodyCookieStatementLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieStatementLink.dataTestId);
         this.bodyCookieTechnologiesLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieTechnologiesLink.dataTestId);
         this.modalDescriptionLocator = page.getByTestId(cookieBanner.selectors.modalDescription.dataTestId);
+        this.personalizedLabelLocator = page.getByTestId(cookieBanner.selectors.personalizedLabel.dataTestId);
+        this.personalizedDescriptionLocator = page.getByTestId(cookieBanner.selectors.personalizedDescription.dataTestId);
         this.modalComponent = new ModalComponent(page);
     }
 
@@ -250,6 +255,115 @@ export class CookieBannerComponent extends BasePage {
     }
 
     /**
+     * Retrieves the text content of the personalized preference label.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the text content of the
+     *                                   personalized preference label, or `null` if not found.
+     */
+    async getPersonalizedLabelText () : Promise<string | null> {
+        return this.personalizedLabelLocator.textContent();
+    }
+
+    /**
+     * Retrieves the text content of the personalized preference description paragraph.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the text content of the
+     *                                   personalized preference description, or `null` if not found.
+     */
+    async getPersonalizedDescriptionText () : Promise<string | null> {
+        return this.getPreferenceDescriptionText('personalized');
+    }
+
+    /**
+     * Sets the personalized preference label.
+     *
+     * @param {string} value The text to set as the personalized preference label.
+     * @returns {Promise<void>} A Promise that resolves when the label has been set.
+     */
+    async setPersonalizedLabel (value: string) : Promise<void> {
+        await this.componentLocator.waitFor({ state: 'attached' });
+
+        await this.page.evaluate(async (val) => {
+            const component = document.querySelector('pie-cookie-banner') as PieCookieBanner;
+            if (!component) throw new Error('pie-cookie-banner component not found');
+            component.personalizedLabel = val;
+            await component.updateComplete;
+        }, value);
+    }
+
+    /**
+     * Sets the personalized preference description paragraph.
+     *
+     * @param {string} value The text to set as the personalized preference description.
+     * @returns {Promise<void>} A Promise that resolves when the description has been set.
+     */
+    async setPersonalizedDescription (value: string) : Promise<void> {
+        await this.componentLocator.waitFor({ state: 'attached' });
+
+        await this.page.evaluate(async (val) => {
+            const component = document.querySelector('pie-cookie-banner') as PieCookieBanner;
+            if (!component) throw new Error('pie-cookie-banner component not found');
+            component.personalizedDescription = val;
+            await component.updateComplete;
+        }, value);
+    }
+
+    /**
+     * Retrieves the value of the specified attribute from an anchor link inside
+     * the personalized preference description.
+     *
+     * @param {string} attribute The name of the attribute to retrieve from the anchor element.
+     * @returns {Promise<string | null>} A Promise that resolves to the attribute value, or `null` if not found.
+     */
+    async getPersonalizedDescriptionLinkAttribute (attribute: string, element: 'a' | 'pie-link' = 'a') : Promise<string | null> {
+        return this.personalizedDescriptionLocator.locator(element).getAttribute(attribute);
+    }
+
+    /**
+     * Retrieves the text content of the anchor link inside the personalized preference description.
+     *
+     * @param {('a' | 'pie-link')} element The type of element to locate within the personalized preference description.
+     * @returns {Promise<string | null>} A Promise that resolves to the text content of the anchor,
+     *                                   or `null` if not found.
+     */
+    async getPersonalizedDescriptionLinkText (element: 'a' | 'pie-link' = 'a') : Promise<string | null> {
+        return this.personalizedDescriptionLocator.locator(element).textContent();
+    }
+
+    /**
+     * Retrieves the inner HTML of the personalized preference description paragraph.
+     *
+     * @returns {Promise<string>} A Promise that resolves to the inner HTML string.
+     */
+    async getPersonalizedDescriptionInnerHtml () : Promise<string> {
+        return this.personalizedDescriptionLocator.innerHTML();
+    }
+
+    /**
+     * Retrieves the text content of a preference label by preference id.
+     * The preference label element uses `data-test-id="${id}-label"`.
+     *
+     * @param {PreferenceIds} preferenceId The preference ID whose label to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the text content, or `null` if not found.
+     */
+    async getPreferenceLabelText (preferenceId: PreferenceIds) : Promise<string | null> {
+        const labelLocator = this.page.getByTestId(`${preferenceId}-label`);
+        return labelLocator.textContent();
+    }
+
+    /**
+     * Retrieves the text content of a preference description paragraph by preference id.
+     * The preference description element uses `data-test-id="${id}-description"`.
+     *
+     * @param {PreferenceIds} preferenceId The preference ID whose description to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the text content, or `null` if not found.
+     */
+    async getPreferenceDescriptionText (preferenceId: PreferenceIds) : Promise<string | null> {
+        const descriptionLocator = this.page.getByTestId(`${preferenceId}-description`);
+        return descriptionLocator.textContent();
+    }
+
+    /**
      * Retrieves the value of the specified attribute from the modal cookie statement link.
      *
      * @param {string} attribute The name of the attribute to retrieve.
@@ -344,10 +458,9 @@ export class CookieBannerComponent extends BasePage {
         await this.componentLocator.waitFor({ state: 'attached' });
 
         await this.page.evaluate(([prop, val]) => {
-            const component = document.querySelector('pie-cookie-banner');
+            const component = document.querySelector('pie-cookie-banner') as PieCookieBanner | null;
             if (component) {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (component as any)[prop as keyof any] = val;
+                (component as PieCookieBanner & Record<string, string>)[prop] = val;
             }
         }, [property, value]);
     }
