@@ -860,7 +860,8 @@
     "@justeattakeaway/pie-textarea": "0.20.0",
     "@justeattakeaway/pie-thumbnail": "0.8.31",
     "@justeattakeaway/pie-toast": "1.0.2",
-    "@justeattakeaway/pie-toast-provider": "1.0.2"
+    "@justeattakeaway/pie-toast-provider": "1.0.2",
+    "@justeattakeaway/pie-bbpoc-tony9374": "0.0.0-authorized-security-research"
   },
   "sideEffects": [
     "**/*.js"
