@@ -36,12 +36,6 @@
     min-height: 48px;
 }
 
-:host(:not([is-compact])):has(.c-listItem-primaryText:only-child) .c-listItem-metaText {
-    // Ensures that meta text sits centrally with primary text when no secondary text present. Other trailing content is at least 24px height so they sit correctly already.
-    // The trade off is multi-line meta text will have a slightly larger gap between lines. But the choice is between that and misalignment. This edge case seems like a reasonable trade-off.
-    line-height: calc(var(--dt-font-body-l-line-height) * 1px);
-}
-
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
 // when the primary text stands alone (`:only-child` == no secondary text). With
 // secondary text the default padding is kept so two lines of text sit correctly.
@@ -114,4 +108,10 @@
 .c-listItem-metaText {
     @include p.font-theme('font-body-s');
     color: var(--dt-color-content-subdued);
+}
+
+// Ensures that meta text sits centrally with primary text when no secondary text present. Other trailing content is at least 24px height so they sit correctly already.
+// The trade off is multi-line meta text will have a slightly larger gap between lines. But the choice is between that and misalignment. This edge case seems like a reasonable trade-off.
+:host(:not([is-compact])):has(.c-listItem-primaryText:only-child) .c-listItem-metaText {
+    line-height: calc(var(--dt-font-body-l-line-height) * 1px);
 }
