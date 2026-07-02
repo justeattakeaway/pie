@@ -24,14 +24,14 @@
 ///   }
 @mixin enforce-slot-elements($allowed-elements, $slot-names...) {
     // 1. If no slot names are passed, default to an empty string (targets default slot)
-    $slots-to-process: if(list.length($slot-names) == 0, (''), $slot-names);
+    $slots-to-process: if(sass(list.length($slot-names) == 0): (''); else: $slot-names);
     $hide-selectors: ();
     $allowlist-selectors: ();
 
     // 2. Loop through every slot name provided
     @each $slot in $slots-to-process {
         // Create the specific attribute selector for this loop iteration
-        $slot-selector: if($slot != '', '[slot="#{$slot}"]', '');
+        $slot-selector: if(sass($slot != ''): '[slot="#{$slot}"]'; else: '');
 
         // 3. Build the 'hide' selector for this specific slot
         $hide-selectors: list.append(

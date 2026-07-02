@@ -23,14 +23,23 @@
     min-height: 56px;
 }
 
+// Two lines of text (primary + secondary) need top-alignment so leading/trailing
+// content sits level with the first line, not centred across both lines.
 :host:has(.c-listItem-secondaryText) {
+    align-items: var(--list-item-alignment-override, flex-start);
     min-height: 76px;
 }
 
 :host([is-compact]) {
     --list-item-block-padding-default: var(--dt-spacing-c);
-    align-items: center;
+    align-items: var(--list-item-alignment-override, center);
     min-height: 48px;
+}
+
+:host(:not([is-compact])):has(.c-listItem-primaryText:only-child) .c-listItem-metaText {
+    // Ensures that meta text sits centrally with primary text when no secondary text present. Other trailing content is at least 24px height so they sit correctly already.
+    // The trade off is multi-line meta text will have a slightly larger gap between lines. But the choice is between that and misalignment. This edge case seems like a reasonable trade-off.
+    line-height: calc(var(--dt-font-body-l-line-height) * 1px);
 }
 
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only

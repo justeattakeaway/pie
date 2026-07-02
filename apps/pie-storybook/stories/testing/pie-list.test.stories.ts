@@ -44,29 +44,15 @@ const leadingThumbnail = html`<pie-thumbnail slot="leading" size="40" background
 const withLayout = (content: TemplateResult) => html`
     <style>
         pie-list {
-            min-width: 400px;
+            min-width: 300px;
             max-width: 500px;
+            border: 1px dashed purple;
         }
     </style>
     ${content}
 `;
 
 // Stories --------------------------------------------------------------------
-
-/**
- * The minimal item: primary text only, with no secondary text, meta text or
- * slotted content.
- */
-const PrimaryTextOnlyTemplate = () => withLayout(html`
-    <pie-list>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-    </pie-list>
-`);
-
-export const PrimaryTextOnly = createStory<ListProps>(PrimaryTextOnlyTemplate, defaultArgs)();
 
 /**
  * Text-only items: primary and secondary text with no leading/trailing content.
@@ -97,50 +83,6 @@ const BoldTemplate = () => withLayout(html`
 export const Bold = createStory<ListProps>(BoldTemplate, defaultArgs)();
 
 /**
- * A leading icon slotted into each item.
- */
-const LeadingIconTemplate = () => withLayout(html`
-    <pie-list>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${leadingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${leadingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${leadingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${leadingIcon}
-        </pie-list-item>
-    </pie-list>
-`);
-
-export const LeadingIcon = createStory<ListProps>(LeadingIconTemplate, defaultArgs)();
-
-/**
- * A trailing icon slotted into each item.
- */
-const TrailingIconTemplate = () => withLayout(html`
-    <pie-list>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${trailingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${trailingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${trailingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
-            ${trailingIcon}
-        </pie-list-item>
-    </pie-list>
-`);
-
-export const TrailingIcon = createStory<ListProps>(TrailingIconTemplate, defaultArgs)();
-
-/**
  * Both a leading and a trailing icon on each item.
  */
 const LeadingAndTrailingTemplate = () => withLayout(html`
@@ -167,6 +109,33 @@ const LeadingAndTrailingTemplate = () => withLayout(html`
 export const LeadingAndTrailing = createStory<ListProps>(LeadingAndTrailingTemplate, defaultArgs)();
 
 /**
+ * Leading and trailing icons with only primary text (no secondary text), to
+ * verify centre alignment on a single-line item.
+ */
+const LeadingAndTrailingOnlyPrimaryTextTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text">
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+        <pie-list-item primaryText="Primary text">
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+        <pie-list-item primaryText="Primary text">
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+        <pie-list-item primaryText="Primary text">
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const LeadingAndTrailingOnlyPrimaryText = createStory<ListProps>(LeadingAndTrailingOnlyPrimaryTextTemplate, defaultArgs)();
+
+/**
  * `metaText` renders a trailing text string (mutually exclusive with the
  * trailing slot).
  */
@@ -180,6 +149,22 @@ const MetaTextTemplate = () => withLayout(html`
 `);
 
 export const MetaText = createStory<ListProps>(MetaTextTemplate, defaultArgs)();
+
+/**
+ * `metaText` with only primary text (no secondary text). The meta text's
+ * line-height is adjusted to match the primary text so both sit on the same
+ * baseline.
+ */
+const MetaTextOnlyPrimaryTextTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
+    </pie-list>
+`);
+
+export const MetaTextOnlyPrimaryText = createStory<ListProps>(MetaTextOnlyPrimaryTextTemplate, defaultArgs)();
 
 /**
  * `has-media` reduces the block padding to suit a larger slotted pie-thumbnail.
@@ -269,28 +254,6 @@ const TagsTemplate = () => withLayout(html`
 export const Tags = createStory<ListProps>(TagsTemplate, defaultArgs)();
 
 /**
- * Trailing tags within compact items.
- */
-const TagsCompactTemplate = () => withLayout(html`
-    <pie-list>
-        <pie-list-item is-compact primaryText="Primary text">
-            ${trailingTag}
-        </pie-list-item>
-        <pie-list-item is-compact primaryText="Primary text">
-            ${trailingTag}
-        </pie-list-item>
-        <pie-list-item is-compact primaryText="Primary text">
-            ${trailingTag}
-        </pie-list-item>
-        <pie-list-item is-compact primaryText="Primary text">
-            ${trailingTag}
-        </pie-list-item>
-    </pie-list>
-`);
-
-export const TagsCompact = createStory<ListProps>(TagsCompactTemplate, defaultArgs)();
-
-/**
  * `--list-item-alignment-override: center` vertically centres the item content.
  */
 const AlignmentOverrideTemplate = () => withLayout(html`
@@ -319,28 +282,6 @@ const AlignmentOverrideTemplate = () => withLayout(html`
 `);
 
 export const AlignmentOverride = createStory<ListProps>(AlignmentOverrideTemplate, defaultArgs)();
-
-/**
- * `--list-item-inline-padding-override` set to a larger spacing token.
- */
-const CustomPaddingTemplate = () => withLayout(html`
-    <pie-list style="--list-item-inline-padding-override: var(--dt-spacing-f);">
-        <pie-list-item primaryText="Primary text">
-            ${trailingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text">
-            ${trailingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text">
-            ${trailingIcon}
-        </pie-list-item>
-        <pie-list-item primaryText="Primary text">
-            ${trailingIcon}
-        </pie-list-item>
-    </pie-list>
-`);
-
-export const CustomPadding = createStory<ListProps>(CustomPaddingTemplate, defaultArgs)();
 
 /**
  * `--list-item-inline-padding-override: 0` removes the inline padding entirely.
@@ -404,6 +345,40 @@ const LongTextTemplate = () => withLayout(html`
 export const LongText = createStory<ListProps>(LongTextTemplate, defaultArgs)();
 
 /**
+ * Very long primary and meta text (no secondary text) with a leading icon, to
+ * verify wrapping and baseline alignment behaviour.
+ */
+const LongTextMetaTextOnlyPrimaryTextTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            metaText="Some very long awful meta text Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            metaText="Some very long awful meta text Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            metaText="Some very long awful meta text Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            metaText="Some very long awful meta text Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const LongTextMetaTextOnlyPrimaryText = createStory<ListProps>(LongTextMetaTextOnlyPrimaryTextTemplate, defaultArgs)();
+
+/**
  * Long text combined with the centre alignment override, a leading icon and a
  * trailing tag.
  */
@@ -440,3 +415,60 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
 `);
 
 export const LongTextCentreAligned = createStory<ListProps>(LongTextCentreAlignedTemplate, defaultArgs)();
+
+// Test-only stories -----------------------------------------------------------
+// The stories below exist purely to drive browser tests. They are not intended
+// as usage showcases.
+
+/**
+ * Test-only: an item with no `primaryText`. The item should render nothing.
+ */
+const NoPrimaryTextTemplate = () => withLayout(html`
+    <pie-list aria-label="No primary text">
+        <pie-list-item></pie-list-item>
+    </pie-list>
+`);
+
+export const NoPrimaryText = createStory<ListProps>(NoPrimaryTextTemplate, defaultArgs)();
+
+/**
+ * Test-only: `metaText` and the `trailing` slot set on the same item. `metaText`
+ * takes precedence and the trailing slot is not rendered.
+ */
+const MetaTextWithTrailingTemplate = () => withLayout(html`
+    <pie-list aria-label="Meta text with trailing">
+        <pie-list-item primaryText="Primary text" metaText="Meta text">
+            ${trailingTag}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const MetaTextWithTrailing = createStory<ListProps>(MetaTextWithTrailingTemplate, defaultArgs)();
+
+/**
+ * Test-only: a thumbnail slotted without `has-media`. The thumbnail should be
+ * hidden (media requires an explicit `has-media` opt-in).
+ */
+const MediaWithoutHasMediaTemplate = () => withLayout(html`
+    <pie-list aria-label="Media without has-media">
+        <pie-list-item primaryText="Primary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const MediaWithoutHasMedia = createStory<ListProps>(MediaWithoutHasMediaTemplate, defaultArgs)();
+
+/**
+ * Test-only: a thumbnail slotted into a compact item (with `has-media`). The
+ * thumbnail should be hidden because media is not permitted in compact items.
+ */
+const MediaCompactTemplate = () => withLayout(html`
+    <pie-list aria-label="Media in a compact item">
+        <pie-list-item is-compact has-media primaryText="Primary text">
+            ${leadingThumbnail}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const MediaCompact = createStory<ListProps>(MediaCompactTemplate, defaultArgs)();

@@ -62,10 +62,12 @@ Slots are provided by `pie-list-item`.
 
 | Slot | Description |
 |---|---|
-| `leading` | Content displayed at the start of the item, before the text. Intended for a small icon or a media element (e.g. `pie-thumbnail`). |
+| `leading` | Content displayed at the start of the item, before the text. Intended for a small icon or a media element (e.g. `pie-thumbnail`). If slotting `pie-thumbnail`, it MUST use `size="40"`; this is the only size that fits the list-item layout correctly. |
 | `trailing` | Content displayed at the end of the item, after the text. Intended for a small icon, a `pie-tag`, etc. Not rendered when `metaText` is set. |
 
 The permitted slotted elements are: a PIE icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and radio/checkbox inputs.
+
+> Slotted PIE icons are always sized by `pie-list-item` (24px). Consumers cannot override this size.
 
 > \* `pie-avatar` is a permitted slot element but is not covered by usage examples here yet, as it is not ready for use in lists.
 
