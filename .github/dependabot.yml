@@ -5,12 +5,19 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/London"
     ignore:
       - dependency-name: "*"
         update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
       prefix: "deps(npm):"
+    cooldown:
+      default-days: 5
+      semver-minor-days: 7
+      semver-patch-days: 3
     groups:
       babel:
         patterns:
@@ -20,33 +27,71 @@ updates:
         patterns:
           - "@justeat/*"
           - "@justeattakeaway/*"
-      percy:
+      playwright:
         patterns:
           - "@axe-core/playwright"
-          - "@percy/*"
           - "@playwright/*"
+      percy:
+        patterns:
+          - "@percy/*"
       vitest:
         patterns:
-          - "vitest-*"
-          - "@vitest"
+          - "vitest"
+          - "@vitest/*"
+          - "eslint-plugin-vitest"
       eleventy:
         patterns:
           - "@11ty/*"
           - "eleventy-*"
+      lit:
+        patterns:
+          - "lit"
+          - "@lit/*"
+          - "@lit-labs/*"
+          - "@webcomponents/*"
       storybook:
         patterns:
           - "@storybook/*"
           - "storybook"
+          - "storybook-*"
+      linting:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+          - "stylelint"
+          - "stylelint-*"
+          - "@stylistic/*"
+          - "commitlint"
+          - "@commitlint/*"
+          - "prettier"
+      dev-dependencies:
+        dependency-type: "development"
+      production-dependencies:
+        dependency-type: "production"
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
 
   - package-ecosystem: "github-actions"
     directories:
-      - ".github/workflows"
-      - ".github/actions"
+      - "/.github/workflows"
+      - "/.github/actions"
     schedule:
       interval: "weekly"
+      day: "tuesday"
+      time: "06:00"
+      timezone: "Europe/London"
     ignore:
       - dependency-name: "*"
         update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
       prefix: "deps(github-actions):"
+    cooldown:
+      default-days: 5
+    groups:
+      github-actions:
+        patterns:
+          - "*"

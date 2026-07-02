@@ -98,6 +98,7 @@
 
   &.c-textarea--resize-manual {
     --textarea-resize: vertical;
+    --textarea-height: auto;
 
     // Minimum is one line of text
     --textarea-min-height: calc((var(--textarea-line-height) * 1) + (var(--textarea-padding-block) * 2));

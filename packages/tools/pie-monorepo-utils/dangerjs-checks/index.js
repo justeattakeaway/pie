@@ -3,6 +3,7 @@ import webcMajorVersion from './webc-major-version.js';
 import changesetFormat from './changeset-format.js';
 import prCheckboxes from './pr-checkboxes.js';
 import readmeStructure from './readme-structure.js';
+import copilotInstructionsDrift from './copilot-instructions-drift.js';
 
 export const checks = [
     prTitle,
@@ -10,4 +11,5 @@ export const checks = [
     changesetFormat,
     prCheckboxes,
     readmeStructure,
+    copilotInstructionsDrift,
 ];
