@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.0.1
+
+### Patch Changes
+
+- [Fixed] - `requiredProperty` decorator now also validates on `connectedCallback`, so a missing required prop is reported even when its attribute is never set at all (previously only caught if explicitly set to an empty/null/undefined value). This warning is only logged once per element instance, even if it reconnects to the DOM multiple times while still missing the prop. ([#2982](https://github.com/justeattakeaway/pie/pull/2982)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 15.0.0
 
 ### Patch Changes
