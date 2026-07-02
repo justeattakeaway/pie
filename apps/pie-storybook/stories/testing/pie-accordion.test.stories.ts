@@ -3,6 +3,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/accordion';
+import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/text-input';
+import '@justeattakeaway/pie-webc/components/link';
 import '@justeattakeaway/pie-icons-webc/dist/IconRestaurantFilled.js';
 import {
     type AccordionProps,
@@ -202,3 +205,31 @@ const propsMatrix: Partial<Record<keyof AccordionVariantProps, unknown[]>> = {
 };
 
 export const Variations = createVariantStory<AccordionVariantProps>(VariantTemplate, propsMatrix);
+
+const FocusableNestedElementsTemplate: TemplateFunction<AccordionProps> = () => html`
+    <div class="responsive-story-container">
+        <pie-accordion
+            headingLabel="Delivery information"
+            @toggle="${handleToggle}">
+            <div>Your order will be delivered between 30 and 45 minutes after placing your order.</div>
+        </pie-accordion>
+        <pie-accordion
+            headingLabel="Payment methods"
+            ?isOpen="${true}"
+            @toggle="${handleToggle}">
+            <div>Some focusable elements are nested in this accordion.</div>
+            <div style="display: flex; align-items:center; gap: var(--dt-spacing-d); padding: var(--dt-spacing-b) 0;">
+                <pie-link href="#">link</pie-link>
+                <pie-text-input type="text" size="small"></pie-text-input>
+                <pie-button size="small-productive">BUTTON</pie-button>
+            </div>
+        </pie-accordion>
+        <pie-accordion
+            headingLabel="Allergen information"
+            @toggle="${handleToggle}">
+            <div>Please contact the restaurant directly for allergen information about specific dishes.</div>
+        </pie-accordion>
+    </div>
+`;
+
+export const FocusableNestedElements = createStory<AccordionProps>(FocusableNestedElementsTemplate, defaultArgs)();
