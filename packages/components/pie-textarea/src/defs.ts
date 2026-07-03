@@ -1,7 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['small', 'medium', 'large'] as const;
-export const resizeModes = ['auto', 'manual'] as const;
+export const resizeModes = ['auto', 'manual', 'none'] as const;
 export const statusTypes = ['default', 'success', 'error'] as const;
 
 export interface TextareaProps {
@@ -16,9 +16,10 @@ export interface TextareaProps {
     size?: typeof sizes[number];
 
     /**
-     * The resize mode of the textarea. Can be `auto` or `manual`. Defaults to `auto`.
+     * The resize mode of the textarea. Can be `auto`, `manual` or `none`. Defaults to `auto`.
      * When set to `auto`, the textarea will resize vertically as needed.
      * When set to `manual`, the textarea will not resize automatically but can be resized by the user.
+     * When set to `none`, the textarea cannot be resized by the user and will not grow beyond the minimum rows.
      */
     resize?: typeof resizeModes[number];
 
