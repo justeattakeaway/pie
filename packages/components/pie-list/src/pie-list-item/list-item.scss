@@ -1,1 +1,88 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    // Expose for consumers to override
+    --list-item-inline-padding: var(--dt-spacing-d);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    min-height: 56px;
+    padding-inline-start: var(--list-item-inline-padding-override, var(--list-item-inline-padding));
+    padding-inline-end: var(--list-item-inline-padding-override, var(--list-item-inline-padding));
+
+    ::slotted([slot="leading"]) {
+        margin-inline-start: auto;
+        margin-inline-end: var(--dt-spacing-c);
+        color: var(--dt-color-content-subdued);
+    }
+
+    // whatever the size would actually be
+    ::slotted(.c-pieIcon) {
+        --icon-size-override: 21px
+    }
+
+    // once we sort padding
+    // ::slotted(input[slot="leading"]) {
+    //     align-self: flex-start;
+    // }
+
+    ::slotted([slot="text"]) {
+        margin: 0;
+        padding: 0;
+    }
+
+    ::slotted(label):after {
+        content: '';
+        position: absolute;
+        inset: 0;
+    }
+
+    // Primary text
+    ::slotted([slot="primaryText"]) {
+        color: var(--dt-color-content-default);
+        @include p.font-theme('font-body-l');
+    }
+
+    // Secondary text
+    ::slotted([slot="secondaryText"]) {
+        color: var(--dt-color-content-subdued);
+        @include p.font-theme('font-body-s');
+    }
+
+    ::slotted([slot="trailing"]) {
+        margin-inline-end: auto;
+        margin-inline-start: var(--dt-spacing-d);
+        color: var(--dt-color-content-subdued);
+        // For meta text
+        @include p.font-theme('font-body-s');
+    }
+
+    .c-listItem-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-inline-end: auto;
+    }
+}
+
+// compact
+:host([is-compact]) {
+    min-height: 48px;
+}
+
+// primary + secondary
+:host([secondary-text]) {
+    min-height: 76px;
+}
+
+// bold - BUG: when no leading slot it targets the wrong text
+:host([is-bold]) ::slotted([slot="primaryText"]) {
+    @include p.font-theme('font-body-strong-l');
+}
+
+// Radio slot styles
+@include p.radio-slotted-input-base('input[type="radio"]');
+@include p.radio-slotted-interactive-state('input[type="radio"]', 'dt-color-interactive-brand');
+@include p.radio-slotted-animations('input[type="radio"]');
