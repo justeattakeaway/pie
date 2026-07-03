@@ -1,12 +1,14 @@
 import { html, nothing, unsafeCSS } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { consume } from '@lit/context';
+import { consume, ContextProvider } from '@lit/context';
 import {
     safeCustomElement,
     requiredProperty,
     listTypeContext,
     listDisabledContext,
+    listItemLabelContext,
     type ListType,
+    type ListItemControlLabel,
 } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { type ListItemProps, defaultProps } from './defs';
@@ -52,6 +54,11 @@ export class PieListItem extends PieElement implements ListItemProps {
     @state()
     private _groupDisabled = false;
 
+    // Provides this item's accessible name/description down to its slotted control, which
+    // consumes it and applies it to the element carrying its semantics (see pie-radio /
+    // pie-checkbox).
+    private _labelProvider = new ContextProvider(this, { context: listItemLabelContext });
+
     private _abortController!: AbortController;
 
     private _hasExplicitRole = false;
@@ -94,6 +101,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     protected updated () {
         this._applyRole();
         this._applyControlAria();
+        this._labelProvider.setValue(this._controlLabel);
     }
 
     /**
@@ -107,18 +115,38 @@ export class PieListItem extends PieElement implements ListItemProps {
     }
 
     /**
-     * Mirrors the item's text onto the slotted control's ARIA so the control is named and
-     * described by the item. This is done with string attributes because `aria-labelledby`
-     * cannot cross the shadow boundary between the item and the control. Only applies in
-     * selectable lists, where the visible text is `aria-hidden` to avoid double announcement.
+     * The accessible name and description this item provides to its slotted control, stitched
+     * from its text. Only provided in a selectable list. The control consumes this and applies it
+     * to the element that carries its semantics (the host for `pie-radio`, the internal input for
+     * `pie-checkbox`); providing it via context avoids putting `aria-label` on a role-less host
+     * and cannot cross a shadow boundary the way `aria-labelledby` can't.
+     */
+    private get _controlLabel (): ListItemControlLabel | undefined {
+        if (!this._isSelectable) return undefined;
+
+        const description = [this.secondaryText, this.metaText].filter(Boolean).join('. ');
+
+        return { label: this.primaryText, description: description || undefined };
+    }
+
+    /**
+     * A radio's accessible name lives on its host (which carries `role="radio"`), so it is set
+     * directly here from the stitched label. Checkboxes are named via the label context instead
+     * (see `_controlLabel`), because their host has no role and `aria-label` on a role-less host
+     * would be invalid; the checkbox applies the name to its internal input.
      */
     private _applyControlAria (): void {
         const control = this._control;
-        if (!control || !this._isSelectable) return;
+        if (!control || this._listType !== 'radiogroup') return;
 
-        control.setAttribute('aria-label', this.primaryText ?? '');
+        const { label, description } = this._controlLabel ?? {};
 
-        const description = [this.secondaryText, this.metaText].filter(Boolean).join('. ');
+        if (label) {
+            control.setAttribute('aria-label', label);
+        } else {
+            control.removeAttribute('aria-label');
+        }
+
         if (description) {
             control.setAttribute('aria-description', description);
         } else {

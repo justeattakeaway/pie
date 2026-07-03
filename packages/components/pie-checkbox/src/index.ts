@@ -4,6 +4,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
+import { consume } from '@lit/context';
 
 import {
     wrapNativeEvent,
@@ -11,6 +12,8 @@ import {
     DelegatesFocusMixin,
     validPropertyValues,
     safeCustomElement,
+    listItemLabelContext,
+    type ListItemControlLabel,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-assistive-text';
 
@@ -40,6 +43,13 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
 
     @state()
     private _isAnimationAllowed = false;
+
+    // When inside a `pie-list-item`, the item provides the accessible name/description; it is
+    // applied to the internal input (the element carrying the checkbox semantics). No provider
+    // when used standalone, so this is a no-op there.
+    @consume({ context: listItemLabelContext, subscribe: true })
+    @state()
+    private _listItemLabel?: ListItemControlLabel;
 
     @property({ type: String })
     public value = defaultProps.value;
@@ -90,6 +100,23 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
 
         this.addEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this._disabledByParent = e.detail.disabled; }, { signal });
         this.addEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this._visuallyHiddenError = e.detail.error; }, { signal });
+
+        // Allows a click dispatched on the host (for example forwarded from a `pie-list-item`
+        // row) to toggle the checkbox.
+        this.addEventListener('click', this._handleClick, { signal });
+    }
+
+    /**
+     * Forwards a click dispatched directly on the host (for example from a `pie-list-item` row)
+     * to the internal input. Clicks on the internal label already toggle the input natively via
+     * its `for` attribute, so only host-level clicks are forwarded, to avoid a double toggle.
+     * @param {MouseEvent} event
+     */
+    private _handleClick (event: MouseEvent): void {
+        if (event.composedPath()[0] !== this) return;
+        if (this.disabled || this._disabledByParent) return;
+
+        this._checkbox.click();
     }
 
     disconnectedCallback () : void {
@@ -127,6 +154,29 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
 
     protected updated (): void {
         this._handleFormAssociation();
+        this._applyContextLabel();
+    }
+
+    /**
+     * When rendered inside a `pie-list-item`, applies the item-provided accessible name and
+     * description to the internal input (the element that carries the checkbox semantics). Does
+     * nothing when used standalone, where the name comes from the default slot / label.
+     */
+    private _applyContextLabel (): void {
+        const contextLabel = this._listItemLabel;
+        if (!contextLabel || !this._checkbox) return;
+
+        if (contextLabel.label) {
+            this._checkbox.setAttribute('aria-label', contextLabel.label);
+        } else {
+            this._checkbox.removeAttribute('aria-label');
+        }
+
+        if (contextLabel.description) {
+            this._checkbox.setAttribute('aria-description', contextLabel.description);
+        } else {
+            this._checkbox.removeAttribute('aria-description');
+        }
     }
 
     /**
@@ -192,6 +242,11 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
             'is-indeterminate': indeterminate && !checked,
             'c-checkbox--leading': labelPosition === 'leading',
             'c-checkbox--fill': labelFit === 'fill',
+            // Inside a `pie-list-item` the whole row is the hit target and tints on hover/active.
+            // A transparent tick lets that row tint show through the (unchecked) box, matching
+            // how the radio behaves. Only applies in a list item, so standalone checkboxes are
+            // unaffected.
+            'c-checkbox--in-list-item': Boolean(this._listItemLabel),
         };
 
         const labelClasses = {

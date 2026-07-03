@@ -7,6 +7,7 @@ import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, status
 import '@justeattakeaway/pie-webc/components/link';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
+import '@justeattakeaway/pie-webc/components/list-item';
 
 import { createStory, createVariantStory } from '../../utilities';
 
@@ -142,6 +143,50 @@ const propsMatrix : Partial<Record<keyof CheckboxGroupProps, unknown[]>> = {
     labelSlot: [labelSlotOptions.None, labelSlotOptions.Label],
 };
 
+const EXPECTED_CHANGE_EVENT_MESSAGE = 'Change event dispatched';
+
+const WithListItemsTemplate = () => {
+    function onChange () {
+        console.info(EXPECTED_CHANGE_EVENT_MESSAGE);
+    }
+
+    return html`
+        <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" @change=${onChange}>
+            <pie-list-item data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+                <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+                <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item data-test-id="item-3" primaryText="Mushrooms">
+                <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms" disabled></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item data-test-id="item-4" primaryText="Olives" metaText="£0.50">
+                <pie-checkbox slot="leading" data-test-id="checkbox-4" name="olives"></pie-checkbox>
+            </pie-list-item>
+        </pie-checkbox-group>
+    `;
+};
+
+const WithListItemsGroupDisabledTemplate = () => html`
+        <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" disabled>
+            <pie-list-item data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+                <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+                <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item data-test-id="item-3" primaryText="Mushrooms">
+                <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item data-test-id="item-4" primaryText="Olives" metaText="£0.50">
+                <pie-checkbox slot="leading" data-test-id="checkbox-4" name="olives"></pie-checkbox>
+            </pie-list-item>
+        </pie-checkbox-group>
+    `;
+
 export const Default = createStory<CheckboxGroupProps>(DefaultTemplate, defaultArgs)();
 export const DisabledSlottedCheckbox = createStory<CheckboxGroupProps>(DisabledSlottedCheckboxTemplate, defaultArgs)();
 export const Variations = createVariantStory<CheckboxGroupProps>(VariationsTemplate, propsMatrix);
+export const WithListItems = createStory<CheckboxGroupProps>(WithListItemsTemplate, defaultArgs)();
+export const WithListItemsGroupDisabled = createStory<CheckboxGroupProps>(WithListItemsGroupDisabledTemplate, defaultArgs)();

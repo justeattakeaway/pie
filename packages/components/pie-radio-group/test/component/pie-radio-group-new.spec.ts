@@ -940,6 +940,16 @@ test.describe('PieRadioGroup - Component tests new', () => {
             expect(await isRadioChecked(page, selectors.radios[2])).toBe(true);
         });
 
+        test('should switch selection when a different row is clicked', async ({ page }) => {
+            await page.getByTestId(selectors.items[1]).click();
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(true);
+
+            // Clicking another row selects its radio and deselects the previous one.
+            await page.getByTestId(selectors.items[2]).click();
+            expect(await isRadioChecked(page, selectors.radios[2])).toBe(true);
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(false);
+        });
+
         test('should mark a disabled row so its interactive styles are suppressed', async ({ page }) => {
             // radio-3 (item-3) is disabled in the fixture.
             expect(await isRowDisabled(page, selectors.items[3])).toBe(true);
