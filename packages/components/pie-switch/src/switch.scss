@@ -95,7 +95,7 @@
         vertical-align: top;
     }
 
-    .c-switch-input:checked + & {
+    .c-switch[checked] & {
         transform: translateX(var(--switch-translation));
 
         .c-pieIcon--check {
@@ -143,7 +143,7 @@
     .c-switch-control {
         @include switch-transition(transform);
 
-        .c-switch-input:checked + & {
+        .c-switch[checked] & {
             @include switch-transition(transform);
 
             .c-pieIcon--check {
@@ -160,7 +160,7 @@
 }
 
 .c-switch-wrapper:dir(rtl) {
-    .c-switch-input:checked + .c-switch-control {
+    .c-switch[checked] .c-switch-control {
         transform: translateX(calc(-1 * var(--switch-translation)));
     }
 }
