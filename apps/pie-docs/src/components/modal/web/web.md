@@ -570,14 +570,15 @@ The wide small and optionally medium size, has the corresponding responsive opti
 } %}
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/behaviours-slots-slots-available.svg",
-  alt: "A diagram displaying the available slots for the Modal content and footer.",
+  src: "../../../assets/img/components/modal/modal-slot-available.svg",
+  alt: "A diagram displaying the available slots for the Modal header, content and footer.",
   width: 600
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
+        "**Header slot:** Hidden by default.",
         "**Body slot:** Available as a variant",
         "**Footer slot:** Hidden by default"
     ]
