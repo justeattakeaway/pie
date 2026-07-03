@@ -52,9 +52,12 @@
 
 .c-listItem-text {
     flex: 1;
+}
 
+slot[name="trailing"]::slotted(*),
+.c-listItem-metaText {
     // Add a tiny bit of padding to the flex gap to make up 16px total
-    padding-inline-end: var(--dt-spacing-a);
+    padding-inline-start: var(--dt-spacing-a);
 }
 
 // Ensures that empty slots do not create a flex-gap in the container.
