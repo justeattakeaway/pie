@@ -55,7 +55,7 @@ Use an alert / dialog when you need to provide users with a high-level introduct
 
 {% notification {
   type: "neutral",
-  message: "Check out the [Alert (iOS) / Dialog (Android) documentation](https://www.pie.design/components/modal/)."
+  message: "Check out the [Alert (iOS) / Dialog (Android) documentation](/components/modal/)."
 } %}
 
 #### Actions
@@ -127,7 +127,7 @@ Use a Tooltip to guide users through specific features or highlight particular a
 
 {% notification {
   type: "neutral",
-  message: "Check out the [Tooltip documentation](https://www.pie.design/components/tooltip/)."
+  message: "Check out the [Tooltip documentation](/components/tooltip/)."
 } %}
 
 {% notification {
@@ -246,7 +246,7 @@ A bottom sheet provides a non-intrusive way to deliver contextual information or
 
 {% notification {
   type: "neutral",
-  message: "Check out the [Bottom sheet documentation](https://www.pie.design/components/bottom-sheet/)."
+  message: "Check out the [Bottom sheet documentation](/components/bottom-sheet/)."
 } %}
 
 #### Single action
