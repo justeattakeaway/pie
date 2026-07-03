@@ -157,7 +157,7 @@ const makeListTemplate = (headingId: string, heading: string, listStyle = ''): T
  * Interactive example. Use the controls to experiment with the `pie-list-item`
  * properties and slotted content.
  */
-export const Playground = createStory<ListPlaygroundProps>(
+export const Default = createStory<ListPlaygroundProps>(
     makeListTemplate('list-playground-heading', 'Example list'),
     defaultArgs,
 )();
