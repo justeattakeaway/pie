@@ -2,7 +2,7 @@
 
 :host {
     // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
-    display: contents;
+    display: block;
 }
 
 // Using an internal container div rather than applying directly to the host due to safari and firefox compat issues
