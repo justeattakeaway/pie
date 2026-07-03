@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "1.25.1",
+  "version": "1.25.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -34,7 +34,6 @@
   ],
   "scripts": {
     "build": "node ./build.js && cp ./PieIconComponent.ts ./icons && vite build && tsc",
-    "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "test:browsers-setup": "run -T playwright-lit-setup",
@@ -49,7 +48,7 @@
     "extends @justeattakeaway/browserslist-config-pie"
   ],
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "15.0.0"
+    "@justeattakeaway/pie-webc-core": "15.0.1"
   },
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.3",

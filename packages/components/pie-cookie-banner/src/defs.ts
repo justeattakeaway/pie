@@ -98,6 +98,25 @@ export interface CookieBannerProps {
     cookieStatementLink: string;
 
     /**
+     * An optional override for the personalised preference label rendered in the
+     * "Manage preferences" modal. When provided, this string replaces the locale-defined
+     * label for the personalised preference. Consumers can include plain text.
+     * When omitted or set to an empty string, the built-in locale string is used.
+     */
+    personalizedLabel?: string;
+
+    /**
+     * An optional override for the personalised preference description rendered in the
+     * "Manage preferences" modal. When provided, this string replaces the locale-defined
+     * description for the personalised preference. Consumers can include plain text,
+     * HTML anchor tags (e.g. `<a href="...">Privacy Policy</a>`), or `<pie-link>` tags
+     * to embed a privacy policy link. The HTML is sanitised, so only the allowed link
+     * attributes are preserved and any others are stripped or normalised. When omitted or
+     * set to an empty string, the built-in locale string is used.
+     */
+    personalizedDescription?: string;
+
+    /**
      * The URL for the cookie technology link.
      */
     cookieTechnologiesLink: string;
@@ -205,6 +224,8 @@ export const defaultProps: DefaultProps = {
     country: Country.GREAT_BRITAIN,
     language: Language.ENGLISH,
     cookieStatementLink: '',
+    personalizedLabel: '',
+    personalizedDescription: '',
     cookieTechnologiesLink: '',
     openLinksInSameTab: false,
 };

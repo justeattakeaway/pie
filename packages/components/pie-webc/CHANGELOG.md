@@ -1,5 +1,52 @@
 # @justeattakeaway/pie-webc
 
+## 0.10.24
+
+### Patch Changes
+
+- Updated dependencies [[`51f0ab6`](https://github.com/justeattakeaway/pie/commit/51f0ab65ac6cee71b3af786c9556dfa30fb50cde)]:
+  - @justeattakeaway/pie-cookie-banner@1.10.0
+  - @justeattakeaway/pie-accordion@0.0.2
+  - @justeattakeaway/pie-assistive-text@1.0.1
+  - @justeattakeaway/pie-avatar@0.4.39
+  - @justeattakeaway/pie-breadcrumb@1.0.1
+  - @justeattakeaway/pie-button@1.14.5
+  - @justeattakeaway/pie-card@0.27.4
+  - @justeattakeaway/pie-checkbox@1.3.1
+  - @justeattakeaway/pie-checkbox-group@1.1.1
+  - @justeattakeaway/pie-chip@1.0.1
+  - @justeattakeaway/pie-data-table@0.3.19
+  - @justeattakeaway/pie-divider@1.5.26
+  - @justeattakeaway/pie-form-label@0.18.27
+  - @justeattakeaway/pie-icon-button@2.7.20
+  - @justeattakeaway/pie-link@1.3.36
+  - @justeattakeaway/pie-list@0.0.30
+  - @justeattakeaway/pie-lottie-player@0.4.6
+  - @justeattakeaway/pie-modal@1.26.12
+  - @justeattakeaway/pie-notification@0.24.4
+  - @justeattakeaway/pie-radio@1.1.16
+  - @justeattakeaway/pie-radio-group@1.1.1
+  - @justeattakeaway/pie-select@0.9.1
+  - @justeattakeaway/pie-spinner@1.4.18
+  - @justeattakeaway/pie-switch@2.5.1
+  - @justeattakeaway/pie-tabs@0.1.26
+  - @justeattakeaway/pie-tag@0.22.23
+  - @justeattakeaway/pie-text-input@0.30.1
+  - @justeattakeaway/pie-textarea@0.20.1
+  - @justeattakeaway/pie-thumbnail@0.8.32
+  - @justeattakeaway/pie-toast@1.0.3
+  - @justeattakeaway/pie-toast-provider@1.0.3
+
+## 0.10.23
+
+### Patch Changes
+
+- Updated dependencies [[`cdf73b6`](https://github.com/justeattakeaway/pie/commit/cdf73b6c3e13c71aaacae3a51b904faba0aa1a83), [`4bfcd87`](https://github.com/justeattakeaway/pie/commit/4bfcd879fd9a3fa9c87fd57b12a1e838d34cb85d), [`8541dad`](https://github.com/justeattakeaway/pie/commit/8541daddd017bec6b16ac4e0c579bae47d38e8e4)]:
+  - @justeattakeaway/pie-textarea@0.20.0
+  - @justeattakeaway/pie-accordion@0.0.1
+  - @justeattakeaway/pie-switch@2.5.0
+  - @justeattakeaway/pie-cookie-banner@1.9.1
+
 ## 0.10.22
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.34.2
+
+### Patch Changes
+
+- [Fixed] README.md and component test templates ([#2969](https://github.com/justeattakeaway/pie/pull/2969)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.34.1
 
 ### Patch Changes
