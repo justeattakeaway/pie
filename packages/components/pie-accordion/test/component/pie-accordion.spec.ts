@@ -18,7 +18,9 @@ const loadAccordion = async (page: BasePage['page'], storyName = 'accordion--def
 const attachToggleListener = async (page: BasePage['page']) => {
     await page.evaluate(() => {
         window.__accordionEvents = [];
-        document.querySelector('pie-accordion')!.addEventListener('toggle', (e) => {
+        const accordionEl = document.querySelector('pie-accordion');
+        if (!accordionEl) throw new Error('pie-accordion was not found');
+        accordionEl.addEventListener('toggle', (e) => {
             const target = e.target as PieAccordion;
             if (target) window.__accordionEvents.push({ isOpen: target.isOpen });
         });
@@ -61,8 +63,9 @@ test.describe('PieAccordion - Component tests', () => {
                 await loadAccordion(page, 'accordion--default', { headingLabel: 'New information' });
 
                 const headingText = await page.evaluate(() => {
-                    const shadow = document.querySelector('pie-accordion')!.shadowRoot!;
-                    return shadow.querySelector('.c-accordion-headingLabel')?.textContent?.trim();
+                    const accordionEl = document.querySelector('pie-accordion');
+                    if (!accordionEl?.shadowRoot) throw new Error('pie-accordion or its shadow root was not found');
+                    return accordionEl.shadowRoot.querySelector('.c-accordion-headingLabel')?.textContent?.trim();
                 });
 
                 expect(headingText).toBe('New information');
@@ -74,8 +77,9 @@ test.describe('PieAccordion - Component tests', () => {
                     await loadAccordion(page, 'accordion--default', { headingLevel: level });
 
                     const headingExists = await page.evaluate((tag) => {
-                        const shadow = document.querySelector('pie-accordion')!.shadowRoot!;
-                        return shadow.querySelector(tag) !== null;
+                        const accordionEl = document.querySelector('pie-accordion');
+                        if (!accordionEl?.shadowRoot) throw new Error('pie-accordion or its shadow root was not found');
+                        return accordionEl.shadowRoot.querySelector(tag) !== null;
                     }, level);
 
                     expect(headingExists).toBe(true);
@@ -87,8 +91,9 @@ test.describe('PieAccordion - Component tests', () => {
                 await loadAccordion(page, 'accordion--default');
 
                 const hasSecondaryLabel = await page.evaluate(() => {
-                    const shadow = document.querySelector('pie-accordion')!.shadowRoot!;
-                    return shadow.querySelector('.c-accordion-secondaryLabel') !== null;
+                    const accordionEl = document.querySelector('pie-accordion');
+                    if (!accordionEl?.shadowRoot) throw new Error('pie-accordion or its shadow root was not found');
+                    return accordionEl.shadowRoot.querySelector('.c-accordion-secondaryLabel') !== null;
                 });
 
                 expect(hasSecondaryLabel).toBe(false);
@@ -97,8 +102,9 @@ test.describe('PieAccordion - Component tests', () => {
                 await loadAccordion(page, 'accordion--default', { secondaryLabel: 'Available in your area' });
 
                 const secondaryText = await page.evaluate(() => {
-                    const shadow = document.querySelector('pie-accordion')!.shadowRoot!;
-                    return shadow.querySelector('.c-accordion-secondaryLabel')?.textContent?.trim();
+                    const accordionEl = document.querySelector('pie-accordion');
+                    if (!accordionEl?.shadowRoot) throw new Error('pie-accordion or its shadow root was not found');
+                    return accordionEl.shadowRoot.querySelector('.c-accordion-secondaryLabel')?.textContent?.trim();
                 });
 
                 expect(secondaryText).toBe('Available in your area');
@@ -109,8 +115,9 @@ test.describe('PieAccordion - Component tests', () => {
                 await loadAccordion(page, 'accordion--default');
 
                 const hasDivider = await page.evaluate(() => {
-                    const shadow = document.querySelector('pie-accordion')!.shadowRoot!;
-                    return shadow.querySelector('pie-divider') !== null;
+                    const accordionEl = document.querySelector('pie-accordion');
+                    if (!accordionEl?.shadowRoot) throw new Error('pie-accordion or its shadow root was not found');
+                    return accordionEl.shadowRoot.querySelector('pie-divider') !== null;
                 });
 
                 expect(hasDivider).toBe(true);
@@ -120,8 +127,9 @@ test.describe('PieAccordion - Component tests', () => {
                 await loadAccordion(page, 'accordion--default', { isDividerHidden: true });
 
                 const hasDivider = await page.evaluate(() => {
-                    const shadow = document.querySelector('pie-accordion')!.shadowRoot!;
-                    return shadow.querySelector('pie-divider') !== null;
+                    const accordionEl = document.querySelector('pie-accordion');
+                    if (!accordionEl?.shadowRoot) throw new Error('pie-accordion or its shadow root was not found');
+                    return accordionEl.shadowRoot.querySelector('pie-divider') !== null;
                 });
 
                 expect(hasDivider).toBe(false);
