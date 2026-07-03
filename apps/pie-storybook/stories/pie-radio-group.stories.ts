@@ -12,6 +12,7 @@ import {
 import '@justeattakeaway/pie-webc/components/link';
 import '@justeattakeaway/pie-webc/components/radio';
 import '@justeattakeaway/pie-webc/components/form-label';
+import '@justeattakeaway/pie-webc/components/list-item';
 
 import { createStory } from '../utilities';
 
@@ -135,3 +136,51 @@ const Template = ({
 };
 
 export const Default = createStory<RadioGroupProps>(Template, defaultArgs)();
+
+const WithListItemsTemplate = ({
+    name,
+    value,
+    disabled,
+    labelSlot,
+    assistiveText,
+    status,
+}: RadioGroupProps) => {
+    function onChange (event: CustomEvent) {
+        const selectedRadioElement = event.target as HTMLInputElement;
+        action('change')(selectedRadioElement.value);
+    }
+
+    // Radios are wrapped in `pie-list-item`s. The group renders as a divided list, the items
+    // take a presentation role, and each item mirrors its text onto the radio's ARIA. Clicking
+    // anywhere on a row selects its radio.
+    return html`
+    <style>
+        pie-radio-group {
+            min-width: 350px;
+        }
+    </style>
+        <pie-radio-group
+            name="${ifDefined(name)}"
+            .value=${ifDefined(value)}
+            ?disabled=${disabled}
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}
+            @change=${onChange}>
+                ${labelSlot}
+                <pie-list-item primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+                    <pie-radio slot="leading" value="standard"></pie-radio>
+                </pie-list-item>
+                <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+                    <pie-radio slot="leading" value="express"></pie-radio>
+                </pie-list-item>
+                <pie-list-item primaryText="Collection" secondaryText="Collect from a nearby store" metaText="Free">
+                    <pie-radio slot="leading" value="collection" disabled></pie-radio>
+                </pie-list-item>
+                <pie-list-item primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+                    <pie-radio slot="leading" value="locker"></pie-radio>
+                </pie-list-item>
+        </pie-radio-group>
+    `;
+};
+
+export const WithListItems = createStory<RadioGroupProps>(WithListItemsTemplate, defaultArgs)();

@@ -43,8 +43,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Slots
 | Slot      | Description                                                                                      |
 |-----------|--------------------------------------------------------------------------------------------------|
-| `default` | This should be [`pie-radio-button`](/components/radio) components without any other HTML.        |
-| `label`   | To provide a custom label for the radio group. Please use [`pie-form-label`](/components/form-label). |
+| `default` | Either [`pie-radio`](https://webc.pie.design/?path=/docs/components-radio--overview) components, or [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) components that each slot a `pie-radio` for a list-style layout (see [List items in a radio group](#list-items-in-a-radio-group)). Do not add other HTML. |
+| `label`   | To provide a custom label for the radio group. Please use [`pie-form-label`](https://webc.pie.design/?path=/docs/components-form-label--overview). |
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
@@ -114,6 +114,44 @@ import { PieFormLabel } from '@justeattakeaway/pie-webc/react/form-label.js';
     <PieRadio value="chinese">Chinese</PieRadio>
     <PieRadio value="shawarma">Shawarma</PieRadio>
 </PieRadioGroup>
+```
+
+### List items in a radio group
+
+For a list-style layout (each option on its own row with primary and secondary text, and dividers between rows), wrap each `pie-radio` in a [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) and place them inside the group. The radio goes in the item's `leading` (or `trailing`) slot, and you provide the label through the item's `primaryText` rather than as the radio's content.
+
+When the group detects `pie-list-item` children it renders as a single divided list and takes over the item semantics:
+
+- each `pie-list-item` is given a `presentation` role, so the group still owns its `radio` children directly;
+- the item's `primaryText` becomes the radio's accessible name (`aria-label`), and its `secondaryText` and `metaText` its `aria-description`, so you do not pass label text to the radio itself;
+- the visible item text is hidden from assistive technology so it is not announced twice;
+- clicking anywhere on a row selects that row's radio.
+
+Keyboard navigation, focus management and selection are identical to a standard radio group.
+
+```js
+import '@justeattakeaway/pie-webc/components/radio-group.js';
+import '@justeattakeaway/pie-webc/components/radio.js';
+import '@justeattakeaway/pie-webc/components/form-label.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+```
+
+```html
+<pie-radio-group name="delivery">
+  <pie-form-label slot="label">Delivery method</pie-form-label>
+  <pie-list-item primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+    <pie-radio slot="leading" value="standard"></pie-radio>
+  </pie-list-item>
+  <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+    <pie-radio slot="leading" value="express"></pie-radio>
+  </pie-list-item>
+  <pie-list-item primaryText="Collection" secondaryText="Collect from a nearby store">
+    <pie-radio slot="leading" value="collection" disabled></pie-radio>
+  </pie-list-item>
+  <pie-list-item primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+    <pie-radio slot="leading" value="locker"></pie-radio>
+  </pie-list-item>
+</pie-radio-group>
 ```
 
 ## Questions and Support

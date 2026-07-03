@@ -43,6 +43,32 @@
     min-height: 48px;
 }
 
+// Interactive row states. When the item is inside a radio/checkbox group the whole row
+// is a click target (it forwards the click to the slotted control), so it shows hover and
+// active surface tints, matching the control's own interactive states. These are suppressed
+// when the slotted control is disabled (the item reflects this as `is-disabled`). The
+// defaults use the standard PIE interactive overlay tokens; override `--list-item-hover-bg` /
+// `--list-item-active-bg` if design specifies dedicated list tokens.
+.c-listItem-container[is-selectable]:not([is-disabled]) {
+    --list-item-hover-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+    --list-item-active-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+
+    @supports (background-color: color-mix(in srgb, black, white)) {
+        --list-item-hover-bg: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+        --list-item-active-bg: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+    }
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--list-item-hover-bg);
+    }
+
+    &:active {
+        background-color: var(--list-item-active-bg);
+    }
+}
+
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
 // when the primary text stands alone (`:only-child` == no secondary text). With
 // secondary text the default padding is kept so two lines of text sit correctly.

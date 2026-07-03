@@ -68,6 +68,9 @@ Slots are provided by `pie-list-item`.
 The permitted slotted elements are: a PIE WEBC icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and native HTML radio/checkbox inputs.
 Some slotted content is designed with specific properties being used. So please read the entire readme to understand correct slot usage.
 
+> [!NOTE]
+> `pie-list` is a **static** container: it has no selection state or keyboard behaviour. For a **selectable** radio list (with radio group semantics, keyboard navigation and selection), do not slot radios into `pie-list`. Place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) instead. See [Radios in a list (selectable)](#radios-in-a-list-selectable) below.
+
 > Slotted PIE icons are always sized by `pie-list-item` (24px). Consumers cannot override this size.
 
 > \* `pie-avatar` is a permitted slot element but is not covered by usage examples here yet, as it is not ready for use in lists.
@@ -238,6 +241,27 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 </pie-list>
 ```
 
+### Radios in a list (selectable)
+
+`pie-list` is a static container with no selection or keyboard behaviour. To build a single-select list of radios (with the correct radio group semantics, keyboard support and selection), do **not** put the radios in `pie-list`. Instead, place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview), each slotting a `pie-radio`. The group renders as a divided list and manages the group behaviour and accessibility (the item's text becomes the radio's accessible name and description, and the whole row is clickable). See the [`pie-radio-group` documentation](https://webc.pie.design/?path=/docs/components-radio-group--overview) for the full behaviour.
+
+```js
+import '@justeattakeaway/pie-webc/components/radio-group.js';
+import '@justeattakeaway/pie-webc/components/radio.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+```
+
+```html
+<pie-radio-group name="delivery">
+  <pie-list-item primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+    <pie-radio slot="leading" value="standard"></pie-radio>
+  </pie-list-item>
+  <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+    <pie-radio slot="leading" value="express"></pie-radio>
+  </pie-list-item>
+</pie-radio-group>
+```
+
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
 
 ```js
@@ -269,6 +293,7 @@ To keep lists consistent and correct, follow these rules:
 
 - **Always give `pie-list` an accessible name** with `aria-label` or `aria-labelledby` (use `aria-labelledby` when a visible heading exists). This is required for screen reader users to understand the list. See [Accessibility](#accessibility).
 - **`primaryText` is required** on every `pie-list-item`. An item with no primary text will not render.
+- **For selectable radio lists, use `pie-list-item` inside `pie-radio-group`, not `pie-list`.** `pie-list` is a static container with no selection or keyboard behaviour. See [Radios in a list (selectable)](#radios-in-a-list-selectable).
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
 - **Always set `has-media` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.

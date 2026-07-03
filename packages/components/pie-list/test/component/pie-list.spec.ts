@@ -15,6 +15,32 @@ test.describe('PieList - Component tests', () => {
         await expect(items).toHaveCount(4);
     });
 
+    test('should not apply selectable behaviours to items in a static list', async ({ page }) => {
+        // Guards the `listType = 'list'` context path: a static list must not adopt the
+        // radio/checkbox group behaviours (presentation role and hidden text) that only
+        // apply when a `pie-list-item` is inside a radio or checkbox group. Uses the
+        // meta-text story so both the text and meta-text containers are present.
+        await new BasePage(page, 'list--meta-text').load();
+
+        await expect(page.getByRole('listitem').first()).toBeVisible();
+
+        // No item should be demoted to presentation.
+        await expect(page.locator('pie-list-item[role="presentation"]')).toHaveCount(0);
+
+        // Neither the primary/secondary text nor the meta text should be hidden from
+        // assistive technology in a static list.
+        const hidden = await page.evaluate(() => {
+            const root = document.querySelector('pie-list-item')?.shadowRoot;
+            return {
+                text: root?.querySelector('.c-listItem-text')?.getAttribute('aria-hidden'),
+                meta: root?.querySelector('.c-listItem-metaText')?.getAttribute('aria-hidden'),
+            };
+        });
+
+        expect(hidden.text).toBeNull();
+        expect(hidden.meta).toBeNull();
+    });
+
     test.describe('primaryText', () => {
         test('should render nothing when primaryText is not provided', async ({ page }) => {
             // Arrange

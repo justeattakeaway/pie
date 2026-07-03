@@ -3467,6 +3467,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.2.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
     "@justeattakeaway/pie-webc-core": "npm:15.0.1"
+    "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
@@ -3538,6 +3539,7 @@ __metadata:
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
     "@justeattakeaway/pie-radio": "npm:1.1.16"
     "@justeattakeaway/pie-webc-core": "npm:15.0.1"
+    "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
@@ -3722,6 +3724,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
+    "@lit/context": "npm:1.1.6"
     lit: "npm:3.2.0"
   peerDependencies:
     "@justeattakeaway/pie-css": 1.x
@@ -3892,6 +3895,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit/context@npm:1.1.6":
+  version: 1.1.6
+  resolution: "@lit/context@npm:1.1.6"
+  dependencies:
+    "@lit/reactive-element": "npm:^1.6.2 || ^2.1.0"
+  checksum: 10/2d59b388ced1574467f0217292b577268462248bcac1fe0570017c6b06e71022a190fd7ac66e676e5903bb4dda8489fca6cf38dc4160f3f6d6c09434139038b3
+  languageName: node
+  linkType: hard
+
 "@lit/react@npm:1.0.5":
   version: 1.0.5
   resolution: "@lit/react@npm:1.0.5"
@@ -3910,7 +3922,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/reactive-element@npm:^2.0.4, @lit/reactive-element@npm:^2.1.0":
+"@lit/reactive-element@npm:^1.6.2 || ^2.1.0, @lit/reactive-element@npm:^2.0.4, @lit/reactive-element@npm:^2.1.0":
   version: 2.1.2
   resolution: "@lit/reactive-element@npm:2.1.2"
   dependencies:

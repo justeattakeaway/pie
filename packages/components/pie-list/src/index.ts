@@ -1,6 +1,9 @@
 import { html, unsafeCSS } from 'lit';
+import { provide } from '@lit/context';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    RtlMixin, safeCustomElement, listTypeContext, type ListType,
+} from '@justeattakeaway/pie-webc-core';
 
 import styles from './list.scss?inline';
 import { type ListProps } from './defs';
@@ -15,6 +18,11 @@ const componentSelector = 'pie-list';
  */
 @safeCustomElement('pie-list')
 export class PieList extends RtlMixin(PieElement) implements ListProps {
+    // Tells descendant `pie-list-item`s they are in a static (non-selectable) list, so
+    // they keep their `listitem` role. Radio and checkbox groups provide different values.
+    @provide({ context: listTypeContext })
+    protected _providedListType: ListType = 'list';
+
     connectedCallback (): void {
         super.connectedCallback();
 

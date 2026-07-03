@@ -7,14 +7,18 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, queryAssignedElements, state,
+    property, state,
 } from 'lit/decorators.js';
+import { provide } from '@lit/context';
 import {
     RtlMixin,
     FormControlMixin,
     wrapNativeEvent,
     validPropertyValues,
     safeCustomElement,
+    listTypeContext,
+    listDisabledContext,
+    type ListType,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -50,6 +54,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @state()
     private _allRadiosDisabled = false;
 
+    @state()
+    private _hasListItems = false;
+
     @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
 
@@ -59,6 +66,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @property({ type: Boolean })
     public isInline = defaultProps.isInline;
 
+    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the
+    // list rows (suppressing their hover/active states).
+    @provide({ context: listDisabledContext })
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
@@ -69,10 +79,24 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
 
-    @queryAssignedElements({ selector: 'pie-radio' })
-        _slottedChildren!: Array<HTMLInputElement>;
-
     private _abortController!: AbortController;
+
+    private _mutationObserver!: MutationObserver;
+
+    // Tells descendant `pie-list-item`s they are inside a radio group, so they render as
+    // `presentation` and mirror their text onto the slotted radio's ARIA.
+    @provide({ context: listTypeContext })
+    protected _providedListType: ListType = 'radiogroup';
+
+    /**
+     * The radios in the group. This uses a subtree query rather than immediate slotted
+     * children so radios wrapped in `pie-list-item`s (at any depth) are discovered. It is
+     * a superset of the previous immediate-child query, so radios passed as direct children
+     * keep working unchanged.
+     */
+    private get _slottedChildren (): HTMLInputElement[] {
+        return Array.from(this.querySelectorAll<HTMLInputElement>('pie-radio'));
+    }
 
     /**
      * Dispatches a custom event to notify each slotted child radio element
@@ -139,6 +163,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _handleRadioSlotChange (): void {
         this._resetButtonsTabIndex();
         this._applyNameToChildren();
+        // When radios are wrapped in `pie-list-item`s the group renders as a divided list
+        // (no inter-item gap); direct-child radios keep their default spacing.
+        this._hasListItems = this.querySelector('pie-list-item') !== null;
     }
 
     /**
@@ -200,6 +227,12 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this.addEventListener('keydown', this._handleKeyDown, { signal });
 
         this._applyNameToChildren();
+
+        // The default slot's `slotchange` fires when list items are added or removed, but not
+        // when a radio is added deep inside an existing list item. Observe the light-DOM
+        // subtree so those radios still pick up the correct tabindex and name.
+        this._mutationObserver = new MutationObserver(() => this._handleRadioSlotChange());
+        this._mutationObserver.observe(this, { childList: true, subtree: true });
     }
 
     /**
@@ -400,6 +433,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     disconnectedCallback (): void {
         super.disconnectedCallback();
         this._abortController.abort();
+        this._mutationObserver?.disconnect();
     }
 
     render () {
@@ -411,6 +445,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             assistiveText,
             _fieldSetTabIndex,
             _allRadiosDisabled,
+            _hasListItems,
         } = this;
         const hasAssistiveText = Boolean(assistiveText?.length);
 
@@ -418,6 +453,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             'c-radioGroup': true,
             'c-radioGroup--inline': isInline,
             'c-radioGroup--hasAssistiveText': hasAssistiveText,
+            'c-radioGroup--listItems': _hasListItems,
         };
 
         return html`
