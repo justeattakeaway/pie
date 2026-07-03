@@ -50,7 +50,7 @@ test.describe('PieAccordion - Component tests', () => {
                 const panel = page.getByTestId(accordion.selectors.panel.dataTestId);
 
                 await page.evaluate(() => {
-                    (document.querySelector('pie-accordion') as HTMLElement & { isOpen: boolean }).isOpen = true;
+                    (document.querySelector('pie-accordion') as PieAccordion).isOpen = true;
                 });
 
                 await expect(panel).not.toHaveAttribute('hidden');
@@ -162,46 +162,28 @@ test.describe('PieAccordion - Component tests', () => {
             });
         });
         test.describe('Keyboard interaction', () => {
-            test('should dispatch toggle when Space is pressed on the trigger', async ({ page }) => {
-                await loadAccordion(page, 'accordion--default');
-                await attachToggleListener(page);
+            [
+                { key: 'Space', expectedLength: 1 },
+                { key: 'Enter', expectedLength: 1 },
+                { key: 'Tab', expectedLength: 0 },
+            ].forEach(({ key, expectedLength }) => {
+                test(`should ${expectedLength > 0 ? 'dispatch' : 'not dispatch'} toggle when ${key} is pressed on the trigger`, async ({ page }) => {
+                    await loadAccordion(page, 'accordion--default');
+                    await attachToggleListener(page);
 
-                const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
-                await trigger.focus();
+                    const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
+                    await trigger.focus();
 
-                const countBefore = await page.evaluate(() => window.__accordionEvents.length);
-                await page.keyboard.press('Space');
-                await page.waitForFunction((c) => window.__accordionEvents.length > c, countBefore);
+                    const countBefore = await page.evaluate(() => window.__accordionEvents.length);
+                    await page.keyboard.press(key);
 
-                const events = await page.evaluate(() => window.__accordionEvents);
-                expect(events).toHaveLength(1);
-            });
+                    if (expectedLength > countBefore) {
+                        await page.waitForFunction((c) => window.__accordionEvents.length > c, countBefore);
+                    }
 
-            test('should dispatch toggle when Enter is pressed on the trigger', async ({ page }) => {
-                await loadAccordion(page, 'accordion--default');
-                await attachToggleListener(page);
-
-                const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
-                await trigger.focus();
-
-                const countBefore = await page.evaluate(() => window.__accordionEvents.length);
-                await page.keyboard.press('Enter');
-                await page.waitForFunction((c) => window.__accordionEvents.length > c, countBefore);
-
-                const events = await page.evaluate(() => window.__accordionEvents);
-                expect(events).toHaveLength(1);
-            });
-
-            test('should not dispatch toggle when Tab is pressed on the trigger', async ({ page }) => {
-                await loadAccordion(page, 'accordion--default');
-                await attachToggleListener(page);
-
-                const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
-                await trigger.focus();
-                await page.keyboard.press('Tab');
-
-                const events = await page.evaluate(() => window.__accordionEvents);
-                expect(events).toHaveLength(0);
+                    const events = await page.evaluate(() => window.__accordionEvents);
+                    expect(events).toHaveLength(expectedLength);
+                });
             });
 
             test('should move focus through accordion triggers and nested focusable elements in tab order', async ({ page }) => {
@@ -229,16 +211,12 @@ test.describe('PieAccordion - Component tests', () => {
     });
 
     test.describe('ARIA attributes', () => {
-        test('should have aria-expanded="false" when isOpen is false', async ({ page }) => {
-            await loadAccordion(page, 'accordion--default', { isOpen: false });
-            const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
-            await expect(trigger).toHaveAttribute('aria-expanded', 'false');
-        });
-
-        test('should have aria-expanded="true" when isOpen is true', async ({ page }) => {
-            await loadAccordion(page, 'accordion--default', { isOpen: true });
-            const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
-            await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+        [false, true].forEach((isOpen) => {
+            test(`should have aria-expanded="${isOpen}" when isOpen is ${isOpen}`, async ({ page }) => {
+                await loadAccordion(page, 'accordion--default', { isOpen });
+                const trigger = page.getByTestId(accordion.selectors.trigger.dataTestId);
+                await expect(trigger).toHaveAttribute('aria-expanded', String(isOpen));
+            });
         });
 
         test('should have aria-controls matching the panel id', async ({ page }) => {
