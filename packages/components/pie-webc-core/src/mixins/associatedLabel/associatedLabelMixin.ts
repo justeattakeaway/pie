@@ -1,5 +1,4 @@
 import { type LitElement, type PropertyValues } from 'lit';
-import { state } from 'lit/decorators.js';
 import type { GenericConstructor } from '../types/GenericConstructor';
 import { isSafari } from '../../functions/isSafari';
 
@@ -63,7 +62,6 @@ export const AssociatedLabelMixin =
          * @implements {AssociatedLabelInterface}
          */
         class AssociatedLabelElement extends superClass implements AssociatedLabelInterface {
-            @state()
             private _associatedLabelText?: string;
 
             get associatedLabelText () {
@@ -84,6 +82,7 @@ export const AssociatedLabelMixin =
 
             private updateAssociatedLabelText () : void {
                 this._associatedLabelText = getLabelText(this._internals.labels);
+                this.requestUpdate();
             }
 
             private observeAssociatedLabels () : void {
