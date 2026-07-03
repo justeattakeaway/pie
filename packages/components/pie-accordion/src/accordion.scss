@@ -3,6 +3,15 @@
 
 :host {
     display: block;
+
+    --accordion-button-padding-block-start: var(--dt-spacing-d);
+    --accordion-button-padding-block-end: var(--dt-spacing-d);
+    --accordion-button-padding-inline-start: var(--dt-spacing-d);
+    --accordion-button-padding-inline-end: var(--dt-spacing-d);
+    --accordion-panel-padding-block-start: var(--dt-spacing-a);
+    --accordion-panel-padding-block-end: var(--dt-spacing-d);
+    --accordion-panel-padding-inline-start: var(--dt-spacing-d);
+    --accordion-panel-padding-inline-end: var(--dt-spacing-d);
 }
 
 // Reset browser default heading margins
@@ -19,7 +28,10 @@
     align-items: flex-start;
     width: 100%;
     gap: var(--dt-spacing-d);
-    padding: var(--dt-spacing-d);
+    padding-block-start: var(--accordion-button-padding-block-start);
+    padding-block-end: var(--accordion-button-padding-block-end);
+    padding-inline-start: var(--accordion-button-padding-inline-start);
+    padding-inline-end: var(--accordion-button-padding-inline-end);
     background-color: var(--int-states-mixin-bg-color);
     border: none;
     text-align: start;
@@ -91,11 +103,10 @@
 }
 
 .c-accordion-panel {
-    padding-inline-start: var(--dt-spacing-d);
-    padding-inline-end: var(--dt-spacing-d);
-    padding-block-start: var(--dt-spacing-a);
-    padding-block-end: var(--dt-spacing-d);
-
+    padding-block-start: var(--accordion-panel-padding-block-start);
+    padding-block-end: var(--accordion-panel-padding-block-end);
+    padding-inline-start: var(--accordion-panel-padding-inline-start);
+    padding-inline-end: var(--accordion-panel-padding-inline-end);
     background-color: var(--dt-color-container-default);
 }
 

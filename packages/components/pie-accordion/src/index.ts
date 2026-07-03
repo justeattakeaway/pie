@@ -78,7 +78,6 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
         return html`
             <${tag}
                 id="${this._headingId}"
-                part="heading"
                 class="c-accordion-heading"
             >
                 <button
@@ -89,7 +88,7 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
                     @click="${this._handleTriggerClick}"
                     data-test-id="${this._buttonId}"
                 >
-                    <slot name="icon" part="icon" class="c-accordion-icon"></slot>
+                    <slot name="icon" class="c-accordion-icon"></slot>
                     <span class="c-accordion-labels">
                         <span class="c-accordion-headingLabel">${headingLabel}</span>
                         ${secondaryLabel ? html`<span class="c-accordion-secondaryLabel">${secondaryLabel}</span>` : nothing}
@@ -105,7 +104,6 @@ export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps
                 id="${this._panelId}"
                 role="region"
                 aria-labelledby="${this._buttonId}"
-                part="panel"
                 class="c-accordion-panel"
                 ?hidden="${!isOpen}"
                 data-test-id="${this._panelId}"

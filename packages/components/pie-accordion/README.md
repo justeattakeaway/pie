@@ -51,7 +51,16 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ### CSS Variables
 
-This component does not expose any CSS variables for style overrides.
+| Name                                          | Description                                             | Default           |
+|------------------------------------------------|----------------------------------------------------------|--------------------|
+| `--accordion-button-padding-block-start`        | Controls the the trigger button block-start padding.  | `--dt-spacing-d`  |
+| `--accordion-button-padding-block-end`          | Controls the the trigger button block-end padding.    | `--dt-spacing-d`  |
+| `--accordion-button-padding-inline-start`       | Controls the the trigger button inline-start padding. | `--dt-spacing-d`  |
+| `--accordion-button-padding-inline-end`         | Controls the the trigger button inline-end padding.   | `--dt-spacing-d`  |
+| `--accordion-panel-padding-block-start`         | Controls the the content panel block-start padding.   | `--dt-spacing-a`  |
+| `--accordion-panel-padding-block-end`           | Controls the the content panel block-end padding.     | `--dt-spacing-d`  |
+| `--accordion-panel-padding-inline-start`        | Controls the the content panel inline-start padding.  | `--dt-spacing-d`  |
+| `--accordion-panel-padding-inline-end`          | Controls the the content panel inline-end padding.    | `--dt-spacing-d`  |
 
 ### Events
 
