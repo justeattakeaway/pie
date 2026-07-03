@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, nothing,
+    html, unsafeCSS, nothing, type PropertyValues,
 } from 'lit';
 import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
@@ -13,6 +13,7 @@ import {
     validPropertyValues,
     FormControlMixin,
     DelegatesFocusMixin,
+    AssociatedLabelMixin,
     wrapNativeEvent,
     safeCustomElement,
     type PIEInputElement,
@@ -27,14 +28,12 @@ export * from './defs';
 
 const componentSelector = 'pie-switch';
 
-const isSafari = (): boolean => typeof navigator !== 'undefined' && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
 /**
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
 @safeCustomElement('pie-switch')
-export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement)) implements SwitchProps, PIEInputElement {
+export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFocusMixin(PieElement))) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
 
@@ -74,15 +73,11 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
 
     private _abortController!: AbortController;
 
-    private _labelMutationObserver?: MutationObserver;
-
     @state()
     private _isAnimationAllowed = false;
 
-    @state()
-    private _associatedLabelText?: string;
-
-    protected firstUpdated (): void {
+    protected firstUpdated (changedProperties: PropertyValues): void {
+        super.firstUpdated(changedProperties);
         const { signal } = this._abortController;
         this.handleFormAssociation();
         // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
@@ -90,7 +85,6 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
         this.input.addEventListener('invalid', (event) => {
             this.dispatchEvent(new Event('invalid', event));
         }, { signal });
-        this.updateAssociatedLabelText();
     }
 
     connectedCallback (): void {
@@ -120,7 +114,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     disconnectedCallback () : void {
         super.disconnectedCallback();
         this._abortController?.abort();
-        this._labelMutationObserver?.disconnect();
+    }
+
+    protected updated (): void {
+        this.handleFormAssociation();
     }
 
     static styles = unsafeCSS(styles);
@@ -142,41 +139,6 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                 this._internals.setValidity(this.validity, this.validationMessage, this.input);
             }
         }
-    }
-
-    /**
-     * Safari doesn't compute the accessible name of a form-associated custom element from its
-     * associated <label> the way other browsers do, so this mirrors the label text onto
-     * `_associatedLabelText` (used as a fallback aria-label) as a Safari-only workaround.
-     * https://bugs.webkit.org/show_bug.cgi?id=259124
-     */
-    private updateAssociatedLabelText () : void {
-        if (!isSafari()) {
-            return;
-        }
-
-        this._labelMutationObserver?.disconnect();
-
-        const associatedLabels = Array.from(this._internals.labels ?? []);
-
-        if (!associatedLabels.length) {
-            this._associatedLabelText = undefined;
-            return;
-        }
-
-        this._labelMutationObserver = new MutationObserver(() => this.updateAssociatedLabelText());
-
-        associatedLabels.forEach((label) => {
-            this._labelMutationObserver?.observe(label, { childList: true, characterData: true, subtree: true });
-        });
-
-        const labelText = associatedLabels
-            .map((label) => label.textContent?.replace(/\s+/g, ' ').trim() ?? '')
-            .filter(Boolean)
-            .join(' ')
-            .trim();
-
-        this._associatedLabelText = labelText || undefined;
     }
 
     /**
@@ -301,10 +263,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             disabled,
             required,
             _isAnimationAllowed,
-            _associatedLabelText,
+            associatedLabelText,
         } = this;
 
-        const ariaLabel = aria?.label || label || _associatedLabelText;
+        const ariaLabel = aria?.label || label || associatedLabelText;
 
         const classes = {
             'c-switch-wrapper': true,
