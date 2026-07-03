@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.82.4
+
+### Patch Changes
+
+- [Fixed] - update docs ([#2985](https://github.com/justeattakeaway/pie/pull/2985)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.25.3
+  - @justeattakeaway/pie-webc@0.10.25
+
 ## 1.82.3
 
 ### Patch Changes
