@@ -592,6 +592,44 @@ test.describe('PieTextarea - Component tests', () => {
                 await expect(component).toHaveAttribute('rows', '1');
             });
         });
+
+        test.describe('resize', () => {
+            test.describe('when set to `none`', () => {
+                test('should apply the correct resize class to the wrapper', async ({ page }) => {
+                    // Arrange
+                    const props: Partial<TextareaProps> = {
+                        resize: 'none',
+                    };
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    await textAreaPage.load({ ...props });
+
+                    // Act
+                    const wrapper = page.getByTestId('pie-textarea-wrapper');
+
+                    // Assert
+                    await expect(wrapper).toHaveClass(/c-textarea--resize-none/);
+                });
+
+                test('should not grow beyond the minimum rows when the content overflows', async ({ page }) => {
+                    // Arrange
+                    const props: Partial<TextareaProps> = {
+                        resize: 'none',
+                    };
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    await textAreaPage.load({ ...props });
+
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+                    const initialHeight = (await textarea.boundingBox())?.height;
+
+                    // Act
+                    await textarea.fill('line one\nline two\nline three\nline four\nline five\nline six\nline seven');
+
+                    // Assert
+                    const updatedHeight = (await textarea.boundingBox())?.height;
+                    expect(updatedHeight).toEqual(initialHeight);
+                });
+            });
+        });
     });
 
     test.describe('Form integration', () => {
