@@ -78,22 +78,8 @@
     max-width: calc(100% / 3);
 }
 
-@include p.enforce-slot-elements(('.c-pieIcon', 'input[type="radio"]', 'input[type="checkbox"]', 'pie-switch', 'pie-avatar', 'pie-thumbnail', 'pie-tag'), 'leading', 'trailing');
-
 ::slotted(.c-pieIcon) {
     --icon-size-override: 24px
-}
-
-// Slotted media (pie-avatar / pie-thumbnail) is only shown when the consumer opts
-// in with `has-media`. This guarantees the item always has the correct block
-// padding for media and prevents accidental misuse. Media is also hidden in compact
-// items, where it is not permitted (`is-compact` is for single-line items only).
-// TODO: add icon with background here once it exists
-.c-listItem-container:not([has-media]) ::slotted(pie-avatar),
-.c-listItem-container:not([has-media]) ::slotted(pie-thumbnail),
-.c-listItem-container[is-compact] ::slotted(pie-avatar),
-.c-listItem-container[is-compact] ::slotted(pie-thumbnail) {
-    display: none;
 }
 
 // typography

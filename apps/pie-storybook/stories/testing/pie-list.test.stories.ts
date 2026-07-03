@@ -466,31 +466,3 @@ const MetaTextWithTrailingTemplate = () => withLayout(html`
 `);
 
 export const MetaTextWithTrailing = createStory<ListProps>(MetaTextWithTrailingTemplate, defaultArgs)();
-
-/**
- * Test-only: a thumbnail slotted without `has-media`. The thumbnail should be
- * hidden (media requires an explicit `has-media` opt-in).
- */
-const MediaWithoutHasMediaTemplate = () => withLayout(html`
-    <pie-list aria-label="Media without has-media">
-        <pie-list-item primaryText="Primary text">
-            ${leadingThumbnail}
-        </pie-list-item>
-    </pie-list>
-`);
-
-export const MediaWithoutHasMedia = createStory<ListProps>(MediaWithoutHasMediaTemplate, defaultArgs)();
-
-/**
- * Test-only: a thumbnail slotted into a compact item (with `has-media`). The
- * thumbnail should be hidden because media is not permitted in compact items.
- */
-const MediaCompactTemplate = () => withLayout(html`
-    <pie-list aria-label="Media in a compact item">
-        <pie-list-item is-compact has-media primaryText="Primary text">
-            ${leadingThumbnail}
-        </pie-list-item>
-    </pie-list>
-`);
-
-export const MediaCompact = createStory<ListProps>(MediaCompactTemplate, defaultArgs)();

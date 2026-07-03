@@ -9,5 +9,3 @@
         --list-item-border-override: var(--list-item-size-modifier) solid var(--dt-color-divider-default);
     }
 }
-
-@include p.enforce-slot-elements(('pie-list-item'));

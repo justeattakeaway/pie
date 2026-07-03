@@ -54,7 +54,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `metaText` | Any string | Optional supporting information about the item's context, status or attributes. Rendered as a trailing text string. **Mutually exclusive with the `trailing` slot**: if `metaText` is set, the `trailing` slot is not rendered. | `undefined` |
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
-| `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Slotted media is hidden unless this is set. It also reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
+| `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
 
 ### Slots
 
@@ -65,7 +65,8 @@ Slots are provided by `pie-list-item`.
 | `leading` | Content displayed at the start of the item, before the text. Intended for a small icon or a media element (e.g. `pie-thumbnail`). If slotting `pie-thumbnail`, it MUST use `size="40"`; this is the only size that fits the list-item layout correctly. |
 | `trailing` | Content displayed at the end of the item, after the text. Intended for a small icon, a `pie-tag`, etc. Not rendered when `metaText` is set. |
 
-The permitted slotted elements are: a PIE icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and radio/checkbox inputs.
+The permitted slotted elements are: a PIE WEBC icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and native HTML radio/checkbox inputs.
+Some slotted content is designed with specific properties being used. So please read the entire readme to understand correct slot usage.
 
 > Slotted PIE icons are always sized by `pie-list-item` (24px). Consumers cannot override this size.
 
@@ -205,7 +206,7 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 
 ```html
 <!-- `has-media` is REQUIRED whenever you slot a thumbnail. Without it the
-     thumbnail is hidden. On a single-line item it also reduces the block padding. -->
+     block padding will be incorrect. -->
 <pie-list aria-label="Restaurants">
   <pie-list-item has-media primaryText="Primary text">
     <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
@@ -213,7 +214,7 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 </pie-list>
 
 <!-- Still set `has-media` when there is secondary text. The padding is unchanged
-     in this case, but the thumbnail would be hidden without it. -->
+     in this case, but you should still set it. -->
 <pie-list aria-label="Restaurants">
   <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
     <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
@@ -270,8 +271,8 @@ To keep lists consistent and correct, follow these rules:
 - **`primaryText` is required** on every `pie-list-item`. An item with no primary text will not render.
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
-- **Always set `has-media` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. **Slotted media is hidden if `has-media` is not set.** This is deliberate, to guarantee the item has the correct padding and to prevent misuse. On single-line items `has-media` also reduces the block padding; with `secondaryText` the padding is unchanged but you must still set it.
-- **Do not combine `is-compact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these. As a safeguard, slotted media is hidden when `is-compact` is set (even if `has-media` is present), but you should not rely on this; simply avoid the combination.
+- **Always set `has-media` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
+- **Do not combine `is-compact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
 - **Only use `center` for `--list-item-alignment-override`.** Other values are not supported.
 - **`pie-avatar` is not yet ready** for use in lists. Prefer `pie-thumbnail` for media for now.
 

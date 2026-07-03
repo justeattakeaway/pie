@@ -56,27 +56,5 @@ test.describe('PieList - Component tests', () => {
             // Assert
             await expect(thumbnail).toBeVisible();
         });
-
-        test('should hide slotted media when has-media is not set', async ({ page }) => {
-            // Arrange
-            await new BasePage(page, 'list--media-without-has-media').load();
-
-            // Act
-            const thumbnail = page.locator('pie-thumbnail');
-
-            // Assert
-            await expect(thumbnail).toBeHidden();
-        });
-
-        test('should hide slotted media in a compact item even when has-media is set', async ({ page }) => {
-            // Arrange
-            await new BasePage(page, 'list--media-compact').load();
-
-            // Act
-            const thumbnail = page.locator('pie-thumbnail');
-
-            // Assert
-            await expect(thumbnail).toBeHidden();
-        });
     });
 });
