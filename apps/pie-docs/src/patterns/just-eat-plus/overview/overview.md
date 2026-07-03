@@ -119,7 +119,7 @@ JET+ gradients must be applied to neutral backgrounds, we never use gradients ov
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [Gradients foundation documentation](https://www.pie.design/foundations/gradients/)."
+  message: "Check out the [Gradients foundation documentation](/foundations/gradients/)."
 } %}
 
 ### Direction and angle
@@ -218,7 +218,7 @@ src:"../../../assets/img/patterns/just-eat-plus/gradients-dark-jet-support-02.sv
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [PIE Colours tokens](https://www.pie.design/foundations/colours/)."
+  message: "Check out the [PIE Colours tokens](/foundations/colours/)."
 } %}
 
 ---
@@ -265,7 +265,7 @@ Please use narrow or wide respective of the context you're designing for.
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [Typography documentation](https://www.pie.design/foundations/typography/)."
+  message: "Check out the [Typography documentation](/foundations/typography/)."
 } %}
 
 ### Offset
