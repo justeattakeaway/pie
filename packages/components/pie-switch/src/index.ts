@@ -17,9 +17,9 @@ import {
     AssociatedLabelMixin,
     wrapNativeEvent,
     safeCustomElement,
-    listItemLabelContext,
+    ariaContext,
     type PIEInputElement,
-    type ListItemControlLabel,
+    type ContextualAria,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -65,11 +65,11 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    // When inside a `pie-list-item`, the item provides the accessible name/description; it is
-    // folded into the input's ARIA. No provider when standalone, so it stays undefined and ignored.
-    @consume({ context: listItemLabelContext, subscribe: true })
+    // Optional ARIA supplied by an ancestor (for example a `pie-list-item`), folded into the
+    // input's ARIA below as a fallback behind the switch's own label. Undefined when standalone.
+    @consume({ context: ariaContext, subscribe: true })
     @state()
-    private _listItemLabel?: ListItemControlLabel;
+    private _contextAria?: ContextualAria;
 
     @query('input[type="checkbox"]')
     private input!: HTMLInputElement;
@@ -275,7 +275,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
             associatedLabelText,
         } = this;
 
-        const ariaLabel = aria?.label || label || this._listItemLabel?.label || associatedLabelText;
+        const ariaLabel = aria?.label || label || this._contextAria?.label || associatedLabelText;
 
         const classes = {
             'c-switch-wrapper': true,
@@ -303,7 +303,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
                         ?disabled="${disabled}"
                         @change="${this.handleChange}"
                         aria-label="${ifDefined(ariaLabel)}"
-                        aria-description="${ifDefined(this._listItemLabel?.description)}"
+                        aria-description="${ifDefined(this._contextAria?.description)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}

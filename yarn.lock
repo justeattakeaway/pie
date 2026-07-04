@@ -3553,6 +3553,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.2.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
     "@justeattakeaway/pie-webc-core": "npm:15.0.1"
+    "@lit/context": "npm:^1.1.6"
   languageName: unknown
   linkType: soft
 
@@ -3898,7 +3899,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/context@npm:1.1.6":
+"@lit/context@npm:1.1.6, @lit/context@npm:^1.1.6":
   version: 1.1.6
   resolution: "@lit/context@npm:1.1.6"
   dependencies:

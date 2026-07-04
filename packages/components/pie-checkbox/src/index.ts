@@ -12,8 +12,8 @@ import {
     DelegatesFocusMixin,
     validPropertyValues,
     safeCustomElement,
-    listItemLabelContext,
-    type ListItemControlLabel,
+    ariaContext,
+    type ContextualAria,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-assistive-text';
 
@@ -44,12 +44,12 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
     @state()
     private _isAnimationAllowed = false;
 
-    // When inside a `pie-list-item`, the item provides the accessible name/description; it is
-    // applied to the internal input (the element carrying the checkbox semantics). No provider
-    // when used standalone, so this is a no-op there.
-    @consume({ context: listItemLabelContext, subscribe: true })
+    // Optional ARIA supplied by an ancestor (for example a `pie-list-item`), applied to the
+    // internal input (the element carrying the checkbox semantics). Undefined when standalone, so
+    // it has no effect there.
+    @consume({ context: ariaContext, subscribe: true })
     @state()
-    private _listItemLabel?: ListItemControlLabel;
+    private _contextAria?: ContextualAria;
 
     @property({ type: String })
     public value = defaultProps.value;
@@ -154,26 +154,26 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
 
     protected updated (): void {
         this._handleFormAssociation();
-        this._applyContextLabel();
+        this._applyContextAria();
     }
 
     /**
-     * When rendered inside a `pie-list-item`, applies the item-provided accessible name and
-     * description to the internal input (the element that carries the checkbox semantics). Does
-     * nothing when used standalone, where the name comes from the default slot / label.
+     * When an ancestor provides ARIA (for example a `pie-list-item`), applies the fields this
+     * control cares about to the internal input (the element that carries the checkbox semantics).
+     * Does nothing when used standalone, where the name comes from the default slot / label.
      */
-    private _applyContextLabel (): void {
-        const contextLabel = this._listItemLabel;
-        if (!contextLabel || !this._checkbox) return;
+    private _applyContextAria (): void {
+        if (!this._checkbox) return;
+        const aria = this._contextAria;
 
-        if (contextLabel.label) {
-            this._checkbox.setAttribute('aria-label', contextLabel.label);
+        if (aria?.label) {
+            this._checkbox.setAttribute('aria-label', aria.label);
         } else {
             this._checkbox.removeAttribute('aria-label');
         }
 
-        if (contextLabel.description) {
-            this._checkbox.setAttribute('aria-description', contextLabel.description);
+        if (aria?.description) {
+            this._checkbox.setAttribute('aria-description', aria.description);
         } else {
             this._checkbox.removeAttribute('aria-description');
         }
@@ -246,7 +246,7 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
             // A transparent tick lets that row tint show through the (unchecked) box, matching
             // how the radio behaves. Only applies in a list item, so standalone checkboxes are
             // unaffected.
-            'c-checkbox--in-list-item': Boolean(this._listItemLabel),
+            'c-checkbox--in-list-item': Boolean(this._contextAria),
         };
 
         const labelClasses = {

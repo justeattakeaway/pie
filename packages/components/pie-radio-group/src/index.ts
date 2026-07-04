@@ -16,7 +16,7 @@ import {
     wrapNativeEvent,
     validPropertyValues,
     safeCustomElement,
-    listDisabledContext,
+    parentDisabledContext,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -66,7 +66,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
     // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the
     // list rows (suppressing their hover/active states).
-    @provide({ context: listDisabledContext })
+    @provide({ context: parentDisabledContext })
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 

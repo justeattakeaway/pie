@@ -5,9 +5,9 @@ import {
     safeCustomElement,
     requiredProperty,
     validPropertyValues,
-    listDisabledContext,
-    listItemLabelContext,
-    type ListItemControlLabel,
+    parentDisabledContext,
+    ariaContext,
+    type ContextualAria,
 } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { type ListItemProps, defaultProps, selectionTypes } from './defs';
@@ -45,16 +45,16 @@ export class PieListItem extends PieElement implements ListItemProps {
     @validPropertyValues(componentSelector, selectionTypes, defaultProps.selectionType)
         selectionType = defaultProps.selectionType;
 
-    // Whether the containing group (e.g. `pie-radio-group`) is disabled. Defaults to false
-    // when there is no provider (a standalone item or a static list).
-    @consume({ context: listDisabledContext, subscribe: true })
+    // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state.
+    // Defaults to false when there is no provider (a standalone item or a static list).
+    @consume({ context: parentDisabledContext, subscribe: true })
     @state()
-    private _groupDisabled = false;
+    private _parentDisabled = false;
 
-    // Provides this item's accessible name/description down to its slotted control, which
-    // consumes it and applies it to the element carrying its semantics (see pie-radio /
-    // pie-checkbox).
-    private _labelProvider = new ContextProvider(this, { context: listItemLabelContext });
+    // Provides this item's accessible name/description down to its slotted control via the shared
+    // aria context, which the control consumes and applies to the element carrying its semantics
+    // (the internal input for pie-checkbox / pie-switch). See `ariaContext` in pie-webc-core.
+    private _ariaProvider = new ContextProvider(this, { context: ariaContext });
 
     private _abortController!: AbortController;
 
@@ -76,7 +76,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     // reactive state) so it is always evaluated in the same render as `_isSelectable`, leaving no
     // window where a disabled row is momentarily interactive during hydration.
     private get _isDisabled (): boolean {
-        return (this._control?.hasAttribute('disabled') ?? false) || this._groupDisabled;
+        return (this._control?.hasAttribute('disabled') ?? false) || this._parentDisabled;
     }
 
     private _controlObserver?: MutationObserver;
@@ -111,8 +111,7 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     protected updated () {
         this._applyRole();
-        this._applyControlAria();
-        this._labelProvider.setValue(this._controlLabel);
+        this._ariaProvider.setValue(this._providedAria);
     }
 
     /**
@@ -126,13 +125,14 @@ export class PieListItem extends PieElement implements ListItemProps {
     }
 
     /**
-     * The accessible name and description this item provides to its slotted control, stitched
-     * from its text. Only provided in a selectable list. The control consumes this and applies it
-     * to the element that carries its semantics (the host for `pie-radio`, the internal input for
-     * `pie-checkbox`); providing it via context avoids putting `aria-label` on a role-less host
-     * and cannot cross a shadow boundary the way `aria-labelledby` can't.
+     * The accessible name and description this item provides to its slotted control, stitched from
+     * its text. Only provided in a selectable list. Each control consumes this via `ariaContext`
+     * and decides how to apply it: `pie-radio` names its host (which carries `role="radio"`),
+     * while `pie-checkbox` / `pie-switch` name their internal input (their host is role-less, so
+     * `aria-label` there would be invalid). Context reaches across the shadow boundary that
+     * `aria-labelledby` cannot.
      */
-    private get _controlLabel (): ListItemControlLabel | undefined {
+    private get _providedAria (): ContextualAria | undefined {
         if (!this._isSelectable) return undefined;
 
         const description = [this.secondaryText, this.metaText].filter(Boolean).join('. ');
@@ -140,34 +140,8 @@ export class PieListItem extends PieElement implements ListItemProps {
         return { label: this.primaryText, description: description || undefined };
     }
 
-    /**
-     * A radio's accessible name lives on its host (which carries `role="radio"`), so it is set
-     * directly here from the stitched label. Checkboxes are named via the label context instead
-     * (see `_controlLabel`), because their host has no role and `aria-label` on a role-less host
-     * would be invalid; the checkbox applies the name to its internal input.
-     */
-    private _applyControlAria (): void {
-        const control = this._control;
-        if (!control || this.selectionType !== 'radio') return;
-
-        const { label, description } = this._controlLabel ?? {};
-
-        if (label) {
-            control.setAttribute('aria-label', label);
-        } else {
-            control.removeAttribute('aria-label');
-        }
-
-        if (description) {
-            control.setAttribute('aria-description', description);
-        } else {
-            control.removeAttribute('aria-description');
-        }
-    }
-
     private _handleControlSlotChange (): void {
         this._observeControl();
-        this._applyControlAria();
         // Re-render so the row's `is-disabled` reflects the newly slotted control.
         this.requestUpdate();
     }

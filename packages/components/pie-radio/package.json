@@ -48,7 +48,8 @@
     "@justeattakeaway/pie-monorepo-utils": "0.9.6"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "15.0.1"
+    "@justeattakeaway/pie-webc-core": "15.0.1",
+    "@lit/context": "1.1.6"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
