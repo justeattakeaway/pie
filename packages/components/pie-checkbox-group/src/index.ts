@@ -11,9 +11,7 @@ import {
     FormControlMixin,
     validPropertyValues,
     safeCustomElement,
-    listTypeContext,
     listDisabledContext,
-    type ListType,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -63,11 +61,6 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
     @provide({ context: listDisabledContext })
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
-
-    // Tells descendant `pie-list-item`s they are inside a checkbox group, so they render as
-    // `presentation` and mirror their text onto the slotted checkbox's ARIA.
-    @provide({ context: listTypeContext })
-    protected _providedListType: ListType = 'checkbox';
 
     /**
      * The checkboxes in the group. This uses a subtree query rather than immediate slotted

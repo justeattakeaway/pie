@@ -4,14 +4,13 @@ import { consume, ContextProvider } from '@lit/context';
 import {
     safeCustomElement,
     requiredProperty,
-    listTypeContext,
+    validPropertyValues,
     listDisabledContext,
     listItemLabelContext,
-    type ListType,
     type ListItemControlLabel,
 } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { type ListItemProps, defaultProps } from './defs';
+import { type ListItemProps, defaultProps, selectionTypes } from './defs';
 import styles from './list-item.scss?inline';
 
 const componentSelector = 'pie-list-item';
@@ -42,11 +41,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean, attribute: 'has-media', reflect: true })
         hasMedia = defaultProps.hasMedia;
 
-    // Reads the kind of list this item is in from its container, without inspecting the parent.
-    // Unresolved on the server; resolves on the client after hydration (see SELECTABLE-LIST-SPEC.md).
-    @consume({ context: listTypeContext, subscribe: true })
-    @state()
-    private _listType?: ListType;
+    @property({ type: String, attribute: 'selection-type', reflect: true })
+    @validPropertyValues(componentSelector, selectionTypes, defaultProps.selectionType)
+        selectionType = defaultProps.selectionType;
 
     // Whether the containing group (e.g. `pie-radio-group`) is disabled. Defaults to false
     // when there is no provider (a standalone item or a static list).
@@ -64,7 +61,14 @@ export class PieListItem extends PieElement implements ListItemProps {
     private _hasExplicitRole = false;
 
     private get _isSelectable (): boolean {
-        return this._listType === 'radiogroup' || this._listType === 'checkbox';
+        return this.selectionType !== 'none';
+    }
+
+    // radio/checkbox are owned by a selection group, which is why the item becomes `presentation`
+    // (so the group owns the controls directly) and the radio is named on its host. A switch has
+    // no group, so the item stays a `listitem`.
+    private get _ownedByGroup (): boolean {
+        return this.selectionType === 'radio' || this.selectionType === 'checkbox';
     }
 
     // True when this row should be treated as disabled: either its own control is disabled, or
@@ -77,19 +81,26 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     private _controlObserver?: MutationObserver;
 
-    // The interactive control (radio/checkbox) slotted into this item, if any.
+    // The interactive control (radio/checkbox/switch) slotted into this item, if any.
     private get _control (): HTMLElement | null {
-        return this.querySelector('pie-radio, pie-checkbox');
+        return this.querySelector('pie-radio, pie-checkbox, pie-switch');
     }
 
     connectedCallback () {
         super.connectedCallback();
 
-        // Respect a role the consumer set explicitly; otherwise we manage it from the list type.
+        // Respect a role the consumer set explicitly; otherwise we manage it from `selectionType`.
         this._hasExplicitRole = this.hasAttribute('role');
 
         this._abortController = new AbortController();
-        this.addEventListener('click', this._handleHostClick, { signal: this._abortController.signal });
+        const { signal } = this._abortController;
+        this.addEventListener('click', this._handleHostClick, { signal });
+
+        // A slotted switch has no border and a filled track, so (unlike radio/checkbox) it can't
+        // rely on the row's tint showing through it. Reflect the row's hover/active onto the switch
+        // so its track co-tints. A harmless no-op for other selection types.
+        (['pointerenter', 'pointerleave', 'pointerdown', 'pointerup'] as const)
+            .forEach((type) => this.addEventListener(type, this._handleRowPointer, { signal }));
     }
 
     disconnectedCallback () {
@@ -105,13 +116,13 @@ export class PieListItem extends PieElement implements ListItemProps {
     }
 
     /**
-     * Sets the item's role from the list type: `presentation` inside a radio/checkbox group (so
-     * the group owns its radio/checkbox descendants directly), otherwise `listitem`. A role set
+     * Sets the item's role from `selectionType`: `presentation` for radio/checkbox (so the group
+     * owns those controls directly), otherwise `listitem` (static items and switches). A role set
      * explicitly by the consumer is left untouched.
      */
     private _applyRole (): void {
         if (this._hasExplicitRole) return;
-        this.setAttribute('role', this._isSelectable ? 'presentation' : 'listitem');
+        this.setAttribute('role', this._ownedByGroup ? 'presentation' : 'listitem');
     }
 
     /**
@@ -137,7 +148,7 @@ export class PieListItem extends PieElement implements ListItemProps {
      */
     private _applyControlAria (): void {
         const control = this._control;
-        if (!control || this._listType !== 'radiogroup') return;
+        if (!control || this.selectionType !== 'radio') return;
 
         const { label, description } = this._controlLabel ?? {};
 
@@ -187,6 +198,40 @@ export class PieListItem extends PieElement implements ListItemProps {
 
         control.click();
         control.focus();
+    };
+
+    /**
+     * Reflects the row's pointer hover/active state onto a slotted switch (via `data-row-hover` /
+     * `data-row-active`), so the switch's track can tint in step with the row. Only a switch reads
+     * these attributes; radio and checkbox co-tint passively via their transparent fills.
+     */
+    private _handleRowPointer = (event: PointerEvent): void => {
+        const control = this._control;
+        if (!control) return;
+
+        if (this.selectionType !== 'switch' || this._isDisabled) {
+            control.removeAttribute('data-row-hover');
+            control.removeAttribute('data-row-active');
+            return;
+        }
+
+        switch (event.type) {
+            case 'pointerenter':
+                control.setAttribute('data-row-hover', '');
+                break;
+            case 'pointerleave':
+                control.removeAttribute('data-row-hover');
+                control.removeAttribute('data-row-active');
+                break;
+            case 'pointerdown':
+                control.setAttribute('data-row-active', '');
+                break;
+            case 'pointerup':
+                control.removeAttribute('data-row-active');
+                break;
+            default:
+                break;
+        }
     };
 
     _renderSecondaryText () {

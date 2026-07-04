@@ -68,6 +68,28 @@
     }
 }
 
+// Row-driven states. Inside a selectable `pie-list-item`, the whole row is the click target, so the
+// item reflects its hover/active onto the switch host (`data-row-hover` / `data-row-active`) and we
+// tint the track to match a direct hover/active. A standalone switch never receives these
+// attributes. Progressive enhancement via `color-mix`; older browsers keep the resting track.
+@supports (background-color: color-mix(in srgb, black, white)) {
+    :host([data-row-hover]) .c-switch:not([checked]) {
+        --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-form));
+    }
+
+    :host([data-row-active]) .c-switch:not([checked]) {
+        --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-form));
+    }
+
+    :host([data-row-hover]) .c-switch[checked] {
+        --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+    }
+
+    :host([data-row-active]) .c-switch[checked] {
+        --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+    }
+}
+
 .c-switch-input {
     @include p.visually-hidden;
 

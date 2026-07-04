@@ -152,16 +152,16 @@ const WithListItemsTemplate = () => {
 
     return html`
         <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" @change=${onChange}>
-            <pie-list-item data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+            <pie-list-item selection-type="checkbox" data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
                 <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese"></pie-checkbox>
             </pie-list-item>
-            <pie-list-item data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+            <pie-list-item selection-type="checkbox" data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
                 <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni"></pie-checkbox>
             </pie-list-item>
-            <pie-list-item data-test-id="item-3" primaryText="Mushrooms">
+            <pie-list-item selection-type="checkbox" data-test-id="item-3" primaryText="Mushrooms">
                 <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms" disabled></pie-checkbox>
             </pie-list-item>
-            <pie-list-item data-test-id="item-4" primaryText="Olives" metaText="£0.50">
+            <pie-list-item selection-type="checkbox" data-test-id="item-4" primaryText="Olives" metaText="£0.50">
                 <pie-checkbox slot="leading" data-test-id="checkbox-4" name="olives"></pie-checkbox>
             </pie-list-item>
         </pie-checkbox-group>
@@ -170,16 +170,16 @@ const WithListItemsTemplate = () => {
 
 const WithListItemsGroupDisabledTemplate = () => html`
         <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" disabled>
-            <pie-list-item data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+            <pie-list-item selection-type="checkbox" data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
                 <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese"></pie-checkbox>
             </pie-list-item>
-            <pie-list-item data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+            <pie-list-item selection-type="checkbox" data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
                 <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni"></pie-checkbox>
             </pie-list-item>
-            <pie-list-item data-test-id="item-3" primaryText="Mushrooms">
+            <pie-list-item selection-type="checkbox" data-test-id="item-3" primaryText="Mushrooms">
                 <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms"></pie-checkbox>
             </pie-list-item>
-            <pie-list-item data-test-id="item-4" primaryText="Olives" metaText="£0.50">
+            <pie-list-item selection-type="checkbox" data-test-id="item-4" primaryText="Olives" metaText="£0.50">
                 <pie-checkbox slot="leading" data-test-id="checkbox-4" name="olives"></pie-checkbox>
             </pie-list-item>
         </pie-checkbox-group>

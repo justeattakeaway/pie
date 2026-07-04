@@ -16,9 +16,7 @@ import {
     wrapNativeEvent,
     validPropertyValues,
     safeCustomElement,
-    listTypeContext,
     listDisabledContext,
-    type ListType,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -82,11 +80,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _abortController!: AbortController;
 
     private _mutationObserver!: MutationObserver;
-
-    // Tells descendant `pie-list-item`s they are inside a radio group, so they render as
-    // `presentation` and mirror their text onto the slotted radio's ARIA.
-    @provide({ context: listTypeContext })
-    protected _providedListType: ListType = 'radiogroup';
 
     /**
      * The radios in the group. This uses a subtree query rather than immediate slotted

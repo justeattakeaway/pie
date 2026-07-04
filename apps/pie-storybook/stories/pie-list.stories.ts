@@ -5,6 +5,12 @@ import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/radio-group';
+import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/checkbox-group';
+import '@justeattakeaway/pie-webc/components/checkbox';
+import '@justeattakeaway/pie-webc/components/switch';
+import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
 import { createStory, type TemplateFunction } from '../utilities';
@@ -235,3 +241,76 @@ export const LongText = createStory<ListPlaygroundProps>(
     leadingContent: 'icon',
     trailingContent: 'none',
 });
+
+// Selectable lists -----------------------------------------------------------
+// A `pie-list-item` becomes a selectable row via its `selection-type` prop, slotting the control
+// into its `leading`/`trailing` slot. Radio and checkbox rows live inside their groups; switch
+// rows (no group) live in a plain `pie-list`. The playground controls above do not apply to these.
+
+/**
+ * Single-select: `pie-list-item selection-type="radio"` inside a `pie-radio-group`. The whole row
+ * is a selectable target and the radio is named by the item's text.
+ */
+export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-radio-group { min-width: 350px; }</style>
+    <pie-radio-group name="delivery">
+        <pie-form-label slot="label">Delivery method</pie-form-label>
+        <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+            <pie-radio slot="leading" value="standard"></pie-radio>
+        </pie-list-item>
+        <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+            <pie-radio slot="leading" value="express"></pie-radio>
+        </pie-list-item>
+        <pie-list-item selection-type="radio" primaryText="Collection" secondaryText="Collect from a nearby store">
+            <pie-radio slot="leading" value="collection" disabled></pie-radio>
+        </pie-list-item>
+        <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+            <pie-radio slot="leading" value="locker"></pie-radio>
+        </pie-list-item>
+    </pie-radio-group>
+`, defaultArgs)();
+
+/**
+ * Multi-select: `pie-list-item selection-type="checkbox"` inside a `pie-checkbox-group`. Each row
+ * toggles its checkbox independently.
+ */
+export const CheckboxSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-checkbox-group { min-width: 350px; }</style>
+    <pie-checkbox-group name="toppings">
+        <pie-form-label slot="label">Toppings</pie-form-label>
+        <pie-list-item selection-type="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+            <pie-checkbox slot="leading" name="cheese"></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item selection-type="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
+            <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item selection-type="checkbox" primaryText="Mushrooms">
+            <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item selection-type="checkbox" primaryText="Olives" metaText="£0.50">
+            <pie-checkbox slot="leading" name="olives"></pie-checkbox>
+        </pie-list-item>
+    </pie-checkbox-group>
+`, defaultArgs)();
+
+/**
+ * Independent toggles: `pie-list-item selection-type="switch"` in a plain `pie-list` (switches have
+ * no group). The switch sits in the `trailing` slot and the whole row toggles it.
+ */
+export const SwitchSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Notification settings">
+        <pie-list-item selection-type="switch" primaryText="Email" secondaryText="Order updates and receipts">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item selection-type="switch" primaryText="Push notifications" secondaryText="Offers and reminders">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item selection-type="switch" primaryText="SMS">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item selection-type="switch" primaryText="Post" secondaryText="Currently unavailable">
+            <pie-switch slot="trailing" disabled></pie-switch>
+        </pie-list-item>
+    </pie-list>
+`, defaultArgs)();

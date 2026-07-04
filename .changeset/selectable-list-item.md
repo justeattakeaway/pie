@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-list": minor
 ---
 
-[Added] - `pie-list-item` now adapts when placed inside a radio group: it takes a `presentation` role, mirrors its `primaryText`, `secondaryText` and `metaText` onto the slotted control's `aria-label` and `aria-description`, hides the duplicated visible text from assistive technology, forwards row clicks to the control, and shows hover and active states on the row (suppressed when the control or group is disabled). `pie-list` provides its list type to descendant items via context.
+[Added] - `pie-list-item` gains a `selection-type` prop (`none` | `radio` | `checkbox` | `switch`, default `none`) that makes the whole row selectable. With `selection-type="radio"` (inside a `pie-radio-group`) the item takes a `presentation` role, names the slotted radio from its `primaryText`, `secondaryText` and `metaText`, hides the duplicated visible text from assistive technology, forwards row clicks to the radio, and shows hover and active states on the row (suppressed when the radio or group is disabled).

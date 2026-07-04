@@ -7,6 +7,7 @@ import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
+import { consume } from '@lit/context';
 import 'element-internals-polyfill';
 
 import {
@@ -16,7 +17,9 @@ import {
     AssociatedLabelMixin,
     wrapNativeEvent,
     safeCustomElement,
+    listItemLabelContext,
     type PIEInputElement,
+    type ListItemControlLabel,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -61,6 +64,12 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
 
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
+
+    // When inside a `pie-list-item`, the item provides the accessible name/description; it is
+    // folded into the input's ARIA. No provider when standalone, so it stays undefined and ignored.
+    @consume({ context: listItemLabelContext, subscribe: true })
+    @state()
+    private _listItemLabel?: ListItemControlLabel;
 
     @query('input[type="checkbox"]')
     private input!: HTMLInputElement;
@@ -266,7 +275,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
             associatedLabelText,
         } = this;
 
-        const ariaLabel = aria?.label || label || associatedLabelText;
+        const ariaLabel = aria?.label || label || this._listItemLabel?.label || associatedLabelText;
 
         const classes = {
             'c-switch-wrapper': true,
@@ -294,6 +303,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
                         ?disabled="${disabled}"
                         @change="${this.handleChange}"
                         aria-label="${ifDefined(ariaLabel)}"
+                        aria-description="${ifDefined(this._listItemLabel?.description)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}

@@ -7,7 +7,6 @@ import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, status
 import '@justeattakeaway/pie-webc/components/link';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
-import '@justeattakeaway/pie-webc/components/list-item';
 
 import { createStory } from '../utilities';
 
@@ -114,38 +113,3 @@ const Template = ({
     `;
 
 export const Default = createStory<CheckboxGroupProps>(Template, defaultArgs)();
-
-const WithListItemsTemplate = ({
-    name,
-    disabled,
-    labelSlot,
-    assistiveText,
-    status,
-}: CheckboxGroupProps) => html`
-    <style>
-        pie-checkbox-group {
-            min-width: 350px;
-        }
-    </style>
-    <pie-checkbox-group
-        name="${ifDefined(name)}"
-        assistiveText="${ifDefined(assistiveText)}"
-        status=${ifDefined(status)}
-        ?disabled="${disabled}">
-            ${labelSlot}
-            <pie-list-item primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
-                <pie-checkbox slot="leading" name="cheese"></pie-checkbox>
-            </pie-list-item>
-            <pie-list-item primaryText="Pepperoni" secondaryText="Spicy">
-                <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
-            </pie-list-item>
-            <pie-list-item primaryText="Mushrooms">
-                <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
-            </pie-list-item>
-            <pie-list-item primaryText="Olives" metaText="£0.50">
-                <pie-checkbox slot="leading" name="olives"></pie-checkbox>
-            </pie-list-item>
-    </pie-checkbox-group>
-`;
-
-export const WithListItems = createStory<CheckboxGroupProps>(WithListItemsTemplate, defaultArgs)();

@@ -16,10 +16,9 @@ test.describe('PieList - Component tests', () => {
     });
 
     test('should not apply selectable behaviours to items in a static list', async ({ page }) => {
-        // Guards the `listType = 'list'` context path: a static list must not adopt the
-        // radio/checkbox group behaviours (presentation role and hidden text) that only
-        // apply when a `pie-list-item` is inside a radio or checkbox group. Uses the
-        // meta-text story so both the text and meta-text containers are present.
+        // A static list item (`selection-type` defaults to `none`) must not adopt the selectable
+        // behaviours (presentation role and hidden text) that only apply for a radio/checkbox/switch
+        // selection type. Uses the meta-text story so both the text and meta-text containers exist.
         await new BasePage(page, 'list--meta-text').load();
 
         await expect(page.getByRole('listitem').first()).toBeVisible();
@@ -39,6 +38,17 @@ test.describe('PieList - Component tests', () => {
 
         expect(hidden.text).toBeNull();
         expect(hidden.meta).toBeNull();
+    });
+
+    test('should set the item role from selection-type', async ({ page }) => {
+        await new BasePage(page, 'list--selection-types').load();
+
+        // radio/checkbox are owned by a group, so the item becomes `presentation`.
+        await expect(page.getByTestId('item-radio')).toHaveAttribute('role', 'presentation');
+        await expect(page.getByTestId('item-checkbox')).toHaveAttribute('role', 'presentation');
+        // `none` (default) and `switch` (no group) keep `listitem`.
+        await expect(page.getByTestId('item-none')).toHaveAttribute('role', 'listitem');
+        await expect(page.getByTestId('item-switch')).toHaveAttribute('role', 'listitem');
     });
 
     test.describe('primaryText', () => {
