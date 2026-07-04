@@ -419,11 +419,12 @@
     }
 }
 
-// Inside a `pie-list-item` the whole row is the interactive hit target and tints on hover/active.
-// Making the resting (unchecked) tick background transparent lets that row tint show through the
-// box, matching the radio (whose control background is transparent too). The tick-level rules for
-// checked / indeterminate / disabled / direct hover still set their own background, so only the
-// resting unchecked state changes, and only when inside a list item.
-.c-checkbox--in-list-item {
+// Inside an interactive container (such as a `pie-list-item`) the whole container is the interactive
+// hit target and tints on hover/active. Making the resting (unchecked) tick background transparent
+// lets that container tint show through the box, matching the radio (whose control background is
+// transparent too). The tick-level rules for checked / indeterminate / disabled / direct hover
+// still set their own background, so only the resting unchecked state changes, and only when inside
+// such a container.
+.c-checkbox--in-interactive-container {
     --checkbox-bg-color: transparent;
 }

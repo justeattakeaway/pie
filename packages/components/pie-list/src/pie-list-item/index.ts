@@ -93,14 +93,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         this._hasExplicitRole = this.hasAttribute('role');
 
         this._abortController = new AbortController();
-        const { signal } = this._abortController;
-        this.addEventListener('click', this._handleHostClick, { signal });
-
-        // A slotted switch has no border and a filled track, so (unlike radio/checkbox) it can't
-        // rely on the row's tint showing through it. Reflect the row's hover/active onto the switch
-        // so its track co-tints. A harmless no-op for other selection types.
-        (['pointerenter', 'pointerleave', 'pointerdown', 'pointerup'] as const)
-            .forEach((type) => this.addEventListener(type, this._handleRowPointer, { signal }));
+        this.addEventListener('click', this._handleHostClick, { signal: this._abortController.signal });
     }
 
     disconnectedCallback () {
@@ -172,40 +165,6 @@ export class PieListItem extends PieElement implements ListItemProps {
 
         control.click();
         control.focus();
-    };
-
-    /**
-     * Reflects the row's pointer hover/active state onto a slotted switch (via `data-row-hover` /
-     * `data-row-active`), so the switch's track can tint in step with the row. Only a switch reads
-     * these attributes; radio and checkbox co-tint passively via their transparent fills.
-     */
-    private _handleRowPointer = (event: PointerEvent): void => {
-        const control = this._control;
-        if (!control) return;
-
-        if (this.selectionType !== 'switch' || this._isDisabled) {
-            control.removeAttribute('data-row-hover');
-            control.removeAttribute('data-row-active');
-            return;
-        }
-
-        switch (event.type) {
-            case 'pointerenter':
-                control.setAttribute('data-row-hover', '');
-                break;
-            case 'pointerleave':
-                control.removeAttribute('data-row-hover');
-                control.removeAttribute('data-row-active');
-                break;
-            case 'pointerdown':
-                control.setAttribute('data-row-active', '');
-                break;
-            case 'pointerup':
-                control.removeAttribute('data-row-active');
-                break;
-            default:
-                break;
-        }
     };
 
     _renderSecondaryText () {

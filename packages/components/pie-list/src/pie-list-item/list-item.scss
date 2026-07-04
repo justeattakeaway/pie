@@ -60,12 +60,21 @@
 
     cursor: pointer;
 
+    // Expose the current interaction tint to slotted controls via an inherited custom property (it
+    // flows through the `<slot>` into slotted content). This is a generic contract for any control
+    // inside an interactive container: a slotted `pie-switch` layers it over its track so the track
+    // co-tints with the container; radio/checkbox instead let it show through their transparent
+    // fills. Unset when not interacting, so a control outside such a container sees nothing.
     &:hover {
         background-color: var(--list-item-hover-bg);
+
+        --interactive-container-tint: var(--list-item-hover-bg);
     }
 
     &:active {
         background-color: var(--list-item-active-bg);
+
+        --interactive-container-tint: var(--list-item-active-bg);
     }
 }
 

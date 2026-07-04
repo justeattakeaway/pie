@@ -246,7 +246,7 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
             // A transparent tick lets that row tint show through the (unchecked) box, matching
             // how the radio behaves. Only applies in a list item, so standalone checkboxes are
             // unaffected.
-            'c-checkbox--in-list-item': Boolean(this._contextAria),
+            'c-checkbox--in-interactive-container': Boolean(this._contextAria),
         };
 
         const labelClasses = {

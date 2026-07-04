@@ -291,7 +291,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
                 ?disabled=${disabled}>
                 <div
                     data-test-id="switch-component"
-                    class="c-switch"
+                    class="${classMap({ 'c-switch': true, 'c-switch--in-interactive-container': Boolean(this._contextAria) })}"
                     ?checked=${checked}>
                     <input
                         data-test-id="switch-input"

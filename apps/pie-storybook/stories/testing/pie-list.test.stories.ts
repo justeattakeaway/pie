@@ -5,6 +5,7 @@ import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
 import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
@@ -78,6 +79,37 @@ const SelectionTypesTemplate = () => withLayout(html`
     </pie-list>
 `);
 export const SelectionTypes = createStory<ListProps>(SelectionTypesTemplate, defaultArgs)();
+
+const EXPECTED_CHANGE_EVENT_MESSAGE = 'Change event dispatched';
+
+// Test-only: a switch selection list (switches have no group, so they sit directly in a `pie-list`).
+// Switches are in the leading slot here so the trailing slot is free for `metaText`, letting us
+// assert the combined secondary + meta description on the switch itself. Item 3's switch is disabled.
+// The four items mirror the checkbox fixture's text combinations (both, secondary only, neither,
+// meta only). Used to test naming, row-click toggling, disabled rows and the hover/active reflection.
+const SwitchSelectionTemplate = () => {
+    function onChange () {
+        console.info(EXPECTED_CHANGE_EVENT_MESSAGE);
+    }
+
+    return withLayout(html`
+        <pie-list aria-label="Notification settings" @change=${onChange}>
+            <pie-list-item selection-type="switch" data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
+                <pie-switch slot="leading" data-test-id="switch-1"></pie-switch>
+            </pie-list-item>
+            <pie-list-item selection-type="switch" data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
+                <pie-switch slot="leading" data-test-id="switch-2"></pie-switch>
+            </pie-list-item>
+            <pie-list-item selection-type="switch" data-test-id="item-3" primaryText="SMS">
+                <pie-switch slot="leading" data-test-id="switch-3" disabled></pie-switch>
+            </pie-list-item>
+            <pie-list-item selection-type="switch" data-test-id="item-4" primaryText="Post" metaText="Rarely">
+                <pie-switch slot="leading" data-test-id="switch-4"></pie-switch>
+            </pie-list-item>
+        </pie-list>
+    `);
+};
+export const SwitchSelection = createStory<ListProps>(SwitchSelectionTemplate, defaultArgs)();
 
 /**
  * `is-bold` sets the primary text to a bold font-weight.
