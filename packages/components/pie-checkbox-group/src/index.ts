@@ -3,13 +3,15 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, queryAssignedElements, state,
+    property, state,
 } from 'lit/decorators.js';
+import { provide } from '@lit/context';
 import {
     RtlMixin,
     FormControlMixin,
     validPropertyValues,
     safeCustomElement,
+    parentDisabledContext,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -54,10 +56,20 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
 
+    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the
+    // list rows (suppressing their hover/active states).
+    @provide({ context: parentDisabledContext })
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren!: Array<HTMLElement>;
+    /**
+     * The checkboxes in the group. This uses a subtree query rather than immediate slotted
+     * children so checkboxes wrapped in `pie-list-item`s (at any depth) are discovered. It is a
+     * superset of the previous immediate-child query, so direct-child checkboxes keep working.
+     */
+    private get _slottedChildren (): HTMLElement[] {
+        return Array.from(this.querySelectorAll('pie-checkbox'));
+    }
 
     private _handleDisabled () : void {
         this._slottedChildren.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {

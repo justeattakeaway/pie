@@ -244,18 +244,18 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 
 ### Selectable lists
 
-`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select), set each item's `selection-type`, and slot the control into the item's `leading` (or `trailing`) slot.
+`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select) or a [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) (multi-select), set each item's `selection-type`, and slot the control into the item's `leading` (or `trailing`) slot.
 
 #### The `selection-type` prop
 
-`selection-type` is what makes a row selectable. Set it to `radio` and it drives the item to:
+`selection-type` is what makes a row selectable. Set it to `radio` or `checkbox` and it drives the item to:
 
 - take the correct **role** — `presentation` for `radio`/`checkbox` (so the group owns the controls directly), `listitem` for `switch` and `none`;
 - provide its `primaryText`, `secondaryText` and `metaText` as the slotted control's **accessible name and description** (and `aria-hidden` the now-duplicated visible text);
 - **forward a click** anywhere on the row to the control, so the whole row is a hit target;
 - show **hover and active** states on the row (suppressed when the control, or the group, is disabled).
 
-Provide the label through the item's `primaryText` — not as the control's own content. The group still owns the group-level semantics (its own role, shared `name`, selection coordination and group-disable); `selection-type` only governs the item. See the [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) docs for the group behaviour.
+Provide the label through the item's `primaryText` — not as the control's own content. The group still owns the group-level semantics (its own role, shared `name`, selection coordination and group-disable); `selection-type` only governs the item. See the [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) and [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) docs for the group behaviour.
 
 Single-select (radios):
 
@@ -274,6 +274,25 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
     <pie-radio slot="leading" value="express"></pie-radio>
   </pie-list-item>
 </pie-radio-group>
+```
+
+Multi-select (checkboxes):
+
+```js
+import '@justeattakeaway/pie-webc/components/checkbox-group.js';
+import '@justeattakeaway/pie-webc/components/checkbox.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+```
+
+```html
+<pie-checkbox-group>
+  <pie-list-item selection-type="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+    <pie-checkbox slot="leading" name="cheese"></pie-checkbox>
+  </pie-list-item>
+  <pie-list-item selection-type="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
+    <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
+  </pie-list-item>
+</pie-checkbox-group>
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**

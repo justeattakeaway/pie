@@ -7,6 +7,8 @@ import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/radio-group';
 import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/checkbox-group';
+import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
@@ -241,8 +243,8 @@ export const LongText = createStory<ListPlaygroundProps>(
 
 // Selectable lists -----------------------------------------------------------
 // A `pie-list-item` becomes a selectable row via its `selection-type` prop, slotting the control
-// into its `leading`/`trailing` slot. Radio rows live inside a `pie-radio-group`. The playground
-// controls above do not apply to these.
+// into its `leading`/`trailing` slot. Radio and checkbox rows live inside their groups. The
+// playground controls above do not apply to these.
 
 /**
  * Single-select: `pie-list-item selection-type="radio"` inside a `pie-radio-group`. The whole row
@@ -265,4 +267,27 @@ export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
             <pie-radio slot="leading" value="locker"></pie-radio>
         </pie-list-item>
     </pie-radio-group>
+`, defaultArgs)();
+
+/**
+ * Multi-select: `pie-list-item selection-type="checkbox"` inside a `pie-checkbox-group`. Each row
+ * toggles its checkbox independently.
+ */
+export const CheckboxSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-checkbox-group { min-width: 350px; }</style>
+    <pie-checkbox-group name="toppings">
+        <pie-form-label slot="label">Toppings</pie-form-label>
+        <pie-list-item selection-type="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+            <pie-checkbox slot="leading" name="cheese"></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item selection-type="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
+            <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item selection-type="checkbox" primaryText="Mushrooms">
+            <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item selection-type="checkbox" primaryText="Olives" metaText="£0.50">
+            <pie-checkbox slot="leading" name="olives"></pie-checkbox>
+        </pie-list-item>
+    </pie-checkbox-group>
 `, defaultArgs)();

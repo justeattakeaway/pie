@@ -17,3 +17,21 @@ readingDirections.forEach((direction) => test(`should render all prop variations
 
     await percySnapshot(page, `PIE Checkbox Group - dir: ${direction}`, percyWidths);
 }));
+
+readingDirections.forEach((direction) => test(`should render checkboxes in list items with dir: ${direction}`, async ({ page }) => {
+    const checkboxGroupListItems = new BasePage(page, 'checkbox-group--with-list-items');
+    await checkboxGroupListItems.load({}, { writingDirection: direction });
+
+    await expect.soft(page.getByTestId(checkboxGroup.selectors.container.dataTestId)).toBeVisible();
+
+    await percySnapshot(page, `PIE Checkbox Group - list items - dir: ${direction}`, percyWidths);
+}));
+
+test('should render checkboxes in list items when the group is disabled', async ({ page }) => {
+    const checkboxGroupDisabled = new BasePage(page, 'checkbox-group--with-list-items-group-disabled');
+    await checkboxGroupDisabled.load();
+
+    await expect.soft(page.getByTestId(checkboxGroup.selectors.container.dataTestId)).toBeVisible();
+
+    await percySnapshot(page, 'PIE Checkbox Group - list items - disabled group', percyWidths);
+});
