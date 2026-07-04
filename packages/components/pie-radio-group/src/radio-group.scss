@@ -2,6 +2,10 @@
 
 :host {
     display: block;
+
+    // Applies the divider between adjacent `pie-list-item`s when radios are wrapped in them.
+    // Direct-child radios are unaffected (the selector only matches `pie-list-item`).
+    @include p.list-item-divider;
 }
 
 .c-radioGroup {
@@ -23,6 +27,12 @@
     &.c-radioGroup--inline {
         flex-flow: row wrap;
         gap: var(--radio-group-gap--inline);
+    }
+
+    // When rendering list items, remove the inter-item gap so the dividers sit flush and
+    // the group reads as a single divided list rather than spaced radios.
+    &.c-radioGroup--listItems {
+        gap: 0;
     }
 
     &.c-radioGroup--hasAssistiveText {

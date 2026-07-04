@@ -15,6 +15,42 @@ test.describe('PieList - Component tests', () => {
         await expect(items).toHaveCount(4);
     });
 
+    test('should not apply selectable behaviours to items in a static list', async ({ page }) => {
+        // A static list item (`selection-type` defaults to `none`) must not adopt the selectable
+        // behaviours (presentation role and hidden text) that only apply for a radio/checkbox/switch
+        // selection type. Uses the meta-text story so both the text and meta-text containers exist.
+        await new BasePage(page, 'list--meta-text').load();
+
+        await expect(page.getByRole('listitem').first()).toBeVisible();
+
+        // No item should be demoted to presentation.
+        await expect(page.locator('pie-list-item[role="presentation"]')).toHaveCount(0);
+
+        // Neither the primary/secondary text nor the meta text should be hidden from
+        // assistive technology in a static list.
+        const hidden = await page.evaluate(() => {
+            const root = document.querySelector('pie-list-item')?.shadowRoot;
+            return {
+                text: root?.querySelector('.c-listItem-text')?.getAttribute('aria-hidden'),
+                meta: root?.querySelector('.c-listItem-metaText')?.getAttribute('aria-hidden'),
+            };
+        });
+
+        expect(hidden.text).toBeNull();
+        expect(hidden.meta).toBeNull();
+    });
+
+    test('should set the item role from selection-type', async ({ page }) => {
+        await new BasePage(page, 'list--selection-types').load();
+
+        // radio/checkbox are owned by a group, so the item becomes `presentation`.
+        await expect(page.getByTestId('item-radio')).toHaveAttribute('role', 'presentation');
+        await expect(page.getByTestId('item-checkbox')).toHaveAttribute('role', 'presentation');
+        // `none` (default) and `switch` (no group) keep `listitem`.
+        await expect(page.getByTestId('item-none')).toHaveAttribute('role', 'listitem');
+        await expect(page.getByTestId('item-switch')).toHaveAttribute('role', 'listitem');
+    });
+
     test.describe('primaryText', () => {
         test('should render nothing when primaryText is not provided', async ({ page }) => {
             // Arrange
