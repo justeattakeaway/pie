@@ -3119,6 +3119,8 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
     "@justeattakeaway/pie-css": "npm:1.2.0"
+    "@justeattakeaway/pie-divider": "npm:1.5.25"
+    "@justeattakeaway/pie-icons-webc": "npm:1.25.1"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
     "@justeattakeaway/pie-webc-core": "npm:15.1.0"
   languageName: unknown
@@ -3277,6 +3279,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-divider@npm:1.5.25":
+  version: 1.5.25
+  resolution: "@justeattakeaway/pie-divider@npm:1.5.25"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": "npm:15.0.0"
+  checksum: 10/bb67a92a1e1a33962741448346d60cb3896ac8821e84cc6d9cb58465d4ea7e9d5d2b05f55417f8c52310a1b5382cc3f0265b0f713f3f638f5acec500bee5c217
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-divider@npm:1.5.27, @justeattakeaway/pie-divider@workspace:packages/components/pie-divider":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-divider@workspace:packages/components/pie-divider"
@@ -3405,6 +3416,15 @@ __metadata:
     vue-template-compiler: "npm:2.7.14"
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-icons-webc@npm:1.25.1":
+  version: 1.25.1
+  resolution: "@justeattakeaway/pie-icons-webc@npm:1.25.1"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": "npm:15.0.0"
+  checksum: 10/40f26d13ca443d4d5fcdfa8b836635d879a90ad9100677cfc7858a157b4eb937c7325271c7f1266249587e9a7ec73f68126fcc16d310f2a4f04a732bad25f750
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-icons-webc@npm:1.25.3, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
   version: 0.0.0-use.local
@@ -3716,6 +3736,17 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:*"
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-webc-core@npm:15.0.0":
+  version: 15.0.0
+  resolution: "@justeattakeaway/pie-webc-core@npm:15.0.0"
+  dependencies:
+    lit: "npm:3.2.0"
+  peerDependencies:
+    "@justeattakeaway/pie-css": 1.x
+  checksum: 10/a4ab621f9d29c499874e98af216124761cf53d22ee91335d98d5f4cb51ac2f2be70913c45f69f54fc259650d29968906c94c9436c4a260b0ba092db8934b95c5
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-webc-core@npm:15.1.0, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
