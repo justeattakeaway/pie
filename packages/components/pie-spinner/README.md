@@ -33,6 +33,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |----------|----------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|
 | `size`   | `"xsmall"`, `"small"`, `"medium"`, `"large"`, `"xlarge"` | Size of the spinner.                                                                             | `medium`    |
 | `variant`| `"brand"`, `"secondary"`, `"secondary-dark"`, `"inverse"`, `"inverse-light"` | Variant of the spinner.                                                                          | `brand`     |
+| `centered` | `true`, `false`                            | When true, positions the spinner absolutely and centers it within its nearest relative ancestor. | `false`     |
 | `aria`   | —                                            | An object representing the ARIA attributes such as `label`.                                      | `undefined` |
 
 ### Slots
@@ -74,6 +75,14 @@ import '@justeattakeaway/pie-webc/components/spinner.js';
 import { PieSpinner } from '@justeattakeaway/pie-webc/react/spinner.js';
 
 <PieSpinner size="medium" variant="brand" aria={{ label: 'Loading' }} />
+```
+
+**Centering the spinner within a container:**
+
+```html
+<div style="position: relative; height: 200px;">
+    <pie-spinner centered size="medium" variant="brand" aria="{ label: 'Loading' }"></pie-spinner>
+</div>
 ```
 
 ## Questions and Support

@@ -235,6 +235,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
 
         return html`
             <pie-spinner
+                centered
                 size="${spinnerSize}"
                 variant="${spinnerVariant}">
             </pie-spinner>`;

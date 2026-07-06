@@ -42,6 +42,13 @@ const spinnerStoryMeta: SpinnerStoryMeta = {
             description: 'The ARIA labels used for the spinner.',
             control: 'object',
         },
+        centered: {
+            description: 'When true, positions the spinner absolutely and centers it within its nearest relative ancestor.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.centered,
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -52,10 +59,12 @@ const Template: TemplateFunction<SpinnerProps> = ({
     size,
     variant,
     aria,
+    centered,
 }) => html`
         <pie-spinner
             size="${ifDefined(size)}"
             variant="${ifDefined(variant)}"
+            ?centered="${centered}"
             .aria="${aria}">
         </pie-spinner>`;
 
@@ -64,6 +73,18 @@ const createSpinnerStory = createStory<SpinnerProps>(Template, defaultArgs);
 export const Brand = createSpinnerStory();
 export const Secondary = createSpinnerStory({ variant: 'secondary' });
 export const Inverse = createSpinnerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+
+const CenteredTemplate: TemplateFunction<SpinnerProps> = ({ size, variant, aria }) => html`
+    <div style="position: relative; width: 200px; height: 200px; border: 1px dashed grey;">
+        <pie-spinner
+            centered
+            size="${ifDefined(size)}"
+            variant="${ifDefined(variant)}"
+            .aria="${aria}">
+        </pie-spinner>
+    </div>`;
+
+export const Centered = createStory<SpinnerProps>(CenteredTemplate, defaultArgs)();
 
 const sharedPropsMatrix : Partial<Record<keyof SpinnerProps, unknown[]>> = {
     size: [...sizes],

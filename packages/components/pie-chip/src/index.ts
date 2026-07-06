@@ -81,6 +81,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
 
         return html`
             <pie-spinner
+                centered
                 class="c-chip-spinner"
                 size="small"
                 variant="${spinnerVariant}">
