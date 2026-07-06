@@ -81,16 +81,3 @@ export const Secondary = createSpinnerStory({ variant: 'secondary' });
 export const SecondaryDark = createSpinnerStory({ variant: 'secondary-dark' });
 export const Inverse = createSpinnerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const InverseLight = createSpinnerStory({ variant: 'inverse-light' }, { bgColor: 'dark (container-dark)' });
-
-export const Centered = createStory<SpinnerProps>(
-    ({ size, variant, aria }) => html`
-        <div style="position: relative; width: 200px; height: 200px; border: 1px dashed grey;">
-            <pie-spinner
-                centered
-                size="${ifDefined(size)}"
-                variant="${ifDefined(variant)}"
-                .aria="${aria}">
-            </pie-spinner>
-        </div>`,
-    defaultArgs,
-)();
