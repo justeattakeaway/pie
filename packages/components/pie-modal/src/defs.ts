@@ -67,7 +67,7 @@ export type ModalProps = {
     /**
      * The text to display in the modal's heading.
      */
-    heading: string;
+    heading?: string;
 
     /**
      * The HTML heading tag to use for the modal's heading. Can be h1-h6.
@@ -190,9 +190,10 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector' | 'imageSlotMode'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector' | 'imageSlotMode'>>;
 
 export const defaultProps: DefaultProps = {
+    heading: '',
     hasBackButton: false,
     hasStackedActions: false,
     headingLevel: 'h2',
