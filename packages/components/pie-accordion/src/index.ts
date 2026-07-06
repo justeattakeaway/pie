@@ -31,27 +31,27 @@ const componentSelector = 'pie-accordion';
  */
 @safeCustomElement('pie-accordion')
 export class PieAccordion extends RtlMixin(PieElement) implements AccordionProps {
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
     @property({ type: String })
     public headingLabel = defaultProps.headingLabel;
 
-    @property({ type: String, reflect: true })
+    @property({ type: String })
     @validPropertyValues(componentSelector, headingLevels, defaultProps.headingLevel)
     public headingLevel = defaultProps.headingLevel;
 
     @property({ type: String })
     public secondaryLabel: AccordionProps['secondaryLabel'];
 
-    @property({ type: String, reflect: true })
+    @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
     public isEmphasisReduced = defaultProps.isEmphasisReduced;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
     public isDividerHidden = defaultProps.isDividerHidden;
 
     private readonly _headingId = 'accordion-heading';
