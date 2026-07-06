@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.26.14
+
+### Patch Changes
+
+- [Changed] - make the heading prop optional ([#2996](https://github.com/justeattakeaway/pie/pull/2996)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.26.13
 
 ### Patch Changes
