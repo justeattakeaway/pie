@@ -77,14 +77,6 @@ import { PieSpinner } from '@justeattakeaway/pie-webc/react/spinner.js';
 <PieSpinner size="medium" variant="brand" aria={{ label: 'Loading' }} />
 ```
 
-**Centering the spinner within a container:**
-
-```html
-<div style="position: relative; height: 200px;">
-    <pie-spinner centered size="medium" variant="brand" aria="{ label: 'Loading' }"></pie-spinner>
-</div>
-```
-
 ## Questions and Support
 
 If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
