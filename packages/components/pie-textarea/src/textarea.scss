@@ -119,6 +119,10 @@
     // Minimum is two lines of text
     --textarea-min-height: var(--textarea-height);
   }
+  
+  &.c-textarea--resize-none {
+    --textarea-height: auto; 
+  }
 
   &.has-error {
     --textarea-border-color: var(--dt-color-support-error);
