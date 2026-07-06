@@ -85,6 +85,7 @@ export interface TextareaProps {
     /**
      * The number of visible text rows. Defaults to 2 when resize is auto, with a maximum of 6 rows.
      * Can be set to 1 when resize is manual (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized.
+     * When resize is none, follows the rows value set by the user, defaulting to 2 rows with a minimum of 1 row.
      */
     rows?: number;
 }
