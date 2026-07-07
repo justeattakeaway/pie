@@ -2,6 +2,7 @@ import { html, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { safeCustomElement, requiredProperty } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
+import { classMap } from 'lit/directives/class-map.js';
 import { type ListItemProps, defaultProps } from './defs';
 import styles from './list-item.scss?inline';
 
@@ -64,13 +65,15 @@ export class PieListItem extends PieElement implements ListItemProps {
         // We should never render a list item that doesn't have primary text.
         if (!primaryText) return nothing;
 
+        const containerClasses = {
+            'c-listItem-container': true,
+            'is-compact': this.isCompact,
+            'is-bold': this.isBold,
+            'has-media': this.hasMedia,
+        };
+
         return html`
-        <div
-            class="c-listItem-container"
-            ?is-compact=${this.isCompact}
-            ?is-bold=${this.isBold}
-            ?has-media=${this.hasMedia}
-        >
+        <div class=${classMap(containerClasses)}>
             <div class="c-listItem-leading">
                 <slot name="leading"></slot>
             </div>
