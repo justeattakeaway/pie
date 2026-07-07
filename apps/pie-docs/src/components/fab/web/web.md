@@ -38,13 +38,18 @@ shouldShowContents: true
     width: 200
 } %}
 
-1. **Container:** The FAB is in an elevated container.
-2. **Icon:** Visually supports the label.
-3. **Label:** Informs the user of the action.
+{% list {
+type: listTypes.ordered,
+items: [
+"**Container**: The FAB is in an elevated container.",
+"**Icon**: Visually supports the label.",
+"**Label**: Informs the user of the action."
+]
+} %}
 
 ---
 
-## Variations
+## Variants
 
 ### Compact
 
@@ -279,7 +284,12 @@ FABs should typically be positioned in the bottom-right corner and always remain
     alt: "Form with a button aligned bottom right with a left-to-right label"
 } %}
 
-1. 24 px padding
+{% list {
+type: listTypes.ordered,
+items: [
+"24px padding."
+]
+} %}
 
 ### RTL position
 
@@ -290,7 +300,12 @@ src:"../../../assets/img/components/fab/web/position-rtl.svg",
 alt: "Form with a button aligned bottom left with a right-to-left label"
 } %}
 
-1. 24 px padding
+{% list {
+type: listTypes.ordered,
+items: [
+"24px padding."
+]
+} %}
 
 ---
 
@@ -416,4 +431,7 @@ Here is an example of the component in right-to-left context.
   {% endcontentItem %}
 {% endcontentLayout %}
 
-The compact variation doesn't change in RTL.
+{% notification {
+type: "information",
+message: "The compact variation doesn't change in RTL."
+} %}
