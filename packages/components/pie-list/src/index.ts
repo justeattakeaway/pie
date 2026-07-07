@@ -15,8 +15,16 @@ const componentSelector = 'pie-list';
  */
 @safeCustomElement('pie-list')
 export class PieList extends RtlMixin(PieElement) implements ListProps {
+    connectedCallback (): void {
+        super.connectedCallback();
+
+        if (!this.hasAttribute('role')) {
+            this.setAttribute('role', 'list');
+        }
+    }
+
     render () {
-        return html`<h1 data-test-id="pie-list">Hello world!</h1>`;
+        return html`<slot></slot>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
