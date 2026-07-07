@@ -4,7 +4,7 @@ export interface ListItemProps {
     /**
      * **Required:** Provides an overview of the content.
      */
-    primaryText: string,
+    primaryText?: string,
     /**
      * Provides optional additional detail.
      */
@@ -19,19 +19,19 @@ export interface ListItemProps {
      *
      * **Note**: Do not use if you require secondary text, or if you want to slot a pie-avatar, pie-thumbnail or Icon with Background component into the list item.
      */
-    isCompact: boolean
+    isCompact?: boolean
 
     /**
      * Sets the primary text to use a bold font-weight.
      */
-    isBold: boolean
+    isBold?: boolean
 
     /**
      * Reduces the block padding to suit larger slotted media (such as a pie-thumbnail).
      *
      * **Note**: This has no effect when `secondaryText` is set, and should not be combined with `isCompact`.
      */
-    hasMedia: boolean
+    hasMedia?: boolean
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;

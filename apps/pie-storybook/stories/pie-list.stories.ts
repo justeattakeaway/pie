@@ -41,7 +41,7 @@ const listStoryMeta: ListStoryMeta = {
     component: 'pie-list',
     argTypes: {
         primaryText: {
-            description: 'The main text of the item. **Required**. An item with no primary text renders nothing.',
+            description: 'The main text of the item.',
             control: 'text',
         },
         secondaryText: {
@@ -106,9 +106,9 @@ const renderItem = (args: ListPlaygroundProps, itemStyle = '') => html`
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
-        ?is-compact=${args.isCompact}
-        ?is-bold=${args.isBold}
-        ?has-media=${args.hasMedia}>
+        .isCompact=${args.isCompact}
+        .isBold=${args.isBold}
+        .hasMedia=${args.hasMedia}>
         ${renderLeading(args.leadingContent)}
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>

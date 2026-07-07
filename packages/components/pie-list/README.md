@@ -49,7 +49,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Prop | Options | Description | Default |
 |---|---|---|---|
-| `primaryText` | Any string | **Required.** The main text of the item, providing an overview of the content. | `undefined` |
+| `primaryText` | Any string | The main text of the item, providing an overview of the content. | `undefined` |
 | `secondaryText` | Any string | Optional additional detail, rendered on a second line beneath the primary text. | `undefined` |
 | `metaText` | Any string | Optional supporting information about the item's context, status or attributes. Rendered as a trailing text string. **Mutually exclusive with the `trailing` slot**: if `metaText` is set, the `trailing` slot is not rendered. | `undefined` |
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
@@ -181,7 +181,7 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 
 ```html
 <pie-list>
-  <pie-list-item is-bold primaryText="Primary text"></pie-list-item>
+  <pie-list-item isbold primaryText="Primary text"></pie-list-item>
 </pie-list>
 ```
 
@@ -189,10 +189,10 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 
 ```html
 <pie-list>
-  <pie-list-item is-compact primaryText="Primary text">
+  <pie-list-item iscompact primaryText="Primary text">
     <icon-chevron-right slot="trailing"></icon-chevron-right>
   </pie-list-item>
-  <pie-list-item is-compact primaryText="Primary text">
+  <pie-list-item iscompact primaryText="Primary text">
     <icon-chevron-right slot="trailing"></icon-chevron-right>
   </pie-list-item>
 </pie-list>
@@ -205,18 +205,18 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 ```
 
 ```html
-<!-- `has-media` is REQUIRED whenever you slot a thumbnail. Without it the
+<!-- `hasmedia` is REQUIRED whenever you slot a thumbnail. Without it the
      block padding will be incorrect. -->
 <pie-list aria-label="Restaurants">
-  <pie-list-item has-media primaryText="Primary text">
+  <pie-list-item hasmedia primaryText="Primary text">
     <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
   </pie-list-item>
 </pie-list>
 
-<!-- Still set `has-media` when there is secondary text. The padding is unchanged
+<!-- Still set `hasmedia` when there is secondary text. The padding is unchanged
      in this case, but you should still set it. -->
 <pie-list aria-label="Restaurants">
-  <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+  <pie-list-item hasmedia primaryText="Primary text" secondaryText="Secondary text">
     <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
   </pie-list-item>
 </pie-list>
@@ -271,11 +271,11 @@ import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
 To keep lists consistent and correct, follow these rules:
 
 - **Always give `pie-list` an accessible name** with `aria-label` or `aria-labelledby` (use `aria-labelledby` when a visible heading exists). This is required for screen reader users to understand the list. See [Accessibility](#accessibility).
-- **`primaryText` is required** on every `pie-list-item`. An item with no primary text will not render.
+- **Provide `primaryText`** on every `pie-list-item`; it is the item's main line of content.
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
-- **Always set `has-media` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
-- **Do not combine `is-compact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
+- **Always set `hasmedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
+- **Do not combine `iscompact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
 - **Only use `center` for `--list-item-alignment`.** Other values are not supported.
 - **`pie-avatar` is not yet ready** for use in lists. Prefer `pie-thumbnail` for media for now.
 

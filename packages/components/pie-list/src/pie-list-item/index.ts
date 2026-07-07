@@ -1,6 +1,6 @@
 import { html, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { safeCustomElement, requiredProperty } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
 import { type ListItemProps, defaultProps } from './defs';
@@ -14,7 +14,6 @@ const componentSelector = 'pie-list-item';
 @safeCustomElement('pie-list-item')
 export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: String })
-    @requiredProperty(componentSelector)
         primaryText!: ListItemProps['primaryText'];
 
     @property({ type: String })
@@ -23,13 +22,13 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: String })
         metaText: ListItemProps['metaText'];
 
-    @property({ type: Boolean, attribute: 'is-compact' })
+    @property({ type: Boolean })
         isCompact = defaultProps.isCompact;
 
-    @property({ type: Boolean, attribute: 'is-bold' })
+    @property({ type: Boolean })
         isBold = defaultProps.isBold;
 
-    @property({ type: Boolean, attribute: 'has-media' })
+    @property({ type: Boolean })
         hasMedia = defaultProps.hasMedia;
 
     connectedCallback () {
@@ -61,9 +60,6 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     render () {
         const { primaryText } = this;
-
-        // We should never render a list item that doesn't have primary text.
-        if (!primaryText) return nothing;
 
         const containerClasses = {
             'c-listItem-container': true,
