@@ -22,13 +22,13 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: String })
         metaText: ListItemProps['metaText'];
 
-    @property({ type: Boolean, attribute: 'is-compact', reflect: true })
+    @property({ type: Boolean, attribute: 'is-compact' })
         isCompact = defaultProps.isCompact;
 
-    @property({ type: Boolean, attribute: 'is-bold', reflect: true })
+    @property({ type: Boolean, attribute: 'is-bold' })
         isBold = defaultProps.isBold;
 
-    @property({ type: Boolean, attribute: 'has-media', reflect: true })
+    @property({ type: Boolean, attribute: 'has-media' })
         hasMedia = defaultProps.hasMedia;
 
     connectedCallback () {
