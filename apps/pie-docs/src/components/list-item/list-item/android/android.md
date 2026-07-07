@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 3
 eleventyComputed:
     listItemSizesData: "{% include './list-item-sizes.json' %}"
+    shouldShowContents: true
 ---
 
 ## Dos and Don'ts
