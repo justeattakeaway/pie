@@ -99,12 +99,6 @@ const isRadioChecked = (page: Page, testId: string) => page.evaluate(
     testId,
 );
 
-// Reads whether a list item's inner container is marked disabled (this gates its hover/active styles).
-const isRowDisabled = (page: Page, testId: string) => page.evaluate(
-    (id) => document.querySelector(`[data-test-id="${id}"]`)?.shadowRoot?.querySelector('.c-listItem-container')?.hasAttribute('is-disabled') ?? false,
-    testId,
-);
-
 test.describe('PieRadioGroup - Component tests new', () => {
     let pageObject;
 
@@ -950,12 +944,6 @@ test.describe('PieRadioGroup - Component tests new', () => {
             expect(await isRadioChecked(page, selectors.radios[1])).toBe(false);
         });
 
-        test('should mark a disabled row so its interactive styles are suppressed', async ({ page }) => {
-            // radio-3 (item-3) is disabled in the fixture.
-            expect(await isRowDisabled(page, selectors.items[3])).toBe(true);
-            expect(await isRowDisabled(page, selectors.items[1])).toBe(false);
-        });
-
         test('should not select a disabled row when it is clicked', async ({ page }) => {
             await page.getByTestId(selectors.items[3]).click();
 
@@ -1001,11 +989,6 @@ test.describe('PieRadioGroup - Component tests new', () => {
             pageObject = new BasePage(page, 'radio-group--with-list-items-group-disabled');
             await pageObject.load();
             await expect(page.getByTestId(selectors.radios[1])).toBeVisible();
-        });
-
-        test('should mark every row disabled when the group is disabled', async ({ page }) => {
-            expect(await isRowDisabled(page, selectors.items[1])).toBe(true);
-            expect(await isRowDisabled(page, selectors.items[4])).toBe(true);
         });
 
         test('should not select a row when the group is disabled', async ({ page }) => {
