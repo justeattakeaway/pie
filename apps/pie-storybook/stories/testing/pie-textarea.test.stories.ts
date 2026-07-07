@@ -120,7 +120,12 @@ const textareaStoryMeta: TextareaStoryMeta = {
             defaultValue: {
                 summary: '',
             },
-            if: { arg: 'type', neq: 'number' },
+        },
+        rows: {
+            control: 'number',
+            defaultValue: {
+                summary: '2',
+            },
         },
     },
     args: defaultArgs,
@@ -141,6 +146,7 @@ const Template = ({
     status,
     placeholder,
     maxlength,
+    rows,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -185,6 +191,7 @@ const Template = ({
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
             maxlength=${ifDefined(maxlength)}
+            rows=${ifDefined(rows)}
             data-test-id="pie-textarea-container">
         </pie-textarea>
         <div id="output"></div>

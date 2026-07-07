@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Resources
     parent: Accessibility
-    order: 3
+    order: 4
 title: Accessibility resources
 description: In this section you’ll find a list of resources about accessibility in design systems and digital products.
 ---

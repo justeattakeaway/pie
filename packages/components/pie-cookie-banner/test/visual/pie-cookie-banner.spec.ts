@@ -23,6 +23,14 @@ test.describe('PieCookieBanner - Visual tests`', () => {
         await percySnapshot(page, 'PieCookieBanner Manage preferences - Visual Test');
     });
 
+    test('should display the manage preferences modal with a personalized label override', async ({ page }) => {
+        await pieCookieBannerComponent.load({ personalizedLabel: 'Custom personalized label' });
+
+        await pieCookieBannerComponent.clickManagePreferencesAction();
+
+        await percySnapshot(page, 'PieCookieBanner personalizedLabel override - Visual Test');
+    });
+
     [true, false].forEach((hasPrimaryActionsOnly) => {
         test(`should display the correct button variants for hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`, async ({ page }) => {
             await pieCookieBannerComponent.load({ hasPrimaryActionsOnly });
@@ -54,5 +62,14 @@ test.describe('PieCookieBanner - Visual tests`', () => {
         await pieCookieBannerComponent.clickManagePreferencesAction();
 
         await percySnapshot(page, 'PieCookieBanner - Rich text in per-category description');
+    });
+
+    test('should render personalized description override rich text within manage preferences', async ({ page }) => {
+        await pieCookieBannerComponent.load();
+        await pieCookieBannerComponent.setPersonalizedDescription('Read our <a href="https://example.com/privacy">privacy policy</a> for more info.');
+
+        await pieCookieBannerComponent.clickManagePreferencesAction();
+
+        await percySnapshot(page, 'PieCookieBanner personalizedDescription override - Visual Test');
     });
 });

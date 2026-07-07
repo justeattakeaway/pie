@@ -84,6 +84,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
         language,
         cookieStatementLink,
         cookieTechnologiesLink,
+        personalizedLabel,
+        personalizedDescription,
         defaultPreferences,
         openLinksInSameTab,
     } = props;
@@ -93,6 +95,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             country=${country}
             language=${language}
             .cookieStatementLink=${cookieStatementLink}
+            personalizedLabel=${personalizedLabel}
+            .personalizedDescription=${personalizedDescription}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             .openLinksInSameTab="${openLinksInSameTab}"

@@ -121,8 +121,15 @@ const textareaStoryMeta: TextareaStoryMeta = {
             defaultValue: {
                 summary: '',
             },
-            if: { arg: 'type', neq: 'number' },
         },
+        rows: {
+            description: 'The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized.',
+            control: 'number',
+            defaultValue: {
+                summary: '2',
+            },
+        },
+
     },
     args: defaultArgs,
     parameters: {
@@ -148,6 +155,7 @@ const Template = ({
     status,
     placeholder,
     maxlength,
+    rows,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -185,7 +193,8 @@ const Template = ({
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
-            maxlength=${ifDefined(maxlength)}>
+            maxlength=${ifDefined(maxlength)}
+            rows=${ifDefined(rows)}>
         </pie-textarea>
     `;
 };

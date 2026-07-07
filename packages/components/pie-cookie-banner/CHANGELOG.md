@@ -1,5 +1,29 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.10.0
+
+### Minor Changes
+
+- [Added] - `personalizedLabel` and `personalizedDescription` props to `pie-cookie-banner` allowing consumers to override the personalised preference label and description in the "Manage preferences" modal ([#2965](https://github.com/justeattakeaway/pie/pull/2965)) by [@gundabathula-jatin](https://github.com/gundabathula-jatin)
+
+### Patch Changes
+
+- Updated dependencies [[`a320798`](https://github.com/justeattakeaway/pie/commit/a320798003252582e5c8360e8510a43cf74e3d36)]:
+  - @justeattakeaway/pie-webc-core@15.0.1
+  - @justeattakeaway/pie-button@1.14.5
+  - @justeattakeaway/pie-divider@1.5.26
+  - @justeattakeaway/pie-icon-button@2.7.20
+  - @justeattakeaway/pie-link@1.3.36
+  - @justeattakeaway/pie-modal@1.26.12
+  - @justeattakeaway/pie-switch@2.5.1
+
+## 1.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`8541dad`](https://github.com/justeattakeaway/pie/commit/8541daddd017bec6b16ac4e0c579bae47d38e8e4)]:
+  - @justeattakeaway/pie-switch@2.5.0
+
 ## 1.9.0
 
 ### Minor Changes

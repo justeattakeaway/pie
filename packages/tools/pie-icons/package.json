@@ -22,7 +22,6 @@
     "update-icons": "node ./bin/update-icons.mjs",
     "build": "node ./bin/build.js",
     "prepare": "yarn build && yarn test:coverage",
-    "clean": "run -T rimraf -rf ./dist/",
     "prepublishOnly": "yarn run build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",

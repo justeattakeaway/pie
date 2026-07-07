@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "generate:component-statuses": "node ./component-statuses/generate-component-statuses.js",
+    "generate:copilot-instructions": "node ./copilot-instructions/generate-copilot-instructions.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",
