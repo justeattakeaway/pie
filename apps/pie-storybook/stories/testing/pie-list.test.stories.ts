@@ -284,10 +284,10 @@ const AlignmentOverrideTemplate = () => withLayout(html`
 export const AlignmentOverride = createStory<ListProps>(AlignmentOverrideTemplate, defaultArgs)();
 
 /**
- * `--list-item-inline-padding-override: 0` removes the inline padding entirely.
+ * `--list-item-inline-padding: 0` removes the inline padding entirely.
  */
 const RemovedPaddingTemplate = () => withLayout(html`
-    <pie-list style="--list-item-inline-padding-override: 0;">
+    <pie-list style="--list-item-inline-padding: 0;">
         <pie-list-item primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>

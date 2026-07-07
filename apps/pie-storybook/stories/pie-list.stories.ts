@@ -214,11 +214,11 @@ export const AlignmentOverride = createStory<ListPlaygroundProps>(
 )();
 
 /**
- * `--list-item-inline-padding-override` overrides the inline padding of the items
+ * `--list-item-inline-padding` sets the inline padding of the items
  * (any spacing token, or `0` to remove it).
  */
 export const InlinePaddingOverride = createStory<ListPlaygroundProps>(
-    makeListTemplate('list-padding-heading', 'No inline padding', '--list-item-inline-padding-override: 0;'),
+    makeListTemplate('list-padding-heading', 'No inline padding', '--list-item-inline-padding: 0;'),
     defaultArgs,
 )({ leadingContent: 'none' });
 

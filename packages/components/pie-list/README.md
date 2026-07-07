@@ -78,7 +78,7 @@ These custom properties can be set on a `pie-list-item` (or on `pie-list` to aff
 
 | Variable | Description | Accepted values |
 |---|---|---|
-| `--list-item-inline-padding-override` | Overrides the inline (start and end) padding of the item. | Any PIE spacing token (e.g. `var(--dt-spacing-f)`) or `0` |
+| `--list-item-inline-padding` | Sets the inline (start and end) padding of the item. Defaults to `var(--dt-spacing-d)`. | Any PIE spacing token (e.g. `var(--dt-spacing-f)`) or `0` |
 | `--list-item-alignment-override` | Overrides the vertical alignment of the item's content. | Only `center` is recommended |
 
 ### Events
@@ -233,7 +233,7 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 </pie-list>
 
 <!-- Remove the inline padding -->
-<pie-list style="--list-item-inline-padding-override: 0;">
+<pie-list style="--list-item-inline-padding: 0;">
   <pie-list-item primaryText="Primary text"></pie-list-item>
 </pie-list>
 ```

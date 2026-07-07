@@ -1,11 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    --list-item-inline-padding-default: var(--dt-spacing-d);
-    --list-item-block-padding-default: var(--dt-spacing-d);
-
-    // The list component will add a border to each list-item that follows another. This ensures the height accounts for the added border.
-    --list-item-block-end-padding-default: calc(var(--list-item-block-padding-default) - var(--list-item-size-modifier));
+    // Defined on the host so consumers can override it directly (a declaration on the element
+    // takes precedence over this default).
+    --list-item-inline-padding: var(--dt-spacing-d);
 
     // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
     display: block;
@@ -13,11 +11,16 @@
 
 // Using an internal container div rather than applying directly to the host due to safari and firefox compat issues
 .c-listItem-container {
-    padding-inline-start: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
-    padding-inline-end: var(--list-item-inline-padding-override, var(--list-item-inline-padding-default));
+    --list-item-block-padding: var(--dt-spacing-d);
 
-    padding-block-start: var(--list-item-block-padding-default);
-    padding-block-end: var(--list-item-block-end-padding-default, var(--list-item-block-padding-default));
+    // The list component will add a border to each list-item that follows another. This ensures the height accounts for the added border.
+    --list-item-block-end-padding: calc(var(--list-item-block-padding) - var(--list-item-size-modifier));
+
+    padding-inline-start: var(--list-item-inline-padding);
+    padding-inline-end: var(--list-item-inline-padding);
+
+    padding-block-start: var(--list-item-block-padding);
+    padding-block-end: var(--list-item-block-end-padding, var(--list-item-block-padding));
 
     // Layout
     display: flex;
@@ -35,7 +38,7 @@
 }
 
 .c-listItem-container.is-compact {
-    --list-item-block-padding-default: var(--dt-spacing-c);
+    --list-item-block-padding: var(--dt-spacing-c);
     align-items: var(--list-item-alignment-override, center);
     min-height: 48px;
 }
@@ -44,7 +47,7 @@
 // when the primary text stands alone (`:only-child` == no secondary text). With
 // secondary text the default padding is kept so two lines of text sit correctly.
 .c-listItem-container.has-media:has(.c-listItem-primaryText:only-child) {
-    --list-item-block-padding-default: var(--dt-spacing-b);
+    --list-item-block-padding: var(--dt-spacing-b);
 }
 
 .c-listItem-text {
