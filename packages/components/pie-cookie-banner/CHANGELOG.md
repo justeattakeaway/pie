@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.10.2
+
+### Patch Changes
+
+- Updated dependencies [[`65d311c`](https://github.com/justeattakeaway/pie/commit/65d311c928cb2f630a9c4c810874e8ea46bee4e2)]:
+  - @justeattakeaway/pie-modal@1.26.14
+
 ## 1.10.1
 
 ### Patch Changes
