@@ -1,5 +1,6 @@
 import { html, nothing, unsafeCSS } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { consume, ContextProvider } from '@lit/context';
 import {
     safeCustomElement,
@@ -192,15 +193,17 @@ export class PieListItem extends PieElement implements ListItemProps {
         // We should never render a list item that doesn't have primary text.
         if (!primaryText) return nothing;
 
+        const containerClasses = {
+            'c-listItem-container': true,
+            'is-compact': this.isCompact,
+            'is-bold': this.isBold,
+            'has-media': this.hasMedia,
+            'is-selectable': this._isSelectable,
+            'is-disabled': this._isDisabled,
+        };
+
         return html`
-        <div
-            class="c-listItem-container"
-            ?is-compact=${this.isCompact}
-            ?is-bold=${this.isBold}
-            ?has-media=${this.hasMedia}
-            ?is-selectable=${this._isSelectable}
-            ?is-disabled=${this._isDisabled}
-        >
+        <div class=${classMap(containerClasses)}>
             <div class="c-listItem-leading">
                 <slot name="leading" @slotchange=${this._handleControlSlotChange}></slot>
             </div>

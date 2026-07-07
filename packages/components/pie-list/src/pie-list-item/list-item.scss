@@ -37,7 +37,7 @@
     min-height: 76px;
 }
 
-.c-listItem-container[is-compact] {
+.c-listItem-container.is-compact {
     --list-item-block-padding-default: var(--dt-spacing-c);
     align-items: var(--list-item-alignment-override, center);
     min-height: 48px;
@@ -49,7 +49,7 @@
 // when the slotted control is disabled (the item reflects this as `is-disabled`). The
 // defaults use the standard PIE interactive overlay tokens; override `--list-item-hover-bg` /
 // `--list-item-active-bg` if design specifies dedicated list tokens.
-.c-listItem-container[is-selectable]:not([is-disabled]) {
+.c-listItem-container.is-selectable:not(.is-disabled) {
     --list-item-hover-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
     --list-item-active-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
 
@@ -72,7 +72,7 @@
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
 // when the primary text stands alone (`:only-child` == no secondary text). With
 // secondary text the default padding is kept so two lines of text sit correctly.
-.c-listItem-container[has-media]:has(.c-listItem-primaryText:only-child) {
+.c-listItem-container.has-media:has(.c-listItem-primaryText:only-child) {
     --list-item-block-padding-default: var(--dt-spacing-b);
 }
 
@@ -118,7 +118,7 @@ slot[name="trailing"]::slotted(*),
     color: var(--dt-color-content-default);
 }
 
-.c-listItem-container[is-bold] .c-listItem-primaryText {
+.c-listItem-container.is-bold .c-listItem-primaryText {
     @include p.font-theme('font-body-strong-l');
 }
 
