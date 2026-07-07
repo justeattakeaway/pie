@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-accordion",
   "description": "PIE Design System Accordion built using Web Components",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -15,7 +15,9 @@
   "pieMetadata": {
     "componentStatus": "alpha",
     "replaces": {
-      "snacks": []
+      "snacks": [
+        "Toggler"
+      ]
     }
   },
   "scripts": {
@@ -40,7 +42,9 @@
     "@justeattakeaway/pie-monorepo-utils": "0.9.6"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "15.0.1"
+    "@justeattakeaway/pie-divider": "1.5.25",
+    "@justeattakeaway/pie-icons-webc": "1.25.1",
+    "@justeattakeaway/pie-webc-core": "15.1.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

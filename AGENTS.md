@@ -284,6 +284,7 @@ Prefer native platform events where possible (for example `Event`/`InputEvent`) 
   - **State** uses `.is-` or `.has-` prefix for JS-driven state changes (e.g. `.is-active`, `.has-error`)
 - Use logical properties (e.g. `margin-inline-start` not `margin-left`)
 - Import styles as `?inline` in component files
+- Do not rely on `:host([attribute="value"])` selectors, instead, do prefer to create a new class and map the prop to it using Lit classMap.
 
 ### Documentation
 - Write all documentation in British English and use British English spelling consistently.

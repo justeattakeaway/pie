@@ -1,5 +1,36 @@
 # Changelog
 
+## 5.5.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.27
+
+## 5.5.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.26
+
+## 5.5.0
+
+### Minor Changes
+
+- [Added] - Card - Web figma slot notification in Content ([#2974](https://github.com/justeattakeaway/pie/pull/2974)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Removed] - Bottom sheet - Android & Bottom sheet - iOS old slot content in Slot (nested component)
+  [Added] - Bottom sheet - Android & Bottom sheet - iOS figma slot content and notification in Content
+  [Removed] - Modal - Android & Modal - iOS old slot content in Interactions
+  [Added] - Modal - Android & Modal - iOS figma slot content and notification in Content
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.25.3
+  - @justeattakeaway/pie-webc@0.10.25
+
 ## 5.4.1
 
 ### Patch Changes

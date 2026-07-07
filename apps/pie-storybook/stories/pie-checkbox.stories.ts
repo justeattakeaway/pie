@@ -189,7 +189,7 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     <form id="testForm">
         <pie-checkbox
             .value="${value}"
-            ?name="${ifDefined(name)}"
+            name="${ifDefined(name)}"
             ?checked="${checked}"
             ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
