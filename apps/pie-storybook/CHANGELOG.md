@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.83.0
+
+### Minor Changes
+
+- [Added] reusable container class for having fixed widths ([#2972](https://github.com/justeattakeaway/pie/pull/2972)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.27
+
 ## 1.82.5
 
 ### Patch Changes

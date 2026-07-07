@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-accordion
 
+## 0.0.4
+
+### Patch Changes
+
+- [Updated] - implement style and behaviour ([#2972](https://github.com/justeattakeaway/pie/pull/2972)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.0.3
 
 ### Patch Changes
