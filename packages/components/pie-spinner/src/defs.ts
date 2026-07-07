@@ -23,7 +23,7 @@ export interface SpinnerProps {
     /**
      * When true, the spinner positions itself absolutely and centers itself within its nearest relative ancestor.
      */
-    centered?: boolean;
+    isCentered?: boolean;
 }
 
 export type DefaultProps = ComponentDefaultProps<SpinnerProps, keyof Omit<SpinnerProps, 'aria'>>;
@@ -31,5 +31,5 @@ export type DefaultProps = ComponentDefaultProps<SpinnerProps, keyof Omit<Spinne
 export const defaultProps: DefaultProps = {
     size: 'medium',
     variant: 'brand',
-    centered: false,
+    isCentered: false,
 };

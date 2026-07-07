@@ -33,7 +33,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |----------|----------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|
 | `size`   | `"xsmall"`, `"small"`, `"medium"`, `"large"`, `"xlarge"` | Size of the spinner.                                                                             | `medium`    |
 | `variant`| `"brand"`, `"secondary"`, `"secondary-dark"`, `"inverse"`, `"inverse-light"` | Variant of the spinner.                                                                          | `brand`     |
-| `centered` | `true`, `false`                            | When true, positions the spinner absolutely and centers it within its nearest relative ancestor. | `false`     |
+| `isCentered` | `true`, `false`                            | When true, positions the spinner absolutely and centers it within its nearest relative ancestor. | `false`     |
 | `aria`   | —                                            | An object representing the ARIA attributes such as `label`.                                      | `undefined` |
 
 ### Slots

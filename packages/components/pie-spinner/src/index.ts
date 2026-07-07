@@ -35,7 +35,7 @@ export class PieSpinner extends PieElement implements SpinnerProps {
     public variant = defaultProps.variant;
 
     @property({ type: Boolean, reflect: true })
-    public centered = defaultProps.centered;
+    public isCentered = defaultProps.isCentered;
 
     render () {
         const { variant, size } = this;
