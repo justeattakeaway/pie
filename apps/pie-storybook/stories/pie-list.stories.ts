@@ -44,7 +44,7 @@ const listStoryMeta: ListStoryMeta = {
     component: 'pie-list',
     argTypes: {
         primaryText: {
-            description: 'The main text of the item. **Required**. An item with no primary text renders nothing.',
+            description: 'The main text of the item.',
             control: 'text',
         },
         secondaryText: {

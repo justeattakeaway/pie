@@ -49,7 +49,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Prop | Options | Description | Default |
 |---|---|---|---|
-| `primaryText` | Any string | **Required.** The main text of the item, providing an overview of the content. | `undefined` |
+| `primaryText` | Any string | The main text of the item, providing an overview of the content. | `undefined` |
 | `secondaryText` | Any string | Optional additional detail, rendered on a second line beneath the primary text. | `undefined` |
 | `metaText` | Any string | Optional supporting information about the item's context, status or attributes. Rendered as a trailing text string. **Mutually exclusive with the `trailing` slot**: if `metaText` is set, the `trailing` slot is not rendered. | `undefined` |
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
@@ -306,7 +306,7 @@ import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
 To keep lists consistent and correct, follow these rules:
 
 - **Always give `pie-list` an accessible name** with `aria-label` or `aria-labelledby` (use `aria-labelledby` when a visible heading exists). This is required for screen reader users to understand the list. See [Accessibility](#accessibility).
-- **`primaryText` is required** on every `pie-list-item`. An item with no primary text will not render.
+- **Provide `primaryText`** on every `pie-list-item`; it is the item's main line of content.
 - **For selectable lists, use `pie-list-item` inside `pie-radio-group` or `pie-checkbox-group`, not `pie-list`.** `pie-list` is a static container with no selection or keyboard behaviour. See [Selectable lists](#selectable-lists).
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.

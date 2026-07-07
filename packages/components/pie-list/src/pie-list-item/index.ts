@@ -4,7 +4,6 @@ import { classMap } from 'lit/directives/class-map.js';
 import { consume, ContextProvider } from '@lit/context';
 import {
     safeCustomElement,
-    requiredProperty,
     validPropertyValues,
     parentDisabledContext,
     ariaContext,
@@ -24,7 +23,6 @@ const componentSelector = 'pie-list-item';
 @safeCustomElement('pie-list-item')
 export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: String })
-    @requiredProperty(componentSelector)
         primaryText!: ListItemProps['primaryText'];
 
     @property({ type: String })
@@ -189,9 +187,6 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     render () {
         const { primaryText } = this;
-
-        // We should never render a list item that doesn't have primary text.
-        if (!primaryText) return nothing;
 
         const containerClasses = {
             'c-listItem-container': true,

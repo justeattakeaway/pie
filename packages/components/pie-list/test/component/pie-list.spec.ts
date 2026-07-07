@@ -52,7 +52,7 @@ test.describe('PieList - Component tests', () => {
     });
 
     test.describe('primaryText', () => {
-        test('should render nothing when primaryText is not provided', async ({ page }) => {
+        test('should still render the item when primaryText is not provided', async ({ page }) => {
             // Arrange
             await new BasePage(page, 'list--no-primary-text').load();
 
@@ -61,8 +61,11 @@ test.describe('PieList - Component tests', () => {
             const primaryText = item.locator('.c-listItem-primaryText');
 
             // Assert
-            await expect(item).toHaveCount(1); // the element still exists...
-            await expect(primaryText).toHaveCount(0); // ...but renders no content
+            await expect(item).toHaveCount(1);
+            // The item renders as normal; the primary text span is present but empty (the component
+            // no longer short-circuits to rendering nothing when primaryText is missing).
+            await expect(primaryText).toHaveCount(1);
+            await expect(primaryText).toHaveText('');
         });
     });
 
