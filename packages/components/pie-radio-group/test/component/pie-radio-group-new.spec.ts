@@ -93,6 +93,12 @@ const expectFocusedRadioToBeChecked = async (page: Page, expect: Expect): Promis
     await expect(result.checked).toBe(true);
 };
 
+// Reads the `checked` property directly off a pie-radio host by test id.
+const isRadioChecked = (page: Page, testId: string) => page.evaluate(
+    (id) => (document.querySelector(`[data-test-id="${id}"]`) as PieRadio | null)?.checked ?? false,
+    testId,
+);
+
 test.describe('PieRadioGroup - Component tests new', () => {
     let pageObject;
 
@@ -111,9 +117,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     const radioElements = await page.getByTestId(radio.selectors.input.dataTestId).all();
 
                     // Assert
-                    radioElements.forEach(async (radio) => {
-                        await expect(radio).toBeDisabled();
-                    });
+                    await Promise.all(radioElements.map((radioElement) => expect(radioElement).toBeDisabled()));
                 });
             });
 
@@ -130,9 +134,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     const radioElements = await page.getByTestId(radio.selectors.input.dataTestId).all();
 
                     // Assert
-                    radioElements.forEach(async (radio) => {
-                        await expect(radio).not.toBeDisabled();
-                    });
+                    await Promise.all(radioElements.map((radioElement) => expect(radioElement).not.toBeDisabled()));
                 });
 
                 test('should disable the radio component if it has the `disabled` attribute', async ({ page }) => {
@@ -829,6 +831,170 @@ test.describe('PieRadioGroup - Component tests new', () => {
 
             // Assert
             expect(consoleMessages).toEqual([EXPECTED_CHANGE_EVENT_MESSAGE]);
+        });
+    });
+
+    test.describe('with list items', () => {
+        const selectors = {
+            button1: 'btn-1',
+            items: {
+                1: 'item-1', 2: 'item-2', 3: 'item-3', 4: 'item-4',
+            },
+            radios: {
+                1: 'radio-1', 2: 'radio-2', 3: 'radio-3', 4: 'radio-4',
+            },
+        };
+
+        test.beforeEach(async ({ page }) => {
+            pageObject = new BasePage(page, 'radio-group--with-list-items');
+            await pageObject.load();
+            await expect(page.getByTestId(selectors.radios[1])).toBeVisible();
+        });
+
+        test('should expose radiogroup, presentation and radio roles', async ({ page }) => {
+            await expect(page.getByTestId(radioGroup.selectors.fieldset.dataTestId)).toHaveAttribute('role', 'radiogroup');
+            await expect(page.getByTestId(selectors.items[1])).toHaveAttribute('role', 'presentation');
+            await expect(page.getByTestId(selectors.radios[1])).toHaveAttribute('role', 'radio');
+        });
+
+        test('should mirror the item text onto the radio ARIA', async ({ page }) => {
+            // primaryText always becomes the accessible name (aria-label). secondaryText and
+            // metaText become the aria-description, combining when both are present.
+
+            // Both secondary and meta text: combined with a full stop.
+            const firstRadio = page.getByTestId(selectors.radios[1]);
+            await expect(firstRadio).toHaveAttribute('aria-label', 'Standard');
+            await expect(firstRadio).toHaveAttribute('aria-description', '3 to 5 days. Free');
+
+            // Secondary text only.
+            const secondRadio = page.getByTestId(selectors.radios[2]);
+            await expect(secondRadio).toHaveAttribute('aria-label', 'Express');
+            await expect(secondRadio).toHaveAttribute('aria-description', 'Next day');
+
+            // Neither secondary nor meta text: only the label, no description.
+            const thirdRadio = page.getByTestId(selectors.radios[3]);
+            await expect(thirdRadio).toHaveAttribute('aria-label', 'Collection');
+            await expect(thirdRadio).not.toHaveAttribute('aria-description');
+
+            // Meta text only.
+            const fourthRadio = page.getByTestId(selectors.radios[4]);
+            await expect(fourthRadio).toHaveAttribute('aria-label', 'Locker');
+            await expect(fourthRadio).toHaveAttribute('aria-description', '£1.99');
+        });
+
+        test('should hide the visible item text from assistive technology', async ({ page }) => {
+            // item-1 has primary, secondary and meta text. The primary/secondary live in
+            // `.c-listItem-text` and the meta in `.c-listItem-metaText`; both must be hidden
+            // from assistive tech, since the radio now carries the name and description.
+            const hidden = await page.evaluate((id) => {
+                const root = document.querySelector(`[data-test-id="${id}"]`)?.shadowRoot;
+                return {
+                    text: root?.querySelector('.c-listItem-text')?.getAttribute('aria-hidden'),
+                    meta: root?.querySelector('.c-listItem-metaText')?.getAttribute('aria-hidden'),
+                };
+            }, selectors.items[1]);
+
+            expect(hidden.text).toBe('true');
+            expect(hidden.meta).toBe('true');
+        });
+
+        test('should select a radio when it is clicked', async ({ page }) => {
+            await page.getByTestId(selectors.radios[1]).click();
+
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(true);
+            expect(await isRadioChecked(page, selectors.radios[2])).toBe(false);
+        });
+
+        test('should select the row\'s radio when the list item is clicked', async ({ page }) => {
+            // Click the row (over the text), not the radio itself.
+            await page.getByTestId(selectors.items[2]).click();
+
+            expect(await isRadioChecked(page, selectors.radios[2])).toBe(true);
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(false);
+        });
+
+        test('should fire a change event when a row is clicked', async ({ page }) => {
+            const consoleMessages: string[] = [];
+            page.on('console', (message) => {
+                if (message.type() === 'info') {
+                    consoleMessages.push(message.text());
+                }
+            });
+
+            await page.getByTestId(selectors.items[2]).click();
+
+            await expect.poll(() => consoleMessages).toEqual([EXPECTED_CHANGE_EVENT_MESSAGE]);
+        });
+
+        test('should allow only one radio to be selected at a time', async ({ page }) => {
+            await page.getByTestId(selectors.radios[1]).click();
+            await page.getByTestId(selectors.radios[2]).click();
+
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(false);
+            expect(await isRadioChecked(page, selectors.radios[2])).toBe(true);
+        });
+
+        test('should switch selection when a different row is clicked', async ({ page }) => {
+            await page.getByTestId(selectors.items[1]).click();
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(true);
+
+            // Clicking another row selects its radio and deselects the previous one.
+            await page.getByTestId(selectors.items[2]).click();
+            expect(await isRadioChecked(page, selectors.radios[2])).toBe(true);
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(false);
+        });
+
+        test('should not select a disabled row when it is clicked', async ({ page }) => {
+            await page.getByTestId(selectors.items[3]).click();
+
+            expect(await isRadioChecked(page, selectors.radios[3])).toBe(false);
+        });
+
+        test.describe('keyboard navigation', () => {
+            test('should focus the first radio when tabbing into the group', async ({ page }) => {
+                await page.getByTestId(selectors.button1).focus();
+                await page.keyboard.press('Tab');
+
+                await expect(page.getByTestId(selectors.radios[1])).toBeFocused();
+            });
+
+            test('should move selection with arrow keys and skip disabled radios', async ({ page }) => {
+                await page.getByTestId(selectors.button1).focus();
+                await page.keyboard.press('Tab');
+
+                // The first arrow moves to and selects the second radio.
+                await page.keyboard.press('ArrowDown');
+                await expect(page.getByTestId(selectors.radios[2])).toBeFocused();
+                await expectFocusedRadioToBeChecked(page, expect);
+
+                // The third radio is disabled, so the next arrow lands on the fourth.
+                await page.keyboard.press('ArrowDown');
+                await expect(page.getByTestId(selectors.radios[4])).toBeFocused();
+                await expectFocusedRadioToBeChecked(page, expect);
+            });
+        });
+    });
+
+    test.describe('with list items in a disabled group', () => {
+        const selectors = {
+            items: {
+                1: 'item-1', 4: 'item-4',
+            },
+            radios: {
+                1: 'radio-1',
+            },
+        };
+
+        test.beforeEach(async ({ page }) => {
+            pageObject = new BasePage(page, 'radio-group--with-list-items-group-disabled');
+            await pageObject.load();
+            await expect(page.getByTestId(selectors.radios[1])).toBeVisible();
+        });
+
+        test('should not select a row when the group is disabled', async ({ page }) => {
+            await page.getByTestId(selectors.items[1]).click();
+
+            expect(await isRadioChecked(page, selectors.radios[1])).toBe(false);
         });
     });
 });

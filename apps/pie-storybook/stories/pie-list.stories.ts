@@ -5,6 +5,9 @@ import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/radio-group';
+import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
 import { createStory, type TemplateFunction } from '../utilities';
@@ -238,3 +241,31 @@ export const LongText = createStory<ListPlaygroundProps>(
     leadingContent: 'icon',
     trailingContent: 'none',
 });
+
+// Selectable lists -----------------------------------------------------------
+// A `pie-list-item` becomes a selectable row via its `selection-type` prop, slotting the control
+// into its `leading`/`trailing` slot. Radio rows live inside a `pie-radio-group`. The playground
+// controls above do not apply to these.
+
+/**
+ * Single-select: `pie-list-item selection-type="radio"` inside a `pie-radio-group`. The whole row
+ * is a selectable target and the radio is named by the item's text.
+ */
+export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-radio-group { min-width: 350px; }</style>
+    <pie-radio-group name="delivery">
+        <pie-form-label slot="label">Delivery method</pie-form-label>
+        <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+            <pie-radio slot="leading" value="standard"></pie-radio>
+        </pie-list-item>
+        <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+            <pie-radio slot="leading" value="express"></pie-radio>
+        </pie-list-item>
+        <pie-list-item selection-type="radio" primaryText="Collection" secondaryText="Collect from a nearby store">
+            <pie-radio slot="leading" value="collection" disabled></pie-radio>
+        </pie-list-item>
+        <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+            <pie-radio slot="leading" value="locker"></pie-radio>
+        </pie-list-item>
+    </pie-radio-group>
+`, defaultArgs)();

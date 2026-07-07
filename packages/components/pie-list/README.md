@@ -55,6 +55,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
+| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. See [Selectable lists](#selectable-lists). | `"none"` |
 
 ### Slots
 
@@ -67,6 +68,9 @@ Slots are provided by `pie-list-item`.
 
 The permitted slotted elements are: a PIE WEBC icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and native HTML radio/checkbox inputs.
 Some slotted content is designed with specific properties being used. So please read the entire readme to understand correct slot usage.
+
+> [!NOTE]
+> `pie-list` is a **static** container: it has no selection state or keyboard behaviour. For a **selectable** list, do not slot the controls into `pie-list`. Place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select) or a [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) (multi-select) instead. See [Selectable lists](#selectable-lists) below.
 
 > Slotted PIE icons are always sized by `pie-list-item` (24px). Consumers cannot override this size.
 
@@ -241,6 +245,40 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 </pie-list>
 ```
 
+### Selectable lists
+
+`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select), set each item's `selection-type`, and slot the control into the item's `leading` (or `trailing`) slot.
+
+#### The `selection-type` prop
+
+`selection-type` is what makes a row selectable. Set it to `radio` and it drives the item to:
+
+- take the correct **role** — `presentation` for `radio`/`checkbox` (so the group owns the controls directly), `listitem` for `switch` and `none`;
+- provide its `primaryText`, `secondaryText` and `metaText` as the slotted control's **accessible name and description** (and `aria-hidden` the now-duplicated visible text);
+- **forward a click** anywhere on the row to the control, so the whole row is a hit target;
+- show **hover and active** states on the row (suppressed when the control, or the group, is disabled).
+
+Provide the label through the item's `primaryText` — not as the control's own content. The group still owns the group-level semantics (its own role, shared `name`, selection coordination and group-disable); `selection-type` only governs the item. See the [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) docs for the group behaviour.
+
+Single-select (radios):
+
+```js
+import '@justeattakeaway/pie-webc/components/radio-group.js';
+import '@justeattakeaway/pie-webc/components/radio.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+```
+
+```html
+<pie-radio-group name="delivery">
+  <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+    <pie-radio slot="leading" value="standard"></pie-radio>
+  </pie-list-item>
+  <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+    <pie-radio slot="leading" value="express"></pie-radio>
+  </pie-list-item>
+</pie-radio-group>
+```
+
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
 
 ```js
@@ -272,6 +310,7 @@ To keep lists consistent and correct, follow these rules:
 
 - **Always give `pie-list` an accessible name** with `aria-label` or `aria-labelledby` (use `aria-labelledby` when a visible heading exists). This is required for screen reader users to understand the list. See [Accessibility](#accessibility).
 - **Provide `primaryText`** on every `pie-list-item`; it is the item's main line of content.
+- **For selectable lists, use `pie-list-item` inside `pie-radio-group` or `pie-checkbox-group`, not `pie-list`.** `pie-list` is a static container with no selection or keyboard behaviour. See [Selectable lists](#selectable-lists).
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
 - **Always set `hasMedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.

@@ -11,4 +11,14 @@ test.describe('PieRadioGroup - Accessibility tests', () => {
 
         expect(results.violations).toEqual([]);
     });
+
+    test('a11y - should test the PieRadioGroup with list items WCAG compliance', async ({ makeAxeBuilder, page }) => {
+        const radioGroupPage = new BasePage(page, 'radio-group--with-list-items');
+        await radioGroupPage.load();
+
+        await page.waitForSelector('pie-radio-group');
+        const results = await makeAxeBuilder().analyze();
+
+        expect(results.violations).toEqual([]);
+    });
 });

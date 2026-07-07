@@ -1,5 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
+export const selectionTypes = ['none', 'radio', 'checkbox', 'switch'] as const;
+
 export interface ListItemProps {
     /**
      * **Required:** Provides an overview of the content.
@@ -32,6 +34,19 @@ export interface ListItemProps {
      * **Note**: This has no effect when `secondaryText` is set, and should not be combined with `isCompact`.
      */
     hasMedia?: boolean
+
+    /**
+     * The kind of interactive control this item hosts in its `leading` or `trailing` slot. This
+     * makes the whole row a selectable target: the item takes the appropriate role, provides its
+     * text as the control's accessible name/description, hides the duplicated visible text, and
+     * forwards row clicks to the control.
+     *
+     * - `none` (default) - a static, non-selectable list item (`role="listitem"`).
+     * - `radio` - hosts a `pie-radio` (used inside a `pie-radio-group`); the item is `presentation`.
+     * - `checkbox` - hosts a `pie-checkbox` (used inside a `pie-checkbox-group`); the item is `presentation`.
+     * - `switch` - hosts a `pie-switch`; there is no group, so the item stays `role="listitem"`.
+     */
+    selectionType?: typeof selectionTypes[number]
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
@@ -40,4 +55,5 @@ export const defaultProps: DefaultProps = {
     isCompact: false,
     isBold: false,
     hasMedia: false,
+    selectionType: 'none',
 };
