@@ -100,8 +100,9 @@ const renderTrailing = (trailingContent: ListPlaygroundProps['trailingContent'])
     return nothing;
 };
 
-const renderItem = (args: ListPlaygroundProps) => html`
+const renderItem = (args: ListPlaygroundProps, itemStyle = '') => html`
     <pie-list-item
+        style=${itemStyle}
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
@@ -129,9 +130,11 @@ const buildNotes = (args: ListPlaygroundProps) => {
  * them). `pie-list` must always have an accessible name; we use `aria-labelledby`
  * pointing at a visible heading (preferred over `aria-label`, so the visible and
  * accessible names stay in sync). `headingId` is unique per story to keep the
- * association valid when several stories render on one docs page.
+ * association valid when several stories render on one docs page. `itemStyle` is applied to each
+ * `pie-list-item` (not the list) so item-level CSS variables such as `--list-item-inline-padding`
+ * take effect (a value on `pie-list` cannot override the item's own default).
  */
-const makeListTemplate = (headingId: string, heading: string, listStyle = ''): TemplateFunction<ListPlaygroundProps> => (args) => {
+const makeListTemplate = (headingId: string, heading: string, itemStyle = ''): TemplateFunction<ListPlaygroundProps> => (args) => {
     const notes = buildNotes(args);
 
     return html`
@@ -143,10 +146,10 @@ const makeListTemplate = (headingId: string, heading: string, listStyle = ''): T
         </style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <h2 id=${headingId}>${heading}</h2>
-        <pie-list aria-labelledby=${headingId} style=${listStyle}>
-            ${renderItem(args)}
-            ${renderItem(args)}
-            ${renderItem(args)}
+        <pie-list aria-labelledby=${headingId}>
+            ${renderItem(args, itemStyle)}
+            ${renderItem(args, itemStyle)}
+            ${renderItem(args, itemStyle)}
         </pie-list>
     `;
 };
