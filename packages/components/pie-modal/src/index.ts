@@ -11,7 +11,6 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icon-button';
 import {
-    requiredProperty,
     validPropertyValues,
     dispatchCustomEvent,
     safeCustomElement,
@@ -63,8 +62,7 @@ export class PieModal extends PieElement implements ModalProps {
     public aria: ModalProps['aria'];
 
     @property({ type: String })
-    @requiredProperty(componentSelector)
-    public heading!: string;
+    public heading = defaultProps.heading;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, headingLevels, defaultProps.headingLevel)
@@ -600,8 +598,13 @@ export class PieModal extends PieElement implements ModalProps {
      * Renders the modal heading content in the correct heading tag
      * @private
      */
-    private renderHeading (): TemplateResult {
+    private renderHeading (): TemplateResult | typeof nothing {
         const { heading, headingLevel, isHeadingEmphasised } = this;
+
+        if (!heading) {
+            return nothing;
+        }
+
         const headingTag = unsafeStatic(headingLevel);
 
         const headingClasses = {

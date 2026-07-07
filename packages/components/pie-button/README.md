@@ -121,7 +121,7 @@ import '@justeattakeaway/pie-webc/components/button.js'
 ```
 
 ```html
-<pie-button type="reset" isFullWidth="true" onclick="e => console.log(e)">
+<pie-button type="reset" isFullWidth onclick="e => console.log(e)">
   Click me!
 </pie-button>
 

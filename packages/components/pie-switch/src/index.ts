@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, nothing,
+    html, unsafeCSS, nothing, type PropertyValues,
 } from 'lit';
 import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
@@ -13,6 +13,7 @@ import {
     validPropertyValues,
     FormControlMixin,
     DelegatesFocusMixin,
+    AssociatedLabelMixin,
     wrapNativeEvent,
     safeCustomElement,
     type PIEInputElement,
@@ -32,7 +33,7 @@ const componentSelector = 'pie-switch';
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
 @safeCustomElement('pie-switch')
-export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement)) implements SwitchProps, PIEInputElement {
+export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFocusMixin(PieElement))) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
 
@@ -75,13 +76,15 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
     @state()
     private _isAnimationAllowed = false;
 
-    protected firstUpdated (): void {
+    protected firstUpdated (changedProperties: PropertyValues): void {
+        super.firstUpdated(changedProperties);
+        const { signal } = this._abortController;
         this.handleFormAssociation();
         // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
         // for consumers to listen to: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
         this.input.addEventListener('invalid', (event) => {
             this.dispatchEvent(new Event('invalid', event));
-        });
+        }, { signal });
     }
 
     connectedCallback (): void {
@@ -260,7 +263,10 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
             disabled,
             required,
             _isAnimationAllowed,
+            associatedLabelText,
         } = this;
+
+        const ariaLabel = aria?.label || label || associatedLabelText;
 
         const classes = {
             'c-switch-wrapper': true,
@@ -283,11 +289,11 @@ export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement))
                         role="switch"
                         type="checkbox"
                         class="c-switch-input"
-                        .required=${required}
+                        ?required=${required}
                         .checked="${live(checked)}"
-                        .disabled="${disabled}"
+                        ?disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label || label)}"
+                        aria-label="${ifDefined(ariaLabel)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}

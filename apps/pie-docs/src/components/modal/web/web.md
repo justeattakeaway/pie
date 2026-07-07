@@ -566,19 +566,20 @@ The wide small and optionally medium size, has the corresponding responsive opti
 
 {% notification {
   type: "information",
-  message: "Find out more about using the slot in the [Figma slot guide](https://www.pie.design/designers/getting-started/best-practices/#use-figma-slots)."
+  message: "Find out more about using the slot in the [Figma slot guide](/designers/getting-started/best-practices/#use-figma-slots)."
 } %}
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/behaviours-slots-slots-available.svg",
-  alt: "A diagram displaying the available slots for the Modal content and footer.",
+  src: "../../../assets/img/components/modal/modal-slot-available.svg",
+  alt: "A diagram displaying the available slots for the Modal header, content and footer.",
   width: 600
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Body Slot:** Available as a variant",
+        "**Header slot:** Hidden by default.",
+        "**Body slot:** Available as a variant",
         "**Footer slot:** Hidden by default"
     ]
 } %}
