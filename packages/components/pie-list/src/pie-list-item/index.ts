@@ -31,13 +31,13 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: String })
         metaText: ListItemProps['metaText'];
 
-    @property({ type: Boolean, attribute: 'is-compact', reflect: true })
+    @property({ type: Boolean })
         isCompact = defaultProps.isCompact;
 
-    @property({ type: Boolean, attribute: 'is-bold', reflect: true })
+    @property({ type: Boolean })
         isBold = defaultProps.isBold;
 
-    @property({ type: Boolean, attribute: 'has-media', reflect: true })
+    @property({ type: Boolean })
         hasMedia = defaultProps.hasMedia;
 
     @property({ type: String, attribute: 'selection-type', reflect: true })

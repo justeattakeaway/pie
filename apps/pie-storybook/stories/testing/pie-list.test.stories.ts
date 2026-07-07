@@ -80,14 +80,14 @@ const SelectionTypesTemplate = () => withLayout(html`
 export const SelectionTypes = createStory<ListProps>(SelectionTypesTemplate, defaultArgs)();
 
 /**
- * `is-bold` sets the primary text to a bold font-weight.
+ * `isBold` sets the primary text to a bold font-weight.
  */
 const BoldTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item is-bold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
-        <pie-list-item is-bold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
-        <pie-list-item is-bold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
-        <pie-list-item is-bold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
     </pie-list>
 `);
 
@@ -178,33 +178,33 @@ const MetaTextOnlyPrimaryTextTemplate = () => withLayout(html`
 export const MetaTextOnlyPrimaryText = createStory<ListProps>(MetaTextOnlyPrimaryTextTemplate, defaultArgs)();
 
 /**
- * `has-media` reduces the block padding to suit a larger slotted pie-thumbnail.
+ * `hasMedia` reduces the block padding to suit a larger slotted pie-thumbnail.
  * The reduced padding only applies when there is no secondary text. The last
  * two items show padding reverting to normal.
  */
 const MediaTemplate = () => withLayout(html`
     <h2>Primary text only</h2>
     <pie-list>
-        <pie-list-item has-media primaryText="Primary text">
+        <pie-list-item hasMedia primaryText="Primary text">
             ${leadingThumbnail}
         </pie-list-item>
-        <pie-list-item has-media primaryText="Primary text">
+        <pie-list-item hasMedia primaryText="Primary text">
             ${leadingThumbnail}
         </pie-list-item>
-        <pie-list-item has-media primaryText="Primary text">
+        <pie-list-item hasMedia primaryText="Primary text">
             ${leadingThumbnail}
         </pie-list-item>
     </pie-list>
 
     <h2>With secondary text</h2>
     <pie-list>
-        <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
             ${leadingThumbnail}
         </pie-list-item>
-        <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
             ${leadingThumbnail}
         </pie-list-item>
-        <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
             ${leadingThumbnail}
         </pie-list-item>
     </pie-list>
@@ -213,20 +213,20 @@ const MediaTemplate = () => withLayout(html`
 export const Media = createStory<ListProps>(MediaTemplate, defaultArgs)();
 
 /**
- * `is-compact` reduces the vertical space of each item.
+ * `isCompact` reduces the vertical space of each item.
  */
 const CompactTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item is-compact primaryText="Primary text">
+        <pie-list-item isCompact primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item is-compact primaryText="Primary text">
+        <pie-list-item isCompact primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item is-compact primaryText="Primary text">
+        <pie-list-item isCompact primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item is-compact primaryText="Primary text">
+        <pie-list-item isCompact primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
     </pie-list>

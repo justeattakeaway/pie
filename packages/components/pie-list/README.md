@@ -185,7 +185,7 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 
 ```html
 <pie-list>
-  <pie-list-item is-bold primaryText="Primary text"></pie-list-item>
+  <pie-list-item isBold primaryText="Primary text"></pie-list-item>
 </pie-list>
 ```
 
@@ -193,10 +193,10 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 
 ```html
 <pie-list>
-  <pie-list-item is-compact primaryText="Primary text">
+  <pie-list-item isCompact primaryText="Primary text">
     <icon-chevron-right slot="trailing"></icon-chevron-right>
   </pie-list-item>
-  <pie-list-item is-compact primaryText="Primary text">
+  <pie-list-item isCompact primaryText="Primary text">
     <icon-chevron-right slot="trailing"></icon-chevron-right>
   </pie-list-item>
 </pie-list>
@@ -209,18 +209,18 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 ```
 
 ```html
-<!-- `has-media` is REQUIRED whenever you slot a thumbnail. Without it the
+<!-- `hasMedia` is REQUIRED whenever you slot a thumbnail. Without it the
      block padding will be incorrect. -->
 <pie-list aria-label="Restaurants">
-  <pie-list-item has-media primaryText="Primary text">
+  <pie-list-item hasMedia primaryText="Primary text">
     <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
   </pie-list-item>
 </pie-list>
 
-<!-- Still set `has-media` when there is secondary text. The padding is unchanged
+<!-- Still set `hasMedia` when there is secondary text. The padding is unchanged
      in this case, but you should still set it. -->
 <pie-list aria-label="Restaurants">
-  <pie-list-item has-media primaryText="Primary text" secondaryText="Secondary text">
+  <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
     <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
   </pie-list-item>
 </pie-list>
@@ -310,8 +310,8 @@ To keep lists consistent and correct, follow these rules:
 - **For selectable lists, use `pie-list-item` inside `pie-radio-group` or `pie-checkbox-group`, not `pie-list`.** `pie-list` is a static container with no selection or keyboard behaviour. See [Selectable lists](#selectable-lists).
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
-- **Always set `has-media` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
-- **Do not combine `is-compact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
+- **Always set `hasMedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
+- **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
 - **Only use `center` for `--list-item-alignment-override`.** Other values are not supported.
 - **`pie-avatar` is not yet ready** for use in lists. Prefer `pie-thumbnail` for media for now.
 

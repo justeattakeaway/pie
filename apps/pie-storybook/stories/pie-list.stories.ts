@@ -108,9 +108,9 @@ const renderItem = (args: ListPlaygroundProps) => html`
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
-        ?is-compact=${args.isCompact}
-        ?is-bold=${args.isBold}
-        ?has-media=${args.hasMedia}>
+        ?isCompact=${args.isCompact}
+        ?isBold=${args.isBold}
+        ?hasMedia=${args.hasMedia}>
         ${renderLeading(args.leadingContent)}
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>
