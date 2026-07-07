@@ -19,7 +19,7 @@ export interface TextareaProps {
      * The resize mode of the textarea. Can be `auto`, `manual` or `none`. Defaults to `auto`.
      * When set to `auto`, the textarea will resize vertically as needed.
      * When set to `manual`, the textarea will not resize automatically but can be resized by the user.
-     * When set to `none`, the textarea cannot be resized by the user.
+     * When set to `none`, the textarea will not resize automatically and cannot be resized by the user.
      */
     resize?: typeof resizeModes[number];
 
