@@ -119,9 +119,9 @@
     // Minimum is two lines of text
     --textarea-min-height: var(--textarea-height);
   }
-  
+
   &.c-textarea--resize-none {
-    --textarea-height: auto; 
+    --textarea-height: auto;
   }
 
   &.has-error {
