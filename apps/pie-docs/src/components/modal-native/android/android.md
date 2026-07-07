@@ -3,37 +3,47 @@ eleventyNavigation:
   key: Android
   parent: 'Modal - Native'
   order: 2
-draft: true
+shouldShowContents: true
 ---
 
-# [Android] Dialog - Native V1.1.0
+## Dos and Don'ts
 
-A Dialog is a pop-up window that prompts the user for interaction or information within an app interface.
-
----
-
-## Overview
-
-**Do**
-
-- Use them for alerting users about critical information or errors.
-
-**Don't**
-
-- Displaying system-wide notifications or messages.
-- For anything other than system prompted notifications and alerts. Use our PIE modal instead.
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Use them for alerting users about critical information or errors."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Displaying system-wide notifications or messages.",
+            "For anything other than system prompted notifications and alerts. Use our PIE modal instead."
+        ]
+    }
+} %}
 
 ---
 
 ## Anatomy
 
-> IMAGE PLACEHOLDER
+{% contentPageImage {
+    src:"../../../assets/img/components/modal-native/android/anatomy.svg",
+    alt: "Anatomy of a native modal that contains a title, body, and actions.",
+    width: 300
+} %}
 
-1. **Title:** Concise heading for clarity.
-2. **Body:** The main message or information.
-3. **Action 1:** Main action for user interaction.
-4. **Action 2 (Optional):** Secondary action option.
-5. **Background:** Bounding box for the dialog's content.
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Title:** Concise heading for clarity.",
+        "**Body:** The main message or information.",
+        "**Action 1:** Main action for user interaction.",
+        "**Action 2 (Optional):** Secondary action option.",
+        "**Background:** Bounding box for the dialog's content."
+    ]
+} %}
 
 ### Modifiers
 
@@ -41,7 +51,11 @@ A Dialog is a pop-up window that prompts the user for interaction or information
 
 You can use a native dialog with no body for quick confirmation messages, alerts, notifications or confirmation prompts where the title alone is enough.
 
-> IMAGE PLACEHOLDER
+{% contentPageImage {
+    src:"../../../assets/img/components/modal-native/android/modifiers-no-body.svg",
+    alt: "Example of a native modal with no body that contains a title and actions.",
+    width: 300
+} %}
 
 ---
 
@@ -51,7 +65,11 @@ You can use a native dialog with no body for quick confirmation messages, alerts
 
 Tapping outside the dialog's boundaries will close it, providing an intuitive way to dismiss it without interacting with specific UI elements like calls to action (unless that is otherwise specified by the interaction).
 
-> IMAGE PLACEHOLDER
+{% contentPageImage {
+    src:"../../../assets/img/components/modal-native/android/interactions-close.svg",
+    alt: "Example of a native modal being closed by tapping outside its boundaries.",
+    width: 300
+} %}
 
 ---
 
@@ -77,10 +95,18 @@ Tapping outside the dialog's boundaries will close it, providing an intuitive wa
 
 Here's an example of a Dialog in the LTR context:
 
-> IMAGE PLACEHOLDER
+{% contentPageImage {
+    src:"../../../assets/img/components/modal-native/android/example-ltr.svg",
+    alt: "Example of a native modal in LTR context.",
+    width: 300
+} %}
 
 ### RTL Examples
 
 Here's an example of a Dialog in the RTL context:
 
-> IMAGE PLACEHOLDER
+{% contentPageImage {
+    src:"../../../assets/img/components/modal-native/android/example-rtl.svg",
+    alt: "Example of a native modal in RTL context.",
+    width: 300
+} %}

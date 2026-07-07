@@ -70,6 +70,8 @@
     "components/modal/ios",
     "components/modal/motion",
     "components/modal/web",
+    "components/modal-native/android",
+    "components/modal-native/ios",
     "components/notification",
     "components/notification/android",
     "components/notification/code",
