@@ -34,7 +34,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Prop           | Options                                      | Description                                                                                                              | Default     |
 |----------------|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------|
 | `name`         | —                                            | The name associated with the group.                                                                                      | `undefined` |
-| `value`        | —                                            | The value of the radio group (used as a key/value pair in HTML forms with `name`).                                       | `""`        |
+| `value`        | —                                            | Selects the radio whose `value` matches (unselecting the others), and is the group's form value alongside `name`. Set this to pre-select an option. | `""`        |
 | `isInline`     | `true`, `false`                              | Inline (horizontal) positioning of radio items.                                                                          | `false`     |
 | `disabled`     | `true`, `false`                              | Indicates whether or not the radio group is disabled.                                                                    | `false`     |
 | `assistiveText`| —                                            | An optional assistive text to display below the checkbox group.                                                          | `undefined` |

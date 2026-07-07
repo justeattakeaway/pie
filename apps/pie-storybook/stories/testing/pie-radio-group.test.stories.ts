@@ -254,14 +254,14 @@ const WithListItemsTemplate = () => {
             pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
         </style>
         <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
-        <pie-radio-group data-test-id="pie-radio-group" name="delivery" @change=${onChange}>
+        <pie-radio-group data-test-id="pie-radio-group" name="delivery" value="express" @change=${onChange}>
             <!-- item-1: secondary AND meta text (combined into aria-description) -->
             <pie-list-item selection-type="radio" data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
                 <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
             </pie-list-item>
             <!-- item-2: secondary text only (pre-selected so snapshots capture the checked state) -->
             <pie-list-item selection-type="radio" data-test-id="item-2" primaryText="Express" secondaryText="Next day">
-                <pie-radio slot="leading" data-test-id="radio-2" value="express" checked></pie-radio>
+                <pie-radio slot="leading" data-test-id="radio-2" value="express"></pie-radio>
             </pie-list-item>
             <!-- item-3: neither secondary nor meta (no aria-description), disabled -->
             <pie-list-item selection-type="radio" data-test-id="item-3" primaryText="Collection">
@@ -282,12 +282,12 @@ const WithListItemsGroupDisabledTemplate = () => html`
             /* Set on the item directly (a value inherited from the group cannot override the item's :host default). */
             pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
         </style>
-        <pie-radio-group data-test-id="pie-radio-group" name="delivery" disabled>
+        <pie-radio-group data-test-id="pie-radio-group" name="delivery" value="express" disabled>
             <pie-list-item selection-type="radio" data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
                 <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
             </pie-list-item>
             <pie-list-item selection-type="radio" data-test-id="item-2" primaryText="Express" secondaryText="Next day">
-                <pie-radio slot="leading" data-test-id="radio-2" value="express" checked></pie-radio>
+                <pie-radio slot="leading" data-test-id="radio-2" value="express"></pie-radio>
             </pie-list-item>
             <pie-list-item selection-type="radio" data-test-id="item-3" primaryText="Collection">
                 <pie-radio slot="leading" data-test-id="radio-3" value="collection"></pie-radio>

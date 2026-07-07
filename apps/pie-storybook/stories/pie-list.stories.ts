@@ -253,7 +253,7 @@ export const LongText = createStory<ListPlaygroundProps>(
  */
 export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-radio-group { min-width: 350px; }</style>
-    <pie-radio-group name="delivery">
+    <pie-radio-group name="delivery" value="express">
         <pie-form-label slot="label">Delivery method</pie-form-label>
         <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
             <pie-radio slot="leading" value="standard"></pie-radio>

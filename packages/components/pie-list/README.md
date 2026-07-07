@@ -269,7 +269,8 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 ```
 
 ```html
-<pie-radio-group name="delivery">
+<!-- `value` on the group selects the matching radio (here, Express). -->
+<pie-radio-group name="delivery" value="express">
   <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
     <pie-radio slot="leading" value="standard"></pie-radio>
   </pie-list-item>
