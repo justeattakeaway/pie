@@ -12,7 +12,7 @@ shouldShowContents: true
     do: {
         type: usageTypes.text,
         items: [
-          "Make sure labels are concise and that they clearly describe what checking the box means."
+          "Make sure labels are concise and descriptive and that they clearly communicate what is being selected."
         ]
     },
     dont: {
@@ -79,6 +79,32 @@ A label should always be present unless being utilised as a nested component and
   {% endcontentItem %}
 {% endcontentLayout %}
 
+### Label positioning
+
+Place labels in the trailing position by default. Use a leading label when the design requires more flexibility.
+
+{% notification {
+type: "information",
+message: "Use only one label per checkbox."
+} %}
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/checkbox/label-positioning-trailing.svg",
+      width: "128px",
+      alt: "A blank checkbox followed by the trailing label text."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/checkbox/label-positioning-leading.svg",
+      width: "128px",
+      alt: "A leading label followed by a blank checkbox."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
 ### Assistive text
 
 Assistive text is used where needed to provide additional information or error / success messaging. The assistive text is always used for an error state to provide the user with the information required to complete the form element.
@@ -98,7 +124,22 @@ All content should use sentence case.
 ### Label
 
 - Always use clear and concise labels for checkboxes.
-- Labels appear to the right of checkbox input (when the text direction is left-to-right).
+- Labels appear to the right of checkbox input by default.
+
+### Overrides
+
+{% contentPageImage {
+    src:"../../../assets/img/components/checkbox/content-overrides.svg",
+    alt: "A checkbox with a long text label containing a link.",
+    width: "350px"
+} %}
+
+{% list {
+type: listTypes.ordered,
+items: [
+"**Label**: The label can include a [link](https://pie.design/components/link/), when the string is a complete sentence or more."
+]
+} %}
 
 ---
 
@@ -113,6 +154,45 @@ When the label exceeds the available width, the label will wrap onto a new line.
     alt: "A blank checkbox followed by the label that exceeds the available width and wraps onto a new line.",
     width: "281px"
 } %}
+
+---
+
+## Layout
+
+### Fill container
+
+By default label container is set to hug. Designers can set the textbox to fill the container when using a leading label. This allows the layout to adapt more flexibly to different designs.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/checkbox/layout-fill-container1.svg",
+      width: "70px",
+      alt: "Checkbox with a leading label."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/checkbox/layout-fill-container2.svg",
+      width: "200px",
+      alt: "Checkbox with a leading label and a space between the label and checkbox."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/checkbox/layout-fill-container3.svg",
+      width: "204px",
+      alt: "Checkbox with a leading label in an error state."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/checkbox/layout-fill-container4.svg",
+      width: "206px",
+      alt: "Checkbox with a leading label and a space between the label and checkbox in an error state"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 
@@ -154,18 +234,30 @@ Use the partially selected state when the checkbox contains a sublist of selecti
 
 Users can trigger the checkbox directly or by clicking the checkbox label. Having all regions interactive creates a more accessible click target.
 
+{% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/checkbox/interactions.svg",
+      width: "70px",
+      alt: "An illustration represents that users can trigger the checkbox directly."
+    } %}
+  {% endcontentItem %}
+
+### Link
+
+If the label contains a link, the link has its own touch target, while the standard text remains selectable for the checkbox control.
+
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/checkbox/checkbox-interaction.svg",
-      width: "70px",
+      src: "../../../assets/img/components/checkbox/interactions-link1.svg",
+      width: "230px",
       alt: "An illustration represents that users can trigger the checkbox directly."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/checkbox/checkbox-label-interaction.svg",
-      width: "70px",
+      src: "../../../assets/img/components/checkbox/interactions-link2.svg",
+      width: "230px",
       alt: "An illustration represents that users can trigger the checkbox by clicking the checkbox label. "
     } %}
   {% endcontentItem %}
@@ -239,15 +331,15 @@ Here are some examples of the component in a left-to-right context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/checkbox/checkbox-LTR-agreement.svg",
+      src: "../../../assets/img/components/checkbox/examples-LTR-1.svg",
       width: "375px",
       alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in a left-to-right context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/checkbox/checkbox-checked-LTR.svg",
-      width: "360px",
+      src: "../../../assets/img/components/checkbox/examples-LTR-2.svg",
+      width: "147px",
       alt: "Selected checkbox followed by the label text in a left-to-right context."
     } %}
   {% endcontentItem %}
@@ -260,15 +352,15 @@ Here are some examples of the component in a right-to-left context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/checkbox/checkbox-RTL-agreement.svg",
+      src: "../../../assets/img/components/checkbox/examples-RTL-1.svg",
       width: "271px",
       alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in a right-to-left context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/checkbox/checkbox-checked-RTL.svg",
-      width: "360px",
+      src: "../../../assets/img/components/checkbox/examples-RTL-2.svg",
+      width: "147px",
       alt: "Selected checkbox followed by the label text in a right-to-left context."
     } %}
   {% endcontentItem %}
