@@ -1,9 +1,11 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    // Defined on the host so consumers can override it directly (a declaration on the element
-    // takes precedence over this default).
+    // Defined on the host so consumers can override them directly (a declaration on the element
+    // takes precedence over these defaults). Setting them on `pie-list` does not work, since the
+    // host declaration wins over a value inherited from an ancestor.
     --list-item-inline-padding: var(--dt-spacing-d);
+    --list-item-alignment: flex-start;
 
     // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
     display: block;
@@ -24,7 +26,7 @@
 
     // Layout
     display: flex;
-    align-items: var(--list-item-alignment-override, flex-start);
+    align-items: var(--list-item-alignment);
     gap: var(--dt-spacing-c);
     min-height: 56px;
     border-bottom: var(--list-item-border-override, none);
@@ -33,13 +35,16 @@
 // Two lines of text (primary + secondary) need top-alignment so leading/trailing
 // content sits level with the first line, not centred across both lines.
 .c-listItem-container:has(.c-listItem-secondaryText) {
-    align-items: var(--list-item-alignment-override, flex-start);
+    align-items: var(--list-item-alignment);
     min-height: 76px;
 }
 
 .c-listItem-container.is-compact {
     --list-item-block-padding: var(--dt-spacing-c);
-    align-items: var(--list-item-alignment-override, center);
+
+    // Compact items are centre-aligned.
+    --list-item-alignment: center;
+    align-items: var(--list-item-alignment);
     min-height: 48px;
 }
 

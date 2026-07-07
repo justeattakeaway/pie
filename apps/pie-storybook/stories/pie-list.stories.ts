@@ -209,10 +209,10 @@ export const Media = createStory<ListPlaygroundProps>(
 )({ hasMedia: true, leadingContent: 'thumbnail', trailingContent: 'none' });
 
 /**
- * `--list-item-alignment-override: center` vertically centres the item content.
+ * `--list-item-alignment: center` vertically centres the item content.
  */
 export const AlignmentOverride = createStory<ListPlaygroundProps>(
-    makeListTemplate('list-alignment-heading', 'Centre aligned', '--list-item-alignment-override: center;'),
+    makeListTemplate('list-alignment-heading', 'Centre aligned', '--list-item-alignment: center;'),
     defaultArgs,
 )();
 
