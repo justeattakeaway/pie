@@ -14,7 +14,7 @@ directions.forEach((direction) => test(`should render all prop variations for di
 }));
 
 directions.forEach((direction) => test(`should render radios in list items for direction: ${direction}`, async ({ page }) => {
-    const radioGroupListItemsPage = new BasePage(page, 'radio-group--with-list-items');
+    const radioGroupListItemsPage = new BasePage(page, 'radio-group--with-list-items-checked');
     await radioGroupListItemsPage.load({}, { writingDirection: direction });
     await page.waitForSelector('pie-radio-group');
 
