@@ -1,90 +1,287 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-list
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-list) | [Design Documentation](https://pie.design/components/list) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-list)
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-list">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-list.svg">
   </a>
 </p>
 
-# Table of Contents
+`@justeattakeaway/pie-list` is a Web Component built using the Lit library. It provides a simple, accessible list built from two elements: a `pie-list` container and one or more `pie-list-item` children.
 
-1. [Introduction](#pie-list)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
+> [!NOTE]
+> This component is still growing. More properties, slots and sub-components will be added over time. This documentation covers what is currently supported.
 
-## pie-list
+## Table of Contents
 
-`pie-list` is a Web Component built using the Lit library.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Accessibility](#accessibility)
+- [Usage Examples](#usage-examples)
+- [Usage Notes and Rules](#usage-notes-and-rules)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-list` in your application, run the following on your command line:
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-```bash
-# npm
-$ npm i @justeattakeaway/pie-list
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
-# yarn
-$ yarn add @justeattakeaway/pie-list
-```
+## Documentation
 
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
-
-
-### Importing the component
-
-#### JavaScript
-```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieList } from '@justeattakeaway/pie-list';
-
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-list';
-```
-
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieList } from '@justeattakeaway/pie-list/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-
-## Peer Dependencies
+`pie-list` is a compound component. The `pie-list` element is the container (it applies the `list` role and renders the dividers between items), and each row is a `pie-list-item` (which applies the `listitem` role).
 
 > [!IMPORTANT]
-> When using `pie-list`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
+> Because `pie-list` uses the `list` role, you **must always give it an accessible name** using either `aria-label` or `aria-labelledby`. Without one, screen reader users get no context for what the list contains. See [Accessibility](#accessibility).
 
+### Properties
 
-## Props
+#### `pie-list`
 
-| Property | Type | Default | Description |
+`pie-list` currently has no configurable properties. It acts as the semantic container for `pie-list-item` children.
+
+#### `pie-list-item`
+
+| Prop | Options | Description | Default |
 |---|---|---|---|
-| - | - | - | - |
+| `primaryText` | Any string | The main text of the item, providing an overview of the content. | `undefined` |
+| `secondaryText` | Any string | Optional additional detail, rendered on a second line beneath the primary text. | `undefined` |
+| `metaText` | Any string | Optional supporting information about the item's context, status or attributes. Rendered as a trailing text string. **Mutually exclusive with the `trailing` slot**: if `metaText` is set, the `trailing` slot is not rendered. | `undefined` |
+| `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
+| `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
+| `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
 
-In your markup or JSX, you can then use these to set the properties for the `pie-list` component:
+### Slots
+
+Slots are provided by `pie-list-item`.
+
+| Slot | Description |
+|---|---|
+| `leading` | Content displayed at the start of the item, before the text. Intended for a small icon or a media element (e.g. `pie-thumbnail`). If slotting `pie-thumbnail`, it MUST use `size="40"`; this is the only size that fits the list-item layout correctly. |
+| `trailing` | Content displayed at the end of the item, after the text. Intended for a small icon, a `pie-tag`, etc. Not rendered when `metaText` is set. |
+
+The permitted slotted elements are: a PIE WEBC icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and native HTML radio/checkbox inputs.
+Some slotted content is designed with specific properties being used. So please read the entire readme to understand correct slot usage.
+
+> Slotted PIE icons are always sized by `pie-list-item` (24px). Consumers cannot override this size.
+
+> \* `pie-avatar` is a permitted slot element but is not covered by usage examples here yet, as it is not ready for use in lists.
+
+### CSS Variables
+
+These custom properties can be set on a `pie-list-item` (or on `pie-list` to affect all items) to override the defaults.
+
+| Variable | Description | Accepted values |
+|---|---|---|
+| `--list-item-inline-padding` | Sets the inline (start and end) padding of the item. Defaults to `var(--dt-spacing-d)`. **Must be set on the `pie-list-item`** (directly or via a rule targeting it), not on `pie-list` — the default lives on the item's host, so an inherited value from `pie-list` will not override it. | Any PIE spacing token (e.g. `var(--dt-spacing-f)`) or `0` |
+| `--list-item-alignment` | Sets the vertical alignment of the item's content. Defaults to `flex-start`. **Must be set on the `pie-list-item`** (directly or via a rule targeting it), not on `pie-list` — the default lives on the item's host, so an inherited value from `pie-list` will not override it. | Only `center` is recommended |
+
+### Events
+
+This component does not emit any custom events. To listen for interactions, treat slotted interactive elements like native HTML elements in your application.
+
+## Accessibility
+
+`pie-list` renders with `role="list"` and each `pie-list-item` with `role="listitem"`.
+
+> [!IMPORTANT]
+> **Always provide an accessible name for `pie-list`** via `aria-label` or `aria-labelledby`. A list with the `list` role has no inherent name, so without one a screen reader announces "list" with no indication of what it contains.
+
+- Use **`aria-label`** when there is no visible heading for the list:
+
+  ```html
+  <pie-list aria-label="Payment methods">
+    <pie-list-item primaryText="Credit card"></pie-list-item>
+    <pie-list-item primaryText="PayPal"></pie-list-item>
+  </pie-list>
+  ```
+
+- Use **`aria-labelledby`** to reference a visible heading (preferred when one exists, so the visible and accessible names stay in sync):
+
+  ```html
+  <h2 id="payment-methods-heading">Payment methods</h2>
+  <pie-list aria-labelledby="payment-methods-heading">
+    <pie-list-item primaryText="Credit card"></pie-list-item>
+    <pie-list-item primaryText="PayPal"></pie-list-item>
+  </pie-list>
+  ```
+
+## Usage Examples
+
+**For HTML:**
+
+```js
+// import as modules into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/list.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+```
+
+A basic list with primary, secondary and meta text (note the required `aria-label`):
 
 ```html
-<!-- Native HTML -->
-<pie-list></pie-list>
-
-<!-- JSX -->
-<PieList></PieList>
+<pie-list aria-label="Recent orders">
+  <pie-list-item
+    primaryText="Primary text"
+    secondaryText="Secondary text"
+    metaText="Meta text"></pie-list-item>
+  <pie-list-item
+    primaryText="Primary text"
+    secondaryText="Secondary text"></pie-list-item>
+  <pie-list-item primaryText="Primary text"></pie-list-item>
+</pie-list>
+<script type="module" src="/main.js"></script>
 ```
+
+**Leading and trailing content (icons):**
+
+```js
+import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
+```
+
+```html
+<pie-list>
+  <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
+    <icon-placeholder slot="leading"></icon-placeholder>
+    <icon-chevron-right slot="trailing"></icon-chevron-right>
+  </pie-list-item>
+</pie-list>
+```
+
+**Trailing `pie-tag`:**
+
+```js
+import '@justeattakeaway/pie-webc/components/tag.js';
+```
+
+```html
+<pie-list>
+  <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
+    <pie-tag slot="trailing">Label</pie-tag>
+  </pie-list-item>
+</pie-list>
+```
+
+**Meta text** (renders as trailing text; do not combine with the `trailing` slot):
+
+```html
+<pie-list>
+  <pie-list-item
+    primaryText="Primary text"
+    secondaryText="Secondary text"
+    metaText="Meta text"></pie-list-item>
+</pie-list>
+```
+
+**Bold primary text:**
+
+```html
+<pie-list>
+  <pie-list-item isBold primaryText="Primary text"></pie-list-item>
+</pie-list>
+```
+
+**Compact list** (reduced height, see [rules](#usage-notes-and-rules)):
+
+```html
+<pie-list>
+  <pie-list-item isCompact primaryText="Primary text">
+    <icon-chevron-right slot="trailing"></icon-chevron-right>
+  </pie-list-item>
+  <pie-list-item isCompact primaryText="Primary text">
+    <icon-chevron-right slot="trailing"></icon-chevron-right>
+  </pie-list-item>
+</pie-list>
+```
+
+**Media (`pie-thumbnail`) in the leading slot:**
+
+```js
+import '@justeattakeaway/pie-webc/components/thumbnail.js';
+```
+
+```html
+<!-- `hasMedia` is REQUIRED whenever you slot a thumbnail. Without it the
+     block padding will be incorrect. -->
+<pie-list aria-label="Restaurants">
+  <pie-list-item hasMedia primaryText="Primary text">
+    <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
+  </pie-list-item>
+</pie-list>
+
+<!-- Still set `hasMedia` when there is secondary text. The padding is unchanged
+     in this case, but you should still set it. -->
+<pie-list aria-label="Restaurants">
+  <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
+    <pie-thumbnail slot="leading" size="40"></pie-thumbnail>
+  </pie-list-item>
+</pie-list>
+```
+
+**Overriding alignment and padding** (via CSS variables):
+
+```html
+<!-- Vertically centre the content of the items. `--list-item-alignment` must be set on the
+     `pie-list-item` (here via a rule targeting every item), not on `pie-list`. -->
+<style>pie-list-item { --list-item-alignment: center; }</style>
+<pie-list>
+  <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
+    <icon-chevron-right slot="trailing"></icon-chevron-right>
+  </pie-list-item>
+</pie-list>
+
+<!-- Remove the inline padding. `--list-item-inline-padding` must be set on the `pie-list-item`
+     (its default lives on the item's host, so a value on `pie-list` will not override it). -->
+<pie-list>
+  <pie-list-item style="--list-item-inline-padding: 0;" primaryText="Primary text"></pie-list-item>
+</pie-list>
+```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```js
+// Vue templates (using Nuxt 3)
+import '@justeattakeaway/pie-webc/components/list.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+
+<pie-list>
+  <pie-list-item primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+</pie-list>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieList } from '@justeattakeaway/pie-webc/react/list.js';
+import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
+
+<PieList>
+  <PieListItem primaryText="Primary text" secondaryText="Secondary text">
+    <PieThumbnail slot="leading" size={40} />
+  </PieListItem>
+</PieList>
+```
+
+## Usage Notes and Rules
+
+To keep lists consistent and correct, follow these rules:
+
+- **Always give `pie-list` an accessible name** with `aria-label` or `aria-labelledby` (use `aria-labelledby` when a visible heading exists). This is required for screen reader users to understand the list. See [Accessibility](#accessibility).
+- **Provide `primaryText`** on every `pie-list-item`; it is the item's main line of content.
+- **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
+- **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
+- **Always set `hasMedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
+- **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
+- **Only use `center` for `--list-item-alignment`.** Other values are not supported.
+- **`pie-avatar` is not yet ready** for use in lists. Prefer `pie-thumbnail` for media for now.
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 

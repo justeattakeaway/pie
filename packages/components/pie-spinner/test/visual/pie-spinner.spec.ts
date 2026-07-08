@@ -15,4 +15,14 @@ test.describe('PieSpinner - Visual tests`', () => {
         await expect(page.getByTestId(spinner.selectors.container.dataTestId).first()).toBeVisible();
         await percySnapshot(page, `PIE Spinner - Variant: ${variant}`, percyWidths);
     }));
+
+    test('should render centered within its relative ancestor', async ({ page }) => {
+        // Arrange
+        const spinnerCenteredPage = new BasePage(page, 'spinner--centered');
+        await spinnerCenteredPage.load();
+
+        // Assert
+        await expect(page.getByTestId(spinner.selectors.container.dataTestId)).toBeVisible();
+        await percySnapshot(page, 'PIE Spinner - Centered', percyWidths);
+    });
 });

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-chip",
   "description": "PIE Design System Chip built using Web Components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-icons-webc": "1.25.3",
-    "@justeattakeaway/pie-spinner": "1.4.19",
+    "@justeattakeaway/pie-spinner": "1.5.0",
     "@justeattakeaway/pie-webc-core": "15.1.0"
   },
   "customElements": "custom-elements.json",
