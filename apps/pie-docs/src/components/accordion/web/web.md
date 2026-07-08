@@ -337,7 +337,7 @@ Here are some examples of Accordions in LTR context:
   {% endcontentItem %}
 {% endcontentLayout %}
 
-## RTL Examples
+### RTL Examples
 
 Here are some examples of Accordions in RTL context:
 
