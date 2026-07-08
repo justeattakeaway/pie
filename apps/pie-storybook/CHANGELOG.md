@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.84.0
+
+### Minor Changes
+
+- [Added] - New pie list examples for the plain text list/list item ([#2989](https://github.com/justeattakeaway/pie/pull/2989)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.28
+
 ## 1.83.0
 
 ### Minor Changes
