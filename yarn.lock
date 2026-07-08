@@ -3315,7 +3315,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.28.2"
     "@justeattakeaway/pie-icons-webc": "npm:1.25.3"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
-    "@justeattakeaway/pie-webc": "npm:0.10.27"
+    "@justeattakeaway/pie-webc": "npm:0.10.28"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -3479,7 +3479,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-list@npm:0.0.31, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
+"@justeattakeaway/pie-list@npm:0.1.0, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-list@workspace:packages/components/pie-list"
   dependencies:
@@ -3605,7 +3605,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.25.3"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.6"
-    "@justeattakeaway/pie-webc": "npm:0.10.27"
+    "@justeattakeaway/pie-webc": "npm:0.10.28"
     "@storybook/addon-a11y": "npm:10.4.6"
     "@storybook/addon-designs": "npm:11.1.3"
     "@storybook/addon-docs": "npm:10.4.6"
@@ -3770,7 +3770,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.10.27, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.10.28, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -3790,7 +3790,7 @@ __metadata:
     "@justeattakeaway/pie-form-label": "npm:0.18.28"
     "@justeattakeaway/pie-icon-button": "npm:2.7.21"
     "@justeattakeaway/pie-link": "npm:1.3.37"
-    "@justeattakeaway/pie-list": "npm:0.0.31"
+    "@justeattakeaway/pie-list": "npm:0.1.0"
     "@justeattakeaway/pie-lottie-player": "npm:0.4.7"
     "@justeattakeaway/pie-modal": "npm:1.26.14"
     "@justeattakeaway/pie-notification": "npm:0.24.5"
