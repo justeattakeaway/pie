@@ -51,6 +51,8 @@
     "components/divider/web",
     "components/dropdown",
     "components/fab",
+    "components/fab/apps",
+    "components/fab/web",
     "components/form-label",
     "components/form-label/code",
     "components/form-label/web",
