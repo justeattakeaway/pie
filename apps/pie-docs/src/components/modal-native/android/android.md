@@ -19,7 +19,7 @@ shouldShowContents: true
         type: usageTypes.text,
         items: [
             "Displaying system-wide notifications or messages.",
-            "For anything other than system prompted notifications and alerts. Use our PIE modal instead."
+            "For anything other than system prompted notifications and alerts use the custom Modal (Dialog) instead."
         ]
     }
 } %}

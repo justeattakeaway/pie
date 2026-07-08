@@ -19,7 +19,7 @@ eleventyNavigation:
         type: usageTypes.text,
         items: [
             "Displaying system-wide notifications or messages.",
-            "For anything other than system prompted notifications and alerts. Use our PIE modal instead."
+            "For anything other than system prompted notifications and alerts use the custom Modal (Alert) instead."
         ]
     }
 } %}
@@ -65,7 +65,7 @@ eleventyNavigation:
         "**Action 1:** Main action for user interaction.",
         "**Action 2 (Optional):** Secondary action option.",
         "**Action 3 (Optional):** Tertiary action option.",
-        "**Liqui9d Glass container:** Bounding box for the alert's content."
+        "**Liquid Glass container:** Bounding box for the alert's content."
     ]
 } %}
 

@@ -3,11 +3,21 @@ eleventyNavigation:
     key: Overview
     parent: 'Modal - Native'
     order: 1
-draft: true
+shouldShowContents: true
 permalink: components/modal-native/
 ---
 
-{% notification {
-  type: "neutral",
-  message: "We're currently working on this documentation. It will be available soon."
+## Overview
+
+{% contentPageImage {
+    src:"../../../assets/img/components/modal-native/overview.svg",
+    alt: "Example of a native modal that contains a title, body, and actions."
+} %}
+
+---
+
+## Resources
+
+{% resourceTable {
+    componentName: 'Modal-native'
 } %}

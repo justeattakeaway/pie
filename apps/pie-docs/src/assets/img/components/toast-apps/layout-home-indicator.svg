@@ -1,0 +1,29 @@
+<svg width="1032" height="400" viewBox="0 0 1032 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1032" height="400" rx="16" fill="#F6F3EF"/>
+<mask id="mask0_27760_7690" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1032" height="400">
+<rect width="1032" height="400" rx="16" fill="#00DCFF"/>
+</mask>
+<g mask="url(#mask0_27760_7690)">
+<g filter="url(#filter0_f_27760_7690)">
+<rect x="154" y="-70" width="722" height="389" rx="24" fill="#2B2A28"/>
+<rect x="157" y="-67" width="716" height="383" rx="21" stroke="#E7E2DA" stroke-width="6"/>
+</g>
+<rect x="158" y="-66" width="714" height="381" rx="20" fill="white" stroke="#E7E2DA" stroke-width="8"/>
+<rect x="160" width="709" height="298" fill="#FF8000" fill-opacity="0.1"/>
+<path d="M349 1L349 297" stroke="#FF8000"/>
+<path d="M340 297H358" stroke="#FF8000"/>
+<path d="M340 1H358" stroke="#FF8000"/>
+<rect x="448" y="298" width="134" height="5" rx="2.5" fill="#262626"/>
+<rect x="158" y="-66" width="714" height="381" rx="20" stroke="#E7E2DA" stroke-width="8"/>
+<circle cx="61" cy="143" r="12" fill="#2B2A28"/>
+<path d="M61.6839 146.306H57.3159V144.976L61.0959 138.9H63.1259L59.4299 144.808H61.6839V142.554H63.5039V144.808H64.6519V146.306H63.5039L63.5039 148H61.6839L61.6839 146.306Z" fill="white" fill-opacity="0.9"/>
+<rect x="73" y="142.5" width="276" height="1" rx="0.5" fill="#FF8000"/>
+</g>
+<defs>
+<filter id="filter0_f_27760_7690" x="54" y="-170" width="922" height="589" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_27760_7690"/>
+</filter>
+</defs>
+</svg>
