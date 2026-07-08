@@ -44,7 +44,7 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
