@@ -619,13 +619,19 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load({ ...props });
 
                     const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
-                    const initialHeight = (await textarea.boundingBox())?.height;
+                    await expect(textarea).toBeVisible();
+
+                    const initialBox = await textarea.boundingBox();
+                    expect(initialBox).not.toBeNull();
+                    const initialHeight = initialBox?.height;
 
                     // Act
                     await textarea.fill('line one\nline two\nline three\nline four\nline five\nline six\nline seven');
 
                     // Assert
-                    const updatedHeight = (await textarea.boundingBox())?.height;
+                    const updatedBox = await textarea.boundingBox();
+                    expect(updatedBox).not.toBeNull();
+                    const updatedHeight = updatedBox?.height;
                     expect(updatedHeight).toEqual(initialHeight);
                 });
             });
