@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.7.22
+
+### Patch Changes
+
+- Updated dependencies [[`3f3e72b`](https://github.com/justeattakeaway/pie/commit/3f3e72bd9264df646f057adeae985c87867330b4)]:
+  - @justeattakeaway/pie-spinner@1.5.0
+
 ## 2.7.21
 
 ### Patch Changes

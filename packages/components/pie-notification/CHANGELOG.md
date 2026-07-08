@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-notification
 
+## 0.24.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.22
+
 ## 0.24.5
 
 ### Patch Changes
