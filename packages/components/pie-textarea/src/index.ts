@@ -116,7 +116,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this.handleResize();
         }
 
-        if (this.resize === 'manual' && ((changedProperties.has('rows') || changedProperties.has('size') || changedProperties.has('resize')))) {
+        if ((this.resize === 'manual' || this.resize === 'none') && ((changedProperties.has('rows') || changedProperties.has('size') || changedProperties.has('resize')))) {
             this._textarea.style.height = '';
         }
     }
