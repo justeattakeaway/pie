@@ -20,6 +20,10 @@ export interface SpinnerProps {
      * What style variant the spinner should be such as brand, secondary or inverse.
      */
     variant?: typeof variants[number];
+    /**
+     * When true, the spinner positions itself absolutely and centers itself within its nearest relative ancestor.
+     */
+    isCentered?: boolean;
 }
 
 export type DefaultProps = ComponentDefaultProps<SpinnerProps, keyof Omit<SpinnerProps, 'aria'>>;
@@ -27,4 +31,5 @@ export type DefaultProps = ComponentDefaultProps<SpinnerProps, keyof Omit<Spinne
 export const defaultProps: DefaultProps = {
     size: 'medium',
     variant: 'brand',
+    isCentered: false,
 };

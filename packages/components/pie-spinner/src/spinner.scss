@@ -4,6 +4,14 @@
     display: block;
 }
 
+:host([isCentered]) {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /**
 * Shorthand mixin for updating the HSL custom properties for the loading spinner.
 * Takes in the name of the color to be split into its HSL components.
