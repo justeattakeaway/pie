@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-list
 
+## 0.1.0
+
+### Minor Changes
+
+- [Added] - Plain text list/list item component variation. ([#2989](https://github.com/justeattakeaway/pie/pull/2989)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.0.31
 
 ### Patch Changes
