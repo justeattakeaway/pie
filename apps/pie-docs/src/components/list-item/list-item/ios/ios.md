@@ -87,7 +87,10 @@ width: 200
 
 ### Compact
 
-The height of the component is decreased to reduce the vertical space, and used when space needs to be saved. If the secondary text is required, don't apply the compact prop.
+{% notification {
+  type: "information",
+  message: "The height of the component is decreased to reduce the vertical space, and used when space needs to be saved. If the secondary text is required, don't apply the compact prop."
+} %}
 
 {% contentPageImage {
 src:"../../../../assets/img/components/list-item/list-item/ios/modifiers-compact.svg",
