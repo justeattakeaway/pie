@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-css": minor
 ---
 
-update pie-tokens version
+[Changed] - update pie-tokens version
