@@ -1,0 +1,39 @@
+{
+  "headings": [
+    "Size",
+    "Icon size",
+    "Height",
+    "Width",
+    "Notes"
+  ],
+  "rows": [
+    [
+      "Large",
+      "24px",
+      "56px",
+      "Flexible",
+      "Large is the default size of the component and should be the first choice whenever possible."
+    ],
+    [
+      "Medium",
+      "24px",
+      "48px",
+      "Flexible",
+      ""
+    ],
+    [
+      "Small",
+      "24px",
+      "40px",
+      "Flexible",
+      "Small is used for pairing with multiple FABs and for instances using small screens."
+    ],
+    [
+      "XSmall",
+      "20px",
+      "32px",
+      "Flexible",
+      ""
+    ]
+  ]
+}
