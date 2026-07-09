@@ -12,6 +12,7 @@
     "all-about-pie/what-is-pie",
     "components",
     "components/accordion",
+    "components/accordion/web",
     "components/assistive-text",
     "components/assistive-text/apps",
     "components/assistive-text/code",
