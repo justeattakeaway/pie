@@ -6,16 +6,24 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don’ts
+## Dos and Don'ts
 
 {% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+          "Do use checkboxes for selecting multiple options."
+        ]
+    },
     dont: {
         type: usageTypes.text,
         items: [
-            "If a user can select only one option from a list, Radio buttons should be used instead of Checkboxes."
+            "Don't check options by default."
         ]
     }
 } %}
+
+---
 
 ## Anatomy
 
@@ -45,6 +53,8 @@ shouldShowContents: true
     alt: "Unchecked checkbox with label.",
     width: "70px"
 } %}
+
+---
 
 ## Modifiers
 
@@ -119,6 +129,8 @@ If there is a Checkbox grouping, they can be laid out vertically or horizontally
   {% endcontentItem %}
 {% endcontentLayout %}
 
+---
+
 ## Content
 
 ### Checkbox labels
@@ -137,7 +149,7 @@ If there is a Checkbox grouping, they can be laid out vertically or horizontally
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Label:** The label can include a link, when the string is a complete sentence or more."
+        "**Label:** The label can include a [link](https://pie.design/components/link/), when the string is a complete sentence or more."
     ]
 } %}
 
@@ -151,6 +163,8 @@ If there is a Checkbox grouping, they can be laid out vertically or horizontally
     alt: "Checkbox with a label that wraps to a second line.",
     width: "221px"
 } %}
+
+---
 
 ## Layout
 
@@ -181,18 +195,20 @@ By default label container is set to hug. Designers can set the textbox to fill 
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox-apps/layout-label-error.svg",
-      width: "256px",
+      width: "258px",
       alt: "Unchecked checkbox with a leading label in error state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox-apps/layout-label-error-space.svg",
-      width: "214px",
+      width: "258px",
       alt: "Unchecked checkbox with a space before the leading label in error state."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
+
+---
 
 ## Interactions
 
@@ -236,6 +252,8 @@ If the label contains a link, the link has its own touch target, while the stand
   {% endcontentItem %}
 {% endcontentLayout %}
 
+---
+
 ## States
 
 The Checkbox input allows for three states: unselected, selected, and partially selected. The default view of a set of Checkboxes is having no option selected.
@@ -246,6 +264,8 @@ The Checkbox input allows for three states: unselected, selected, and partially 
     width: "300px"
 } %}
 
+---
+
 ## Interactive states
 
 Outlines the atomic level interactive elements for the component.
@@ -255,6 +275,8 @@ Outlines the atomic level interactive elements for the component.
     alt: "Checkboxes showing default, active, error and disabled states.",
     width: "300px"
 } %}
+
+---
 
 ## Examples
 
@@ -298,9 +320,11 @@ Here are some examples of Checkbox in RTL context.
   {% endcontentItem %}
 {% endcontentLayout %}
 
+---
+
 ## Structure
 
-Outlines the internal spacing structure of the component. See the Spacing documentation for token details.
+Outlines the internal spacing structure of the component. See the [Spacing documentation](https://pie.design/foundations/spacing/tokens/alias/) for token details.
 
 {% contentLayout %}
   {% contentItem %}
