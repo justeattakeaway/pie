@@ -3066,6 +3066,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:7.14.0":
+  version: 7.14.0
+  resolution: "@justeat/pie-design-tokens@npm:7.14.0"
+  dependencies:
+    jsonc-parser: "npm:3.2.0"
+    lodash.merge: "npm:4.6.2"
+    mkdirp: "npm:1.0.4"
+  checksum: 10/e75b469da87d270e41ea4e7e5b35d222e5518bdc8d8d072130495e881db83c761ab37fa8c0c1fd5948ac33b5c0de5c34de46cc43af5749ab2edc3a3c8899fce4
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/browserslist-config-pie@npm:0.2.1, @justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie"
@@ -3259,7 +3270,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.11.1"
+    "@justeat/pie-design-tokens": "npm:7.14.0"
     "@types/postcss-import": "npm:14.0.3"
     include-media: "npm:2.0.0"
     postcss: "npm:8.5.15"
