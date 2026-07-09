@@ -237,47 +237,44 @@ const FocusableNestedElementsTemplate: TemplateFunction<AccordionProps> = () => 
 
 export const FocusableNestedElements = createStory<AccordionProps>(FocusableNestedElementsTemplate, defaultArgs)();
 
-const BorderRadiusTemplate: TemplateFunction<AccordionProps> = ({
-    headingLevel,
-    size,
-}) => html`
-    <div class="responsive-story-container">
-        <style>
-            pie-accordion.rounded {
-                --accordion-border-radius: var(--dt-radius-rounded-c);
-                margin-bottom: 1px;
-            }
-        </style>
-        <pie-accordion
-            class="rounded"
-            isDividerHidden
-            headingLabel="Delivery information"
-            headingLevel="${ifDefined(headingLevel)}"
-            size="${ifDefined(size)}"
-            ?isOpen="${true}"
-            @toggle="${handleToggle}">
-            Your order will be delivered between 30 and 45 minutes after placing your order.
-        </pie-accordion>
-        <pie-accordion
-            class="rounded"
-            isDividerHidden
-            headingLabel="Payment methods"
-            headingLevel="${ifDefined(headingLevel)}"
-            size="${ifDefined(size)}"
-            @toggle="${handleToggle}">
-            We accept Visa, Mastercard, PayPal, and cash on delivery.
-        </pie-accordion>
-        <pie-accordion
-            class="rounded"
-            isDividerHidden
-            headingLabel="Allergen information"
-            headingLevel="${ifDefined(headingLevel)}"
-            size="${ifDefined(size)}"
-            secondaryLabel="Updated today"
-            @toggle="${handleToggle}">
-            Please contact the restaurant directly for allergen information about specific dishes.
-        </pie-accordion>
-    </div>
-`;
+type BorderRadiusVariantProps = AccordionVariantProps & { borderRadius?: string };
 
-export const BorderRadius = createStory<AccordionProps>(BorderRadiusTemplate, defaultArgs)({ isOpen: true });
+const BorderRadiusVariationsTemplate: TemplateFunction<BorderRadiusVariantProps> = ({
+    borderRadius,
+}) => {
+    const style = `--accordion-border-radius: ${borderRadius ? `var(${borderRadius})` : '0'}; margin-bottom: 1px;`;
+
+    return html`
+        <div class="responsive-story-container">
+            <pie-accordion
+                style="${style}"
+                isDividerHidden
+                headingLabel="Delivery information"
+                ?isOpen="${true}"
+                @toggle="${handleToggle}">
+                Your order will be delivered between 30 and 45 minutes after placing your order.
+            </pie-accordion>
+            <pie-accordion
+                style="${style}"
+                isDividerHidden
+                headingLabel="Payment methods"
+                @toggle="${handleToggle}">
+                We accept Visa, Mastercard, PayPal, and cash on delivery.
+            </pie-accordion>
+            <pie-accordion
+                style="${style}"
+                isDividerHidden
+                headingLabel="Allergen information"
+                secondaryLabel="Updated today"
+                @toggle="${handleToggle}">
+                Please contact the restaurant directly for allergen information about specific dishes.
+            </pie-accordion>
+        </div>
+    `;
+};
+
+const borderRadiusPropsMatrix: Partial<Record<keyof BorderRadiusVariantProps, unknown[]>> = {
+    borderRadius: ['', '--dt-radius-rounded-c'],
+};
+
+export const BorderRadiusVariations = createVariantStory<BorderRadiusVariantProps>(BorderRadiusVariationsTemplate, borderRadiusPropsMatrix, { bgColor: 'dark (container-dark)' });
