@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-spinner
 
+## 1.5.0
+
+### Minor Changes
+
+- [Added] - New `isCentered` prop that positions the spinner absolutely and centers it within its nearest positioned ancestor ([#2999](https://github.com/justeattakeaway/pie/pull/2999)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.4.19
 
 ### Patch Changes

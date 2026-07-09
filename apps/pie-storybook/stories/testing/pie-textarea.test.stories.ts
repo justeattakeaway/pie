@@ -351,13 +351,13 @@ const baseSharedPropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
 
 // Text variant stories
 const textPropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
-    resize: ['auto', 'manual'],
+    resize: ['auto', 'manual', 'none'],
     value: [shortContent, longContent, overflowingContent],
 };
 
 // Text resize stories
 const resizePropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
-    resize: ['auto', 'manual'],
+    resize: ['auto', 'manual', 'none'],
 };
 
 // Status variant stories
