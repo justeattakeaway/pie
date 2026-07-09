@@ -4,15 +4,17 @@
 :host {
     display: block;
 
-    --accordion-border-radius: var(--dt-radius-rounded-none);
     --accordion-button-padding-block-start: var(--dt-spacing-d);
     --accordion-button-padding-block-end: var(--dt-spacing-d);
     --accordion-button-padding-inline-start: var(--dt-spacing-d);
     --accordion-button-padding-inline-end: var(--dt-spacing-d);
+
     --accordion-panel-padding-block-start: var(--dt-spacing-a);
     --accordion-panel-padding-block-end: var(--dt-spacing-d);
     --accordion-panel-padding-inline-start: var(--dt-spacing-d);
     --accordion-panel-padding-inline-end: var(--dt-spacing-d);
+
+    --accordion-border-radius: var(--dt-radius-rounded-none);
 }
 
 // Reset browser default heading margins
@@ -35,6 +37,7 @@
     padding-inline-end: var(--accordion-button-padding-inline-end);
     background-color: var(--int-states-mixin-bg-color);
     border: none;
+    border-radius: var(--accordion-border-radius);
     text-align: start;
     color: var(--dt-color-content-default);
 
@@ -43,7 +46,11 @@
     @include p.disable-pointer-events-in-slotted-icons;
 
     &:focus-visible {
-        outline: 2px solid var(--dt-color-focus-outer);
+        @include p.focus;
+
+        // Ensures the focus ring is displayed above near neighbours
+        position: relative;
+        z-index: 1;
     }
 
     @media (pointer: fine) {
@@ -51,6 +58,9 @@
     }
 
     &.is-open {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+
         icon-chevron-down {
             transform: rotate(180deg);
         }
@@ -108,7 +118,11 @@
     padding-block-end: var(--accordion-panel-padding-block-end);
     padding-inline-start: var(--accordion-panel-padding-inline-start);
     padding-inline-end: var(--accordion-panel-padding-inline-end);
+
     background-color: var(--dt-color-container-default);
+
+    border-end-start-radius: var(--accordion-border-radius);
+    border-end-end-radius: var(--accordion-border-radius);
 }
 
 // Panel hidden state

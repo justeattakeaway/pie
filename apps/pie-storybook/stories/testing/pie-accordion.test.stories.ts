@@ -238,28 +238,44 @@ const FocusableNestedElementsTemplate: TemplateFunction<AccordionProps> = () => 
 export const FocusableNestedElements = createStory<AccordionProps>(FocusableNestedElementsTemplate, defaultArgs)();
 
 const BorderRadiusTemplate: TemplateFunction<AccordionProps> = ({
-    isOpen,
-    headingLabel,
     headingLevel,
-    secondaryLabel,
     size,
-    isEmphasisReduced,
-    isDividerHidden,
-    slot,
 }) => html`
-    <style>#storybook-root { background-color: orange; }</style>
     <div class="responsive-story-container">
+        <style>
+            pie-accordion.rounded {
+                --accordion-border-radius: var(--dt-radius-rounded-c);
+                margin-bottom: 1px;
+            }
+        </style>
         <pie-accordion
-            headingLabel="${headingLabel}"
+            class="rounded"
+            isDividerHidden
+            headingLabel="Delivery information"
             headingLevel="${ifDefined(headingLevel)}"
-            ?isOpen="${isOpen}"
-            ?isEmphasisReduced="${isEmphasisReduced}"
-            ?isDividerHidden="${isDividerHidden}"
             size="${ifDefined(size)}"
-            secondaryLabel="${ifDefined(secondaryLabel)}"
-            style="--accordion-border-radius: var(--dt-radius-rounded-c);"
+            ?isOpen="${true}"
             @toggle="${handleToggle}">
-            <div>Your order will be delivered between 30 and 45 minutes after placing your order.</div>
+            Your order will be delivered between 30 and 45 minutes after placing your order.
+        </pie-accordion>
+        <pie-accordion
+            class="rounded"
+            isDividerHidden
+            headingLabel="Payment methods"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            @toggle="${handleToggle}">
+            We accept Visa, Mastercard, PayPal, and cash on delivery.
+        </pie-accordion>
+        <pie-accordion
+            class="rounded"
+            isDividerHidden
+            headingLabel="Allergen information"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            secondaryLabel="Updated today"
+            @toggle="${handleToggle}">
+            Please contact the restaurant directly for allergen information about specific dishes.
         </pie-accordion>
     </div>
 `;

@@ -176,27 +176,44 @@ const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, 
 `;
 
 const BorderRadiusTemplate: TemplateFunction<AccordionStoryProps> = ({
-    isOpen,
-    headingLabel,
     headingLevel,
-    secondaryLabel,
     size,
-    isEmphasisReduced,
-    isDividerHidden,
-    slot,
 }) => html`
     <div class="responsive-story-container">
+        <style>
+            pie-accordion.rounded {
+                --accordion-border-radius: var(--dt-radius-rounded-c);
+                margin-bottom: 1px;
+            }
+        </style>
         <pie-accordion
-            headingLabel="${headingLabel}"
+            class="rounded"
+            isDividerHidden
+            headingLabel="Delivery information"
             headingLevel="${ifDefined(headingLevel)}"
-            ?isOpen="${isOpen}"
-            ?isEmphasisReduced="${isEmphasisReduced}"
-            ?isDividerHidden="${isDividerHidden}"
             size="${ifDefined(size)}"
-            secondaryLabel="${ifDefined(secondaryLabel)}"
-            style="--accordion-border-radius: var(--dt-radius-rounded-c);"
+            ?isOpen="${true}"
             @toggle="${handleToggle}">
-            ${sanitizeAndRenderHTML(slot)}
+            Your order will be delivered between 30 and 45 minutes after placing your order.
+        </pie-accordion>
+        <pie-accordion
+            class="rounded"
+            isDividerHidden
+            headingLabel="Payment methods"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            @toggle="${handleToggle}">
+            We accept Visa, Mastercard, PayPal, and cash on delivery.
+        </pie-accordion>
+        <pie-accordion
+            class="rounded"
+            isDividerHidden
+            headingLabel="Allergen information"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            secondaryLabel="Updated today"
+            @toggle="${handleToggle}">
+            Please contact the restaurant directly for allergen information about specific dishes.
         </pie-accordion>
     </div>
 `;
@@ -212,4 +229,4 @@ export const Stacked = createStory<AccordionStoryProps>(StackedTemplate, default
 export const NoDivider = createAccordionStory({ isDividerHidden: true });
 export const SizeWide = createAccordionStory({ size: 'wide' });
 export const SizeNarrow = createAccordionStory({ size: 'narrow' });
-export const BorderRadius = createStory<AccordionStoryProps>(BorderRadiusTemplate, defaultArgs)({ isOpen: true });
+export const BorderRadius = createStory<AccordionStoryProps>(BorderRadiusTemplate, defaultArgs)();
