@@ -322,6 +322,8 @@ By default, toasts should appear at the bottom-left of the page's content area, 
     ]
 } %}
 
+<br />
+
 #### RTL
 
 By default, toasts should appear at the bottom-right of the page's content area, excluding any navigation in RTL layout. Alternatively, they may be placed at the bottom-left.
@@ -343,9 +345,11 @@ By default, toasts should appear at the bottom-right of the page's content area,
     ]
 } %}
 
+<br />
+
 ### Modal position
 
-A toast should be located at the bottom centre of the modal content. The toast shouldn't overlay a pinned footer. 
+A toast should be located at the bottom centre of the modal content. The toast shouldn't overlay a pinned footer.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/layout-modal-position.svg",

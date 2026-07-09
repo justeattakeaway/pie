@@ -6,6 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 eleventyComputed:
     priorityQueue: "{% include '../apps/priority-queue.json' %}"
+    touchArea: "{% include '../apps/touch-area.json' %}"
 ---
 
 ## Dos and Don'ts
@@ -23,8 +24,11 @@ eleventyComputed:
     dont: {
         type: usageTypes.text,
         items: [
+            "Don’t interrupt the user experience.",
             "Don't use toasts for critical information.",
-            "Don't place the toast over any navigational elements."
+            "Don't place the toast over any navigational elements.",
+            "Don’t use Toast for error messages. See [Error patterns docs](https://www.pie.design/patterns/errors/) for alternatives.",
+            "Don’t overload with information, keep the messaging focused."
         ]
     }
 } %}
@@ -183,9 +187,13 @@ The toast has a minimum height of 48px when displaying one line of text. It shou
 The toast has a minimum width of 300px and a maximum width of 420px.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/toast-apps/sizes-width.svg",
-    alt: "A 420px wide toast",
-    width: 420
+    src:"../../../assets/img/components/toast-apps/sizes-width-1.svg",
+    alt: "Example of the toast component taking 90% of a screen with 360px width."
+} %}
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast-apps/sizes-width-2.svg",
+    alt: "Example of the toast component in a 1024px screen with a maximum width of 720px."
 } %}
 
 ---
@@ -206,15 +214,15 @@ If the body copy extends beyond one line, it should automatically wrap to multip
 
 Only one toast is displayed at a time. When toasts are consecutively or simultaneously triggered, their display order is defined by the priority queue.
 
-Each level takes priority over those below it, queues alongside toasts of the same priority, and yields to higher priority levels.
-
-{% componentDetailsTable {
-  tableData: priorityQueue
-} %}
+Below it’s a reference for how a priority queue could be implemented by pillar engineers. Each level of priority takes over those below it, queues alongside toasts of the same priority, and yields to higher priority levels.
 
 {% notification {
   type: "information",
-  message: "Refer to the [Toast Provider](/components/toast/toast-provider/code/) documentation for guidance on how to manage the queue priority."
+  message: "This is the suggested pattern for development, this functionality, if required is handled by pillar engineers."
+} %}
+
+{% componentDetailsTable {
+  tableData: priorityQueue
 } %}
 
 ---
@@ -227,14 +235,14 @@ By default the toast automatically disappears after 5 seconds. However, the user
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/toast/behaviours-toast.svg",
+      src: "../../../assets/img/components/toast-apps/behaviours-toast-no-action.svg",
       width: 300,
       alt: "A toast without a close icon button nor a dismiss button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/toast/behaviours-toast-with-close-icon-button.svg",
+      src: "../../../assets/img/components/toast-apps/behaviours-toast-icon-button.svg",
       width: 300,
       alt: "A toast with a close icon button."
     } %}
@@ -244,9 +252,16 @@ By default the toast automatically disappears after 5 seconds. However, the user
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/toast/behaviours-toast-with-dismiss-button.svg",
+      src: "../../../assets/img/components/toast-apps/behaviours-toast-action-button.svg",
       width: 300,
-      alt: "A toast with a dismiss button."
+      alt: "A toast with an action dismiss button."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/toast-apps/behaviours-toast-action-icon-button.svg",
+      width: 300,
+      alt: "A toast with an icon and action dismiss button."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -258,14 +273,14 @@ If the toast has a close icon button or a dismiss button, the toast can be persi
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/toast-apps/behaviours-toast-with-close-icon-button.svg",
+      src: "../../../assets/img/components/toast-apps/behaviours-persistent-icon-button.svg",
       width: 300,
       alt: "A toast with a close icon button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/toast-apps/behaviours-toast-with-dismiss-button.svg",
+      src: "../../../assets/img/components/toast-apps/behaviours-persistent-action-button.svg",
       width: 300,
       alt: "A toast with a dismiss button."
     } %}
@@ -278,84 +293,173 @@ If the toast has a close icon button or a dismiss button, the toast can be persi
 
 If the toast includes either a close icon button or a dismiss button, either can be used to dismiss the toast.
 
+### Touch area
+
+{% componentDetailsTable {
+  tableData: touchArea
+} %}
+
+{% notification {
+  type: "information",
+  message: "“Dp” in Android stands for “Density-independent Pixel”. A scaling measurement system used to maintain consistent sizing across a variety of screen densities."
+} %}
+
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/toast-apps/interactions-close-icon-button.svg",
+      src: "../../../assets/img/components/toast-apps/interactions-touch-icon.svg",
       width: 300,
       alt: "A toast with a close icon button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/toast-apps/interactions-dismiss-button.svg",
+      src: "../../../assets/img/components/toast-apps/interactions-touch-action.svg",
       width: 300,
       alt: "A toast with a dismiss button."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Close icon button**: Target area to close the toast by clicking on the close button..",
+        "**Action button**: Target area that leads to an action configuration which consequently dismisses the toast."
+    ]
+} %}
+
 ---
 
 ## Layout
 
-### Page position
+### Content area
 
-#### LTR
+The content area is determined by the fixed content on the screen, such as Navigation Menu and Home Indicator Bar.
 
-By default, toasts should appear at the bottom-left of the page's content area, excluding any navigation. Alternatively, they may be placed at the bottom-right.
+#### Full screen
 
 {% contentPageImage {
-    src:"../../../assets/img/components/toast-apps/layout-ltr-position-left.svg",
+    src:"../../../assets/img/components/toast-apps/layout-fullscreen.svg",
     alt: "A toast placed at the bottom-left of a page with a left-to-right direction."
 } %}
 
-{% contentPageImage {
-    src:"../../../assets/img/components/toast-apps/layout-ltr-position-right.svg",
-    alt: "A toast placed at the bottom-right of a page with a left-to-right direction."
-} %}
-
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Wide:** 24px padding <br /> **Narrow:** 16px padding"
+        "Full screen content area."
     ]
 } %}
 
-#### RTL
+<br />
 
-By default, toasts should appear at the bottom-right of the page's content area, excluding any navigation in RTL layout. Alternatively, they may be placed at the bottom-left.
-
-{% contentPageImage {
-    src:"../../../assets/img/components/toast-apps/layout-rtl-position-right.svg",
-    alt: "A toast placed at the bottom-right of a page with a right-to-left direction."
-} %}
+#### Docked bottom navigation
 
 {% contentPageImage {
-    src:"../../../assets/img/components/toast-apps/layout-rtl-position-left.svg",
-    alt: "A toast placed at the bottom-left of a page with a right-to-left direction."
+    src:"../../../assets/img/components/toast-apps/layout-docked-nav.svg",
+    alt: "A toast placed at the bottom of a page with a docked bottom navigation."
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Wide:** 24px padding <br /> **Narrow:** 16px padding"
+        "Content area in relation to the docked bottom navigation."
     ]
 } %}
 
-### Modal position
+<br />
 
-A toast should be located at the bottom centre of the modal content. The toast shouldn't overlay a pinned footer. 
+#### Floating bottom navigation
 
 {% contentPageImage {
-    src:"../../../assets/img/components/toast-apps/layout-modal-position.svg",
-    alt: "A toast placed at the bottom of a modal."
+    src:"../../../assets/img/components/toast-apps/layout-floating-nav.svg",
+    alt: "Content area for placing A toast placed above a floating bottom navigation."
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Wide:** 24px padding <br /> **Narrow:** 16px padding"
+        "Content area in relation to the floating bottom navigation."
+    ]
+} %}
+
+#### Home indicator
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast-apps/layout-home-indicator.svg",
+    alt: "A toast placed above the home indicator."
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "Content area in relation to the home indicator."
+    ]
+} %}
+
+### Positioning
+
+The toast should always be positioned at the bottom centre of the mobile and tablet screens and to avoid the bottom navigation bar and a pinned footer. The bottom of the toast should be 24px from the base of the content area.
+
+#### No fixed content
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast-apps/positioning-no-content.svg",
+    alt: "A toast placed at the bottom of a page with no fixed content."
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "24px from the base of the toast."
+    ]
+} %}
+
+<br />
+
+#### Bottom navigation
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast-apps/positioning-bottom-nav.svg",
+    alt: "A toast placed at the bottom of a page with a bottom navigation."
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "24px from the base of the bottom navigation."
+    ]
+} %}
+
+<br />
+
+#### Floating navigation
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast-apps/positioning-floating-nav.svg",
+    alt: "A toast placed at the bottom of a page with a floating bottom navigation."
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "24px from the base of the toast in relation to the floating navigation."
+    ]
+} %}
+
+<br />
+
+#### Home indicator
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast-apps/positioning-home-indicator.svg",
+    alt: "A toast placed at the bottom of a page with a home indicator."
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "24px from the base of the toast in relation to the home indicator."
     ]
 } %}
 

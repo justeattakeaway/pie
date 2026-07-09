@@ -1,0 +1,29 @@
+{
+  "headings": [
+    "Element",
+    "Platform",
+    "Touch area"
+  ],
+  "rows": [
+    [
+      "Close button",
+      "Android",
+      "48px x 48px"
+    ],
+    [
+      "Action button",
+      "Android",
+      "[width of button] x 48dp"
+    ],
+    [
+      "Close button",
+      "iOS",
+      "44px x 44px"
+    ],
+    [
+      "Action button",
+      "iOS",
+      "[width of button] x 44px"
+    ]
+  ]
+}
