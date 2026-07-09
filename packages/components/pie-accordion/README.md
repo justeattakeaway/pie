@@ -53,6 +53,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Name                                          | Description                                             | Default           |
 |------------------------------------------------|----------------------------------------------------------|--------------------|
+| `--accordion-border-radius`                     | Controls the border radius of the accordion.          | `--dt-radius-rounded-none` |
 | `--accordion-button-padding-block-start`        | Controls the the trigger button block-start padding.  | `--dt-spacing-d`  |
 | `--accordion-button-padding-block-end`          | Controls the the trigger button block-end padding.    | `--dt-spacing-d`  |
 | `--accordion-button-padding-inline-start`       | Controls the the trigger button inline-start padding. | `--dt-spacing-d`  |

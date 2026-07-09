@@ -236,3 +236,32 @@ const FocusableNestedElementsTemplate: TemplateFunction<AccordionProps> = () => 
 `;
 
 export const FocusableNestedElements = createStory<AccordionProps>(FocusableNestedElementsTemplate, defaultArgs)();
+
+const BorderRadiusTemplate: TemplateFunction<AccordionProps> = ({
+    isOpen,
+    headingLabel,
+    headingLevel,
+    secondaryLabel,
+    size,
+    isEmphasisReduced,
+    isDividerHidden,
+    slot,
+}) => html`
+    <style>#storybook-root { background-color: orange; }</style>
+    <div class="responsive-story-container">
+        <pie-accordion
+            headingLabel="${headingLabel}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?isOpen="${isOpen}"
+            ?isEmphasisReduced="${isEmphasisReduced}"
+            ?isDividerHidden="${isDividerHidden}"
+            size="${ifDefined(size)}"
+            secondaryLabel="${ifDefined(secondaryLabel)}"
+            style="--accordion-border-radius: var(--dt-radius-rounded-c);"
+            @toggle="${handleToggle}">
+            <div>Your order will be delivered between 30 and 45 minutes after placing your order.</div>
+        </pie-accordion>
+    </div>
+`;
+
+export const BorderRadius = createStory<AccordionProps>(BorderRadiusTemplate, defaultArgs)({ isOpen: true });

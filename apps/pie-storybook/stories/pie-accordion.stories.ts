@@ -175,6 +175,32 @@ const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, 
     </div>
 `;
 
+const BorderRadiusTemplate: TemplateFunction<AccordionStoryProps> = ({
+    isOpen,
+    headingLabel,
+    headingLevel,
+    secondaryLabel,
+    size,
+    isEmphasisReduced,
+    isDividerHidden,
+    slot,
+}) => html`
+    <div class="responsive-story-container">
+        <pie-accordion
+            headingLabel="${headingLabel}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?isOpen="${isOpen}"
+            ?isEmphasisReduced="${isEmphasisReduced}"
+            ?isDividerHidden="${isDividerHidden}"
+            size="${ifDefined(size)}"
+            secondaryLabel="${ifDefined(secondaryLabel)}"
+            style="--accordion-border-radius: var(--dt-radius-rounded-c);"
+            @toggle="${handleToggle}">
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-accordion>
+    </div>
+`;
+
 const createAccordionStory = createStory<AccordionStoryProps>(Template, defaultArgs);
 
 export const Default = createAccordionStory();
@@ -186,3 +212,4 @@ export const Stacked = createStory<AccordionStoryProps>(StackedTemplate, default
 export const NoDivider = createAccordionStory({ isDividerHidden: true });
 export const SizeWide = createAccordionStory({ size: 'wide' });
 export const SizeNarrow = createAccordionStory({ size: 'narrow' });
+export const BorderRadius = createStory<AccordionStoryProps>(BorderRadiusTemplate, defaultArgs)({ isOpen: true });

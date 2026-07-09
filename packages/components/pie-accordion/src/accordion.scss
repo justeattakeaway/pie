@@ -4,6 +4,7 @@
 :host {
     display: block;
 
+    --accordion-border-radius: var(--dt-radius-rounded-none);
     --accordion-button-padding-block-start: var(--dt-spacing-d);
     --accordion-button-padding-block-end: var(--dt-spacing-d);
     --accordion-button-padding-inline-start: var(--dt-spacing-d);
