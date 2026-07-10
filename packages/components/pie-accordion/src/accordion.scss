@@ -4,16 +4,19 @@
 :host {
     display: block;
 
+    // Trigger button padding vars
     --accordion-button-padding-block-start: var(--dt-spacing-d);
     --accordion-button-padding-block-end: var(--dt-spacing-d);
     --accordion-button-padding-inline-start: var(--dt-spacing-d);
     --accordion-button-padding-inline-end: var(--dt-spacing-d);
 
+    // Pannel padding vars
     --accordion-panel-padding-block-start: var(--dt-spacing-a);
     --accordion-panel-padding-block-end: var(--dt-spacing-d);
     --accordion-panel-padding-inline-start: var(--dt-spacing-d);
     --accordion-panel-padding-inline-end: var(--dt-spacing-d);
 
+    // Border radius var
     --accordion-border-radius: var(--dt-radius-rounded-none);
 }
 
