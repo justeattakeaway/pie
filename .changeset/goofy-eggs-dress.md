@@ -1,9 +1,8 @@
 ---
-"@justeattakeaway/pie-modal": patch
-"@justeattakeaway/pie-token-map": patch
-"@justeattakeaway/pie-css": patch
-"@justeattakeaway/pie-storybook": patch
-"@justeattakeaway/pie-docs": patch
+"@justeattakeaway/pie-modal": minor
+"@justeattakeaway/pie-token-map": minor
+"@justeattakeaway/pie-storybook": minor
+"@justeattakeaway/pie-docs": minor
 ---
 
-[Updated] - design tokens to latest
+[Changed] - update pie-tokens version
