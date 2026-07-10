@@ -51,9 +51,8 @@
     &:focus-visible {
         @include p.focus;
 
-        // Ensures the focus ring is displayed above near neighbours
+        // Ensures the focus ring is displayed above adjacent neighbours
         position: relative;
-        z-index: 1;
     }
 
     @media (pointer: fine) {
