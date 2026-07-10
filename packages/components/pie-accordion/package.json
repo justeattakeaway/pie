@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-accordion",
   "description": "PIE Design System Accordion built using Web Components",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-divider": "1.5.28",
-    "@justeattakeaway/pie-icons-webc": "1.25.4",
+    "@justeattakeaway/pie-icons-webc": "1.26.0",
     "@justeattakeaway/pie-webc-core": "16.0.0"
   },
   "customElements": "custom-elements.json",
