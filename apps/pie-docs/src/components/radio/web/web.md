@@ -29,7 +29,7 @@ shouldShowContents: true
 ## Anatomy
 
 {% contentPageImage {
-    src:"../../../assets/img/components/radio/anatomy.svg",
+    src:"../../../assets/img/components/radio/web/anatomy.svg",
     alt: "Anatomy of a radio button.",
     width: 70
 } %}
@@ -44,10 +44,12 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
+
 ### Default
+
 {% contentPageImage {
-    src:"../../../assets/img/components/radio/default-unselected-radio.svg",
+    src:"../../../assets/img/components/radio/web/default-unselected-radio.svg",
     alt: "A default unselected radio button with a label.",
     width: 70
 } %}
@@ -55,6 +57,7 @@ shouldShowContents: true
 ---
 
 ## Modifiers
+
 ### Label
 
 A label should always be present unless being used as a nested component and an alternative label is given.
@@ -62,14 +65,14 @@ A label should always be present unless being used as a nested component and an 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/default-unselected-radio.svg",
+      src: "../../../assets/img/components/radio/web/default-unselected-radio.svg",
       width: 70,
       alt: "A default unselected radio button with a label."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/default-unselected-radio-unlabelled.svg",
+      src: "../../../assets/img/components/radio/web/default-unselected-radio-unlabelled.svg",
       width: 24,
       alt: "A default unselected radio button without a label."
     } %}
@@ -83,15 +86,17 @@ A label should always be present unless being used as a nested component and an 
 All content should use sentence case.
 
 ### Label
+
 - Always use clear and concise labels for radio buttons.
 
 ---
 
 ## Overflow
+
 When the label exceeds the available width, it will wrap onto a new line.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/radio/overflow.svg",
+    src:"../../../assets/img/components/radio/web/overflow.svg",
     alt: "A default unselected radio button with a label.",
     width: 282
 } %}
@@ -99,20 +104,22 @@ When the label exceeds the available width, it will wrap onto a new line.
 ---
 
 ## Behaviours
+
 ### States
+
 The radio button can be in one of two states: selected or unselected. The default state is unselected.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/radio/states-unselected.svg",
+        src: "../../../assets/img/components/radio/web/states-unselected.svg",
         width: 112,
         alt: "An unselected radio button with a label."
       } %}
   {% endcontentItem %}
     {% contentItem %}
       {% contentPageImage {
-        src: "../../../assets/img/components/radio/states-selected.svg",
+        src: "../../../assets/img/components/radio/web/states-selected.svg",
         width: 94,
         alt: "A selected radio button with a label."
       } %}
@@ -122,19 +129,20 @@ The radio button can be in one of two states: selected or unselected. The defaul
 ---
 
 ## Interactions
+
 Users can trigger the radio directly or by clicking the radio label. Having all regions interactive creates a more accessible click target.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/radio/interactions-1.svg",
+        src: "../../../assets/img/components/radio/web/interactions-1.svg",
         width: 70,
         alt: "An unselected radio button with some highlighting over the input to signify that it is interactive."
       } %}
   {% endcontentItem %}
     {% contentItem %}
       {% contentPageImage {
-        src: "../../../assets/img/components/radio/interactions-2.svg",
+        src: "../../../assets/img/components/radio/web/interactions-2.svg",
         width: 70,
         alt: "An unselected radio button with some highlighting over the label to signify that it is interactive."
       } %}
@@ -144,13 +152,14 @@ Users can trigger the radio directly or by clicking the radio label. Having all 
 ---
 
 ## Interactive states
+
 Outlines the atomic level interactive elements for the component.
 
 {% contentLayout %}
   {% contentItem %}
     <h3>Default</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/interactive-default.svg",
+      src: "../../../assets/img/components/radio/web/interactive-default.svg",
       width: 70,
       alt: "Default state of a radio button."
     } %}
@@ -158,7 +167,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h3>Hover</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/interactive-hover.svg",
+      src: "../../../assets/img/components/radio/web/interactive-hover.svg",
       width: 70,
       alt: "A radio button that is hovered."
     } %}
@@ -166,7 +175,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h3>Active</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/interactive-active.svg",
+      src: "../../../assets/img/components/radio/web/interactive-active.svg",
       width: 70,
       alt: "A radio button that is active."
     } %}
@@ -174,7 +183,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h3>Focus</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/interactive-focus.svg",
+      src: "../../../assets/img/components/radio/web/interactive-focus.svg",
       width: 73,
       alt: "A radio button that is focused."
     } %}
@@ -182,7 +191,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h3>Disabled</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/interactive-disabled.svg",
+      src: "../../../assets/img/components/radio/web/interactive-disabled.svg",
       width: 70,
       alt: "A radio button that is disabled."
     } %}
@@ -190,7 +199,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h3>Error</h3>
     {% contentPageImage {
-      src: "../../../assets/img/components/radio/interactive-error.svg",
+      src: "../../../assets/img/components/radio/web/interactive-error.svg",
       width: 65,
       alt: "A radio button that is in an error state."
     } %}
@@ -200,20 +209,22 @@ Outlines the atomic level interactive elements for the component.
 ---
 
 ## Examples
+
 ### LTR examples
+
 Here are some examples of the component in a left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/radio/ltr-1.svg",
+        src: "../../../assets/img/components/radio/web/ltr-1.svg",
         width: 416,
         alt: "A left-to-right example of radio buttons being used within cards. The input circles are positioned on the right-hand side of each card. The radio buttons show that the options are mutually exclusive, while the cards allow for more detailed information than a standard label, such as an icon, heading, and description."
       } %}
   {% endcontentItem %}
     {% contentItem %}
       {% contentPageImage {
-        src: "../../../assets/img/components/radio/ltr-2.svg",
+        src: "../../../assets/img/components/radio/web/ltr-2.svg",
         width: 360,
         alt: "A left-to-right example of radio buttons being used to select food options. Each option has an input circle on the left, followed by the item's name and description."
       } %}
@@ -221,19 +232,20 @@ Here are some examples of the component in a left-to-right context:
 {% endcontentLayout %}
 
 ### RTL examples
+
 Here are some examples of the component in a right-to-left context:
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/radio/rtl-1.svg",
+        src: "../../../assets/img/components/radio/web/rtl-1.svg",
         width: 416,
         alt: "This image shows the same content as the first left-to-right image but in Hebrew, with a right-to-left layout. The input selection circles are positioned to the left of the text for each option, opposite to the left-to-right version where the inputs are on the right."
       } %}
   {% endcontentItem %}
     {% contentItem %}
       {% contentPageImage {
-        src: "../../../assets/img/components/radio/rtl-2.svg",
+        src: "../../../assets/img/components/radio/web/rtl-2.svg",
         width: 360,
         alt: "This image mirrors the content of the second left-to-right image but in Hebrew, using a right-to-left layout. The input selection circles are positioned to the right of the text for each option, opposite the left-to-right version where the inputs are on the left."
       } %}

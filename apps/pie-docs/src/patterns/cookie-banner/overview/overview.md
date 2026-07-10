@@ -5,6 +5,9 @@ eleventyNavigation:
     order: 1
 shouldShowContents: true
 permalink: patterns/cookie-banner/
+eleventyComputed:
+    enterTransition: "{% include './enter-transition.json' %}"
+    exitTransition: "{% include './exit-transition.json' %}"
 ---
 
 
@@ -35,7 +38,6 @@ alt: "Anatomy of the Modal.",
 width: 120
 } %}
 
-
 {% list {
     type: listTypes.ordered,
     items: [
@@ -52,7 +54,7 @@ width: 120
 
 ---
 
-## Variations
+## Variants
 
 ### Banner
 
@@ -70,7 +72,7 @@ alt: "Modal with options to authorise cookies.",
 width: 120
 } %}
 
-___
+---
 
 ## Modifiers
 
@@ -136,9 +138,7 @@ width: 120
 
 ## Behaviours
 
-### Background
-
-#### Banner
+### Banner background
 
 The background page of the cookie banner isn’t disabled, and is only disabled once the modal is opened. The “Select your country” popover from the top navigation should sit on top of the banner so that the users can change the locale.
 
@@ -148,7 +148,7 @@ The background page of the cookie banner isn’t disabled, and is only disabled 
   width: 120
 } %}
 
-#### Modal
+### Modal background
 
 The background page is disabled when the modal is opened until the user has made a selection and is ready to continue with their flow, or returns to the banner. A scrim is applied and the banner disappears.
 
@@ -158,7 +158,7 @@ alt: "Cookie modal that positioned in the middle of the screen, on top of a dark
 width: 120
 } %}
 
-#### Turn all on / off
+### Turn all on / off
 
 Once the overarching toggle is toggled on/off, the child toggles follow suit. The overarching toggle will not be toggled on unless all child toggles are selected.
 
@@ -168,12 +168,35 @@ alt: "Modal showing the toggles states when \"Toggle All\" is or is not selected
 width: 120
 } %}
 
+---
+
+## Size
+
+### Wide width
+
+The wide cookie banner has a minimum width of 700px and a maximum width of 1024px.
+
+{% contentPageImage {
+src:"../../../assets/img/patterns/cookie-banner/size-wide-width.svg",
+alt: "Example of the Cookie banner with wide width.",
+width: 120
+} %}
+
+### Narrow width
+
+The narrow cookie banner has a minimum width of 320px and a maximum width of 699px.
+
+{% contentPageImage {
+src:"../../../assets/img/patterns/cookie-banner/size-narrow-width.svg",
+alt: "Example of the Cookie banner with narrow width.",
+width: 120
+} %}
 
 ---
 
 ## Positioning
 
-### Banner
+### Banner positioning
 
 The cookie banner is always positioned at the bottom of the screen with default bottom, left and right padding of 16px from the container of the banner.
 
@@ -183,7 +206,7 @@ alt: "Image of a frame with the banner positioned at the bottom.",
 width: 120
 } %}
 
-### Modal
+### Modal positioning
 
 The modal is positioned in the centre of the screen with a scrim applied.
 
@@ -195,9 +218,66 @@ width: 120
 
 ---
 
-## Responsive design
+## Motion
 
-### Narrow
+### Banner
+
+Illustrates the movement taking place when the cookie banner enters and exit from view. You can see an [animated example in our drive](https://drive.google.com/drive/folders/1MuAbAf0tsTR64uIhb5vOnYBSq26IQFoJ).
+
+{% contentPageImage {
+src:"../../../assets/img/patterns/cookie-banner/motion-banner.svg",
+alt: "A chart showing the timing of the cookie banner's Y Translate and Opacity animations, both running over 400 milliseconds.",
+width: 120
+} %}
+
+#### Enter transition
+
+As the cookie banner enters the view, it ascends by 75% of the component’s height over 400 milliseconds from its final position, simultaneously fading into view without any delay.
+
+{% contentWrapper %}
+    {% contentPageImage {
+        src:"../../../assets/img/patterns/cookie-banner/motion-enter-transition.svg",
+        alt: "A chart showing the cookie banner component's enter transition with an Y Translate animation."
+    } %}
+    {% componentDetailsTable { tableData: enterTransition } %}
+{% endcontentWrapper %}
+
+#### Exit transition
+
+When the cookie banner exits from view it moves down 75% of the component’s height at 150ms from the final position. At the same time it fades out of view. Exit transitions are always quicker than entry.
+
+{% contentWrapper %}
+    {% contentPageImage {
+        src:"../../../assets/img/patterns/cookie-banner/motion-exit-transition.svg",
+        alt: "A chart showing the cookie banner component's exit transition with an Y Translate animation."
+    } %}
+    {% componentDetailsTable { tableData: exitTransition } %}
+{% endcontentWrapper %}
+
+### Modal
+
+{% notification {
+  type: "info",
+  iconName: "info",
+  message: "For enter and exit transitions, please refer to the [motion documentation for the modal component](/components/modal/motion/)."
+} %}
+
+#### Overlapping transitions
+
+As the pattern consists of two components, the transition between the banner exiting and the modal entering should overlap, ensuring a smooth and seamless transition.
+
+{% contentPageImage {
+src:"../../../assets/img/patterns/cookie-banner/motion-modal-overlapping.svg",
+alt: "A chart showing the timing of overlapping transitions between the cookie banner and modal components.",
+width: 120,
+variant: "secondary"
+} %}
+
+---
+
+## Examples LTR
+
+### Narrow (left-to-right)
 
 At the narrow breakpoints, the banner has a maximum height of 432px, and the modal is set to full screen. If the content overflows due to a change in language, the available height, the call to action buttons and header become sticky and the body content scrolls.
 
@@ -212,20 +292,12 @@ width: 120
 #### Modal
 
 {% contentPageImage {
-src:"../../../assets/img/patterns/cookie-banner/responsive-banner.svg",
+src:"../../../assets/img/patterns/cookie-banner/responsive-modal.svg",
 alt: "Responsive modal as it looks on mobile views showcasing a scroll bar for the options and content.",
 width: 120
 } %}
 
----
-
-## Motion
-
-All motion details for the cookie banner can be found [here](https://www.figma.com/file/mJiLMfnMfnEYWJh2Njutdq/[Core]-Motion-[PIE-3]?type=design&node-id=804-3774&mode=design&t=6kQbKnf5Vr8ZyoIC-0), it also defines how the motion between the banner and modal overlap.
-
----
-
-## Right-to-left languages
+## Examples RTL
 
 For languages that read right-to-left, the layout and alignment of the content is reorganised so the readability of the component makes logical sense.
 
@@ -257,8 +329,7 @@ alt: "Responsive modal displaying right-to-left content.",
 width: 120
 } %}
 
-
-___
+---
 
 ## Resources
 
