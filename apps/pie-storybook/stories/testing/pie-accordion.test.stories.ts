@@ -89,7 +89,7 @@ const Template: TemplateFunction<AccordionProps> = ({
             size="${ifDefined(size)}"
             secondaryLabel="${ifDefined(secondaryLabel)}"
             @toggle="${handleToggle}">
-            <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+            Your order will be delivered between 30 and 45 minutes after placing your order.
         </pie-accordion>
     </div>
 `;
@@ -106,14 +106,14 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
             size="${ifDefined(size)}"
             ?isOpen="${true}"
             @toggle="${handleToggle}">
-            <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+            Your order will be delivered between 30 and 45 minutes after placing your order.
         </pie-accordion>
         <pie-accordion
             headingLabel="Payment methods"
             headingLevel="${ifDefined(headingLevel)}"
             size="${ifDefined(size)}"
             @toggle="${handleToggle}">
-            <p>We accept Visa, Mastercard, PayPal, and cash on delivery.</p>
+            We accept Visa, Mastercard, PayPal, and cash on delivery.
         </pie-accordion>
         <pie-accordion
             headingLabel="Allergen information"
@@ -121,7 +121,7 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
             size="${ifDefined(size)}"
             secondaryLabel="Updated today"
             @toggle="${handleToggle}">
-            <p>Please contact the restaurant directly for allergen information about specific dishes.</p>
+            Please contact the restaurant directly for allergen information about specific dishes.
         </pie-accordion>
         <pie-accordion
             headingLabel="Restaurant contact"
@@ -129,7 +129,7 @@ const StackedTemplate: TemplateFunction<AccordionProps> = ({ headingLevel, size 
             size="${ifDefined(size)}"
             ?isDividerHidden="${false}"
             @toggle="${handleToggle}">
-            <p>Call +44 20 7123 4567 or email hello@restaurant.com</p>
+            Call +44 20 7123 4567 or email hello@restaurant.com
         </pie-accordion>
     </div>
 `;
@@ -144,7 +144,7 @@ const IconRegularSizeTemplate: TemplateFunction<AccordionProps> = () => html`
             ?isOpen="${false}"
             @toggle="${handleToggle}">
             <icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>
-            <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+            Your order will be delivered between 30 and 45 minutes after placing your order.
         </pie-accordion>
     </div>
 `;
@@ -160,7 +160,7 @@ const IconLargeSizeTemplate: TemplateFunction<AccordionProps> = () => html`
             ?isOpen="${false}"
             @toggle="${handleToggle}">
             <icon-restaurant-filled slot="icon" size="xxl"></icon-restaurant-filled>
-            <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+            Your order will be delivered between 30 and 45 minutes after placing your order.
         </pie-accordion>
     </div>
 `;
@@ -190,7 +190,7 @@ const VariantTemplate: TemplateFunction<AccordionVariantProps> = ({
         secondaryLabel="${ifDefined(secondaryLabel)}"
         @toggle="${handleToggle}">
         ${icon ? html`<icon-restaurant-filled slot="icon" size="m"></icon-restaurant-filled>` : nothing}
-        <p>Your order will be delivered between 30 and 45 minutes after placing your order.</p>
+        Your order will be delivered between 30 and 45 minutes after placing your order.
     </pie-accordion>
 `;
 
