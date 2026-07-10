@@ -1223,6 +1223,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-thirdparty-microsoft-grey-60: #8c8c8c;
     --dt-color-thirdparty-microsoft-grey-70: #5e5e5e;
     --dt-color-thirdparty-microsoft-grey-80: #2f2f2f;
+    --dt-color-thirdparty-morrisons-green-05: #d1fae1;
+    --dt-color-thirdparty-morrisons-green-90: #004d1d;
     --dt-color-tomato-100: #31160d;
     --dt-color-tomato-30: #ff966d;
     --dt-color-tomato-5: #ffd3bf;
@@ -1246,7 +1248,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-turmeric-5: #fdf2d8;
     --dt-color-turmeric-60: #b48c32;
     --dt-color-turmeric-70: #917228;
-    --dt-color-turmeric-80: #644f1c;
+    --dt-color-turmeric-75: #7A6122;
+    --dt-color-turmeric-80: #5D4918;
     --dt-color-turmeric-90: #443613;
     --dt-color-white: #fff;
     --dt-color-yellow: #ffd600;
@@ -1433,6 +1436,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-thirdparty-microsoft-border-secondary-bg: #fff;
     --dt-color-thirdparty-microsoft-border-secondary: 0%;
     --dt-color-thirdparty-coop-container-primary: var(--dt-color-thirdparty-coop-blue-05);
+    --dt-color-thirdparty-morrisons-container-primary: var(--dt-color-thirdparty-morrisons-green-05);
     /* Global tokens - Font */
     --dt-font-family-alternative: 'JETSansVF2';
     --dt-font-family-code: 'PTMono';
@@ -1566,7 +1570,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-subheading-s-size--wide: var(--dt-font-size-20);
     --dt-font-subheading-s-line-height--wide: var(--dt-font-line-height-24);
     --dt-font-subheading-s-size--narrow: var(--dt-font-size-16);
-    --dt-font-subheading-s-line-height--narrow: var(--dt-font-line-height-24);
+    --dt-font-subheading-s-line-height--narrow: var(--dt-font-line-height-20);
     --dt-font-subheading-s-family: var(--dt-font-family-primary);
     --dt-font-subheading-s-weight: var(--dt-font-weight-regular);
     /* Subheading-l font theme */
@@ -1679,6 +1683,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Global tokens - Radius */
     --dt-radius-12: 12px;
     --dt-radius-16: 16px;
+    --dt-radius-20: 20px;
+    --dt-radius-24: 24px;
     --dt-radius-00: 0;
     --dt-radius-04: 4px;
     --dt-radius-08: 8px;
@@ -1690,6 +1696,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-radius-rounded-c: var(--dt-radius-12);
     --dt-radius-rounded-d: var(--dt-radius-16);
     --dt-radius-rounded-e: var(--dt-radius-round);
+    --dt-radius-rounded-f: var(--dt-radius-20);
+    --dt-radius-rounded-g: var(--dt-radius-24);
     /* Global tokens - Motion */
     --dt-motion-easing-in: cubic-bezier(0.8, 0, 1, 1);
     --dt-motion-easing-out: cubic-bezier(0, 0, 0.18, 0.99);
@@ -1863,8 +1871,8 @@ html[data-color-mode="dark"] {
     --dt-color-support-brand-04-subtle: var(--dt-color-berry-80);
     --dt-color-support-brand-04-tonal: var(--dt-color-berry-90);
     --dt-color-support-brand-05: var(--dt-color-turmeric-40);
-    --dt-color-support-brand-05-subtle: var(--dt-color-turmeric-80);
-    --dt-color-support-brand-05-tonal: var(--dt-color-turmeric-90);
+    --dt-color-support-brand-05-subtle: var(--dt-color-turmeric-75);
+    --dt-color-support-brand-05-tonal: var(--dt-color-turmeric-80);
     --dt-color-support-brand-06: var(--dt-color-aubergine-70);
     --dt-color-support-brand-06-subtle: var(--dt-color-aubergine-90);
     --dt-color-support-brand-06-tonal: var(--dt-color-aubergine-100);
@@ -1974,6 +1982,7 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-microsoft-content-secondary: var(--dt-color-thirdparty-microsoft-grey-70);
     --dt-color-thirdparty-microsoft-border-secondary: var(--dt-color-thirdparty-microsoft-grey-60);
     --dt-color-thirdparty-coop-container-primary: var(--dt-color-thirdparty-coop-blue-90);
+    --dt-color-thirdparty-morrisons-container-primary: var(--dt-color-thirdparty-morrisons-green-90);
 }
 @media (prefers-color-scheme: dark) {
     html[data-darkmode-system]:not([data-color-mode]) {
@@ -2040,8 +2049,8 @@ html[data-color-mode="dark"] {
         --dt-color-support-brand-04-subtle: var(--dt-color-berry-80);
         --dt-color-support-brand-04-tonal: var(--dt-color-berry-90);
         --dt-color-support-brand-05: var(--dt-color-turmeric-40);
-        --dt-color-support-brand-05-subtle: var(--dt-color-turmeric-80);
-        --dt-color-support-brand-05-tonal: var(--dt-color-turmeric-90);
+        --dt-color-support-brand-05-subtle: var(--dt-color-turmeric-75);
+        --dt-color-support-brand-05-tonal: var(--dt-color-turmeric-80);
         --dt-color-support-brand-06: var(--dt-color-aubergine-70);
         --dt-color-support-brand-06-subtle: var(--dt-color-aubergine-90);
         --dt-color-support-brand-06-tonal: var(--dt-color-aubergine-100);
@@ -2151,6 +2160,7 @@ html[data-color-mode="dark"] {
         --dt-color-thirdparty-microsoft-content-secondary: var(--dt-color-thirdparty-microsoft-grey-70);
         --dt-color-thirdparty-microsoft-border-secondary: var(--dt-color-thirdparty-microsoft-grey-60);
         --dt-color-thirdparty-coop-container-primary: var(--dt-color-thirdparty-coop-blue-90);
+        --dt-color-thirdparty-morrisons-container-primary: var(--dt-color-thirdparty-morrisons-green-90);
     }
 }
 /* Dark elevation theme */
@@ -2536,6 +2546,12 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-microsoft-grey-80-h: 0;
     --dt-color-thirdparty-microsoft-grey-80-s: 0%;
     --dt-color-thirdparty-microsoft-grey-80-l: 18.4%;
+    --dt-color-thirdparty-morrisons-green-05-h: 143;
+    --dt-color-thirdparty-morrisons-green-05-s: 80.4%;
+    --dt-color-thirdparty-morrisons-green-05-l: 90%;
+    --dt-color-thirdparty-morrisons-green-90-h: 143;
+    --dt-color-thirdparty-morrisons-green-90-s: 100%;
+    --dt-color-thirdparty-morrisons-green-90-l: 15.1%;
     --dt-color-tomato-100-h: 15;
     --dt-color-tomato-100-s: 58.1%;
     --dt-color-tomato-100-l: 12.2%;
@@ -2605,9 +2621,12 @@ html[data-color-mode="dark"] {
     --dt-color-turmeric-70-h: 42;
     --dt-color-turmeric-70-s: 56.8%;
     --dt-color-turmeric-70-l: 36.3%;
+    --dt-color-turmeric-75-h: 43;
+    --dt-color-turmeric-75-s: 56.4%;
+    --dt-color-turmeric-75-l: 30.6%;
     --dt-color-turmeric-80-h: 43;
-    --dt-color-turmeric-80-s: 56.3%;
-    --dt-color-turmeric-80-l: 25.1%;
+    --dt-color-turmeric-80-s: 59%;
+    --dt-color-turmeric-80-l: 22.9%;
     --dt-color-turmeric-90-h: 43;
     --dt-color-turmeric-90-s: 56.3%;
     --dt-color-turmeric-90-l: 17.1%;
@@ -3037,6 +3056,9 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-coop-container-primary-h: var(--dt-color-thirdparty-coop-blue-05-h);
     --dt-color-thirdparty-coop-container-primary-s: var(--dt-color-thirdparty-coop-blue-05-s);
     --dt-color-thirdparty-coop-container-primary-l: var(--dt-color-thirdparty-coop-blue-05-l);
+    --dt-color-thirdparty-morrisons-container-primary-h: var(--dt-color-thirdparty-morrisons-green-05-h);
+    --dt-color-thirdparty-morrisons-container-primary-s: var(--dt-color-thirdparty-morrisons-green-05-s);
+    --dt-color-thirdparty-morrisons-container-primary-l: var(--dt-color-thirdparty-morrisons-green-05-l);
 }
 html[data-color-mode="dark"] {
     --dt-color-background-default-h: var(--dt-color-truffle-100-h);
@@ -3204,12 +3226,12 @@ html[data-color-mode="dark"] {
     --dt-color-support-brand-05-h: var(--dt-color-turmeric-40-h);
     --dt-color-support-brand-05-s: var(--dt-color-turmeric-40-s);
     --dt-color-support-brand-05-l: var(--dt-color-turmeric-40-l);
-    --dt-color-support-brand-05-subtle-h: var(--dt-color-turmeric-80-h);
-    --dt-color-support-brand-05-subtle-s: var(--dt-color-turmeric-80-s);
-    --dt-color-support-brand-05-subtle-l: var(--dt-color-turmeric-80-l);
-    --dt-color-support-brand-05-tonal-h: var(--dt-color-turmeric-90-h);
-    --dt-color-support-brand-05-tonal-s: var(--dt-color-turmeric-90-s);
-    --dt-color-support-brand-05-tonal-l: var(--dt-color-turmeric-90-l);
+    --dt-color-support-brand-05-subtle-h: var(--dt-color-turmeric-75-h);
+    --dt-color-support-brand-05-subtle-s: var(--dt-color-turmeric-75-s);
+    --dt-color-support-brand-05-subtle-l: var(--dt-color-turmeric-75-l);
+    --dt-color-support-brand-05-tonal-h: var(--dt-color-turmeric-80-h);
+    --dt-color-support-brand-05-tonal-s: var(--dt-color-turmeric-80-s);
+    --dt-color-support-brand-05-tonal-l: var(--dt-color-turmeric-80-l);
     --dt-color-support-brand-06-h: var(--dt-color-aubergine-70-h);
     --dt-color-support-brand-06-s: var(--dt-color-aubergine-70-s);
     --dt-color-support-brand-06-l: var(--dt-color-aubergine-70-l);
@@ -3438,6 +3460,9 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-coop-container-primary-h: var(--dt-color-thirdparty-coop-blue-90-h);
     --dt-color-thirdparty-coop-container-primary-s: var(--dt-color-thirdparty-coop-blue-90-s);
     --dt-color-thirdparty-coop-container-primary-l: var(--dt-color-thirdparty-coop-blue-90-l);
+    --dt-color-thirdparty-morrisons-container-primary-h: var(--dt-color-thirdparty-morrisons-green-90-h);
+    --dt-color-thirdparty-morrisons-container-primary-s: var(--dt-color-thirdparty-morrisons-green-90-s);
+    --dt-color-thirdparty-morrisons-container-primary-l: var(--dt-color-thirdparty-morrisons-green-90-l);
 }
 @media (prefers-color-scheme: dark) {
     html[data-darkmode-system]:not([data-color-mode]) {
@@ -3606,12 +3631,12 @@ html[data-color-mode="dark"] {
         --dt-color-support-brand-05-h: var(--dt-color-turmeric-40-h);
         --dt-color-support-brand-05-s: var(--dt-color-turmeric-40-s);
         --dt-color-support-brand-05-l: var(--dt-color-turmeric-40-l);
-        --dt-color-support-brand-05-subtle-h: var(--dt-color-turmeric-80-h);
-        --dt-color-support-brand-05-subtle-s: var(--dt-color-turmeric-80-s);
-        --dt-color-support-brand-05-subtle-l: var(--dt-color-turmeric-80-l);
-        --dt-color-support-brand-05-tonal-h: var(--dt-color-turmeric-90-h);
-        --dt-color-support-brand-05-tonal-s: var(--dt-color-turmeric-90-s);
-        --dt-color-support-brand-05-tonal-l: var(--dt-color-turmeric-90-l);
+        --dt-color-support-brand-05-subtle-h: var(--dt-color-turmeric-75-h);
+        --dt-color-support-brand-05-subtle-s: var(--dt-color-turmeric-75-s);
+        --dt-color-support-brand-05-subtle-l: var(--dt-color-turmeric-75-l);
+        --dt-color-support-brand-05-tonal-h: var(--dt-color-turmeric-80-h);
+        --dt-color-support-brand-05-tonal-s: var(--dt-color-turmeric-80-s);
+        --dt-color-support-brand-05-tonal-l: var(--dt-color-turmeric-80-l);
         --dt-color-support-brand-06-h: var(--dt-color-aubergine-70-h);
         --dt-color-support-brand-06-s: var(--dt-color-aubergine-70-s);
         --dt-color-support-brand-06-l: var(--dt-color-aubergine-70-l);
@@ -3840,6 +3865,9 @@ html[data-color-mode="dark"] {
         --dt-color-thirdparty-coop-container-primary-h: var(--dt-color-thirdparty-coop-blue-90-h);
         --dt-color-thirdparty-coop-container-primary-s: var(--dt-color-thirdparty-coop-blue-90-s);
         --dt-color-thirdparty-coop-container-primary-l: var(--dt-color-thirdparty-coop-blue-90-l);
+        --dt-color-thirdparty-morrisons-container-primary-h: var(--dt-color-thirdparty-morrisons-green-90-h);
+        --dt-color-thirdparty-morrisons-container-primary-s: var(--dt-color-thirdparty-morrisons-green-90-s);
+        --dt-color-thirdparty-morrisons-container-primary-l: var(--dt-color-thirdparty-morrisons-green-90-l);
     }
 }
 :root {
