@@ -175,6 +175,49 @@ const StackedTemplate: TemplateFunction<AccordionStoryProps> = ({ headingLevel, 
     </div>
 `;
 
+const BorderRadiusTemplate: TemplateFunction<AccordionStoryProps> = ({
+    headingLevel,
+    size,
+}) => html`
+    <div class="responsive-story-container">
+        <style>
+            pie-accordion.rounded {
+                --accordion-border-radius: var(--dt-radius-rounded-c);
+                margin-bottom: 1px;
+            }
+        </style>
+        <pie-accordion
+            class="rounded"
+            isDividerHidden
+            headingLabel="Delivery information"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            ?isOpen="${true}"
+            @toggle="${handleToggle}">
+            Your order will be delivered between 30 and 45 minutes after placing your order.
+        </pie-accordion>
+        <pie-accordion
+            class="rounded"
+            isDividerHidden
+            headingLabel="Payment methods"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            @toggle="${handleToggle}">
+            We accept Visa, Mastercard, PayPal, and cash on delivery.
+        </pie-accordion>
+        <pie-accordion
+            class="rounded"
+            isDividerHidden
+            headingLabel="Allergen information"
+            headingLevel="${ifDefined(headingLevel)}"
+            size="${ifDefined(size)}"
+            secondaryLabel="Updated today"
+            @toggle="${handleToggle}">
+            Please contact the restaurant directly for allergen information about specific dishes.
+        </pie-accordion>
+    </div>
+`;
+
 const createAccordionStory = createStory<AccordionStoryProps>(Template, defaultArgs);
 
 export const Default = createAccordionStory();
@@ -186,3 +229,4 @@ export const Stacked = createStory<AccordionStoryProps>(StackedTemplate, default
 export const NoDivider = createAccordionStory({ isDividerHidden: true });
 export const SizeWide = createAccordionStory({ size: 'wide' });
 export const SizeNarrow = createAccordionStory({ size: 'narrow' });
+export const BorderRadius = createStory<AccordionStoryProps>(BorderRadiusTemplate, defaultArgs)();

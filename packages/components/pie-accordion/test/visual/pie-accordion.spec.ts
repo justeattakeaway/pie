@@ -29,4 +29,11 @@ test.describe('PieAccordion - Visual tests`', () => {
 
         await percySnapshot(page, 'PieAccordion - Stacked Visual Test');
     });
+
+    test('should display the PieAccordion border radius variations', async ({ page }) => {
+        const basePage = new BasePage(page, 'accordion--border-radius-variations');
+        await basePage.load();
+
+        await percySnapshot(page, 'PieAccordion - Border radius variations');
+    });
 });
