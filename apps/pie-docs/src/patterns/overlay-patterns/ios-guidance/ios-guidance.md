@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: IOS guidance
+    key: iOS guidance
     parent: 'Overlay Patterns'
     order: 3
 shouldShowContents: true
@@ -11,8 +11,6 @@ eleventyComputed:
 ## Decision tree
 
 You can follow this decision tree to choose the most appropriate UI component based on the specific context, importance, and user interaction requirements of your product interface.
-
-You can take a closer look at this in our [overlay patterns](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/branch/OsUnZnAk7zDlRrpFGmYn5O/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=4069-10559&t=epQdyBRv5LX6UjRC-0) file.
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/overlay-patterns/ios-guidance/ios-decision-tree.svg",
@@ -43,9 +41,8 @@ Alerts are a surface that overlays the page’s main content and is used to disp
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=11866-11978&t=mcgPcbSYnfVk1kQT-0) for this component."
+  message: "Check out our [full Alert Modal documentation](/components/modal/ios/) for this component."
 } %}
-
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/overlay-patterns/ios-guidance/ios-alert.svg",
@@ -57,29 +54,36 @@ Alerts are a surface that overlays the page’s main content and is used to disp
     do: {
         type: usageTypes.text,
         items: [
+            "Use alerts in the neutral-alternative variant to display critical information and display urgent messages.",
+            "Choose variants in brand colours for promotional and non-critical content.",
             "Use them to display important information that needs user’s action or dismissal.",
             "Use them when the user needs to perform one specific task.",
-            "They are triggered by the user."
+            "They are triggered by the user.",
+            "All content meets AA accessibility standards and is read by assistive technologies."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use them for multi-step flows."
+            "Don't allow excessive content length. Alert modals are for focused tasks, so check out this documentation for alternatives.",
+            "Don’t use them for multi-step flows.",
+            "Don't use alerts for minor notifications",
+            "Limit and avoid excessive interruptions",
+            "Don't add crucial information to images"
         ]
     }
 } %}
 
 ---
 
-## Bottom sheet 
+## Bottom sheet
 
 A bottom sheet is a surface that slides up from the bottom of the screen, remaining anchored to the bottom while displaying additional information or actions, all while keeping the main content visible.
 
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/bottom-sheet/) for this component."
+  message: "Check out our [full Bottom sheet documentation](/components/bottom-sheet/ios/) for this component."
 } %}
 
 {% contentPageImage {
@@ -103,14 +107,14 @@ A bottom sheet is a surface that slides up from the bottom of the screen, remain
         type: usageTypes.text,
         items: [
             "Don’t use them for multi-step flows. Use a full screen sheet instead.",
-            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the [decision tree](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/branch/OsUnZnAk7zDlRrpFGmYn5O/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=4069-10559&t=6LSpk2DW2rUZXHWu-0) for alternatives."       
+            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the decision tree for alternatives."
             ]
     }
 } %}
 
 ---
 
-## Full screen sheet 
+## Full screen sheet
 
 A full screen sheet is a surface that slides up from the bottom of the screen, and is a full screen display that overlays the previous screen.  
 
@@ -139,7 +143,7 @@ A full screen sheet is a surface that slides up from the bottom of the screen, a
 
 ---
 
-## Popover menu - native 
+## Popover menu - native
 
 Popovers are a small overlay that appears above content, offering extra information, context, or options to the user.
 
@@ -197,7 +201,6 @@ A sheet is a surface that slides up from the bottom of the screen, and is a disp
 
 ---
 
-
 ## System alert
 
 Also known as Alert - Native, a system native alert is a pre-built element provided by the operating system for displaying alerts, notifications, or messages within an app, adhering to platform design guidelines.
@@ -205,7 +208,7 @@ Also known as Alert - Native, a system native alert is a pre-built element provi
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=5692-5002&t=cJVgY2sP0q1ybIah-0) for this component."
+  message: "Check out our [full System Alert documentation](/components/modal-native/ios/) for this component."
 } %}
 
 {% contentPageImage {
@@ -239,7 +242,7 @@ A toast shows short updates about app processes at the bottom of the screen.
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/toast/) for this component."
+  message: "Check out our [full Toast documentation](/components/toast/) for this component."
 } %}
 
 {% contentPageImage {
@@ -275,7 +278,7 @@ A tooltip is a contextual message that appears when users interact with an eleme
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/tooltip/) for this component."
+  message: "Check out our [full Tooltip documentation](/components/tooltip/) for this component."
 } %}
 
 {% contentPageImage {
@@ -312,4 +315,3 @@ We’ve prepared a table to help you understand how our components stack on top 
 {% componentDetailsTable {
 tableData: zIndexes
 } %}
-

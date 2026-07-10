@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-token-map
 
+## 0.3.0
+
+### Minor Changes
+
+- [Changed] - update pie-tokens version ([#3008](https://github.com/justeattakeaway/pie/pull/3008)) by [@maledr5](https://github.com/maledr5)
+
 ## 0.2.0
 
 ### Minor Changes
