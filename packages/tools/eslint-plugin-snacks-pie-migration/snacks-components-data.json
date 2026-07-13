@@ -102,5 +102,9 @@
   "Toast": {
     "piePackage": "@justeattakeaway/pie-toast",
     "status": "stable"
+  },
+  "Toggler": {
+    "piePackage": "@justeattakeaway/pie-accordion",
+    "status": "beta"
   }
 }
