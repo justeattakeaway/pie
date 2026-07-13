@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-accordion
 
+## 0.2.0
+
+### Minor Changes
+
+- [Changed] - Promoted component status to Beta ([#3015](https://github.com/justeattakeaway/pie/pull/3015)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.1.0
 
 ### Minor Changes
