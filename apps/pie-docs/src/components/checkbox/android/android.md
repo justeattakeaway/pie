@@ -6,25 +6,6 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
-
-{% usage {
-    do: {
-        type: usageTypes.text,
-        items: [
-          "Do use checkboxes for selecting multiple options."
-        ]
-    },
-    dont: {
-        type: usageTypes.text,
-        items: [
-            "Don't check options by default."
-        ]
-    }
-} %}
-
----
-
 ## Anatomy
 
 {% contentPageImage {

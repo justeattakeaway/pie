@@ -6,25 +6,6 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don’ts
-
-{% usage {
-    do: {
-        type: usageTypes.text,
-        items: [
-          "Do give checkboxes a clearly associated label."
-        ]
-    },
-    dont: {
-        type: usageTypes.text,
-        items: [
-            "Don't use a checkbox if only one option can be selected from a list of options. Use radio buttons instead."
-        ]
-    }
-} %}
-
----
-
 ## Anatomy
 
 {% contentPageImage {
@@ -53,6 +34,8 @@ shouldShowContents: true
     alt: "Unchecked checkbox with label.",
     width: "70px"
 } %}
+
+---
 
 ## Modifiers
 

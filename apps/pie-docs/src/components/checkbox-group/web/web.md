@@ -64,7 +64,7 @@ Checkbox groups can be laid out both horizontally and vertically depending on th
 {% contentPageImage {
     src:"../../../assets/img/components/checkbox-group/variations-vertical.svg",
     alt: "Three vertically aligned checkboxes with group label.",
-    width: "71px"
+    width: "127px"
 } %}
 
 ---
@@ -110,7 +110,10 @@ All content should use sentence case.
 
 ### Label
 
-- Always use clear and concise labels for checkbox group.
+{% notification { 
+  type: "information",
+  message: "Check out the [form label documentation](https://pie.design/components/form-label/web/)."
+} %}
 
 ---
 
