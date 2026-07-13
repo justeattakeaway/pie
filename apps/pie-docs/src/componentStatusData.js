@@ -71,7 +71,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
