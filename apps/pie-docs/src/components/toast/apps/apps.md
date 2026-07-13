@@ -383,6 +383,8 @@ The content area is determined by the fixed content on the screen, such as Navig
     ]
 } %}
 
+<br />
+
 #### Home indicator
 
 {% contentPageImage {

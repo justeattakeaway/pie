@@ -3,7 +3,7 @@ eleventyNavigation:
   key: iOS
   parent: 'Modal - Native'
   order: 3
-  shouldShowContents: true
+shouldShowContents: true
 ---
 
 ## Dos and Don'ts

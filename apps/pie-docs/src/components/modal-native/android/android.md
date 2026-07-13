@@ -45,9 +45,11 @@ shouldShowContents: true
     ]
 } %}
 
-### Modifiers
+---
 
-#### No body
+## Modifiers
+
+### No body
 
 You can use a native dialog with no body for quick confirmation messages, alerts, notifications or confirmation prompts where the title alone is enough.
 

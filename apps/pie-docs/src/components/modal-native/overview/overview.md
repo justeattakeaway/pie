@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: 'Modal - Native'
     order: 1
-shouldShowContents: true
 permalink: components/modal-native/
 ---
 

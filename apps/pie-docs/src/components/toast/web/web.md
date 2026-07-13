@@ -214,7 +214,7 @@ Each level takes priority over those below it, queues alongside toasts of the sa
 
 {% notification {
   type: "information",
-  message: "Refer to the [Toast Provider](/components/toast/toast-provider/code/) documentation for guidance on how to manage the queue priority."
+  message: "Refer to the [Toast Provider](https://webc.pie.design/?path=/docs/components-toast-provider--overview) documentation for guidance on how to manage the queue priority."
 } %}
 
 ---
@@ -376,7 +376,6 @@ Here are some examples of the toast component in a left-to-right context:
     alt: "A toast component in a left-to-right context.",
     width: 272
 } %}
-
 
 ### RTL examples
 
