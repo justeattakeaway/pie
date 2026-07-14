@@ -98,7 +98,7 @@ If there is a Checkbox grouping, they can be laid out vertically or horizontally
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox-apps/alignment-vertical.svg",
       width: "70px",
-      alt: "Unchecked checkbox with assistive text."
+      alt: "Three checkboxes arranged vertically."
     } %}
   {% endcontentItem %}
   {% contentItem %}
