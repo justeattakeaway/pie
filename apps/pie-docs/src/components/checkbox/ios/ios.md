@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: iOS
-    parent: 'Checkbox'
+    parent: Checkbox
     order: 4
 shouldShowContents: true
 ---
