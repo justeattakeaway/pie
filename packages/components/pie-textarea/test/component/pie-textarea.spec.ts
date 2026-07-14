@@ -994,5 +994,36 @@ test.describe('PieTextarea - Component tests', () => {
                 });
             });
         });
+
+        test.describe('aria-label', () => {
+            test('should apply aria-label to the underlying element when aria prop is provided', async ({ page }) => {
+                // Arange
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    aria: {
+                        label: 'Name',
+                    },
+                };
+                await textAreaPage.load({ ...props });
+
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(textarea).toHaveAttribute('aria-label', 'Name');
+            });
+
+            test('should not set aria-label when aria prop is not provided', async ({ page }) => {
+                // Arange
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
+
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(textarea).not.toHaveAttribute('aria-label');
+            });
+        });
     });
 });

@@ -127,6 +127,10 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '2',
             },
         },
+        aria: {
+            description: 'The ARIA attributes to be applied to the underlying element',
+            control: 'object',
+        },
     },
     args: defaultArgs,
 };
@@ -147,6 +151,7 @@ const Template = ({
     placeholder,
     maxlength,
     rows,
+    aria,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -192,6 +197,7 @@ const Template = ({
             status=${ifDefined(status)}
             maxlength=${ifDefined(maxlength)}
             rows=${ifDefined(rows)}
+            .aria=${ifDefined(aria)}
             data-test-id="pie-textarea-container">
         </pie-textarea>
         <div id="output"></div>

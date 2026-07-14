@@ -4,7 +4,16 @@ export const sizes = ['small', 'medium', 'large'] as const;
 export const resizeModes = ['auto', 'manual', 'none'] as const;
 export const statusTypes = ['default', 'success', 'error'] as const;
 
+type AriaProps = {
+    label?: string;
+}
+
 export interface TextareaProps {
+    /**
+     * The ARIA attributes for the textarea element.
+     */
+    aria?: AriaProps;
+
     /**
      * Same as the HTML disabled attribute - indicates whether the textarea is disabled.
      */
@@ -93,7 +102,7 @@ export interface TextareaProps {
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue' | 'maxlength' | 'rows'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue' | 'maxlength' | 'rows' | 'aria'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
