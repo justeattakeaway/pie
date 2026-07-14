@@ -3,7 +3,8 @@ eleventyNavigation:
     key: Web
     parent: Slider
     order: 2
-draft: true
+shouldShowContents: true
+permalink: /components/slider/web/
 ---
 
 {% notification {
