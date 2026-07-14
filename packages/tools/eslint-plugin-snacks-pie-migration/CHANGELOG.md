@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.11.0
+
+### Minor Changes
+
+- Update eslint rules for PIE migration ([#3016](https://github.com/justeattakeaway/pie/pull/3016)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
 ## 0.10.0
 
 ### Minor Changes
