@@ -1,5 +1,5 @@
 ---
-"@justeattakeaway/pie-notification": minor
+"@justeattakeaway/pie-notification": patch
 ---
 
-[Fixed] - aria-label correctly passed down via object
+[Fixed] - Pass `aria.close` through to the close button via `pie-icon-button`’s `aria` prop
