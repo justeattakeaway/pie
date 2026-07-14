@@ -112,7 +112,7 @@ By default the divider is used, with the exception of the last Accordion in a st
 
 ### Expanded content
 
-The accordion component includes a content slot in its expanded variant, allowing designers to insert their own content directly into the component. For guidance on working with slots in Figma, please refer to the Figma Slot Guidance.
+The accordion component includes a content slot in its expanded variant, allowing designers to insert their own content directly into the component. For guidance on working with slots in Figma, please refer to the [Figma Slot Guidance](designers/getting-started/best-practices/#use-figma-slots).
 
 {% contentPageImage {
     src: "../../../assets/img/components/accordion/apps/modifiers-expanded-content.svg",
@@ -188,6 +188,8 @@ When the content is too long to fit in one line, both the Primary and Secondary 
     alt: "Accordion with overflowing primary and secondary text wrapping to a new line.",
     width: 902
 } %}
+
+---
 
 ## Interactions
 
