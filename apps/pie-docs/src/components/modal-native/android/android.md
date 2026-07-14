@@ -12,14 +12,15 @@ shouldShowContents: true
     do: {
         type: usageTypes.text,
         items: [
-            "Use them for alerting users about critical information or errors."
+            "Use them for alerting users about critical information or errors.",
+            "Use them for displaying system-wide messages about critical information or errors."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
             "Displaying system-wide notifications or messages.",
-            "For anything other than system prompted notifications and alerts use the custom Modal (Dialog) instead."
+            "Don't use Modal-native components for anything other than system prompted notifications. For other types of messages use the [custom Modal (Dialog)](components/modal/android/) instead."
         ]
     }
 } %}
