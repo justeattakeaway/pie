@@ -184,7 +184,7 @@ The toast has a minimum height of 48px when displaying one line of text. It shou
 
 ### Width
 
-The toast has a minimum width of 300px and a maximum width of 420px.
+The toast has a minimum width of 300px and a maximum width of 720px.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast-apps/sizes-width-1.svg",
