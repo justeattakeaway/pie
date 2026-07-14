@@ -12,9 +12,6 @@ shouldShowContents: true
 
 You can follow this decision tree to choose the most appropriate UI component based on the specific context, importance, and user interaction requirements of your product interface.
 
-You can take a closer look at this in our [overlay patterns](https://pie.design/components/modal/) file.
-
-
 {% contentPageImage {
   src:"../../../../assets/img/patterns/overlay-patterns/web-decision-tree.svg",
   alt: "A decision tree to choose the most appropriate UI component based on the specific context.",
@@ -30,7 +27,7 @@ A modal is a surface that overlays the page’s main content and is used to disp
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/modal/) for this component."
+  message: "Check out our [full Modal documentation](/components/modal/web/) for this component."
 } %}
 
 {% contentPageImage {
@@ -44,16 +41,20 @@ A modal is a surface that overlays the page’s main content and is used to disp
     do: {
         type: usageTypes.text,
         items: [
+            "Use the modal in the neutral-alternative variant to display critical information and display urgent messages.",
+            "Choose variants in brand colours for promotional and non-critical content.",
             "Use for multi-step or single-step flows.",
             "Use them to display important information that needs the user’s action or dismissal.",
             "Use them when the user needs to perform one specific task.",
-            "They are triggered by the user."
+            "They are triggered by the user.",
+            "All content meets AA accessibility standards and is read by assistive technologies."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use them if the user’s primary flow doesn’t have to be disrupted."
+            "Don’t use them if the user’s primary flow doesn’t have to be disrupted.",
+            "Limit and avoid excessive interruptions"
         ]
     }
 } %}
@@ -67,7 +68,7 @@ A popover is a small overlay that appears above content, offering extra informat
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/popover/) for this component."
+  message: "Check out our [full Popover documentation](/components/popover/) for this component."
 } %}
 
 {% contentPageImage {
@@ -102,7 +103,7 @@ A toast shows short updates about app processes at the bottom of the screen.
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/toast/) for this component."
+  message: "Check out our [full Toast documentation](/components/toast/) for this component."
 } %}
 
 {% contentPageImage {
@@ -138,7 +139,7 @@ A tooltip is a contextual message that appears when users interact with an eleme
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://pie.design/components/tooltip/) for this component."
+  message: "Check out our [full Tooltip documentation](/components/tooltip/) for this component."
 } %}
 
 {% contentPageImage {

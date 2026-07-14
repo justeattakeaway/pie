@@ -7,9 +7,9 @@ permalink: components/radio/
 ---
 
 ## Overview
-Radio buttons offer a mechanism for users to choose only one option from a predefined set of mutually-exclusive options.
+The purpose of radio buttons is to provide users with a clear and intuitive way to make a single selection from a set of options. They are commonly used in forms, surveys, preference settings or any scenario where users need to make a mutually exclusive choice.
 
-They are commonly used in forms, settings panels, and various interfaces requiring users to make a single selection from multiple options.
+Radio buttons consist of small circular elements often accompanied by descriptive text. When a user selects one radio button, it automatically deselects any previously selected radio buttons within the same group.
 
 {% contentPageImage {
     src:"../../assets/img/components/radio/overview.svg",

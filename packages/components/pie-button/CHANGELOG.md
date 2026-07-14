@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.14.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.5.1
+  - @justeattakeaway/pie-webc-core@16.0.0
+
+## 1.14.7
+
+### Patch Changes
+
+- [Fixed] - Use the `pie-spinner` `isCentered` prop to position the loading spinner, replacing the previous bespoke absolute-positioning CSS ([#2999](https://github.com/justeattakeaway/pie/pull/2999)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`3f3e72b`](https://github.com/justeattakeaway/pie/commit/3f3e72bd9264df646f057adeae985c87867330b4)]:
+  - @justeattakeaway/pie-spinner@1.5.0
+
 ## 1.14.6
 
 ### Patch Changes

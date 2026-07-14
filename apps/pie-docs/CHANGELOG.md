@@ -1,5 +1,64 @@
 # Changelog
 
+## 5.7.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.32
+  - @justeattakeaway/pie-icons@5.29.1
+
+## 5.7.0
+
+### Minor Changes
+
+- [Added] - List-item Android/iOS docs. ([#2973](https://github.com/justeattakeaway/pie/pull/2973)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] - Radio and Radio group Android/iOS docs.
+  [Updated] - Minor content updates to assistive-text, breadcrumb, cookie banner, divider, overlay patterns, [Web] Radio/Radio group and select-input docs.
+  [Updated] - Updated index images for FAB, Form label, Icon button, Segmented controls, Tag and Tag icon only.
+  [Added] - Removed from draft the pages for Modal-native docs.
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#3011](https://github.com/justeattakeaway/pie/pull/3011)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`263d435`](https://github.com/justeattakeaway/pie/commit/263d43519df6caa234ac8e6648d228bead1f29c6)]:
+  - @justeattakeaway/pie-icons@5.29.0
+  - @justeattakeaway/pie-icons-webc@1.26.0
+  - @justeattakeaway/pie-webc@0.10.31
+
+## 5.6.0
+
+### Minor Changes
+
+- [Changed] - update pie-tokens version ([#3008](https://github.com/justeattakeaway/pie/pull/3008)) by [@maledr5](https://github.com/maledr5)
+
+- [Added] content to the Accordion web page ([#3004](https://github.com/justeattakeaway/pie/pull/3004)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Added] - Publishing new docs pages for FAB apps and web. ([#2988](https://github.com/justeattakeaway/pie/pull/2988)) by [@Grrreidy](https://github.com/Grrreidy)
+
+- Updated dependencies [[`56c23f1`](https://github.com/justeattakeaway/pie/commit/56c23f194ccb55e4cc064f7426022341dfacef39)]:
+  - @justeattakeaway/pie-css@1.3.0
+  - @justeattakeaway/pie-webc@0.10.30
+  - @justeattakeaway/pie-icons-webc@1.25.4
+
+## 5.5.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.29
+
+## 5.5.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.28
+
 ## 5.5.2
 
 ### Patch Changes

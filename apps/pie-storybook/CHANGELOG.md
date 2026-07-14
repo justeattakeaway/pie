@@ -1,5 +1,51 @@
 # Changelog
 
+## 1.85.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.32
+
+## 1.85.1
+
+### Patch Changes
+
+- Updated dependencies [[`263d435`](https://github.com/justeattakeaway/pie/commit/263d43519df6caa234ac8e6648d228bead1f29c6)]:
+  - @justeattakeaway/pie-icons-webc@1.26.0
+  - @justeattakeaway/pie-webc@0.10.31
+
+## 1.85.0
+
+### Minor Changes
+
+- [Changed] - update pie-tokens version ([#3008](https://github.com/justeattakeaway/pie/pull/3008)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies [[`56c23f1`](https://github.com/justeattakeaway/pie/commit/56c23f194ccb55e4cc064f7426022341dfacef39)]:
+  - @justeattakeaway/pie-css@1.3.0
+  - @justeattakeaway/pie-webc@0.10.30
+  - @justeattakeaway/pie-icons-webc@1.25.4
+
+## 1.84.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.29
+
+## 1.84.0
+
+### Minor Changes
+
+- [Added] - New pie list examples for the plain text list/list item ([#2989](https://github.com/justeattakeaway/pie/pull/2989)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.28
+
 ## 1.83.0
 
 ### Minor Changes
