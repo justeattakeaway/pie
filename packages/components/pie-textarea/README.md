@@ -17,6 +17,7 @@
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
   - [Events](#events)
+  - [Methods](#methods)
 - [Forms Usage](#forms-usage)
   - [Validation](#validation)
     - [Example](#example)
@@ -65,6 +66,11 @@ This component does not expose any CSS variables for style overrides.
 |----------|---------------------------------------------------------------------------|
 | `change` | Fires when the textarea loses focus after the value has been changed.     |
 | `input`  | Fires when the textarea value is changed.                                 |
+
+### Methods
+| Method | Parameters | Description | Returns |
+|--------|------------|-------------|---------|
+| `setSelectionRange` | `selectionStart: number`, `selectionEnd: number`, `selectionDirection?: "forward" | "backward" | "none"` | Sets the selected text range on the underlying native textarea element. | `void` |
 
 ## Forms Usage
 It is essential that when using the textarea inside the form, you provide a `name` attribute. HTML forms create key/value pairs for textarea data based on the `name` attribute, which is crucial for native form submission.
