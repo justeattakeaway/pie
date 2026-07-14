@@ -860,6 +860,27 @@ test.describe('PieTextarea - Component tests', () => {
         });
     });
 
+    test.describe('Methods', () => {
+        test.describe('setSelectionRange', () => {
+            test('should correctly select a range of text programmatically', async ({ page }) => {
+                // Arrange
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ value: 'test' });
+
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+                const result = await textarea.evaluate((el: HTMLTextAreaElement) => {
+                    el.setSelectionRange(0, 3);
+                    return { start: el.selectionStart, end: el.selectionEnd };
+                });
+
+                // Assert
+                expect(result.start).toBe(0);
+                expect(result.end).toBe(3);
+            });
+        });
+    });
+
     test.describe('Attributes', () => {
         test.describe('aria-describedby', () => {
             test.describe('when `assistiveText` is NOT defined', () => {

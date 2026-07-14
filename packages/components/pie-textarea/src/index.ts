@@ -147,6 +147,17 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     }
 
     /**
+     * Sets the selected text range on the underlying native textarea.
+     */
+    public setSelectionRange (
+        selectionStart: number,
+        selectionEnd: number,
+        selectionDirection: 'forward' | 'backward' | 'none' = 'none',
+    ): void {
+        this._textarea.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
+    }
+
+    /**
      * Called when the form that owns this component is reset.
      * Resets the value to the default value.
      */
