@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: Android
-    parent: 'Checkbox'
+    parent: Checkbox
     order: 3
 shouldShowContents: true
 ---
@@ -105,7 +105,7 @@ If there is a Checkbox grouping, they can be laid out vertically or horizontally
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox-apps/alignment-horizontal.svg",
       width: "258px",
-      alt: "Unchecked checkbox with assistive text."
+      alt: "Three checkboxes arranged horizontally."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
