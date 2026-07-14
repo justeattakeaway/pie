@@ -47,7 +47,7 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
 
 Checkbox groups can be laid out both horizontally and vertically depending on the use case and the structure of the UI. Where possible, arrange the checkbox group vertically for easier reading.
 

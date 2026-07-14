@@ -286,26 +286,3 @@ Here are some examples of Checkbox in RTL context.
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
-
----
-
-## Structure
-
-Outlines the internal spacing structure of the component. See the [Spacing documentation](https://pie.design/foundations/spacing/tokens/alias/) for token details.
-
-{% contentLayout %}
-  {% contentItem %}
-    {% contentPageImage {
-      src: "../../../assets/img/components/checkbox-apps/structure-1.svg",
-      width: "116px",
-      alt: "Example showing 8px spacing between the checkbox and the label."
-    } %}
-  {% endcontentItem %}
-  {% contentItem %}
-    {% contentPageImage {
-      src: "../../../assets/img/components/checkbox-apps/structure-2.svg",
-      width: "488px",
-      alt: "Example showing 12px spacing between checkboxes in a vertical checkbox group and 24px spacing between checkboxes in a large horizontal checkbox group."
-    } %}
-  {% endcontentItem %}
-{% endcontentLayout %}
