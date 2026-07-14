@@ -324,7 +324,7 @@ If the toast includes either a close icon button or a dismiss button, either can
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Close icon button**: Target area to close the toast by clicking on the close button..",
+        "**Close icon button**: Target area to close the toast by clicking on the close button.",
         "**Action button**: Target area that leads to an action configuration which consequently dismisses the toast."
     ]
 } %}
