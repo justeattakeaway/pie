@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Apps
     parent: Accordion
     order: 3
+shouldShowContents: true
 ---
 
 ## Dos and Don'ts
