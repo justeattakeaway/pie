@@ -1,0 +1,19 @@
+{
+  "headings": [
+    "Order",
+    "Element",
+    "Role"
+  ],
+  "rows": [
+    [
+      "1",
+      "Header",
+      "Focus is applied to the header of the accordion"
+    ],
+    [
+      "2",
+      "Panel",
+      "If the panel is open, focus moves to the first interactive element within the panel, progressing through each subsequent element"
+    ]
+  ]
+}
