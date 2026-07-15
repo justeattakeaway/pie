@@ -5,12 +5,17 @@ export const resizeModes = ['auto', 'manual', 'none'] as const;
 export const statusTypes = ['default', 'success', 'error'] as const;
 
 type AriaProps = {
+    /**
+     * Provides an accessible label for the textarea. Use when no visible label is associated with the textarea.
+     */
     label?: string;
 }
 
 export interface TextareaProps {
     /**
-     * The ARIA attributes for the textarea element.
+     * ARIA attributes for the textarea element. Offers `label` for cases where no visible label is associated with the textarea.
+     * Note: `aria-invalid` and `aria-errormessage` are derived automatically from the `status` prop.
+     * `aria-describedby` is derived automatically from the `assistiveText` prop.
      */
     aria?: AriaProps;
 

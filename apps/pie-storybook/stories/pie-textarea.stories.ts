@@ -130,7 +130,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         aria: {
-            description: 'The ARIA attributes to be applied to the underlying element',
+            description: 'The ARIA attributes available to use on the textarea. Offers `label` — use it when no visible label is associated with the textarea. `aria-invalid`, `aria-errormessage`, and `aria-describedby` are derived automatically from `status` and `assistiveText`.',
             control: 'object',
         },
 
@@ -219,7 +219,7 @@ export const Default = CreateTextareaStory({}, {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },
 });
-export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)({}, {
+export const WithLabel = CreateTextareaStoryWithLabel({ ...defaultArgs, aria: undefined })({}, {
     argTypes: {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },
