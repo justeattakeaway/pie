@@ -1016,7 +1016,7 @@ test.describe('PieTextarea - Component tests', () => {
             test('should not set aria-label when aria prop is not provided', async ({ page }) => {
                 // Arange
                 const textAreaPage = new BasePage(page, 'textarea');
-                await textAreaPage.load();
+                await textAreaPage.load({ aria: undefined });
 
                 // Act
                 const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
