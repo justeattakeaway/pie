@@ -2,6 +2,10 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
 
+type AriaProps = {
+  close?: string;
+};
+
 export type ActionProps = {
   /**
    * The text to display inside the button.
@@ -51,6 +55,11 @@ export interface ToastProps {
    * If the value is not provided it auto-dismisses after 5 seconds
    */
   duration?: number | null;
+
+  /**
+   * The ARIA labels used for various parts of the toast.
+   */
+  aria?: AriaProps;
 }
 
 export const componentSelector = 'pie-toast';
@@ -77,7 +86,7 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'leadingAction'>>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'leadingAction' | 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     message: '',
