@@ -215,6 +215,33 @@ test.describe('PieToastProvider - Component tests', () => {
                 expect(toast3?.isDismissible).toBeFalsy(); // Override should take precedence
             });
         });
+
+        test.describe('aria', () => {
+            test('should pass the aria prop down to the rendered toast close button', async ({ page }) => {
+                // Arrange
+                const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+                await pieToastProviderPage.load();
+                await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+                const closeLabel = 'Close the toast';
+
+                // Act
+                await page.evaluate((label) => {
+                    const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                    tp.createToast({
+                        message: 'Toast with aria',
+                        duration: null,
+                        isDismissible: true,
+                        aria: { close: label },
+                    });
+                }, closeLabel);
+
+                const closeButton = page.getByTestId('pie-toast-close');
+
+                // Assert
+                await expect(closeButton).toHaveAttribute('aria-label', closeLabel);
+            });
+        });
     });
 
     test.describe('Interactivity', () => {
