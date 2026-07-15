@@ -8,6 +8,7 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     dispatchCustomEvent,
     safeCustomElement,
@@ -69,6 +70,9 @@ export class PieToast extends PieElement implements ToastProps {
 
     @property({ type: Number })
     public duration = defaultProps.duration;
+
+    @property({ type: Object })
+    public aria: ToastProps['aria'];
 
     @query('pie-button')
     private actionButton?: HTMLElement;
@@ -238,6 +242,7 @@ export class PieToast extends PieElement implements ToastProps {
                 variant="${this.shouldNotUseInverseBtnVariant() ? 'ghost-secondary' : 'ghost-inverse'}"
                 size="xsmall"
                 data-test-id="${componentSelector}-close"
+                aria-label="${ifDefined(this.aria?.close)}"
                 @click="${this.closeToastComponent}">
                 <icon-close></icon-close>
             </pie-icon-button>`;

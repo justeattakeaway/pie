@@ -124,6 +124,42 @@ test.describe('PieToast - Component tests', () => {
             });
         });
 
+        test.describe('aria', () => {
+            test('should apply aria.close as the aria-label on the close button', async ({ page }) => {
+                // Arrange
+                const toastPage = new BasePage(page, 'toast');
+                const closeLabel = 'Close the toast';
+                const props: Partial<ToastProps> = {
+                    isDismissible: true,
+                    aria: {
+                        close: closeLabel,
+                    },
+                };
+                await toastPage.load({ ...props });
+
+                // Act
+                const iconClose = page.getByTestId(toast.selectors.close.dataTestId);
+
+                // Assert
+                await expect(iconClose).toHaveAttribute('aria-label', closeLabel);
+            });
+
+            test('should not apply an aria-label on the close button when aria.close is not provided', async ({ page }) => {
+                // Arrange
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isDismissible: true,
+                };
+                await toastPage.load({ ...props });
+
+                // Act
+                const iconClose = page.getByTestId(toast.selectors.close.dataTestId);
+
+                // Assert
+                await expect(iconClose).not.toHaveAttribute('aria-label');
+            });
+        });
+
         test.describe('isMultiline', () => {
             test('should show the footer if isMultiline is true and has leadingAction', async ({ page }) => {
                 // Arrange

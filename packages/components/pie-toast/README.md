@@ -42,6 +42,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isMultiline`    | `true`, `false`                                                           | Allows the message content to be displayed as multiline, limited to three rows.                                                                                          | `false`     |
 | `leadingAction`  | `{ text: string, ariaLabel?: string }`                                    | The leading action for the toast.                                                                                                                                        | `undefined` |
 | `duration`       | `number`, `null`                                                          | Sets the duration of the toast in milliseconds before it auto-dismisses. `null` disables auto-dismiss. Defaults to 5 seconds if not specified.                          | `5000`      |
+| `aria`           | `{ close?: string }`                                                      | The ARIA labels used for various parts of the toast. `close` sets the `aria-label` on the close button.                                                                 | `undefined` |
 
 ### Slots
 This component does not have any slots. All content is controlled through properties.
