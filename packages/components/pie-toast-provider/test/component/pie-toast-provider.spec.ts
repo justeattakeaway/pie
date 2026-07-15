@@ -236,10 +236,11 @@ test.describe('PieToastProvider - Component tests', () => {
                     });
                 }, closeLabel);
 
-                const closeButton = page.getByTestId('pie-toast-close');
+                const closeButton = page.getByTestId('pie-toast-close').getByRole('button');
 
                 // Assert
                 await expect(closeButton).toHaveAttribute('aria-label', closeLabel);
+                await expect(closeButton).toHaveAccessibleName(closeLabel);
             });
         });
     });
