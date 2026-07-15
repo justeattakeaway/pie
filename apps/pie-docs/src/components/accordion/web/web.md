@@ -4,6 +4,9 @@ eleventyNavigation:
   parent: Accordion
   order: 2
 shouldShowContents: true
+eleventyComputed:
+    focusOrder: "{% include '../web/focus-order.json' %}"
+    keyboardInteractions: "{% include '../web/keyboard-interactions.json' %}"
 ---
 
 ## Dos and Don'ts
@@ -29,7 +32,7 @@ shouldShowContents: true
 ## Anatomy
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/anatomy.svg",
+    src: "../../../assets/img/components/accordion/web/anatomy.svg",
     alt: "Anatomy of a accordion component showing numbered elements including icon, primary text, secondary text, chevron, divider and slot.",
     width: 593
 } %}
@@ -53,16 +56,15 @@ shouldShowContents: true
 ### Default - Wide/Narrow
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/variants-default.svg",
+    src: "../../../assets/img/components/accordion/web/variants-default.svg",
     alt: "Accordion in default state, displayed in wide and narrow settings.",
     width: 898
 } %}
 
 ### Hover - Wide/Narrow
-<!-- TODO: How to set the bright background? -->
 {% contentPageImage {
     variant: "secondary",
-    src: "../../../assets/img/components/accordion/variants-hover.svg",
+    src: "../../../assets/img/components/accordion/web/variants-hover.svg",
     alt: "Accordion in hover state, displayed in wide and narrow settings.",
     width: 898
 } %}
@@ -70,7 +72,7 @@ shouldShowContents: true
 ### Active - Wide/Narrow
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/variants-active.svg",
+    src: "../../../assets/img/components/accordion/web/variants-active.svg",
     alt: "Accordion in active state, displayed in wide and narrow settings.",
     width: 898
 } %}
@@ -78,7 +80,7 @@ shouldShowContents: true
 ### Focus - Wide/Narrow
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/variants-focus.svg",
+    src: "../../../assets/img/components/accordion/web/variants-focus.svg",
     alt: "Accordion in focus state, displayed in wide and narrow settings.",
     width: 902
 } %}
@@ -95,7 +97,7 @@ When incorporating an icon into an Accordion, it is essential to ensure that the
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/accordion/modifiers-icons-do.svg",
+            src: "../../../assets/img/components/accordion/web/modifiers-icons-do.svg",
             width: "362px",
             alt: "Accordion with a meaningful icon that relates with the content."
         }]
@@ -103,7 +105,7 @@ When incorporating an icon into an Accordion, it is essential to ensure that the
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/accordion/modifiers-icons-dont.svg",
+            src: "../../../assets/img/components/accordion/web/modifiers-icons-dont.svg",
             width: "362px",
             alt: "Accordion with improper generic icon."
         }]
@@ -113,7 +115,7 @@ When incorporating an icon into an Accordion, it is essential to ensure that the
 #### Leading
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-leading.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-leading.svg",
     alt: "Accordion with a leading icon.",
     width: 902
 } %}
@@ -123,7 +125,7 @@ When incorporating an icon into an Accordion, it is essential to ensure that the
 Used for Accordions that require an additional secondary line of information to provide clarity to the user.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-secondary-text.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-secondary-text.svg",
     alt: "Accordion with a secondary line of information.",
     width: 902
 } %}
@@ -133,7 +135,7 @@ Used for Accordions that require an additional secondary line of information to 
 By default the divider is used, with the exception of the last Accordion in a stack to signify the end of the section.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-divider.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-divider.svg",
     alt: "Accordions with dividers between each instance.",
     width: 902
 } %}
@@ -143,7 +145,7 @@ By default the divider is used, with the exception of the last Accordion in a st
 The accordion component includes a content slot in its expanded variant, allowing designers to insert their own content directly into the component. For guidance on working with slots in Figma, please refer to the Figma Slot Guidance.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-expanded-content.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-expanded-content.svg",
     alt: "Accordion in expanded state with a content slot.",
     width: 902
 } %}
@@ -154,7 +156,7 @@ The accordion component includes a content slot in its expanded variant, allowin
 Used when the category title needs to be prominent on the page.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-emphasis-wide-prominent.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-emphasis-wide-prominent.svg",
     alt: "Accordion with wide default (prominent) emphasis.",
     width: 902
 } %}
@@ -163,7 +165,7 @@ Used when the category title needs to be prominent on the page.
 Used when the category title doesn't need to be highly prominent.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-emphasis-wide-low.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-emphasis-wide-low.svg",
     alt: "Accordion with wide low emphasis.",
     width: 902
 } %}
@@ -172,7 +174,7 @@ Used when the category title doesn't need to be highly prominent.
 Used in areas with limited space or mobile screens when the category title needs to be prominent on the page.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-emphasis-narrow-prominent.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-emphasis-narrow-prominent.svg",
     alt: "Accordion with narrow default (prominent) emphasis.",
     width: 902
 } %}
@@ -181,7 +183,7 @@ Used in areas with limited space or mobile screens when the category title needs
 Used in areas with limited space or mobile screens when the category title doesn't need to be highly prominent.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-emphasis-narrow-low.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-emphasis-narrow-low.svg",
     alt: "Accordion with narrow low emphasis.",
     width: 902
 } %}
@@ -200,7 +202,7 @@ Accordions, by default are collapsed with all content panels closed. Starting in
   {% contentItem %}
     <h3>Collapsed</h3>
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/behaviours-states-collapsed.svg",
+        src: "../../../assets/img/components/accordion/web/behaviours-states-collapsed.svg",
         alt: "Accordion in collapsed state.",
         width: 902
     } %}
@@ -208,7 +210,7 @@ Accordions, by default are collapsed with all content panels closed. Starting in
   {% contentItem %}
     <h3>Expanded</h3>
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/behaviours-states-expanded.svg",
+        src: "../../../assets/img/components/accordion/web/behaviours-states-expanded.svg",
         alt: "Accordion in expanded state.",
         width: 902
     } %}
@@ -221,7 +223,7 @@ Accordions, by default are collapsed with all content panels closed. Starting in
 Accordions expand independently allowing multiple Accordions to be open at once.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/behaviours-states-multiple.svg",
+    src: "../../../assets/img/components/accordion/web/behaviours-states-multiple.svg",
     alt: "Multiple accordions open at once.",
     width: 902
 } %}
@@ -231,7 +233,7 @@ Accordions expand independently allowing multiple Accordions to be open at once.
 When the content is too long to fit in one line, both the Primary and Secondary text should wrap into a new line.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/modifiers-overflow.svg",
+    src: "../../../assets/img/components/accordion/web/modifiers-overflow.svg",
     alt: "Accordion with overflowing primary and secondary text wrapping to a new line.",
     width: 902
 } %}
@@ -243,14 +245,14 @@ The whole container is clickable to expand or collapse the Accordion.
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/interactions-example-1.svg",
+        src: "../../../assets/img/components/accordion/web/interactions-example-1.svg",
         alt: "Accordion interaction example showing the clickable container area.",
         width: 902
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/interactions-example-2.svg",
+        src: "../../../assets/img/components/accordion/web/interactions-example-2.svg",
         alt: "Accordion interaction example showing expanded content.",
         width: 902
     } %}
@@ -266,7 +268,7 @@ The whole container is clickable to expand or collapse the Accordion.
 The accordion component supports padding overrides on both the trigger (the top bar containing the title and toggle icon) and the content slot (the expanded area below). Both can be adjusted independently to suit layout requirements.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/overrides-padding.svg",
+    src: "../../../assets/img/components/accordion/web/overrides-padding.svg",
     alt: "Accordion with padding overrides applied.",
     width: 902
 } %}
@@ -276,10 +278,12 @@ The accordion component supports padding overrides on both the trigger (the top 
 The corner radius of the accordion can be overridden to align with the surrounding layout or surface it is placed on.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/overrides-corner-radius.svg",
+    src: "../../../assets/img/components/accordion/web/overrides-corner-radius.svg",
     alt: "Accordion with corner radius override applied.",
     width: 902
 } %}
+
+---
 
 ## Content
 
@@ -307,7 +311,7 @@ The corner radius of the accordion can be overridden to align with the surroundi
 Outlines the atomic level interactive elements for the component.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/accordion/interactions-states-table.svg",
+    src: "../../../assets/img/components/accordion/web/interactions-states-table.svg",
     alt: "Table outlining the interactive states of the accordion component.",
     width: 902
 } %}
@@ -323,14 +327,14 @@ Here are some examples of Accordions in LTR context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/internationalization-ltr-1.svg",
+        src: "../../../assets/img/components/accordion/web/internationalization-ltr-1.svg",
         alt: "Accordion in LTR context, first example.",
         width: 902
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/internationalization-ltr-2.svg",
+        src: "../../../assets/img/components/accordion/web/internationalization-ltr-2.svg",
         alt: "Accordion in LTR context, second example.",
         width: 902
     } %}
@@ -344,17 +348,59 @@ Here are some examples of Accordions in RTL context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/internationalization-rtl-1.svg",
+        src: "../../../assets/img/components/accordion/web/internationalization-rtl-1.svg",
         alt: "Accordion in RTL context, first example.",
         width: 902
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-        src: "../../../assets/img/components/accordion/internationalization-rtl-2.svg",
+        src: "../../../assets/img/components/accordion/web/internationalization-rtl-2.svg",
         alt: "Accordion in RTL context, second example.",
         width: 902
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
+---
+
+## Accessibility
+
+### Text scaling
+
+When a user activates the accessible text scaling options on their device, both the primary and secondary text should scale (and wrap into a new line if needed) to accommodate the new text size.
+
+{% contentPageImage {
+    src: "../../../assets/img/components/accordion/web/accessibility-text-scaling.svg",
+    alt: "Accordion with text scaling applied.",
+    width: 902
+} %}
+
+### Zoom
+
+If the user zooms their screen up to at least 200%, all items in the component should scale accordingly.
+
+{% contentPageImage {
+    src: "../../../assets/img/components/accordion/web/accessibility-zoom.svg",
+    alt: "Accordion with zoom applied.",
+    width: 902
+} %}
+
+### Accessibility considerations
+
+The accordion component has the following accessibility considerations:
+
+- Accordions must be accessible and operable via mouse, pointer devices, keyboard, screen readers, zoom tools, and other assistive technologies.
+- Use accordions thoughtfully and consider the content they contain. Concealing content within an accordion can hinder a user's ability to scan a page and may increase cognitive load.
+
+#### Focus order
+
+{% componentDetailsTable {
+  tableData: focusOrder
+} %}
+
+#### Keyboard interactions
+
+{% componentDetailsTable {
+  tableData: keyboardInteractions
+} %}
