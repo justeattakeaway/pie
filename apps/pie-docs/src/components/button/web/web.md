@@ -49,7 +49,7 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
 
 ### Primary
 

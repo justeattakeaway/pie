@@ -1,10 +1,9 @@
 ---
 eleventyNavigation:
-    key: iOS
-    parent: Slider
-    order: 4
+  key: iOS
+  parent: Slider
+  order: 4
 shouldShowContents: true
-permalink: /components/slider/ios/
 ---
 
 ## Dos and Don'ts
@@ -42,11 +41,11 @@ permalink: /components/slider/ios/
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Form label (Optional):** The [form label](https://pie.design/components/form-label/) provides necessary content / information to a form.",
+        "**Form label (optional):** The [form label](https://pie.design/components/form-label/) provides necessary content / information to a form.",
         "**Progress line**: Illustrates the visual representation of the selection.",
         "**Progress container:** Shows a user’s available minimum and maximum values on the range to select from.",
         "**Handle:** An indicator that can be moved on the track within the slider range to specify a selected value.",
-        "**Assistive text (Optional):** The [Assistive text](https://pie.design/components/assistive-text/) provides additional instructional information / error / success messaging."
+        "**Assistive text (optional):** The [assistive text](https://pie.design/components/assistive-text/) provides additional instructional information / error / success messaging."
     ]
 } %}
 
@@ -58,7 +57,7 @@ permalink: /components/slider/ios/
 
 {% contentPageImage {
     src: "../../../assets/img/components/slider-apps/ios-variants-default.svg",
-    alt: "Default variation of the slider.",
+    alt: "Default variant of the slider with a label and track.",
     width: 300,
     variant: "secondary"
 } %}
@@ -103,7 +102,7 @@ In its active state the handle responds by changing to its Liquid Glass state, a
     {% contentPageImage {
       src: "../../../assets/img/components/slider-apps/ios-interactions1.svg",
       width: "200",
-      alt: "A primary call to action button showing just an icon",
+      alt: "Slider showing interactive state.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -111,7 +110,7 @@ In its active state the handle responds by changing to its Liquid Glass state, a
     {% contentPageImage {
       src: "../../../assets/img/components/slider-apps/ios-interactions2.svg",
       width: "200",
-      alt: "A primary call to action button showing an icon and label",
+      alt: "Slider showing interactive state where the handle changes to Liquid Glass.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -123,23 +122,26 @@ In its active state the handle responds by changing to its Liquid Glass state, a
 
 Outlines the atomic level interactive elements for the component.
 
-### Default
-
-{% contentPageImage {
-    src: "../../../assets/img/components/slider-apps/ios-interactive-states-default.svg",
-    alt: "Slider in default interactive state.",
-    width: 300,
-    variant: "secondary"
-} %}
-
-### Disabled
-
-{% contentPageImage {
-    src: "../../../assets/img/components/slider-apps/ios-interactive-states-disabled.svg",
-    alt: "Slider in disabled interactive state.",
-    width: 300,
-    variant: "secondary"
-} %}
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Default</h4>
+    {% contentPageImage {
+        src: "../../../assets/img/components/slider-apps/ios-interactive-states-default.svg",
+        alt: "Slider in default state.",
+        width: 300,
+        variant: "secondary"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Disabled</h4>
+    {% contentPageImage {
+        src: "../../../assets/img/components/slider-apps/ios-interactive-states-disabled.svg",
+        alt: "Slider in disabled state.",
+        width: 300,
+        variant: "secondary"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 
@@ -151,7 +153,7 @@ Here are some examples of the component in left-to-right context:
 
 {% contentPageImage {
     src: "../../../assets/img/components/slider-apps/ios-examples-ltr.svg",
-    alt: "Slider example in left-to-right context.",
+    alt: "Slider example in left-to-right context showing a volume control at 50%.",
     width: 300,
     variant: "secondary"
 } %}
@@ -162,7 +164,7 @@ Here are some examples of the component in right-to-left context:
 
 {% contentPageImage {
     src: "../../../assets/img/components/slider-apps/ios-examples-rtl.svg",
-    alt: "Slider examples in right-to-left context.",
+    alt: "Slider examples in right-to-left context showing a volume control at 50%.",
     width: 300,
     variant: "secondary"
 } %}
