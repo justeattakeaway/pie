@@ -15,7 +15,7 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 type TextareaStoryMeta = Meta<TextareaProps>;
 
-const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
+const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName', aria: { label: 'Test Label' } };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Components/Textarea',

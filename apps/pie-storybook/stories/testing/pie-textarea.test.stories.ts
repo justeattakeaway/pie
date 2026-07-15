@@ -21,7 +21,7 @@ import {
 
 type TextareaStoryMeta = Meta<TextareaProps & { showAdditionalField?: boolean }>;
 
-const defaultArgs: TextareaProps = { ...defaultProps };
+const defaultArgs: TextareaProps = { ...defaultProps, aria: { label: 'Test Label' } };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
@@ -128,7 +128,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         aria: {
-            description: 'The ARIA attributes to be applied to the underlying element',
+            description: 'The ARIA attributes available to use on the textarea. Offers `label`.',
             control: 'object',
         },
     },
