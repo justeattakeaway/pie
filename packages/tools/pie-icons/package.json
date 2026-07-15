@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons",
-  "version": "5.29.0",
+  "version": "5.29.1",
   "description": "Common icons for use for PIE Project",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "test:coverage": "run -T vitest run --coverage"
   },
   "dependencies": {
-    "@justeattakeaway/pie-monorepo-utils": "0.9.6",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.7",
     "classnames": "2.5.1"
   },
   "devDependencies": {
