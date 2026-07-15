@@ -125,7 +125,7 @@ test.describe('PieToast - Component tests', () => {
         });
 
         test.describe('aria', () => {
-            test('should apply aria.close as the aria-label on the close button', async ({ page }) => {
+            test('should apply aria.close as the accessible name of the close button', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
                 const closeLabel = 'Close the toast';
@@ -138,10 +138,11 @@ test.describe('PieToast - Component tests', () => {
                 await toastPage.load({ ...props });
 
                 // Act
-                const iconClose = page.getByTestId(toast.selectors.close.dataTestId);
+                const closeButton = page.getByTestId(toast.selectors.close.dataTestId).getByRole('button');
 
                 // Assert
-                await expect(iconClose).toHaveAttribute('aria-label', closeLabel);
+                await expect(closeButton).toHaveAttribute('aria-label', closeLabel);
+                await expect(closeButton).toHaveAccessibleName(closeLabel);
             });
 
             test('should not apply an aria-label on the close button when aria.close is not provided', async ({ page }) => {
@@ -153,10 +154,10 @@ test.describe('PieToast - Component tests', () => {
                 await toastPage.load({ ...props });
 
                 // Act
-                const iconClose = page.getByTestId(toast.selectors.close.dataTestId);
+                const closeButton = page.getByTestId(toast.selectors.close.dataTestId).getByRole('button');
 
                 // Assert
-                await expect(iconClose).not.toHaveAttribute('aria-label');
+                await expect(closeButton).not.toHaveAttribute('aria-label');
             });
         });
 
