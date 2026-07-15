@@ -21,7 +21,7 @@ updates:
     groups:
       babel:
         patterns:
-          - "@babel/*"
+          - "@babeel/*"
           - "babel-*"
       justeattakeaway:
         patterns:
