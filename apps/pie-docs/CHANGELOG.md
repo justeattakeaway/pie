@@ -1,5 +1,31 @@
 # Changelog
 
+## 5.8.0
+
+### Minor Changes
+
+- [Added] Modal-native Android/iOS docs and updated the Overview page and description. ([#3003](https://github.com/justeattakeaway/pie/pull/3003)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] Toast apps (mobile) docs.
+  [Added] Tooltip Android/iOS docs.
+  [Added] Accordion Apps docs.
+  [Updated] Toast motion page: added shouldShowContents.
+  [Updated] Toast web page: renamed "Variations" section to "Variants" and added spacing fixes.
+  [Updated] Accordion Web docs. It now includes an Accessibility section.
+
+- [Updated] Checkbox web and Checkbox Group docs ([#3018](https://github.com/justeattakeaway/pie/pull/3018)) by [@Grrreidy](https://github.com/Grrreidy)
+
+  [Added] Checkbox Android and Checkbox iOS docs
+
+### Patch Changes
+
+- [Changed] - Updating docs pages for checkbox web and checkbox group. ([#3018](https://github.com/justeattakeaway/pie/pull/3018)) by [@Grrreidy](https://github.com/Grrreidy)
+
+  [Added] - Publishing new docs pages for checkbox apps.
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.33
+
 ## 5.7.1
 
 ### Patch Changes
