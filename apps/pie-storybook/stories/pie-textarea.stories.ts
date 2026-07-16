@@ -130,7 +130,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         aria: {
-            description: 'The ARIA attributes available to use on the textarea. Offers `label` — use it when no visible label is associated with the textarea. `aria-invalid`, `aria-errormessage`, and `aria-describedby` are derived automatically from `status` and `assistiveText`.',
+            description: 'ARIA attributes for the textarea. Offers `label` — use it when no visible label is associated with the textarea.',
             control: 'object',
         },
 

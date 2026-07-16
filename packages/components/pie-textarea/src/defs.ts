@@ -13,9 +13,7 @@ type AriaProps = {
 
 export interface TextareaProps {
     /**
-     * ARIA attributes for the textarea element. Offers `label` for cases where no visible label is associated with the textarea.
-     * Note: `aria-invalid` and `aria-errormessage` are derived automatically from the `status` prop.
-     * `aria-describedby` is derived automatically from the `assistiveText` prop.
+     * ARIA attributes for the textarea. Offers `label` — use it when no visible label is associated with the textarea.
      */
     aria?: AriaProps;
 
