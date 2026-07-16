@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-textarea
 
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - Exposed `setSelectionRange()` method on `pie-textarea` ([#3007](https://github.com/justeattakeaway/pie/pull/3007)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.21.2
 
 ### Patch Changes
