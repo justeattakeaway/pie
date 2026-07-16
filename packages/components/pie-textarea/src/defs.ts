@@ -6,14 +6,14 @@ export const statusTypes = ['default', 'success', 'error'] as const;
 
 type AriaProps = {
     /**
-     * Provides an accessible label for the textarea. Use when no visible label is associated with the textarea.
+     * Provides an accessible label for the textarea. Should be used when no visible label is associated with the textarea.
      */
     label?: string;
 }
 
 export interface TextareaProps {
     /**
-     * ARIA attributes for the textarea. Offers `label` — use it when no visible label is associated with the textarea.
+     * ARIA attributes for the textarea.
      */
     aria?: AriaProps;
 
