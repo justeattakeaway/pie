@@ -124,7 +124,7 @@ Outlines the atomic level interactive elements for the component.
 
 {% contentLayout %}
   {% contentItem %}
-    <h4>Default</h4>
+    <h3>Default</h3>
     {% contentPageImage {
         src: "../../../assets/img/components/slider-apps/ios-interactive-states-default.svg",
         alt: "Slider in default state.",
@@ -133,7 +133,7 @@ Outlines the atomic level interactive elements for the component.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h4>Disabled</h4>
+    <h3>Disabled</h3>
     {% contentPageImage {
         src: "../../../assets/img/components/slider-apps/ios-interactive-states-disabled.svg",
         alt: "Slider in disabled state.",

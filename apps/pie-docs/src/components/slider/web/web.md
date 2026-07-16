@@ -107,7 +107,7 @@ Outlines the atomic level interactive elements for the component.
 
 {% contentLayout %}
   {% contentItem %}
-    <h4>Default</h4>
+    <h3>Default</h3>
     {% contentPageImage {
         src: "../../../assets/img/components/slider/interactive-default.svg",
         alt: "Slider in default state.",
@@ -116,7 +116,7 @@ Outlines the atomic level interactive elements for the component.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h4>Hover</h4>
+    <h3>Hover</h3>
     {% contentPageImage {
         src: "../../../assets/img/components/slider/interactive-hover.svg",
         alt: "Slider in hover state.",
@@ -125,7 +125,7 @@ Outlines the atomic level interactive elements for the component.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h4>Active</h4>
+    <h3>Active</h3>
     {% contentPageImage {
         src: "../../../assets/img/components/slider/interactive-active.svg",
         alt: "Slider in active state.",
@@ -134,7 +134,7 @@ Outlines the atomic level interactive elements for the component.
     } %}
   {% endcontentItem %}
     {% contentItem %}
-    <h4>Focus</h4>
+    <h3>Focus</h3>
     {% contentPageImage {
         src: "../../../assets/img/components/slider/interactive-focus.svg",
         alt: "Slider in focus state.",
@@ -143,7 +143,7 @@ Outlines the atomic level interactive elements for the component.
     } %}
   {% endcontentItem %}
     {% contentItem %}
-    <h4>Disabled</h4>
+    <h3>Disabled</h3>
     {% contentPageImage {
         src: "../../../assets/img/components/slider/interactive-disabled.svg",
         alt: "Slider in disabled state.",

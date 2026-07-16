@@ -44,7 +44,7 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
 
 {% contentLayout %}
   {% contentItem %}
@@ -53,6 +53,14 @@ shouldShowContents: true
       src: "../../../assets/img/components/icon-button/variation-primary.svg",
       width: 56,
       alt: "Primary variant of an icon button."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Primary - alternative</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/icon-button/variation-primary-alternative.svg",
+      width: 56,
+      alt: "Primary alternative variant of an icon button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -96,6 +104,14 @@ shouldShowContents: true
     } %}
   {% endcontentItem %}
   {% contentItem %}
+    <h3>Ghost secondary dark</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/icon-button/variation-ghost-secondary-dark.svg",
+      width: 56,
+      alt: "Ghost secondary dark variant of an icon button."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
     <h3>Inverse</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/icon-button/variation-inverse.svg",
@@ -105,11 +121,29 @@ shouldShowContents: true
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Ghost Inverse</h3>
+    <h3>Inverse outline</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/icon-button/variation-inverse-outline.svg",
+      width: 56,
+      alt: "Inverse outline variant of an icon button.",
+      variant: 'inverse'
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Inverse ghost</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/icon-button/variation-ghost-inverse.svg",
       width: 56,
       alt: "Ghost Inverse variant of an icon button.",
+      variant: 'inverse'
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Inverse ghost light</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/icon-button/variation-inverse-ghost-light.svg",
+      width: 56,
+      alt: "Ghost Inverse light variant of an icon button.",
       variant: 'inverse'
     } %}
   {% endcontentItem %}
@@ -137,7 +171,7 @@ The primary icon button should be the single most important button in the hierar
 
 {% contentPageImage {
     src:"../../../assets/img/components/icon-button/hierarchy-high.svg",
-    alt: "A single primary icon button",
+    alt: "Primary variant of an icon button.",
     width: 56
 } %}
 
@@ -150,14 +184,14 @@ The secondary and inverse icon buttons are of less importance and should have le
     {% contentPageImage {
       src: "../../../assets/img/components/icon-button/hierarchy-medium-secondary.svg",
       width: 56,
-      alt: "Primary variant of an icon button."
+      alt: "Secondary variant of an icon button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/icon-button/hierarchy-medium-inverse.svg",
       width: 56,
-      alt: "Inverse variant of an icon button.",
+      alt: "Secondary inverse variant of an icon button.",
       variant: "inverse"
     } %}
   {% endcontentItem %}
@@ -193,7 +227,7 @@ The outline, ghost, ghost tertiary and ghost inverse Icon Buttons should have th
     {% contentPageImage {
       src: "../../../assets/img/components/icon-button/hierarchy-low-ghost-inverse.svg",
       width: 56,
-      alt: "Ghost Inverse variant of an icon button.",
+      alt: "Ghost inverse variant of an icon button.",
       variant: "inverse"
     } %}
   {% endcontentItem %}
@@ -267,6 +301,36 @@ Outlines the atomic level interactive elements for the component.
       src: "../../../assets/img/components/icon-button/interactive-state-loading.svg",
       width: 48,
       alt: "An icon button that is loading."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+
+## Overrides
+
+### Icon colour override
+
+Overrides are available in design and engineering for Secondary and Tertiary icon buttons which have orange icons. The default icon colour token $content-interactive-brand-solid (orange) can be replaced with $content-interactive-secondary-solid (black). 
+
+This can be helpful if you need to use a Secondary or Tertiary icon button but the orange icon doesn’t work with the surrounding UI.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Standard icon</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/icon-button/overrides-standard-icon.svg",
+      width: 97,
+      alt: "A button with a standard coloured icon."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    <h4>Overridden icon</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/icon-button/overrides-overridden-icon.svg",
+      width: 97,
+      alt: "A button with an icon that has colour overridden."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}

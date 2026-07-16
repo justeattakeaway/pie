@@ -524,7 +524,7 @@ This can be helpful if you need to use a Secondary or Tertiary button but the or
 
 {% contentLayout %}
   {% contentItem %}
-    <h3>Standard icon</h3>
+    <h4>Standard icon</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/button/overrides-standard-icon.svg",
       width: 97,
@@ -533,7 +533,7 @@ This can be helpful if you need to use a Secondary or Tertiary button but the or
     } %}
   {% endcontentItem %}
     {% contentItem %}
-    <h3>Overridden icon</h3>
+    <h4>Overridden icon</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/button/overrides-overridden-icon.svg",
       width: 97,
