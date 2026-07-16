@@ -1,58 +1,41 @@
-<div align="center">
-<h1>pie-design-tokens</h1>
+# @justeat/pie-design-tokens
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-design-tokens) | [NPM](https://www.npmjs.com/package/@justeat/pie-design-tokens)
 
-<p>Pie Design Tokens repo – our JET global design token package.</p>
-</div>
-
----
-
-[![npm version](https://badge.fury.io/js/%40justeat%2Fpie-design-tokens.svg)](https://badge.fury.io/js/%40justeat%2Fpie-design-tokens)
+<p>
+  <a href="https://www.npmjs.com/@justeat/pie-design-tokens">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeat/pie-design-tokens.svg">
+  </a>
+</p>
 
 ## How to contribute:
-
-### Pre-flight
-
-Setup environment:
-
-- yarn @ ^1.0.0
-- node @ ^16.0.0
-
-Install the project:
-
-```console
-yarn install
-```
 
 Build the project:
 
 ```console
-yarn build
+yarn build --filter=@justeat/pie-design-tokens
 ```
 
 If you need to add, change or remove tokens the changes should be done in `pie-design-tokens.jsonc` file, where all the tokens are stored. To verify that the changes took effect, build the project and check the compiled files in the dist folder.
 
-Each change needs to be accompanied by manual changelog entry in CHANGELOG.md and package version bump in package.json. The package follows [semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
-
 Each change should also be replicated in `metadata/tokensMetadata.json` file.
 
-`yarn test` and `yarn test:output -u` have to be run to verify any update.
+Update the output snapshots and run the tests to verify any update:
+
+```console
+yarn test:output --filter=@justeat/pie-design-tokens -- -u
+yarn test --filter=@justeat/pie-design-tokens
+```
+
+Each change needs to be accompanied by a changeset, which handles both the changelog entry and the version bump:
+
+```console
+yarn changeset
+```
+
+Do not bump the version in `package.json` by hand. Dependants pin the tokens version exactly, so a manual bump makes them resolve the published package from npm instead of this workspace, silently and without any error.
 
 If your change touches the tokens structure, compile scripts in the build folder might need to be updated to make sure that the tokens are compiled as expected.
 
-### Pull requests
-
-When raising a merge request in the pie-design-tokens repo, please follow these guidelines.
-
-#### PR title
-PR titles should start with the package version number. To mark the ticket as wip, please raise it as a Draft PR on Github.
-
-#### PR Descriptions
-You can copy the changelog entry into the PR description.
-
-#### Things to do before requesting PR reviews
-
-- Make sure that the build ran successfully and all the PR checks passed.
-- Add all the details for your change to the PR description and Changelog. Use previous PRs in the repo as an example.
 
 ## Dark Mode Token Support
 
@@ -111,14 +94,3 @@ Dark mode tokens are available for:
 - **Data Attributes**: Supported in all modern browsers
 - **Media Queries**: `prefers-color-scheme` supported in all modern browsers (IE not supported)
 - **Fallback**: Light theme is the default when no conditions are met
-
-## Publishing to npm
-
-Publishing to npm is handled automatically via GitHub Actions, as defined in the `.github/workflows/build.yml` file.
-
-- **Manual Trigger:** Publishing is performed when the workflow is triggered manually using `workflow_dispatch` in GitHub Actions.
-- **Branch Selection:** When manually triggering the publish workflow, make sure to select the branch you want to publish from (e.g., `master`).
-
-- **Note:** Regular pushes and pull requests do not trigger publishing. Only a manual workflow dispatch will publish the package to npm.
-
-For more details, see the `build.yml` file in the `.github/workflows` directory.

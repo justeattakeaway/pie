@@ -3443,23 +3443,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:7.14.1":
-  version: 7.14.1
-  resolution: "@justeat/pie-design-tokens@npm:7.14.1"
-  dependencies:
-    jsonc-parser: "npm:3.2.0"
-    lodash.merge: "npm:4.6.2"
-    mkdirp: "npm:1.0.4"
-  checksum: 10/d147a4a8bf21fec63a46dc3c39e79d59016b659059a5c7b1d363778ae7cdb76b53bc69ae3fd07f19e2fce0e7f9567240760b26ef4d7ea582dca73738aa7d295b
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens":
+"@justeat/pie-design-tokens@npm:7.14.1, @justeat/pie-design-tokens@workspace:*, @justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens":
   version: 0.0.0-use.local
   resolution: "@justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens"
   dependencies:
     eslint-plugin-jest: "npm:29.0.1"
-    eslint-plugin-vitest: "npm:0.5.4"
     jest: "npm:26.3.0"
     jsonc-parser: "npm:3.2.0"
     lodash.merge: "npm:4.6.2"
@@ -18587,7 +18575,7 @@ __metadata:
     "@commitlint/cli": "npm:20.5.0"
     "@commitlint/config-conventional": "npm:20.5.0"
     "@custom-elements-manifest/analyzer": "npm:0.11.0"
-    "@justeat/pie-design-tokens": "npm:7.14.1"
+    "@justeat/pie-design-tokens": "workspace:*"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-icons": "workspace:*"
