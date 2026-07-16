@@ -223,6 +223,11 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:ci"
+      # Fail if any committed generated file is out of date with its source
+      - name: Verify generated files
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "generate:verify"
 
   deploy-storybook:
     needs: [ unit-tests, check-change-type ]
