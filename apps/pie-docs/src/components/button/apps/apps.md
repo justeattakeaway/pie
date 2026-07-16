@@ -76,7 +76,7 @@ Primary-alternative dark has the same properties as Primary-alternative, however
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-primary-dark.svg",
-    alt: "A primary alternative button",
+    alt: "A primary alternative dark button",
     width: 97
 } %}
 
@@ -98,7 +98,8 @@ Outline buttons are designed to provide increased emphasis compared to ghost but
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-outline.svg",
     alt: "An outline button",
-    width: 97
+    width: 97,
+    variant: "secondary"
 } %}
 
 ### Ghost
@@ -175,7 +176,7 @@ Outline inverse buttons are used to signify a secondary action. They can be util
 
 ### Ghost inverse
 
-Ghost Inverse buttons are intended for utilisation on backgrounds with colours or images, and are usually reserved for actions of lesser significance. They can be used independently or in conjunction with a primary button. Ghost Inverse buttons are ideal for repetitive actions, such as an edit button on a repeating card.
+Ghost inverse buttons are intended for utilisation on backgrounds with colours or images, and are usually reserved for actions of lesser significance. They can be used independently or in conjunction with a primary button. Ghost inverse buttons are ideal for repetitive actions, such as an edit button on a repeating card.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-ghost-inverse.svg",
@@ -186,7 +187,7 @@ Ghost Inverse buttons are intended for utilisation on backgrounds with colours o
 
 ### Ghost inverse light
 
-Ghost Inverse light buttons have the same purpose as the ghost inverse buttons. However are used when the background colour remains ‘dark’ in on the dark theme, as the label remains ‘light’ to provide enough contrast.
+Ghost inverse light buttons have the same purpose as the ghost inverse buttons. However are used when the background colour remains ‘dark’ in on the dark theme, as the label remains ‘light’ to provide enough contrast.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-ghost-inverse-light.svg",
@@ -228,7 +229,7 @@ Leading icon provides context and visually supports the label.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/modifier-leading.svg",
-    alt: "A button with leading icon.",
+    alt: "A button with leading filtering icon and a label reading Filters.",
     width: 129
 } %}
 
@@ -238,7 +239,7 @@ Trailing icon can indicate further interaction, such as opening up a popover or 
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/modifier-trailing.svg",
-    alt: "A button with trailing icon",
+    alt: "A button with a trailing chevron icon indicating further interaction",
     width: 129
 } %}
 
@@ -252,7 +253,7 @@ In some cases, leading and trailing icons can be used together, as long as their
         items: [{
             src: "../../../assets/img/components/button/modifier-leading-trailing-do.svg",
             width: "210px",
-            alt: "A button with both a leading and trailing icon."
+            alt: "A button with both a leading and trailing icon that support the label."
         }],
         caption: "Use a leading icon to visually support the label, and a trailing icon to indicate an additional interaction."
     },
@@ -261,7 +262,7 @@ In some cases, leading and trailing icons can be used together, as long as their
         items: [{
             src: "../../../assets/img/components/button/modifier-leading-trailing-dont.svg",
             width: "210px",
-            alt: "A button with both a leading and trailing icon."
+            alt: "A button with both a leading and trailing icon that do not support the label."
         }],
         caption: "Don’t use both leading and trailing icons to visually support the label."
     }
@@ -414,7 +415,7 @@ Button pairing options are:
         items: [{
             src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-do.svg",
             width: "158px",
-            alt: "A small - productive primary button paired with A small - productive outline button."
+            alt: "Two of the same sized buttons paired together."
         }]
     },
     dont: {
@@ -422,7 +423,7 @@ Button pairing options are:
         items: [{
             src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-dont.svg",
             width: "158px",
-            alt: "A small - productive primary button paired with A small - expressive outline button."
+            alt: "Two buttons paired together that have different sized labels."
         }]
     }
 } %}
@@ -501,7 +502,8 @@ This can be helpful if you need to use a Secondary or Tertiary button but the or
     {% contentPageImage {
       src: "../../../assets/img/components/button/overrides-standard-icon.svg",
       width: 97,
-      alt: "A button with a standard coloured icon."
+      alt: "A button with a standard coloured icon.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
     {% contentItem %}
@@ -509,7 +511,8 @@ This can be helpful if you need to use a Secondary or Tertiary button but the or
     {% contentPageImage {
       src: "../../../assets/img/components/button/overrides-overridden-icon.svg",
       width: 97,
-      alt: "A button with an icon that has colour overridden."
+      alt: "A button with an icon that has colour overridden.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
