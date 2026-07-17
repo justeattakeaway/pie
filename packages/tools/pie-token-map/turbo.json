@@ -11,10 +11,12 @@
       ],
       "inputs": [
         "src/**",
+        "!src/generated/**",
         "scripts/**"
       ],
       "outputs": [
-        "dist/**"
+        "dist/**",
+        "src/generated/**"
       ]
     },
     "generate:verify": {
