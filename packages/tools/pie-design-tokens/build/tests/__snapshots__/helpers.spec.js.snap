@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buildGlobalTokensIntoThemes with a single theme should add global tokens to theme 1`] = `
+Object {
+  "theme": Object {
+    "jet": Object {
+      "color": Object {
+        "global": Object {
+          "blue": "#125fca",
+          "orange": "#f36805",
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`buildGlobalTokensIntoThemes with a single theme should preferentially choose themed global tokens over unthemed global tokens 1`] = `
+Object {
+  "theme": Object {
+    "jet": Object {
+      "color": Object {
+        "global": Object {
+          "blue": "#125fca",
+          "orange": "#f36805",
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`buildGlobalTokensIntoThemes with multiple themes should add global tokens to all themes 1`] = `
+Object {
+  "theme": Object {
+    "jet": Object {
+      "color": Object {
+        "global": Object {
+          "blue": "#125fca",
+          "orange": "#f36805",
+        },
+      },
+    },
+    "newjet": Object {
+      "color": Object {
+        "global": Object {
+          "blue": "#ebf6fa",
+          "orange": "#f36805",
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`buildGlobalTokensIntoThemes with multiple themes should preferentially choose themed global tokens over unthemed global tokens 1`] = `
+Object {
+  "theme": Object {
+    "jet": Object {
+      "color": Object {
+        "global": Object {
+          "blue": "#125fca",
+          "orange": "#f36805",
+        },
+      },
+    },
+    "newjet": Object {
+      "color": Object {
+        "global": Object {
+          "blue": "#ebf6fa",
+          "orange": "#f36805",
+        },
+      },
+    },
+  },
+}
+`;

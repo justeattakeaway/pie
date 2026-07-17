@@ -1,0 +1,10 @@
+{
+  "font": {
+    // For iOS, the weight is appended to the font name after a hyphen e.g. JustEatBasis-Regular
+    "weight-regular": "Regular",
+    "weight-bold": "Bold",
+    "weight-extrabold": "ExtraBold",
+    "weight-black": "Black",
+    "weight-extrablack": "ExtraBlack"
+  }
+}

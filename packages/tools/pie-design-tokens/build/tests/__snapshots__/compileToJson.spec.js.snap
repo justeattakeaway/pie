@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compileToJson should stringify the tokens correctly 1`] = `
+Array [
+  Array [
+    "tokens",
+    "json",
+    "{
+  \\"theme\\": {
+    \\"jet\\": {
+      \\"color\\": {
+        \\"global\\": {
+          \\"blue\\": \\"#125fca\\",
+          \\"orange\\": \\"#41301f\\"
+        }
+      }
+    }
+  }
+}",
+  ],
+]
+`;

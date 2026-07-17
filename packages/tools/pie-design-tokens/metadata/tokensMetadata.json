@@ -1,0 +1,3402 @@
+{
+  "color": {
+    "global": {
+      "white": {
+        "category": "default",
+        "description": "#FFFFFF, rgb(255,255,255)"
+      },
+      "black": {
+        "category": "default",
+        "description": "#000000, rgb(0,0,0)"
+      },
+      "orange-0": {
+        "category": "default",
+        "description": "#FFF2E5, rgb(255,242,229)"
+      },
+      "orange-10": {
+        "category": "default",
+        "description": "#FDDFC3, rgb(253 223 195)"
+      },
+      "orange-20": {
+        "category": "default",
+        "description": "#FBC592, rgb(251 197 146)"
+      },
+      "orange-25": {
+        "category": "default",
+        "description": "#FF9933, rgb(255,153,51)"
+      },
+      "orange-30": {
+        "category": "default",
+        "description": "#FF8000, rgb(255,128,0)"
+      },
+      "orange": {
+        "category": "default",
+        "description": "#F36805, rgb(243,104,5)"
+      },
+      "orange-70": {
+        "category": "default",
+        "description": "#B45512, rgb(180,85,18)"
+      },
+      "orange-75": {
+        "category": "default",
+        "description": "#944600, rgb(148 70 0)"
+      },
+      "orange-90": {
+        "category": "default",
+        "description": "#613105, rgb(97 49 5)"
+      },
+      "blue-5": {
+        "category": "default",
+        "description": "#E4E9FB, rgb(228,233,251)"
+      },
+      "blue-10": {
+        "category": "default",
+        "description": "#CED7F8, rgb(206,215,248)"
+      },
+      "blue-25": {
+        "category": "default",
+        "description": "#C1DADE, rgb(193,218,222)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `cupcake-30` instead.",
+          "replacementToken": "cupcake-30"
+        }
+      },
+      "blue-30": {
+        "category": "default",
+        "description": "#9EAEF0, rgb(158,174,240)"
+      },
+      "blue": {
+        "category": "default",
+        "description": "#3147AD, rgb(49,71,173)"
+      },
+      "blue-70": {
+        "category": "default",
+        "description": "#094DAC, rgb(9,77,172)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `blue` instead.",
+          "replacementToken": "blue"
+        }
+      },
+      "blue-75": {
+        "category": "default",
+        "description": "#2B3E97, rgb(43,62,151)"
+      },
+      "blue-80": {
+        "category": "default",
+        "description": "#1E2C6B, rgb(30,44,107)"
+      },
+      "blue-90": {
+        "category": "default",
+        "description": "#17214F, rgb(23,33,79)"
+      },
+      "red-5": {
+        "category": "default",
+        "description": "#FFD2D1, rgb(255,210,209)"
+      },
+      "red-10": {
+        "category": "default",
+        "description": "#FFBBBA, rgb(255,187,186)"
+      },
+      "red-25": {
+        "category": "default",
+        "description": "#F2A6B0, rgb(242,166,176)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `berry-40` instead.",
+          "replacementToken": "berry-40"
+        }
+      },
+      "red-30": {
+        "category": "default",
+        "description": "#F85C59, rgb(248,92,89)"
+      },
+      "red-40": {
+        "category": "default",
+        "description": "#E22C3E, rgb(226, 44, 62)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `red-50` instead.",
+          "replacementToken": "red-50"
+        }
+      },
+      "red-50": {
+        "category": "default",
+        "description": "#D60E0A, rgb(214,14,10)"
+      },
+      "red": {
+        "category": "default",
+        "description": "#CC0300, rgb(204,3,0)"
+      },
+      "red-90": {
+        "category": "default",
+        "description": "#5C0200, rgb(92,2,0)"
+      },
+      "red-100": {
+        "category": "default",
+        "description": "#47121B, rgb(71,18,27)"
+      },
+      "yellow-10": {
+        "category": "default",
+        "description": "#FFF8D6, rgb(255,248,214)"
+      },
+      "yellow-30": {
+        "category": "default",
+        "description": "#FFEE94, rgb(255,238,148)"
+      },
+      "yellow-40": {
+        "category": "default",
+        "description": "#FFDE33, rgb(255,222,51)"
+      },
+      "yellow": {
+        "category": "default",
+        "description": "#FFD600, rgb(255,214,0)"
+      },
+      "yellow-75": {
+        "category": "default",
+        "description": "#A38900, rgb(163,137,0)"
+      },
+      "yellow-80": {
+        "category": "default",
+        "description": "#6B5A00, rgb(107,90,0)"
+      },
+      "yellow-90": {
+        "category": "default",
+        "description": "#574A00, rgb(87,74,0)"
+      },
+      "green-5": {
+        "category": "default",
+        "description": "#CEEED3, rgb(206,238,211)"
+      },
+      "green-10": {
+        "category": "default",
+        "description": "#B4E4BB, rgb(180,228,187)"
+      },
+      "green-30": {
+        "category": "default",
+        "description": "#68CA77, rgb(104,202,119)"
+      },
+      "green": {
+        "category": "default",
+        "description": "#2B7836, rgb(43,120,54)"
+      },
+      "green-80": {
+        "category": "default",
+        "description": "#024C23, rgb(2,76,35)"
+      },
+      "green-90": {
+        "category": "default",
+        "description": "#023D1C, rgb(2,61,28)"
+      },
+      "purple": {
+        "category": "default",
+        "description": "#5B3D5B, rgb(91,61,91)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `aubergine-70` instead.",
+          "replacementToken": "aubergine-70"
+        }
+      },
+      "mozzarella-5": {
+        "category": "default",
+        "description": "#FCFCFC, rgb(252,252,252)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-5` instead.",
+          "replacementToken": "truffle-5"
+        }
+      },
+      "mozzarella-10": {
+        "category": "default",
+        "description": "#F5F3F1, rgb(245,243,241)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-10` instead.",
+          "replacementToken": "truffle-10"
+        }
+      },
+      "mozzarella-20": {
+        "category": "default",
+        "description": "#EFEDEA, rgb(239,237,234)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-20` instead.",
+          "replacementToken": "truffle-20"
+        }
+      },
+      "mozzarella-30": {
+        "category": "default",
+        "description": "#DBD9D7, rgb(219,217,215)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-30` instead.",
+          "replacementToken": "truffle-30"
+        }
+      },
+      "mozzarella-50": {
+        "category": "default",
+        "description": "#9E9C9A, rgb(158,156,154)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-55` instead.",
+          "replacementToken": "truffle-55"
+        }
+      },
+      "mozzarella-55": {
+        "category": "default",
+        "description": "#8B8A88, rgb(139,138,136)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-65` instead.",
+          "replacementToken": "truffle-65"
+        }
+      },
+      "mozzarella-60": {
+        "category": "default",
+        "description": "#797876, rgb(121,120,118)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-65` instead.",
+          "replacementToken": "truffle-65"
+        }
+      },
+      "mozzarella-70": {
+        "category": "default",
+        "description": "#575655, rgb(87,86,85)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-70` instead.",
+          "replacementToken": "truffle-70"
+        }
+      },
+      "mozzarella-75": {
+        "category": "default",
+        "description": "#494847, rgb(73,72,71)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-75` instead.",
+          "replacementToken": "truffle-75"
+        }
+      },
+      "mozzarella-80": {
+        "category": "default",
+        "description": "#3B3A39, rgb(59,58,57)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-80` instead.",
+          "replacementToken": "truffle-80"
+        }
+      },
+      "mozzarella-90": {
+        "category": "default",
+        "description": "#262626, rgb(38,38,38)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-90` instead.",
+          "replacementToken": "truffle-90"
+        }
+      },
+      "mozzarella-100": {
+        "category": "default",
+        "description": "#1A1A19, rgb(26,26,25)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `truffle-100` instead.",
+          "replacementToken": "truffle-100"
+        }
+      },
+      "truffle-5": {
+        "category": "default",
+        "description": "#FDFDFB, rgb(253,253,251)"
+      },
+      "truffle-10": {
+        "category": "default",
+        "description": "#F6F3EF, rgb(246,243,239)"
+      },
+      "truffle-20": {
+        "category": "default",
+        "description": "#F0ECE6, rgb(240,236,230)"
+      },
+      "truffle-30": {
+        "category": "default",
+        "description": "#E7E2DA, rgb(231,226,218)"
+      },
+      "truffle-55": {
+        "category": "default",
+        "description": "#BEB7AC, rgb(190,183,172)"
+      },
+      "truffle-65": {
+        "category": "default",
+        "description": "#8C867E, rgb(140,134,126)"
+      },
+      "truffle-70": {
+        "category": "default",
+        "description": "#59564F, rgb(89,86,79)"
+      },
+      "truffle-75": {
+        "category": "default",
+        "description": "#4C4843, rgb(76,72,67)"
+      },
+      "truffle-80": {
+        "category": "default",
+        "description": "#3F3D39, rgb(63,61,57)"
+      },
+      "truffle-85": {
+        "category": "default",
+        "description": "#353431, rgb(53,52,49)"
+      },
+      "truffle-90": {
+        "category": "default",
+        "description": "#2B2A28, rgb(43,42,40)"
+      },
+      "truffle-100": {
+        "category": "default",
+        "description": "#1C1A17, rgb(28,26,23)"
+      },
+      "charcoal-30": {
+        "category": "default",
+        "description": "#D7D9DA, rgb(215,217,218)"
+      },
+      "charcoal-40": {
+        "category": "default",
+        "description": "#B7BDBE, rgb(183,189,190)"
+      },
+      "charcoal-50": {
+        "category": "default",
+        "description": "#8C999B, rgb(140,153,155)"
+      },
+      "charcoal-57": {
+        "category": "default",
+        "description": "#68797D, rgb(104,121,125);"
+      },
+      "charcoal-60": {
+        "category": "default",
+        "description": "#5D7074, rgb(93,112,116)"
+      },
+      "charcoal-70": {
+        "category": "default",
+        "description": "#3C4C4F, rgb(60,76,79)"
+      },
+      "charcoal-75": {
+        "category": "default",
+        "description": "#303D3F, rgb(48,61,63)"
+      },
+      "charcoal-80": {
+        "category": "default",
+        "description": "#242E30, rgb(36,46,48)"
+      },
+      "aubergine-5": {
+        "category": "default",
+        "description": "#F3E7F3, rgb(243,231,243)"
+      },
+      "aubergine-10": {
+        "category": "default",
+        "description": "#E3CFE3, rgb(227 207 227)"
+      },
+      "aubergine-20": {
+        "category": "default",
+        "description": "#D0B2D0, rgb(208 178 208)"
+      },
+      "aubergine-30": {
+        "category": "default",
+        "description": "#B993B8, rgb(185 147 184)"
+      },
+      "aubergine-70": {
+        "category": "default",
+        "description": "#5B3D5B, rgb(91 61 91)"
+      },
+      "aubergine-75": {
+        "category": "default",
+        "description": "#493949, rgb(73 57 73)"
+      },
+      "aubergine-80": {
+        "category": "default",
+        "description": "#3C313C, rgb(60 49 60)"
+      },
+      "aubergine-90": {
+        "category": "default",
+        "description": "#322932, rgb(50 41 50)"
+      },
+      "aubergine-100": {
+        "category": "default",
+        "description": "#241E24, rgb(36 30 36)"
+      },
+      "berry-10": {
+        "category": "default",
+        "description": "#FBDFE3, rgb(251 223 227)"
+      },
+      "berry-20": {
+        "category": "default",
+        "description": "#F9D2D7, rgb(249 210 215)"
+      },
+      "berry-40": {
+        "category": "default",
+        "description": "#F2A6B0, rgb(242 166 176)"
+      },
+      "berry-70": {
+        "category": "default",
+        "description": "#98696F, rgb(152 105 111)"
+      },
+      "berry-80": {
+        "category": "default",
+        "description": "#795358, rgb(121 83 88)"
+      },
+      "berry-90": {
+        "category": "default",
+        "description": "#4C3437, rgb(76 52 55)"
+      },
+      "cupcake-10": {
+        "category": "default",
+        "description": "#E8F1F2, rgb(232 241 242)"
+      },
+      "cupcake-20": {
+        "category": "default",
+        "description": "#DBE9EB, rgb(224 236 238)"
+      },
+      "cupcake-30": {
+        "category": "default",
+        "description": "#C1DADE, rgb(193 218 222)"
+      },
+      "cupcake-40": {
+        "category": "default",
+        "description": "#B1CACE, rgb(177 202 206)"
+      },
+      "cupcake-70": {
+        "category": "default",
+        "description": "#6A787A, rgb(106 120 122)"
+      },
+      "cupcake-80": {
+        "category": "default",
+        "description": "#4C5657, rgb(76 86 87)"
+      },
+      "cupcake-90": {
+        "category": "default",
+        "description": "#2F3637, rgb(47 54 55)"
+      },
+      "turmeric-5": {
+        "category": "default",
+        "description": "#FDF2D8, rgb(253 242 216)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `turmeric-10` instead.",
+          "replacementToken": "turmeric-10"
+        }
+      },
+      "turmeric-10": {
+        "category": "default",
+        "description": "#FCEAC0, rgb(252 234 192)"
+      },
+      "turmeric-20": {
+        "category": "default",
+        "description": "#FAE0A1, rgb(250 224 161)"
+      },
+      "turmeric-40": {
+        "category": "default",
+        "description": "#F6C243, rgb(246 194 67)"
+      },
+      "turmeric-60": {
+        "category": "default",
+        "description": "#B48C32, rgb(180 140 50)",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `yellow-75` instead.",
+          "replacementToken": "yellow-75"
+        }
+      },
+      "turmeric-70": {
+        "category": "default",
+        "description": "#917228, rgb(145 114 40)"
+      },
+      "turmeric-75": {
+        "category": "default",
+        "description": "#7A6122, rgb(122 97 34)"
+      },
+      "turmeric-80": {
+        "category": "default",
+        "description": "#5D4918, rgb(93 73 24)"
+      },
+      "turmeric-90": {
+        "category": "default",
+        "description": "#443613, rgb(68 54 19)"
+      },
+      "latte-10": {
+        "category": "default",
+        "description": "#F4EAD7, rgb(244 234 215)"
+      },
+      "latte-20": {
+        "category": "default",
+        "description": "#F0E2C7, rgb(240 226 207)"
+      },
+      "latte-30": {
+        "category": "default",
+        "description": "#E7CDA2, rgb(231 205 162)"
+      },
+      "latte-70": {
+        "category": "default",
+        "description": "#81735B, rgb(129 115 91)"
+      },
+      "latte-80": {
+        "category": "default",
+        "description": "#5A503F, rgb(90 80 63)"
+      },
+      "latte-90": {
+        "category": "default",
+        "description": "#3C352A, rgb(60 53 42)"
+      },
+      "orange-dark-hc": {
+        "category": "highContrast",
+        "description": "#A33100, rgb(163,49,0)"
+      },
+      "red-dark-hc": {
+        "category": "highContrast",
+        "description": "#A4041F, rgb(164,4,31)"
+      },
+      "red-light-hc": {
+        "category": "highContrast",
+        "description": "#FF7A80, rgb(255,122,128)"
+      },
+      "yellow-dark-hc": {
+        "category": "highContrast",
+        "description": "#685731, rgb(104,87,49)"
+      },
+      "green-dark-hc": {
+        "category": "highContrast",
+        "description": "#196634, rgb(25,102,52)"
+      },
+      "green-light-hc": {
+        "category": "highContrast",
+        "description": "#26D46E, rgb(38,212,110)"
+      },
+      "blue-dark-hc": {
+        "category": "highContrast",
+        "description": "#1054B4, rgb(16,84,180)"
+      },
+      "blue-light-hc": {
+        "category": "highContrast",
+        "description": "#8BBCFE, rgb(139,188,254)"
+      },
+      "purple-light-hc": {
+        "category": "highContrast",
+        "description": "#BA98BA, rgb(186,152,186)"
+      },
+      "system-purple": {
+        "category": "default",
+        "description": "#800080, rgb(128,0,128)"
+      },
+      "system-purple-10": {
+        "category": "default",
+        "description": "#C58AF9, rgb(197,138,249)"
+      },
+      "tomato-5": {
+        "category": "default",
+        "description": "#FFD3BF, rgb(255,211,191)"
+      },
+      "tomato-30": {
+        "category": "default",
+        "description": "#FF966D, rgb(255,150,109)"
+      },
+      "tomato-50": {
+        "category": "default",
+        "description": "#F75E28, rgb(247,94,40)"
+      },
+      "tomato-90": {
+        "category": "default",
+        "description": "#622B18, rgb(98,43,24)"
+      },
+      "tomato-100": {
+        "category": "default",
+        "description": "#31160D, rgb(49,22,13)"
+      }
+    },
+    "alias": {
+      "default": {
+        "background-default": {
+          "category": "pageBackgrounds",
+          "description": "Default page background",
+          "globalToken": "$color-truffle-5"
+        },
+        "background-subtle": {
+          "category": "pageBackgrounds",
+          "description": "Subtle page background",
+          "globalToken": "$color-truffle-10"
+        },
+        "background-dark": {
+          "category": "pageBackgrounds",
+          "description": "High contrast page background",
+          "globalToken": "$color-truffle-100"
+        },
+        "container-default": {
+          "category": "containerBackgrounds",
+          "description": "Default container background",
+          "globalToken": "$color-white"
+        },
+        "container-subtle": {
+          "category": "containerBackgrounds",
+          "description": "Subtle container background",
+          "globalToken": "$color-truffle-10"
+        },
+        "container-strong": {
+          "category": "containerBackgrounds",
+          "description": "Strong container background",
+          "globalToken": "$color-truffle-20"
+        },
+        "container-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark container background",
+          "globalToken": "$color-truffle-90"
+        },
+        "container-inverse": {
+          "category": "containerBackgrounds",
+          "description": "Inverse container background",
+          "globalToken": "$color-truffle-90"
+        },
+        "container-inverse-alternative": {
+          "category": "containerBackgrounds",
+          "description": "Alternative Inverse container background",
+          "globalToken": "$color-truffle-90"
+        },
+        "braze-container-01": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-orange-10"
+        },
+        "braze-container-03": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-cupcake-10"
+        },
+        "braze-container-04": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-berry-10"
+        },
+        "braze-container-05": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-turmeric-10"
+        },
+        "braze-container-08": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-latte-10"
+        },
+        "web-container-base": {
+          "category": "containerBackgrounds",
+          "description": "Base container background with opacity for Web. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-white @72%"
+        },
+        "web-container-neutral": {
+          "category": "containerBackgrounds",
+          "description": "Neutral container background with opacity for Web. Always use it paired with `$blur-neutral`.",
+          "globalToken": "$color-truffle-20 @72%"
+        },
+        "web-container-prominent": {
+          "category": "containerBackgrounds",
+          "description": "Prominent container background with opacity for Web. Always use it paired with `$blur-prominent.",
+          "globalToken": "$color-white @40%"
+        },
+        "web-container-base-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark base container background with opacity for Web. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-truffle-90 @62%"
+        },
+        "ios-container-base": {
+          "category": "containerBackgrounds",
+          "description": "Base container background with opacity for iOS. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-white @72%"
+        },
+        "ios-container-neutral": {
+          "category": "containerBackgrounds",
+          "description": "Neutral container background with opacity for iOS. Always use it paired with `$blur-neutral`.",
+          "globalToken": "$color-truffle-20 @72%"
+        },
+        "ios-container-prominent": {
+          "category": "containerBackgrounds",
+          "description": "Prominent container background with opacity for iOS. Always use it paired with `$blur-prominent`.",
+          "globalToken": "$color-white @40%"
+        },
+        "ios-container-base-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark base container background with opacity for iOS. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-truffle-90 @62%"
+        },
+        "android-container-base": {
+          "category": "containerBackgrounds",
+          "description": "Base container background with opacity for Android.",
+          "globalToken": "$color-white @95%"
+        },
+        "android-container-neutral": {
+          "category": "containerBackgrounds",
+          "description": "Neutral container background with opacity for Android.",
+          "globalToken": "$color-truffle-20 @95%"
+        },
+        "android-container-prominent": {
+          "category": "containerBackgrounds",
+          "description": "Prominent container background with opacity for Android.",
+          "globalToken": "$color-white @82%"
+        },
+        "android-container-base-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark base container background with opacity for Android.",
+          "globalToken": "$color-truffle-90 @95%"
+        },
+        "border-default": {
+          "category": "borders",
+          "description": "Default border",
+          "globalToken": "$color-truffle-20"
+        },
+        "border-subtle": {
+          "category": "borders",
+          "description": "Subtle border",
+          "globalToken": "$color-truffle-10"
+        },
+        "border-strong": {
+          "category": "borders",
+          "description": "Higher contrast border",
+          "globalToken": "$color-truffle-30"
+        },
+        "border-inverse": {
+          "category": "borders",
+          "description": "Border on inverse or dark coloured backgrounds",
+          "globalToken": "$color-truffle-70"
+        },
+        "border-selected": {
+          "category": "borders",
+          "description": "Border for selected state of the box",
+          "globalToken": "$color-truffle-75"
+        },
+        "border-selected-brand": {
+          "category": "borders",
+          "description": "Used to indicate a box or container is selected. Make sure you use a 2px border.",
+          "globalToken": "$color-orange"
+        },
+        "border-form": {
+          "category": "borders",
+          "description": "Border for form elements.",
+          "globalToken": "$color-truffle-65"
+        },
+        "border-neutral": {
+          "category": "borders",
+          "description": "Neutral border used alongside blur and opacity fill tokens.",
+          "globalToken": "$color-white"
+        },
+        "border-decorative-brand": {
+          "category": "borders",
+          "description": "Brand border used for decorative elements only.",
+          "globalToken": "$color-orange-30"
+        },
+        "divider-default": {
+          "category": "dividers",
+          "description": "Divider for use above default and light-coloured backgrounds",
+          "globalToken": "$color-black @8%"
+        },
+        "divider-inverse": {
+          "category": "dividers",
+          "description": "Divider for use above inverse and dark-coloured backgrounds",
+          "globalToken": "$color-white @20%"
+        },
+        "interactive-brand": {
+          "category": "interactiveBackgrounds",
+          "description": "Brand interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-orange"
+        },
+        "interactive-primary": {
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-truffle-90"
+        },
+        "interactive-secondary": {
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-truffle-10"
+        },
+        "interactive-inverse": {
+          "category": "interactiveBackgrounds",
+          "description": "Inverse interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-white"
+        },
+        "interactive-light": {
+          "category": "interactiveBackgrounds",
+          "description": "Light interactive colour used on dark backgrounds",
+          "globalToken": "$color-white"
+        },
+        "interactive-dark": {
+          "category": "interactiveBackgrounds",
+          "description": "Dark interactive colour used on light and coloured backgrounds",
+          "globalToken": "$color-truffle-90"
+        },
+        "interactive-form": {
+          "category": "interactiveBackgrounds",
+          "description": "Field background on $background-default",
+          "globalToken": "$color-truffle-65"
+        },
+        "interactive-error": {
+          "category": "interactiveBackgrounds",
+          "description": "Error interactive colour, used mainly in Destructive buttons, accent fills and borders",
+          "globalToken": "$color-red"
+        },
+        "overlay": {
+          "category": "pageBackgrounds",
+          "description": "Translucent background overlay",
+          "globalToken": "$color-black @55%"
+        },
+        "support-neutral": {
+          "category": "feedback",
+          "description": "Neutral; used for neutral messaging and alerts",
+          "globalToken": "$color-truffle-20"
+        },
+        "support-error": {
+          "category": "feedback",
+          "description": "Error; high-impact messaging",
+          "globalToken": "$color-red"
+        },
+        "support-error-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-error",
+          "globalToken": "$color-red-10"
+        },
+        "support-error-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-error",
+          "globalToken": "$color-red-5"
+        },
+        "support-warning": {
+          "category": "feedback",
+          "description": "Warning; moderate impact messaging",
+          "globalToken": "$color-yellow"
+        },
+        "support-warning-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-warning",
+          "globalToken": "$color-yellow-30"
+        },
+        "support-warning-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-warning",
+          "globalToken": "$color-yellow-10"
+        },
+        "support-positive": {
+          "category": "feedback",
+          "description": "Success; positive messaging",
+          "globalToken": "$color-green"
+        },
+        "support-positive-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-positive",
+          "globalToken": "$color-green-10"
+        },
+        "support-positive-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-positive",
+          "globalToken": "$color-green-5"
+        },
+        "support-positive-inverse": {
+          "category": "feedback",
+          "description": "High contrast version of $support-positive to be used over dark backgrounds",
+          "globalToken": "$color-green-30"
+        },
+        "support-info": {
+          "category": "feedback",
+          "description": "Information; instructional messaging",
+          "globalToken": "$color-blue"
+        },
+        "support-info-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-info",
+          "globalToken": "$color-blue-10"
+        },
+        "support-info-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-info",
+          "globalToken": "$color-blue-5"
+        },
+        "support-info-inverse": {
+          "category": "feedback",
+          "description": "High contrast version of $support-info to be used over dark backgrounds",
+          "globalToken": "$color-blue-30"
+        },
+        "support-brand-01": {
+          "category": "brand",
+          "description": "Special; special attention messaging",
+          "globalToken": "$color-orange-30"
+        },
+        "support-brand-02": {
+          "category": "brand",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces and effects",
+          "globalToken": "$color-orange-20"
+        },
+        "support-brand-tonal": {
+          "category": "brand",
+          "description": "Tonal version of $support-brand-01 for subtle surfaces and effects",
+          "globalToken": "$color-orange-10"
+        },
+        "support-brand-03": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-cupcake-30"
+        },
+        "support-brand-03-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-cupcake-20"
+        },
+        "support-brand-03-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-cupcake-10"
+        },
+        "support-brand-04": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-berry-40"
+        },
+        "support-brand-04-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-berry-20"
+        },
+        "support-brand-04-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-berry-10"
+        },
+        "support-brand-05": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-turmeric-40"
+        },
+        "support-brand-05-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-turmeric-20"
+        },
+        "support-brand-05-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-turmeric-10"
+        },
+        "support-brand-06": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-aubergine-70"
+        },
+        "support-brand-06-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-aubergine-20"
+        },
+        "support-brand-06-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-aubergine-10"
+        },
+        "support-brand-07": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-tomato-50"
+        },
+        "support-brand-07-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-tomato-5"
+        },
+        "support-brand-08": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-latte-30"
+        },
+        "support-brand-08-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-latte-20"
+        },
+        "support-brand-08-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-latte-10"
+        },
+        "support-neutral-persistent": {
+          "category": "feedback",
+          "description": "Low contrast $support-01 for subtle surfaces + effects. Retains global token value in dark theme.",
+          "globalToken": "$color-truffle-20"
+        },
+        "support-error-inverse": {
+          "category": "feedback",
+          "description": "High contrast support error color used on top of $container-inverse",
+          "globalToken": "$color-red-30"
+        },
+        "support-warning-inverse": {
+          "category": "feedback",
+          "description": "High contrast support warning color used on top of $container-inverse",
+          "globalToken": "$color-yellow-40"
+        },
+        "content-default": {
+          "category": "static",
+          "description": "Default text and icon colour",
+          "globalToken": "$color-black @76%"
+        },
+        "content-subdued": {
+          "category": "static",
+          "description": "Subdued text and icon colour used for secondary text and input labels",
+          "globalToken": "$color-black @64%"
+        },
+        "content-interactive-brand": {
+          "category": "interactive",
+          "description": "Brand colour for interactive text and icons",
+          "globalToken": "$color-orange",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-interactive-brand-solid` instead.",
+            "replacementToken": "content-interactive-brand-solid"
+          }
+        },
+        "content-interactive-light": {
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white @90%"
+        },
+        "content-interactive-primary": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of primary interactive elements",
+          "globalToken": "$color-white @90%"
+        },
+        "content-interactive-secondary": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of secondary interactive elements",
+          "globalToken": "$color-black @76%"
+        },
+        "content-interactive-tertiary": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of tertiary interactive elements",
+          "globalToken": "$color-charcoal-75",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-interactive-secondary` instead.",
+            "replacementToken": "content-interactive-secondary"
+          }
+        },
+        "content-interactive-inverse": {
+          "category": "interactive",
+          "description": "Colour for interactive text and icons on inverse backgrounds",
+          "globalToken": "$color-black @76%"
+        },
+        "content-interactive-dark": {
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-black @76%"
+        },
+        "content-interactive-error": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of error-specific or destructive interactive elements",
+          "globalToken": "$color-red",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-interactive-error-solid` instead.",
+            "replacementToken": "content-interactive-error-solid"
+          }
+        },
+        "content-interactive-subdued": {
+          "category": "interactive",
+          "description": "Subdued text and icon colour used for text and icons. They should only be applied on standard backgrounds, containers, and brand tonal colours",
+          "globalToken": "$color-black @58%"
+        },
+        "content-interactive-light-solid": {
+          "category": "interactive",
+          "description": "Solid and persistent colour for interactive text and icons on dark backgrounds",
+          "globalToken": "$color-white"
+        },
+        "content-interactive-primary-solid": {
+          "category": "interactive",
+          "description": "Solid colour used for the text and icons of primary interactive elements",
+          "globalToken": "$color-white"
+        },
+        "content-interactive-secondary-solid": {
+          "category": "interactive",
+          "description": "Solid colour used for the text and icons of secondary interactive elements",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-interactive-inverse-solid": {
+          "category": "interactive",
+          "description": "Solid colour for interactive text and icons on inverse backgrounds",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-interactive-dark-solid": {
+          "category": "interactive",
+          "description": "Solid and persistent colour for interactive text and icons on light backgrounds",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-interactive-brand-solid": {
+          "category": "interactive",
+          "description": "Brand colour for interactive text and icons",
+          "globalToken": "$color-orange"
+        },
+        "content-interactive-error-solid": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of error-specific interactive elements",
+          "globalToken": "$color-red"
+        },
+        "content-interactive-subdued-solid": {
+          "category": "interactive",
+          "description": "Solid and subdued colour used for the text and icons of interactive elements",
+          "globalToken": "$color-charcoal-60"
+        },
+        "content-light": {
+          "category": "static",
+          "description": "Text and icon colour used on dark backgrounds",
+          "globalToken": "$color-white @90%"
+        },
+        "content-dark": {
+          "category": "static",
+          "description": "Text and icon colour used on light backgrounds",
+          "globalToken": "$color-black @76%"
+        },
+        "content-inverse": {
+          "category": "static",
+          "description": "Text and icon colour used on inverse backgrounds",
+          "globalToken": "$color-white @90%"
+        },
+        "content-link": {
+          "category": "link",
+          "description": "Text and icon colour for links",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-link-distinct": {
+          "category": "link",
+          "description": "Text and icon colour for high visibility links",
+          "globalToken": "$color-blue"
+        },
+        "content-link-light": {
+          "category": "link",
+          "description": "Persistent text and icon colour for dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white"
+        },
+        "content-link-inverse": {
+          "category": "link",
+          "description": "Text and icon colour for inverse backgrounds",
+          "globalToken": "$color-white"
+        },
+        "content-link-visited": {
+          "category": "link",
+          "description": "Text and icon colour for visited links",
+          "globalToken": "$color-system-purple"
+        },
+        "content-link-visited-inverse": {
+          "category": "link",
+          "description": "Text and icon colour for visited links on inverse backgrounds",
+          "globalToken": "$color-system-purple-10"
+        },
+        "content-error": {
+          "category": "static",
+          "description": "Text and icon colour for error messaging",
+          "globalToken": "$color-red",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-error-solid` instead.",
+            "replacementToken": "content-error-solid"
+          }
+        },
+        "content-placeholder": {
+          "category": "static",
+          "description": "Text colour for placeholder text",
+          "globalToken": "$color-black @55%"
+        },
+        "content-positive": {
+          "category": "static",
+          "description": "Text and icon colour for success messaging",
+          "globalToken": "$color-green",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-positive-solid` instead.",
+            "replacementToken": "content-positive-solid"
+          }
+        },
+        "content-disabled": {
+          "category": "static",
+          "description": "Text and icon colour to mark them as disabled",
+          "globalToken": "$color-black @30%"
+        },
+        "content-brand": {
+          "category": "static",
+          "description": "Brand text and icon colour",
+          "globalToken": "$color-orange",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-brand-solid` instead.",
+            "replacementToken": "content-brand-solid"
+          }
+        },
+        "content-default-solid": {
+          "category": "static",
+          "description": "Solid version of the default colour used for text and icon",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-subdued-solid": {
+          "category": "static",
+          "description": "Solid version of the subdue colour used for secondary text and input labels",
+          "globalToken": "$color-charcoal-70"
+        },
+        "content-light-solid": {
+          "category": "static",
+          "description": "Solid version of the light colour used for text and icons on dark backgrounds",
+          "globalToken": "$color-white"
+        },
+        "content-inverse-solid": {
+          "category": "static",
+          "description": "Solid version of the inverse colour used for text and icon colour on inverse backgrounds",
+          "globalToken": "$color-white"
+        },
+        "content-dark-solid": {
+          "category": "static",
+          "description": "Solid version of the dark colour used for text and icon colour used on light backgrounds",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-disabled-solid": {
+          "category": "static",
+          "description": "Solid version of the disabled colour",
+          "globalToken": "$color-charcoal-50"
+        },
+        "content-placeholder-solid": {
+          "category": "static",
+          "description": "Solid version of the placeholder colour",
+          "globalToken": "$color-charcoal-57"
+        },
+        "content-brand-solid": {
+          "category": "static",
+          "description": "Brand text and icon colour",
+          "globalToken": "$color-orange"
+        },
+        "content-error-solid": {
+          "category": "static",
+          "description": "Text and icon colour for error messaging",
+          "globalToken": "$color-red"
+        },
+        "content-positive-solid": {
+          "category": "static",
+          "description": "Text and icon colour for success messaging",
+          "globalToken": "$color-green"
+        },
+        "hover-01": {
+          "category": "states",
+          "description": "Opacity effect for hover states on default backgrounds",
+          "globalToken": "$color-hover-darken"
+        },
+        "hover-02": {
+          "category": "states",
+          "description": "Opacity effect for hover states on inverse backgrounds",
+          "globalToken": "$color-hover-lighten"
+        },
+        "hover-02-light": {
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-hover-lighten"
+        },
+        "hover-01-dark": {
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-hover-darken"
+        },
+        "active-01": {
+          "category": "states",
+          "description": "Opacity effect for active states on default backgrounds",
+          "globalToken": "$color-active-darken"
+        },
+        "active-02": {
+          "category": "states",
+          "description": "Opacity effect for active states on inverse backgrounds",
+          "globalToken": "$color-active-lighten"
+        },
+        "active-02-light": {
+          "category": "states",
+          "description": "Opacity effect for active states on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-active-lighten"
+        },
+        "active-01-dark": {
+          "category": "states",
+          "description": "Opacity effect for active states on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-active-darken"
+        },
+        "resting": {
+          "category": "states",
+          "description": "0% opacity used for resting hover and active overlays",
+          "globalToken": "$color-white"
+        },
+        "disabled-01": {
+          "category": "states",
+          "description": "Colour used for disabled UI elements",
+          "globalToken": "$color-truffle-20"
+        },
+        "disabled-01-inverse": {
+          "category": "states",
+          "description": "Colour used for disabled UI elements on inverse backgrounds",
+          "globalToken": "$color-truffle-80"
+        },
+        "focus-inner": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-white"
+        },
+        "focus-outer": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-blue-75"
+        },
+        "skeleton-01": {
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-truffle-10"
+        },
+        "skeleton-02": {
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-truffle-20"
+        },
+        "skeleton-03": {
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-white"
+        },
+        "skeleton-shimmer-01": {
+          "category": "skeleton",
+          "description": "Shimmer effect applied on top of Skeleton-01 when loading elements",
+          "globalToken": "$color-truffle-5"
+        },
+        "skeleton-shimmer-02": {
+          "category": "skeleton",
+          "description": "Shimmer effect applied on top of Skeleton-02 when loading elements",
+          "globalToken": "$color-truffle-5"
+        },
+        "skeleton-shimmer-03": {
+          "category": "skeleton",
+          "description": "Shimmer effect applied on top of Skeleton-03 when loading elements",
+          "globalToken": "$color-truffle-10"
+        }
+      },
+      "dark": {
+        "background-default": {
+          "category": "pageBackgrounds",
+          "description": "Default page background",
+          "globalToken": "$color-truffle-100"
+        },
+        "background-subtle": {
+          "category": "pageBackgrounds",
+          "description": "Subtle page background",
+          "globalToken": "$color-truffle-80"
+        },
+        "background-dark": {
+          "category": "pageBackgrounds",
+          "description": "High contrast page background",
+          "globalToken": "$color-truffle-5"
+        },
+        "container-default": {
+          "category": "containerBackgrounds",
+          "description": "Default container background",
+          "globalToken": "$color-truffle-90"
+        },
+        "container-subtle": {
+          "category": "containerBackgrounds",
+          "description": "Subtle container background",
+          "globalToken": "$color-truffle-80"
+        },
+        "container-strong": {
+          "category": "containerBackgrounds",
+          "description": "Strong container background",
+          "globalToken": "$color-truffle-70"
+        },
+        "container-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark container background",
+          "globalToken": "$color-truffle-90"
+        },
+        "container-light": {
+          "category": "containerBackgrounds",
+          "description": "Light container background",
+          "globalToken": "$color-white"
+        },
+        "container-inverse": {
+          "category": "containerBackgrounds",
+          "description": "Inverse container background",
+          "globalToken": "$color-white"
+        },
+        "container-inverse-alternative": {
+          "category": "containerBackgrounds",
+          "description": "Alternative Inverse container background",
+          "globalToken": "$color-truffle-70"
+        },
+        "braze-container-01": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-orange-75"
+        },
+        "braze-container-03": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-cupcake-70"
+        },
+        "braze-container-04": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-berry-70"
+        },
+        "braze-container-05": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-turmeric-70"
+        },
+        "braze-container-08": {
+          "category": "containerBackgrounds",
+          "description": "Braze container background",
+          "globalToken": "$color-latte-70"
+        },
+        "web-container-base": {
+          "category": "containerBackgrounds",
+          "description": "Base container background with opacity for Web. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-truffle-90 @62%"
+        },
+        "web-container-neutral": {
+          "category": "containerBackgrounds",
+          "description": "Neutral container background with opacity for Web. Always use it paired with `$blur-neutral`.",
+          "globalToken": "$color-truffle-70 @72%"
+        },
+        "web-container-prominent": {
+          "category": "containerBackgrounds",
+          "description": "Prominent container background with opacity for Web. Always use it paired with `$blur-prominent`.",
+          "globalToken": "$color-truffle-90 @42%"
+        },
+        "web-container-base-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark base container background with opacity for Web. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-truffle-90 @62%"
+        },
+        "ios-container-base": {
+          "category": "containerBackgrounds",
+          "description": "Base container background with opacity for iOS. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-truffle-90 @62%"
+        },
+        "ios-container-neutral": {
+          "category": "containerBackgrounds",
+          "description": "Neutral container background with opacity for iOS. Always use it paired with `$blur-neutral`.",
+          "globalToken": "$color-truffle-70 @72%"
+        },
+        "ios-container-prominent": {
+          "category": "containerBackgrounds",
+          "description": "Prominent container background with opacity for iOS. Always use it paired with `$blur-prominent`.",
+          "globalToken": "$color-truffle-90 @42%"
+        },
+        "ios-container-base-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark base container background with opacity for iOS. Always use it paired with `$blur-base`.",
+          "globalToken": "$color-truffle-90 @62%"
+        },
+        "android-container-base": {
+          "category": "containerBackgrounds",
+          "description": "Base container background with opacity for Android.",
+          "globalToken": "$color-truffle-90 @95%"
+        },
+        "android-container-neutral": {
+          "category": "containerBackgrounds",
+          "description": "Neutral container background with opacity for Android.",
+          "globalToken": "$color-truffle-70 @85%"
+        },
+        "android-container-prominent": {
+          "category": "containerBackgrounds",
+          "description": "Prominent container background with opacity for Android.",
+          "globalToken": "$color-truffle-90 @95%"
+        },
+        "android-container-base-dark": {
+          "category": "containerBackgrounds",
+          "description": "Dark base container background with opacity for Android.",
+          "globalToken": "$color-truffle-90 @95%"
+        },
+        "border-default": {
+          "category": "borders",
+          "description": "Default border",
+          "globalToken": "$color-truffle-70"
+        },
+        "border-subtle": {
+          "category": "borders",
+          "description": "Subtle border",
+          "globalToken": "$color-truffle-75"
+        },
+        "border-strong": {
+          "category": "borders",
+          "description": "Higher contrast border",
+          "globalToken": "$color-truffle-65"
+        },
+        "border-inverse": {
+          "category": "borders",
+          "description": "Border on inverse or dark coloured backgrounds",
+          "globalToken": "$color-truffle-20"
+        },
+        "border-selected": {
+          "category": "borders",
+          "description": "Border for selected state of the box",
+          "globalToken": "$color-truffle-30"
+        },
+        "border-selected-brand": {
+          "category": "borders",
+          "description": "Used to indicate a box or container is selected. Make sure you use a 2px border.",
+          "globalToken": "$color-orange"
+        },
+        "border-form": {
+          "category": "borders",
+          "description": "Border for form elements.",
+          "globalToken": "$color-truffle-55"
+        },
+        "border-neutral": {
+          "category": "borders",
+          "description": "Neutral border used alongside blur and opacity fill tokens.",
+          "globalToken": "$color-truffle-80"
+        },
+        "border-decorative-brand": {
+          "category": "borders",
+          "description": "Brand border used for decorative elements only.",
+          "globalToken": "$color-orange-30"
+        },
+        "divider-default": {
+          "category": "dividers",
+          "description": "Divider for use above default and light-coloured backgrounds",
+          "globalToken": "$color-white @20%"
+        },
+        "divider-inverse": {
+          "category": "dividers",
+          "description": "Divider for use above inverse and dark-coloured backgrounds",
+          "globalToken": "$color-black @8%"
+        },
+        "interactive-brand": {
+          "category": "interactiveBackgrounds",
+          "description": "Brand interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-orange"
+        },
+        "interactive-primary": {
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-white"
+        },
+        "interactive-secondary": {
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-truffle-75"
+        },
+        "interactive-inverse": {
+          "category": "interactiveBackgrounds",
+          "description": "Inverse interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-truffle-90"
+        },
+        "interactive-light": {
+          "category": "interactiveBackgrounds",
+          "description": "Light interactive colour used on dark backgrounds",
+          "globalToken": "$color-white"
+        },
+        "interactive-dark": {
+          "category": "interactiveBackgrounds",
+          "description": "Dark interactive colour used on light and coloured backgrounds",
+          "globalToken": "$color-truffle-90"
+        },
+        "interactive-form": {
+          "category": "interactiveBackgrounds",
+          "description": "Field background on $background-default",
+          "globalToken": "$color-truffle-55"
+        },
+        "interactive-error": {
+          "category": "interactiveBackgrounds",
+          "description": "Error interactive colour, used mainly in Destructive buttons, accent fills and borders",
+          "globalToken": "$color-red-50"
+        },
+        "overlay": {
+          "category": "pageBackgrounds",
+          "description": "Translucent background overlay",
+          "globalToken": "$color-black @55%"
+        },
+        "support-neutral": {
+          "category": "feedback",
+          "description": "Neutral; used for neutral messaging and alerts",
+          "globalToken": "$color-truffle-100"
+        },
+        "support-error": {
+          "category": "feedback",
+          "description": "Error; High impact messaging",
+          "globalToken": "$color-red-50"
+        },
+        "support-error-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-error",
+          "globalToken": "$color-red-90"
+        },
+        "support-error-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-error",
+          "globalToken": "$color-red-100"
+        },
+        "support-warning": {
+          "category": "feedback",
+          "description": "Warning; Moderate impact messaging",
+          "globalToken": "$color-yellow-40"
+        },
+        "support-warning-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-warning",
+          "globalToken": "$color-yellow-80"
+        },
+        "support-warning-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-warning",
+          "globalToken": "$color-yellow-90"
+        },
+        "support-positive": {
+          "category": "feedback",
+          "description": "Success; positive messaging",
+          "globalToken": "$color-green-30"
+        },
+        "support-positive-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-positive",
+          "globalToken": "$color-green-80"
+        },
+        "support-positive-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-positive",
+          "globalToken": "$color-green-90"
+        },
+        "support-positive-inverse": {
+          "category": "feedback",
+          "description": "High contrast version of $support-positive to be used over dark backgrounds",
+          "globalToken": "$color-green"
+        },
+        "support-info": {
+          "category": "feedback",
+          "description": "Information; instructional messaging",
+          "globalToken": "$color-blue-30"
+        },
+        "support-info-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-info",
+          "globalToken": "$color-blue-80"
+        },
+        "support-info-tonal": {
+          "category": "feedback",
+          "description": "Tonal version of $support-info",
+          "globalToken": "$color-blue-90"
+        },
+        "support-info-inverse": {
+          "category": "feedback",
+          "description": "High contrast version of $support-info to be used over dark backgrounds",
+          "globalToken": "$color-blue"
+        },
+        "support-brand-01": {
+          "category": "brand",
+          "description": "Special; special attention messaging",
+          "globalToken": "$color-orange-30"
+        },
+        "support-brand-02": {
+          "category": "brand",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces and effects",
+          "globalToken": "$color-orange-75"
+        },
+        "support-brand-tonal": {
+          "category": "brand",
+          "description": "Tonal version of $support-brand-01 for subtle surfaces and effects",
+          "globalToken": "$color-orange-90"
+        },
+        "support-brand-03": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-cupcake-30"
+        },
+        "support-brand-03-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-cupcake-80"
+        },
+        "support-brand-03-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-cupcake-90"
+        },
+        "support-brand-04": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-berry-40"
+        },
+        "support-brand-04-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-berry-80"
+        },
+        "support-brand-04-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-berry-90"
+        },
+        "support-brand-05": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-turmeric-40"
+        },
+        "support-brand-05-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-turmeric-75"
+        },
+        "support-brand-05-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-turmeric-80"
+        },
+        "support-brand-06": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-aubergine-70"
+        },
+        "support-brand-06-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-aubergine-90"
+        },
+        "support-brand-06-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-aubergine-100"
+        },
+        "support-brand-07": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-tomato-50"
+        },
+        "support-brand-07-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-tomato-90"
+        },
+        "support-brand-08": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-latte-30"
+        },
+        "support-brand-08-subtle": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-latte-80"
+        },
+        "support-brand-08-tonal": {
+          "category": "brand",
+          "description": "Discretionary brand surfaces and effects",
+          "globalToken": "$color-latte-90"
+        },
+        "support-neutral-persistent": {
+          "category": "feedback",
+          "description": "Low contrast $support-01 for subtle surfaces + effects. Retains global token value in dark theme.",
+          "globalToken": "$color-truffle-20"
+        },
+        "support-error-inverse": {
+          "category": "feedback",
+          "description": "High contrast support error color used on top of $container-inverse",
+          "globalToken": "$color-red"
+        },
+        "support-warning-inverse": {
+          "category": "feedback",
+          "description": "High contrast support error color used on top of $container-inverse",
+          "globalToken": "$color-yellow-75"
+        },
+        "content-default": {
+          "category": "static",
+          "description": "Default text and icon colour",
+          "globalToken": "$color-white @90%"
+        },
+        "content-subdued": {
+          "category": "static",
+          "description": "Subdued text and icon colour used for secondary text and input labels",
+          "globalToken": "$color-white @86%"
+        },
+        "content-interactive-brand": {
+          "category": "interactive",
+          "description": "Brand colour for interactive text and icons",
+          "globalToken": "$color-orange-30",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-interactive-brand-solid` instead.",
+            "replacementToken": "content-interactive-brand-solid"
+          }
+        },
+        "content-interactive-light": {
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white @90%"
+        },
+        "content-interactive-primary": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of primary interactive elements",
+          "globalToken": "$color-black @76%"
+        },
+        "content-interactive-secondary": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of secondary interactive elements",
+          "globalToken": "$color-white @90%"
+        },
+        "content-interactive-tertiary": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of tertiary interactive elements",
+          "globalToken": "$color-white",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-interactive-secondary` instead.",
+            "replacementToken": "content-interactive-secondary"
+          }
+        },
+        "content-interactive-inverse": {
+          "category": "interactive",
+          "description": "Colour for interactive text and icons on inverse backgrounds",
+          "globalToken": "$color-white @90%"
+        },
+        "content-interactive-dark": {
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-black @76%"
+        },
+        "content-interactive-error": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of error-specific interactive elements",
+          "globalToken": "$color-red-10",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-interactive-error-solid` instead.",
+            "replacementToken": "content-interactive-error-solid"
+          }
+        },
+        "content-interactive-light-solid": {
+          "category": "interactive",
+          "description": "Solid and persistent colour for interactive text and icons on dark backgrounds",
+          "globalToken": "$color-white"
+        },
+        "content-interactive-primary-solid": {
+          "category": "interactive",
+          "description": "Solid colour used for the text and icons of primary interactive elements",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-interactive-secondary-solid": {
+          "category": "interactive",
+          "description": "Solid colour used for the text and icons of secondary interactive elements",
+          "globalToken": "$color-white"
+        },
+        "content-interactive-inverse-solid": {
+          "category": "interactive",
+          "description": "Solid colour for interactive text and icons on inverse backgrounds",
+          "globalToken": "$color-white"
+        },
+        "content-interactive-dark-solid": {
+          "category": "interactive",
+          "description": "Solid and persistent colour for interactive text and icons on light backgrounds",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-interactive-brand-solid": {
+          "category": "interactive",
+          "description": "Brand colour for interactive text and icons",
+          "globalToken": "$color-orange-30"
+        },
+        "content-interactive-error-solid": {
+          "category": "interactive",
+          "description": "Colour for the text and icons of error-specific interactive elements",
+          "globalToken": "$color-red-10"
+        },
+        "content-interactive-subdued-solid": {
+          "category": "interactive",
+          "description": "Solid and subdued colour used for the text and icons of interactive elements",
+          "globalToken": "$color-charcoal-40"
+        },
+        "content-interactive-subdued": {
+          "category": "interactive",
+          "description": "Subdued text and icon colour used for text and icons. They should only be applied on standard backgrounds, containers, and brand tonal colours",
+          "globalToken": "$color-white @80%"
+        },
+        "content-light": {
+          "category": "static",
+          "description": "Text and icon colour used on dark backgrounds",
+          "globalToken": "$color-white @90%"
+        },
+        "content-dark": {
+          "category": "static",
+          "description": "Text and icon colour used on light backgrounds",
+          "globalToken": "$color-black @76%"
+        },
+        "content-inverse": {
+          "category": "static",
+          "description": "Text and icon colour used on inverse backgrounds",
+          "globalToken": "$color-black @76%"
+        },
+        "content-link": {
+          "category": "link",
+          "description": "Text and icon colour for links",
+          "globalToken": "$color-white"
+        },
+        "content-link-distinct": {
+          "category": "link",
+          "description": "Text and icon colour for high visibility links",
+          "globalToken": "$color-blue-10"
+        },
+        "content-link-light": {
+          "category": "link",
+          "description": "Persistent text and icon colour for dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white"
+        },
+        "content-link-inverse": {
+          "category": "link",
+          "description": "Text and icon colour for inverse backgrounds",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-link-visited": {
+          "category": "link",
+          "description": "Text and icon colour for visited links",
+          "globalToken": "$color-system-purple-10"
+        },
+        "content-link-visited-inverse": {
+          "category": "link",
+          "description": "Text and icon colour for visited links on inverse backgrounds",
+          "globalToken": "$color-system-purple"
+        },
+        "content-error": {
+          "category": "static",
+          "description": "Text and icon colour for error messaging",
+          "globalToken": "$color-red-10",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-error-solid` instead.",
+            "replacementToken": "content-error-solid"
+          }
+        },
+        "content-placeholder": {
+          "category": "static",
+          "description": "Text colour for placeholder text",
+          "globalToken": "$color-white @55%"
+        },
+        "content-positive": {
+          "category": "static",
+          "description": "Text and icon colour for success messaging",
+          "globalToken": "$color-green-10",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-positive-solid` instead.",
+            "replacementToken": "content-positive-solid"
+          }
+        },
+        "content-disabled": {
+          "category": "static",
+          "description": "Text and icon colour to mark them as disabled",
+          "globalToken": "$color-white @30%"
+        },
+        "content-brand": {
+          "category": "static",
+          "description": "Brand text and icon colour",
+          "globalToken": "$color-orange-30",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `content-brand-solid` instead.",
+            "replacementToken": "content-brand-solid"
+          }
+        },
+        "content-default-solid": {
+          "category": "static",
+          "description": "Solid version of the default colour used for text and icon",
+          "globalToken": "$color-white"
+        },
+        "content-subdued-solid": {
+          "category": "static",
+          "description": "Solid version of the subdue colour used for secondary text and input labels",
+          "globalToken": "$color-charcoal-30"
+        },
+        "content-light-solid": {
+          "category": "static",
+          "description": "Solid version of the light colour used for text and icons on dark backgrounds",
+          "globalToken": "$color-white"
+        },
+        "content-inverse-solid": {
+          "category": "static",
+          "description": "Solid version of the inverse colour used for text and icon colour on inverse backgrounds",
+          "globalToken": "$color-charcoal-70"
+        },
+        "content-dark-solid": {
+          "category": "static",
+          "description": "Solid version of the dark colour used for text and icon colour used on light backgrounds",
+          "globalToken": "$color-charcoal-80"
+        },
+        "content-disabled-solid": {
+          "category": "static",
+          "description": "Solid version of the disabled colour",
+          "globalToken": "$color-charcoal-50"
+        },
+        "content-placeholder-solid": {
+          "category": "static",
+          "description": "Solid version of the placeholder colour",
+          "globalToken": "$color-charcoal-50"
+        },
+        "content-brand-solid": {
+          "category": "static",
+          "description": "Brand text and icon colour",
+          "globalToken": "$color-orange-30"
+        },
+        "content-error-solid": {
+          "category": "static",
+          "description": "Text and icon colour for error messaging",
+          "globalToken": "$color-red-10"
+        },
+        "content-positive-solid": {
+          "category": "static",
+          "description": "Text and icon colour for success messaging",
+          "globalToken": "$color-green-10"
+        },
+        "hover-01": {
+          "category": "states",
+          "description": "Opacity effect for hover states on default backgrounds",
+          "globalToken": "$color-hover-lighten"
+        },
+        "hover-02": {
+          "category": "states",
+          "description": "Opacity effect for hover states on inverse backgrounds",
+          "globalToken": "$color-hover-darken"
+        },
+        "hover-02-light": {
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-hover-lighten"
+        },
+        "hover-01-dark": {
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-hover-darken"
+        },
+        "active-01": {
+          "category": "states",
+          "description": "Opacity effect for active states on default backgrounds",
+          "globalToken": "$color-active-lighten"
+        },
+        "active-02": {
+          "category": "states",
+          "description": "Opacity effect for active states on inverse backgrounds",
+          "globalToken": "$color-active-darken"
+        },
+        "active-02-light": {
+          "category": "states",
+          "description": "Opacity effect for active states on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-active-lighten"
+        },
+        "active-01-dark": {
+          "category": "states",
+          "description": "Opacity effect for active states on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-active-darken"
+        },
+        "resting": {
+          "category": "states",
+          "description": "0% opacity used for resting hover and active overlays",
+          "globalToken": "$color-black"
+        },
+        "disabled-01": {
+          "category": "states",
+          "description": "Colour used for disabled UI elements",
+          "globalToken": "$color-truffle-80"
+        },
+        "disabled-01-inverse": {
+          "category": "states",
+          "description": "Colour used for disabled UI elements on inverse backgrounds",
+          "globalToken": "$color-truffle-20"
+        },
+        "focus-inner": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-black"
+        },
+        "focus-outer": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-blue-30"
+        },
+        "skeleton-01": {
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-truffle-80"
+        },
+        "skeleton-02": {
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-truffle-75"
+        },
+        "skeleton-03": {
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-truffle-90"
+        },
+        "skeleton-shimmer-01": {
+          "category": "skeleton",
+          "description": "Shimmer effect applied on top of Skeleton-01 when loading elements",
+          "globalToken": "$color-truffle-75"
+        },
+        "skeleton-shimmer-02": {
+          "category": "skeleton",
+          "description": "Shimmer effect applied on top of Skeleton-02 when loading elements",
+          "globalToken": "$color-truffle-70"
+        },
+        "skeleton-shimmer-03": {
+          "category": "skeleton",
+          "description": "Shimmer effect applied on top of Skeleton-03 when loading elements",
+          "globalToken": "$color-truffle-80"
+        }
+      }
+    }
+  },
+  "font": {
+    "global": {
+      "family-primary": {
+        "category": "fontFamily",
+        "description": "JetSansDigital"
+      },
+      "family-secondary": {
+        "category": "fontFamily",
+        "description": "Arial"
+      },
+      "family-code": {
+        "category": "fontFamily",
+        "description": "PT Mono"
+      },
+      "family-alternative": {
+        "category": "fontFamily",
+        "description": "JETSansVF2",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `family-primary` instead.",
+          "replacementToken": "family-primary"
+        }
+      },
+      "weight-extrablack": {
+        "category": "fontWeight",
+        "description": "ExtraBlack"
+      },
+      "weight-black": {
+        "category": "fontWeight",
+        "description": "Black"
+      },
+      "weight-extrabold": {
+        "category": "fontWeight",
+        "description": "Extra bold"
+      },
+      "weight-bold": {
+        "category": "fontWeight",
+        "description": "Bold"
+      },
+      "weight-regular": {
+        "category": "fontWeight",
+        "description": "Regular"
+      },
+      "size-12": {
+        "category": "fontSize",
+        "description": "Text size: 12px"
+      },
+      "size-14": {
+        "category": "fontSize",
+        "description": "Text size: 14px"
+      },
+      "size-16": {
+        "category": "fontSize",
+        "description": "Text size: 16px"
+      },
+      "size-20": {
+        "category": "fontSize",
+        "description": "Text size: 20px"
+      },
+      "size-24": {
+        "category": "fontSize",
+        "description": "Text size: 24px"
+      },
+      "size-28": {
+        "category": "fontSize",
+        "description": "Text size: 28px"
+      },
+      "size-32": {
+        "category": "fontSize",
+        "description": "Text size: 32px"
+      },
+      "size-48": {
+        "category": "fontSize",
+        "description": "Text size: 48px"
+      },
+      "line-height-16": {
+        "category": "lineHeight",
+        "description": "Line height: 16px"
+      },
+      "line-height-20": {
+        "category": "lineHeight",
+        "description": "Line height: 20px"
+      },
+      "line-height-24": {
+        "category": "lineHeight",
+        "description": "Line height: 24px"
+      },
+      "line-height-28": {
+        "category": "lineHeight",
+        "description": "Line height: 28px"
+      },
+      "line-height-32": {
+        "category": "lineHeight",
+        "description": "Line height: 32px"
+      },
+      "line-height-36": {
+        "category": "lineHeight",
+        "description": "Line height: 36px"
+      },
+      "line-height-52": {
+        "category": "lineHeight",
+        "description": "Line height: 52px"
+      },
+      "style-underline": {
+        "category": "textDecoration",
+        "description": "Text decoration: underline"
+      },
+      "style-italic": {
+        "category": "fontStyle",
+        "description": "Text style: italic"
+      },
+      "paragraph-spacing-01": {
+        "category": "paragraphSpacing",
+        "description": "Paragraph spacing: 16px"
+      },
+      "paragraph-spacing-02": {
+        "category": "paragraphSpacing",
+        "description": "Paragraph spacing: 14px"
+      },
+      "paragraph-spacing-03": {
+        "category": "paragraphSpacing",
+        "description": "Paragraph spacing: 12px"
+      },
+      "letter-spacing-00": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: default"
+      }
+    },
+    "alias": {
+      "wide": {
+        "heading-xxl": {
+          "category": "headings",
+          "displayName": "Heading XXL",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-48", "$font-line-height-52", "$font-family-primary", "$font-weight-extrablack", "$letter-spacing-00"]
+        },
+        "heading-xl": {
+          "category": "headings",
+          "displayName": "Heading XL",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-32", "$font-line-height-36", "$font-family-primary", "$font-weight-extrablack", "$letter-spacing-00"]
+        },
+        "heading-l": {
+          "category": "headings",
+          "displayName": "Heading L",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-28", "$font-line-height-32", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-m": {
+          "category": "headings",
+          "displayName": "Heading M",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-24", "$font-line-height-28", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-s": {
+          "category": "headings",
+          "displayName": "Heading S",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-xs": {
+          "category": "headings",
+          "displayName": "Heading XS",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-16", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-xxl-italic": {
+          "category": "headings",
+          "displayName": "Heading XXL Italic",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-48", "$font-line-height-52", "$font-family-primary", "$font-weight-extrablack", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-xl-italic": {
+          "category": "headings",
+          "displayName": "Heading XL Italic",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-32", "$font-line-height-36", "$font-family-primary", "$font-weight-extrablack", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-l-italic": {
+          "category": "headings",
+          "displayName": "Heading L Italic",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-28", "$font-line-height-32", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-m-italic": {
+          "category": "headings",
+          "displayName": "Heading M Italic",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-24", "$font-line-height-28", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-s-italic": {
+          "category": "headings",
+          "displayName": "Heading S Italic",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-xs-italic": {
+          "category": "headings",
+          "displayName": "Heading XS Italic",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-16", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "subheading-l": {
+          "category": "subheadings",
+          "displayName": "Subheading L",
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-24", "$font-line-height-28", "$font-family-primary", "$font-weight-regular", "$letter-spacing-00"]
+        },
+        "subheading-s": {
+          "category": "subheadings",
+          "displayName": "Subheading S",
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-regular", "$letter-spacing-00"]
+        },
+        "body-l": {
+          "category": "body",
+          "displayName": "Body",
+          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00"]
+        },
+        "body-l-link": {
+          "category": "body",
+          "displayName": "Body underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
+        },
+        "body-s": {
+          "category": "body",
+          "displayName": "Body small",
+          "description": "Used for body copy. Generally used for components.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00"]
+        },
+        "body-s-link": {
+          "category": "body",
+          "displayName": "Body small underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
+        },
+        "body-strong-l": {
+          "category": "body-strong",
+          "displayName": "Body bold",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00"]
+        },
+        "body-strong-l-link": {
+          "category": "body-strong",
+          "displayName": "Body bold underline",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
+        },
+        "body-strong-s": {
+          "category": "body-strong",
+          "displayName": "Body small bold",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00"]
+        },
+        "body-strong-s-link": {
+          "category": "body-strong",
+          "displayName": "Body small bold underline",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
+        },
+        "caption": {
+          "category": "caption",
+          "displayName": "Caption",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00"]
+        },
+        "caption-link": {
+          "category": "caption",
+          "displayName": "Caption Underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
+        },
+        "caption-strong": {
+          "category": "caption-strong",
+          "displayName": "Caption bold",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00"]
+        },
+         "caption-strong-italic": {
+          "category": "caption-strong",
+          "displayName": "Caption bold italic",
+          "description": "Used for high emphasise captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-extrabold", "$font-style-italic", "$paragraph-spacing-03", "$letter-spacing-00"]
+        },
+        "caption-strong-link": {
+          "category": "caption-strong",
+          "displayName": "Caption bold underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
+        },
+        "interactive-l": {
+          "category": "interactive",
+          "displayName": "Interactive L",
+          "description": "Used for labels in large-sized button components and numeric counters.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
+        },
+        "interactive-s": {
+          "category": "interactive",
+          "displayName": "Interactive S",
+          "description": "Used for labels in small-sized button components.",
+          "globalToken": ["$font-size-16", "$font-line-height-20", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
+        },
+        "interactive-xs": {
+          "category": "interactive",
+          "displayName": "Interactive XS",
+          "description": "Used for labels in extra-small-sized button components.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
+        }
+      },
+      "narrow": {
+        "heading-xxl": {
+          "category": "headings",
+          "displayName": "Heading XXL",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-32", "$font-line-height-36", "$font-family-primary", "$font-weight-extrablack", "$letter-spacing-00"]
+        },
+        "heading-xl": {
+          "category": "headings",
+          "displayName": "Heading XL",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-28", "$font-line-height-32", "$font-family-primary", "$font-weight-extrablack", "$letter-spacing-00"]
+        },
+        "heading-l": {
+          "category": "headings",
+          "displayName": "Heading L",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-24", "$font-line-height-28", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-m": {
+          "category": "headings",
+          "displayName": "Heading M",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-s": {
+          "category": "headings",
+          "displayName": "Heading S",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-16", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-xs": {
+          "category": "headings",
+          "displayName": "Heading XS",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+        },
+        "heading-xxl-italic": {
+          "category": "headings",
+          "displayName": "Heading XXL",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-32", "$font-line-height-36", "$font-family-primary", "$font-weight-extrablack", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-xl-italic": {
+          "category": "headings",
+          "displayName": "Heading XL",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-28", "$font-line-height-32", "$font-family-primary", "$font-weight-extrablack", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-l-italic": {
+          "category": "headings",
+          "displayName": "Heading L",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-24", "$font-line-height-28", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-m-italic": {
+          "category": "headings",
+          "displayName": "Heading M",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-s-italic": {
+          "category": "headings",
+          "displayName": "Heading S",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-16", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "heading-xs-italic": {
+          "category": "headings",
+          "displayName": "Heading XS Italic",
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+        },
+        "subheading-l": {
+          "category": "subheadings",
+          "displayName": "Subheading L",
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
+        },
+        "subheading-s": {
+          "category": "subheadings",
+          "displayName": "Subheading S",
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-16", "$font-line-height-20", "$font-family-primary", "$font-weight-regular", "$letter-spacing-00"]
+        },
+        "body-l": {
+          "category": "body",
+          "displayName": "Body",
+          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00"]
+        },
+        "body-l-link": {
+          "category": "body",
+          "displayName": "Body underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
+        },
+        "body-s": {
+          "category": "body",
+          "displayName": "Body small",
+          "description": "Used for body copy. Generally used for components.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00"]
+        },
+        "body-s-link": {
+          "category": "body",
+          "displayName": "Body small underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
+        },
+        "body-strong-l": {
+          "category": "body-strong",
+          "displayName": "Body bold",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00"]
+        },
+        "body-strong-l-link": {
+          "category": "body-strong",
+          "displayName": "Body bold underline",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-line-height-24", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
+        },
+        "body-strong-s": {
+          "category": "body-strong",
+          "displayName": "Body small bold",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00"]
+        },
+        "body-strong-s-link": {
+          "category": "body-strong",
+          "displayName": "Body small bold underline",
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
+        },
+        "caption": {
+          "category": "caption",
+          "displayName": "Caption",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00"]
+        },
+        "caption-link": {
+          "category": "caption",
+          "displayName": "Caption Underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
+        },
+        "caption-strong": {
+          "category": "caption-strong",
+          "displayName": "Caption bold",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00"]
+        },
+        "caption-strong-italic": {
+          "category": "caption-strong",
+          "displayName": "Caption bold italic",
+          "description": "Used for high emphasise captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-extrabold", "$font-style-italic", "$paragraph-spacing-03", "$letter-spacing-00"]
+        },
+        "caption-strong-link": {
+          "category": "caption-strong-link",
+          "displayName": "Caption bold underline",
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-line-height-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
+        },
+        "interactive-l": {
+          "category": "interactive",
+          "displayName": "Interactive L",
+          "description": "Used for labels in large-sized button components and numeric counters.",
+          "globalToken": ["$font-size-20", "$font-line-height-24", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
+        },
+        "interactive-s": {
+          "category": "interactive",
+          "displayName": "Interactive S",
+          "description": "Used for labels in small-sized button components.",
+          "globalToken": ["$font-size-16", "$font-line-height-20", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
+        },
+        "interactive-xs": {
+          "category": "interactive",
+          "displayName": "Interactive XS",
+          "description": "Used for labels in extra-small-sized button components.",
+          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
+        }
+      }
+    }
+  },
+  "radius": {
+    "global": {
+      "00": {
+        "description": "0dp/pt/px"
+      },
+      "04": {
+        "description": "4dp/pt/px"
+      },
+      "08": {
+        "description": "8dp/pt/px"
+      },
+      "12": {
+        "description": "12dp/pt/px"
+      },
+      "16": {
+        "description": "16dp/pt/px"
+      },
+      "20": {
+        "description": "20dp/pt/px"
+      },
+      "24": {
+        "description": "24dp/pt/px"
+      },
+      "round": {
+        "description": "50rem"
+      }
+    },
+    "alias": {
+      "rounded-none": {
+        "description": "Used when explicitly specifying that a design element shouldn't have rounded corners.",
+        "displayName": "Rounded none",
+        "globalToken": "$radius-00",
+        "scssName": "$rounded-none"
+      },
+      "rounded-a": {
+        "description": "Used for small tags.",
+        "displayName": "Rounded A",
+        "globalToken": "$radius-04",
+        "scssName": "$rounded-a"
+      },
+      "rounded-b": {
+        "description": "Used for data visualisation elements, tags, logos and toast components.",
+        "displayName": "Rounded B",
+        "globalToken": "$radius-08",
+        "scssName": "$rounded-b"
+      },
+      "rounded-c": {
+        "description": "Used in cards, popovers, notifications, headers, navigation bars and side drawers.",
+        "displayName": "Rounded C",
+        "globalToken": "$radius-12",
+        "scssName": "$rounded-c"
+      },
+      "rounded-d": {
+        "description": "Used in modals and sheets.",
+        "displayName": "Rounded D",
+        "globalToken": "$radius-16",
+        "scssName": "$rounded-d"
+      },
+      "rounded-e": {
+        "description": "Used in toggles, extended FABs and buttons.",
+        "displayName": "Rounded E",
+        "globalToken": "$radius-round",
+        "scssName": "$rounded-e"
+      },
+      "rounded-f": {
+        "description": "Still to be agreed, added for future-proofing.",
+        "displayName": "Rounded F",
+        "globalToken": "$radius-20",
+        "scssName": "$rounded-f"
+      },
+      "rounded-g": {
+        "description": "Used in merchandising modules.",
+        "displayName": "Rounded G",
+        "globalToken": "$radius-24",
+        "scssName": "$rounded-g"
+      }
+    }
+  },
+  "blur": {
+    "global": {
+      "uniform-48": {
+        "description": "Uniform 48 | 24px"
+      },
+      "uniform-18": {
+        "description": "Uniform 18 | 9px"
+      },
+      "uniform-25": {
+        "description": "Uniform 25 | 12.5px"
+      }
+    },
+    "alias": {
+      "base": {
+        "description": "Used for strong attention to the foreground content and minimise background detail. It should always be used in conjunction with $container-base tokens.",
+        "displayName": "Blur base",
+        "globalToken": "$blur-uniform-48",
+        "scssName": "$blur-base"
+      },
+      "neutral": {
+        "description": "Used for when some background detail still needs to be perceived without being a distraction. It should always be used in conjunction with $container-neutral tokens.",
+        "displayName": "Blur neutral",
+        "globalToken": "$blur-uniform-18",
+        "scssName": "$blur-neutral"
+      },
+      "prominent": {
+        "description": "Use for visible and striking background blur effect. It should always be used in conjunction with $container-prominent tokens.",
+        "displayName": "Blur prominent",
+        "globalToken": "$blur-uniform-25",
+        "scssName": "$blur-prominent"
+      }
+    }
+  },
+  "spacing": {
+    "global": {
+      "00": {
+        "description": "0dp/sp/px or 0rem "
+      },
+      "02": {
+        "description": "2dp/sp/px or 0.125rem"
+      },
+      "04": {
+        "description": "4dp/sp/px or 0.25rem"
+      },
+      "08": {
+        "description": "8dp/sp/px or 0.5rem"
+      },
+      "12": {
+        "description": "12dp/sp/px or 0.75rem"
+      },
+      "16": {
+        "description": "16dp/sp/px or 1rem"
+      },
+      "24": {
+        "description": "24dp/sp/px or 1.5rem"
+      },
+      "32": {
+        "description": "32dp/sp/px or 2rem"
+      },
+      "40": {
+        "description": "40dp/sp/px or 2.5rem"
+      },
+      "56": {
+        "description": "56dp/sp/px or 3.5rem"
+      },
+      "64": {
+        "description": "64dp/sp/px or 4rem"
+      },
+      "80": {
+        "description": "80dp/sp/px or 5rem"
+      }
+    },
+    "alias": {
+      "none": {
+        "description": "0dp/sp/px or 0rem",
+        "globalToken": "$spacing-00"
+      },
+      "a-small": {
+        "description": "2dp/sp/px or 0.125rem",
+        "globalToken": "$spacing-02"
+      },
+      "a": {
+        "description": "4dp/sp/px or 0.25rem",
+        "globalToken": "$spacing-04"
+      },
+      "b": {
+        "description": "8dp/sp/px or 0.5rem",
+        "globalToken": "$spacing-08"
+      },
+      "c": {
+        "description": "12dp/sp/px or 0.75rem",
+        "globalToken": "$spacing-12"
+      },
+      "d": {
+        "description": "16dp/sp/px or 1rem",
+        "globalToken": "$spacing-16"
+      },
+      "e": {
+        "description": "24dp/sp/px or 1.5rem",
+        "globalToken": "$spacing-24"
+      },
+      "f": {
+        "description": "32dp/sp/px or 2rem",
+        "globalToken": "$spacing-32"
+      },
+      "g": {
+        "description": "40dp/sp/px or 2.5rem",
+        "globalToken": "$spacing-40"
+      },
+      "h": {
+        "description": "56dp/sp/px or 3.5rem",
+        "globalToken": "$spacing-56"
+      },
+      "i": {
+        "description": "64dp/sp/px or 4rem",
+        "globalToken": "$spacing-64"
+      },
+      "j": {
+        "description": "80dp/sp/px or 5rem",
+        "globalToken": "$spacing-80"
+      }
+    }
+  },
+  "breakpoint": {
+    "global": {
+      "size-320": {
+        "description": "320dp/sp/px or 20rem"
+      },
+      "size-600": {
+        "description": "600dp/sp/px or 37.5rem"
+      },
+      "size-768": {
+        "description": "768dp/sp/px or 48rem"
+      },
+      "size-1024": {
+        "description": "1024dp/sp/px or 64rem"
+      },
+      "size-1280": {
+        "description": "1280dp/sp/px or 80rem"
+      },
+      "size-1440": {
+        "description": "1440dp/sp/px or 90rem"
+      }
+    },
+    "alias": {
+      "xs": {
+        "description": "320dp/sp/px or 20rem",
+        "globalToken": "$breakpoint-size-320"
+      },
+      "sm": {
+        "description": "600dp/sp/px or 37.5rem",
+        "globalToken": "$breakpoint-size-600"
+      },
+      "md": {
+        "description": "768dp/sp/px or 48rem",
+        "globalToken": "$breakpoint-size-768"
+      },
+      "lg": {
+        "description": "1024dp/sp/px or 64rem",
+        "globalToken": "$breakpoint-size-1024"
+      },
+      "xl": {
+        "description": "1280dp/sp/px or 80rem",
+        "globalToken": "$breakpoint-size-1280"
+      },
+      "xxl": {
+        "description": "1440dp/sp/px or 90rem",
+        "globalToken": "$breakpoint-size-1440"
+      }
+    }
+  },
+  "motion": {
+    "global": {
+      "timing-100": {
+        "description": "100ms"
+      },
+      "timing-150": {
+        "description": "150ms"
+      },
+      "timing-200": {
+        "description": "200ms"
+      },
+      "timing-250": {
+        "description": "250ms"
+      },
+      "timing-300": {
+        "description": "300ms"
+      },
+      "timing-350": {
+        "description": "350ms"
+      },
+      "easing-out": {
+        "description": "cubic-bezier(0, 0, 0.18, 0.99)"
+      },
+      "easing-in": {
+        "description": "cubic-bezier(0.8, 0, 1, 1)"
+      },
+      "easing-persistent-functional": {
+        "description": "cubic-bezier(0.45, 0, 0.55, 1)"
+      },
+      "easing-persistent-expressive": {
+        "description": "cubic-bezier(0.95, 0, 0, 0.95)"
+      }
+    },
+    "alias": {}
+  },
+  "elevation": {
+    "global": {
+      "box-shadow-a": {
+        "description": "0px 2px 6px 0px rgba(0,0,0,0.01),<br /> 0px 2px 12px 0px rgba(0,0,0,0.03),<br /> 0px 2px 6px 2px rgba(0,0,0,0.02)",
+        "scssName": "$box-shadow-a"
+      },
+      "box-shadow-b": {
+        "description": "0px 4px 6px 0px rgba(0,0,0,0.02),<br /> 0px 2px 12px 2px rgba(0,0,0,0.04),<br /> 0px 3px 4px 0px rgba(0,0,0,0.04)",
+        "scssName": "$box-shadow-b"
+      },
+      "box-shadow-c": {
+        "description": "0px -3px 6px 0px rgba(0,0,0,0.02),<br /> 0px -2px 12px -2px rgba(0,0,0,0.03),<br /> 0px -4px 6px 0px rgba(0,0,0,0.01)",
+        "scssName": "$box-shadow-c"
+      },
+      "box-shadow-d": {
+        "description": "0px 2px 6px 0px rgba(0,0,0,0.04),<br /> 0px 2px 12px 0px rgba(0,0,0,0.12),<br /> 0px 2px 6px 2px rgba(0,0,0,0.08),<br /> inset 0px 0.5px 0px 0px rgba(255, 255, 255, 0.05),<br /> inset 0px 0px 0.5px 0px rgba(255, 255, 255, 0.05)",
+        "scssName": "$box-shadow-d"
+      },
+      "box-shadow-e": {
+        "description": "0px 4px 6px 0px rgba(0,0,0,0.08),<br /> 0px 2px 12px 2px rgba(0,0,0,0.24),<br /> 0px 3px 4px 0px rgba(0,0,0,0.16),<br /> inset 0px 0.5px 1px 0px rgba(255, 255, 255, 0.08),<br /> inset 0px 0px 0.5px 0px rgba(255, 255, 255, 0.12)",
+        "scssName": "$box-shadow-e"
+      },
+      "box-shadow-f": {
+        "description": "0px -3px 6px 0px rgba(0,0,0,0.12),<br /> 0px -2px 12px -2px rgba(0,0,0,0.24),<br /> 0px -4px 6px 0px rgba(0,0,0,0.06),<br /> inset 0px -0.5px 1px 0px rgba(255, 255, 255, 0.08),<br /> inset 0px 0px 0.5px 0px rgba(255, 255, 255, 0.12)",
+        "scssName": "$box-shadow-f"
+      },
+      "box-shadow-01": {
+        "description": "0px 2px 2px 0px rgba(0,0,0,0.03),<br /> 0px 3px 1px -2px rgba(0,0,0,0.07),<br /> 0px 1px 5px 0px rgba(0,0,0,0.06)",
+        "scssName": "$box-shadow-01",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-a` instead.",
+          "replacementToken": "box-shadow-a"
+        }
+      },
+      "box-shadow-02": {
+        "description": "0px 4px 6px 0px rgba(0,0,0,0.02),<br /> 0px 2px 12px -2px rgba(0,0,0,0.08),<br /> 0px 3px 6px 0px rgba(0,0,0,0.06)",
+        "scssName": "$box-shadow-02",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-a` instead.",
+          "replacementToken": "box-shadow-a"
+        }
+      },
+      "box-shadow-03": {
+        "description": "0px 2px 6px 0px rgba(0,0,0,0.04),<br /> 0px 8px 12px -2px rgba(0,0,0,0.06),<br /> 0px 4px 6px 0px rgba(0,0,0,0.04)",
+        "scssName": "$box-shadow-03",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-b` instead.",
+          "replacementToken": "box-shadow-b"
+        }
+      },
+      "box-shadow-04": {
+        "description": "0px 8px 8px 0px rgba(0,0,0,0.04),<br /> 0px 8px 20px -3px rgba(0,0,0,0.10),<br /> 0px 4px 8px -2px rgba(0,0,0,0.06)",
+        "scssName": "$box-shadow-04",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-b` instead.",
+          "replacementToken": "box-shadow-b"
+
+        }
+      },
+      "box-shadow-05": {
+        "description": "0px -4px 6px 0px rgba(0,0,0,0.02),<br /> 0px -2px 12px -2px rgba(0,0,0,0.08),<br /> 0px -3px 6px 0px rgba(0,0,0,0.06)",
+        "scssName": "$box-shadow-05",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-c` instead.",
+          "replacementToken": "box-shadow-c"
+        }
+      },
+      "box-shadow-06": {
+        "description": "0px 2px 2px 0px rgba(0,0,0,0.12),<br /> 0px 3px 1px -2px rgba(0,0,0,0.28),<br /> 0px 1px 5px 0px rgba(0,0,0,0.24)",
+        "scssName": "$box-shadow-06",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-d` instead.",
+          "replacementToken": "box-shadow-d"
+          }
+      },
+      "box-shadow-07": {
+        "description": "0px 4px 6px 0px rgba(0,0,0,0.08),<br /> 0px 2px 12px -2px rgba(0,0,0,0.32),<br /> 0px 3px 6px 0px rgba(0,0,0,0.24)",
+        "scssName": "$box-shadow-07",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-d` instead.",
+          "replacementToken": "box-shadow-d"
+        }
+      },
+      "box-shadow-08": {
+        "description": "0px 2px 6px 0px rgba(0,0,0,0.12),<br /> 0px 8px 12px -2px rgba(0,0,0,0.24),<br /> 0px 4px 6px 0px rgba(0,0,0,0.16)",
+        "scssName": "$box-shadow-08",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-e` instead.",
+          "replacementToken": "box-shadow-e"
+        }
+      },
+      "box-shadow-09": {
+        "description": "0px 8px 8px 0px rgba(0,0,0,0.16),<br /> 0px 3px 20px -3px rgba(0,0,0,0.40),<br /> 0px 4px 8px -2px rgba(0,0,0,0.24)",
+        "scssName": "$box-shadow-09",
+        "status": {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-e` instead.",
+          "replacementToken": "box-shadow-e"
+        }
+      },
+      "box-shadow-10": {
+        "description": "0px -4px 6px 0px rgba(0,0,0,0.08),<br /> 0px -2px 12px -2px rgba(0,0,0,0.32),<br /> 0px -3px 6px 0px rgba(0,0,0,0.24)",
+        "scssName": "$box-shadow-10",
+        "status":  {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-f` instead.",
+          "replacementToken": "box-shadow-f"
+        }
+      },
+      "box-shadow-11": {
+        "description": "0px 0px 1px 0px rgba(0,0,0,0.12),<br /> 0px 1px 5px 0px rgba(0,0,0,0.04),<br /> 0px 0px 4px 0px rgba(0,0,0,0.10)",
+        "scssName": "$box-shadow-11",
+        "status":  {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-a` instead.",
+          "replacementToken": "box-shadow-a"
+        }
+      },
+      "box-shadow-12": {
+        "description": "0px 0px 1px 0px rgba(0,0,0,0.24),<br /> 0px 1px 5px 0px rgba(0,0,0,0.08),<br /> 0px 0px 4px 0px rgba(0,0,0,0.16)",
+        "scssName": "$box-shadow-12",
+        "status":  {
+          "name": "deprecated",
+          "message": "This token is deprecated and will be removed in a future version. Please use `box-shadow-d` instead.",
+          "replacementToken": "box-shadow-d"
+        }
+      }
+    },
+    "alias": {
+      "default": {
+        "below-10": {
+          "category": "defaultElevation",
+          "displayName": "Elevation below 10",
+          "description": "Used for slightly raised element such as cards and popovers.",
+          "globalToken": "$box-shadow-a"
+        },
+        "below-20": {
+          "category": "defaultElevation",
+          "displayName": "Elevation below 20",
+          "description": "Used for floating buttons, modals and toasts.",
+          "globalToken": "$box-shadow-b"
+        },
+        "above-20": {
+          "category": "defaultElevation",
+          "displayName": "Elevation above 20",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-c"
+        },
+        "inverse-below-10": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse below 10",
+          "description": "Used for slightly raised element such as cards and popovers.",
+          "globalToken": "$box-shadow-d"
+        },
+        "inverse-below-20": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse below 20",
+          "description": "Used for floating buttons, modals and toasts.",
+          "globalToken": "$box-shadow-e"
+        },
+        "inverse-above-20": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse above 20",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-f"
+        },
+        "01": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 01",
+          "description": "Used for map markers.",
+          "globalToken": "$box-shadow-01",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-10` instead.",
+            "replacementToken": "below-10"
+          }
+        },
+        "02": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 02",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
+          "globalToken": "$box-shadow-02",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-10` instead.",
+            "replacementToken": "below-10"
+          }
+        },
+        "03": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 03",
+          "description": "Used for FABs and sticky CTAs, sticky headers, navigation bars or banners and notifications.",
+          "globalToken": "$box-shadow-03",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-20` instead.",
+            "replacementToken": "below-20"
+          }
+        },
+        "04": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 04",
+          "description": "Used for modals.",
+          "globalToken": "$box-shadow-04",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-20` instead.",
+            "replacementToken": "below-20"
+          }
+        },
+        "05": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 05",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-05",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `above-20` instead.",
+            "replacementToken": "above-20"
+          }
+        },
+        "card": {
+          "category": "defaultElevation",
+          "displayName": "Elevation card",
+          "description": "Used for cards.",
+          "globalToken": "$box-shadow-11",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-10` instead.",
+            "replacementToken": "below-10"
+          }
+        },
+        "inverse-01": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 01",
+          "description": "Used for map markers and cards.",
+          "globalToken": "$box-shadow-06",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-10` instead.",
+            "replacementToken": "inverse-below-10"
+          }
+        },
+        "inverse-02": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 02",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
+          "globalToken": "$box-shadow-07",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-10` instead.",
+            "replacementToken": "inverse-below-10"
+          }
+        },
+        "inverse-03": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 03",
+          "description": "Used for FABs and sticky CTAs, sticky headers, navigation bars or banners and notifications.",
+          "globalToken": "$box-shadow-08",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-20` instead.",
+            "replacementToken": "inverse-below-20"
+          }
+        },
+        "inverse-04": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 04",
+          "description": "Used for modals.",
+          "globalToken": "$box-shadow-09",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-20` instead.",
+            "replacementToken": "inverse-below-20"
+          }
+        },
+        "inverse-05": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 05",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-10",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-above-20` instead.",
+            "replacementToken": "inverse-above-20"
+          }
+        },
+        "inverse-card": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse card",
+          "description": "Used for cards.",
+          "globalToken": "$box-shadow-12",
+          "status":  {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-10` instead.",
+            "replacementToken": "inverse-below-10"
+          }
+        }
+      },
+      "dark": {
+        "below-10": {
+          "category": "defaultElevation",
+          "displayName": "Elevation below 10",
+          "description": "Used for slightly raised element such as cards and popovers.",
+          "globalToken": "$box-shadow-d"
+        },
+        "below-20": {
+          "category": "defaultElevation",
+          "displayName": "Elevation below 20",
+          "description": "Used for floating buttons, modals and toasts.",
+          "globalToken": "$box-shadow-e"
+        },
+        "above-20": {
+          "category": "defaultElevation",
+          "displayName": "Elevation above 20",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-f"
+        },
+        "inverse-below-10": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse below 10",
+          "description": "Used for slightly raised element such as cards and popovers.",
+          "globalToken": "$box-shadow-a"
+        },
+        "inverse-below-20": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse below 20",
+          "description": "Used for floating buttons, modals and toasts.",
+          "globalToken": "$box-shadow-b"
+        },
+        "inverse-above-20": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse above 20",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-c"
+        },
+        "01": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 01",
+          "description": "Used for map markers.",
+          "globalToken": "$box-shadow-06",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-10` instead.",
+            "replacementToken": "below-10"
+          }
+        },
+        "02": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 02",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
+          "globalToken": "$box-shadow-07",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-10` instead.",
+            "replacementToken": "below-10"
+          }
+        },
+        "03": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 03",
+          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "globalToken": "$box-shadow-08",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-20` instead.",
+            "replacementToken": "below-20"
+          }
+        },
+        "04": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 04",
+          "description": "Used for modals.",
+          "globalToken": "$box-shadow-09",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-20` instead.",
+            "replacementToken": "below-20"
+          }
+        },
+        "05": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 05",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-10",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `above-20` instead.",
+            "replacementToken": "above-20"
+          }
+        },
+        "card": {
+          "category": "defaultElevation",
+          "displayName": "Elevation card",
+          "description": "Used for cards.",
+          "globalToken": "$box-shadow-12",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `below-10` instead.",
+            "replacementToken": "below-10"
+          }
+        },
+        "inverse-01": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 01",
+          "description": "Used for Modal.",
+          "globalToken": "$box-shadow-01",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-10` instead.",
+            "replacementToken": "inverse-below-10"
+          }
+        },
+        "inverse-02": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 02",
+          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "globalToken": "$box-shadow-02",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-10` instead.",
+            "replacementToken": "inverse-below-10"
+          }
+        },
+        "inverse-03": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 03",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
+          "globalToken": "$box-shadow-03",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-20` instead.",
+            "replacementToken": "inverse-below-20"
+          }
+        },
+        "inverse-04": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 04",
+          "description": "Used for map markers and cards.",
+          "globalToken": "$box-shadow-04",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-20` instead.",
+            "replacementToken": "inverse-below-20"
+          }
+        },
+        "inverse-05": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 05",
+          "description": "Used for bottom sheets and bottom menus.",
+          "globalToken": "$box-shadow-05",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-above-20` instead.",
+            "replacementToken": "inverse-above-20"
+          }
+        },
+        "inverse-card": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse card",
+          "description": "Used for cards.",
+          "globalToken": "$box-shadow-11",
+          "status": {
+            "name": "deprecated",
+            "message": "This token is deprecated and will be removed in a future version. Please use `inverse-below-10` instead.",
+            "replacementToken": "inverse-below-10"
+          }
+        }
+      }
+    }
+  }
+}

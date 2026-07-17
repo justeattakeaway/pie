@@ -125,6 +125,38 @@ describe('create and publish workflow', () => {
         });
     });
 
+    describe('if a published package outside the @justeattakeaway namespace was changed', () => {
+        test('should include @justeat scoped packages in the comment', async () => {
+            // Arrange
+            sampleOutput = `
+                🦋  success packages published successfully:
+                🦋  @justeat/pie-design-tokens@0.0.0-snapshot-release-20231220110000
+            `;
+
+            // Act
+            await workflow({ context, github }, execa);
+
+            // Assert
+            expect(expectedBody).toContain('@justeat/pie-design-tokens@0.0.0-snapshot-release-20231220110000');
+        });
+
+        test('should still match @justeattakeaway packages alongside @justeat ones', async () => {
+            // Arrange
+            sampleOutput = `
+                🦋  success packages published successfully:
+                🦋  @justeat/pie-design-tokens@0.0.0-snapshot-release-20231220110000
+                🦋  @justeattakeaway/pie-css@0.0.0-snapshot-release-20231220110000
+            `;
+
+            // Act
+            await workflow({ context, github }, execa);
+
+            // Assert
+            expect(expectedBody).toContain('@justeat/pie-design-tokens@0.0.0-snapshot-release-20231220110000');
+            expect(expectedBody).toContain('@justeattakeaway/pie-css@0.0.0-snapshot-release-20231220110000');
+        });
+    });
+
     describe('if exactly one component was changed', () => {
         test('should not include the note about multiple packages', async () => {
             // Arrange
