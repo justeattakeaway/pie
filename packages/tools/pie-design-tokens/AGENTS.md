@@ -1,6 +1,6 @@
 # AGENTS.md - PIE Design Tokens
 
-This document provides guidance for AI agents working with the pie-design-token codebase such as how to update tokens, metadata or adding changelogs. 
+This document provides guidance for AI agents working with the pie-design-token codebase such as how to update tokens, metadata or adding changelogs.
 
 ## Project Overview
 
@@ -11,8 +11,8 @@ PIE Design Tokens (`@justeat/pie-design-tokens`) is Just Eat Takeaway's global d
 - **Token Metadata** — Descriptions and categorisation used by documentation and tooling
 
 ### Tech Stack
-- **Runtime**: Node.js (>= 16)
-- **Package Manager**: Yarn (>= 1)
+- **Runtime**: Node.js (>= 24)
+- **Package Manager**: Yarn (4.x — repo root pins yarn@4.15.0)
 - **Testing**: Jest (version `26.3.0`, defined in `package.json` `devDependencies.jest`)
 - **Linting**: ESLint (version `8.57.0`, using `@justeattakeaway/eslint-config-pie`)
 - **JSONC Parsing**: `jsonc-parser` (parses the token source file with comment support)
@@ -65,10 +65,10 @@ pie-design-tokens/
 
 ```bash
 yarn install        # Install dependencies
-yarn build          # Compile tokens to dist/
-yarn test           # Run unit tests
-yarn test:output -u # Run output snapshot tests (update snapshots)
-yarn lint           # Run ESLint
+yarn build --filter=@justeat/pie-design-tokens                  # Compile tokens to dist/
+yarn test --filter=@justeat/pie-design-tokens                   # Run unit tests
+yarn test:output --filter=@justeat/pie-design-tokens -- -u      # Run output snapshot tests (update snapshots)
+yarn lint:scripts --filter=@justeat/pie-design-tokens           # Run ESLint
 ```
 
 ## Making Changes
@@ -83,17 +83,6 @@ yarn lint           # Run ESLint
 
 ### If changes affect token structure:
 Update the relevant compile scripts in `build/` (`compileToCss.js`, `compileToJson.js`, `compileToScss.js`, `compileToXml.js`).
-
-## Conventions
-
-### Branch naming
-`dsw-{ticketId}-{feature}` — e.g. `dsw-123-add-color-token`
-
-### Commit messages
-Prefix with the package version — e.g. `v7.11.1 add new background token`
-
-### PR title
-Start with the package version number. Copy the changelog entry into the PR description.
 
 ## Dark Mode
 
@@ -113,7 +102,3 @@ Token categories with dark variants: colors, elevation (box shadows), gradients.
 | `build/tests/compileToXml.spec.js` | Android XML color generation |
 | `build/tests/helpers.spec.js` | Utility functions (color conversion, formatting) |
 | `build/tests/output/distOutput.spec.js` | Snapshot tests comparing generated `dist/` files |
-
-## Publishing
-
-NPM publishing is handled via GitHub Actions (`workflow_dispatch` only). Regular pushes and PRs do **not** publish.

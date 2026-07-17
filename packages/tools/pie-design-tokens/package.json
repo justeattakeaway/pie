@@ -13,7 +13,6 @@
   ],
   "scripts": {
     "build": "node index.js",
-    "compare-csv": "node compare-csv.js",
     "test": "jest -c jest.config.js",
     "test:ci": "yarn test",
     "test:output": "jest -c jest.config.output.js",
