@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.30.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3031](https://github.com/justeattakeaway/pie/pull/3031)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Functionality
+
+  - new-chat-large
+  - new-chat
+
 ## 5.29.1
 
 ### Patch Changes

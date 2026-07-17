@@ -1,6 +1,6 @@
 {
   "name": "@justeat/pie-design-tokens",
-  "version": "7.14.1",
+  "version": "7.14.2",
   "description": "Design Tokens for the PIE Component System",
   "main": "index.js",
   "files": [

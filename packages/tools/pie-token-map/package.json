@@ -33,7 +33,7 @@
         "watch": "run -T vite build --watch"
     },
     "devDependencies": {
-        "@justeat/pie-design-tokens": "7.14.1",
+        "@justeat/pie-design-tokens": "7.14.2",
         "@justeattakeaway/pie-components-config": "*"
     }
 }
