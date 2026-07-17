@@ -15,7 +15,7 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 type TextareaStoryMeta = Meta<TextareaProps>;
 
-const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
+const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName', aria: { label: 'Test Label' } };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Components/Textarea',
@@ -129,6 +129,10 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '2',
             },
         },
+        aria: {
+            description: 'ARIA attributes for the textarea. Offers `label` — use it when no visible label is associated with the textarea.',
+            control: 'object',
+        },
 
     },
     args: defaultArgs,
@@ -156,6 +160,7 @@ const Template = ({
     placeholder,
     maxlength,
     rows,
+    aria,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -194,7 +199,8 @@ const Template = ({
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
             maxlength=${ifDefined(maxlength)}
-            rows=${ifDefined(rows)}>
+            rows=${ifDefined(rows)}
+            .aria=${ifDefined(aria)}>
         </pie-textarea>
     `;
 };
@@ -213,7 +219,7 @@ export const Default = CreateTextareaStory({}, {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },
 });
-export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)({}, {
+export const WithLabel = CreateTextareaStoryWithLabel({ ...defaultArgs, aria: undefined })({}, {
     argTypes: {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compileToXml with a single theme should stringify the tokens correctly and ignore global tokens 1`] = `
+Array [
+  Array [
+    "colors",
+    "xml",
+    "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+    <color name=\\"jet_blue\\">#125fca</color>
+</resources>",
+  ],
+]
+`;
+
+exports[`compileToXml with a single theme should stringify the tokens correctly and ignore global tokens but not the override 1`] = `
+Array [
+  Array [
+    "colors",
+    "xml",
+    "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+    <color name=\\"jet_blue\\">#125fca</color>
+</resources>",
+  ],
+]
+`;
+
+exports[`compileToXml with two themes should stringify the tokens correctly and ignore global tokens 1`] = `
+Array [
+  Array [
+    "colors",
+    "xml",
+    "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+    <color name=\\"jet_blue\\">#125fca</color>
+    <color name=\\"newjet_blue\\">#ebf6fa</color>
+</resources>",
+  ],
+]
+`;
+
+exports[`compileToXml with two themes should stringify the tokens correctly and ignore global tokens but not the override 1`] = `
+Array [
+  Array [
+    "colors",
+    "xml",
+    "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<resources>
+    <color name=\\"jet_blue\\">#125fca</color>
+    <color name=\\"newjet_blue\\">#ebf6fa</color>
+</resources>",
+  ],
+]
+`;

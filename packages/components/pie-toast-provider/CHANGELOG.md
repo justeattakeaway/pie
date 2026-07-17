@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.1.0
+
+### Minor Changes
+
+- [Added] - `aria` prop to `pie-toast` for setting a custom `aria-label` on the close button via `aria.close` ([#3023](https://github.com/justeattakeaway/pie/pull/3023)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - `pie-toast-provider` now passes the `aria` prop down to the rendered `pie-toast`
+
+### Patch Changes
+
+- Updated dependencies [[`a97a69c`](https://github.com/justeattakeaway/pie/commit/a97a69c36786185f83683c8643348544876679ca)]:
+  - @justeattakeaway/pie-toast@1.1.0
+
 ## 1.0.7
 
 ### Patch Changes

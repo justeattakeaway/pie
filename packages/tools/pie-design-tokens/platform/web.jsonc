@@ -1,0 +1,9 @@
+{
+  "font": {
+    "weight-extrabold": "800",
+    "weight-bold": "700",
+    "weight-regular": "400",
+    "weight-black": "900",
+    "weight-extrablack": "1000"
+  }
+}

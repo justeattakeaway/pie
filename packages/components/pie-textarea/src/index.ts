@@ -81,6 +81,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @property({ type: Number })
     public rows: TextareaProps['rows'];
 
+    @property({ type: Object })
+    public aria: TextareaProps['aria'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
@@ -236,6 +239,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             assistiveText,
             maxlength,
             rows,
+            aria,
         } = this;
 
         const classes = {
@@ -262,6 +266,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     ?readonly=${readonly}
                     ?required=${required}
                     ?disabled=${disabled}
+                    aria-label=${ifDefined(aria?.label)}
                     aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                     aria-invalid=${status === 'error' ? 'true' : 'false'}
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
