@@ -51,7 +51,7 @@ const publishSnapshot = async (execa) => {
     const { stdout } = await releaseProcess;
 
     const newTags = [...new Set(Array
-            .from(stdout.matchAll(/@justeattakeaway\/[\w-]+@\d+\.\d+\.\d+-snapshot-release-\d+/g))
+            .from(stdout.matchAll(/@justeat(?:takeaway)?\/[\w-]+@\d+\.\d+\.\d+-snapshot-release-\d+/g))
             .map(([tag]) => tag))].filter((tag) => !/pie-(monorepo|docs|storybook)/.test(tag));
 
     return newTags;

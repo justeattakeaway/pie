@@ -11,10 +11,10 @@ module.exports = async ({ github, context }, execa) => {
 
         // Extract snapshot version and package names
         const [snapshotVersion] = newTags[0].match(/\d{14}$/);
+        // Strip the version suffix rather than rebuilding the name, so the
+        // package's own scope is preserved (e.g. @justeat/pie-design-tokens).
         const packageNames = newTags
-            .map((tag) => tag.match(/pie-[\w-]+/))
-            .filter(Boolean)
-            .map((match) => `@justeattakeaway/${match[0]}`);
+            .map((tag) => tag.replace(/@\d+\.\d+\.\d+-snapshot-release-\d+$/, ''));
 
         try {
             // Attempt to dispatch event to PIE Aperture
