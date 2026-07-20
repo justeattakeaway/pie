@@ -1,5 +1,5 @@
 ---
-"@justeattakeaway/pie-docs": patch
+"@justeattakeaway/pie-docs": minor
 ---
 
 [Changed] - Updating docs page for button web. 
