@@ -1,0 +1,49 @@
+{
+  "name": "@justeattakeaway/pie-icon-with-background",
+  "description": "PIE Design System Icon With Background built using Web Components",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "custom-elements.json",
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
+  "pieMetadata": {
+    "componentStatus": "alpha",
+    "replaces": {
+      "snacks": []
+    }
+  },
+  "scripts": {
+    "build": "run -T vite build",
+    "build:react-wrapper": "run -T build-react-wrapper",
+    "create:manifest": "run -T cem analyze --litelement",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "yarn lint:scripts --fix",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
+    "watch": "run -T vite build --watch",
+    "test:browsers": "run -T playwright test -c ./playwright-lit.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICON_WITH_BACKGROUND} percy exec --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual:ci": "yarn test:visual"
+  },
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@justeattakeaway/pie-components-config": "0.21.3",
+    "@justeattakeaway/pie-css": "1.3.1",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.7"
+  },
+  "dependencies": {
+    "@justeattakeaway/pie-webc-core": "16.0.0"
+  },
+  "customElements": "custom-elements.json",
+  "sideEffects": [
+    "dist/*.js"
+  ]
+}
