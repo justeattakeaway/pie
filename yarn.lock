@@ -4113,7 +4113,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    lit: "npm:3.2.0"
+    lit: "npm:3.3.3"
   peerDependencies:
     "@justeattakeaway/pie-css": 1.x
   languageName: unknown
@@ -4175,7 +4175,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react"
   dependencies:
     "@babel/preset-react": "npm:7.29.7"
-    "@lit/react": "npm:1.0.5"
+    "@lit/react": "npm:1.0.8"
     "@types/react": "npm:18.3.11"
     fs-extra: "npm:9.1.0"
   languageName: unknown
@@ -4283,16 +4283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/react@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@lit/react@npm:1.0.5"
-  peerDependencies:
-    "@types/react": 17 || 18
-  checksum: 10/f4fe7241827d7e239d83e5f3ac1a2d679fb3b6a3c4d4aa121a8f34932eb7f14ee9491b719a6b71397d428e1e0772e13510b0be74520bde34a85a3775e5a44f14
-  languageName: node
-  linkType: hard
-
-"@lit/react@npm:^1.0.3":
+"@lit/react@npm:1.0.8, @lit/react@npm:^1.0.3":
   version: 1.0.8
   resolution: "@lit/react@npm:1.0.8"
   peerDependencies:
