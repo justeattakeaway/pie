@@ -15,11 +15,12 @@ const componentSelector = 'pie-icon-with-background';
 /**
  * @tagname pie-icon-with-background
  * @slot - Default slot for the icon to render inside the component.
+ * @csspart body - The main container of the component.
  */
 @safeCustomElement('pie-icon-with-background')
 export class PieIconWithBackground extends PieElement implements IconWithBackgroundProps {
     render () {
-        return html`<slot data-test-id="pie-icon-with-background"></slot>`;
+        return html`<div part="body" data-test-id="pie-icon-with-background"><slot></slot></div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
