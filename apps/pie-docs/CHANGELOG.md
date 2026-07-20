@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.8.1
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#3031](https://github.com/justeattakeaway/pie/pull/3031)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`a616d05`](https://github.com/justeattakeaway/pie/commit/a616d05e1af03de1e0f32595ae0bd399cbe7de1f), [`abe8453`](https://github.com/justeattakeaway/pie/commit/abe8453d6973f69e96e6ed6914dad38be31364cd)]:
+  - @justeat/pie-design-tokens@7.14.2
+  - @justeattakeaway/pie-icons@5.30.0
+  - @justeattakeaway/pie-icons-webc@1.27.0
+  - @justeattakeaway/pie-webc@0.10.34
+  - @justeattakeaway/pie-css@1.3.1
+
 ## 5.8.0
 
 ### Minor Changes

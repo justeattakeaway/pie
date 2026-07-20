@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "extends": [
+    "//"
+  ],
+  "tasks": {
+    "test": {
+      "dependsOn": [
+        "$TURBO_EXTENDS$",
+        "test:output"
+      ]
+    },
+    "test:output": {
+      "cache": true,
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": []
+    }
+  }
+}
