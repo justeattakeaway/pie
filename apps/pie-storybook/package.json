@@ -37,7 +37,7 @@
     "react-dom": "18.3.1",
     "react-syntax-highlighter": "16.1.1",
     "remark-gfm": "4.0.1",
-    "storybook": "10.4.6",
+    "storybook": "10.5.0",
     "storybook-dark-mode": "5.0.0"
   },
   "installConfig": {
