@@ -35,3 +35,13 @@ Reviews a `SKILL.md` file against required frontmatter rules and best-practice g
 ```
 npx skills add git@github.com:justeattakeaway/pie.git --skill skill-reviewer
 ```
+
+---
+
+### aperture-props
+
+Verifies a newly added or changed PIE component prop in Aperture. After `/test-aperture` has run on the PIE PR, it pulls the matching Aperture branch, temporarily adds prop examples across all 4 framework apps (Nuxt, Next.js v14, Next.js v15, Vanilla), starts the dev servers, prompts visual verification, then reverts the scratch edits on confirmation. Nothing is committed.
+
+```
+npx skills add git@github.com:justeattakeaway/pie.git --skill aperture-props
+```
