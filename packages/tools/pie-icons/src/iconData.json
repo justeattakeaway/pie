@@ -1247,6 +1247,10 @@
                     "displayName": "Navigation Expand"
                 },
                 {
+                    "name": "new-chat",
+                    "displayName": "New Chat"
+                },
+                {
                     "name": "note",
                     "displayName": "Note"
                 },

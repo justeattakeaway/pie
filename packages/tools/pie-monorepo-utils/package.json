@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-monorepo-utils",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "Scripts and utilities used by the PIE monorepo",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@changesets/parse": "0.4.3",
-    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "0.10.0",
+    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "0.11.0",
     "chalk": "4.1.2"
   },
   "devDependencies": {

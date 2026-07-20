@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.86.0
+
+### Minor Changes
+
+- [Added] - aria prop ([#3026](https://github.com/justeattakeaway/pie/pull/3026)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`a616d05`](https://github.com/justeattakeaway/pie/commit/a616d05e1af03de1e0f32595ae0bd399cbe7de1f), [`abe8453`](https://github.com/justeattakeaway/pie/commit/abe8453d6973f69e96e6ed6914dad38be31364cd)]:
+  - @justeat/pie-design-tokens@7.14.2
+  - @justeattakeaway/pie-icons-webc@1.27.0
+  - @justeattakeaway/pie-webc@0.10.34
+  - @justeattakeaway/pie-css@1.3.1
+
+## 1.85.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.33
+
+## 1.85.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.32
+
 ## 1.85.1
 
 ### Patch Changes

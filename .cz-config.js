@@ -13,7 +13,7 @@ const getPackages = () => {
             const fileContent = fs.readFileSync(filePath, 'utf-8');
             const fileData = JSON.parse(fileContent);
 
-            return fileData.name.replace('@justeattakeaway/', '');
+            return fileData.name.replace(/^@justeat(?:takeaway)?\//, '');
         })
         .sort();
 

@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-textarea
 
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - aria prop ([#3026](https://github.com/justeattakeaway/pie/pull/3026)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.5
+
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - Exposed `setSelectionRange()` method on `pie-textarea` ([#3007](https://github.com/justeattakeaway/pie/pull/3007)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.21.2
 
 ### Patch Changes

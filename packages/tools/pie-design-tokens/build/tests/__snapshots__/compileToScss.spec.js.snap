@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compileToScss with a single theme should stringify the tokens correctly and ignore global tokens 1`] = `
+Array [
+  Array [
+    "jet",
+    "scss",
+    "// Global tokens - Color
+$color-blue: #125fca;
+",
+  ],
+]
+`;
+
+exports[`compileToScss with a single theme should stringify the tokens correctly and ignore global tokens but not the override 1`] = `
+Array [
+  Array [
+    "jet",
+    "scss",
+    "// Global tokens - Color
+$color-blue: #125fca;
+",
+  ],
+]
+`;
+
+exports[`compileToScss with two themes should stringify the tokens correctly and ignore global tokens 1`] = `
+Array [
+  Array [
+    "jet",
+    "scss",
+    "// Global tokens - Color
+$color-blue: #125fca;
+",
+  ],
+  Array [
+    "newjet",
+    "scss",
+    "// Global tokens - Color
+$color-blue: #ebf6fa;
+",
+  ],
+]
+`;
+
+exports[`compileToScss with two themes should stringify the tokens correctly and ignore global tokens but not the override 1`] = `
+Array [
+  Array [
+    "jet",
+    "scss",
+    "// Global tokens - Color
+$color-blue: #125fca;
+",
+  ],
+  Array [
+    "newjet",
+    "scss",
+    "// Global tokens - Color
+$color-blue: #ebf6fa;
+",
+  ],
+]
+`;
