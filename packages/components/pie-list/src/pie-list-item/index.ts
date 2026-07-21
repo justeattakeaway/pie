@@ -134,21 +134,13 @@ export class PieListItem extends PieElement implements ListItemProps {
 
         this._abortController = new AbortController();
         this.addEventListener('click', this._handleHostClick, { signal: this._abortController.signal });
+        this._observeControlSubtree();
     }
 
     disconnectedCallback () {
         super.disconnectedCallback();
         this._abortController.abort();
         this._controlObserver?.disconnect();
-    }
-
-    protected firstUpdated (): void {
-        // Attach the control observer on the client's first render, not only on `slotchange`:
-        // slotchange does not reliably fire on SSR hydration, so a control whose `disabled` is set/reflected by a framework after first render
-        // would otherwise go unobserved and leave the row's disabled styling stale. Re-evaluate now
-        // in case the control's `disabled` was set between the first render and this callback.
-        this._observeControl();
-        this.requestUpdate();
     }
 
     protected updated () {
@@ -182,24 +174,28 @@ export class PieListItem extends PieElement implements ListItemProps {
         return { label: this.primaryText, description: description || undefined };
     }
 
-    private _handleControlSlotChange (): void {
-        this._observeControl();
-        // Re-render so the row's `is-disabled` reflects the newly slotted control.
-        this.requestUpdate();
-    }
-
     /**
-     * Observes the slotted control's `disabled` attribute so the row's interactive (hover and
-     * active) styles react to it being toggled at runtime, not just when the slot changes.
+     * Keeps the row's disabled styling in sync with its slotted control by observing the light-DOM
+     * subtree: `childList` catches the control being slotted in (frameworks add it after connect),
+     * and the `disabled` attribute filter catches it toggling (pie-radio reflects its `disabled`
+     * property to the attribute). Done here rather than via `slotchange` or `firstUpdated`, neither
+     * of which fires reliably across SSR hydration and frameworks.
+     *
+     * Guarded by capability: `connectedCallback` runs on the server in some renderers (Nuxt's
+     * nuxt-ssr-lit) where `MutationObserver` is absent, and observation is client-only anyway. The
+     * callback runs as a microtask (outside Lit's update), so it does not trigger the
+     * "scheduled an update after update completed" warning.
      */
-    private _observeControl (): void {
-        this._controlObserver?.disconnect();
-
-        const control = this._control;
-        if (!control) return;
+    private _observeControlSubtree (): void {
+        if (typeof MutationObserver !== 'function') return;
 
         this._controlObserver = new MutationObserver(() => this.requestUpdate());
-        this._controlObserver.observe(control, { attributes: true, attributeFilter: ['disabled'] });
+        this._controlObserver.observe(this, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['disabled'],
+        });
     }
 
     /**
@@ -232,7 +228,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             return html`<span class="c-listItem-metaText c-listItem-trailing" aria-hidden=${this._isSelectable ? 'true' : nothing}>${metaText}</span>`;
         }
 
-        return html`<div class="c-listItem-trailing"><slot name="trailing" @slotchange=${this._handleControlSlotChange}></slot></div>`;
+        return html`<div class="c-listItem-trailing"><slot name="trailing"></slot></div>`;
     }
 
     render () {
@@ -250,7 +246,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         return html`
         <div class=${classMap(containerClasses)}>
             <div class="c-listItem-leading">
-                <slot name="leading" @slotchange=${this._handleControlSlotChange}></slot>
+                <slot name="leading"></slot>
             </div>
 
             <div class="c-listItem-text" aria-hidden=${this._isSelectable ? 'true' : nothing}>
