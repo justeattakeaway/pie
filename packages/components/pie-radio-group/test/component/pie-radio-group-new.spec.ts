@@ -852,8 +852,8 @@ test.describe('PieRadioGroup - Component tests new', () => {
         });
 
         test('should expose radiogroup, presentation and radio roles', async ({ page }) => {
-            // The items carry no `selection-type` of their own here: `presentation` comes from the
-            // group's `variant="list"` via context, so this also proves the container provides the type.
+            // Each item sets `selection-type="radio"`, so it takes the `presentation` role and the
+            // group owns the `radio` descendants directly.
             await expect(page.getByTestId(radioGroup.selectors.fieldset.dataTestId)).toHaveAttribute('role', 'radiogroup');
             await expect(page.getByTestId(selectors.items[1])).toHaveAttribute('role', 'presentation');
             await expect(page.getByTestId(selectors.radios[1])).toHaveAttribute('role', 'radio');

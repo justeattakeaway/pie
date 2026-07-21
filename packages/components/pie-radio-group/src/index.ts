@@ -18,7 +18,6 @@ import {
     validPropertyValues,
     safeCustomElement,
     parentDisabledContext,
-    selectionTypeContext,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -83,14 +82,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _disabledProvider = isServer
         ? undefined
         : new ContextProvider(this, { context: parentDisabledContext, initialValue: defaultProps.disabled });
-
-    // In `variant="list"` the group tells its descendant `pie-list-item`s they host radios, so each
-    // item derives its role/ARIA/row-click from the group instead of the author repeating
-    // `selection-type` on every row. Same `isServer` guard rationale as `_disabledProvider`; kept in
-    // sync in `updated()`.
-    private _selectionTypeProvider = isServer
-        ? undefined
-        : new ContextProvider(this, { context: selectionTypeContext });
 
     @property({ type: String })
     public assistiveText?: RadioGroupProps['assistiveText'];
@@ -224,11 +215,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
         if (_changedProperties.has('name')) {
             this._applyNameToChildren();
-        }
-
-        if (_changedProperties.has('variant')) {
-            // Tell descendant list items they host radios (or stop, if switched back to `default`).
-            this._selectionTypeProvider?.setValue(this.variant === 'list' ? 'radio' : undefined);
         }
     }
 

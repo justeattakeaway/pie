@@ -9,14 +9,10 @@ import {
     validPropertyValues,
     parentDisabledContext,
     ariaContext,
-    selectionTypeContext,
     type ContextualAria,
-    type ProvidedSelectionType,
 } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import {
-    type ListItemProps, type SelectionType, defaultProps, selectionTypes,
-} from './defs';
+import { type ListItemProps, defaultProps, selectionTypes } from './defs';
 import styles from './list-item.scss?inline';
 
 const componentSelector = 'pie-list-item';
@@ -59,14 +55,6 @@ export class PieListItem extends PieElement implements ListItemProps {
     @state()
     private _parentDisabled = false;
 
-    // The selection type provided by a container (e.g. `pie-radio-group variant="list"`). When a
-    // container provides it, it wins over this item's own `selectionType` prop, so authors don't
-    // repeat `selection-type` on every row. `undefined` for a standalone item, which then falls back
-    // to its own prop. See `selectionTypeContext` in pie-webc-core.
-    @consume({ context: selectionTypeContext, subscribe: true })
-    @state()
-    private _providedSelectionType?: ProvidedSelectionType;
-
     // Provides this item's accessible name/description down to its slotted control via the shared
     // aria context, which the control consumes and applies to the element carrying its semantics
     // (the internal input for pie-checkbox / pie-switch). See `ariaContext` in pie-webc-core.
@@ -83,26 +71,15 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     private _hasExplicitRole = false;
 
-    // The item's single effective selection type, from one of two sources (not two parallel
-    // systems - context is just the container-level way to set the same property for many rows):
-    //   1. context - a `pie-radio-group` / `pie-checkbox-group` (`variant="list"`) provides the
-    //      type to all its items, so the container is the single source of truth and authors don't
-    //      repeat `selection-type` per row. This is the common case and wins when present.
-    //   2. the `selectionType` prop - the fallback for when no container provides it: chiefly a
-    //      standalone item hosting a `pie-switch` (a switch has no group), or an explicit override.
-    private get _effectiveSelectionType (): SelectionType {
-        return this._providedSelectionType ?? this.selectionType;
-    }
-
     private get _isSelectable (): boolean {
-        return this._effectiveSelectionType !== 'none';
+        return this.selectionType !== 'none';
     }
 
     // radio/checkbox are owned by a selection group, which is why the item becomes `presentation`
     // (so the group owns the controls directly) and the radio is named on its host. A switch has
     // no group, so the item stays a `listitem`.
     private get _ownedByGroup (): boolean {
-        return this._effectiveSelectionType === 'radio' || this._effectiveSelectionType === 'checkbox';
+        return this.selectionType === 'radio' || this.selectionType === 'checkbox';
     }
 
     // True when the row should be treated as disabled: either its own `disabled` prop is set, or the

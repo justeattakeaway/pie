@@ -48,15 +48,9 @@ export interface ListItemProps {
      * - `checkbox` - hosts a `pie-checkbox` (used inside a `pie-checkbox-group`); the item is `presentation`.
      * - `switch` - hosts a `pie-switch`; there is no group, so the item stays `role="listitem"`.
      *
-     * **You usually do not set this.** Inside a selection container (a `pie-radio-group` /
-     * `pie-checkbox-group` with `variant="list"`) the container provides the type to all of its
-     * items via context, so it is the single source of truth and you don't repeat it on every row.
-     *
-     * Set it explicitly only when no container can provide it - chiefly a standalone item hosting a
-     * `pie-switch`, which has no group - or to override a container. A container-provided type
-     * (context) takes precedence over this prop. The item resolves a single effective type:
-     * `context ?? selectionType`. Prop and context are not two systems - context is just the
-     * container-level way to set this same property for many rows at once.
+     * Set this on each selectable row. When the rows sit inside a `pie-radio-group`, also set
+     * `variant="list"` on the group so it lays them out as a divided list (that prop governs layout;
+     * this one governs the row's role and behaviour).
      */
     selectionType?: typeof selectionTypes[number]
 

@@ -256,16 +256,16 @@ export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-radio-group { min-width: 350px; }</style>
     <pie-radio-group name="delivery" value="express" variant="list">
         <pie-form-label slot="label">Delivery method</pie-form-label>
-        <pie-list-item primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+        <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
             <pie-radio slot="leading" value="standard"></pie-radio>
         </pie-list-item>
-        <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+        <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
             <pie-radio slot="leading" value="express"></pie-radio>
         </pie-list-item>
-        <pie-list-item disabled primaryText="Collection" secondaryText="Collect from a nearby store">
+        <pie-list-item selection-type="radio" disabled primaryText="Collection" secondaryText="Collect from a nearby store">
             <pie-radio slot="leading" value="collection" disabled></pie-radio>
         </pie-list-item>
-        <pie-list-item primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+        <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
             <pie-radio slot="leading" value="locker"></pie-radio>
         </pie-list-item>
     </pie-radio-group>

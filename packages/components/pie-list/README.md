@@ -55,7 +55,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
-| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. Usually you don't set this — a `pie-radio-group`/`pie-checkbox-group` with `variant="list"` provides it. Set it only for an item with no such container (e.g. a slotted `switch`). See [Selectable lists](#selectable-lists). | `"none"` |
+| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. Set it on each selectable row. Inside a `pie-radio-group`, also set `variant="list"` on the group for the divided layout. See [Selectable lists](#selectable-lists). | `"none"` |
 | `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
 
 ### Slots
@@ -248,23 +248,16 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 
 ### Selectable lists
 
-`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, set `variant="list"` on a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select), place `pie-list-item`s inside it, and slot the control into each item's `leading` (or `trailing`) slot.
+`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, set `variant="list"` on a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select), place `pie-list-item`s inside it with `selection-type="radio"`, and slot the control into each item's `leading` (or `trailing`) slot.
 
-A selectable row:
+Two props, two jobs: `variant="list"` on the **group** handles the divided layout; `selection-type` on each **item** makes that row selectable:
 
 - takes the correct **role** — `presentation` for `radio`/`checkbox` (so the group owns the controls directly), `listitem` for `switch` and `none`;
 - provides its `primaryText`, `secondaryText` and `metaText` as the slotted control's **accessible name and description** (and `aria-hidden`s the now-duplicated visible text);
 - **forwards a click** anywhere on the row to the control, so the whole row is a hit target;
-- shows **hover and active** states on the row (suppressed when the control, or the group, is disabled).
+- shows **hover and active** states on the row (suppressed when the item's `disabled` is set, or the group is disabled).
 
 Provide the label through the item's `primaryText` — not as the control's own content. The group still owns the group-level semantics (its own role, shared `name`, selection coordination and group-disable).
-
-#### How the row learns its type: `selection-type` vs the group
-
-Each item resolves a single effective selection type from one of two sources — these are **not** two separate systems; context is simply the container-level way to set the same thing for every row:
-
-- **From the group (context) — the normal case.** With `variant="list"`, the group tells all its items they host radios, so it is the single source of truth and **you do not set `selection-type` on each row**. A container-provided type takes precedence.
-- **From the item's own [`selectionType`](#properties) prop — the fallback.** Set this only when there is no group to provide it: chiefly a **standalone `pie-list-item` hosting a `pie-switch`** (a switch has no group), or to override a group. This is why the prop exists alongside the group: a switch row has no container that could hand it a type.
 
 Single-select (radios):
 
@@ -275,13 +268,13 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 ```
 
 ```html
-<!-- `variant="list"` marks the group as a list and provides the radio type to its items.
-     `value` on the group selects the matching radio (here, Express). -->
+<!-- `variant="list"` gives the group its divided layout; `selection-type="radio"` makes each row
+     selectable. `value` on the group selects the matching radio (here, Express). -->
 <pie-radio-group name="delivery" value="express" variant="list">
-  <pie-list-item primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+  <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
     <pie-radio slot="leading" value="standard"></pie-radio>
   </pie-list-item>
-  <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+  <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
     <pie-radio slot="leading" value="express"></pie-radio>
   </pie-list-item>
 </pie-radio-group>
