@@ -64,6 +64,16 @@ export class PieListItem extends PieElement implements ListItemProps {
     @state()
     private _providedSelectionType?: ProvidedSelectionType;
 
+    // The slotted control's disabled state, mirrored into reactive state (synced on connect and
+    // whenever the control's `disabled` changes). Kept as `@state` rather than read live in render
+    // so it survives SSR hydration: the server and the first client render both see `false` (a
+    // framework sets the control's `disabled` only after hydration), so Lit's class bindings start
+    // in sync and the later `true` applies cleanly. Reading it live produced a hydration mismatch
+    // that left the row's disabled styling stuck (the class binding thought it was applied when the
+    // hydrated DOM never received it).
+    @state()
+    private _controlDisabled = false;
+
     // Provides this item's accessible name/description down to its slotted control via the shared
     // aria context, which the control consumes and applies to the element carrying its semantics
     // (the internal input for pie-checkbox / pie-switch). See `ariaContext` in pie-webc-core.
@@ -108,9 +118,15 @@ export class PieListItem extends PieElement implements ListItemProps {
     // the attribute only in a later update, so the attribute can be absent when this is first read
     // on hydration. The property is the source of truth and is read live each render.
     private get _isDisabled (): boolean {
-        const control = this._control as (HTMLElement & { disabled?: boolean }) | null;
-        return (control?.disabled ?? false) || this._parentDisabled;
+        return this._controlDisabled || this._parentDisabled;
     }
+
+    // Mirrors the slotted control's live `disabled` into reactive state. Passed to the observer and
+    // called on connect for the initial value (the observer only sees later mutations).
+    private _syncControlDisabled = (): void => {
+        const control = this._control as (HTMLElement & { disabled?: boolean }) | null;
+        this._controlDisabled = control?.disabled ?? false;
+    };
 
     private _controlObserver?: MutationObserver;
 
@@ -135,6 +151,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         this._abortController = new AbortController();
         this.addEventListener('click', this._handleHostClick, { signal: this._abortController.signal });
         this._observeControlSubtree();
+        this._syncControlDisabled();
     }
 
     disconnectedCallback () {
@@ -189,7 +206,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     private _observeControlSubtree (): void {
         if (typeof MutationObserver !== 'function') return;
 
-        this._controlObserver = new MutationObserver(() => this.requestUpdate());
+        this._controlObserver = new MutationObserver(this._syncControlDisabled);
         this._controlObserver.observe(this, {
             childList: true,
             subtree: true,
