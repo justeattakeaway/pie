@@ -3502,7 +3502,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-accordion@npm:0.2.1, @justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion":
+"@justeattakeaway/pie-accordion@npm:0.2.2, @justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion"
   dependencies:
@@ -3695,7 +3695,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.30.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.27.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.7"
-    "@justeattakeaway/pie-webc": "npm:0.10.34"
+    "@justeattakeaway/pie-webc": "npm:0.10.35"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -3976,7 +3976,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.27.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.7"
-    "@justeattakeaway/pie-webc": "npm:0.10.34"
+    "@justeattakeaway/pie-webc": "npm:0.10.35"
     "@storybook/addon-a11y": "npm:10.5.0"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.5.0"
@@ -4130,11 +4130,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.10.34, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.10.35, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
-    "@justeattakeaway/pie-accordion": "npm:0.2.1"
+    "@justeattakeaway/pie-accordion": "npm:0.2.2"
     "@justeattakeaway/pie-assistive-text": "npm:1.0.5"
     "@justeattakeaway/pie-avatar": "npm:0.4.43"
     "@justeattakeaway/pie-breadcrumb": "npm:1.0.5"
