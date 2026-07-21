@@ -248,23 +248,24 @@ export const LongText = createStory<ListPlaygroundProps>(
 // controls above do not apply to these.
 
 /**
- * Single-select: `pie-list-item selection-type="radio"` inside a `pie-radio-group`. The whole row
- * is a selectable target and the radio is named by the item's text.
+ * Single-select: `pie-list-item`s inside a `pie-radio-group` with `variant="list"`. The group tells
+ * its items they host radios (so you don't set `selection-type` per row); the whole row is a
+ * selectable target and the radio is named by the item's text.
  */
 export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-radio-group { min-width: 350px; }</style>
-    <pie-radio-group name="delivery" value="express">
+    <pie-radio-group name="delivery" value="express" variant="list">
         <pie-form-label slot="label">Delivery method</pie-form-label>
-        <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+        <pie-list-item primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
             <pie-radio slot="leading" value="standard"></pie-radio>
         </pie-list-item>
-        <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+        <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
             <pie-radio slot="leading" value="express"></pie-radio>
         </pie-list-item>
-        <pie-list-item selection-type="radio" primaryText="Collection" secondaryText="Collect from a nearby store">
+        <pie-list-item primaryText="Collection" secondaryText="Collect from a nearby store">
             <pie-radio slot="leading" value="collection" disabled></pie-radio>
         </pie-list-item>
-        <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+        <pie-list-item primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
             <pie-radio slot="leading" value="locker"></pie-radio>
         </pie-list-item>
     </pie-radio-group>

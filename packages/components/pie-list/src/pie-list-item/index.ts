@@ -9,10 +9,14 @@ import {
     validPropertyValues,
     parentDisabledContext,
     ariaContext,
+    selectionTypeContext,
     type ContextualAria,
+    type ProvidedSelectionType,
 } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { type ListItemProps, defaultProps, selectionTypes } from './defs';
+import {
+    type ListItemProps, type SelectionType, defaultProps, selectionTypes,
+} from './defs';
 import styles from './list-item.scss?inline';
 
 const componentSelector = 'pie-list-item';
@@ -52,6 +56,14 @@ export class PieListItem extends PieElement implements ListItemProps {
     @state()
     private _parentDisabled = false;
 
+    // The selection type provided by a container (e.g. `pie-radio-group variant="list"`). When a
+    // container provides it, it wins over this item's own `selectionType` prop, so authors don't
+    // repeat `selection-type` on every row. `undefined` for a standalone item, which then falls back
+    // to its own prop. See `selectionTypeContext` in pie-webc-core.
+    @consume({ context: selectionTypeContext, subscribe: true })
+    @state()
+    private _providedSelectionType?: ProvidedSelectionType;
+
     // Provides this item's accessible name/description down to its slotted control via the shared
     // aria context, which the control consumes and applies to the element carrying its semantics
     // (the internal input for pie-checkbox / pie-switch). See `ariaContext` in pie-webc-core.
@@ -68,15 +80,26 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     private _hasExplicitRole = false;
 
+    // The item's single effective selection type, from one of two sources (not two parallel
+    // systems - context is just the container-level way to set the same property for many rows):
+    //   1. context - a `pie-radio-group` / `pie-checkbox-group` (`variant="list"`) provides the
+    //      type to all its items, so the container is the single source of truth and authors don't
+    //      repeat `selection-type` per row. This is the common case and wins when present.
+    //   2. the `selectionType` prop - the fallback for when no container provides it: chiefly a
+    //      standalone item hosting a `pie-switch` (a switch has no group), or an explicit override.
+    private get _effectiveSelectionType (): SelectionType {
+        return this._providedSelectionType ?? this.selectionType;
+    }
+
     private get _isSelectable (): boolean {
-        return this.selectionType !== 'none';
+        return this._effectiveSelectionType !== 'none';
     }
 
     // radio/checkbox are owned by a selection group, which is why the item becomes `presentation`
     // (so the group owns the controls directly) and the radio is named on its host. A switch has
     // no group, so the item stays a `listitem`.
     private get _ownedByGroup (): boolean {
-        return this.selectionType === 'radio' || this.selectionType === 'checkbox';
+        return this._effectiveSelectionType === 'radio' || this._effectiveSelectionType === 'checkbox';
     }
 
     // True when this row should be treated as disabled: either its own control is disabled, or
@@ -90,12 +113,14 @@ export class PieListItem extends PieElement implements ListItemProps {
     private _controlObserver?: MutationObserver;
 
     // The interactive control (radio/checkbox/switch) slotted into this item, if any.
-    // Guarded with `isServer`: this is read from `render()` (via `_isDisabled`), which runs during
-    // SSR, but `querySelector` does not exist on the server element and would throw. Light-DOM
-    // children cannot be inspected on the server anyway, so we report "no control" there; the real
-    // value is resolved on the client, matching the context-driven attributes.
+    // This is read from `render()` (via `_isDisabled`), which runs during SSR, but the server DOM
+    // shim has no `querySelector` and would throw. Guard by capability rather than `isServer`: the
+    // SSR engines vary (Next's `@lit-labs/ssr-react` reports `isServer === true`, but Nuxt's
+    // `nuxt-ssr-lit` reports `false`), and their shims expose different method subsets, so `isServer`
+    // is unreliable here. Light-DOM children cannot be inspected on the server anyway, so we report
+    // "no control"; the real value resolves on the client (matching the context-driven attributes).
     private get _control (): HTMLElement | null {
-        if (isServer) return null;
+        if (typeof this.querySelector !== 'function') return null;
         return this.querySelector('pie-radio, pie-checkbox, pie-switch');
     }
 

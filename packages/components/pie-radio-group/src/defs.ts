@@ -2,11 +2,22 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const statusTypes = ['default', 'success', 'error'] as const;
 
+export const variantTypes = ['default', 'list'] as const;
+
 export interface RadioGroupProps {
     /**
     * The name associated with the group.
     */
     name?: string;
+
+    /**
+     * How the group is presented:
+     * - `default`: a stack of plain `pie-radio` controls.
+     * - `list`: the group hosts `pie-list-item` rows (dividers, no inter-item gap). The group tells
+     *   its list items they host radios, so they take the correct role/ARIA without the author
+     *   setting `selection-type` on each row.
+     */
+    variant?: typeof variantTypes[number];
 
     /**
      * Inline (horizontal) positioning of radio items
@@ -48,4 +59,5 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     isInline: false,
     value: '',
+    variant: 'default',
 };

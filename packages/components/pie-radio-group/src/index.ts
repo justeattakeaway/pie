@@ -18,6 +18,7 @@ import {
     validPropertyValues,
     safeCustomElement,
     parentDisabledContext,
+    selectionTypeContext,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -26,6 +27,7 @@ import {
     type RadioGroupProps,
     defaultProps,
     statusTypes,
+    variantTypes,
     ON_RADIO_GROUP_DISABLED,
 } from './defs';
 import '@justeattakeaway/pie-assistive-text';
@@ -53,8 +55,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @state()
     private _allRadiosDisabled = false;
 
-    @state()
-    private _hasListItems = false;
+    @property({ type: String, reflect: true })
+    @validPropertyValues(componentSelector, variantTypes, defaultProps.variant)
+    public variant = defaultProps.variant;
 
     @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
@@ -80,6 +83,14 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _disabledProvider = isServer
         ? undefined
         : new ContextProvider(this, { context: parentDisabledContext, initialValue: defaultProps.disabled });
+
+    // In `variant="list"` the group tells its descendant `pie-list-item`s they host radios, so each
+    // item derives its role/ARIA/row-click from the group instead of the author repeating
+    // `selection-type` on every row. Same `isServer` guard rationale as `_disabledProvider`; kept in
+    // sync in `updated()`.
+    private _selectionTypeProvider = isServer
+        ? undefined
+        : new ContextProvider(this, { context: selectionTypeContext });
 
     @property({ type: String })
     public assistiveText?: RadioGroupProps['assistiveText'];
@@ -167,9 +178,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _handleRadioSlotChange (): void {
         this._resetButtonsTabIndex();
         this._applyNameToChildren();
-        // When radios are wrapped in `pie-list-item`s the group renders as a divided list
-        // (no inter-item gap); direct-child radios keep their default spacing.
-        this._hasListItems = this.querySelector('pie-list-item') !== null;
     }
 
     /**
@@ -216,6 +224,11 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
         if (_changedProperties.has('name')) {
             this._applyNameToChildren();
+        }
+
+        if (_changedProperties.has('variant')) {
+            // Tell descendant list items they host radios (or stop, if switched back to `default`).
+            this._selectionTypeProvider?.setValue(this.variant === 'list' ? 'radio' : undefined);
         }
     }
 
@@ -447,10 +460,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             isInline,
             disabled,
             status,
+            variant,
             assistiveText,
             _fieldSetTabIndex,
             _allRadiosDisabled,
-            _hasListItems,
         } = this;
         const hasAssistiveText = Boolean(assistiveText?.length);
 
@@ -458,7 +471,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             'c-radioGroup': true,
             'c-radioGroup--inline': isInline,
             'c-radioGroup--hasAssistiveText': hasAssistiveText,
-            'c-radioGroup--listItems': _hasListItems,
+            'c-radioGroup--listItems': variant === 'list',
         };
 
         return html`

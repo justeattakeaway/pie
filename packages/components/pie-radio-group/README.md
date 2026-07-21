@@ -36,6 +36,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `name`         | —                                            | The name associated with the group.                                                                                      | `undefined` |
 | `value`        | —                                            | Selects the radio whose `value` matches (unselecting the others), and is the group's form value alongside `name`. Set this to pre-select an option. | `""`        |
 | `isInline`     | `true`, `false`                              | Inline (horizontal) positioning of radio items.                                                                          | `false`     |
+| `variant`      | `"default"`, `"list"`                        | `default` is a stack of plain `pie-radio` controls. `list` hosts `pie-list-item` rows (dividers, no inter-item gap) and tells them they host radios, so you don't set `selection-type` on each row (see [List items in a radio group](#list-items-in-a-radio-group)). | `"default"` |
 | `disabled`     | `true`, `false`                              | Indicates whether or not the radio group is disabled.                                                                    | `false`     |
 | `assistiveText`| —                                            | An optional assistive text to display below the checkbox group.                                                          | `undefined` |
 | `status`       | `"default"`, `"success"`, `"error"`          | The status of the radio group component / assistive text. Can be `default`, `success`, or `error`.                       | `"default"` |
@@ -43,7 +44,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Slots
 | Slot      | Description                                                                                      |
 |-----------|--------------------------------------------------------------------------------------------------|
-| `default` | Either [`pie-radio`](https://webc.pie.design/?path=/docs/components-radio--overview) components, or [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) components that each slot a `pie-radio` for a list-style layout (see [List items in a radio group](#list-items-in-a-radio-group)). Do not add other HTML. |
+| `default` | Either [`pie-radio`](https://webc.pie.design/?path=/docs/components-radio--overview) components, or (with `variant="list"`) [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) components that each slot a `pie-radio` for a list-style layout (see [List items in a radio group](#list-items-in-a-radio-group)). Do not add other HTML. |
 | `label`   | To provide a custom label for the radio group. Please use [`pie-form-label`](https://webc.pie.design/?path=/docs/components-form-label--overview). |
 
 ### CSS Variables
@@ -118,14 +119,16 @@ import { PieFormLabel } from '@justeattakeaway/pie-webc/react/form-label.js';
 
 ### List items in a radio group
 
-For a list-style layout (each option on its own row with primary and secondary text, and dividers between rows), wrap each `pie-radio` in a [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) with `selection-type="radio"` and place them inside the group. The radio goes in the item's `leading` (or `trailing`) slot, and you provide the label through the item's `primaryText` rather than as the radio's content.
+For a list-style layout (each option on its own row with primary and secondary text, and dividers between rows), set `variant="list"` on the group and wrap each `pie-radio` in a [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview). The radio goes in the item's `leading` (or `trailing`) slot, and you provide the label through the item's `primaryText` rather than as the radio's content.
 
-`selection-type="radio"` makes each item a selectable row:
+`variant="list"` makes each item a selectable row:
 
 - the item takes a `presentation` role, so the group still owns its `radio` children directly;
 - the item's `primaryText` becomes the radio's accessible name (`aria-label`), and its `secondaryText` and `metaText` its `aria-description`, so you do not pass label text to the radio itself;
 - the visible item text is hidden from assistive technology so it is not announced twice;
 - clicking anywhere on a row selects that row's radio.
+
+You do **not** set `selection-type` on each `pie-list-item`: the group provides that to its items (via context), so the group is the single source of truth. (You would only set `selection-type` on an item that is *not* inside a group — for example a standalone item hosting a `pie-switch`.)
 
 The group lays the items out as a single divided list; keyboard navigation, focus management and selection are identical to a standard radio group.
 
@@ -137,18 +140,18 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 ```
 
 ```html
-<pie-radio-group name="delivery">
+<pie-radio-group name="delivery" variant="list">
   <pie-form-label slot="label">Delivery method</pie-form-label>
-  <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+  <pie-list-item primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
     <pie-radio slot="leading" value="standard"></pie-radio>
   </pie-list-item>
-  <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+  <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
     <pie-radio slot="leading" value="express"></pie-radio>
   </pie-list-item>
-  <pie-list-item selection-type="radio" primaryText="Collection" secondaryText="Collect from a nearby store">
+  <pie-list-item primaryText="Collection" secondaryText="Collect from a nearby store">
     <pie-radio slot="leading" value="collection" disabled></pie-radio>
   </pie-list-item>
-  <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+  <pie-list-item primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
     <pie-radio slot="leading" value="locker"></pie-radio>
   </pie-list-item>
 </pie-radio-group>
