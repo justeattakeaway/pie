@@ -56,6 +56,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
 | `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. Usually you don't set this — a `pie-radio-group`/`pie-checkbox-group` with `variant="list"` provides it. Set it only for an item with no such container (e.g. a slotted `switch`). See [Selectable lists](#selectable-lists). | `"none"` |
+| `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
 
 ### Slots
 

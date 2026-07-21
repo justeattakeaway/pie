@@ -267,8 +267,9 @@ const buildListItemsTemplate = (value?: string) => {
             <pie-list-item data-test-id="item-2" primaryText="Express" secondaryText="Next day">
                 <pie-radio slot="leading" data-test-id="radio-2" value="express"></pie-radio>
             </pie-list-item>
-            <!-- item-3: neither secondary nor meta (no aria-description), disabled -->
-            <pie-list-item data-test-id="item-3" primaryText="Collection">
+            <!-- item-3: neither secondary nor meta (no aria-description); a disabled row (both the
+                 item and its radio are disabled) -->
+            <pie-list-item disabled data-test-id="item-3" primaryText="Collection">
                 <pie-radio slot="leading" data-test-id="radio-3" value="collection" disabled></pie-radio>
             </pie-list-item>
             <!-- item-4: meta text only -->

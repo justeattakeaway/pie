@@ -59,6 +59,14 @@ export interface ListItemProps {
      * container-level way to set this same property for many rows at once.
      */
     selectionType?: typeof selectionTypes[number]
+
+    /**
+     * Marks the row as disabled: it takes on the disabled styling and stops forwarding row clicks to
+     * its control. Set it alongside the slotted control's own `disabled` (the control still governs
+     * its own interactivity and keyboard behaviour). Has no visible effect on a non-selectable
+     * (static) item.
+     */
+    disabled?: boolean
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
@@ -68,4 +76,5 @@ export const defaultProps: DefaultProps = {
     isBold: false,
     hasMedia: false,
     selectionType: 'none',
+    disabled: false,
 };

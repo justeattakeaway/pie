@@ -952,6 +952,15 @@ test.describe('PieRadioGroup - Component tests new', () => {
             expect(await isRadioChecked(page, selectors.radios[3])).toBe(false);
         });
 
+        test('should mark the row disabled from the item\'s `disabled` prop', async ({ page }) => {
+            const isRowDisabled = (testId: string) => page.getByTestId(testId)
+                .evaluate((el) => el.shadowRoot?.querySelector('.c-listItem-container')?.classList.contains('is-disabled') ?? false);
+
+            // item-3 sets `disabled`; item-1 does not.
+            expect(await isRowDisabled(selectors.items[3])).toBe(true);
+            expect(await isRowDisabled(selectors.items[1])).toBe(false);
+        });
+
         test.describe('keyboard navigation', () => {
             test('should focus the first radio when tabbing into the group', async ({ page }) => {
                 await page.getByTestId(selectors.button1).focus();

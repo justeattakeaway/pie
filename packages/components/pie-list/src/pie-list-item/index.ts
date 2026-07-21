@@ -50,6 +50,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     @validPropertyValues(componentSelector, selectionTypes, defaultProps.selectionType)
         selectionType = defaultProps.selectionType;
 
+    @property({ type: Boolean })
+        disabled = defaultProps.disabled;
+
     // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state.
     // Defaults to false when there is no provider (a standalone item or a static list).
     @consume({ context: parentDisabledContext, subscribe: true })
@@ -63,16 +66,6 @@ export class PieListItem extends PieElement implements ListItemProps {
     @consume({ context: selectionTypeContext, subscribe: true })
     @state()
     private _providedSelectionType?: ProvidedSelectionType;
-
-    // The slotted control's disabled state, mirrored into reactive state (synced on connect and
-    // whenever the control's `disabled` changes). Kept as `@state` rather than read live in render
-    // so it survives SSR hydration: the server and the first client render both see `false` (a
-    // framework sets the control's `disabled` only after hydration), so Lit's class bindings start
-    // in sync and the later `true` applies cleanly. Reading it live produced a hydration mismatch
-    // that left the row's disabled styling stuck (the class binding thought it was applied when the
-    // hydrated DOM never received it).
-    @state()
-    private _controlDisabled = false;
 
     // Provides this item's accessible name/description down to its slotted control via the shared
     // aria context, which the control consumes and applies to the element carrying its semantics
@@ -112,33 +105,16 @@ export class PieListItem extends PieElement implements ListItemProps {
         return this._effectiveSelectionType === 'radio' || this._effectiveSelectionType === 'checkbox';
     }
 
-    // True when this row should be treated as disabled: either its own control is disabled, or the
-    // containing group is disabled. We read the control's `disabled` property rather than its
-    // attribute: frameworks (React/Vue) set `disabled` as a property, and `pie-radio` reflects it to
-    // the attribute only in a later update, so the attribute can be absent when this is first read
-    // on hydration. The property is the source of truth and is read live each render.
+    // True when the row should be treated as disabled: either its own `disabled` prop is set, or the
+    // containing group is disabled (provided via context). Declarative and reactive, so the styling
+    // and row-click guard react without observing the slotted control.
     private get _isDisabled (): boolean {
-        return this._controlDisabled || this._parentDisabled;
+        return this.disabled || this._parentDisabled;
     }
 
-    // Mirrors the slotted control's live `disabled` into reactive state. Passed to the observer and
-    // called on connect for the initial value (the observer only sees later mutations).
-    private _syncControlDisabled = (): void => {
-        const control = this._control as (HTMLElement & { disabled?: boolean }) | null;
-        this._controlDisabled = control?.disabled ?? false;
-    };
-
-    private _controlObserver?: MutationObserver;
-
-    // The interactive control (radio/checkbox/switch) slotted into this item, if any.
-    // This is read from `render()` (via `_isDisabled`), which runs during SSR, but the server DOM
-    // shim has no `querySelector` and would throw. Guard by capability rather than `isServer`: the
-    // SSR engines vary (Next's `@lit-labs/ssr-react` reports `isServer === true`, but Nuxt's
-    // `nuxt-ssr-lit` reports `false`), and their shims expose different method subsets, so `isServer`
-    // is unreliable here. Light-DOM children cannot be inspected on the server anyway, so we report
-    // "no control"; the real value resolves on the client (matching the context-driven attributes).
+    // The interactive control (radio/checkbox/switch) slotted into this item, if any. Used only by
+    // the client-side row-click handler.
     private get _control (): HTMLElement | null {
-        if (typeof this.querySelector !== 'function') return null;
         return this.querySelector('pie-radio, pie-checkbox, pie-switch');
     }
 
@@ -150,14 +126,11 @@ export class PieListItem extends PieElement implements ListItemProps {
 
         this._abortController = new AbortController();
         this.addEventListener('click', this._handleHostClick, { signal: this._abortController.signal });
-        this._observeControlSubtree();
-        this._syncControlDisabled();
     }
 
     disconnectedCallback () {
         super.disconnectedCallback();
         this._abortController.abort();
-        this._controlObserver?.disconnect();
     }
 
     protected updated () {
@@ -189,30 +162,6 @@ export class PieListItem extends PieElement implements ListItemProps {
         const description = [this.secondaryText, this.metaText].filter(Boolean).join('. ');
 
         return { label: this.primaryText, description: description || undefined };
-    }
-
-    /**
-     * Keeps the row's disabled styling in sync with its slotted control by observing the light-DOM
-     * subtree: `childList` catches the control being slotted in (frameworks add it after connect),
-     * and the `disabled` attribute filter catches it toggling (pie-radio reflects its `disabled`
-     * property to the attribute). Done here rather than via `slotchange` or `firstUpdated`, neither
-     * of which fires reliably across SSR hydration and frameworks.
-     *
-     * Guarded by capability: `connectedCallback` runs on the server in some renderers (Nuxt's
-     * nuxt-ssr-lit) where `MutationObserver` is absent, and observation is client-only anyway. The
-     * callback runs as a microtask (outside Lit's update), so it does not trigger the
-     * "scheduled an update after update completed" warning.
-     */
-    private _observeControlSubtree (): void {
-        if (typeof MutationObserver !== 'function') return;
-
-        this._controlObserver = new MutationObserver(this._syncControlDisabled);
-        this._controlObserver.observe(this, {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['disabled'],
-        });
     }
 
     /**

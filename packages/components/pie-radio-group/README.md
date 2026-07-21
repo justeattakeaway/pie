@@ -148,7 +148,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
   <pie-list-item primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
     <pie-radio slot="leading" value="express"></pie-radio>
   </pie-list-item>
-  <pie-list-item primaryText="Collection" secondaryText="Collect from a nearby store">
+  <pie-list-item disabled primaryText="Collection" secondaryText="Collect from a nearby store">
     <pie-radio slot="leading" value="collection" disabled></pie-radio>
   </pie-list-item>
   <pie-list-item primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
