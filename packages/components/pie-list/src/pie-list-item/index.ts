@@ -46,7 +46,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean })
         hasMedia = defaultProps.hasMedia;
 
-    @property({ type: String, attribute: 'selection-type', reflect: true })
+    @property({ type: String, attribute: 'selection-type' })
     @validPropertyValues(componentSelector, selectionTypes, defaultProps.selectionType)
         selectionType = defaultProps.selectionType;
 
@@ -102,12 +102,14 @@ export class PieListItem extends PieElement implements ListItemProps {
         return this._effectiveSelectionType === 'radio' || this._effectiveSelectionType === 'checkbox';
     }
 
-    // True when this row should be treated as disabled: either its own control is disabled, or
-    // the containing group is disabled. The control's state is read live (rather than cached in
-    // reactive state) so it is always evaluated in the same render as `_isSelectable`, leaving no
-    // window where a disabled row is momentarily interactive during hydration.
+    // True when this row should be treated as disabled: either its own control is disabled, or the
+    // containing group is disabled. We read the control's `disabled` property rather than its
+    // attribute: frameworks (React/Vue) set `disabled` as a property, and `pie-radio` reflects it to
+    // the attribute only in a later update, so the attribute can be absent when this is first read
+    // on hydration. The property is the source of truth and is read live each render.
     private get _isDisabled (): boolean {
-        return (this._control?.hasAttribute('disabled') ?? false) || this._parentDisabled;
+        const control = this._control as (HTMLElement & { disabled?: boolean }) | null;
+        return (control?.disabled ?? false) || this._parentDisabled;
     }
 
     private _controlObserver?: MutationObserver;
@@ -138,6 +140,15 @@ export class PieListItem extends PieElement implements ListItemProps {
         super.disconnectedCallback();
         this._abortController.abort();
         this._controlObserver?.disconnect();
+    }
+
+    protected firstUpdated (): void {
+        // Attach the control observer on the client's first render, not only on `slotchange`:
+        // slotchange does not reliably fire on SSR hydration, so a control whose `disabled` is set/reflected by a framework after first render
+        // would otherwise go unobserved and leave the row's disabled styling stale. Re-evaluate now
+        // in case the control's `disabled` was set between the first render and this callback.
+        this._observeControl();
+        this.requestUpdate();
     }
 
     protected updated () {
