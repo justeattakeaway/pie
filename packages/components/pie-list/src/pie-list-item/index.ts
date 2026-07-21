@@ -1,4 +1,6 @@
-import { html, nothing, unsafeCSS } from 'lit';
+import {
+    html, isServer, nothing, unsafeCSS,
+} from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { consume, ContextProvider } from '@lit/context';
@@ -53,7 +55,14 @@ export class PieListItem extends PieElement implements ListItemProps {
     // Provides this item's accessible name/description down to its slotted control via the shared
     // aria context, which the control consumes and applies to the element carrying its semantics
     // (the internal input for pie-checkbox / pie-switch). See `ariaContext` in pie-webc-core.
-    private _ariaProvider = new ContextProvider(this, { context: ariaContext });
+    //
+    // Guarded with `isServer`: `@lit/context`'s ContextProvider attaches `context-request`
+    // listeners to the host in its constructor (via `host.addEventListener`). During SSR/prerender
+    // the element is constructed without a DOM host, so that call throws
+    // ("host.addEventListener is not a function") and breaks the build. The provider is client-only
+    // anyway (context is delivered after `connectedCallback`, which SSR never runs), so it is safe
+    // to skip on the server.
+    private _ariaProvider = isServer ? undefined : new ContextProvider(this, { context: ariaContext });
 
     private _abortController!: AbortController;
 
@@ -81,7 +90,12 @@ export class PieListItem extends PieElement implements ListItemProps {
     private _controlObserver?: MutationObserver;
 
     // The interactive control (radio/checkbox/switch) slotted into this item, if any.
+    // Guarded with `isServer`: this is read from `render()` (via `_isDisabled`), which runs during
+    // SSR, but `querySelector` does not exist on the server element and would throw. Light-DOM
+    // children cannot be inspected on the server anyway, so we report "no control" there; the real
+    // value is resolved on the client, matching the context-driven attributes.
     private get _control (): HTMLElement | null {
+        if (isServer) return null;
         return this.querySelector('pie-radio, pie-checkbox, pie-switch');
     }
 
@@ -103,7 +117,7 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     protected updated () {
         this._applyRole();
-        this._ariaProvider.setValue(this._providedAria);
+        this._ariaProvider?.setValue(this._providedAria);
     }
 
     /**
