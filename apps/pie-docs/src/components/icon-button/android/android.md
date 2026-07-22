@@ -14,13 +14,13 @@ shouldShowContents: true
     do: {
         type: usageTypes.text,
         items: [
-           "Use when an icon button on its own can clearly indicate the action."
+           "Use an icon button when the icon is universally understood."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't use if an icon on its own doesn't clearly indicate the action. Use a standard [Button](/components/button) instead."
+            "Don't use an icon button if the icon is ambiguous and does not clearly indicate the action. Use a standard [Button](/components/button) instead."
         ]
     }
 } %}
@@ -68,7 +68,8 @@ shouldShowContents: true
     {% contentPageImage {
       src: "../../../assets/img/components/icon-button/variation-secondary.svg",
       width: 56,
-      alt: "Secondary variant of an icon button."
+      alt: "Secondary variant of an icon button.",
+    variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}

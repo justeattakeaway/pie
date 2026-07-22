@@ -447,7 +447,7 @@ The alignment of Buttons depends on where they appear and whether or not they're
 
 As a general rule, on full-page designs the primary Button is on the left side of the page, as it's best to have the Button where the user's attention has been focused all along. Whereas in Modals, the primary Button traditionally sits right aligned. Buttons within components such as Bottom Sheets, Notifications, and Toasts are also right aligned.
 
-In some cases Buttons may span the entire width of the screen or container, examples include Bottom Sheets, Forms, Modals, and Cards
+In some cases Buttons may span the entire width of the screen or container, examples include Bottom Sheets, Forms, Modals, and Cards.
 
 {% notification {
   type: "information",
