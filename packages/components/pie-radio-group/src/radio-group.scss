@@ -23,10 +23,6 @@
         margin-block-end: var(--dt-spacing-b);
     }
 
-    ::slotted(pie-radio:not(:first-of-type)) {
-        margin-block-start: var(--radio-group-gap);
-    }
-
     &.c-radioGroup--inline {
         flex-flow: row wrap;
         gap: var(--radio-group-gap--inline);
@@ -34,5 +30,19 @@
 
     &.c-radioGroup--hasAssistiveText {
         margin-block-end: var(--dt-spacing-a);
+    }
+}
+
+:host([isinline]) {
+    // IsInline is not supported for any slotted content other than pie-radio components, so gap is used here.
+    .c-radioGroup {
+        gap: var(--radio-group-gap);
+    }
+}
+
+:host(:not([isinline])) {
+    // used instead of gap because list-item slotted children do not need the gap. Only pie-radio slotted children do.
+    ::slotted(pie-radio:not(:first-of-type)) {
+        margin-block-start: var(--radio-group-gap);
     }
 }
