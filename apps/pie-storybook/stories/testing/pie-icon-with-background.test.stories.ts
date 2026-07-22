@@ -1,15 +1,21 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/icon-with-background';
-import { type IconWithBackgroundProps } from '@justeattakeaway/pie-webc/components/icon-with-background';
+import {
+    type IconWithBackgroundProps,
+    defaultProps,
+} from '@justeattakeaway/pie-webc/components/icon-with-background';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import { createStory } from '../../utilities';
+import { createStory, type TemplateFunction } from '../../utilities';
 
 type IconWithBackgroundStoryMeta = Meta<IconWithBackgroundProps>;
 
-const defaultArgs: IconWithBackgroundProps = {};
+const defaultArgs: IconWithBackgroundProps = {
+    ...defaultProps,
+};
 
 const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
     title: 'Icon With Background',
@@ -26,12 +32,14 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
 
 export default iconWithBackgroundStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: IconWithBackgroundProps) => html`
-    <pie-icon-with-background>
+const Template: TemplateFunction<IconWithBackgroundProps> = ({ shape }) => html`
+    <pie-icon-with-background shape="${ifDefined(shape)}">
         <icon-heart-filled></icon-heart-filled>
     </pie-icon-with-background>
 `;
 
-export const Default = createStory<IconWithBackgroundProps>(Template, defaultArgs)();
+const createIconWithBackgroundStory = createStory<IconWithBackgroundProps>(Template, defaultArgs);
+
+export const Default = createIconWithBackgroundStory();
+export const Circle = createIconWithBackgroundStory({ shape: 'circle' });
+export const Square = createIconWithBackgroundStory({ shape: 'square' });
