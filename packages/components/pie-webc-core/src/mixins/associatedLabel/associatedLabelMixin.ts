@@ -36,8 +36,7 @@ export interface AssociatedLabelInterface {
  *
  *
  * The class this mixin is applied to must already provide `_internals: ElementInternals`
- * (for example via `FormControlMixin`), and must call `super.firstUpdated()` if it overrides
- * `firstUpdated`.
+ * (for example via `FormControlMixin`).
  *
  * @param superClass - The LitElement class (with `_internals`) to extend.
  * @returns A new class extending both the provided LitElement and AssociatedLabelInterface.
