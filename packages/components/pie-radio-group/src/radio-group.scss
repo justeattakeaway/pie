@@ -18,21 +18,18 @@
     min-width: 0;
     display: flex;
     flex-flow: column wrap;
-    gap: var(--radio-group-gap);
 
     > legend {
         margin-block-end: var(--dt-spacing-b);
     }
 
+    ::slotted(pie-radio:not(:first-of-type)) {
+        margin-block-start: var(--radio-group-gap);
+    }
+
     &.c-radioGroup--inline {
         flex-flow: row wrap;
         gap: var(--radio-group-gap--inline);
-    }
-
-    // When rendering list items, remove the inter-item gap so the dividers sit flush and
-    // the group reads as a single divided list rather than spaced radios.
-    &.c-radioGroup--listItems {
-        gap: 0;
     }
 
     &.c-radioGroup--hasAssistiveText {

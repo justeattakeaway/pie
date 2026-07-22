@@ -105,8 +105,9 @@ const renderTrailing = (trailingContent: ListPlaygroundProps['trailingContent'])
     return nothing;
 };
 
-const renderItem = (args: ListPlaygroundProps) => html`
+const renderItem = (args: ListPlaygroundProps, itemStyle = '') => html`
     <pie-list-item
+        style=${itemStyle}
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
@@ -134,9 +135,11 @@ const buildNotes = (args: ListPlaygroundProps) => {
  * them). `pie-list` must always have an accessible name; we use `aria-labelledby`
  * pointing at a visible heading (preferred over `aria-label`, so the visible and
  * accessible names stay in sync). `headingId` is unique per story to keep the
- * association valid when several stories render on one docs page.
+ * association valid when several stories render on one docs page. `itemStyle` is applied to each
+ * `pie-list-item` (not the list) so item-level CSS variables such as `--list-item-inline-padding`
+ * take effect (a value on `pie-list` cannot override the item's own default).
  */
-const makeListTemplate = (headingId: string, heading: string, listStyle = ''): TemplateFunction<ListPlaygroundProps> => (args) => {
+const makeListTemplate = (headingId: string, heading: string, itemStyle = ''): TemplateFunction<ListPlaygroundProps> => (args) => {
     const notes = buildNotes(args);
 
     return html`
@@ -148,10 +151,10 @@ const makeListTemplate = (headingId: string, heading: string, listStyle = ''): T
         </style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <h2 id=${headingId}>${heading}</h2>
-        <pie-list aria-labelledby=${headingId} style=${listStyle}>
-            ${renderItem(args)}
-            ${renderItem(args)}
-            ${renderItem(args)}
+        <pie-list aria-labelledby=${headingId}>
+            ${renderItem(args, itemStyle)}
+            ${renderItem(args, itemStyle)}
+            ${renderItem(args, itemStyle)}
         </pie-list>
     `;
 };
@@ -162,7 +165,7 @@ const makeListTemplate = (headingId: string, heading: string, listStyle = ''): T
  * Interactive example. Use the controls to experiment with the `pie-list-item`
  * properties and slotted content.
  */
-export const Playground = createStory<ListPlaygroundProps>(
+export const Default = createStory<ListPlaygroundProps>(
     makeListTemplate('list-playground-heading', 'Example list'),
     defaultArgs,
 )();
@@ -211,19 +214,19 @@ export const Media = createStory<ListPlaygroundProps>(
 )({ hasMedia: true, leadingContent: 'thumbnail', trailingContent: 'none' });
 
 /**
- * `--list-item-alignment-override: center` vertically centres the item content.
+ * `--list-item-alignment: center` vertically centres the item content.
  */
 export const AlignmentOverride = createStory<ListPlaygroundProps>(
-    makeListTemplate('list-alignment-heading', 'Centre aligned', '--list-item-alignment-override: center;'),
+    makeListTemplate('list-alignment-heading', 'Centre aligned', '--list-item-alignment: center;'),
     defaultArgs,
 )();
 
 /**
- * `--list-item-inline-padding-override` overrides the inline padding of the items
+ * `--list-item-inline-padding` sets the inline padding of the items
  * (any spacing token, or `0` to remove it).
  */
 export const InlinePaddingOverride = createStory<ListPlaygroundProps>(
-    makeListTemplate('list-padding-heading', 'No inline padding', '--list-item-inline-padding-override: 0;'),
+    makeListTemplate('list-padding-heading', 'No inline padding', '--list-item-inline-padding: 0;'),
     defaultArgs,
 )({ leadingContent: 'none' });
 
@@ -247,12 +250,13 @@ export const LongText = createStory<ListPlaygroundProps>(
 // playground controls above do not apply to these.
 
 /**
- * Single-select: `pie-list-item selection-type="radio"` inside a `pie-radio-group`. The whole row
- * is a selectable target and the radio is named by the item's text.
+ * Single-select: `pie-list-item`s inside a `pie-radio-group`. Set `selection-type="radio"` on each
+ * row to make the whole row a selectable target named by the item's text. The group lays the rows
+ * out as a divided list automatically when its children are `pie-list-item`s.
  */
 export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-radio-group { min-width: 350px; }</style>
-    <pie-radio-group name="delivery">
+    <pie-radio-group name="delivery" value="express">
         <pie-form-label slot="label">Delivery method</pie-form-label>
         <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
             <pie-radio slot="leading" value="standard"></pie-radio>
@@ -260,7 +264,7 @@ export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
         <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
             <pie-radio slot="leading" value="express"></pie-radio>
         </pie-list-item>
-        <pie-list-item selection-type="radio" primaryText="Collection" secondaryText="Collect from a nearby store">
+        <pie-list-item selection-type="radio" disabled primaryText="Collection" secondaryText="Collect from a nearby store">
             <pie-radio slot="leading" value="collection" disabled></pie-radio>
         </pie-list-item>
         <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
@@ -270,24 +274,26 @@ export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
 `, defaultArgs)();
 
 /**
- * Multi-select: `pie-list-item selection-type="checkbox"` inside a `pie-checkbox-group`. Each row
- * toggles its checkbox independently.
+ * Multi-select: `pie-list-item`s inside a `pie-checkbox-group`. Set `selection-type="checkbox"` on
+ * each row to make the whole row a selectable target named by the item's text. Each row toggles its
+ * checkbox independently. The group lays the rows out as a divided list automatically when its
+ * children are `pie-list-item`s.
  */
 export const CheckboxSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-checkbox-group { min-width: 350px; }</style>
     <pie-checkbox-group name="toppings">
         <pie-form-label slot="label">Toppings</pie-form-label>
         <pie-list-item selection-type="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
-            <pie-checkbox slot="leading" name="cheese"></pie-checkbox>
+            <pie-checkbox slot="leading" name="cheese" value="cheese"></pie-checkbox>
         </pie-list-item>
         <pie-list-item selection-type="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
-            <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
+            <pie-checkbox slot="leading" name="pepperoni" value="pepperoni" checked></pie-checkbox>
         </pie-list-item>
-        <pie-list-item selection-type="checkbox" primaryText="Mushrooms">
-            <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
+        <pie-list-item selection-type="checkbox" disabled primaryText="Mushrooms">
+            <pie-checkbox slot="leading" name="mushrooms" value="mushrooms" disabled></pie-checkbox>
         </pie-list-item>
         <pie-list-item selection-type="checkbox" primaryText="Olives" metaText="£0.50">
-            <pie-checkbox slot="leading" name="olives"></pie-checkbox>
+            <pie-checkbox slot="leading" name="olives" value="olives"></pie-checkbox>
         </pie-list-item>
     </pie-checkbox-group>
 `, defaultArgs)();

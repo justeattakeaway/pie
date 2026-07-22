@@ -127,6 +127,8 @@ For a list-style layout (each option on its own row with primary and secondary t
 - the visible item text is hidden from assistive technology so it is not announced twice;
 - clicking anywhere on a row selects that row's radio.
 
+Set `disabled` on a `pie-list-item` to disable that row (alongside the radio's own `disabled`); disabling the group disables every row.
+
 The group lays the items out as a single divided list; keyboard navigation, focus management and selection are identical to a standard radio group.
 
 ```js
@@ -145,7 +147,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
   <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
     <pie-radio slot="leading" value="express"></pie-radio>
   </pie-list-item>
-  <pie-list-item selection-type="radio" primaryText="Collection" secondaryText="Collect from a nearby store">
+  <pie-list-item selection-type="radio" disabled primaryText="Collection" secondaryText="Collect from a nearby store">
     <pie-radio slot="leading" value="collection" disabled></pie-radio>
   </pie-list-item>
   <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">

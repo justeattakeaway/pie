@@ -19,7 +19,7 @@ readingDirections.forEach((direction) => test(`should render all prop variations
 }));
 
 readingDirections.forEach((direction) => test(`should render checkboxes in list items with dir: ${direction}`, async ({ page }) => {
-    const checkboxGroupListItems = new BasePage(page, 'checkbox-group--with-list-items');
+    const checkboxGroupListItems = new BasePage(page, 'checkbox-group--with-list-items-checked');
     await checkboxGroupListItems.load({}, { writingDirection: direction });
 
     await expect.soft(page.getByTestId(checkboxGroup.selectors.container.dataTestId)).toBeVisible();

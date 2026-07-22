@@ -84,8 +84,8 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
-    test.describe('slotted media (has-media)', () => {
-        test('should display slotted media when has-media is set', async ({ page }) => {
+    test.describe('slotted media (hasMedia)', () => {
+        test('should display slotted media when hasMedia is set', async ({ page }) => {
             // Arrange
             await new BasePage(page, 'list--media').load();
 

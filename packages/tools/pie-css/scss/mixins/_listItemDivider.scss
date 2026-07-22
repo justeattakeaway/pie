@@ -21,6 +21,6 @@
 @mixin list-item-divider() {
     ::slotted(pie-list-item:not(:last-of-type)) {
         --list-item-size-modifier: 1px;
-        --list-item-border-override: var(--list-item-size-modifier) solid var(--dt-color-divider-default);
+        --list-item-border: var(--list-item-size-modifier) solid var(--dt-color-divider-default);
     }
 }

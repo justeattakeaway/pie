@@ -255,6 +255,15 @@ test.describe('PieCheckboxGroup - Component tests', () => {
 
             expect(await isCheckboxChecked(page, selectors.checkboxes[3])).toBe(false);
         });
+
+        test('should mark the row disabled from the item\'s `disabled` prop', async ({ page }) => {
+            const isRowDisabled = (testId: string) => page.getByTestId(testId)
+                .evaluate((el) => el.shadowRoot?.querySelector('.c-listItem-container')?.classList.contains('is-disabled') ?? false);
+
+            // item-3 sets `disabled`; item-1 does not.
+            expect(await isRowDisabled(selectors.items[3])).toBe(true);
+            expect(await isRowDisabled(selectors.items[1])).toBe(false);
+        });
     });
 
     test.describe('with list items in a disabled group', () => {

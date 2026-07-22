@@ -118,6 +118,8 @@ For a list-style layout (each option on its own row with primary and secondary t
 - the visible item text is hidden from assistive technology so it is not announced twice;
 - clicking anywhere on a row toggles that row's checkbox.
 
+Set `disabled` on a `pie-list-item` to disable that row (alongside the checkbox's own `disabled`); disabling the group disables every row.
+
 The group lays the items out as a single divided list; selection is independent per checkbox, exactly as in a standard checkbox group.
 
 ```js
@@ -134,7 +136,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
   <pie-list-item selection-type="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
     <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
   </pie-list-item>
-  <pie-list-item selection-type="checkbox" primaryText="Mushrooms">
+  <pie-list-item selection-type="checkbox" disabled primaryText="Mushrooms">
     <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
   </pie-list-item>
   <pie-list-item selection-type="checkbox" primaryText="Olives" metaText="£0.50">

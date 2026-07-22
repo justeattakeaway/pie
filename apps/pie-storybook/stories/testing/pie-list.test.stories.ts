@@ -265,26 +265,32 @@ const TagsTemplate = () => withLayout(html`
 export const Tags = createStory<ListProps>(TagsTemplate, defaultArgs)();
 
 /**
- * `--list-item-alignment-override: center` vertically centres the item content.
+ * `--list-item-alignment: center` vertically centres the item content. It is set on the
+ * `pie-list-item` (here via a class), not on `pie-list` — the item defines the default on its host.
  */
 const AlignmentOverrideTemplate = () => withLayout(html`
-    <pie-list style="--list-item-alignment-override: center;">
+    <style>.centre-aligned { --list-item-alignment: center; }</style>
+    <pie-list>
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingIcon}
         </pie-list-item>
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingIcon}
         </pie-list-item>
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingIcon}
         </pie-list-item>
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingIcon}
@@ -295,20 +301,22 @@ const AlignmentOverrideTemplate = () => withLayout(html`
 export const AlignmentOverride = createStory<ListProps>(AlignmentOverrideTemplate, defaultArgs)();
 
 /**
- * `--list-item-inline-padding-override: 0` removes the inline padding entirely.
+ * `--list-item-inline-padding: 0` removes the inline padding entirely. It must be set on the
+ * `pie-list-item` (here via a class), not on `pie-list` — the item defines the default on its host.
  */
 const RemovedPaddingTemplate = () => withLayout(html`
-    <pie-list style="--list-item-inline-padding-override: 0;">
-        <pie-list-item primaryText="Primary text">
+    <style>.no-inline-padding { --list-item-inline-padding: 0; }</style>
+    <pie-list>
+        <pie-list-item class="no-inline-padding" primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item primaryText="Primary text">
+        <pie-list-item class="no-inline-padding" primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item primaryText="Primary text">
+        <pie-list-item class="no-inline-padding" primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item primaryText="Primary text">
+        <pie-list-item class="no-inline-padding" primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
     </pie-list>
@@ -416,8 +424,10 @@ export const LongTextMetaTextOnlyPrimaryText = createStory<ListProps>(LongTextMe
  * trailing tag.
  */
 const LongTextCentreAlignedTemplate = () => withLayout(html`
-    <pie-list style="--list-item-alignment-override: center;">
+    <style>.centre-aligned { --list-item-alignment: center; }</style>
+    <pie-list>
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long Secondary text that goes on far too long">
             ${leadingIcon}
@@ -425,6 +435,7 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
         </pie-list-item>
 
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long Secondary text that goes on far too long">
             ${leadingIcon}
@@ -432,6 +443,7 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
         </pie-list-item>
 
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long Secondary text that goes on far too long">
             ${leadingIcon}
@@ -439,6 +451,7 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
         </pie-list-item>
 
         <pie-list-item
+            class="centre-aligned"
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long Secondary text that goes on far too long">
             ${leadingIcon}

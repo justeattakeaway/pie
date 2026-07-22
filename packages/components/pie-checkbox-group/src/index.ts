@@ -1,11 +1,11 @@
 import {
-    html, unsafeCSS, type PropertyValues, type TemplateResult,
+    html, isServer, unsafeCSS, type PropertyValues, type TemplateResult,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
     property, state,
 } from 'lit/decorators.js';
-import { provide } from '@lit/context';
+import { ContextProvider } from '@lit/context';
 import {
     RtlMixin,
     FormControlMixin,
@@ -56,11 +56,21 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
 
-    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the
-    // list rows (suppressing their hover/active states).
-    @provide({ context: parentDisabledContext })
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
+
+    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the list rows
+    // (suppressing their hover/active states), and kept in sync in `updated()`.
+    //
+    // Created manually (rather than via the `@provide` decorator) so it can be guarded with
+    // `isServer`: `@lit/context`'s ContextProvider attaches `context-request` listeners to the host
+    // in its constructor (via `host.addEventListener`). During SSR/prerender the element is
+    // constructed without a DOM host, so that call throws and breaks the build. The provider is
+    // client-only anyway (context is delivered after `connectedCallback`, which SSR never runs), so
+    // it is safe to skip on the server.
+    private _disabledProvider = isServer
+        ? undefined
+        : new ContextProvider(this, { context: parentDisabledContext, initialValue: defaultProps.disabled });
 
     /**
      * The checkboxes in the group. This uses a subtree query rather than immediate slotted
@@ -109,6 +119,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
 
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('disabled')) {
+            this._disabledProvider?.setValue(this.disabled);
             this._handleDisabled();
         }
 

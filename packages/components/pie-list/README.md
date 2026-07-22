@@ -78,12 +78,12 @@ Some slotted content is designed with specific properties being used. So please 
 
 ### CSS Variables
 
-These custom properties can be set on a `pie-list-item` (or on `pie-list` to affect all items) to override the defaults.
+These custom properties override the item defaults. Each **must be set on the `pie-list-item`** (directly, or via a rule targeting it), not on `pie-list`. The default lives on the item's host, so a value inherited from `pie-list` will not override it.
 
 | Variable | Description | Accepted values |
 |---|---|---|
-| `--list-item-inline-padding-override` | Overrides the inline (start and end) padding of the item. | Any PIE spacing token (e.g. `var(--dt-spacing-f)`) or `0` |
-| `--list-item-alignment-override` | Overrides the vertical alignment of the item's content. | Only `center` is recommended |
+| `--list-item-inline-padding` | Sets the inline (start and end) padding of the item. Defaults to `var(--dt-spacing-d)`. | Any PIE spacing token (e.g. `var(--dt-spacing-f)`) or `0` |
+| `--list-item-alignment` | Sets the vertical alignment of the item's content. Defaults to `flex-start`. | Only `center` is recommended |
 
 ### Events
 
@@ -229,16 +229,19 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 **Overriding alignment and padding** (via CSS variables):
 
 ```html
-<!-- Vertically centre the content of every item in the list -->
-<pie-list style="--list-item-alignment-override: center;">
+<!-- Vertically centre the content of the items. `--list-item-alignment` must be set on the
+     `pie-list-item` (here via a rule targeting every item), not on `pie-list`. -->
+<style>pie-list-item { --list-item-alignment: center; }</style>
+<pie-list>
   <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
     <icon-chevron-right slot="trailing"></icon-chevron-right>
   </pie-list-item>
 </pie-list>
 
-<!-- Remove the inline padding -->
-<pie-list style="--list-item-inline-padding-override: 0;">
-  <pie-list-item primaryText="Primary text"></pie-list-item>
+<!-- Remove the inline padding. `--list-item-inline-padding` must be set on the `pie-list-item`
+     (its default lives on the item's host, so a value on `pie-list` will not override it). -->
+<pie-list>
+  <pie-list-item style="--list-item-inline-padding: 0;" primaryText="Primary text"></pie-list-item>
 </pie-list>
 ```
 
@@ -331,7 +334,7 @@ To keep lists consistent and correct, follow these rules:
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
 - **Always set `hasMedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
 - **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
-- **Only use `center` for `--list-item-alignment-override`.** Other values are not supported.
+- **Only use `center` for `--list-item-alignment`.** Other values are not supported.
 - **`pie-avatar` is not yet ready** for use in lists. Prefer `pie-thumbnail` for media for now.
 
 ## Questions and Support

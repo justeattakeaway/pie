@@ -1,4 +1,6 @@
-import { html, nothing, unsafeCSS } from 'lit';
+import {
+    html, isServer, nothing, unsafeCSS,
+} from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { consume, ContextProvider } from '@lit/context';
@@ -40,9 +42,12 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean })
         hasMedia = defaultProps.hasMedia;
 
-    @property({ type: String, attribute: 'selection-type', reflect: true })
+    @property({ type: String, attribute: 'selection-type' })
     @validPropertyValues(componentSelector, selectionTypes, defaultProps.selectionType)
         selectionType = defaultProps.selectionType;
+
+    @property({ type: Boolean })
+        disabled = defaultProps.disabled;
 
     // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state.
     // Defaults to false when there is no provider (a standalone item or a static list).
@@ -53,7 +58,14 @@ export class PieListItem extends PieElement implements ListItemProps {
     // Provides this item's accessible name/description down to its slotted control via the shared
     // aria context, which the control consumes and applies to the element carrying its semantics
     // (the internal input for pie-checkbox / pie-switch). See `ariaContext` in pie-webc-core.
-    private _ariaProvider = new ContextProvider(this, { context: ariaContext });
+    //
+    // Guarded with `isServer`: `@lit/context`'s ContextProvider attaches `context-request`
+    // listeners to the host in its constructor (via `host.addEventListener`). During SSR/prerender
+    // the element is constructed without a DOM host, so that call throws
+    // ("host.addEventListener is not a function") and breaks the build. The provider is client-only
+    // anyway (context is delivered after `connectedCallback`, which SSR never runs), so it is safe
+    // to skip on the server.
+    private _ariaProvider = isServer ? undefined : new ContextProvider(this, { context: ariaContext });
 
     private _abortController!: AbortController;
 
@@ -70,17 +82,15 @@ export class PieListItem extends PieElement implements ListItemProps {
         return this.selectionType === 'radio' || this.selectionType === 'checkbox';
     }
 
-    // True when this row should be treated as disabled: either its own control is disabled, or
-    // the containing group is disabled. The control's state is read live (rather than cached in
-    // reactive state) so it is always evaluated in the same render as `_isSelectable`, leaving no
-    // window where a disabled row is momentarily interactive during hydration.
+    // True when the row should be treated as disabled: either its own `disabled` prop is set, or the
+    // containing group is disabled (provided via context). Declarative and reactive, so the styling
+    // and row-click guard react without observing the slotted control.
     private get _isDisabled (): boolean {
-        return (this._control?.hasAttribute('disabled') ?? false) || this._parentDisabled;
+        return this.disabled || this._parentDisabled;
     }
 
-    private _controlObserver?: MutationObserver;
-
-    // The interactive control (radio/checkbox/switch) slotted into this item, if any.
+    // The interactive control (radio/checkbox/switch) slotted into this item, if any. Used only by
+    // the client-side row-click handler.
     private get _control (): HTMLElement | null {
         return this.querySelector('pie-radio, pie-checkbox, pie-switch');
     }
@@ -98,12 +108,11 @@ export class PieListItem extends PieElement implements ListItemProps {
     disconnectedCallback () {
         super.disconnectedCallback();
         this._abortController.abort();
-        this._controlObserver?.disconnect();
     }
 
     protected updated () {
         this._applyRole();
-        this._ariaProvider.setValue(this._providedAria);
+        this._ariaProvider?.setValue(this._providedAria);
     }
 
     /**
@@ -130,26 +139,6 @@ export class PieListItem extends PieElement implements ListItemProps {
         const description = [this.secondaryText, this.metaText].filter(Boolean).join('. ');
 
         return { label: this.primaryText, description: description || undefined };
-    }
-
-    private _handleControlSlotChange (): void {
-        this._observeControl();
-        // Re-render so the row's `is-disabled` reflects the newly slotted control.
-        this.requestUpdate();
-    }
-
-    /**
-     * Observes the slotted control's `disabled` attribute so the row's interactive (hover and
-     * active) styles react to it being toggled at runtime, not just when the slot changes.
-     */
-    private _observeControl (): void {
-        this._controlObserver?.disconnect();
-
-        const control = this._control;
-        if (!control) return;
-
-        this._controlObserver = new MutationObserver(() => this.requestUpdate());
-        this._controlObserver.observe(control, { attributes: true, attributeFilter: ['disabled'] });
     }
 
     /**
@@ -182,7 +171,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             return html`<span class="c-listItem-metaText c-listItem-trailing" aria-hidden=${this._isSelectable ? 'true' : nothing}>${metaText}</span>`;
         }
 
-        return html`<div class="c-listItem-trailing"><slot name="trailing" @slotchange=${this._handleControlSlotChange}></slot></div>`;
+        return html`<div class="c-listItem-trailing"><slot name="trailing"></slot></div>`;
     }
 
     render () {
@@ -200,7 +189,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         return html`
         <div class=${classMap(containerClasses)}>
             <div class="c-listItem-leading">
-                <slot name="leading" @slotchange=${this._handleControlSlotChange}></slot>
+                <slot name="leading"></slot>
             </div>
 
             <div class="c-listItem-text" aria-hidden=${this._isSelectable ? 'true' : nothing}>

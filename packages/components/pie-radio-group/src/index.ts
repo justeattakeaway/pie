@@ -1,5 +1,6 @@
 import {
     html,
+    isServer,
     unsafeCSS,
     nothing,
     type PropertyValues,
@@ -9,7 +10,7 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import {
     property, state,
 } from 'lit/decorators.js';
-import { provide } from '@lit/context';
+import { ContextProvider } from '@lit/context';
 import {
     RtlMixin,
     FormControlMixin,
@@ -52,9 +53,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @state()
     private _allRadiosDisabled = false;
 
-    @state()
-    private _hasListItems = false;
-
     @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
 
@@ -64,11 +62,21 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @property({ type: Boolean })
     public isInline = defaultProps.isInline;
 
-    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the
-    // list rows (suppressing their hover/active states).
-    @provide({ context: parentDisabledContext })
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
+
+    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the list rows
+    // (suppressing their hover/active states), and kept in sync in `updated()`.
+    //
+    // Created manually (rather than via the `@provide` decorator) so it can be guarded with
+    // `isServer`: `@lit/context`'s ContextProvider attaches `context-request` listeners to the host
+    // in its constructor (via `host.addEventListener`). During SSR/prerender the element is
+    // constructed without a DOM host, so that call throws and breaks the build. The provider is
+    // client-only anyway (context is delivered after `connectedCallback`, which SSR never runs), so
+    // it is safe to skip on the server.
+    private _disabledProvider = isServer
+        ? undefined
+        : new ContextProvider(this, { context: parentDisabledContext, initialValue: defaultProps.disabled });
 
     @property({ type: String })
     public assistiveText?: RadioGroupProps['assistiveText'];
@@ -156,9 +164,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _handleRadioSlotChange (): void {
         this._resetButtonsTabIndex();
         this._applyNameToChildren();
-        // When radios are wrapped in `pie-list-item`s the group renders as a divided list
-        // (no inter-item gap); direct-child radios keep their default spacing.
-        this._hasListItems = this.querySelector('pie-list-item') !== null;
     }
 
     /**
@@ -191,6 +196,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('disabled')) {
+            this._disabledProvider?.setValue(this.disabled);
             this._handleDisabled();
         }
 
@@ -438,7 +444,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             assistiveText,
             _fieldSetTabIndex,
             _allRadiosDisabled,
-            _hasListItems,
         } = this;
         const hasAssistiveText = Boolean(assistiveText?.length);
 
@@ -446,7 +451,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             'c-radioGroup': true,
             'c-radioGroup--inline': isInline,
             'c-radioGroup--hasAssistiveText': hasAssistiveText,
-            'c-radioGroup--listItems': _hasListItems,
         };
 
         return html`

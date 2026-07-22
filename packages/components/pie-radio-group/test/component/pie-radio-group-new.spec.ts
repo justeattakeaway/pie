@@ -852,6 +852,8 @@ test.describe('PieRadioGroup - Component tests new', () => {
         });
 
         test('should expose radiogroup, presentation and radio roles', async ({ page }) => {
+            // Each item sets `selection-type="radio"`, so it takes the `presentation` role and the
+            // group owns the `radio` descendants directly.
             await expect(page.getByTestId(radioGroup.selectors.fieldset.dataTestId)).toHaveAttribute('role', 'radiogroup');
             await expect(page.getByTestId(selectors.items[1])).toHaveAttribute('role', 'presentation');
             await expect(page.getByTestId(selectors.radios[1])).toHaveAttribute('role', 'radio');
@@ -948,6 +950,15 @@ test.describe('PieRadioGroup - Component tests new', () => {
             await page.getByTestId(selectors.items[3]).click();
 
             expect(await isRadioChecked(page, selectors.radios[3])).toBe(false);
+        });
+
+        test('should mark the row disabled from the item\'s `disabled` prop', async ({ page }) => {
+            const isRowDisabled = (testId: string) => page.getByTestId(testId)
+                .evaluate((el) => el.shadowRoot?.querySelector('.c-listItem-container')?.classList.contains('is-disabled') ?? false);
+
+            // item-3 sets `disabled`; item-1 does not.
+            expect(await isRowDisabled(selectors.items[3])).toBe(true);
+            expect(await isRowDisabled(selectors.items[1])).toBe(false);
         });
 
         test.describe('keyboard navigation', () => {
