@@ -87,6 +87,7 @@ export const AssociatedLabelMixin =
             private observeAssociatedLabels () : void {
                 const { labels } = this._internals;
 
+                console.log({ labels, isSafari: isSafari() });
                 if (!isSafari() || !labels.length) {
                     return;
                 }
@@ -94,8 +95,9 @@ export const AssociatedLabelMixin =
                 this.updateAssociatedLabelText();
 
                 this._labelMutationObserver = new MutationObserver(() => this.updateAssociatedLabelText());
-
+                console.log('MutationObserver', this._labelMutationObserver);
                 labels.forEach((label) => {
+                    console.log('Observing label for mutations', label);
                     this._labelMutationObserver?.observe(label, { childList: true, characterData: true, subtree: true });
                 });
             }
