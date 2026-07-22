@@ -415,7 +415,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             return;
         }
 
-        // Prevent default scrolling behavior when using Arrow keys for Radio Group navigation
+        // Prevent default scrolling behaviour when using Arrow keys for Radio Group navigation
         if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.code)) {
             event.preventDefault();
         }
