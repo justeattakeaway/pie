@@ -19,12 +19,12 @@
     display: flex;
     flex-flow: column wrap;
 
-    > pie-radio + pie-radio {
-        margin-block-start: var(--radio-group-gap);
-    }
-
     > legend {
         margin-block-end: var(--dt-spacing-b);
+    }
+
+    ::slotted(pie-radio:not(:first-of-type)) {
+        margin-block-start: var(--radio-group-gap);
     }
 
     &.c-radioGroup--inline {
