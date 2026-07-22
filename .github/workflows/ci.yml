@@ -232,7 +232,7 @@ jobs:
 
   deploy-storybook:
     needs: [ unit-tests, check-change-type ]
-    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
+    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true' && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     permissions:
       contents: read
       deployments: write
@@ -251,7 +251,7 @@ jobs:
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
     needs: [ unit-tests, check-change-type ]
-    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
+    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true' && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     permissions:
       contents: read
       deployments: write
@@ -275,7 +275,7 @@ jobs:
     name: component-tests (${{ matrix.package }})
     needs: [ build-ubuntu-node-24, deploy-storybook-testing, check-change-type ]
     if: >-
-      needs.check-change-type.outputs.web-components-change == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+      needs.check-change-type.outputs.web-components-change == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.draft == false) && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.57.0-noble
@@ -331,7 +331,7 @@ jobs:
 
   deploy-docs:
     needs: [ unit-tests, check-change-type ]
-    if: (needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
+    if: (needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true' && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     permissions:
       contents: read
       deployments: write
