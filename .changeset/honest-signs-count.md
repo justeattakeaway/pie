@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-tag": patch
 ---
 
-[Fixed] - remove justify-content: center from tag wrapper
+[Fixed] - ensure the container always hugs the content
