@@ -50,6 +50,87 @@ export const ButtonComponent = ButtonComponentReact as React.ForwardRefExoticCom
 "
 `;
 
+exports[`React Wrapper > should generate a controlled-input wrapper for components with a value field and an input event 1`] = `
+"import * as React from 'react';
+import { createComponent, type EventName } from '@lit/react';
+import { PieTextInput as PieTextInputLit } from './index';
+import { type TextInputProps } from './defs';
+
+export * from './defs';
+
+const PieTextInputReact = createComponent({
+    displayName: 'PieTextInput',
+    elementClass: PieTextInputLit,
+    react: React,
+    tagName: 'pie-text-input',
+    events: {
+        onInput: 'input' as EventName<InputEvent>,
+        onChange: 'change' as EventName<CustomEvent>,
+    },
+});
+
+type PieTextInputEvents = {
+    onInput?: (event: InputEvent) => void;
+    onChange?: (event: CustomEvent) => void;
+};
+
+type PieTextInputWrapperProps = React.PropsWithChildren<Omit<React.PropsWithoutRef<TextInputProps>, 'children'>>
+    & React.RefAttributes<PieTextInputLit> & PieTextInputEvents;
+
+// Use a layout effect on the client (so value writes happen before paint) and a
+// regular effect on the server to avoid React's "useLayoutEffect does nothing on
+// the server" warning during SSR.
+const useIsomorphicPieTextInputLayoutEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
+const PieTextInputControlled = React.forwardRef<PieTextInputLit, PieTextInputWrapperProps>((props, forwardedRef) => {
+    const { value, children, ...restProps } = props as PieTextInputWrapperProps & { value?: string | number | null };
+    const elementRef = React.useRef<PieTextInputLit | null>(null);
+    const lastAppliedValueRef = React.useRef<string | number | null | undefined>(undefined);
+
+    const setElementRef = React.useCallback((node: PieTextInputLit | null) => {
+        elementRef.current = node;
+
+        if (typeof forwardedRef === 'function') {
+            forwardedRef(node);
+        } else if (forwardedRef) {
+            (forwardedRef as React.MutableRefObject<PieTextInputLit | null>).current = node;
+        }
+    }, [forwardedRef]);
+
+    useIsomorphicPieTextInputLayoutEffect(() => {
+        const element = elementRef.current;
+
+        if (!element) {
+            return;
+        }
+
+        // Only write when the controlled value has actually changed since we last
+        // applied it. This prevents a re-render carrying an already-applied value
+        // from overwriting characters the user has typed in the meantime.
+        if (value !== lastAppliedValueRef.current) {
+            lastAppliedValueRef.current = value;
+
+            const nextValue = value == null ? '' : String(value);
+
+            if (element.value !== nextValue) {
+                element.value = nextValue;
+            }
+        }
+    });
+
+    return React.createElement(
+        PieTextInputReact,
+        { ...restProps, ref: setElementRef } as unknown as React.ComponentProps<typeof PieTextInputReact>,
+        children,
+    );
+});
+
+PieTextInputControlled.displayName = 'PieTextInput';
+
+export const PieTextInput = PieTextInputControlled as React.ForwardRefExoticComponent<PieTextInputWrapperProps>;
+"
+`;
+
 exports[`React Wrapper > should leave the events object empty if the component contains no custom events 1`] = `
 "import * as React from 'react';
 import { createComponent } from '@lit/react';
