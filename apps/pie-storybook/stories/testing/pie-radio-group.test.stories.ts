@@ -258,7 +258,7 @@ const buildListItemsTemplate = (value?: string) => {
             pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
         </style>
         <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
-        <pie-radio-group data-test-id="pie-radio-group" name="delivery" variant="list" value=${ifDefined(value)} @change=${onChange}>
+        <pie-radio-group data-test-id="pie-radio-group" name="delivery" value=${ifDefined(value)} @change=${onChange}>
             <!-- item-1: secondary AND meta text (combined into aria-description) -->
             <pie-list-item selection-type="radio" data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
                 <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
@@ -292,7 +292,7 @@ const WithListItemsGroupDisabledTemplate = () => html`
             /* Set on the item directly (a value inherited from the group cannot override the item's :host default). */
             pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
         </style>
-        <pie-radio-group data-test-id="pie-radio-group" name="delivery" variant="list" value="express" disabled>
+        <pie-radio-group data-test-id="pie-radio-group" name="delivery" value="express" disabled>
             <pie-list-item selection-type="radio" data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
                 <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
             </pie-list-item>

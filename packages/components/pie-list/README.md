@@ -55,7 +55,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
-| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. Set it on each selectable row. Inside a `pie-radio-group`, also set `variant="list"` on the group for the divided layout. See [Selectable lists](#selectable-lists). | `"none"` |
+| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. Set it on each selectable row. Inside a `pie-radio-group`, the group lays the rows out as a divided list automatically. See [Selectable lists](#selectable-lists). | `"none"` |
 | `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
 
 ### Slots
@@ -248,9 +248,9 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 
 ### Selectable lists
 
-`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, set `variant="list"` on a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select), place `pie-list-item`s inside it with `selection-type="radio"`, and slot the control into each item's `leading` (or `trailing`) slot.
+`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select) with `selection-type="radio"`, and slot the control into each item's `leading` (or `trailing`) slot. The group lays the rows out as a divided list automatically.
 
-Two props, two jobs: `variant="list"` on the **group** handles the divided layout; `selection-type` on each **item** makes that row selectable:
+`selection-type` on each **item** makes that row selectable:
 
 - takes the correct **role** — `presentation` for `radio`/`checkbox` (so the group owns the controls directly), `listitem` for `switch` and `none`;
 - provides its `primaryText`, `secondaryText` and `metaText` as the slotted control's **accessible name and description** (and `aria-hidden`s the now-duplicated visible text);
@@ -268,9 +268,9 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 ```
 
 ```html
-<!-- `variant="list"` gives the group its divided layout; `selection-type="radio"` makes each row
-     selectable. `value` on the group selects the matching radio (here, Express). -->
-<pie-radio-group name="delivery" value="express" variant="list">
+<!-- `selection-type="radio"` makes each row selectable and the group lays them out as a divided
+     list. `value` on the group selects the matching radio (here, Express). -->
+<pie-radio-group name="delivery" value="express">
   <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
     <pie-radio slot="leading" value="standard"></pie-radio>
   </pie-list-item>

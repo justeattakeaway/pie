@@ -36,7 +36,6 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `name`         | —                                            | The name associated with the group.                                                                                      | `undefined` |
 | `value`        | —                                            | Selects the radio whose `value` matches (unselecting the others), and is the group's form value alongside `name`. Set this to pre-select an option. | `""`        |
 | `isInline`     | `true`, `false`                              | Inline (horizontal) positioning of radio items.                                                                          | `false`     |
-| `variant`      | `"default"`, `"list"`                        | `default` is a stack of plain `pie-radio` controls. `list` lays out `pie-list-item` rows as a divided list (dividers, no inter-item gap). Set `selection-type="radio"` on each row too (see [List items in a radio group](#list-items-in-a-radio-group)). | `"default"` |
 | `disabled`     | `true`, `false`                              | Indicates whether or not the radio group is disabled.                                                                    | `false`     |
 | `assistiveText`| —                                            | An optional assistive text to display below the checkbox group.                                                          | `undefined` |
 | `status`       | `"default"`, `"success"`, `"error"`          | The status of the radio group component / assistive text. Can be `default`, `success`, or `error`.                       | `"default"` |
@@ -44,7 +43,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Slots
 | Slot      | Description                                                                                      |
 |-----------|--------------------------------------------------------------------------------------------------|
-| `default` | Either [`pie-radio`](https://webc.pie.design/?path=/docs/components-radio--overview) components, or (with `variant="list"`) [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) components that each slot a `pie-radio` for a list-style layout (see [List items in a radio group](#list-items-in-a-radio-group)). Do not add other HTML. |
+| `default` | Either [`pie-radio`](https://webc.pie.design/?path=/docs/components-radio--overview) components, or [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) components that each slot a `pie-radio` for a list-style layout (see [List items in a radio group](#list-items-in-a-radio-group)). Do not add other HTML. |
 | `label`   | To provide a custom label for the radio group. Please use [`pie-form-label`](https://webc.pie.design/?path=/docs/components-form-label--overview). |
 
 ### CSS Variables
@@ -119,9 +118,9 @@ import { PieFormLabel } from '@justeattakeaway/pie-webc/react/form-label.js';
 
 ### List items in a radio group
 
-For a list-style layout (each option on its own row with primary and secondary text, and dividers between rows), set `variant="list"` on the group and wrap each `pie-radio` in a [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) with `selection-type="radio"`. The radio goes in the item's `leading` (or `trailing`) slot, and you provide the label through the item's `primaryText` rather than as the radio's content.
+For a list-style layout (each option on its own row with primary and secondary text, and dividers between rows), wrap each `pie-radio` in a [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) with `selection-type="radio"`. The radio goes in the item's `leading` (or `trailing`) slot, and you provide the label through the item's `primaryText` rather than as the radio's content. The group lays the rows out as a divided list automatically when its children are `pie-list-item`s.
 
-The two props do different jobs: `variant="list"` on the **group** handles the divided layout (dividers, no inter-item gap), and `selection-type="radio"` on each **item** makes that row a selectable target:
+`selection-type="radio"` on each **item** makes that row a selectable target:
 
 - the item takes a `presentation` role, so the group still owns its `radio` children directly;
 - the item's `primaryText` becomes the radio's accessible name (`aria-label`), and its `secondaryText` and `metaText` its `aria-description`, so you do not pass label text to the radio itself;
@@ -138,7 +137,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 ```
 
 ```html
-<pie-radio-group name="delivery" variant="list">
+<pie-radio-group name="delivery">
   <pie-form-label slot="label">Delivery method</pie-form-label>
   <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
     <pie-radio slot="leading" value="standard"></pie-radio>

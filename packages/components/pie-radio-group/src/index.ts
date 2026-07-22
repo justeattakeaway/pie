@@ -26,7 +26,6 @@ import {
     type RadioGroupProps,
     defaultProps,
     statusTypes,
-    variantTypes,
     ON_RADIO_GROUP_DISABLED,
 } from './defs';
 import '@justeattakeaway/pie-assistive-text';
@@ -53,10 +52,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
     @state()
     private _allRadiosDisabled = false;
-
-    @property({ type: String, reflect: true })
-    @validPropertyValues(componentSelector, variantTypes, defaultProps.variant)
-    public variant = defaultProps.variant;
 
     @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
@@ -446,7 +441,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             isInline,
             disabled,
             status,
-            variant,
             assistiveText,
             _fieldSetTabIndex,
             _allRadiosDisabled,
@@ -457,7 +451,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             'c-radioGroup': true,
             'c-radioGroup--inline': isInline,
             'c-radioGroup--hasAssistiveText': hasAssistiveText,
-            'c-radioGroup--listItems': variant === 'list',
         };
 
         return html`

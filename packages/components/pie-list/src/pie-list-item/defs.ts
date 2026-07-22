@@ -48,9 +48,8 @@ export interface ListItemProps {
      * - `checkbox` - hosts a `pie-checkbox` (used inside a `pie-checkbox-group`); the item is `presentation`.
      * - `switch` - hosts a `pie-switch`; there is no group, so the item stays `role="listitem"`.
      *
-     * Set this on each selectable row. When the rows sit inside a `pie-radio-group`, also set
-     * `variant="list"` on the group so it lays them out as a divided list (that prop governs layout;
-     * this one governs the row's role and behaviour).
+     * Set this on each selectable row. When the rows sit inside a `pie-radio-group`, the group lays
+     * them out as a divided list automatically; this prop governs the row's role and behaviour.
      */
     selectionType?: typeof selectionTypes[number]
 
