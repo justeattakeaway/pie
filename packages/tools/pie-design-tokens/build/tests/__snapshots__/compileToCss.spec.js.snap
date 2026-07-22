@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compileToCss with a single theme should stringify the tokens correctly and ignore global tokens 1`] = `
+Array [
+  Array [
+    "jet",
+    "css",
+    ":root {
+    /* Global tokens - Color */
+    --dt-color-blue: #125fca;
+}
+",
+  ],
+  Array [
+    "jet-hsl-colors",
+    "css",
+    ":root {
+    --dt-color-blue-h: 215;
+    --dt-color-blue-s: 83.6%;
+    --dt-color-blue-l: 43.1%;
+}
+",
+  ],
+]
+`;
+
+exports[`compileToCss with a single theme should stringify the tokens correctly and ignore global tokens but not the override 1`] = `
+Array [
+  Array [
+    "jet",
+    "css",
+    ":root {
+    /* Global tokens - Color */
+    --dt-color-blue: #125fca;
+}
+",
+  ],
+  Array [
+    "jet-hsl-colors",
+    "css",
+    ":root {
+    --dt-color-blue-h: 215;
+    --dt-color-blue-s: 83.6%;
+    --dt-color-blue-l: 43.1%;
+}
+",
+  ],
+]
+`;
+
+exports[`compileToCss with two themes should stringify the tokens correctly and ignore global tokens 1`] = `
+Array [
+  Array [
+    "jet",
+    "css",
+    ":root {
+    /* Global tokens - Color */
+    --dt-color-blue: #125fca;
+}
+",
+  ],
+  Array [
+    "jet-hsl-colors",
+    "css",
+    ":root {
+    --dt-color-blue-h: 215;
+    --dt-color-blue-s: 83.6%;
+    --dt-color-blue-l: 43.1%;
+}
+",
+  ],
+  Array [
+    "newjet",
+    "css",
+    ":root {
+    /* Global tokens - Color */
+    --dt-color-blue: #ebf6fa;
+}
+",
+  ],
+  Array [
+    "newjet-hsl-colors",
+    "css",
+    ":root {
+    --dt-color-blue-h: 196;
+    --dt-color-blue-s: 60%;
+    --dt-color-blue-l: 95.1%;
+}
+",
+  ],
+]
+`;
+
+exports[`compileToCss with two themes should stringify the tokens correctly and ignore global tokens but not the override 1`] = `
+Array [
+  Array [
+    "jet",
+    "css",
+    ":root {
+    /* Global tokens - Color */
+    --dt-color-blue: #125fca;
+}
+",
+  ],
+  Array [
+    "jet-hsl-colors",
+    "css",
+    ":root {
+    --dt-color-blue-h: 215;
+    --dt-color-blue-s: 83.6%;
+    --dt-color-blue-l: 43.1%;
+}
+",
+  ],
+  Array [
+    "newjet",
+    "css",
+    ":root {
+    /* Global tokens - Color */
+    --dt-color-blue: #ebf6fa;
+}
+",
+  ],
+  Array [
+    "newjet-hsl-colors",
+    "css",
+    ":root {
+    --dt-color-blue-h: 196;
+    --dt-color-blue-s: 60%;
+    --dt-color-blue-l: 95.1%;
+}
+",
+  ],
+]
+`;

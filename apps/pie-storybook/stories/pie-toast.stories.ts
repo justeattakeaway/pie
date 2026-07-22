@@ -16,6 +16,9 @@ const defaultArgs: ToastProps = {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
     },
+    aria: {
+        close: 'Close the toast',
+    },
     duration: null,
 };
 
@@ -71,6 +74,10 @@ const toastStoryMeta: ToastStoryMeta = {
             description: 'Sets the duration of the toast in milliseconds before it auto-dismisses.',
             control: 'number',
         },
+        aria: {
+            description: 'The ARIA labels used for various parts of the toast.',
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -96,6 +103,7 @@ const Template : TemplateFunction<ToastProps> = ({
     isStrong,
     variant,
     duration,
+    aria,
 }: ToastProps) => {
     const [, updateArgs] = useArgs();
 
@@ -119,6 +127,7 @@ const Template : TemplateFunction<ToastProps> = ({
             .duration="${duration}"
             ?isMultiline="${isMultiline}"
             .leadingAction="${leadingAction}"
+            .aria="${aria}"
             @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
             @pie-toast-close="${pieToastCloseHandle}"
             @pie-toast-open="${pieToastOpenHandle}"/>

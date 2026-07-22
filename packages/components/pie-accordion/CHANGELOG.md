@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-accordion
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`abe8453`](https://github.com/justeattakeaway/pie/commit/abe8453d6973f69e96e6ed6914dad38be31364cd)]:
+  - @justeattakeaway/pie-icons-webc@1.27.0
+
+## 0.2.0
+
+### Minor Changes
+
+- [Changed] - Promoted component status to Beta ([#3015](https://github.com/justeattakeaway/pie/pull/3015)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.1.0
 
 ### Minor Changes

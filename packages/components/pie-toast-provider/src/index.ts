@@ -154,6 +154,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
                     ?isDismissible="${_currentToast.isDismissible}"
                     ?isMultiline="${_currentToast.isMultiline}"
                     .leadingAction="${_currentToast.leadingAction}"
+                    .aria="${_currentToast.aria}"
                     .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
                     @pie-toast-close="${this._dismissToast}"
                     @pie-toast-open="${_currentToast.onPieToastOpen}"

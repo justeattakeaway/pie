@@ -860,6 +860,27 @@ test.describe('PieTextarea - Component tests', () => {
         });
     });
 
+    test.describe('Methods', () => {
+        test.describe('setSelectionRange', () => {
+            test('should correctly select a range of text programmatically', async ({ page }) => {
+                // Arrange
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ value: 'test' });
+
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+                const result = await textarea.evaluate((el: HTMLTextAreaElement) => {
+                    el.setSelectionRange(0, 3);
+                    return { start: el.selectionStart, end: el.selectionEnd };
+                });
+
+                // Assert
+                expect(result.start).toBe(0);
+                expect(result.end).toBe(3);
+            });
+        });
+    });
+
     test.describe('Attributes', () => {
         test.describe('aria-describedby', () => {
             test.describe('when `assistiveText` is NOT defined', () => {
@@ -971,6 +992,37 @@ test.describe('PieTextarea - Component tests', () => {
                         await expect(textarea).not.toHaveAttribute('aria-errormessage');
                     });
                 });
+            });
+        });
+
+        test.describe('aria-label', () => {
+            test('should apply aria-label to the underlying element when aria prop is provided', async ({ page }) => {
+                // Arange
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    aria: {
+                        label: 'Name',
+                    },
+                };
+                await textAreaPage.load({ ...props });
+
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(textarea).toHaveAttribute('aria-label', 'Name');
+            });
+
+            test('should not set aria-label when aria prop is not provided', async ({ page }) => {
+                // Arange
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load({ aria: undefined });
+
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(textarea).not.toHaveAttribute('aria-label');
             });
         });
     });

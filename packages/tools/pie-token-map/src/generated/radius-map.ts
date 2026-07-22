@@ -7,6 +7,8 @@ export const radiusTokenNames = [
     'rounded-c',
     'rounded-d',
     'rounded-e',
+    'rounded-f',
+    'rounded-g',
     'rounded-none',
 ] as const;
 
@@ -18,5 +20,7 @@ export const radiusMap: Record<RadiusTokenName, CssVarRef> = {
     'rounded-c': 'var(--dt-radius-rounded-c)',
     'rounded-d': 'var(--dt-radius-rounded-d)',
     'rounded-e': 'var(--dt-radius-rounded-e)',
+    'rounded-f': 'var(--dt-radius-rounded-f)',
+    'rounded-g': 'var(--dt-radius-rounded-g)',
     'rounded-none': 'var(--dt-radius-rounded-none)',
 };

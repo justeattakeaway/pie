@@ -70,6 +70,9 @@ export class PieToast extends PieElement implements ToastProps {
     @property({ type: Number })
     public duration = defaultProps.duration;
 
+    @property({ type: Object })
+    public aria: ToastProps['aria'];
+
     @query('pie-button')
     private actionButton?: HTMLElement;
 
@@ -238,6 +241,7 @@ export class PieToast extends PieElement implements ToastProps {
                 variant="${this.shouldNotUseInverseBtnVariant() ? 'ghost-secondary' : 'ghost-inverse'}"
                 size="xsmall"
                 data-test-id="${componentSelector}-close"
+                .aria="${{ label: this.aria?.close }}"
                 @click="${this.closeToastComponent}">
                 <icon-close></icon-close>
             </pie-icon-button>`;

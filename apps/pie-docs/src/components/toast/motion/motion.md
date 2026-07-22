@@ -6,6 +6,7 @@ eleventyNavigation:
 eleventyComputed:
     enterTransition: "{% include './enter-transition.json' %}"
     existTransition: "{% include './exit-transition.json' %}"
+shouldShowContents: true
 ---
 
 ## Example
