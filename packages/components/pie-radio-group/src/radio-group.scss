@@ -25,6 +25,7 @@
 
     &.c-radioGroup--inline {
         flex-flow: row wrap;
+
         // inline only supported for pie-radio in slots (rather than list-item) so gap can be used here
         gap: var(--radio-group-gap--inline);
     }
