@@ -1,6 +1,6 @@
-import { type LitElement, type PropertyValues } from 'lit';
+import { type LitElement } from 'lit';
 import type { GenericConstructor } from '../types/GenericConstructor';
-import { isSafari } from '../../functions/isSafari';
+// import { isSafari } from '../../functions/isSafari';
 
 /**
  * Joins and normalises the text content of a set of `<label>` elements into a single string.
@@ -70,8 +70,8 @@ export const AssociatedLabelMixin =
 
             private _labelMutationObserver?: MutationObserver;
 
-            protected firstUpdated (changedProperties: PropertyValues) {
-                super.firstUpdated(changedProperties);
+            connectedCallback () {
+                super.connectedCallback();
                 this.observeAssociatedLabels();
             }
 
@@ -88,9 +88,9 @@ export const AssociatedLabelMixin =
             private observeAssociatedLabels () : void {
                 const { labels } = this._internals;
 
-                if (!isSafari() || !labels.length) {
-                    return;
-                }
+                // if (!isSafari() || !labels.length) {
+                //     return;
+                // }
 
                 this.updateAssociatedLabelText();
 
