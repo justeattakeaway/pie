@@ -1,0 +1,20 @@
+{
+  "headings": [
+    "Command",
+    "Description"
+  ],
+  "rows": [
+    [
+      "'Space' or 'Enter'",
+      "Expands or collapses a panel. If only one panel can be open at a time and a panel is already expanded, it will collapse"
+    ],
+    [
+      "'Tab'",
+      "Moves focus to the first interactive element within the panel if it is open, progressing through each subsequent element"
+    ],
+    [
+      "'Shift + Tab'",
+      "Moves focus to the previous interactive element within the panel if it is open, progressing through each preceding element"
+    ]
+  ]
+}

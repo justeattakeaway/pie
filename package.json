@@ -43,6 +43,7 @@
     "dev:testing": "turbo run dev:testing",
     "generate:component-statuses": "turbo run generate:component-statuses",
     "generate:copilot-instructions": "turbo run generate:copilot-instructions",
+    "generate:verify": "cross-env-shell turbo run generate:verify --token=${TURBO_TOKEN}",
     "lint:banned-patterns": "node ./packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.js",
     "lint:config:fix": "eslint --fix turbo.json (packages|apps)/**/turbo.json",
     "lint:scripts": "cross-env-shell turbo run lint:scripts --token=${TURBO_TOKEN}",
@@ -56,6 +57,7 @@
     "test:watch": "cross-env-shell turbo run test:watch",
     "test:ci": "cross-env-shell turbo run test:ci --token=${TURBO_TOKEN}",
     "test:coverage": "turbo run test:coverage",
+    "test:output": "cross-env-shell turbo run test:output --token=${TURBO_TOKEN}",
     "test:generate-routes": "turbo run test:generate-routes --token=${TURBO_TOKEN}",
     "test:browsers-setup": "turbo run test:browsers-setup --token=${TURBO_TOKEN}",
     "test:browsers": "cross-env-shell turbo run test:browsers --token=${TURBO_TOKEN}",
@@ -72,14 +74,14 @@
     }
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.11.3",
+    "@axe-core/playwright": "4.12.1",
     "@babel/preset-env": "7.29.7",
     "@changesets/changelog-github": "0.6.0",
     "@changesets/cli": "2.31.0",
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-conventional": "20.5.0",
     "@custom-elements-manifest/analyzer": "0.11.0",
-    "@justeat/pie-design-tokens": "7.11.1",
+    "@justeat/pie-design-tokens": "workspace:*",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/generator-pie-component": "workspace:*",
     "@justeattakeaway/pie-icons": "workspace:*",
@@ -120,7 +122,7 @@
     "typescript": "5.9.3",
     "vite": "6.4.2",
     "vite-plugin-dts": "4.5.4",
-    "vitest": "4.1.9"
+    "vitest": "4.1.10"
   },
   "config": {
     "commitizen": {

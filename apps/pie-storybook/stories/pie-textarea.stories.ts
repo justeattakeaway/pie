@@ -15,7 +15,7 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 type TextareaStoryMeta = Meta<TextareaProps>;
 
-const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
+const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName', aria: { label: 'Test Label' } };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Components/Textarea',
@@ -37,7 +37,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         resize: {
-            description: 'Controls the resizing behaviour of the textarea. Can be `auto` or `manual`. Defaults to `auto`.',
+            description: 'Controls the resizing behaviour of the textarea. Can be `auto`, `manual` or `none`. Defaults to `auto`.',
             control: 'select',
             options: resizeModes,
             defaultValue: {
@@ -123,11 +123,15 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         rows: {
-            description: 'The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized.',
+            description: 'The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized. When `resize` is `none`, follows the `rows` value set by the user, defaulting to 2 rows.',
             control: 'number',
             defaultValue: {
                 summary: '2',
             },
+        },
+        aria: {
+            description: 'ARIA attributes for the textarea. Offers `label` — use it when no visible label is associated with the textarea.',
+            control: 'object',
         },
 
     },
@@ -156,6 +160,7 @@ const Template = ({
     placeholder,
     maxlength,
     rows,
+    aria,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -194,7 +199,8 @@ const Template = ({
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
             maxlength=${ifDefined(maxlength)}
-            rows=${ifDefined(rows)}>
+            rows=${ifDefined(rows)}
+            .aria=${ifDefined(aria)}>
         </pie-textarea>
     `;
 };
@@ -213,7 +219,7 @@ export const Default = CreateTextareaStory({}, {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },
 });
-export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)({}, {
+export const WithLabel = CreateTextareaStoryWithLabel({ ...defaultArgs, aria: undefined })({}, {
     argTypes: {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
     },

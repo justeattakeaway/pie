@@ -55,7 +55,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
-| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. See [Selectable lists](#selectable-lists). | `"none"` |
+| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. Set it on each selectable row. Inside a `pie-radio-group`, the group lays the rows out as a divided list automatically. See [Selectable lists](#selectable-lists). | `"none"` |
+| `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
 
 ### Slots
 
@@ -78,12 +79,12 @@ Some slotted content is designed with specific properties being used. So please 
 
 ### CSS Variables
 
-These custom properties override the item defaults. Each **must be set on the `pie-list-item`** (directly, or via a rule targeting it), not on `pie-list`. The default lives on the item's host, so a value inherited from `pie-list` will not override it.
+These custom properties can be set on a `pie-list-item` (or on `pie-list` to affect all items) to override the defaults.
 
 | Variable | Description | Accepted values |
 |---|---|---|
-| `--list-item-inline-padding` | Sets the inline (start and end) padding of the item. Defaults to `var(--dt-spacing-d)`. | Any PIE spacing token (e.g. `var(--dt-spacing-f)`) or `0` |
-| `--list-item-alignment` | Sets the vertical alignment of the item's content. Defaults to `flex-start`. | Only `center` is recommended |
+| `--list-item-inline-padding` | Sets the inline (start and end) padding of the item. Defaults to `var(--dt-spacing-d)`. **Must be set on the `pie-list-item`** (directly or via a rule targeting it), not on `pie-list` — the default lives on the item's host, so an inherited value from `pie-list` will not override it. | Any PIE spacing token (e.g. `var(--dt-spacing-f)`) or `0` |
+| `--list-item-alignment` | Sets the vertical alignment of the item's content. Defaults to `flex-start`. **Must be set on the `pie-list-item`** (directly or via a rule targeting it), not on `pie-list` — the default lives on the item's host, so an inherited value from `pie-list` will not override it. | Only `center` is recommended |
 
 ### Events
 
@@ -269,7 +270,9 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 ```
 
 ```html
-<pie-radio-group name="delivery">
+<!-- `selection-type="radio"` makes each row selectable and the group lays them out as a divided
+     list. `value` on the group selects the matching radio (here, Express). -->
+<pie-radio-group name="delivery" value="express">
   <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
     <pie-radio slot="leading" value="standard"></pie-radio>
   </pie-list-item>

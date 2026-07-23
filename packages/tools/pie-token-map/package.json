@@ -1,6 +1,6 @@
 {
     "name": "@justeattakeaway/pie-token-map",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Programmatic lookup of PIE design tokens by name, returning CSS variable references.",
     "type": "module",
     "main": "dist/index.js",
@@ -33,7 +33,7 @@
         "watch": "run -T vite build --watch"
     },
     "devDependencies": {
-        "@justeat/pie-design-tokens": "7.11.1",
+        "@justeat/pie-design-tokens": "7.14.2",
         "@justeattakeaway/pie-components-config": "*"
     }
 }

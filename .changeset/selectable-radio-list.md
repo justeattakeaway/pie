@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-radio-group": minor
 ---
 
-[Added] - Support for using `pie-list-item` as children of `pie-radio-group`. Radios can be wrapped in list items (at any nesting depth) to render a divided, list-style radio group; the group manages keyboard navigation, focus, selection, and the list items' roles and ARIA.
+[Added] - `variant="list"` on `pie-radio-group` for a divided, list-style radio group: set `variant="list"` on the group and wrap each radio (at any nesting depth) in a `pie-list-item` with `selection-type="radio"`. `variant` handles the divided layout (dividers, no inter-item gap); the group manages keyboard navigation, focus and selection as usual. `variant="default"` (the default) keeps the plain stacked-radio layout.

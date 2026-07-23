@@ -1,5 +1,141 @@
 # Changelog
 
+## 5.8.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.35
+
+## 5.8.1
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#3031](https://github.com/justeattakeaway/pie/pull/3031)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`a616d05`](https://github.com/justeattakeaway/pie/commit/a616d05e1af03de1e0f32595ae0bd399cbe7de1f), [`abe8453`](https://github.com/justeattakeaway/pie/commit/abe8453d6973f69e96e6ed6914dad38be31364cd)]:
+  - @justeat/pie-design-tokens@7.14.2
+  - @justeattakeaway/pie-icons@5.30.0
+  - @justeattakeaway/pie-icons-webc@1.27.0
+  - @justeattakeaway/pie-webc@0.10.34
+  - @justeattakeaway/pie-css@1.3.1
+
+## 5.8.0
+
+### Minor Changes
+
+- [Added] Modal-native Android/iOS docs and updated the Overview page and description. ([#3003](https://github.com/justeattakeaway/pie/pull/3003)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] Toast apps (mobile) docs.
+  [Added] Tooltip Android/iOS docs.
+  [Added] Accordion Apps docs.
+  [Updated] Toast motion page: added shouldShowContents.
+  [Updated] Toast web page: renamed "Variations" section to "Variants" and added spacing fixes.
+  [Updated] Accordion Web docs. It now includes an Accessibility section.
+
+- [Updated] Checkbox web and Checkbox Group docs ([#3018](https://github.com/justeattakeaway/pie/pull/3018)) by [@Grrreidy](https://github.com/Grrreidy)
+
+  [Added] Checkbox Android and Checkbox iOS docs
+
+### Patch Changes
+
+- [Changed] - Updating docs pages for checkbox web and checkbox group. ([#3018](https://github.com/justeattakeaway/pie/pull/3018)) by [@Grrreidy](https://github.com/Grrreidy)
+
+  [Added] - Publishing new docs pages for checkbox apps.
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.33
+
+## 5.7.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.32
+  - @justeattakeaway/pie-icons@5.29.1
+
+## 5.7.0
+
+### Minor Changes
+
+- [Added] - List-item Android/iOS docs. ([#2973](https://github.com/justeattakeaway/pie/pull/2973)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] - Radio and Radio group Android/iOS docs.
+  [Updated] - Minor content updates to assistive-text, breadcrumb, cookie banner, divider, overlay patterns, [Web] Radio/Radio group and select-input docs.
+  [Updated] - Updated index images for FAB, Form label, Icon button, Segmented controls, Tag and Tag icon only.
+  [Added] - Removed from draft the pages for Modal-native docs.
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#3011](https://github.com/justeattakeaway/pie/pull/3011)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`263d435`](https://github.com/justeattakeaway/pie/commit/263d43519df6caa234ac8e6648d228bead1f29c6)]:
+  - @justeattakeaway/pie-icons@5.29.0
+  - @justeattakeaway/pie-icons-webc@1.26.0
+  - @justeattakeaway/pie-webc@0.10.31
+
+## 5.6.0
+
+### Minor Changes
+
+- [Changed] - update pie-tokens version ([#3008](https://github.com/justeattakeaway/pie/pull/3008)) by [@maledr5](https://github.com/maledr5)
+
+- [Added] content to the Accordion web page ([#3004](https://github.com/justeattakeaway/pie/pull/3004)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Added] - Publishing new docs pages for FAB apps and web. ([#2988](https://github.com/justeattakeaway/pie/pull/2988)) by [@Grrreidy](https://github.com/Grrreidy)
+
+- Updated dependencies [[`56c23f1`](https://github.com/justeattakeaway/pie/commit/56c23f194ccb55e4cc064f7426022341dfacef39)]:
+  - @justeattakeaway/pie-css@1.3.0
+  - @justeattakeaway/pie-webc@0.10.30
+  - @justeattakeaway/pie-icons-webc@1.25.4
+
+## 5.5.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.29
+
+## 5.5.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.28
+
+## 5.5.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.27
+
+## 5.5.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.26
+
+## 5.5.0
+
+### Minor Changes
+
+- [Added] - Card - Web figma slot notification in Content ([#2974](https://github.com/justeattakeaway/pie/pull/2974)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Removed] - Bottom sheet - Android & Bottom sheet - iOS old slot content in Slot (nested component)
+  [Added] - Bottom sheet - Android & Bottom sheet - iOS figma slot content and notification in Content
+  [Removed] - Modal - Android & Modal - iOS old slot content in Interactions
+  [Added] - Modal - Android & Modal - iOS figma slot content and notification in Content
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.25.3
+  - @justeattakeaway/pie-webc@0.10.25
+
 ## 5.4.1
 
 ### Patch Changes

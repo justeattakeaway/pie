@@ -21,7 +21,7 @@ import {
 
 type TextareaStoryMeta = Meta<TextareaProps & { showAdditionalField?: boolean }>;
 
-const defaultArgs: TextareaProps = { ...defaultProps };
+const defaultArgs: TextareaProps = { ...defaultProps, aria: { label: 'Test Label' } };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
@@ -127,6 +127,10 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '2',
             },
         },
+        aria: {
+            description: 'ARIA attributes for the textarea. Offers `label` — use it when no visible label is associated with the textarea.',
+            control: 'object',
+        },
     },
     args: defaultArgs,
 };
@@ -147,6 +151,7 @@ const Template = ({
     placeholder,
     maxlength,
     rows,
+    aria,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -192,6 +197,7 @@ const Template = ({
             status=${ifDefined(status)}
             maxlength=${ifDefined(maxlength)}
             rows=${ifDefined(rows)}
+            .aria=${ifDefined(aria)}
             data-test-id="pie-textarea-container">
         </pie-textarea>
         <div id="output"></div>
@@ -337,7 +343,7 @@ export const Default = CreateTextareaStory({}, {
         defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
     },
 });
-export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)();
+export const WithLabel = CreateTextareaStoryWithLabel({ ...defaultArgs, aria: undefined })();
 export const ExampleForm = CreateTextareaStoryWithForm();
 
 // Base shared props matrix
@@ -351,13 +357,13 @@ const baseSharedPropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
 
 // Text variant stories
 const textPropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
-    resize: ['auto', 'manual'],
+    resize: ['auto', 'manual', 'none'],
     value: [shortContent, longContent, overflowingContent],
 };
 
 // Text resize stories
 const resizePropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
-    resize: ['auto', 'manual'],
+    resize: ['auto', 'manual', 'none'],
 };
 
 // Status variant stories

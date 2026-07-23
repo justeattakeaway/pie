@@ -1,5 +1,25 @@
 # @justeattakeaway/pie-list
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@16.0.0
+
+## 0.1.0
+
+### Minor Changes
+
+- [Added] - Plain text list/list item component variation. ([#2989](https://github.com/justeattakeaway/pie/pull/2989)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.0.31
+
+### Patch Changes
+
+- Updated dependencies [[`1926dd6`](https://github.com/justeattakeaway/pie/commit/1926dd6a8e486dd8af9a532b8addb67a5c1cdc8b)]:
+  - @justeattakeaway/pie-webc-core@15.1.0
+
 ## 0.0.30
 
 ### Patch Changes

@@ -17,6 +17,7 @@
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
   - [Events](#events)
+  - [Methods](#methods)
 - [Forms Usage](#forms-usage)
   - [Validation](#validation)
     - [Example](#example)
@@ -38,6 +39,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Properties
 | Prop           | Options                                                      | Description                                                                                                                                                                                                                                        | Default     |
 |----------------|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| `aria`         | `{ label?: string }`                                         | ARIA attributes for the textarea. Offers `label` — use it when no visible label is associated with the textarea. | `undefined` |
 | `assistiveText`| `string`                                                     | Allows assistive text to be displayed below the textarea. Must be provided if using a non-default status.                                                                                                                                        | `undefined` |
 | `autocomplete` | `string`                                                     | Allows enabling or disabling autocomplete. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for values.                                                                                                      | `undefined` |
 | `autoFocus`    | `true`, `false`                                              | If true, focuses the textarea on first render. Only one element should have `autofocus`. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus).                                                              | `false`     |
@@ -48,8 +50,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `placeholder`  | `string`                                                     | Placeholder text shown when textarea is empty.                                                                                                                                                                                                   | `""`        |
 | `readonly`     | `true`, `false`                                              | When true, the user cannot edit the textarea. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly).                                                                                       | `false`     |
 | `required`     | `true`, `false`                                              | If true, textarea must have a value for valid form submission. Does not block form submission by itself.                                                                                                                                         | `false`     |
-| `resize`       | `"auto"`, `"manual"`                                         | Controls resizing behavior. `auto` resizes vertically as needed; `manual` allows user resizing but no auto resizing.                                                                                                                             | `"auto"`    |
-| `rows`         | `number`                                                     | The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized. | `undefined` |
+| `resize`       | `"auto"`, `"manual"`, `"none"`                               | Controls resizing behavior. `auto` resizes vertically as needed; `manual` allows user resizing but no auto resizing; `none` cannot be resized by the user or grow automatically.                                                                | `"auto"`    |
+| `rows`         | `number`                                                     | The number of visible text rows. Defaults to 2 when `resize` is `auto`, with a maximum of 6 rows. Can be set to 1 when `resize` is `manual` (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized. When `resize` is `none`, follows the `rows` value set by the user, defaulting to 2 rows. | `undefined` |
 | `size`         | `"small"`, `"medium"`, `"large"`                             | Sets the visual size of the textarea.                                                                                                                                                                                                            | `"medium"`  |
 | `status`       | `"default"`, `"error"`, `"success"`                          | Status of the component. If not `default`, `assistiveText` must be provided for accessibility.                                                                                                                                                   | `"default"` |
 | `value`        | `string`                                                     | Value of the textarea (used in form key/value pairs).                                                                                                                                                                                            | `""`        |
@@ -65,6 +67,11 @@ This component does not expose any CSS variables for style overrides.
 |----------|---------------------------------------------------------------------------|
 | `change` | Fires when the textarea loses focus after the value has been changed.     |
 | `input`  | Fires when the textarea value is changed.                                 |
+
+### Methods
+| Method | Parameters | Description | Returns |
+|--------|------------|-------------|---------|
+| `setSelectionRange` | `selectionStart: number`, `selectionEnd: number`, `selectionDirection?: "forward" | "backward" | "none"` | Sets the selected text range on the underlying native textarea element. | `void` |
 
 ## Forms Usage
 It is essential that when using the textarea inside the form, you provide a `name` attribute. HTML forms create key/value pairs for textarea data based on the `name` attribute, which is crucial for native form submission.

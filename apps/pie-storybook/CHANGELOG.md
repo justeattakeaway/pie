@@ -1,5 +1,107 @@
 # Changelog
 
+## 1.86.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.35
+
+## 1.86.0
+
+### Minor Changes
+
+- [Added] - aria prop ([#3026](https://github.com/justeattakeaway/pie/pull/3026)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`a616d05`](https://github.com/justeattakeaway/pie/commit/a616d05e1af03de1e0f32595ae0bd399cbe7de1f), [`abe8453`](https://github.com/justeattakeaway/pie/commit/abe8453d6973f69e96e6ed6914dad38be31364cd)]:
+  - @justeat/pie-design-tokens@7.14.2
+  - @justeattakeaway/pie-icons-webc@1.27.0
+  - @justeattakeaway/pie-webc@0.10.34
+  - @justeattakeaway/pie-css@1.3.1
+
+## 1.85.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.33
+
+## 1.85.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.32
+
+## 1.85.1
+
+### Patch Changes
+
+- Updated dependencies [[`263d435`](https://github.com/justeattakeaway/pie/commit/263d43519df6caa234ac8e6648d228bead1f29c6)]:
+  - @justeattakeaway/pie-icons-webc@1.26.0
+  - @justeattakeaway/pie-webc@0.10.31
+
+## 1.85.0
+
+### Minor Changes
+
+- [Changed] - update pie-tokens version ([#3008](https://github.com/justeattakeaway/pie/pull/3008)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies [[`56c23f1`](https://github.com/justeattakeaway/pie/commit/56c23f194ccb55e4cc064f7426022341dfacef39)]:
+  - @justeattakeaway/pie-css@1.3.0
+  - @justeattakeaway/pie-webc@0.10.30
+  - @justeattakeaway/pie-icons-webc@1.25.4
+
+## 1.84.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.29
+
+## 1.84.0
+
+### Minor Changes
+
+- [Added] - New pie list examples for the plain text list/list item ([#2989](https://github.com/justeattakeaway/pie/pull/2989)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.28
+
+## 1.83.0
+
+### Minor Changes
+
+- [Added] reusable container class for having fixed widths ([#2972](https://github.com/justeattakeaway/pie/pull/2972)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.27
+
+## 1.82.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.26
+
+## 1.82.4
+
+### Patch Changes
+
+- [Fixed] - update docs ([#2985](https://github.com/justeattakeaway/pie/pull/2985)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.25.3
+  - @justeattakeaway/pie-webc@0.10.25
+
 ## 1.82.3
 
 ### Patch Changes

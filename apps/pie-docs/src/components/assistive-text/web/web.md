@@ -43,7 +43,7 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -81,17 +81,17 @@ Shown when an input passes validation, and feedback is required on an individual
 
 All content should use sentence case.
 
-### Default
+### Default content
 
 - Should provide additional instructional information that helps the user fill out a form field, as clearly and succinctly as possible.
 - Use sentence case.
 
-### Error
+### Error content
 
 - Should describe the error and inform the user on how to fix it, as clearly and succinctly as possible.
 - Use sentence case.
 
-### Success
+### Success content
 
 - Should describe the success as clearly and succinctly as possible.
 - Use sentence case.

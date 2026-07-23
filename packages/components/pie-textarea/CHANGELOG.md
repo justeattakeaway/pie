@@ -1,5 +1,51 @@
 # @justeattakeaway/pie-textarea
 
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - aria prop ([#3026](https://github.com/justeattakeaway/pie/pull/3026)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.5
+
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - Exposed `setSelectionRange()` method on `pie-textarea` ([#3007](https://github.com/justeattakeaway/pie/pull/3007)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 0.21.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.4
+
+## 0.21.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.3
+  - @justeattakeaway/pie-webc-core@16.0.0
+
+## 0.21.0
+
+### Minor Changes
+
+- [Added] - New `resize="none"` value ([#2991](https://github.com/justeattakeaway/pie/pull/2991)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 0.20.2
+
+### Patch Changes
+
+- Updated dependencies [[`1926dd6`](https://github.com/justeattakeaway/pie/commit/1926dd6a8e486dd8af9a532b8addb67a5c1cdc8b)]:
+  - @justeattakeaway/pie-webc-core@15.1.0
+  - @justeattakeaway/pie-assistive-text@1.0.2
+
 ## 0.20.1
 
 ### Patch Changes

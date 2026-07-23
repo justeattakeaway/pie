@@ -1,5 +1,67 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.10.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-modal@1.27.2
+  - @justeattakeaway/pie-icon-button@2.7.25
+  - @justeattakeaway/pie-link@1.3.40
+  - @justeattakeaway/pie-switch@2.5.5
+
+## 1.10.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.24
+  - @justeattakeaway/pie-link@1.3.39
+  - @justeattakeaway/pie-modal@1.27.1
+  - @justeattakeaway/pie-switch@2.5.4
+
+## 1.10.4
+
+### Patch Changes
+
+- Updated dependencies [[`56c23f1`](https://github.com/justeattakeaway/pie/commit/56c23f194ccb55e4cc064f7426022341dfacef39)]:
+  - @justeattakeaway/pie-modal@1.27.0
+  - @justeattakeaway/pie-button@1.14.8
+  - @justeattakeaway/pie-divider@1.5.28
+  - @justeattakeaway/pie-icon-button@2.7.23
+  - @justeattakeaway/pie-link@1.3.38
+  - @justeattakeaway/pie-switch@2.5.3
+  - @justeattakeaway/pie-webc-core@16.0.0
+
+## 1.10.3
+
+### Patch Changes
+
+- Updated dependencies [[`3f3e72b`](https://github.com/justeattakeaway/pie/commit/3f3e72bd9264df646f057adeae985c87867330b4)]:
+  - @justeattakeaway/pie-button@1.14.7
+  - @justeattakeaway/pie-modal@1.26.15
+  - @justeattakeaway/pie-icon-button@2.7.22
+
+## 1.10.2
+
+### Patch Changes
+
+- Updated dependencies [[`65d311c`](https://github.com/justeattakeaway/pie/commit/65d311c928cb2f630a9c4c810874e8ea46bee4e2)]:
+  - @justeattakeaway/pie-modal@1.26.14
+
+## 1.10.1
+
+### Patch Changes
+
+- Updated dependencies [[`1926dd6`](https://github.com/justeattakeaway/pie/commit/1926dd6a8e486dd8af9a532b8addb67a5c1cdc8b), [`1926dd6`](https://github.com/justeattakeaway/pie/commit/1926dd6a8e486dd8af9a532b8addb67a5c1cdc8b), [`1926dd6`](https://github.com/justeattakeaway/pie/commit/1926dd6a8e486dd8af9a532b8addb67a5c1cdc8b)]:
+  - @justeattakeaway/pie-webc-core@15.1.0
+  - @justeattakeaway/pie-switch@2.5.2
+  - @justeattakeaway/pie-button@1.14.6
+  - @justeattakeaway/pie-divider@1.5.27
+  - @justeattakeaway/pie-icon-button@2.7.21
+  - @justeattakeaway/pie-link@1.3.37
+  - @justeattakeaway/pie-modal@1.26.13
+
 ## 1.10.0
 
 ### Minor Changes

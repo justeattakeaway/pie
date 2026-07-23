@@ -25,7 +25,7 @@ shouldShowContents: true
     }
 } %}
 
-___
+---
 
 ## Anatomy
 
@@ -45,7 +45,7 @@ ___
 
 ---
 
-## Variations
+## Variants
 
 ### Orientation
 

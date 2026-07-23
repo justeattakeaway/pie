@@ -84,7 +84,7 @@ jobs:
           echo "is-internal=$IS_INTERNAL" >> "$GITHUB_OUTPUT"
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           fetch-depth: 0
       # Setup Repo
@@ -141,7 +141,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -159,7 +159,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -181,7 +181,7 @@ jobs:
     if: (github.event.repository.fork == false || github.event_name == 'pull_request')
     steps:
       - name: Checkout code
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
       - name: Lint workflows
         shell: bash
         env:
@@ -212,7 +212,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -223,10 +223,15 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:ci"
+      # Fail if any committed generated file is out of date with its source
+      - name: Verify generated files
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "generate:verify"
 
   deploy-storybook:
     needs: [ unit-tests, check-change-type ]
-    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
+    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true' && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     permissions:
       contents: read
       deployments: write
@@ -245,7 +250,7 @@ jobs:
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
     needs: [ unit-tests, check-change-type ]
-    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
+    if: ((needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true' && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     permissions:
       contents: read
       deployments: write
@@ -269,7 +274,7 @@ jobs:
     name: component-tests (${{ matrix.package }})
     needs: [ build-ubuntu-node-24, deploy-storybook-testing, check-change-type ]
     if: >-
-      needs.check-change-type.outputs.web-components-change == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+      needs.check-change-type.outputs.web-components-change == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.draft == false) && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.57.0-noble
@@ -280,7 +285,7 @@ jobs:
         package: ${{ fromJson(needs.check-change-type.outputs.changed-component-packages) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           fetch-depth: 1
       - name: Setup Repo
@@ -325,7 +330,7 @@ jobs:
 
   deploy-docs:
     needs: [ unit-tests, check-change-type ]
-    if: (needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true'
+    if: (needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main') && needs.check-change-type.outputs.is-internal == 'true' && !(github.event_name == 'pull_request' && github.event.pull_request.user.login == 'pie-design-system-app[bot]')
     permissions:
       contents: read
       deployments: write
@@ -351,7 +356,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           fetch-depth: 0
       # Setup Repo

@@ -1,5 +1,18 @@
 # Changelog
 
+## 16.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`56c23f1`](https://github.com/justeattakeaway/pie/commit/56c23f194ccb55e4cc064f7426022341dfacef39)]:
+  - @justeattakeaway/pie-css@1.3.0
+
+## 15.1.0
+
+### Minor Changes
+
+- [Added] - New `AssociatedLabelMixin`, extracted from `pie-switch`, for mirroring the text content of a form-associated custom element's associated `<label>`(s) onto an `associatedLabelText` property (used as a Safari `aria-label` fallback) ([#2985](https://github.com/justeattakeaway/pie/pull/2985)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 15.0.1
 
 ### Patch Changes

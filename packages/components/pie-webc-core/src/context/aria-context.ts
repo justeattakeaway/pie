@@ -23,8 +23,7 @@ export interface ContextualAria {
  * Context carrying a `ContextualAria` from a provider down to a consuming component. `undefined`
  * when no ancestor provides ARIA (for example a standalone control).
  *
- * Why a context rather than ARIA props on each component (see the pie-webc-core README for the
- * full rationale):
+ * Why a context rather than ARIA props on each component:
  * - it lets a wrapper name a control it does not own, carrying a resolved string across the shadow
  *   boundary that `aria-labelledby` / `aria-describedby` IDREFs cannot cross;
  * - it reaches consumers at any depth below the provider without prop drilling through the layers

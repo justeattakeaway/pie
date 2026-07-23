@@ -1,10 +1,22 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['small', 'medium', 'large'] as const;
-export const resizeModes = ['auto', 'manual'] as const;
+export const resizeModes = ['auto', 'manual', 'none'] as const;
 export const statusTypes = ['default', 'success', 'error'] as const;
 
+type AriaProps = {
+    /**
+     * Provides an accessible label for the textarea. Should be used when no visible label is associated with the textarea.
+     */
+    label?: string;
+}
+
 export interface TextareaProps {
+    /**
+     * ARIA attributes for the textarea.
+     */
+    aria?: AriaProps;
+
     /**
      * Same as the HTML disabled attribute - indicates whether the textarea is disabled.
      */
@@ -16,9 +28,10 @@ export interface TextareaProps {
     size?: typeof sizes[number];
 
     /**
-     * The resize mode of the textarea. Can be `auto` or `manual`. Defaults to `auto`.
+     * The resize mode of the textarea. Can be `auto`, `manual` or `none`. Defaults to `auto`.
      * When set to `auto`, the textarea will resize vertically as needed.
      * When set to `manual`, the textarea will not resize automatically but can be resized by the user.
+     * When set to `none`, the textarea will not resize automatically and cannot be resized by the user.
      */
     resize?: typeof resizeModes[number];
 
@@ -84,6 +97,7 @@ export interface TextareaProps {
     /**
      * The number of visible text rows. Defaults to 2 when resize is auto, with a maximum of 6 rows.
      * Can be set to 1 when resize is manual (no maximum height on desktop). On mobile, manual mode is fixed at 6 rows and cannot be resized.
+     * When resize is none, follows the rows value set by the user, defaulting to 2 rows.
      */
     rows?: number;
 }
@@ -91,7 +105,7 @@ export interface TextareaProps {
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue' | 'maxlength' | 'rows'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue' | 'maxlength' | 'rows' | 'aria'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.

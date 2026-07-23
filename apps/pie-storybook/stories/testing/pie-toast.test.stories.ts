@@ -74,6 +74,10 @@ const toastStoryMeta: ToastStoryMeta = {
             description: 'Sets the duration of the toast in milliseconds before it auto-dismisses.',
             control: 'number',
         },
+        aria: {
+            description: 'The ARIA labels used for various parts of the toast.',
+            control: 'object',
+        },
     },
     args: defaultArgs,
 };
@@ -102,6 +106,7 @@ const Template : TemplateFunction<ToastProps> = ({
     isStrong,
     variant,
     duration,
+    aria,
 }: ToastProps) => html`
         <pie-toast
             ?isOpen="${isOpen}"
@@ -111,7 +116,8 @@ const Template : TemplateFunction<ToastProps> = ({
             message="${message}" 
             .duration="${duration}"
             ?isMultiline="${isMultiline}"
-            .leadingAction="${leadingAction}">
+            .leadingAction="${leadingAction}"
+            .aria="${aria}">
         </pie-toast>
     `;
 

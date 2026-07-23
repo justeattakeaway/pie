@@ -1,5 +1,35 @@
 # @justeattakeaway/pie-text-input
 
+## 0.30.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.5
+
+## 0.30.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.4
+
+## 0.30.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.3
+  - @justeattakeaway/pie-webc-core@16.0.0
+
+## 0.30.2
+
+### Patch Changes
+
+- Updated dependencies [[`1926dd6`](https://github.com/justeattakeaway/pie/commit/1926dd6a8e486dd8af9a532b8addb67a5c1cdc8b)]:
+  - @justeattakeaway/pie-webc-core@15.1.0
+  - @justeattakeaway/pie-assistive-text@1.0.2
+
 ## 0.30.1
 
 ### Patch Changes

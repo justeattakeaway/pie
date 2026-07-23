@@ -42,6 +42,13 @@ const spinnerStoryMeta: SpinnerStoryMeta = {
             description: 'The ARIA labels used for the spinner.',
             control: 'object',
         },
+        isCentered: {
+            description: 'When true, positions the spinner absolutely and centers it within its nearest relative ancestor.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isCentered,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -58,10 +65,12 @@ const Template: TemplateFunction<SpinnerProps> = ({
     size,
     variant,
     aria,
+    isCentered,
 }) => html`
         <pie-spinner
             size="${ifDefined(size)}"
             variant="${ifDefined(variant)}"
+            ?isCentered="${isCentered}"
             .aria="${aria}">
         </pie-spinner>`;
 

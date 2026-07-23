@@ -81,6 +81,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @property({ type: Number })
     public rows: TextareaProps['rows'];
 
+    @property({ type: Object })
+    public aria: TextareaProps['aria'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
@@ -116,7 +119,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this.handleResize();
         }
 
-        if (this.resize === 'manual' && ((changedProperties.has('rows') || changedProperties.has('size') || changedProperties.has('resize')))) {
+        if ((this.resize === 'manual' || this.resize === 'none') && ((changedProperties.has('rows') || changedProperties.has('size') || changedProperties.has('resize')))) {
             this._textarea.style.height = '';
         }
     }
@@ -144,6 +147,17 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      */
     public formDisabledCallback (disabled: boolean): void {
         this.disabled = disabled;
+    }
+
+    /**
+     * Sets the selected text range on the underlying native textarea.
+     */
+    public setSelectionRange (
+        selectionStart: number,
+        selectionEnd: number,
+        selectionDirection: 'forward' | 'backward' | 'none' = 'none',
+    ): void {
+        this._textarea.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
     }
 
     /**
@@ -225,6 +239,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             assistiveText,
             maxlength,
             rows,
+            aria,
         } = this;
 
         const classes = {
@@ -251,6 +266,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     ?readonly=${readonly}
                     ?required=${required}
                     ?disabled=${disabled}
+                    aria-label=${ifDefined(aria?.label)}
                     aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                     aria-invalid=${status === 'error' ? 'true' : 'false'}
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"

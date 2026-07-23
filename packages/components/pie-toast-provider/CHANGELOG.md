@@ -1,5 +1,55 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.1.1
+
+## 1.1.0
+
+### Minor Changes
+
+- [Added] - `aria` prop to `pie-toast` for setting a custom `aria-label` on the close button via `aria.close` ([#3023](https://github.com/justeattakeaway/pie/pull/3023)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - `pie-toast-provider` now passes the `aria` prop down to the rendered `pie-toast`
+
+### Patch Changes
+
+- Updated dependencies [[`a97a69c`](https://github.com/justeattakeaway/pie/commit/a97a69c36786185f83683c8643348544876679ca)]:
+  - @justeattakeaway/pie-toast@1.1.0
+
+## 1.0.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.0.7
+
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.0.6
+  - @justeattakeaway/pie-webc-core@16.0.0
+
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.0.5
+
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`1926dd6`](https://github.com/justeattakeaway/pie/commit/1926dd6a8e486dd8af9a532b8addb67a5c1cdc8b)]:
+  - @justeattakeaway/pie-webc-core@15.1.0
+  - @justeattakeaway/pie-toast@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

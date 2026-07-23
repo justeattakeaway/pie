@@ -122,7 +122,7 @@
     },
     {
       "path": "./packages/components/pie-radio/dist/index.js",
-      "maxSize": "3.08 KB"
+      "maxSize": "4 KB"
     },
     {
       "path": "./packages/components/pie-radio/dist/react.js",
@@ -138,7 +138,7 @@
     },
     {
       "path": "./packages/components/pie-spinner/dist/index.js",
-      "maxSize": "1.5 KB"
+      "maxSize": "1.51 KB"
     },
     {
       "path": "./packages/components/pie-spinner/dist/react.js",
@@ -202,7 +202,7 @@
     },
     {
       "path": "./packages/components/pie-list/dist/*.js",
-      "maxSize": "3 KB"
+      "maxSize": "5 KB"
     },
     {
       "path": "./packages/components/pie-avatar/dist/*.js",

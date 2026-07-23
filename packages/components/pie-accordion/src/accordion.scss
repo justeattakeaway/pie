@@ -1,11 +1,133 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 :host {
-    // Note: For consistency sake, the recommended display should be either
-    // "block" or "inline-block", otherwise it can be ommited for floating elements
     display: block;
+
+    // Trigger button padding vars
+    --accordion-button-padding-block-start: var(--dt-spacing-d);
+    --accordion-button-padding-block-end: var(--dt-spacing-d);
+    --accordion-button-padding-inline-start: var(--dt-spacing-d);
+    --accordion-button-padding-inline-end: var(--dt-spacing-d);
+
+    // Pannel padding vars
+    --accordion-panel-padding-block-start: var(--dt-spacing-a);
+    --accordion-panel-padding-block-end: var(--dt-spacing-d);
+    --accordion-panel-padding-inline-start: var(--dt-spacing-d);
+    --accordion-panel-padding-inline-end: var(--dt-spacing-d);
+
+    // Border radius var
+    --accordion-border-radius: var(--dt-radius-rounded-none);
 }
 
-.c-accordion {
+// Reset browser default heading margins
+.c-accordion-heading {
+    margin: 0;
+    padding: 0;
+}
+
+// Trigger button - narrow layout by default
+.c-accordion-trigger {
+    --int-states-mixin-bg-color: var(--dt-color-transparent);
+
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: var(--dt-spacing-d);
+    padding-block-start: var(--accordion-button-padding-block-start);
+    padding-block-end: var(--accordion-button-padding-block-end);
+    padding-inline-start: var(--accordion-button-padding-inline-start);
+    padding-inline-end: var(--accordion-button-padding-inline-end);
+    background-color: var(--int-states-mixin-bg-color);
+    border: none;
+    border-radius: var(--accordion-border-radius);
+    text-align: start;
+    color: var(--dt-color-content-default);
+
+    @include p.font-theme('font-heading-s');
+    @include p.interactive-states('--dt-color-transparent', 'transparent');
     @include p.disable-pointer-events-in-slotted-icons;
+
+    &:focus-visible {
+        @include p.focus;
+
+        // Ensures the focus ring is displayed above adjacent neighbours
+        position: relative;
+    }
+
+    @media (pointer: fine) {
+        cursor: pointer;
+    }
+
+    &.is-open {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+
+        icon-chevron-down {
+            transform: rotate(180deg);
+        }
+    }
+
+    // Reduced emphasis - overrides heading-s weight/size with body/large on the label
+    &.is-reduced-emphasis {
+        .c-accordion-headingLabel {
+            font-size: calc(var(--dt-font-body-l-size) * 1px);
+            line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+            font-weight: var(--dt-font-body-l-weight);
+        }
+    }
+
+    // Forced narrow - overrides media query via source order
+    &.size-narrow {
+        font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
+        line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
+    }
+
+    // Forced wide - overrides media query via source order
+    &.size-wide {
+        font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
+        line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
+    }
+}
+
+// Labels wrapper
+.c-accordion-labels {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+    overflow: hidden;
+}
+
+// Secondary label - body/large (non-responsive, regular weight)
+.c-accordion-secondaryLabel {
+    font-size: calc(var(--dt-font-body-l-size) * 1px);
+    line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+    font-weight: var(--dt-font-body-l-weight);
+    color: var(--dt-color-content-subdued);
+}
+
+.c-accordion-chevron {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    color: inherit;
+}
+
+.c-accordion-panel {
+    padding-block-start: var(--accordion-panel-padding-block-start);
+    padding-block-end: var(--accordion-panel-padding-block-end);
+    padding-inline-start: var(--accordion-panel-padding-inline-start);
+    padding-inline-end: var(--accordion-panel-padding-inline-end);
+
+    background-color: var(--dt-color-transparent);
+
+    border-end-start-radius: var(--accordion-border-radius);
+    border-end-end-radius: var(--accordion-border-radius);
+}
+
+// Panel hidden state
+.c-accordion-panel[hidden] {
+    display: none;
 }

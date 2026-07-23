@@ -107,8 +107,24 @@
                     "displayName": "Arrow Down"
                 },
                 {
+                    "name": "arrow-down-circle",
+                    "displayName": "Arrow Down Circle"
+                },
+                {
+                    "name": "arrow-down-circle-filled",
+                    "displayName": "Arrow Down Circle Filled"
+                },
+                {
+                    "name": "arrow-in-circle",
+                    "displayName": "Arrow In Circle"
+                },
+                {
                     "name": "arrow-left",
                     "displayName": "Arrow Left"
+                },
+                {
+                    "name": "arrow-out-circle",
+                    "displayName": "Arrow Out Circle"
                 },
                 {
                     "name": "arrow-right",
@@ -123,20 +139,20 @@
                     "displayName": "Arrow Up Left"
                 },
                 {
-                    "name": "arrow-down-circle",
-                    "displayName": "Arrow Down Circle"
+                    "name": "curved-arrow-down",
+                    "displayName": "Curved Arrow Down"
                 },
                 {
-                    "name": "arrow-down-circle-filled",
-                    "displayName": "Arrow Down Circle Filled"
+                    "name": "curved-arrow-left",
+                    "displayName": "Curved Arrow Left"
                 },
                 {
-                    "name": "arrow-in-circle",
-                    "displayName": "Arrow In Circle"
+                    "name": "curved-arrow-right",
+                    "displayName": "Curved Arrow Right"
                 },
                 {
-                    "name": "arrow-out-circle",
-                    "displayName": "Arrow Out Circle"
+                    "name": "curved-arrow-up",
+                    "displayName": "Curved Arrow Up"
                 }
             ]
         },
@@ -1043,6 +1059,52 @@
             ]
         },
         {
+            "name": "formatting",
+            "displayName": "Formatting",
+            "icons": [
+                {
+                    "name": "bold",
+                    "displayName": "Bold"
+                },
+                {
+                    "name": "code-block",
+                    "displayName": "Code Block"
+                },
+                {
+                    "name": "heading-1",
+                    "displayName": "Heading 1"
+                },
+                {
+                    "name": "heading-2",
+                    "displayName": "Heading 2"
+                },
+                {
+                    "name": "heading-3",
+                    "displayName": "Heading 3"
+                },
+                {
+                    "name": "inline-code",
+                    "displayName": "Inline Code"
+                },
+                {
+                    "name": "italics",
+                    "displayName": "Italics"
+                },
+                {
+                    "name": "numbered-list",
+                    "displayName": "Numbered List"
+                },
+                {
+                    "name": "quote",
+                    "displayName": "Quote"
+                },
+                {
+                    "name": "strike",
+                    "displayName": "Strike"
+                }
+            ]
+        },
+        {
             "name": "fullscreen",
             "displayName": "Fullscreen",
             "icons": [
@@ -1185,6 +1247,10 @@
                     "displayName": "Navigation Expand"
                 },
                 {
+                    "name": "new-chat",
+                    "displayName": "New Chat"
+                },
+                {
                     "name": "note",
                     "displayName": "Note"
                 },
@@ -1223,6 +1289,10 @@
                 {
                     "name": "search",
                     "displayName": "Search"
+                },
+                {
+                    "name": "search-categories",
+                    "displayName": "Search Categories"
                 },
                 {
                     "name": "settings",
@@ -1331,16 +1401,16 @@
                     "displayName": "Geolocation"
                 },
                 {
-                    "name": "geolocation-filled",
-                    "displayName": "Geolocation Filled"
-                },
-                {
                     "name": "geolocation-circle",
                     "displayName": "Geolocation Circle"
                 },
                 {
                     "name": "geolocation-circle-filled",
                     "displayName": "Geolocation Circle Filled"
+                },
+                {
+                    "name": "geolocation-filled",
+                    "displayName": "Geolocation Filled"
                 },
                 {
                     "name": "location-pin",
@@ -1377,6 +1447,10 @@
                 {
                     "name": "map",
                     "displayName": "Map"
+                },
+                {
+                    "name": "map-legend",
+                    "displayName": "Map Legend"
                 },
                 {
                     "name": "route-pin",
@@ -1731,6 +1805,10 @@
                     "displayName": "Credits Filled"
                 },
                 {
+                    "name": "fast-cash",
+                    "displayName": "Fast Cash"
+                },
+                {
                     "name": "instant-bank",
                     "displayName": "Instant Bank"
                 },
@@ -1857,6 +1935,11 @@
                 {
                     "name": "nationale-nederlanden",
                     "displayName": "Nationale Nederlanden",
+                    "oneSize": true
+                },
+                {
+                    "name": "p24",
+                    "displayName": "P24",
                     "oneSize": true
                 },
                 {
@@ -2606,6 +2689,10 @@
                     "displayName": "eBike Filled"
                 },
                 {
+                    "name": "escooter",
+                    "displayName": "Escooter"
+                },
+                {
                     "name": "helmet",
                     "displayName": "Helmet"
                 },
@@ -2620,6 +2707,10 @@
                 {
                     "name": "rocket-ship",
                     "displayName": "Rocket Ship"
+                },
+                {
+                    "name": "traffic-light",
+                    "displayName": "Traffic Light"
                 },
                 {
                     "name": "walking",

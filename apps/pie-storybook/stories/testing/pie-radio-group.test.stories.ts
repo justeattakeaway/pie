@@ -324,12 +324,12 @@ const radioGroupPropsMatrix : Partial<Record<keyof RadioGroupProps, unknown[]>> 
     disabled: [true, false],
     isInline: [true, false],
     status: [...statusTypes],
-    labelSlot: ['Label'],
+    labelSlot: [labelSlotOptions.Label],
     assistiveText: ['Assistive text', ''],
     value: ['radio-two'],
 };
 
 const variantPropDisplayOptions: PropDisplayOptions<RadioGroupProps> = {
-    hiddenProps: ['value'],
+    hiddenProps: ['value', 'labelSlot'],
 };
 export const Variations = createVariantStory<RadioGroupProps>(DefaultTemplate, radioGroupPropsMatrix, { multiColumn: true, ...variantPropDisplayOptions });

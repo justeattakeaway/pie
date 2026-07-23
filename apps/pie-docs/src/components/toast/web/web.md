@@ -51,7 +51,7 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -214,7 +214,7 @@ Each level takes priority over those below it, queues alongside toasts of the sa
 
 {% notification {
   type: "information",
-  message: "Refer to the [Toast Provider](/components/toast/toast-provider/code/) documentation for guidance on how to manage the queue priority."
+  message: "Refer to the [Toast Provider](https://webc.pie.design/?path=/docs/components-toast-provider--overview) documentation for guidance on how to manage the queue priority."
 } %}
 
 ---
@@ -322,6 +322,8 @@ By default, toasts should appear at the bottom-left of the page's content area, 
     ]
 } %}
 
+<br />
+
 #### RTL
 
 By default, toasts should appear at the bottom-right of the page's content area, excluding any navigation in RTL layout. Alternatively, they may be placed at the bottom-left.
@@ -343,9 +345,11 @@ By default, toasts should appear at the bottom-right of the page's content area,
     ]
 } %}
 
+<br />
+
 ### Modal position
 
-A toast should be located at the bottom centre of the modal content. The toast shouldn't overlay a pinned footer. 
+A toast should be located at the bottom centre of the modal content. The toast shouldn't overlay a pinned footer.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/layout-modal-position.svg",
@@ -372,7 +376,6 @@ Here are some examples of the toast component in a left-to-right context:
     alt: "A toast component in a left-to-right context.",
     width: 272
 } %}
-
 
 ### RTL examples
 

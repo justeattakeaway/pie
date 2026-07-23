@@ -71,7 +71,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -1331,6 +1331,42 @@ const rows = [
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/modal/',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.BETA,
+        }
+    ],
+    [
+        { componentName: 'Modal-native' },
+        {
+            resource: resourceTypes.WEB_COMPONENT,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/%E2%9C%A8--Core--Apps-Components--PIE-3-?node-id=45-9885',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.WEB_COMPONENTS,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.VUE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.REACT,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,

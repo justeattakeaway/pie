@@ -47,10 +47,12 @@ shouldShowContents: true
 
 ---
 
-## Variations
+## Variants
+
 Radio groups can be laid out either vertically or horizontally depending on the use-case and the structure of the user interface. The default layout is vertical, and this is recommended for easier reading.
 
 ### Vertical
+
 {% contentPageImage {
     src:"../../../assets/img/components/radio-group/variations-vertical.svg",
     alt: "A vertical stack of radio buttons grouped together by a single label above them.",
@@ -58,6 +60,7 @@ Radio groups can be laid out either vertically or horizontally depending on the 
 } %}
 
 ### Horizontal
+
 {% contentPageImage {
     src:"../../../assets/img/components/radio-group/variations-horizontal.svg",
     alt: "A row of radio buttons grouped together by a single label above them.",
@@ -69,6 +72,7 @@ Radio groups can be laid out either vertically or horizontally depending on the 
 ## Modifiers
 
 ### Form label
+
 A form label is recommended to provide the user context of the form element and its content.
 
 {% contentLayout %}
@@ -88,8 +92,8 @@ A form label is recommended to provide the user context of the form element and 
   {% endcontentItem %}
 {% endcontentLayout %}
 
-
 ### Assistive text
+
 Assistive text is used where needed to provide additional information or error / success messaging regarding the whole form element, and never to individual radios. The assistive text is always used for an error state to provide the user with the information required to complete the form element.
 
 {% contentPageImage {
@@ -101,9 +105,11 @@ Assistive text is used where needed to provide additional information or error /
 ---
 
 ## Content
+
 All content should use sentence case.
 
 ### Form label
+
 {% notification {
   type: "neutral",
   iconName: "link",
@@ -111,6 +117,7 @@ All content should use sentence case.
 } %}
 
 ### Label
+
 - Always use clear and concise labels for radio buttons.
 - Labels appear to the right of radio buttons.
 
@@ -129,6 +136,7 @@ When the label exceeds the available width, the label will wrap onto a new line.
 ---
 
 ## States
+
 Individual radios have their own interactive states: default, hover, active, and focus. However, some states apply to the group as a collective because they affect all radios: error and disabled.
 
 {% contentLayout %}
@@ -153,6 +161,7 @@ Individual radios have their own interactive states: default, hover, active, and
 ## Examples
 
 ### LTR examples
+
 Here are some examples of the component in a left-to-right context:
 
 {% contentPageImage {
@@ -162,6 +171,7 @@ Here are some examples of the component in a left-to-right context:
 } %}
 
 ### RTL examples
+
 Here are some examples of the component in a right-to-left context:
 
 {% contentPageImage {

@@ -1,0 +1,50 @@
+{
+  "name": "@justeat/pie-design-tokens",
+  "version": "7.14.2",
+  "description": "Design Tokens for the PIE Component System",
+  "main": "index.js",
+  "files": [
+    "dist",
+    "build",
+    "index.js",
+    "pie-design-tokens.jsonc",
+    "platform",
+    "metadata"
+  ],
+  "scripts": {
+    "build": "node index.js",
+    "test": "jest -c jest.config.js",
+    "test:ci": "yarn test",
+    "test:output": "jest -c jest.config.output.js",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/tools/pie-design-tokens"
+  },
+  "keywords": [
+    "pie",
+    "fozzie",
+    "eyeglass-module"
+  ],
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/justeattakeaway/pie/packages/tools/pie-design-tokens#readme",
+  "dependencies": {
+    "jsonc-parser": "3.2.0",
+    "lodash.merge": "4.6.2",
+    "mkdirp": "1.0.4"
+  },
+  "devDependencies": {
+    "eslint-plugin-jest": "29.0.1",
+    "jest": "26.3.0"
+  },
+  "eyeglass": {
+    "name": "pie-design-tokens",
+    "sassDir": "dist/jet.scss",
+    "needs": "^3.0.2",
+    "exports": false
+  }
+}
