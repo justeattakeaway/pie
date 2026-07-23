@@ -1,15 +1,17 @@
 import {
-    html, unsafeCSS, type PropertyValues, type TemplateResult,
+    html, isServer, unsafeCSS, type PropertyValues, type TemplateResult,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, queryAssignedElements, state,
+    property, state,
 } from 'lit/decorators.js';
+import { ContextProvider } from '@lit/context';
 import {
     RtlMixin,
     FormControlMixin,
     validPropertyValues,
     safeCustomElement,
+    parentDisabledContext,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -57,7 +59,26 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren!: Array<HTMLElement>;
+    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the list rows
+    // (suppressing their hover/active states), and kept in sync in `updated()`.
+    //
+    // Created manually (rather than via the `@provide` decorator) so it can be guarded with
+    // `isServer`: `@lit/context`'s ContextProvider attaches `context-request` listeners to the host
+    // in its constructor (via `host.addEventListener`). During SSR/prerender the element is
+    // constructed without a DOM host, so that call throws and breaks the build. The provider is
+    // client-only anyway (context is delivered after `connectedCallback`, which SSR never runs), so
+    // it is safe to skip on the server.
+    private _disabledProvider = isServer
+        ? undefined
+        : new ContextProvider(this, { context: parentDisabledContext, initialValue: defaultProps.disabled });
+
+    /**
+     * The checkboxes in the group. This uses a subtree query rather than immediate slotted
+     * children so checkboxes wrapped in other components (at any depth) are discovered.
+     */
+    private get _slottedChildren (): HTMLElement[] {
+        return Array.from(this.querySelectorAll('pie-checkbox'));
+    }
 
     private _handleDisabled () : void {
         this._slottedChildren.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {
@@ -97,6 +118,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
 
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('disabled')) {
+            this._disabledProvider?.setValue(this.disabled);
             this._handleDisabled();
         }
 

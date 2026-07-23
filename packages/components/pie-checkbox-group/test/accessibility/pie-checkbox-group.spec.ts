@@ -15,4 +15,17 @@ test.describe('PieCheckboxGroup - Accessibility tests', () => {
         const results = await makeAxeBuilder().analyze();
         expect(results.violations).toEqual([]);
     });
+
+    test('a11y - should test the PieCheckboxGroup with list items WCAG compliance', async ({ makeAxeBuilder, page }) => {
+        // Arrange
+        const checkboxGroupPage = new BasePage(page, 'checkbox-group--with-list-items');
+        await checkboxGroupPage.load();
+
+        // Assert
+        const checkboxGroupComponent = page.getByTestId(checkboxGroup.selectors.container.dataTestId);
+        await expect.soft(checkboxGroupComponent).toBeVisible();
+
+        const results = await makeAxeBuilder().analyze();
+        expect(results.violations).toEqual([]);
+    });
 });

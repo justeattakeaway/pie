@@ -7,6 +7,8 @@ import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/radio-group';
 import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/checkbox-group';
+import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
@@ -143,7 +145,6 @@ const makeListTemplate = (headingId: string, heading: string, itemStyle = ''): T
     return html`
         <style>
             pie-list {
-                min-width: 300px;
                 max-width: 500px;
             }
         </style>
@@ -243,12 +244,12 @@ export const LongText = createStory<ListPlaygroundProps>(
 });
 
 // Selectable lists -----------------------------------------------------------
-// A `pie-list-item` becomes a selectable row via its `selection-type` prop, slotting the control
-// into its `leading`/`trailing` slot. Radio rows live inside a `pie-radio-group`. The playground
-// controls above do not apply to these.
+// A `pie-list-item` becomes a selectable row via its `selectionType` prop, slotting the control
+// into its `leading`/`trailing` slot. Radio and checkbox rows live inside their groups. The
+// playground controls above do not apply to these.
 
 /**
- * Single-select: `pie-list-item`s inside a `pie-radio-group`. Set `selection-type="radio"` on each
+ * Single-select: `pie-list-item`s inside a `pie-radio-group`. Set `.selectionType=${'radio'}` on each
  * row to make the whole row a selectable target named by the item's text. The group lays the rows
  * out as a divided list automatically when its children are `pie-list-item`s.
  */
@@ -256,17 +257,42 @@ export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-radio-group { min-width: 350px; }</style>
     <pie-radio-group name="delivery" value="express">
         <pie-form-label slot="label">Delivery method</pie-form-label>
-        <pie-list-item selection-type="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+        <pie-list-item .selectionType=${'radio'} primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
             <pie-radio slot="leading" value="standard"></pie-radio>
         </pie-list-item>
-        <pie-list-item selection-type="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+        <pie-list-item .selectionType=${'radio'} primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
             <pie-radio slot="leading" value="express"></pie-radio>
         </pie-list-item>
-        <pie-list-item selection-type="radio" disabled primaryText="Collection" secondaryText="Collect from a nearby store">
+        <pie-list-item .selectionType=${'radio'} disabled primaryText="Collection" secondaryText="Collect from a nearby store">
             <pie-radio slot="leading" value="collection" disabled></pie-radio>
         </pie-list-item>
-        <pie-list-item selection-type="radio" primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+        <pie-list-item .selectionType=${'radio'} primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
             <pie-radio slot="leading" value="locker"></pie-radio>
         </pie-list-item>
     </pie-radio-group>
+`, defaultArgs)();
+
+/**
+ * Multi-select: `pie-list-item`s inside a `pie-checkbox-group`. Set `.selectionType=${'checkbox'}` on
+ * each row to make the whole row a selectable target named by the item's text. Each row toggles its
+ * checkbox independently. The group lays the rows out as a divided list automatically when its
+ * children are `pie-list-item`s.
+ */
+export const CheckboxSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-checkbox-group { min-width: 350px; }</style>
+    <pie-checkbox-group name="toppings">
+        <pie-form-label slot="label">Toppings</pie-form-label>
+        <pie-list-item .selectionType=${'checkbox'} primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+            <pie-checkbox slot="leading" name="cheese" value="cheese"></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item .selectionType=${'checkbox'} primaryText="Pepperoni" secondaryText="Spicy">
+            <pie-checkbox slot="leading" name="pepperoni" value="pepperoni" checked></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item .selectionType=${'checkbox'} disabled primaryText="Mushrooms">
+            <pie-checkbox slot="leading" name="mushrooms" value="mushrooms" disabled></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item .selectionType=${'checkbox'} primaryText="Olives" metaText="£0.50">
+            <pie-checkbox slot="leading" name="olives" value="olives"></pie-checkbox>
+        </pie-list-item>
+    </pie-checkbox-group>
 `, defaultArgs)();

@@ -42,7 +42,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean })
         hasMedia = defaultProps.hasMedia;
 
-    @property({ type: String, attribute: 'selection-type' })
+    @property({ type: String })
     @validPropertyValues(componentSelector, selectionTypes, defaultProps.selectionType)
         selectionType = defaultProps.selectionType;
 

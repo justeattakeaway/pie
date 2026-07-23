@@ -26,7 +26,7 @@
     },
     {
       "path": "./packages/components/pie-checkbox/dist/index.js",
-      "maxSize": "4.32 KB"
+      "maxSize": "5.50 KB"
     },
     {
       "path": "./packages/components/pie-checkbox/dist/react.js",
@@ -34,7 +34,7 @@
     },
     {
       "path": "./packages/components/pie-checkbox-group/dist/index.js",
-      "maxSize": "2.18 KB"
+      "maxSize": "3.00 KB"
     },
     {
       "path": "./packages/components/pie-checkbox-group/dist/react.js",

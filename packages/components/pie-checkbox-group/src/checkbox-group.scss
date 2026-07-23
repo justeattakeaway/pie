@@ -2,6 +2,10 @@
 
 :host {
     display: block;
+
+    // Applies the divider between adjacent `pie-list-item`s when checkboxes are wrapped in them.
+    // Direct-child checkboxes are unaffected (the selector only matches `pie-list-item`).
+    @include p.list-item-divider;
 }
 
 .c-checkboxGroup {
