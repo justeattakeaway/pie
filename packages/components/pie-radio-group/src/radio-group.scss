@@ -2,6 +2,10 @@
 
 :host {
     display: block;
+
+    // Applies the divider between adjacent `pie-list-item`s when radios are wrapped in them.
+    // Direct-child radios are unaffected (the selector only matches `pie-list-item`).
+    @include p.list-item-divider;
 }
 
 .c-radioGroup {
@@ -14,7 +18,6 @@
     min-width: 0;
     display: flex;
     flex-flow: column wrap;
-    gap: var(--radio-group-gap);
 
     > legend {
         margin-block-end: var(--dt-spacing-b);
@@ -22,10 +25,19 @@
 
     &.c-radioGroup--inline {
         flex-flow: row wrap;
+
+        // inline only supported for pie-radio in slots (rather than list-item) so gap can be used here
         gap: var(--radio-group-gap--inline);
     }
 
     &.c-radioGroup--hasAssistiveText {
         margin-block-end: var(--dt-spacing-a);
+    }
+}
+
+:host(:not([isinline])) {
+    // used instead of gap because list-item slotted children do not need the gap. Only pie-radio slotted children do.
+    ::slotted(pie-radio:not(:first-of-type)) {
+        margin-block-start: var(--radio-group-gap);
     }
 }
