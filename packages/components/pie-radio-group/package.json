@@ -50,7 +50,8 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-assistive-text": "1.0.5",
-    "@justeattakeaway/pie-webc-core": "16.0.0"
+    "@justeattakeaway/pie-webc-core": "16.0.0",
+    "@lit/context": "1.1.6"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

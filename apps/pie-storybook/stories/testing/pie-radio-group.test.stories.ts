@@ -11,6 +11,7 @@ import {
 import '@justeattakeaway/pie-webc/components/radio';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle';
 
 import { createStory, createVariantStory, type PropDisplayOptions } from '../../utilities';
@@ -239,7 +240,78 @@ const DynamicSlotsTemplate = () => {
         `;
 };
 
+// `value` pre-selects the matching radio. The behaviour tests use the unselected variant so
+// keyboard/click assertions start from a known clean state (Tab lands on the first radio, clicking
+// any row is a real change); the visual snapshot uses the pre-selected variant to capture a checked
+// row (see the `WithListItems` / `WithListItemsChecked` stories below).
+const buildListItemsTemplate = (value?: string) => {
+    function onChange (event: CustomEvent) {
+        const selectedRadioElement = event.target as HTMLInputElement;
+        action('change')(selectedRadioElement.value);
+        console.info(EXPECTED_CHANGE_EVENT_MESSAGE);
+    }
+
+    return html`
+        <style>
+            pie-radio-group { min-width: 360px; }
+            /* Set on the item directly (a value inherited from the group cannot override the item's :host default). */
+            pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
+        </style>
+        <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
+        <pie-radio-group data-test-id="pie-radio-group" name="delivery" value=${ifDefined(value)} @change=${onChange}>
+            <!-- item-1: secondary AND meta text (combined into aria-description) -->
+            <pie-list-item selection-type="radio" data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
+                <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
+            </pie-list-item>
+            <!-- item-2: secondary text only -->
+            <pie-list-item selection-type="radio" data-test-id="item-2" primaryText="Express" secondaryText="Next day">
+                <pie-radio slot="leading" data-test-id="radio-2" value="express"></pie-radio>
+            </pie-list-item>
+            <!-- item-3: neither secondary nor meta (no aria-description); a disabled row (both the
+                 item and its radio are disabled) -->
+            <pie-list-item selection-type="radio" disabled data-test-id="item-3" primaryText="Collection">
+                <pie-radio slot="leading" data-test-id="radio-3" value="collection" disabled></pie-radio>
+            </pie-list-item>
+            <!-- item-4: meta text only -->
+            <pie-list-item selection-type="radio" data-test-id="item-4" primaryText="Locker" metaText="£1.99">
+                <pie-radio slot="leading" data-test-id="radio-4" value="locker"></pie-radio>
+            </pie-list-item>
+        </pie-radio-group>
+        <p><pie-button size="small-productive" data-test-id="btn-2">Button 2</pie-button></p>
+    `;
+};
+
+// Unselected: consumed by the component behaviour tests.
+const WithListItemsTemplate = () => buildListItemsTemplate();
+// A non-first row (Express) pre-selected: consumed by the visual snapshot to capture the checked state.
+const WithListItemsCheckedTemplate = () => buildListItemsTemplate('express');
+
+const WithListItemsGroupDisabledTemplate = () => html`
+        <style>
+            pie-radio-group { min-width: 360px; }
+            /* Set on the item directly (a value inherited from the group cannot override the item's :host default). */
+            pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
+        </style>
+        <pie-radio-group data-test-id="pie-radio-group" name="delivery" value="express" disabled>
+            <pie-list-item selection-type="radio" data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
+                <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
+            </pie-list-item>
+            <pie-list-item selection-type="radio" data-test-id="item-2" primaryText="Express" secondaryText="Next day">
+                <pie-radio slot="leading" data-test-id="radio-2" value="express"></pie-radio>
+            </pie-list-item>
+            <pie-list-item selection-type="radio" data-test-id="item-3" primaryText="Collection">
+                <pie-radio slot="leading" data-test-id="radio-3" value="collection"></pie-radio>
+            </pie-list-item>
+            <pie-list-item selection-type="radio" data-test-id="item-4" primaryText="Locker" metaText="£1.99">
+                <pie-radio slot="leading" data-test-id="radio-4" value="locker"></pie-radio>
+            </pie-list-item>
+        </pie-radio-group>
+    `;
+
 export const Default = createStory<RadioGroupProps>(DefaultTemplate, defaultArgs)();
+export const WithListItems = createStory<RadioGroupProps>(WithListItemsTemplate, defaultArgs)();
+export const WithListItemsChecked = createStory<RadioGroupProps>(WithListItemsCheckedTemplate, defaultArgs)();
+export const WithListItemsGroupDisabled = createStory<RadioGroupProps>(WithListItemsGroupDisabledTemplate, defaultArgs)();
 export const DisabledRadio = createStory<RadioGroupProps>(DisabledRadioTemplate, defaultArgs)();
 export const KeyboardNavigation = createStory<RadioGroupProps>(KeyboardNavigationTemplate, defaultArgs)();
 export const KeyboardNavigationDisabledAndChecked = createStory<RadioGroupProps>(KeyboardNavigationDisabledAndCheckedTemplate, defaultArgs)();
