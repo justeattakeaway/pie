@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-radio-group
 
+## 1.2.0
+
+### Minor Changes
+
+- [Added] - Radio group now supports nesting slotted `pie-radio` components in other components/HTML. This allows more compositions such as `pie-list-item` being slotted into the group, which itself has slotted `pie-radio` components. ([#3001](https://github.com/justeattakeaway/pie/pull/3001)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b), [`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b)]:
+  - @justeattakeaway/pie-webc-core@16.1.0
+  - @justeattakeaway/pie-assistive-text@1.0.6
+
 ## 1.1.5
 
 ### Patch Changes
