@@ -2,6 +2,7 @@
 
 :host {
     display: inline-block;
+    width: fit-content;
 }
 
 .c-tag {
@@ -20,8 +21,6 @@
     border: var(--tag-border-width) solid var(--tag-border-color);
     border-radius: var(--tag-border-radius);
 
-    width: 100%;
-
     font-family: var(--tag-font-family);
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
@@ -31,7 +30,6 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
 
     background-color: var(--tag-bg-color);
 

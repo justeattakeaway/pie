@@ -538,6 +538,67 @@ const TranslucentOverImageTemplate: TemplateFunction<TagProps> = () => html`
 
 const createTranslucentOverImageStory = createStory<TagProps>(TranslucentOverImageTemplate, defaultArgs);
 
+const FlexParentTemplate: TemplateFunction<TagProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: var(--dt-spacing-e); align-items: flex-start;">
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 var(--dt-spacing-b) 0; font-size: 14px;">Column flex — tags should not stretch to fill container width</h4>
+            <div style="
+                display: flex;
+                flex-direction: column;
+                gap: var(--dt-spacing-b);
+                min-width: 200px;
+            ">
+                <pie-tag size="large" variant="neutral">Label</pie-tag>
+                <pie-tag size="large" variant="information" hasLeadingIcon>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    With icon
+                </pie-tag>
+                <pie-tag size="small" variant="success">Small label</pie-tag>
+                <pie-tag size="large" variant="error" isStrong>Strong label</pie-tag>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 var(--dt-spacing-b) 0; font-size: 14px;">Row flex — tags should size to content</h4>
+            <div style="
+                display: flex;
+                flex-direction: row;
+                gap: var(--dt-spacing-b);
+            ">
+                <pie-tag size="large" variant="neutral">Label</pie-tag>
+                <pie-tag size="large" variant="information" hasLeadingIcon>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    With icon
+                </pie-tag>
+                <pie-tag size="small" variant="success">Small</pie-tag>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 var(--dt-spacing-b) 0; font-size: 14px;">Column flex + truncation — tags should truncate, not stretch</h4>
+            <div style="
+                display: flex;
+                flex-direction: column;
+                gap: var(--dt-spacing-b);
+            ">
+                <div style="max-width: 200px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated
+                    </pie-tag>
+                </div>
+                <div style="max-width: 200px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;" hasLeadingIcon>
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+const createFlexParentStory = createStory<TagProps>(FlexParentTemplate, defaultArgs);
+
 export const NeutralVariations = createVariantStory<TagProps>(Template, neutralPropsMatrix);
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
@@ -566,5 +627,8 @@ export const CustomStyledTags = createCombinedCustomStory({}, {
     controls: { disable: true },
 });
 export const TranslucentOverImage = createTranslucentOverImageStory({}, {
+    controls: { disable: true },
+});
+export const FlexParent = createFlexParentStory({}, {
     controls: { disable: true },
 });
