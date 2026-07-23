@@ -539,17 +539,14 @@ const TranslucentOverImageTemplate: TemplateFunction<TagProps> = () => html`
 const createTranslucentOverImageStory = createStory<TagProps>(TranslucentOverImageTemplate, defaultArgs);
 
 const FlexParentTemplate: TemplateFunction<TagProps> = () => html`
-    <div style="display: flex; flex-direction: column; gap: var(--dt-spacing-e);">
+    <div style="display: flex; flex-direction: column; gap: var(--dt-spacing-e); align-items: flex-start;">
         <div style="text-align: left;">
             <h4 style="margin: 0 0 var(--dt-spacing-b) 0; font-size: 14px;">Column flex — tags should not stretch to fill container width</h4>
             <div style="
                 display: flex;
                 flex-direction: column;
                 gap: var(--dt-spacing-b);
-                width: 400px;
-                background-color: var(--dt-color-container-subtle);
-                padding: var(--dt-spacing-d);
-                border-radius: var(--dt-radius-rounded-a);
+                min-width: 200px;
             ">
                 <pie-tag size="large" variant="neutral">Label</pie-tag>
                 <pie-tag size="large" variant="information" hasLeadingIcon>
@@ -567,10 +564,6 @@ const FlexParentTemplate: TemplateFunction<TagProps> = () => html`
                 display: flex;
                 flex-direction: row;
                 gap: var(--dt-spacing-b);
-                width: 400px;
-                background-color: var(--dt-color-container-subtle);
-                padding: var(--dt-spacing-d);
-                border-radius: var(--dt-radius-rounded-a);
             ">
                 <pie-tag size="large" variant="neutral">Label</pie-tag>
                 <pie-tag size="large" variant="information" hasLeadingIcon>
@@ -587,10 +580,6 @@ const FlexParentTemplate: TemplateFunction<TagProps> = () => html`
                 display: flex;
                 flex-direction: column;
                 gap: var(--dt-spacing-b);
-                width: 400px;
-                background-color: var(--dt-color-container-subtle);
-                padding: var(--dt-spacing-d);
-                border-radius: var(--dt-radius-rounded-a);
             ">
                 <div style="max-width: 200px;">
                     <pie-tag size="large" variant="information" style="width: 100%;">
