@@ -74,8 +74,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
 
     /**
      * The checkboxes in the group. This uses a subtree query rather than immediate slotted
-     * children so checkboxes wrapped in `pie-list-item`s (at any depth) are discovered. It is a
-     * superset of the previous immediate-child query, so direct-child checkboxes keep working.
+     * children so checkboxes wrapped in other components (at any depth) are discovered.
      */
     private get _slottedChildren (): HTMLElement[] {
         return Array.from(this.querySelectorAll('pie-checkbox'));
