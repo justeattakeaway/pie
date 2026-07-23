@@ -1,5 +1,6 @@
 import {
     html,
+    isServer,
     unsafeCSS,
     nothing,
     type PropertyValues,
@@ -7,14 +8,16 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, queryAssignedElements, state,
+    property, state,
 } from 'lit/decorators.js';
+import { ContextProvider } from '@lit/context';
 import {
     RtlMixin,
     FormControlMixin,
     wrapNativeEvent,
     validPropertyValues,
     safeCustomElement,
+    parentDisabledContext,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -62,6 +65,19 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
+    // Provided to descendant `pie-list-item`s so a fully-disabled group also disables the list rows
+    // (suppressing their hover/active states), and kept in sync in `updated()`.
+    //
+    // Created manually (rather than via the `@provide` decorator) so it can be guarded with
+    // `isServer`: `@lit/context`'s ContextProvider attaches `context-request` listeners to the host
+    // in its constructor (via `host.addEventListener`). During SSR/prerender the element is
+    // constructed without a DOM host, so that call throws and breaks the build. The provider is
+    // client-only anyway (context is delivered after `connectedCallback`, which SSR never runs), so
+    // it is safe to skip on the server.
+    private _disabledProvider = isServer
+        ? undefined
+        : new ContextProvider(this, { context: parentDisabledContext, initialValue: defaultProps.disabled });
+
     @property({ type: String })
     public assistiveText?: RadioGroupProps['assistiveText'];
 
@@ -69,10 +85,19 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
 
-    @queryAssignedElements({ selector: 'pie-radio' })
-        _slottedChildren!: Array<HTMLInputElement>;
-
     private _abortController!: AbortController;
+
+    private _mutationObserver!: MutationObserver;
+
+    /**
+     * The radios in the group. This uses a subtree query rather than immediate slotted
+     * children so radios wrapped in `pie-list-item`s (at any depth) are discovered. It is
+     * a superset of the previous immediate-child query, so radios passed as direct children
+     * keep working unchanged.
+     */
+    private get _slottedChildren (): HTMLInputElement[] {
+        return Array.from(this.querySelectorAll<HTMLInputElement>('pie-radio'));
+    }
 
     /**
      * Dispatches a custom event to notify each slotted child radio element
@@ -171,6 +196,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('disabled')) {
+            this._disabledProvider?.setValue(this.disabled);
             this._handleDisabled();
         }
 
@@ -200,6 +226,12 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this.addEventListener('keydown', this._handleKeyDown, { signal });
 
         this._applyNameToChildren();
+
+        // The default slot's `slotchange` fires when list items are added or removed, but not
+        // when a radio is added deep inside an existing list item. Observe the light-DOM
+        // subtree so those radios still pick up the correct tabindex and name.
+        this._mutationObserver = new MutationObserver(() => this._handleRadioSlotChange());
+        this._mutationObserver.observe(this, { childList: true, subtree: true });
     }
 
     /**
@@ -383,7 +415,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             return;
         }
 
-        // Prevent default scrolling behavior when using Arrow keys for Radio Group navigation
+        // Prevent default scrolling behaviour when using Arrow keys for Radio Group navigation
         if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.code)) {
             event.preventDefault();
         }
@@ -400,6 +432,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     disconnectedCallback (): void {
         super.disconnectedCallback();
         this._abortController.abort();
+        this._mutationObserver?.disconnect();
     }
 
     render () {
