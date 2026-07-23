@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 0.10.35
+
+### Patch Changes
+
+- Updated dependencies [[`526a288`](https://github.com/justeattakeaway/pie/commit/526a288efb8430e11981824483f1a69e10d6fd5e)]:
+  - @justeattakeaway/pie-accordion@0.2.2
+
 ## 0.10.34
 
 ### Patch Changes
