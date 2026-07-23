@@ -168,7 +168,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     _renderTrailingContent () {
         const { metaText } = this;
         if (metaText) {
-            return html`<span class="c-listItem-metaText c-listItem-trailing" ?aria-hidden=${this._isSelectable}>${metaText}</span>`;
+            return html`<span class="c-listItem-metaText c-listItem-trailing" aria-hidden=${this._isSelectable ? 'true' : nothing}>${metaText}</span>`;
         }
 
         return html`<div class="c-listItem-trailing"><slot name="trailing"></slot></div>`;
