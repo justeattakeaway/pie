@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, nothing, type PropertyValues,
+    html, unsafeCSS, nothing,
 } from 'lit';
 import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
@@ -76,8 +76,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
     @state()
     private _isAnimationAllowed = false;
 
-    protected firstUpdated (changedProperties: PropertyValues): void {
-        super.firstUpdated(changedProperties);
+    protected firstUpdated (): void {
         const { signal } = this._abortController;
         this.handleFormAssociation();
         // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
