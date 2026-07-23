@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 0.10.37
+
+### Patch Changes
+
+- Updated dependencies [[`fcec179`](https://github.com/justeattakeaway/pie/commit/fcec1794d60af7bfcda77c55a7440d187253335f)]:
+  - @justeattakeaway/pie-notification@0.24.11
+
 ## 0.10.36
 
 ### Patch Changes

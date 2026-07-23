@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.24.11
+
+### Patch Changes
+
+- [Fixed] - Pass `aria.close` through to the close button via `pie-icon-button`’s `aria` prop ([#3022](https://github.com/justeattakeaway/pie/pull/3022)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.24.10
 
 ### Patch Changes

@@ -5,7 +5,7 @@ test.describe('PieNotification - Accessibility tests', () => {
     test('a11y - should test the PieNotification component WCAG compliance', async ({ makeAxeBuilder, page }) => {
         const notificationPage = new BasePage(page, 'notification');
 
-        await notificationPage.load();
+        await notificationPage.load({ isDismissible: true });
 
         const results = await makeAxeBuilder().analyze();
 
