@@ -23,10 +23,6 @@
         margin-block-end: var(--dt-spacing-b);
     }
 
-    ::slotted(pie-radio:not(:first-of-type)) {
-        margin-block-start: var(--radio-group-gap);
-    }
-
     &.c-radioGroup--inline {
         flex-flow: row wrap;
 
