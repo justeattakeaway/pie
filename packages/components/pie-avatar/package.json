@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-avatar",
   "description": "PIE Design System Avatar built using Web Components",
-  "version": "0.4.43",
+  "version": "0.4.44",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -42,8 +42,8 @@
     "@justeattakeaway/pie-monorepo-utils": "0.9.7"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "1.27.0",
-    "@justeattakeaway/pie-webc-core": "16.0.0"
+    "@justeattakeaway/pie-icons-webc": "1.27.1",
+    "@justeattakeaway/pie-webc-core": "16.1.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

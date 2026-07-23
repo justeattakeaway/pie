@@ -1,5 +1,13 @@
 # Changelog
 
+## 16.1.0
+
+### Minor Changes
+
+- [Added] - A shared, extensible ARIA context: `ariaContext` and the `ContextualAria` type. It lets an ancestor component supply an accessible name and description to a descendant control across the shadow boundary (where `aria-labelledby` / `aria-describedby` cannot reach) and at any depth, without prop drilling. Any control can consume it and decide how to apply each field; a control's own ARIA props take precedence. ([#3001](https://github.com/justeattakeaway/pie/pull/3001)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - `parentDisabledContext`, a generic context a disabling ancestor (such as a `pie-radio-group` or `pie-checkbox-group`) uses to tell its descendants it is disabled, so they can reflect it. Crosses shadow boundaries and reaches descendants at any depth without prop drilling. ([#3001](https://github.com/justeattakeaway/pie/pull/3001)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 16.0.0
 
 ### Patch Changes
