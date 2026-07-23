@@ -44,7 +44,6 @@ const leadingThumbnail = html`<pie-thumbnail slot="leading" size="40" background
 const withLayout = (content: TemplateResult) => html`
     <style>
         pie-list {
-            min-width: 300px;
             max-width: 500px;
             border: 1px dashed purple;
         }
@@ -68,13 +67,13 @@ const TextOnlyTemplate = () => withLayout(html`
 
 export const TextOnly = createStory<ListProps>(TextOnlyTemplate, defaultArgs)();
 
-// Test-only: exercises the `selection-type` -> role mapping in isolation (no controls needed).
+// Test-only: exercises the `selectionType` -> role mapping in isolation (no controls needed).
 const SelectionTypesTemplate = () => withLayout(html`
     <pie-list>
         <pie-list-item data-test-id="item-none" primaryText="None"></pie-list-item>
-        <pie-list-item data-test-id="item-radio" selection-type="radio" primaryText="Radio"></pie-list-item>
-        <pie-list-item data-test-id="item-checkbox" selection-type="checkbox" primaryText="Checkbox"></pie-list-item>
-        <pie-list-item data-test-id="item-switch" selection-type="switch" primaryText="Switch"></pie-list-item>
+        <pie-list-item data-test-id="item-radio" .selectionType=${'radio'} primaryText="Radio"></pie-list-item>
+        <pie-list-item data-test-id="item-checkbox" .selectionType=${'checkbox'} primaryText="Checkbox"></pie-list-item>
+        <pie-list-item data-test-id="item-switch" .selectionType=${'switch'} primaryText="Switch"></pie-list-item>
     </pie-list>
 `);
 export const SelectionTypes = createStory<ListProps>(SelectionTypesTemplate, defaultArgs)();
