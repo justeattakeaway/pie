@@ -13,3 +13,19 @@ directions.forEach((direction) => test(`should render all prop variations for di
     await percySnapshot(page, `PIE Radio Group - direction: ${direction}`, percyWidths);
 }));
 
+directions.forEach((direction) => test(`should render radios in list items for direction: ${direction}`, async ({ page }) => {
+    const radioGroupListItemsPage = new BasePage(page, 'radio-group--with-list-items-checked');
+    await radioGroupListItemsPage.load({}, { writingDirection: direction });
+    await page.waitForSelector('pie-radio-group');
+
+    await percySnapshot(page, `PIE Radio Group - list items - direction: ${direction}`, percyWidths);
+}));
+
+test('should render radios in list items when the group is disabled', async ({ page }) => {
+    const radioGroupDisabledPage = new BasePage(page, 'radio-group--with-list-items-group-disabled');
+    await radioGroupDisabledPage.load();
+    await page.waitForSelector('pie-radio-group');
+
+    await percySnapshot(page, 'PIE Radio Group - list items - disabled group', percyWidths);
+});
+
