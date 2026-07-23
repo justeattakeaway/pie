@@ -1,5 +1,9 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
+export const selectionTypes = ['none', 'radio', 'checkbox', 'switch'] as const;
+
+export type SelectionType = typeof selectionTypes[number];
+
 export interface ListItemProps {
     /**
      * **Required:** Provides an overview of the content.
@@ -32,6 +36,30 @@ export interface ListItemProps {
      * **Note**: This has no effect when `secondaryText` is set, and should not be combined with `isCompact`.
      */
     hasMedia?: boolean
+
+    /**
+     * The kind of interactive control this item hosts in its `leading` or `trailing` slot. This
+     * makes the whole row a selectable target: the item takes the appropriate role, provides its
+     * text as the control's accessible name/description, hides the duplicated visible text, and
+     * forwards row clicks to the control.
+     *
+     * - `none` (default) - a static, non-selectable list item (`role="listitem"`).
+     * - `radio` - hosts a `pie-radio` (used inside a `pie-radio-group`); the item is `presentation`.
+     * - `checkbox` - hosts a `pie-checkbox` (used inside a `pie-checkbox-group`); the item is `presentation`.
+     * - `switch` - hosts a `pie-switch`; there is no group, so the item stays `role="listitem"`.
+     *
+     * Set this on each selectable row. When the rows sit inside a `pie-radio-group`, the group lays
+     * them out as a divided list automatically; this prop governs the row's role and behaviour.
+     */
+    selectionType?: typeof selectionTypes[number]
+
+    /**
+     * Marks the row as disabled: it takes on the disabled styling and stops forwarding row clicks to
+     * its control. Set it alongside the slotted control's own `disabled` (the control still governs
+     * its own interactivity and keyboard behaviour). Has no visible effect on a non-selectable
+     * (static) item.
+     */
+    disabled?: boolean
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
@@ -40,4 +68,6 @@ export const defaultProps: DefaultProps = {
     isCompact: false,
     isBold: false,
     hasMedia: false,
+    selectionType: 'none',
+    disabled: false,
 };
