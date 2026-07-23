@@ -5,11 +5,12 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-webc/components/icon-with-background';
 import {
     type IconWithBackgroundProps,
+    shapes,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/icon-with-background';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import { createStory, type TemplateFunction } from '../../utilities';
+import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
 type IconWithBackgroundStoryMeta = Meta<IconWithBackgroundProps>;
 
@@ -43,3 +44,9 @@ const createIconWithBackgroundStory = createStory<IconWithBackgroundProps>(Templ
 export const Default = createIconWithBackgroundStory();
 export const Circle = createIconWithBackgroundStory({ shape: 'circle' });
 export const Square = createIconWithBackgroundStory({ shape: 'square' });
+
+const shapePropOptions = {
+    shape: [...shapes],
+};
+
+export const ShapeVariations = createVariantStory<IconWithBackgroundProps>(Template, shapePropOptions);
