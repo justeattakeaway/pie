@@ -3,10 +3,574 @@ eleventyNavigation:
     key: Apps
     parent: Button
     order: 3
-draft: true
+eleventyComputed:
+    iconSizes: "{% include '../overview/icon-sizes.json' %}"
+    sizesApps: "{% include '../overview/sizes-apps.json' %}"
+shouldShowContents: true
 ---
 
-{% notification {
-  type: "neutral",
-  message: "We're currently working on this documentation. It will be available soon."
+## Dos and Don'ts
+
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Use buttons when you need to direct the user to an action.",
+            "When pairing buttons, use the same sized buttons together."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page."
+        ]
+    }
 } %}
+
+
+---
+
+## Anatomy
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/anatomy.svg",
+    alt: "Anatomy of a button.",
+    width: 291
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Icon (optional):**  Leading or trailing that visually supports the label.",
+        "**Label:** Informs the user of the action."
+    ]
+} %}
+
+---
+
+## Variants
+
+### Primary
+
+The primary call-to-action on the page, should be singular and prominent, limited to one per page. Used on crucial moments in the user flow such as a sign up, checkout, user agreement, etc.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-primary.svg",
+    alt: "A primary button",
+    width: 97
+} %}
+
+### Primary - alternative
+
+The primary call-to-action on the section, should be singular and prominent. It should be reserved for the most critical actions expected from the user, such as "Next," "Save," "Submit," etc.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-primary-alternative.svg",
+    alt: "A primary alternative button",
+    width: 97
+} %}
+
+### Primary - alternative dark
+
+Primary-alternative dark has the same properties as Primary-alternative, however are used when the background colour remains ‘light’ on the dark theme, as the label remains ‘dark’ to provide enough contrast.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-primary-dark.svg",
+    alt: "A primary alternative dark button",
+    width: 97
+} %}
+
+### Secondary
+
+Secondary buttons serve as supplementary options for secondary, non-essential actions on a webpage. They can be utilised independently or in conjunction with a primary button.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-secondary.svg",
+    alt: "A secondary button",
+    width: 97,
+    variant: "secondary"
+} %}
+
+### Outline
+
+Outline buttons are designed to provide increased emphasis compared to ghost buttons, owing to their visible stroke. They can be utilised either as standalone buttons or in combination with a primary button.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-outline.svg",
+    alt: "An outline button",
+    width: 97,
+    variant: "secondary"
+} %}
+
+### Ghost
+
+Ghost buttons are commonly employed for actions that are considered less crucial. They can be used independently or in tandem with a primary button. They are ideal for repetitive actions, such as an edit button on a recurring card.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost.svg",
+    alt: "A ghost button",
+    width: 97
+} %}
+
+### Ghost secondary
+
+Ghost secondary buttons are similar to the ghost button, but are less prominent because they have a different colour for the leading and trailing icons.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost-secondary.svg",
+    alt: "A ghost secondary button",
+    width: 97
+} %}
+
+### Ghost dark
+
+Ghost dark buttons have the same purpose as the ghost buttons. However are used when the background colour remains ‘light’ in on the dark theme, as the label remains ‘dark’ to provide enough contrast.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost-secondary.svg",
+    alt: "A ghost dark button",
+    width: 97
+} %}
+
+### Destructive
+
+Destructive buttons are used for high impact deletion that can result in permanent or undesirable consequences, limited to one per page.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-destructive.svg",
+    alt: "A destructive button",
+    width: 97
+} %}
+
+### Destructive ghost
+
+Destructive buttons are used for high impact deletion that can result in permanent or undesirable consequences, limited to one per page.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-destructive-ghost.svg",
+    alt: "A destructive ghost button",
+    width: 97
+} %}
+
+### Inverse
+
+Inverse buttons are specifically designed to be used on backgrounds with colours or images, and it's recommended to limit their usage to just one per page. They are reserved for the most critical actions, such as "Next," "Save," "Submit," etc.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-inverse.svg",
+    alt: "An inverse button",
+    width: 97,
+    variant: "inverse"
+} %}
+
+### Outline inverse 
+
+Outline inverse buttons are used to signify a secondary action. They can be utilised independently or in conjunction with an inverse button.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-outline-inverse.svg",
+    alt: "An outline inverse button",
+    width: 97,
+    variant: "inverse"
+} %}
+
+### Ghost inverse
+
+Ghost inverse buttons are intended for utilisation on backgrounds with colours or images, and are usually reserved for actions of lesser significance. They can be used independently or in conjunction with a primary button. Ghost inverse buttons are ideal for repetitive actions, such as an edit button on a repeating card.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost-inverse.svg",
+    alt: "A ghost inverse button",
+    width: 97,
+    variant: "inverse"
+} %}
+
+### Ghost inverse light
+
+Ghost inverse light buttons have the same purpose as the ghost inverse buttons. However are used when the background colour remains ‘dark’ in on the dark theme, as the label remains ‘light’ to provide enough contrast.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost-inverse-light.svg",
+    alt: "A ghost inverse light button",
+    width: 97,
+    variant: "inverse"
+} %}
+
+---
+
+## Modifiers
+
+### Icons
+
+When incorporating an icon into a Button, it is essential to ensure that the icon clearly conveys the intended action of the Button. The icon should be directly related to the action the user is taking, helping to reinforce the Button's purpose. Additionally, the colour of the icon must match the colour of the text label within the Button to maintain consistency.
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/modifier-icons-do.svg",
+            width: "234px",
+            alt: "A button with a search icon and a label that says Find a restaurant."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/modifier-icons-dont.svg",
+            width: "234px",
+            alt: "A button with a eye icon and a label that says Find a restaurant."
+        }]
+    }
+} %}
+
+#### Leading
+
+Leading icon provides context and visually supports the label.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/modifier-leading.svg",
+    alt: "A button with leading filtering icon and a label reading Filters.",
+    width: 129
+} %}
+
+#### Trailing
+
+Trailing icon can indicate further interaction, such as opening up a popover or bottom sheet.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/modifier-trailing.svg",
+    alt: "A button with a trailing chevron icon indicating further interaction",
+    width: 129
+} %}
+
+#### Leading and trailing
+
+In some cases, leading and trailing icons can be used together, as long as their purposes are clear.
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/modifier-leading-trailing-do.svg",
+            width: "210px",
+            alt: "A button with both a leading and trailing icon that support the label."
+        }],
+        caption: "Use a leading icon to visually support the label, and a trailing icon to indicate an additional interaction."
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/modifier-leading-trailing-dont.svg",
+            width: "210px",
+            alt: "A button with both a leading and trailing icon that do not support the label."
+        }],
+        caption: "Don’t use both leading and trailing icons to visually support the label."
+    }
+} %}
+
+#### Icon sizes
+
+Icons have different size depending on the size of the button.
+
+{% componentDetailsTable {
+  tableData: iconSizes
+} %}
+
+### Width
+
+#### Fixed
+
+Container width is fixed to fit the Button's label that retains 24px left and right padding.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/modifier-width-fixed.svg",
+    alt: "A button with fixed width.",
+    width: 97
+} %}
+
+#### Fluid
+
+Left and right padding is automated depending on the fluid width of the container.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/modifier-width-fluid.svg",
+    alt: "A button with fluid width.",
+    width: 320
+} %}
+
+---
+
+## Sizes
+
+Outlines the Button sizes that are available, and where they should be used across our products.
+
+
+{% componentDetailsTable {
+  tableData: sizesApps
+} %}
+
+### Responsive sizes
+
+Button sizes can adapt to different screen widths, like wide and narrow views, but there are some restrictions. When buttons resize, they can only transition by one size category, such as going from Large to Medium. Additionally, they can only grow larger when transitioning to wider viewports, not the other way around.
+
+---
+
+## Content
+
+### Labels
+
+Button labels should clearly indicate the action of the Button and describe what will occur once the user clicks the Button. Use active verbs, such as Add or Delete. For sets of buttons, use specific labels, such as Save or Discard, instead of using OK and Cancel. This is particularly helpful when the user is confirming an action.
+
+Use sentence-style capitalisation (only the first world in a phrase and any proper nouns capitalised). 
+
+---
+
+## Overflow
+
+### Singular word overflow
+
+When a single word extends beyond the the available horizontal space, the word truncates and an ellipsis is displayed.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/overflow-singular.svg",
+    alt: "A button with long text that stays on a single line.",
+    width: 375
+} %}
+
+### Multiple words overflow
+
+When a group of words extends beyond the available horizontal space, the text automatically wraps onto a new line, with no maximum height restriction.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/overflow-multiple.svg",
+    alt: "A button with long text that wraps onto two lines.",
+    width: 375
+} %}
+
+---
+
+## Hierarchy
+
+Buttons should follow a hierarchy of importance with regards to the action that is being committed by the user and how the Buttons are paired together.
+
+### Multiple Button pairing
+
+When pairing Buttons, they should always have a relationship to one another; with the highest hierarchy Button is always positioned on the right / top depending on if the button pair is stacked with a 16px spacing between. Always ensure the same sized Buttons are paired together.
+
+Button pairing options are:
+
+- A high-emphasis Button with a medium / low-emphasis Button that performs a less important action.
+
+- A medium-emphasis Button with a low-emphasis Button that performs a less important action. 
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/hierarchy-multiple-pairing.svg",
+    alt: "A pyramid that shows button hierarchy as primary and destructive buttons on top, secondary and inverse buttons in the middle, and the rest of the button variations on the bottom.",
+    width: 499
+} %}
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-large-do.svg",
+            width: "210px",
+            alt: "A primary button paired with an outline button."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-large-dont.svg",
+            width: "210px",
+            alt: "A primary button paired with another primary button."
+        }]
+    }
+} %}
+
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-variants-pairing-do.svg",
+            width: "210px",
+            alt: "A primary button paired with an outline button."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-dont.svg",
+            width: "456px",
+            alt: "A primary button paired with another primary button."
+        }]
+    }
+} %}
+
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-do.svg",
+            width: "158px",
+            alt: "Two of the same sized buttons paired together."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-dont.svg",
+            width: "158px",
+            alt: "Two buttons paired together that have different sized labels."
+        }]
+    }
+} %}
+
+---
+
+## Layout
+
+### Alignment
+
+The alignment of Buttons depends on where they appear and whether or not they're container within another component.
+
+As a general rule, on full-page designs the primary Button is on the left side of the page, as it's best to have the Button where the user's attention has been focused all along. Whereas in Modals, the primary Button traditionally sits right aligned. Buttons within components such as Bottom Sheets, Notifications, and Toasts are also right aligned.
+
+In some cases Buttons may span the entire width of the screen or container, examples include Bottom Sheets, Forms, Modals, and Cards.
+
+{% notification {
+  type: "information",
+  message: "When using full width Buttons, change the horizontal resizing of the Label to 'Fill container'."
+} %}
+
+---
+
+## Interactive states
+
+Outlines the atomic level interactive elements for the component.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Default</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/interactive-state-default.svg",
+      width: 97,
+      alt: "Default state of a button."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    <h3>Active</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/interactive-state-active.svg",
+      width: 97,
+      alt: "A button that is active."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    <h3>Disabled</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/interactive-state-disabled.svg",
+      width: 97,
+      alt: "A button that is disabled."
+    } %}
+  {% endcontentItem %}
+      {% contentItem %}
+    <h3>Loading</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/interactive-state-loading.svg",
+      width: 97,
+      alt: "A button that is loading."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Overrides
+
+### Icon colour override
+
+Overrides are available in design and engineering for Secondary and Tertiary buttons which have orange icons. The default icon colour token $content-interactive-brand-solid (orange) can be replaced with $content-interactive-secondary-solid (black).
+
+This can be helpful if you need to use a Secondary or Tertiary button but the orange icon doesn’t work with the surrounding UI.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Standard icon</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/overrides-standard-icon.svg",
+      width: 97,
+      alt: "A button with a standard coloured icon.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    <h4>Overridden icon</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/overrides-overridden-icon.svg",
+      width: 97,
+      alt: "A button with an icon that has colour overridden.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Examples
+
+### LTR examples
+
+Here are some examples of Buttons in left to right context:
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/example-ltr-button-in-homepage.svg",
+    alt: "A left to right example of a primary button within an text input on the home page of JustEatTakeaway website.",
+    width: 968
+} %}
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/example-ltr-button-in-toast.svg",
+      width: 300,
+      alt: "A left to right example of a ghost inverse button within a toast notification with a dark background."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/example-ltr-button-paired-with-popover.svg",
+      width: 206,
+      alt: "A left to right example of an outline button paired with a popover."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### RTL examples
+
+Here are some examples of Buttons in right to left context:
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/example-rtl-button-in-homepage.svg",
+    alt: "A right to left example of a primary button within an text input on the home page of JustEatTakeaway website.",
+    width: 968
+} %}
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/example-rtl-button-in-toast.svg",
+      width: 300,
+      alt: "A right to left example of a ghost inverse button within a toast notification with a dark background."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/example-rtl-button-paired-with-popover.svg",
+      width: 206,
+      alt: "A right to left example of an outline button paired with a popover."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}

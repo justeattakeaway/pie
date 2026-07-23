@@ -28,7 +28,6 @@ shouldShowContents: true
     }
 } %}
 
-
 ---
 
 ## Anatomy
@@ -42,14 +41,14 @@ shouldShowContents: true
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Icon (Optional):**  Leading or trailing that visually supports the label.",
+        "**Icon (optional):**  Leading or trailing that visually supports the label.",
         "**Label:** Informs the user of the action."
     ]
 } %}
 
 ---
 
-## Variations
+## Variants
 
 ### Primary
 
@@ -71,6 +70,16 @@ The primary call-to-action on the section, should be singular and prominent. It 
     width: 97
 } %}
 
+### Primary - alternative dark
+
+Primary-alternative dark has the same properties as Primary-alternative, however are used when the background colour remains ‘light’ on the dark theme, as the label remains ‘dark’ to provide enough contrast.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-primary-dark.svg",
+    alt: "A primary alternative dark button",
+    width: 97
+} %}
+
 ### Secondary
 
 Secondary buttons serve as supplementary options for secondary, non-essential actions on a webpage. They can be utilised independently or in conjunction with a primary button.
@@ -89,7 +98,8 @@ Outline buttons are designed to provide increased emphasis compared to ghost but
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-outline.svg",
     alt: "An outline button",
-    width: 97
+    width: 97,
+    variant: "secondary"
 } %}
 
 ### Ghost
@@ -99,6 +109,26 @@ Ghost buttons are commonly employed for actions that are considered less crucial
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-ghost.svg",
     alt: "A ghost button",
+    width: 97
+} %}
+
+### Ghost secondary
+
+Ghost secondary buttons are similar to the ghost button, but are less prominent because they have a different colour for the leading and trailing icons.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost-secondary.svg",
+    alt: "A ghost secondary button",
+    width: 97
+} %}
+
+### Ghost dark
+
+Ghost secondary buttons are similar to the ghost button, but are less prominent because they have a different colour for the leading and trailing icons.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost-dark.svg",
+    alt: "A ghost dark button",
     width: 97
 } %}
 
@@ -155,6 +185,17 @@ Ghost Inverse buttons are intended for utilisation on backgrounds with colours o
     variant: "inverse"
 } %}
 
+### Ghost inverse light
+
+Ghost Inverse light buttons have the same purpose as the ghost inverse buttons. However are used when the background colour remains ‘dark’ in on the dark theme, as the label remains ‘light’ to provide enough contrast.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-ghost-inverse-light.svg",
+    alt: "A ghost inverse light button",
+    width: 97,
+    variant: "inverse"
+} %}
+
 ---
 
 ## Modifiers
@@ -184,18 +225,47 @@ When incorporating an icon into a Button, it is essential to ensure that the ico
 
 #### Leading
 
+Leading icon provides context and visually supports the label.
+
 {% contentPageImage {
-    src:"../../../assets/img/components/button/modifier-icons-leading.svg",
-    alt: "A button with leading icon.",
+    src:"../../../assets/img/components/button/modifier-leading.svg",
+    alt: "A button with leading filtering icon and a label reading Filters.",
     width: 129
 } %}
 
 #### Trailing
 
+Trailing icon can indicate further interaction, such as opening up a popover or bottom sheet.
+
 {% contentPageImage {
-    src:"../../../assets/img/components/button/modifier-icons-trailing.svg",
-    alt: "A button with trailing icon",
+    src:"../../../assets/img/components/button/modifier-trailing.svg",
+    alt: "A button with a trailing chevron icon indicating further interaction",
     width: 129
+} %}
+
+#### Leading and trailing
+
+In some cases, leading and trailing icons can be used together, as long as their purposes are clear.
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/modifier-leading-trailing-do.svg",
+            width: "210px",
+            alt: "A button with both a leading and trailing icon that support the label."
+        }],
+        caption: "Use a leading icon to visually support the label, and a trailing icon to indicate an additional interaction."
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/modifier-leading-trailing-dont.svg",
+            width: "210px",
+            alt: "A button with both a leading and trailing icon that do not support the label."
+        }],
+        caption: "Don’t use both leading and trailing icons to visually support the label."
+    }
 } %}
 
 #### Icon sizes
@@ -329,7 +399,6 @@ Button pairing options are:
     }
 } %}
 
-
 {% usage {
     do: {
         type: usageTypes.image,
@@ -349,14 +418,13 @@ Button pairing options are:
     }
 } %}
 
-
 {% usage {
     do: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-do.svg",
             width: "158px",
-            alt: "A small - productive primary button paired with A small - productive outline button."
+            alt: "Two of the same sized buttons paired together."
         }]
     },
     dont: {
@@ -364,7 +432,7 @@ Button pairing options are:
         items: [{
             src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-dont.svg",
             width: "158px",
-            alt: "A small - productive primary button paired with A small - expressive outline button."
+            alt: "Two buttons paired together that have different sized labels."
         }]
     }
 } %}
@@ -379,7 +447,7 @@ The alignment of Buttons depends on where they appear and whether or not they're
 
 As a general rule, on full-page designs the primary Button is on the left side of the page, as it's best to have the Button where the user's attention has been focused all along. Whereas in Modals, the primary Button traditionally sits right aligned. Buttons within components such as Bottom Sheets, Notifications, and Toasts are also right aligned.
 
-In some cases Buttons may span the entire width of the screen or container, examples include Bottom Sheets, Forms, Modals, and Cards
+In some cases Buttons may span the entire width of the screen or container, examples include Bottom Sheets, Forms, Modals, and Cards.
 
 {% notification {
   type: "information",
@@ -439,6 +507,38 @@ Outlines the atomic level interactive elements for the component.
       src: "../../../assets/img/components/button/interactive-state-loading.svg",
       width: 97,
       alt: "A button that is loading."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+
+## Overrides
+
+### Icon colour override
+
+Overrides are available in design and engineering for Secondary and Tertiary buttons which have orange icons. The default icon colour token $content-interactive-brand-solid (orange) can be replaced with $content-interactive-secondary-solid (black).
+
+This can be helpful if you need to use a Secondary or Tertiary button but the orange icon doesn’t work with the surrounding UI.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Standard icon</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/overrides-standard-icon.svg",
+      width: 97,
+      alt: "A button with a standard coloured icon.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    <h4>Overridden icon</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/button/overrides-overridden-icon.svg",
+      width: 97,
+      alt: "A button with an icon that has colour overridden.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
