@@ -60,7 +60,7 @@ module.exports = async ({ github, context }) => {
     const headRef = pr.head.ref;
     const headSha = pr.head.sha;
     const baseSha = pr.base.sha;
-
+console.info("COMPLETE LEGIT");
     const files = await github.paginate(github.rest.pulls.listFiles, {
         owner, repo, pull_number: prNumber, per_page: 100,
     });
@@ -116,6 +116,6 @@ module.exports = async ({ github, context }) => {
         branch: headRef,
         ...(existingFile ? { sha: existingFile.sha } : {}),
     });
-
+    console.info("COMPLETE LEGIT");
     console.info(`✅ Changeset created at ${changesetPath} for: ${affectedPackages.join(', ')}`);
 };
