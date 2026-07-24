@@ -9,7 +9,7 @@ PIE is Just Eat Takeaway's global design system. This monorepo contains:
 - **Documentation** - The pie.design documentation site
 - **Storybook** - Component playground, web engineering documentation and testing environment
 - **Tools** - Shared tooling packages for component development
-
+ 
 ## Repository Structure
 
 ```
