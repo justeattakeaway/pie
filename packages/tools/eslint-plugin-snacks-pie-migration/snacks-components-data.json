@@ -89,7 +89,7 @@
   },
   "Tag": {
     "piePackage": "@justeattakeaway/pie-tag",
-    "status": "beta"
+    "status": "stable"
   },
   "TextLink": {
     "piePackage": "@justeattakeaway/pie-link",

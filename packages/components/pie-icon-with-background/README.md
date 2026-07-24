@@ -16,6 +16,7 @@
   - [Properties](#properties)
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
+  - [CSS Parts](#css-parts)
   - [Events](#events)
 - [Usage Examples](#usage-examples)
 - [Questions and Support](#questions-and-support)
@@ -30,24 +31,27 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ## Documentation
 
 ### Properties
-| Prop             | Options                                                                                                                                                                  | Description                                                                                                                                                                                                         | Default        |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| | | | |
+| Prop    | Options            | Description                                       | Default  |
+|---------|--------------------|---------------------------------------------------|----------|
+| `shape` | `circle`, `square` | The shape of the background surrounding the icon. | `circle` |
 
 ### Slots
-| Slot     | Description                                                                                                                                                                                                                                                                         |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  | |
+| Slot      | Description                                     |
+|-----------|-------------------------------------------------|
+| (default) | The icon to render inside the background shape. |
 
 ### CSS Variables
-| Variable | Description                                                                                                                                                                                                                 | Default |
-|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| | | |
+
+This component does not expose any CSS variables for style overrides.
+
+### CSS Parts
+| Part   | Description                        |
+|--------|------------------------------------|
+| `body` | The main container of the component. |
 
 ### Events
-| Event | Type                                                                                                                                                                                                                 | Description |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| | | |
+
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
 
 ## Usage Examples
 
