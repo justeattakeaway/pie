@@ -1,7 +1,7 @@
 # AGENTS.md - PIE Design System
 
 This document provides guidance for AI agents working with the PIE (Principles for Interfaces and Experiences) Design System codebase.
-
+  
 ## Project Overview
 
 PIE is Just Eat Takeaway's global design system. This monorepo contains:
