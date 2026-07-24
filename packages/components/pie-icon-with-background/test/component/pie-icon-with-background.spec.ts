@@ -16,4 +16,24 @@ test.describe('PieIconWithBackground - Component tests', () => {
         // Assert
         await expect(iconWithBackground).toBeVisible();
     });
+
+    test.describe('shape prop', () => {
+        [
+            { shape: 'circle', storyId: 'icon-with-background--circle' },
+            { shape: 'square', storyId: 'icon-with-background--square' },
+        ].forEach(({ shape, storyId }) => {
+            test(`should apply the ${shape} shape class`, async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, storyId);
+
+                await basePage.load();
+
+                // Act
+                const iconWithBackground = page.locator(componentSelector);
+
+                // Assert
+                await expect(iconWithBackground).toHaveClass(new RegExp(`c-iconWithBackground--${shape}`));
+            });
+        });
+    });
 });
