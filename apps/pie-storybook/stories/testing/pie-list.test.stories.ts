@@ -68,6 +68,17 @@ const TextOnlyTemplate = () => withLayout(html`
 
 export const TextOnly = createStory<ListProps>(TextOnlyTemplate, defaultArgs)();
 
+// Test-only: exercises the `selection-type` -> role mapping in isolation (no controls needed).
+const SelectionTypesTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item data-test-id="item-none" primaryText="None"></pie-list-item>
+        <pie-list-item data-test-id="item-radio" selection-type="radio" primaryText="Radio"></pie-list-item>
+        <pie-list-item data-test-id="item-checkbox" selection-type="checkbox" primaryText="Checkbox"></pie-list-item>
+        <pie-list-item data-test-id="item-switch" selection-type="switch" primaryText="Switch"></pie-list-item>
+    </pie-list>
+`);
+export const SelectionTypes = createStory<ListProps>(SelectionTypesTemplate, defaultArgs)();
+
 /**
  * `isBold` sets the primary text to a bold font-weight.
  */

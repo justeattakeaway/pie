@@ -6,6 +6,7 @@ import {
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { consume } from '@lit/context';
 
 import {
     FormControlMixin,
@@ -14,6 +15,8 @@ import {
     wrapNativeEvent,
     validPropertyValues,
     safeCustomElement,
+    ariaContext,
+    type ContextualAria,
 } from '@justeattakeaway/pie-webc-core';
 
 import { type RadioProps, defaultProps, statusTypes } from './defs';
@@ -36,6 +39,13 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
 
     @state()
     private _isAnimationAllowed = false;
+
+    // Optional ARIA supplied by an ancestor (for example a `pie-list-item`). A radio's host carries
+    // `role="radio"`, so it is the element assistive tech announces and where the name/description
+    // belong. Undefined when standalone, so a consumer's own aria-* is left untouched.
+    @consume({ context: ariaContext, subscribe: true })
+    @state()
+    private _contextAria?: ContextualAria;
 
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
@@ -159,6 +169,30 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
         this.setAttribute('aria-checked', String(this.checked));
 
         this._handleFormAssociation();
+        this._applyContextAria();
+    }
+
+    /**
+     * When an ancestor provides ARIA (for example a `pie-list-item`), applies the name and
+     * description to the host, which carries `role="radio"` and so is the element assistive tech
+     * announces. Guarded to only run when a provider exists (in a list), so a standalone radio's
+     * consumer-set `aria-*` is never removed.
+     */
+    private _applyContextAria (): void {
+        const aria = this._contextAria;
+        if (!aria) return;
+
+        if (aria.label) {
+            this.setAttribute('aria-label', aria.label);
+        } else {
+            this.removeAttribute('aria-label');
+        }
+
+        if (aria.description) {
+            this.setAttribute('aria-description', aria.description);
+        } else {
+            this.removeAttribute('aria-description');
+        }
     }
 
     render () {
