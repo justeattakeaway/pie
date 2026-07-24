@@ -61,6 +61,7 @@ module.exports = async ({ github, context }) => {
     const headSha = pr.head.sha;
     const baseSha = pr.base.sha;
 console.info("COMPLETE LEGIT");
+console.info("COMPLETE LEGIT");
     const files = await github.paginate(github.rest.pulls.listFiles, {
         owner, repo, pull_number: prNumber, per_page: 100,
     });
