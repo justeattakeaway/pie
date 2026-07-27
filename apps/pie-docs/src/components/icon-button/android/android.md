@@ -240,7 +240,7 @@ The outline, ghost, ghost tertiary and ghost inverse Icon Buttons should have th
 
 ### Pairing
 
-When using a Icon Button pairing, the key is to maintain consistency by all be the same type, with a 8px spacing between.
+When using an Icon Button pairing, the key is to maintain consistency by all being the same type, with a 8px spacing between.
 
 {% contentPageImage {
     src:"../../../assets/img/components/icon-button/layout-pairing.svg",

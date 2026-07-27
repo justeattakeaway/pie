@@ -12,17 +12,14 @@ shouldShowContents: true
     do: {
         type: usageTypes.text,
         items: [
-            "Use for long operations or a process that can take a considerable or unknown amount of time.",
-            "Use when you can describe the process with numbers, such as a percentage.",
-            "Use to visually show the progression of a system operation such as downloading, uploading or saving updates.",
-            "Use to convey that data is being requested, transferred or processed."
+            "Always visually highlight the selected value within the trailing label of the form label, ensuring the user can easily see their precise choice."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use when manual user actions are required to progress. Use the Progress stepper instead.",
-            "If the process takes less than 5 seconds to load, use the Spinner instead."
+            "Don’t use when an element is displaying the status or completion of a task, using the Progress Bar instead.",
+            "Don't use when exact values are critical. If a user must select an exact number, a text input is usually more appropriate."
         ]
     }
 } %}

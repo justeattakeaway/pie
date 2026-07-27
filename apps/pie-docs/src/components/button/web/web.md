@@ -124,7 +124,7 @@ Ghost secondary buttons are similar to the ghost button, but are less prominent 
 
 ### Ghost dark
 
-Ghost secondary buttons are similar to the ghost button, but are less prominent because they have a different colour for the leading and trailing icons.
+Ghost dark buttons have the same purpose as the ghost buttons. However are used when the background colour remains ‘light’ on the dark theme, as the label remains ‘dark’ to provide enough contrast.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-ghost-dark.svg",
@@ -332,7 +332,7 @@ Use these with caution - dictation software users may not be able to properly id
 
 Button labels should clearly indicate the action of the Button and describe what will occur once the user clicks the Button. Use active verbs, such as Add or Delete. For sets of buttons, use specific labels, such as Save or Discard, instead of using OK and Cancel. This is particularly helpful when the user is confirming an action.
 
-Use sentence-style capitalisation (only the first world in a phrase and any proper nouns capitalised).
+Use sentence-style capitalisation (only the first word in a phrase and any proper nouns capitalised).
 
 ---
 
@@ -546,8 +546,6 @@ This can be helpful if you need to use a Secondary or Tertiary button but the or
 ---
 
 ## Examples
-
-Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
