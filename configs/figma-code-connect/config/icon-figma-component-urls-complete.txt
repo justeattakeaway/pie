@@ -1,0 +1,1674 @@
+const iconFigmaComponentUrls = [
+    {
+        displayName: 'Over 16',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1244',
+    },
+    {
+        displayName: 'Over 18',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1359',
+    },
+    {
+        displayName: 'Over 21',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1382',
+    },
+    {
+        displayName: 'Alert Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-489',
+    },
+    {
+        displayName: 'Alert Triangle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-420',
+    },
+    {
+        displayName: 'Help Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-753',
+    },
+    {
+        displayName: 'Info Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-730',
+    },
+    {
+        displayName: 'Info Marker',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-948',
+    },
+    {
+        displayName: 'App Order',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-468',
+    },
+    {
+        displayName: 'App Restaurant',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2617',
+    },
+    {
+        displayName: 'App Success',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-284',
+    },
+    {
+        displayName: 'App Unlock',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24089-937',
+    },
+    {
+        displayName: 'App Users',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1336',
+    },
+    {
+        displayName: 'Arrow Down',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-133',
+    },
+    {
+        displayName: 'Arrow Left',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-823',
+    },
+    {
+        displayName: 'Arrow Right',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-115',
+    },
+    {
+        displayName: 'Arrow Up',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-124',
+    },
+    {
+        displayName: 'Arrow Up Left',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-142',
+    },
+    {
+        displayName: 'Arrow Down Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-630',
+    },
+    {
+        displayName: 'Arrow In Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-707',
+    },
+    {
+        displayName: 'Arrow Out Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-716',
+    },
+    {
+        displayName: 'Curved Arrow Down',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-595',
+    },
+    {
+        displayName: 'Curved Arrow Left',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-604',
+    },
+    {
+        displayName: 'Curved Arrow Right',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-613',
+    },
+    {
+        displayName: 'Curved Arrow Up',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-622',
+    },
+    {
+        displayName: 'Camera',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1686',
+    },
+    {
+        displayName: 'CC',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24089-1000',
+    },
+    {
+        displayName: 'Headset',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1870',
+    },
+    {
+        displayName: 'Pause',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-576',
+    },
+    {
+        displayName: 'Image',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1824',
+    },
+    {
+        displayName: 'Image Add',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1364-568',
+    },
+    {
+        displayName: 'Pause Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-552',
+    },
+    {
+        displayName: 'Stop Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25399-7135',
+    },
+    {
+        displayName: 'Stop',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25399-7150',
+    },
+    {
+        displayName: 'Play',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-567',
+    },
+    {
+        displayName: 'Play Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-537',
+    },
+    {
+        displayName: 'Megaphone',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2169',
+    },
+    {
+        displayName: 'Microphone',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2077',
+    },
+    {
+        displayName: 'Microphone Off',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23878-752',
+    },
+    {
+        displayName: 'Sound On',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2031',
+    },
+    {
+        displayName: 'Sound Off',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1364-585',
+    },
+    {
+        displayName: 'Soundwave',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23940-820',
+    },
+    {
+        displayName: 'Backpack',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2192',
+    },
+    {
+        displayName: 'Bag',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-166',
+    },
+    {
+        displayName: 'Basket',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2096',
+    },
+    {
+        displayName: 'Gift',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=676-143',
+    },
+    {
+        displayName: 'Gift Card',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-599',
+    },
+    {
+        displayName: 'Loyalty Card',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20668-1674',
+    },
+    {
+        displayName: 'Meal Voucher',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-114',
+    },
+    {
+        displayName: 'Reorder Rewards',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26934-836',
+    },
+    {
+        displayName: 'Offer',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-639',
+    },
+    {
+        displayName: 'Offer Star',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-501',
+    },
+    {
+        displayName: 'Voucher',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1267',
+    },
+    {
+        displayName: 'Brand Highlight',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2212',
+    },
+    {
+        displayName: 'Calendar',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-227',
+    },
+    {
+        displayName: 'Calendar Add',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-792',
+    },
+    {
+        displayName: 'Calendar Alert',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-783',
+    },
+    {
+        displayName: 'Calendar Day',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1571',
+    },
+    {
+        displayName: 'Calendar Edit',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-810',
+    },
+    {
+        displayName: 'Calendar Error',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-819',
+    },
+    {
+        displayName: 'Calendar Repeat',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1525',
+    },
+    {
+        displayName: 'Calendar Star',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-801',
+    },
+    {
+        displayName: 'Caret Down',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-876',
+    },
+    {
+        displayName: 'Caret Left',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-235',
+    },
+    {
+        displayName: 'Caret Right',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-226',
+    },
+    {
+        displayName: 'Caret Up',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-217',
+    },
+    {
+        displayName: 'Chat',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1074',
+    },
+    {
+        displayName: 'Chat Bot',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-547',
+    },
+    {
+        displayName: 'Chat conversation',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-399',
+    },
+    {
+        displayName: 'Chat Courier',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23525-1039',
+    },
+    {
+        displayName: 'Chat Heart',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-850',
+    },
+    {
+        displayName: 'Chat Help',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-841',
+    },
+    {
+        displayName: 'Chevron Down',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-168',
+    },
+    {
+        displayName: 'Chevron Left',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=385-60',
+    },
+    {
+        displayName: 'Chevron Right',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-158',
+    },
+    {
+        displayName: 'Chevron Up',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-163',
+    },
+    {
+        displayName: 'Chevron Double Left',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-173',
+    },
+    {
+        displayName: 'Chevron Double Right',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-179',
+    },
+    {
+        displayName: 'Chevron Split',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-184',
+    },
+    {
+        displayName: 'Chevron Collapse',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26388-595',
+    },
+    {
+        displayName: 'Copy',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1597-565',
+    },
+    {
+        displayName: 'Email',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1196',
+    },
+    {
+        displayName: 'Send',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-564',
+    },
+    {
+        displayName: 'Share',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-537',
+    },
+    {
+        displayName: 'Checkbox',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4224-3840',
+    },
+    {
+        displayName: 'Radio',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4224-3865',
+    },
+    {
+        displayName: 'Chart Increase',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-330',
+    },
+    {
+        displayName: 'Chart Marker',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1732',
+    },
+    {
+        displayName: 'Employee Search',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-353',
+    },
+    {
+        displayName: 'Hand Coins',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2548',
+    },
+    {
+        displayName: 'Hand Heart',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-261',
+    },
+    {
+        displayName: 'ID Card',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1005',
+    },
+    {
+        displayName: 'Office',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1189',
+    },
+    {
+        displayName: 'Pie Chart',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-445',
+    },
+    {
+        displayName: 'Presentation Chart',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1778',
+    },
+    {
+        displayName: 'Target',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2123',
+    },
+    {
+        displayName: 'Vision',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-86',
+    },
+    {
+        displayName: 'Conversion Rate',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2571',
+    },
+    {
+        displayName: 'Dollar',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2354',
+    },
+    {
+        displayName: 'Euro',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2285',
+    },
+    {
+        displayName: 'Krone',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16120-674',
+    },
+    {
+        displayName: 'Lei',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2594',
+    },
+    {
+        displayName: 'Lev',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2433',
+    },
+    {
+        displayName: 'Pound',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2525',
+    },
+    {
+        displayName: 'Shekel',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2377',
+    },
+    {
+        displayName: 'Swiss Franc',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2479',
+    },
+    {
+        displayName: 'Zloty',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16882-7664',
+    },
+    {
+        displayName: 'Caffeine',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18394-755',
+    },
+    {
+        displayName: 'Celery',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3642',
+    },
+    {
+        displayName: 'Crustaceans',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3662',
+    },
+    {
+        displayName: 'Eggs',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3645',
+    },
+    {
+        displayName: 'Fish',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3632',
+    },
+    {
+        displayName: 'Gluten',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3618',
+    },
+    {
+        displayName: 'Halal',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26934-827',
+    },
+    {
+        displayName: 'Kosher',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1313',
+    },
+    {
+        displayName: 'Mollusc',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3627',
+    },
+    {
+        displayName: 'Mustard',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3636',
+    },
+    {
+        displayName: 'Nuts',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3600',
+    },
+    {
+        displayName: 'Milk',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3609',
+    },
+    {
+        displayName: 'Lupin',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3600',
+    },
+    {
+        displayName: 'Peanuts',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-328',
+    },
+    {
+        displayName: 'Sesame Seeds',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3652',
+    },
+    {
+        displayName: 'Spicy',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-374',
+    },
+    {
+        displayName: 'Soybeans',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3622',
+    },
+    {
+        displayName: 'Sulphites',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3852',
+    },
+    {
+        displayName: 'Vegan',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-422',
+    },
+    {
+        displayName: 'Vegetarian',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-557',
+    },
+    {
+        displayName: 'Consent',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5042-3499',
+    },
+    {
+        displayName: 'Cookie Policy',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5014-3340',
+    },
+    {
+        displayName: 'Document',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-178',
+    },
+    {
+        displayName: 'Document Edit',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25422-637',
+    },
+    {
+        displayName: 'Terms And Conditions',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-925',
+    },
+    {
+        displayName: 'Fire',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2557-3462',
+    },
+    {
+        displayName: 'Lightning',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1284-532',
+    },
+    {
+        displayName: 'Moon',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5156',
+    },
+    {
+        displayName: 'Snowflake',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1502',
+    },
+    {
+        displayName: 'Sun',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5147',
+    },
+    {
+        displayName: 'Temp',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1428',
+    },
+    {
+        displayName: 'Eye On',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-994',
+    },
+    {
+        displayName: 'Eye Off',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-971',
+    },
+    {
+        displayName: 'Alcohol',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1594',
+    },
+    {
+        displayName: 'Curry',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-902',
+    },
+    {
+        displayName: 'Drink',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-662',
+    },
+    {
+        displayName: 'Food',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2289',
+    },
+    {
+        displayName: 'Fried Chicken',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-741',
+    },
+    {
+        displayName: 'Fries',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-833',
+    },
+    {
+        displayName: 'Ice Cream',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-616',
+    },
+    {
+        displayName: 'Kebab',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-708',
+    },
+    {
+        displayName: 'Kebab Bowl',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3716',
+    },
+    {
+        displayName: 'Nachos',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-524',
+    },
+    {
+        displayName: 'Noodles',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-593',
+    },
+    {
+        displayName: 'Pizza',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-189',
+    },
+    {
+        displayName: 'Salad',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-639',
+    },
+    {
+        displayName: 'Sandwich',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-787',
+    },
+    {
+        displayName: 'Sushi',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-465',
+    },
+    {
+        displayName: 'Taco',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-685',
+    },
+    {
+        displayName: 'Wrap',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-570',
+    },
+    {
+        displayName: 'Bold',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-809',
+    },
+    {
+        displayName: 'Code Block',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-818',
+    },
+    {
+        displayName: 'Heading 1',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-842',
+    },
+    {
+        displayName: 'Heading 2',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-851',
+    },
+    {
+        displayName: 'Heading 3',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-860',
+    },
+    {
+        displayName: 'Inline Code',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-869',
+    },
+    {
+        displayName: 'Italic',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-877',
+    },
+    {
+        displayName: 'Numbered List',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-888',
+    },
+    {
+        displayName: 'Strike',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-897',
+    },
+    {
+        displayName: 'Quote',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-906',
+    },
+    {
+        displayName: 'Archive',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-535',
+    },
+    {
+        displayName: 'Bookmark',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7724-3876',
+    },
+    {
+        displayName: 'Check',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-754',
+    },
+    {
+        displayName: 'Check Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-777',
+    },
+    {
+        displayName: 'Close',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-708',
+    },
+    {
+        displayName: 'Close Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1119',
+    },
+    {
+        displayName: 'Columns',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26401-783',
+    },
+    {
+        displayName: 'Double Check',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=19731-1822',
+    },
+    {
+        displayName: 'Drag',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-713',
+    },
+    {
+        displayName: 'Edit',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-879',
+    },
+    {
+        displayName: 'Filters',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-661',
+    },
+    {
+        displayName: 'Grid View',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-856',
+    },
+    {
+        displayName: 'Image Flip Horizontal',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3732',
+    },
+    {
+        displayName: 'Image Flip Vertical',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3742',
+    },
+    {
+        displayName: 'Layers',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-776',
+    },
+    {
+        displayName: 'List',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-810',
+    },
+    {
+        displayName: 'Log Out',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1096',
+    },
+    {
+        displayName: 'Menu',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-155',
+    },
+    {
+        displayName: 'Minus',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-833',
+    },
+    {
+        displayName: 'Minus Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-652',
+    },
+    {
+        displayName: 'More Horizontal',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=747-100',
+    },
+    {
+        displayName: 'More Vertical',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-271',
+    },
+    {
+        displayName: 'Navigation Collapse',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-823',
+    },
+    {
+        displayName: 'Navigation Expand',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-829',
+    },
+    {
+        displayName: 'New Chat',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-833',
+    },
+    {
+        displayName: 'Note',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27983-605',
+    },
+    {
+        displayName: 'Plus',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-787',
+    },
+    {
+        displayName: 'Plus Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-637',
+    },
+    {
+        displayName: 'Refresh',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-810',
+    },
+    {
+        displayName: 'Resize',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2900-5148',
+    },
+    {
+        displayName: 'Restricted',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-740',
+    },
+    {
+        displayName: 'Trash',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-948',
+    },
+    {
+        displayName: 'Search',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-569',
+    },
+    {
+        displayName: 'Search Categories',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27543-1150',
+    },
+    {
+        displayName: 'Settings',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-856',
+    },
+    {
+        displayName: 'Sort',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-749',
+    },
+    {
+        displayName: 'Sort Ascending',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-615',
+    },
+    {
+        displayName: 'Sort Descending',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=747-91',
+    },
+    {
+        displayName: 'Swap',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23099-870',
+    },
+    {
+        displayName: 'Switch Product',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7796-3791',
+    },
+    {
+        displayName: 'Sync',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-731',
+    },
+    {
+        displayName: 'Fullscreen Exit',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-397',
+    },
+    {
+        displayName: 'Fullscreen Expand',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-351',
+    },
+    {
+        displayName: 'Thumbs Down',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=663-88',
+    },
+    {
+        displayName: 'Thumbs Up',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2396',
+    },
+    {
+        displayName: 'Do Not Touch',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24089-982',
+    },
+    {
+        displayName: 'House',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1235',
+    },
+    {
+        displayName: 'Language',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1061',
+    },
+    {
+        displayName: 'Translate',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2291-4480',
+    },
+    {
+        displayName: 'Link',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-879',
+    },
+    {
+        displayName: 'Unlink',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-764',
+    },
+    {
+        displayName: 'External Link',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2089-575',
+    },
+    {
+        displayName: 'Geolocation',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3707',
+    },
+    {
+        displayName: 'Geolocation Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-662',
+    },
+    {
+        displayName: 'Location Pin',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-511',
+    },
+    {
+        displayName: 'Location Pin Food',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4373-3318',
+    },
+    {
+        displayName: 'Location Pin User',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-699',
+    },
+    {
+        displayName: 'Location Pin Restaurant',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-38',
+    },
+    {
+        displayName: 'Location Restaurant',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3720',
+    },
+    {
+        displayName: 'Location Target',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-777',
+    },
+    {
+        displayName: 'Map',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=13906-672',
+    },
+    {
+        displayName: 'Map Legend',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27930-1374',
+    },
+    {
+        displayName: 'Route Pin',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1640',
+    },
+    {
+        displayName: 'Key',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1027',
+    },
+    {
+        displayName: 'Key Unlock',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2239',
+    },
+    {
+        displayName: 'Lock',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-466',
+    },
+    {
+        displayName: 'Logo Points',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4178-3292',
+    },
+    {
+        displayName: 'Logo Skip',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1616-549',
+    },
+    {
+        displayName: 'Bakery',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3802',
+    },
+    {
+        displayName: 'Ballot Box',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1801',
+    },
+    {
+        displayName: 'Beauty',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3812',
+    },
+    {
+        displayName: 'Books',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3883',
+    },
+    {
+        displayName: 'Building Blocks',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=11957-325',
+    },
+    {
+        displayName: 'Bulb Lightning',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-247',
+    },
+    {
+        displayName: 'Cannabis',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=11469-574',
+    },
+    {
+        displayName: 'Cleaning',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9715-4069',
+    },
+    {
+        displayName: 'Clothing',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9715-4061',
+    },
+    {
+        displayName: 'Convenience',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4373-3411',
+    },
+    {
+        displayName: 'Directions',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1046',
+    },
+    {
+        displayName: 'Drone',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=19272-1826',
+    },
+    {
+        displayName: 'DIY',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3863',
+    },
+    {
+        displayName: 'Electronic Accessories',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3842',
+    },
+    {
+        displayName: 'Experiment',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14888-427',
+    },
+    {
+        displayName: 'Flag',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14724-407',
+    },
+    {
+        displayName: 'Flowers',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5025-3347',
+    },
+    {
+        displayName: 'Fresh Food',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3792',
+    },
+    {
+        displayName: 'Gifts',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3822',
+    },
+    {
+        displayName: 'Grocery',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4373-3419',
+    },
+    {
+        displayName: 'Hi Vis',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3329-5148',
+    },
+    {
+        displayName: 'High Contrast',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5197',
+    },
+    {
+        displayName: 'Law',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=6703-3636',
+    },
+    {
+        displayName: 'Loading',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-925',
+    },
+    {
+        displayName: 'Pacifier',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=12108-286',
+    },
+    {
+        displayName: 'Paintbrush',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5167',
+    },
+    {
+        displayName: 'Pet supplies',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5807-3637',
+    },
+    {
+        displayName: 'Pet Supplies-alt',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10519-2564',
+    },
+    {
+        displayName: 'Pharmacy',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5807-3646',
+    },
+    {
+        displayName: 'Pharmacy-alt',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10519-2571',
+    },
+    {
+        displayName: 'QR code',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=13906-594',
+    },
+    {
+        displayName: 'Recycle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1405',
+    },
+    {
+        displayName: 'Shops',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3893',
+    },
+    {
+        displayName: 'Sponsored',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1051',
+    },
+    {
+        displayName: 'Stationery',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3873',
+    },
+    {
+        displayName: 'Toilet',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2262',
+    },
+    {
+        displayName: 'Toys & Games',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3832',
+    },
+    {
+        displayName: 'Tool',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=22470-884',
+    },
+    {
+        displayName: 'Tutorial',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5042-3902',
+    },
+    {
+        displayName: 'Weight',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=22174-870',
+    },
+    {
+        displayName: 'Notification',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1120',
+    },
+    {
+        displayName: 'Notification Off',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1399-583',
+    },
+    {
+        displayName: 'Number Symbol',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1095',
+    },
+    {
+        displayName: 'Numero Symbol',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1111',
+    },
+    {
+        displayName: 'Number input',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25565-683',
+    },
+    {
+        displayName: 'Cloud',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-546',
+    },
+    {
+        displayName: 'Cloud Download',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3725',
+    },
+    {
+        displayName: 'Cloud Error',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-684',
+    },
+    {
+        displayName: 'Cloud Success',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-592',
+    },
+    {
+        displayName: 'Cloud Upload',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3728',
+    },
+    {
+        displayName: 'Download',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-638',
+    },
+    {
+        displayName: 'RSS',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-555',
+    },
+    {
+        displayName: 'Network Error',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-546',
+    },
+    {
+        displayName: 'Upload',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1166',
+    },
+    {
+        displayName: 'Wifi',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-305',
+    },
+    {
+        displayName: 'Wifi Alert',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-585',
+    },
+    {
+        displayName: 'Pay',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9717-3599',
+    },
+    {
+        displayName: 'Account Credit',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10833-374',
+    },
+    {
+        displayName: 'Barcode',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2400',
+    },
+    {
+        displayName: 'Budget Add',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14491-911',
+    },
+    {
+        displayName: 'Cash',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-28',
+    },
+    {
+        displayName: 'Cash Card',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-194',
+    },
+    {
+        displayName: 'Cheque',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=540-245',
+    },
+    {
+        displayName: 'Coins',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=13213-481',
+    },
+    {
+        displayName: 'CreditCard',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-136',
+    },
+    {
+        displayName: 'Credit Card Home',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-156',
+    },
+    {
+        displayName: 'Fast Cash',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27543-1171',
+    },
+    {
+        displayName: 'Instant Bank',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3923',
+    },
+    {
+        displayName: 'Pin code',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14491-761',
+    },
+    {
+        displayName: 'Pin Home',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-94',
+    },
+    {
+        displayName: 'Takeaway Pay',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-68',
+    },
+    {
+        displayName: 'Service Charge',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5042-3755',
+    },
+    {
+        displayName: 'Unpaid',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3953',
+    },
+    {
+        displayName: 'Wallet',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4814-3589',
+    },
+    {
+        displayName: 'Credits',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25922-605',
+    },
+    {
+        displayName: 'Wallet Add',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14491-920',
+    },
+    {
+        displayName: 'Baby & Kid',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=11469-561',
+    },
+    {
+        displayName: 'Face Excited',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=21751-828',
+    },
+    {
+        displayName: 'Face Happy',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1165',
+    },
+    {
+        displayName: 'Face Neutral',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=21751-1006',
+    },
+    {
+        displayName: 'Face Unhappy',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26934-812',
+    },
+    {
+        displayName: 'User',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3713',
+    },
+    {
+        displayName: 'User Add',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2054',
+    },
+    {
+        displayName: 'User Cancelled',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-442',
+    },
+    {
+        displayName: 'User Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-212',
+    },
+    {
+        displayName: 'User Community',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-224',
+    },
+    {
+        displayName: 'User Highlight',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1847',
+    },
+    {
+        displayName: 'User Group',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1709',
+    },
+    {
+        displayName: 'User Marker',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1916',
+    },
+    {
+        displayName: 'User Move',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-516',
+    },
+    {
+        displayName: 'User Partnership',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1663',
+    },
+    {
+        displayName: 'User Repeat',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2502',
+    },
+    {
+        displayName: 'User Shield',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5014-3331',
+    },
+    {
+        displayName: 'Users',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-537',
+    },
+    {
+        displayName: 'Components',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3726',
+    },
+    {
+        displayName: 'Engineers',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3753',
+    },
+    {
+        displayName: 'Foundations',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3744',
+    },
+    {
+        displayName: 'Patterns',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3735',
+    },
+    {
+        displayName: 'PIE',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3763',
+    },
+    {
+        displayName: 'Heart',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-7',
+    },
+    {
+        displayName: 'Heart Strike',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-964',
+    },
+    {
+        displayName: 'Star',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-488',
+    },
+    {
+        displayName: 'Star Circle',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2291-4383',
+    },
+    {
+        displayName: 'Chef',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3963',
+    },
+    {
+        displayName: 'Collect',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26643-595',
+    },
+    {
+        displayName: 'Cutlery',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2008',
+    },
+    {
+        displayName: 'Delivery',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27237-681',
+    },
+    {
+        displayName: 'Delivery Fee',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2456',
+    },
+    {
+        displayName: 'Dine In',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1451',
+    },
+    {
+        displayName: 'Dish',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1004',
+    },
+    {
+        displayName: 'Food Ready',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-612',
+    },
+    {
+        displayName: 'Kitchen',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2291-4442',
+    },
+    {
+        displayName: 'Local hero',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=22543-898',
+    },
+    {
+        displayName: 'Management',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9096-3600',
+    },
+    {
+        displayName: 'Order',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-120',
+    },
+    {
+        displayName: 'Pick Up',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-143',
+    },
+    {
+        displayName: 'Prepare',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=6395-3741',
+    },
+    {
+        displayName: 'Prepare Bag',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9302-4946',
+    },
+    {
+        displayName: 'Prepare pause',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=6395-3732',
+    },
+    {
+        displayName: 'Receipt',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-809',
+    },
+    {
+        displayName: 'Receipt Error',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3441-3151',
+    },
+    {
+        displayName: 'Receipt Success',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-551',
+    },
+    {
+        displayName: 'Restaurant',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2343',
+    },
+    {
+        displayName: 'Restaurant Cancelled',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-552',
+    },
+    {
+        displayName: 'Restaurant Menu',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-562',
+    },
+    {
+        displayName: 'Review',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1962',
+    },
+    {
+        displayName: 'Sign Closed',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2640',
+    },
+    {
+        displayName: 'Sign Open',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16882-7625',
+    },
+    {
+        displayName: 'Sign Empty',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25407-7133',
+    },
+    {
+        displayName: 'Ribbon Heart',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-1000',
+    },
+    {
+        displayName: 'Ribbon Success',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1548',
+    },
+    {
+        displayName: 'Ribbon Star',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-1009',
+    },
+    {
+        displayName: 'Percentage',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-512',
+    },
+    {
+        displayName: 'Stamp Card',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-5',
+    },
+    {
+        displayName: 'Stamp Card 10',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-16',
+    },
+    {
+        displayName: 'AI',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18739-765',
+    },
+    {
+        displayName: 'At Symbol',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-920',
+    },
+    {
+        displayName: 'Atom',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5571-3695',
+    },
+    {
+        displayName: 'Battery',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2308',
+    },
+    {
+        displayName: 'Bug',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-902',
+    },
+    {
+        displayName: 'Face ID',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16494-406',
+    },
+    {
+        displayName: 'Fingerprint',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-981',
+    },
+    {
+        displayName: 'Google Voice',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1939',
+    },
+    {
+        displayName: 'Laptop',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-132',
+    },
+    {
+        displayName: 'Laptop Error',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-911',
+    },
+    {
+        displayName: 'Laptop Highlight',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-201',
+    },
+    {
+        displayName: 'Laptop Success',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1985',
+    },
+    {
+        displayName: 'Phone',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1143',
+    },
+    {
+        displayName: 'Phone Off',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5571-3699',
+    },
+    {
+        displayName: 'Printer',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1212',
+    },
+    {
+        displayName: 'Pull Request',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24839-597',
+    },
+    {
+        displayName: 'Robot',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23820-871',
+    },
+    {
+        displayName: 'Tree Trace',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26393-637',
+    },
+    {
+        displayName: 'Clock',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-443',
+    },
+    {
+        displayName: 'Clock Add',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-736',
+    },
+    {
+        displayName: 'Clock Alert',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-727',
+    },
+    {
+        displayName: 'Clock Refresh',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-745',
+    },
+    {
+        displayName: 'Stopwatch',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-27',
+    },
+    {
+        displayName: 'Bike',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-1968',
+    },
+    {
+        displayName: 'Car',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-731',
+    },
+    {
+        displayName: 'Car Clock',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-941',
+    },
+    {
+        displayName: 'Dashboard',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1755',
+    },
+    {
+        displayName: 'Driver Car',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-857',
+    },
+    {
+        displayName: 'Driver Moped',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5712-3744',
+    },
+    {
+        displayName: 'Ebike',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16120-640',
+    },
+    {
+        displayName: 'Escooter',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27543-1011',
+    },
+    {
+        displayName: 'Helmet',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-376',
+    },
+    {
+        displayName: 'Moped',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-685',
+    },
+    {
+        displayName: 'Plane',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2331',
+    },
+    {
+        displayName: 'Rocket Ship',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1893',
+    },
+    {
+        displayName: 'Traffic Light',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27930-1413',
+    },
+    {
+        displayName: 'Walking',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=751-187',
+    },
+    {
+        displayName: 'World',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2100',
+    },
+    {
+        displayName: 'Ball',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1916',
+    },
+    {
+        displayName: 'Fan festival',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1949',
+    },
+    {
+        displayName: 'Match ball',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1982',
+    },
+    {
+        displayName: 'Score',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2000',
+    },
+    {
+        displayName: 'Shirt uniform',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1940',
+    },
+    {
+        displayName: 'Spectators',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1958',
+    },
+    {
+        displayName: 'Stadium',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1991',
+    },
+    {
+        displayName: 'Referee',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2017',
+    },
+    {
+        displayName: 'Ticket',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2009',
+    },
+    {
+        displayName: 'Trophy',
+        url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2131',
+    }
+];

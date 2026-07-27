@@ -1,0 +1,251 @@
+{
+  "templateFile": "./dist/pie-icons.figma.batch.js",
+  "components": [
+    {
+      "name": "Archive",
+      "id": "archive",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-535"
+    },
+    {
+      "name": "Bookmark",
+      "id": "bookmark",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7724-3876"
+    },
+    {
+      "name": "Check",
+      "id": "check",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-754"
+    },
+    {
+      "name": "Check Circle",
+      "id": "check-circle",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-777"
+    },
+    {
+      "name": "Close",
+      "id": "close",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-708"
+    },
+    {
+      "name": "Close Circle",
+      "id": "close-circle",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1119"
+    },
+    {
+      "name": "Columns",
+      "id": "columns",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26401-783"
+    },
+    {
+      "name": "Double Check",
+      "id": "double-check",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=19731-1822"
+    },
+    {
+      "name": "Drag",
+      "id": "drag",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-713"
+    },
+    {
+      "name": "Edit",
+      "id": "edit",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-879"
+    },
+    {
+      "name": "Filters",
+      "id": "filters",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-661"
+    },
+    {
+      "name": "Grid View",
+      "id": "grid-view",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-856"
+    },
+    {
+      "name": "Image Flip Horizontal",
+      "id": "image-flip-horizontal",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3732"
+    },
+    {
+      "name": "Image Flip Vertical",
+      "id": "image-flip-vertical",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3742"
+    },
+    {
+      "name": "Layers",
+      "id": "layers",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-776"
+    },
+    {
+      "name": "List",
+      "id": "list",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-810"
+    },
+    {
+      "name": "Log Out",
+      "id": "log-out",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1096"
+    },
+    {
+      "name": "Menu",
+      "id": "menu",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-155"
+    },
+    {
+      "name": "Minus",
+      "id": "minus",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-833"
+    },
+    {
+      "name": "Minus Circle",
+      "id": "minus-circle",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-652"
+    },
+    {
+      "name": "More Horizontal",
+      "id": "more-horizontal",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=747-100"
+    },
+    {
+      "name": "More Vertical",
+      "id": "more-vertical",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-271"
+    },
+    {
+      "name": "Navigation Collapse",
+      "id": "navigation-collapse",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-823"
+    },
+    {
+      "name": "Navigation Expand",
+      "id": "navigation-expand",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-829"
+    },
+    {
+      "name": "New Chat",
+      "id": "new-chat",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-833"
+    },
+    {
+      "name": "Note",
+      "id": "note",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27983-605"
+    },
+    {
+      "name": "Plus",
+      "id": "plus",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-787"
+    },
+    {
+      "name": "Plus Circle",
+      "id": "plus-circle",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-637"
+    },
+    {
+      "name": "Refresh",
+      "id": "refresh",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-810"
+    },
+    {
+      "name": "Resize",
+      "id": "resize",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2900-5148"
+    },
+    {
+      "name": "Restricted",
+      "id": "restricted",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-740"
+    },
+    {
+      "name": "Search",
+      "id": "search",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-569"
+    },
+    {
+      "name": "Search Categories",
+      "id": "search-categories",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27543-1150"
+    },
+    {
+      "name": "Settings",
+      "id": "settings",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-856"
+    },
+    {
+      "name": "Sort",
+      "id": "sort",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-749"
+    },
+    {
+      "name": "Sort Ascending",
+      "id": "sort-ascending",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-615"
+    },
+    {
+      "name": "Sort Descending",
+      "id": "sort-descending",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=747-91"
+    },
+    {
+      "name": "Swap",
+      "id": "swap",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23099-870"
+    },
+    {
+      "name": "Switch Product",
+      "id": "switch-product",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7796-3791"
+    },
+    {
+      "name": "Sync",
+      "id": "sync",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-731"
+    },
+    {
+      "name": "Trash",
+      "id": "trash",
+      "source": "./packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-948"
+    }
+  ]
+}

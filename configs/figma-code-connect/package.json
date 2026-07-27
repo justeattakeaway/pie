@@ -1,0 +1,21 @@
+{
+  "name": "figma-code-connect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pie-button-props.js",
+  "scripts": {
+    "build:web": "FRAMEWORK=web node scripts/build-figma-files.js",
+    "build:react": "FRAMEWORK=react node scripts/build-figma-files.js",
+    "publish-batch:web": "yarn build:web && yarn figma connect publish -c ./config/figma-web-components-batch.config.json",
+    "publish-batch:react": "yarn build:react && yarn figma connect publish -c ./config/figma-react-components-batch.config.json",
+    "publish-icons:web": "COMPONENT=pie-icons yarn build:web && yarn figma connect publish -c ./config/figma-icons-web.config.json",
+    "publish-icons:react": "COMPONENT=pie-icons yarn build:react && yarn figma connect publish -c ./config/figma-icons-react.config.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@figma/code-connect": "1.4.9"
+  }
+}
