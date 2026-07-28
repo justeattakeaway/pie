@@ -219,6 +219,10 @@
     {
       "path": "./packages/components/pie-accordion/dist/*.js",
       "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-icon-with-background/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",

@@ -1,5 +1,26 @@
 # Changelog
 
+## 5.9.0
+
+### Minor Changes
+
+- [Changed] - Updating docs page for button web. ([#3027](https://github.com/justeattakeaway/pie/pull/3027)) by [@Grrreidy](https://github.com/Grrreidy)
+
+  [Added] - Publishing new docs page for button apps.
+  [Changed] - Updating docs page for icon-button web.
+  [Added] - Publishing new docs page for icon-button Android.
+  [Added] - Publishing new docs page for icon-button iOS.
+  [Added] - Publishing new docs page for slider web.
+  [Added] - Publishing new docs page for slider apps.
+
+## 5.8.5
+
+### Patch Changes
+
+- Updated dependencies [[`8b46c8a`](https://github.com/justeattakeaway/pie/commit/8b46c8ab6e9ede6b43fd94b009886542e20ca248)]:
+  - @justeattakeaway/pie-webc@0.11.0
+  - @justeattakeaway/pie-icons@5.30.1
+
 ## 5.8.4
 
 ### Patch Changes

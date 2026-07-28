@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-webc
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - New `@justeattakeaway/pie-icon-with-background` component shell that renders the default slot ([#3040](https://github.com/justeattakeaway/pie/pull/3040)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`8b46c8a`](https://github.com/justeattakeaway/pie/commit/8b46c8ab6e9ede6b43fd94b009886542e20ca248), [`7dff72f`](https://github.com/justeattakeaway/pie/commit/7dff72fdb1e176c917b5611fc74493312ceb7e57), [`819d63a`](https://github.com/justeattakeaway/pie/commit/819d63acad9b00c2ff546eac996400770a0e24b0), [`819d63a`](https://github.com/justeattakeaway/pie/commit/819d63acad9b00c2ff546eac996400770a0e24b0)]:
+  - @justeattakeaway/pie-icon-with-background@0.1.0
+  - @justeattakeaway/pie-tag@1.0.0
+
 ## 0.10.37
 
 ### Patch Changes
