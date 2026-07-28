@@ -47,3 +47,10 @@ test('should render icon-only tags as the large size for both small and large si
 
     await percySnapshot(page, 'PIE Tag - Icon Only Variations', percyWidths);
 });
+
+test('should not grow to fill flex parent and should truncate correctly when width-constrained', async ({ page }) => {
+    const flexParentPage = new BasePage(page, 'tag--flex-parent');
+    await flexParentPage.load();
+
+    await percySnapshot(page, 'PIE Tag - Flex Parent', percyWidths);
+});

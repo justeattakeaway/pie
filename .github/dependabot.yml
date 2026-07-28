@@ -11,6 +11,10 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ['version-update:semver-major']
+      - dependency-name: "@justeat/pie-design-tokens"
+      - dependency-name: "stylelint"
+      - dependency-name: "stylelint-*"
+      - dependency-name: "@stylistic/stylelint-plugin"
     open-pull-requests-limit: 3
     commit-message:
       prefix: "deps(npm):"
@@ -59,16 +63,9 @@ updates:
           - "eslint"
           - "eslint-*"
           - "@typescript-eslint/*"
-          - "stylelint"
-          - "stylelint-*"
-          - "@stylistic/*"
           - "commitlint"
           - "@commitlint/*"
           - "prettier"
-      dev-dependencies:
-        dependency-type: "development"
-      production-dependencies:
-        dependency-type: "production"
       security:
         applies-to: security-updates
         patterns:

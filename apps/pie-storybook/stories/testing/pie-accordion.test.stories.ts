@@ -242,33 +242,41 @@ type BorderRadiusVariantProps = AccordionVariantProps & { borderRadius?: string 
 const BorderRadiusVariationsTemplate: TemplateFunction<BorderRadiusVariantProps> = ({
     borderRadius,
 }) => {
-    const style = `--accordion-border-radius: ${borderRadius ? `var(${borderRadius})` : '0'}; margin-bottom: 1px;`;
+    const borderRadiusValue = borderRadius ? `var(${borderRadius})` : '0';
+    const accordionStyle = `--accordion-border-radius: ${borderRadiusValue};`;
+    const wrapperStyle = `background-color: var(--dt-color-container-default); border-radius: ${borderRadiusValue}; margin-bottom: 1px;`;
 
     return html`
         <div class="responsive-story-container">
-            <pie-accordion
-                style="${style}"
-                isDividerHidden
-                headingLabel="Delivery information"
-                ?isOpen="${true}"
-                @toggle="${handleToggle}">
-                Your order will be delivered between 30 and 45 minutes after placing your order.
-            </pie-accordion>
-            <pie-accordion
-                style="${style}"
-                isDividerHidden
-                headingLabel="Payment methods"
-                @toggle="${handleToggle}">
-                We accept Visa, Mastercard, PayPal, and cash on delivery.
-            </pie-accordion>
-            <pie-accordion
-                style="${style}"
-                isDividerHidden
-                headingLabel="Allergen information"
-                secondaryLabel="Updated today"
-                @toggle="${handleToggle}">
-                Please contact the restaurant directly for allergen information about specific dishes.
-            </pie-accordion>
+            <div style="${wrapperStyle}">
+                <pie-accordion
+                    style="${accordionStyle}"
+                    isDividerHidden
+                    headingLabel="Delivery information"
+                    ?isOpen="${true}"
+                    @toggle="${handleToggle}">
+                    Your order will be delivered between 30 and 45 minutes after placing your order.
+                </pie-accordion>
+            </div>
+            <div style="${wrapperStyle}">
+                <pie-accordion
+                    style="${accordionStyle}"
+                    isDividerHidden
+                    headingLabel="Payment methods"
+                    @toggle="${handleToggle}">
+                    We accept Visa, Mastercard, PayPal, and cash on delivery.
+                </pie-accordion>
+            </div>
+            <div style="${wrapperStyle}">
+                <pie-accordion
+                    style="${accordionStyle}"
+                    isDividerHidden
+                    headingLabel="Allergen information"
+                    secondaryLabel="Updated today"
+                    @toggle="${handleToggle}">
+                    Please contact the restaurant directly for allergen information about specific dishes.
+                </pie-accordion>
+            </div>
         </div>
     `;
 };

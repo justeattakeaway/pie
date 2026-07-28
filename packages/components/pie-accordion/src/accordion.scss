@@ -28,7 +28,7 @@
 
 // Trigger button - narrow layout by default
 .c-accordion-trigger {
-    --int-states-mixin-bg-color: var(--dt-color-container-default);
+    --int-states-mixin-bg-color: var(--dt-color-transparent);
 
     display: flex;
     align-items: flex-start;
@@ -45,7 +45,7 @@
     color: var(--dt-color-content-default);
 
     @include p.font-theme('font-heading-s');
-    @include p.interactive-states('--dt-color-container-default');
+    @include p.interactive-states('--dt-color-transparent', 'transparent');
     @include p.disable-pointer-events-in-slotted-icons;
 
     &:focus-visible {
@@ -121,7 +121,7 @@
     padding-inline-start: var(--accordion-panel-padding-inline-start);
     padding-inline-end: var(--accordion-panel-padding-inline-end);
 
-    background-color: var(--dt-color-container-default);
+    background-color: var(--dt-color-transparent);
 
     border-end-start-radius: var(--accordion-border-radius);
     border-end-end-radius: var(--accordion-border-radius);

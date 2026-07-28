@@ -238,7 +238,7 @@ export class PieNotification extends PieElement implements NotificationProps {
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
                 @click="${this.handleCloseButton}"
-                aria-label="${ifDefined(this.aria?.close)}">
+                .aria="${{ label: this.aria?.close }}">
                 <icon-close></icon-close>
             </pie-icon-button>`;
     }
