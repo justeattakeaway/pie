@@ -9,17 +9,80 @@
     align-items: center;
     justify-content: center;
 
-    // NOTE: provisional box sizing/colour so the shape is visible in isolation.
-    // Configurable sizing arrives in DSW-4169 and colour/variant styling in DSW-4170.
-    padding: var(--dt-spacing-b);
+    // NOTE: colour/variant styling is provisional so the shape is visible in isolation.
+    // Sizing is implemented in DSW-4169 (this ticket); only colour/variant remains
+    // provisional and arrives in DSW-4170.
     background-color: var(--dt-color-container-strong);
     color: var(--dt-color-content-inverse);
+
+    // Used to size raw SVGs passed into the default slot (parity with pie-tag).
+    ::slotted(svg) {
+        display: block;
+        block-size: var(--icon-size-override);
+        inline-size: var(--icon-size-override);
+    }
 }
 
+// Container sizing is identical for both shapes and driven by the `size` prop.
+// Literal px values come from the design spike; no matching --dt-* token exists.
+.c-iconWithBackground--small {
+    inline-size: 24px;
+    block-size: 24px;
+}
+
+.c-iconWithBackground--medium {
+    inline-size: 32px;
+    block-size: 32px;
+}
+
+.c-iconWithBackground--large {
+    inline-size: 40px;
+    block-size: 40px;
+}
+
+.c-iconWithBackground--xlarge {
+    inline-size: 56px;
+    block-size: 56px;
+}
+
+// Icon sizing depends on both shape and size, driven via --icon-size-override.
+// Literal px values come from the design spike; no matching --dt-* token exists.
 .c-iconWithBackground--circle {
     border-radius: var(--dt-radius-rounded-e);
+
+    &.c-iconWithBackground--small {
+        --icon-size-override: 16px;
+    }
+
+    &.c-iconWithBackground--medium {
+        --icon-size-override: 20px;
+    }
+
+    &.c-iconWithBackground--large {
+        --icon-size-override: 24px;
+    }
+
+    &.c-iconWithBackground--xlarge {
+        --icon-size-override: 32px;
+    }
 }
 
 .c-iconWithBackground--square {
     border-radius: var(--dt-radius-rounded-b);
+
+    &.c-iconWithBackground--small {
+        --icon-size-override: 20px;
+    }
+
+    &.c-iconWithBackground--medium {
+        --icon-size-override: 24px;
+    }
+
+    &.c-iconWithBackground--large {
+        --icon-size-override: 28px;
+    }
+
+    &.c-iconWithBackground--xlarge {
+        --icon-size-override: 36px;
+    }
 }
