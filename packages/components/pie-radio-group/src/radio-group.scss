@@ -35,7 +35,7 @@
     }
 }
 
-:host(:not([isinline])) {
+.c-radioGroup:not(.c-radioGroup--inline) {
     // used instead of gap because list-item slotted children do not need the gap. Only pie-radio slotted children do.
     ::slotted(pie-radio:not(:first-of-type)) {
         margin-block-start: var(--radio-group-gap);

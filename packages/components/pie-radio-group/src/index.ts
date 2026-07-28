@@ -59,7 +59,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @property({ type: String })
     public value = defaultProps.value;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
     public isInline = defaultProps.isInline;
 
     @property({ type: Boolean, reflect: true })
