@@ -21,7 +21,7 @@ const componentSelector = 'pie-list-item';
  * @tagname pie-list-item
  * @slot leading - Content shown at the start of the item (for example an icon, avatar, or a slotted radio/checkbox).
  * @slot trailing - Content shown at the end of the item. Mutually exclusive with `metaText`.
- * @slot link - Only rendered when `isLink` is set. Slot a single empty anchor (`<a slot="link" href="...">`); it is stretched over the whole row to make the entire item a navigation link, and is named from the item's text. Must contain no text.
+ * @slot link - Rendered only when `isLink` is set. Slot one empty anchor (e.g. `<a slot="link" href="/x">`) stretched over the whole row as the link target. Must contain no text.
  */
 @safeCustomElement('pie-list-item')
 export class PieListItem extends PieElement implements ListItemProps {
