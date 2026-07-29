@@ -5,6 +5,7 @@ import '@justeattakeaway/pie-webc/components/list';
 import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 
 import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
@@ -44,7 +45,6 @@ const leadingThumbnail = html`<pie-thumbnail slot="leading" size="40" background
 const withLayout = (content: TemplateResult) => html`
     <style>
         pie-list {
-            min-width: 300px;
             max-width: 500px;
             border: 1px dashed purple;
         }
@@ -68,16 +68,52 @@ const TextOnlyTemplate = () => withLayout(html`
 
 export const TextOnly = createStory<ListProps>(TextOnlyTemplate, defaultArgs)();
 
-// Test-only: exercises the `selection-type` -> role mapping in isolation (no controls needed).
+// Test-only: exercises selectionType role mapping, CSS classes, and ARIA behaviour across all types.
+// Each selectable item carries metaText so aria-hidden can be verified. Disabled variants are
+// provided for each selectable type to cover the is-disabled CSS hook regardless of selectionType.
 const SelectionTypesTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item data-test-id="item-none" primaryText="None"></pie-list-item>
-        <pie-list-item data-test-id="item-radio" selection-type="radio" primaryText="Radio"></pie-list-item>
-        <pie-list-item data-test-id="item-checkbox" selection-type="checkbox" primaryText="Checkbox"></pie-list-item>
-        <pie-list-item data-test-id="item-switch" selection-type="switch" primaryText="Switch"></pie-list-item>
+        <pie-list-item data-test-id="item-none" primaryText="None" metaText="Meta"></pie-list-item>
+        <pie-list-item data-test-id="item-radio" .selectionType=${'radio'} primaryText="Radio" metaText="Meta"></pie-list-item>
+        <pie-list-item data-test-id="item-checkbox" .selectionType=${'checkbox'} primaryText="Checkbox" metaText="Meta"></pie-list-item>
+        <pie-list-item data-test-id="item-switch" .selectionType=${'switch'} primaryText="Switch" metaText="Meta"></pie-list-item>
+        <pie-list-item data-test-id="item-radio-disabled" .selectionType=${'radio'} primaryText="Radio disabled" disabled></pie-list-item>
+        <pie-list-item data-test-id="item-checkbox-disabled" .selectionType=${'checkbox'} primaryText="Checkbox disabled" disabled></pie-list-item>
+        <pie-list-item data-test-id="item-switch-disabled" .selectionType=${'switch'} primaryText="Switch disabled" disabled></pie-list-item>
     </pie-list>
 `);
 export const SelectionTypes = createStory<ListProps>(SelectionTypesTemplate, defaultArgs)();
+
+const EXPECTED_CHANGE_EVENT_MESSAGE = 'Change event dispatched';
+
+// Test-only: a switch selection list (switches have no group, so they sit directly in a `pie-list`).
+// Switches are in the leading slot here so the trailing slot is free for `metaText`, letting us
+// assert the combined secondary + meta description on the switch itself. Item 3's switch is disabled.
+// The four items mirror the checkbox fixture's text combinations (both, secondary only, neither,
+// meta only). Used to test naming, row-click toggling, disabled rows and the hover/active reflection.
+const SwitchSelectionTemplate = () => {
+    function onChange () {
+        console.info(EXPECTED_CHANGE_EVENT_MESSAGE);
+    }
+
+    return withLayout(html`
+        <pie-list aria-label="Notification settings" @change=${onChange}>
+            <pie-list-item .selectionType=${'switch'} data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
+                <pie-switch slot="leading" data-test-id="switch-1"></pie-switch>
+            </pie-list-item>
+            <pie-list-item .selectionType=${'switch'} data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
+                <pie-switch slot="leading" data-test-id="switch-2"></pie-switch>
+            </pie-list-item>
+            <pie-list-item .selectionType=${'switch'} data-test-id="item-3" primaryText="SMS" disabled>
+                <pie-switch slot="leading" data-test-id="switch-3" disabled></pie-switch>
+            </pie-list-item>
+            <pie-list-item .selectionType=${'switch'} data-test-id="item-4" primaryText="Post" metaText="Rarely">
+                <pie-switch slot="leading" data-test-id="switch-4"></pie-switch>
+            </pie-list-item>
+        </pie-list>
+    `);
+};
+export const SwitchSelection = createStory<ListProps>(SwitchSelectionTemplate, defaultArgs)();
 
 /**
  * `isBold` sets the primary text to a bold font-weight.

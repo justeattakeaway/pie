@@ -1,5 +1,25 @@
 # Changelog
 
+## 5.10.0
+
+### Minor Changes
+
+- [Added] - Add gradients tokens preview to pie docs ([#3068](https://github.com/justeattakeaway/pie/pull/3068)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies [[`ce29f7a`](https://github.com/justeattakeaway/pie/commit/ce29f7ae238fb5f6b47c4d5ccd86e199138fc728)]:
+  - @justeat/pie-design-tokens@7.14.3
+  - @justeattakeaway/pie-css@1.3.2
+  - @justeattakeaway/pie-webc@0.11.2
+
+## 5.9.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.1
+
 ## 5.9.0
 
 ### Minor Changes

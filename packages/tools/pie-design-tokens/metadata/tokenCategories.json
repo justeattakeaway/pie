@@ -78,6 +78,36 @@
       }
     }
   },
+  "gradient": {
+    "alias": {
+      "parentCategories": {
+        "ai": {
+          "displayName": "AI",
+          "description": "Alias gradient tokens used exclusively for AI content."
+        },
+        "jetplus": {
+          "displayName": "Jet +",
+          "description": "Alias gradient tokens used exclusively for JET+ sub-brand."
+        }
+      },
+      "container": {
+        "displayName": "Container",
+        "parentCategory": "ai"
+      },
+      "border": {
+        "displayName": "Border",
+        "parentCategory": "ai"
+      },
+      "brand": {
+        "displayName": "Brand",
+        "parentCategory": "jetplus"
+      },
+      "support": {
+        "displayName": "Support",
+        "parentCategory": "jetplus"
+      }
+    }
+  },
   "font": {
     "global":{
       "fontFamily": {

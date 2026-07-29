@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 1.2.1
+
+### Patch Changes
+
+- [Fixed] - Fixes CSS selector to rely on class instead of attribute ([#3063](https://github.com/justeattakeaway/pie/pull/3063)) by [@maledr5](https://github.com/maledr5)
+
 ## 1.2.0
 
 ### Minor Changes

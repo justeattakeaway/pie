@@ -5,6 +5,7 @@
  */
 module.exports = {
     COLOR: 'color',
+    GRADIENT: 'gradient',
     ELEVATION: 'elevation',
     FONT: 'font',
     RADIUS: 'radius',
