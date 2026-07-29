@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-list
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - `pie-list-item` supports `selectionType="checkbox"` for use inside a `pie-checkbox-group`: it names the slotted checkbox from its text (applied to the checkbox's internal input) and forwards row clicks to it. ([#3053](https://github.com/justeattakeaway/pie/pull/3053)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.2.0
 
 ### Minor Changes

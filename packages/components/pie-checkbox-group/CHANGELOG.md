@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 1.2.0
+
+### Minor Changes
+
+- [Added] - Checkboxes can be wrapped in list items (at any nesting depth) to render a divided, list-style checkbox group; the group manages the list items' roles and accessibility, and selection stays independent per checkbox. ([#3053](https://github.com/justeattakeaway/pie/pull/3053)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.1.6
 
 ### Patch Changes

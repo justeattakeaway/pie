@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.87.0
+
+### Minor Changes
+
+- [Added] - Stories using pie-checkbox in pie-list-item ([#3053](https://github.com/justeattakeaway/pie/pull/3053)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.1
+
 ## 1.86.4
 
 ### Patch Changes
