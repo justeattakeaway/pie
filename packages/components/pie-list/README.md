@@ -390,6 +390,18 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 </pie-list>
 ```
 
+You are not limited to a raw `<a>`. Any component that renders an anchor and forwards the `slot` attribute works the same way, so in **Next.js you can slot the `next/link` `<Link>` component** (and in Nuxt, `<NuxtLink>`). Slot it into `link`, keep it empty, and `pie-list-item` names it exactly as it names a raw anchor:
+
+```jsx
+// Next.js
+import Link from 'next/link';
+import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
+
+<PieListItem isLink primaryText="Orders" secondaryText="View and manage live orders">
+  <Link slot="link" href="/orders" />
+</PieListItem>
+```
+
 ### Framework variants
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
