@@ -49,6 +49,12 @@
     min-height: 48px;
 }
 
+// Link rows: the whole item is a single navigation target. The container is positioned so the
+// slotted anchor can stretch over it.
+.c-listItem-container.is-link {
+    position: relative;
+}
+
 // Interactive row states. When the item is inside a radio/checkbox group the whole row
 // is a click target (it forwards the click to the slotted control), so it shows hover and
 // active surface tints, matching the control's own interactive states. These are suppressed
@@ -83,12 +89,6 @@
 
         --interactive-container-tint: var(--list-item-active-bg);
     }
-}
-
-// Link rows: the whole item is a single navigation target. The container is positioned so the
-// slotted anchor can stretch over it.
-.c-listItem-container.is-link {
-    position: relative;
 }
 
 // Stretch the empty slotted anchor over the entire row so the whole block is the link's
