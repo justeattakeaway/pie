@@ -45,9 +45,6 @@ const assistiveTextId = 'assistive-text';
 @safeCustomElement('pie-radio-group')
 export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implements RadioGroupProps {
     @state()
-    private _hasLabel = false;
-
-    @state()
     private _fieldSetTabIndex = 0;
 
     @state()
@@ -149,16 +146,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     /**
-     * Updates the `_hasLabel` state when content is added to the label slot.
-     * @param {Event} e - The slotchange event.
-     * @private
-     */
-    private _handleLabelSlotChange (e: { target: HTMLSlotElement }): void {
-        const childNodes = e.target.assignedNodes({ flatten: true });
-        this._hasLabel = childNodes.length > 0;
-    }
-
-    /**
      * Ensures all newly added radio buttons are tabbable and inherit the name property
      */
     private _handleRadioSlotChange (): void {
@@ -181,9 +168,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
      * @private
      */
     private _renderWrappedLabel (): TemplateResult {
-        return this._hasLabel
-            ? html`<legend><slot name='label' @slotchange=${this._handleLabelSlotChange}></slot></legend>`
-            : html`<slot name='label' @slotchange=${this._handleLabelSlotChange}></slot>`;
+        return html`<legend><slot name='label'></slot></legend>`;
     }
 
     private _applyNameToChildren () : void {
