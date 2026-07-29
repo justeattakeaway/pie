@@ -68,6 +68,27 @@
     }
 }
 
+// Inside an interactive container (such as a `pie-list-item`) the whole container is the click
+// target, so the track should tint with the container rather than only on a direct hover of the
+// switch. The container exposes its current hover/active tint as `--interactive-container-tint` (an
+// inherited custom property that flows through the slot into this shadow tree); we layer it over
+// the track. We also opt the switch out of its own hover/active tint here, so hovering the switch
+// directly (which also hovers the container) does not tint twice. The class is added by the
+// component when it consumes an ancestor's ARIA context.
+.c-switch--in-interactive-container {
+    background-image: linear-gradient(var(--interactive-container-tint, transparent) 0 0);
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
+        --int-states-mixin-bg-color: var(--dt-color-interactive-form);
+    }
+
+    &[checked]:hover:not(:disabled),
+    &[checked]:active:not(:disabled) {
+        --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
+    }
+}
+
 .c-switch-input {
     @include p.visually-hidden;
 
