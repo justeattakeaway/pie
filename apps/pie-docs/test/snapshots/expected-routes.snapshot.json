@@ -188,6 +188,8 @@
     "foundations/elevation/tokens/alias/light",
     "foundations/elevation/tokens/global",
     "foundations/gradients",
+    "foundations/gradients/alias-tokens/dark",
+    "foundations/gradients/alias-tokens/light",
     "foundations/iconography",
     "foundations/iconography/code",
     "foundations/iconography/library",

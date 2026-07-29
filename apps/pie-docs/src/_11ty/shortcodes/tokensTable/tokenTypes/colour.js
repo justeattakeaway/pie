@@ -1,18 +1,4 @@
-const { isColorDark } = require('../../../../_utilities/colors');
-
-/**
- * Splits a color token into it's hexcode and opacity value (if one is provided)
- * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
- * @returns {object} an object containing a hexcode and opacity value (if opacity was provided)
- */
-const splitColorToken = (token) => {
-    const [hexcode, opacity] = token.split('|');
-
-    return {
-        hexcode,
-        opacity,
-    };
-};
+const { isColorDark, splitColorToken } = require('../../../../_utilities/colors');
 
 /**
  * Builds the example color swatch to show on the token list item

@@ -10,6 +10,8 @@ describe('tokensTable.js', () => {
         ['font.alias.wide', tokenTypes.FONT],
         ['font.alias.narrow', tokenTypes.FONT],
         ['radius.alias', tokenTypes.RADIUS],
+        ['gradient.alias.default', tokenTypes.GRADIENT],
+        ['gradient.alias.dark', tokenTypes.GRADIENT],
     ])('should return the expected HTML', (path, tokenType) => {
         // act
         const result = tokensTable({ path, tokenType });
