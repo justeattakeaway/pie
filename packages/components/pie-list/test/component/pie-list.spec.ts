@@ -16,7 +16,7 @@ test.describe('PieList - Component tests', () => {
     });
 
     test('should not apply selectable behaviours to items in a static list', async ({ page }) => {
-        // A static list item (`selection-type` defaults to `none`) must not adopt the selectable
+        // A static list item (`selectionType` defaults to `none`) must not adopt the selectable
         // behaviours (presentation role and hidden text) that only apply for a radio/checkbox/switch
         // selection type. Uses the meta-text story so both the text and meta-text containers exist.
         await new BasePage(page, 'list--meta-text').load();
@@ -40,7 +40,7 @@ test.describe('PieList - Component tests', () => {
         expect(hidden.meta).toBeNull();
     });
 
-    test('should set the item role from selection-type', async ({ page }) => {
+    test('should set the item role from selectionType', async ({ page }) => {
         await new BasePage(page, 'list--selection-types').load();
 
         // radio/checkbox are owned by a group, so the item becomes `presentation`.
