@@ -1,0 +1,20 @@
+{
+  "name": "@justeattakeaway/pie-code-connect",
+  "version": "1.0.0",
+  "description": "Figma Code Connect templates and configuration files for PIE web components",
+  "scripts": {
+    "build:web": "FRAMEWORK=web node scripts/build-figma-files.js",
+    "build:react": "FRAMEWORK=react node scripts/build-figma-files.js",
+    "publish-components:web": "yarn build:web && yarn figma connect publish -c ./config/figma-web-components-batch.config.json",
+    "publish-components:react": "yarn build:react && yarn figma connect publish -c ./config/figma-react-components-batch.config.json",
+    "publish-icons:web": "COMPONENT_PREFIX=pie-icons yarn build:web && yarn figma connect publish -c ./config/figma-icons-web.config.json",
+    "publish-icons:react": "COMPONENT_PREFIX=pie-icons yarn build:react && yarn figma connect publish -c ./config/figma-icons-react.config.json"
+  },
+  "keywords": [],
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "devDependencies": {
+    "@figma/code-connect": "1.5.0"
+  }
+}
