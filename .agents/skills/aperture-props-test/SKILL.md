@@ -1,6 +1,6 @@
 ---
 name: aperture-props-test
-description: Verify a newly added or changed PIE component prop in Aperture across all 4 framework apps. Invoke as `/aperture-props-test <component> <prop> [value]` after `/test-aperture` has run on the PIE PR.
+description: Assists the user in testing added or changed component props in the PIE Aperture repo across 4 apps (Nuxt, Next.js v14 & v15, Vanilla). Users invoke it as `/aperture-props-test <component> <prop> [value]`. Run after `/test-aperture` has been triggered on the PIE PR.
 disable-model-invocation: true
 ---
 
@@ -11,6 +11,7 @@ After `/test-aperture` has been triggered on a PIE PR, this skill pulls the resu
 ## Prerequisites
 
 This skill relies on these command-line tools being installed and on `PATH`. Verify up front and stop with a clear message if any essential one is missing:
+
 - `gh` (GitHub CLI, authenticated) — **essential**; Step 2 uses it to find the Aperture branch. Check with `gh auth status`.
 - `git`, `yarn`, `lsof` — **essential**; used for branch checkout, install, and port management.
 - `code` (VS Code CLI) — optional; Step 4 uses it to open the edited files. If absent, skip opening the IDE and just report the file paths.
@@ -18,11 +19,13 @@ This skill relies on these command-line tools being installed and on `PATH`. Ver
 ## Inputs
 
 The user will invoke this skill with a component name, prop name, and optionally a prop value, for example:
+
 - `/aperture-props-test pie-textarea aria`
 - `/aperture-props-test pie-textarea aria '{"label":"My label"}'`
 - `/aperture-props-test pie-button size large`
 
 Parse up to three values from the invocation args:
+
 1. `<component-name>` — required
 2. `<prop-name>` — required
 3. `<prop-value>` — optional; if omitted, the skill suggests a value in Step 1 and asks the user to confirm before continuing
@@ -34,6 +37,7 @@ The Aperture branch is derived automatically in Step 2 by matching the current P
 ## Step 1 — Set up and confirm the run
 
 Derive the three locations:
+
 - **PIE monorepo root** — the git root of the active session (do not hardcode a path).
 - **Aperture path** — the PIE root's parent directory + `pie-aperture` (e.g. PIE at `/home/user/projects/pie` → Aperture at `/home/user/projects/pie-aperture`).
 - **Current PIE branch** — `git branch --show-current`. The user must be on the branch they want to verify.
@@ -43,6 +47,7 @@ Derive the three locations:
 **Determine the value.** If the user provided a `<prop-value>`, use it. Otherwise derive a sensible example from the type.
 
 **Confirm — one prompt covering everything.** Show the user the PIE root, Aperture path, branch, and the value to use (noting whether it was provided or suggested), and ask them to confirm before continuing — options: **yes / switch branch / different path / different value**. Do not proceed until they reply.
+
 - If they give a different Aperture path, use it for all subsequent steps.
 - If they need a different branch, have them check it out (or switch it for them on confirmation), then re-read the branch name.
 - If the confirmed Aperture directory does not exist, stop and tell the user:
@@ -51,9 +56,10 @@ Derive the three locations:
 
 ## Step 2 — Find the Aperture branch and install
 
-**The join key is the branch name, not the PR number.** The PIE PR and its Aperture PR have *different* numbers (e.g. PIE #3026 ↔ Aperture #524) — `/test-aperture` creates the Aperture branch with the **same name** as the PIE head branch. Do not match on PR number.
+**The join key is the branch name, not the PR number.** The PIE PR and its Aperture PR have _different_ numbers (e.g. PIE #3026 ↔ Aperture #524) — `/test-aperture` creates the Aperture branch with the **same name** as the PIE head branch. Do not match on PR number.
 
 Using the PIE branch confirmed in Step 1, find the Aperture PR whose head branch matches it exactly (`--head`, not `--search`):
+
 ```
 gh pr list --repo justeattakeaway/pie-aperture --head "<pie-branch-name>" --state all --json number,headRefName,url
 ```
@@ -73,6 +79,7 @@ Then handle the result:
 Once the Aperture branch is chosen, fetch and check it out in the local Aperture clone.
 
 Confirm the branch is up to date, then install dependencies — always, before editing anything. `/test-aperture` or `/snapit` commands pin a fresh `@justeattakeaway/pie-webc` snapshot on each run, so run the install every time to ensure the right snapshot version is tracked. The install rewrites `yarn.lock`; leave it changed and restore it at teardown (Step 7).
+
 ```
 cd <aperture-path> && yarn install
 ```
@@ -82,6 +89,7 @@ Then confirm the snapshot is aligned: the `version` in `<aperture-path>/node_mod
 ## Step 3 — Locate the per-component pages
 
 Each app keeps its examples in a **dedicated per-component page at a fixed path**, named by the component's **slug** — the component name with any leading `pie-` removed (e.g. `pie-textarea` → `textarea`). Check whether each exists and collect the ones that do — this is the set you edit in Step 4:
+
 - Nuxt — `<nuxt-app>/pages/components/<slug>.vue`
 - Next.js v14 — `<nextjs-v14-app>/src/app/components/<slug>/<slug>.tsx`
 - Next.js v15 — `<nextjs-v15-app>/src/app/components/<slug>/<slug>.tsx`
@@ -90,30 +98,34 @@ Each app keeps its examples in a **dedicated per-component page at a fixed path*
 The app directories sit at the Aperture root, named roughly `nuxt-app`, `nextjs-app-v14`, `nextjs-app-v15`, `vanilla-app`; list the root to confirm the exact names, then check the path above in each.
 
 **Only edit these per-component pages.** Never touch integration/form pages (`integrations/*`) unless the user explicitly asks. This skill edits existing pages — it never creates them:
+
 - **Missing in every app** — stop and tell the user the component has no pages yet; they can create them manually or using the `add-component-pages` skill in the Aperture repo, then re-run this skill.
 - **Missing in some apps only** — tell the user which apps lack a page (those are skipped) and proceed with the rest.
 
 ## Step 4 — Apply framework-appropriate scratch edits
 
-**Announce before editing.** These edits land in the *Aperture* repo, not the PIE repo the user's IDE shows, so they're invisible until Aperture is opened. Before touching any file, briefly tell the user what's about to change and that you'll open Aperture for review before starting the dev servers — without enumerating file paths (they review those in the Aperture window).
+**Announce before editing.** These edits land in the _Aperture_ repo, not the PIE repo the user's IDE shows, so they're invisible until Aperture is opened. Before touching any file, briefly tell the user what's about to change and that you'll open Aperture for review before starting the dev servers — without enumerating file paths (they review those in the Aperture window).
 
 Using the confirmed prop value, produce the correct snippet syntax for each framework. For each file found in Step 3, append the scratch example **after all existing component examples**, preceded by a `pie-divider`, so the prop under test is clearly set off below the app's own examples (never interleave it between them). The per-component pages already import a divider component (`pie-divider` / `PieDivider`), so reuse that. Track which files you edit so Step 7 can revert them precisely.
 
 **Examples** (based on `pie-textarea` — reference these for the per-framework syntax and adapt to the component/prop under test):
 
 **Vue:**
+
 ```vue
 <pie-divider></pie-divider>
 <pie-textarea :aria="{ label: 'Test aria label' }" value="Hello"></pie-textarea>
 ```
 
 **JSX/TSX:**
+
 ```tsx
 <PieDivider />
 <PieTextarea aria={{ label: 'Test aria label' }} value="Hello" />
 ```
 
 **HTML:**
+
 ```html
 <pie-divider></pie-divider>
 <pie-textarea aria='{"label":"Test aria label"}' value="Hello"></pie-textarea>
@@ -134,6 +146,7 @@ Only begin this step after the user's **go** from Step 4.
 **Pre-flight: check the target ports are free** (vanilla → 3001, Nuxt → 3002, Next.js v14 → 3003, v15 → 3004). If a port is occupied, inspect the process: if its working directory is under `pie-aperture` it's a leftover Aperture server and safe to reclaim; anything unrelated is never killed — route around it. Vite/Nuxt fall back to the next free port automatically, but **Next.js crashes on a taken port (`EADDRINUSE`)** rather than falling back, so start it on an explicit free port.
 
 Then start the dev servers — the root `yarn dev` runs `turbo run dev`, starting all 4 at once. Run it from inside the Aperture directory. A dev server runs indefinitely, so **don't wait on it to finish**: launch it in the background.
+
 ```
 cd <aperture-path> && yarn dev
 ```
@@ -153,6 +166,7 @@ Only proceed once the user confirms. If they say **keep** (or decline), leave ev
 On confirmation, do the full teardown **as a single action with no intermediate narration** — revert and stop together, then give one report.
 
 Do both in one pass:
+
 - **Revert the changed files** — a targeted revert of only the files modified in Step 4 **plus `yarn.lock`** (changed by the Step 2 install), not a blanket `git checkout .`, so any other in-progress changes in Aperture are preserved.
 - **Stop the dev servers**, then **verify by port** (not by process name) that they're gone. If any Aperture server is still listening, kill it **by port** — do **not** use a name-pattern `pkill` (`next dev` / `nuxt` / `vite`): once running these processes are named `node` / `next-server`, so the pattern silently misses them and leaves orphans occupying the ports.
 
