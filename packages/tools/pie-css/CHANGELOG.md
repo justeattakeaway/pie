@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-css
 
+## 1.3.2
+
+### Patch Changes
+
+- Updated dependencies [[`ce29f7a`](https://github.com/justeattakeaway/pie/commit/ce29f7ae238fb5f6b47c4d5ccd86e199138fc728)]:
+  - @justeat/pie-design-tokens@7.14.3
+
 ## 1.3.1
 
 ### Patch Changes
