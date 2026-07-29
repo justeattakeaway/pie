@@ -7,6 +7,7 @@ import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/radio-group';
 import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-webc/components/checkbox-group';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
@@ -245,8 +246,8 @@ export const LongText = createStory<ListPlaygroundProps>(
 
 // Selectable lists -----------------------------------------------------------
 // A `pie-list-item` becomes a selectable row via its `selectionType` prop, slotting the control
-// into its `leading`/`trailing` slot. Radio and checkbox rows live inside their groups. The
-// playground controls above do not apply to these.
+// into its `leading`/`trailing` slot. Radio and checkbox rows live inside their groups; switch rows
+// (no group) live in a plain `pie-list`. The playground controls above do not apply to these.
 
 /**
  * Single-select: `pie-list-item`s inside a `pie-radio-group`. Set `.selectionType=${'radio'}` on each
@@ -295,4 +296,26 @@ export const CheckboxSelection = createStory<ListPlaygroundProps>(() => html`
             <pie-checkbox slot="leading" name="olives" value="olives"></pie-checkbox>
         </pie-list-item>
     </pie-checkbox-group>
+`, defaultArgs)();
+
+/**
+ * Independent toggles: `pie-list-item` with `selectionType="switch"` in a plain `pie-list` (switches
+ * have no group). The switch sits in the `trailing` slot and the whole row toggles it.
+ */
+export const SwitchSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Notification settings">
+        <pie-list-item .selectionType=${'switch'} primaryText="Email" secondaryText="Order updates and receipts">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item .selectionType=${'switch'} primaryText="Push notifications" secondaryText="Offers and reminders">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item .selectionType=${'switch'} primaryText="SMS">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item .selectionType=${'switch'} primaryText="Post" secondaryText="Currently unavailable" disabled>
+            <pie-switch slot="trailing" disabled></pie-switch>
+        </pie-list-item>
+    </pie-list>
 `, defaultArgs)();

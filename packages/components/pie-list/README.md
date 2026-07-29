@@ -55,7 +55,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
-| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. Set it on each selectable row. Inside a `pie-radio-group`, the group lays the rows out as a divided list automatically. See [Selectable lists](#selectable-lists). | `"none"` |
+| `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. See [Selectable lists](#selectable-lists). | `"none"` |
 | `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
 
 ### Slots
@@ -248,11 +248,11 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 
 ### Selectable lists
 
-`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select) or a [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) (multi-select), set each item's `selectionType`, and slot the control into the item's `leading` (or `trailing`) slot.
+`pie-list` itself is a static container with no selection or keyboard behaviour. To build a **selectable** list, do **not** put the controls in `pie-list`. Instead, place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select) or a [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) (multi-select), set each item's `selectionType`, and slot the control into the item's `leading` (or `trailing`) slot. Switches have no group, so `selectionType="switch"` rows go directly in a `pie-list`.
 
 #### The `selectionType` prop
 
-`selectionType` is what makes a row selectable. Set it to `radio` or `checkbox` and it drives the item to:
+`selectionType` is what makes a row selectable. Setting it drives the item to:
 
 - take the correct **role** — `presentation` for `radio`/`checkbox` (so the group owns the controls directly), `listitem` for `switch` and `none`;
 - provide its `primaryText`, `secondaryText` and `metaText` as the slotted control's **accessible name and description** (and `aria-hidden` the now-duplicated visible text);
@@ -299,6 +299,28 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
     <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
   </pie-list-item>
 </pie-checkbox-group>
+```
+
+Independent toggles (switches). There is no group, so the rows go in a `pie-list` (which needs its own accessible name), and the switch sits in the `trailing` slot. Set `disabled` on the `pie-list-item` alongside any disabled `pie-switch`:
+
+```js
+import '@justeattakeaway/pie-webc/components/list.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+import '@justeattakeaway/pie-webc/components/switch.js';
+```
+
+```html
+<pie-list aria-label="Notification settings">
+  <pie-list-item selectionType="switch" primaryText="Email" secondaryText="Order updates and receipts">
+    <pie-switch slot="trailing"></pie-switch>
+  </pie-list-item>
+  <pie-list-item selectionType="switch" primaryText="Push notifications">
+    <pie-switch slot="trailing"></pie-switch>
+  </pie-list-item>
+  <pie-list-item selectionType="switch" primaryText="SMS" disabled>
+    <pie-switch slot="trailing" disabled></pie-switch>
+  </pie-list-item>
+</pie-list>
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
