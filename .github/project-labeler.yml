@@ -141,3 +141,5 @@ pie-tabs:
   - packages/components/pie-tabs/**/*
 pie-accordion:
   - packages/components/pie-accordion/**/*
+pie-icon-with-background:
+  - packages/components/pie-icon-with-background/**/*

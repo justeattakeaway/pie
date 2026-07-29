@@ -7,6 +7,7 @@ import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, status
 import '@justeattakeaway/pie-webc/components/link';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
+import '@justeattakeaway/pie-webc/components/list-item';
 
 import { createStory, createVariantStory } from '../../utilities';
 
@@ -142,6 +143,72 @@ const propsMatrix : Partial<Record<keyof CheckboxGroupProps, unknown[]>> = {
     labelSlot: [labelSlotOptions.None, labelSlotOptions.Label],
 };
 
+const EXPECTED_CHANGE_EVENT_MESSAGE = 'Change event dispatched';
+
+// `preChecked` ticks a non-first row (Pepperoni) so the visual snapshot captures a checked row. The
+// behaviour tests use the unchecked variant so click assertions start from a known clean state
+// (clicking any row is a real toggle).
+const buildListItemsTemplate = (preChecked = false) => {
+    function onChange () {
+        console.info(EXPECTED_CHANGE_EVENT_MESSAGE);
+    }
+
+    return html`
+        <style>
+            /* Set on the item directly (a value inherited from the group cannot override the item's :host default). */
+            pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
+        </style>
+        <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" @change=${onChange}>
+            <!-- item-1: secondary AND meta text (combined into aria-description) -->
+            <pie-list-item .selectionType=${'checkbox'} data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+                <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese" value="cheese"></pie-checkbox>
+            </pie-list-item>
+            <!-- item-2: secondary text only -->
+            <pie-list-item .selectionType=${'checkbox'} data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+                <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni" value="pepperoni" ?checked=${preChecked}></pie-checkbox>
+            </pie-list-item>
+            <!-- item-3: neither secondary nor meta (no aria-description); a disabled row (both the
+                 item and its checkbox are disabled) -->
+            <pie-list-item .selectionType=${'checkbox'} disabled data-test-id="item-3" primaryText="Mushrooms">
+                <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms" value="mushrooms" disabled></pie-checkbox>
+            </pie-list-item>
+            <!-- item-4: meta text only -->
+            <pie-list-item .selectionType=${'checkbox'} data-test-id="item-4" primaryText="Olives" metaText="£0.50">
+                <pie-checkbox slot="leading" data-test-id="checkbox-4" name="olives" value="olives"></pie-checkbox>
+            </pie-list-item>
+        </pie-checkbox-group>
+    `;
+};
+
+// Unchecked: consumed by the component behaviour tests.
+const WithListItemsTemplate = () => buildListItemsTemplate();
+// A non-first row (Pepperoni) pre-checked: consumed by the visual snapshot to capture the checked state.
+const WithListItemsCheckedTemplate = () => buildListItemsTemplate(true);
+
+const WithListItemsGroupDisabledTemplate = () => html`
+        <style>
+            /* Set on the item directly (a value inherited from the group cannot override the item's :host default). */
+            pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
+        </style>
+        <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" disabled>
+            <pie-list-item .selectionType=${'checkbox'} data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+                <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese" value="cheese"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item .selectionType=${'checkbox'} data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+                <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni" value="pepperoni"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item .selectionType=${'checkbox'} data-test-id="item-3" primaryText="Mushrooms">
+                <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms" value="mushrooms"></pie-checkbox>
+            </pie-list-item>
+            <pie-list-item .selectionType=${'checkbox'} data-test-id="item-4" primaryText="Olives" metaText="£0.50">
+                <pie-checkbox slot="leading" data-test-id="checkbox-4" name="olives" value="olives"></pie-checkbox>
+            </pie-list-item>
+        </pie-checkbox-group>
+    `;
+
 export const Default = createStory<CheckboxGroupProps>(DefaultTemplate, defaultArgs)();
 export const DisabledSlottedCheckbox = createStory<CheckboxGroupProps>(DisabledSlottedCheckboxTemplate, defaultArgs)();
 export const Variations = createVariantStory<CheckboxGroupProps>(VariationsTemplate, propsMatrix);
+export const WithListItems = createStory<CheckboxGroupProps>(WithListItemsTemplate, defaultArgs)();
+export const WithListItemsChecked = createStory<CheckboxGroupProps>(WithListItemsCheckedTemplate, defaultArgs)();
+export const WithListItemsGroupDisabled = createStory<CheckboxGroupProps>(WithListItemsGroupDisabledTemplate, defaultArgs)();

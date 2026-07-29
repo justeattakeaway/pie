@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-tag
 
+## 1.0.0
+
+### Major Changes
+
+- [Updated] - promote component to stable ([#3046](https://github.com/justeattakeaway/pie/pull/3046)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - ensure the container always hugs the content ([#3046](https://github.com/justeattakeaway/pie/pull/3046)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.22.26
+
+### Patch Changes
+
+- Updated dependencies [[`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b), [`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b)]:
+  - @justeattakeaway/pie-webc-core@16.1.0
+
 ## 0.22.25
 
 ### Patch Changes

@@ -1,0 +1,26 @@
+// INTERNAL USE ONLY
+// This mixin is intended for internal use by PIE list container components
+// (pie-list, pie-radio-group, pie-checkbox-group). It is not part of the public
+// API and may change without notice.
+
+/// Applies a divider between adjacent `pie-list-item` children.
+///
+/// This must be included by the container that slots the list items (for example
+/// `pie-list`, `pie-radio-group`, `pie-checkbox-group`), because it targets
+/// `::slotted(...)`. A list item cannot apply this itself: it can't tell from inside
+/// its own shadow root whether it is the last item.
+///
+/// It sets custom properties that `pie-list-item` reads to render its bottom border and
+/// to strip 1px from the following item's padding so the height accounts for the border.
+/// `:not(:last-of-type)` targets every list item except the last one, regardless of any
+/// other sibling elements (such as a slotted label), so the final item never gets a
+/// trailing divider.
+///
+/// @example scss
+///   :host { @include p.list-item-divider(); }
+@mixin list-item-divider() {
+    ::slotted(pie-list-item:not(:last-of-type)) {
+        --list-item-size-modifier: 1px;
+        --list-item-border: var(--list-item-size-modifier) solid var(--dt-color-divider-default);
+    }
+}

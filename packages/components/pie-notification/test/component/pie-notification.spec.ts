@@ -657,6 +657,29 @@ test.describe('PieNotification - Component tests', () => {
                 });
             });
 
+            test.describe('aria.close', () => {
+                test('should set the aria-label on the close button when aria.close is provided', async ({ page }) => {
+                    // Arrange
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const closeLabel = 'Close notification';
+                    const props: NotificationProps = {
+                        isDismissible: true,
+                        aria: {
+                            close: closeLabel,
+                        },
+                    };
+                    await notificationPage.load({ ...props });
+
+                    const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
+                    const iconClose = notificationComponent.getByTestId(notification.selectors.iconClose.dataTestId);
+                    const closeButton = iconClose.locator('button');
+
+                    // Act & Assert
+                    await expect(closeButton).toHaveAttribute('aria-label', closeLabel);
+                });
+            });
+
             test.describe('aria-live', () => {
                 test('should be set to `polite` by default', async ({ page }) => {
                     // Arrange
