@@ -60,6 +60,15 @@ export interface ListItemProps {
      * (static) item.
      */
     disabled?: boolean
+
+    /**
+     * Turns the whole row into a single navigation link. Slot an empty anchor into the `link` slot
+     * (`<a slot="link" href="...">`) - it is stretched over the entire row so the whole item is the
+     * clickable target. The item names the link from its own text (`primaryText` as the accessible
+     * name, `secondaryText` and `metaText` as the description), so the slotted anchor must be left
+     * empty. Mutually exclusive with `selectionType`.
+     */
+    isLink?: boolean
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
@@ -70,4 +79,5 @@ export const defaultProps: DefaultProps = {
     hasMedia: false,
     selectionType: 'none',
     disabled: false,
+    isLink: false,
 };

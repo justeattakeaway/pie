@@ -319,3 +319,31 @@ export const SwitchSelection = createStory<ListPlaygroundProps>(() => html`
         </pie-list-item>
     </pie-list>
 `, defaultArgs)();
+
+// Link lists ----------------------------------------------------------------
+// `isLink` turns the whole row into a single navigation link. Slot an empty `<a slot="link">` and it
+// is stretched over the entire row so the whole item is the target, named by the item's own text.
+// There is no group, so link rows live in a plain `pie-list`.
+
+/**
+ * Link rows: `pie-list-item` with `isLink` and an empty `<a slot="link" href="...">`. The anchor is
+ * stretched over the whole row, so the entire item is the navigation target, named by the item's
+ * text. Leave the anchor empty - the item provides its accessible name and description.
+ */
+export const LinkList = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Manage your restaurant">
+        <pie-list-item isLink primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+            <a slot="link" href="#orders"></a>
+        </pie-list-item>
+        <pie-list-item isLink primaryText="Menu" secondaryText="Edit items, prices and photos">
+            <a slot="link" href="#menu"></a>
+        </pie-list-item>
+        <pie-list-item isLink primaryText="Opening hours" secondaryText="Set your weekly schedule">
+            <a slot="link" href="#opening-hours"></a>
+        </pie-list-item>
+        <pie-list-item isLink primaryText="Payouts" secondaryText="Invoices and bank details" metaText="Weekly">
+            <a slot="link" href="#payouts"></a>
+        </pie-list-item>
+    </pie-list>
+`, defaultArgs)();

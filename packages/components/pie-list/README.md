@@ -21,7 +21,22 @@
   - [CSS Variables](#css-variables)
   - [Events](#events)
 - [Accessibility](#accessibility)
+  - [Naming a hosted control or link](#naming-a-hosted-control-or-link)
 - [Usage Examples](#usage-examples)
+  - [Basic list](#basic-list)
+  - [Leading and trailing content](#leading-and-trailing-content)
+  - [Trailing tag](#trailing-tag)
+  - [Meta text](#meta-text)
+  - [Bold primary text](#bold-primary-text)
+  - [Compact list](#compact-list)
+  - [Media](#media)
+  - [Overriding alignment and padding](#overriding-alignment-and-padding)
+  - [Selectable lists](#selectable-lists)
+    - [Single-select (radios)](#single-select-radios)
+    - [Multi-select (checkboxes)](#multi-select-checkboxes)
+    - [Independent toggles (switches)](#independent-toggles-switches)
+  - [Link items](#link-items)
+  - [Framework variants](#framework-variants)
 - [Usage Notes and Rules](#usage-notes-and-rules)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
@@ -57,6 +72,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
 | `selectionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"` | Declares that the item hosts an interactive control in its `leading`/`trailing` slot, making the **whole row** a selectable target. See [Selectable lists](#selectable-lists). | `"none"` |
 | `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
+| `isLink` | `true`, `false` | Turns the whole row into a single navigation link. Slot an empty `<a slot="link" href="...">` into the item; it is stretched over the entire row so the whole item is the target, named by the item's own text. See [Link items](#link-items). Mutually exclusive with `selectionType`. | `false` |
 
 ### Slots
 
@@ -66,6 +82,7 @@ Slots are provided by `pie-list-item`.
 |---|---|
 | `leading` | Content displayed at the start of the item, before the text. Intended for a small icon or a media element (e.g. `pie-thumbnail`). If slotting `pie-thumbnail`, it MUST use `size="40"`; this is the only size that fits the list-item layout correctly. |
 | `trailing` | Content displayed at the end of the item, after the text. Intended for a small icon, a `pie-tag`, etc. Not rendered when `metaText` is set. |
+| `link` | Only rendered when `isLink` is set. Slot a single **empty** anchor (`<a slot="link" href="...">`) here. It is stretched over the whole row so the entire item becomes the navigation target. The item supplies the anchor's accessible name and description from its text, so the anchor must contain no text of its own; apply any native anchor attributes you need (`href`, `target`, `rel`, and so on). See [Link items](#link-items). |
 
 The permitted slotted elements are: a PIE WEBC icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and native HTML radio/checkbox inputs.
 Some slotted content is designed with specific properties being used. So please read the entire readme to understand correct slot usage.
@@ -116,9 +133,23 @@ This component does not emit any custom events. To listen for interactions, trea
   </pie-list>
   ```
 
+### Naming a hosted control or link
+
+When a `pie-list-item` hosts an interactive element (a slotted control set via `selectionType`, or a slotted link anchor via `isLink`) it generates that element's accessibility naming from its own text, so you should not name the control yourself:
+
+- `primaryText` becomes the control's **accessible name**;
+- `secondaryText` and `metaText` become its **accessible description** (combined with a full stop when both are present);
+- the visible text rendered inside the item is `aria-hidden`, so a screen reader announces the name and description once (via the control) rather than twice.
+
+How the naming reaches the element differs by type. Selection controls receive it through a shared context and each applies it to the element that carries its role: `pie-radio` names its host, while `pie-checkbox` and `pie-switch` name their internal `input` (their host is role-less). A link anchor is a plain light-DOM element (not a PIE control), so `pie-list-item` sets `aria-label` and `aria-description` on it directly.
+
+**Anything you set yourself always wins.** If a slotted control already has its own name (its `label` or `aria` prop), or the slotted anchor already has an `aria-label`/`aria-labelledby` (or `aria-description`/`aria-describedby`), the item leaves it untouched and does not overwrite it.
+
 ## Usage Examples
 
-**For HTML:**
+The examples below use HTML. For framework-specific syntax, see [Framework variants](#framework-variants).
+
+### Basic list
 
 ```js
 // import as modules into a js file e.g. main.js
@@ -142,7 +173,7 @@ A basic list with primary, secondary and meta text (note the required `aria-labe
 <script type="module" src="/main.js"></script>
 ```
 
-**Leading and trailing content (icons):**
+### Leading and trailing content
 
 ```js
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
@@ -157,7 +188,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
 </pie-list>
 ```
 
-**Trailing `pie-tag`:**
+### Trailing tag
 
 ```js
 import '@justeattakeaway/pie-webc/components/tag.js';
@@ -171,7 +202,9 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 </pie-list>
 ```
 
-**Meta text** (renders as trailing text; do not combine with the `trailing` slot):
+### Meta text
+
+Renders as trailing text; do not combine with the `trailing` slot:
 
 ```html
 <pie-list>
@@ -182,7 +215,7 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 </pie-list>
 ```
 
-**Bold primary text:**
+### Bold primary text
 
 ```html
 <pie-list>
@@ -190,7 +223,9 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 </pie-list>
 ```
 
-**Compact list** (reduced height, see [rules](#usage-notes-and-rules)):
+### Compact list
+
+Reduced height, see [rules](#usage-notes-and-rules):
 
 ```html
 <pie-list>
@@ -203,7 +238,9 @@ import '@justeattakeaway/pie-webc/components/tag.js';
 </pie-list>
 ```
 
-**Media (`pie-thumbnail`) in the leading slot:**
+### Media
+
+Slot larger media such as `pie-thumbnail` into the `leading` slot:
 
 ```js
 import '@justeattakeaway/pie-webc/components/thumbnail.js';
@@ -227,7 +264,9 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 </pie-list>
 ```
 
-**Overriding alignment and padding** (via CSS variables):
+### Overriding alignment and padding
+
+Via CSS variables:
 
 ```html
 <!-- Vertically centre the content of the items. `--list-item-alignment` must be set on the
@@ -261,7 +300,9 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 
 Provide the label through the item's `primaryText` — not as the control's own content. The group still owns the group-level semantics (its own role, shared `name`, selection coordination and group-disable); `selectionType` only governs the item. See the [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) and [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) docs for the group behaviour.
 
-Single-select (radios):
+For how `pie-list-item` derives the slotted control's accessible name and description from its text, see [Accessibility](#accessibility).
+
+#### Single-select (radios)
 
 ```js
 import '@justeattakeaway/pie-webc/components/radio-group.js';
@@ -282,7 +323,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 </pie-radio-group>
 ```
 
-Multi-select (checkboxes):
+#### Multi-select (checkboxes)
 
 ```js
 import '@justeattakeaway/pie-webc/components/checkbox-group.js';
@@ -301,7 +342,9 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 </pie-checkbox-group>
 ```
 
-Independent toggles (switches). There is no group, so the rows go in a `pie-list` (which needs its own accessible name), and the switch sits in the `trailing` slot. Set `disabled` on the `pie-list-item` alongside any disabled `pie-switch`:
+#### Independent toggles (switches)
+
+There is no group, so the rows go in a `pie-list` (which needs its own accessible name), and the switch sits in the `trailing` slot. Set `disabled` on the `pie-list-item` alongside any disabled `pie-switch`:
 
 ```js
 import '@justeattakeaway/pie-webc/components/list.js';
@@ -324,6 +367,30 @@ import '@justeattakeaway/pie-webc/components/switch.js';
 ```
 
 Each `pie-switch` manages its own state and emits a native `change` event when toggled. Listen on the switch itself, or on the `pie-list` since the event bubbles. Set a switch's initial state with its `checked` prop. There is no group coordinating them, so each switch is independent.
+
+### Link items
+
+Set `isLink` and slot a single **empty** anchor into the `link` slot to turn the whole row into one navigation link. The anchor is stretched over the entire item (`position: absolute; inset: 0`), so a click or tap anywhere on the row follows the link, and keyboard focus lands on the row as a whole (the focus ring hugs the row).
+
+Because the anchor is empty, `pie-list-item` names it from its own text: `primaryText` becomes the anchor's `aria-label` and `secondaryText`/`metaText` its `aria-description`, and the visible text is hidden from assistive technology so nothing is announced twice (see [Naming a hosted control or link](#naming-a-hosted-control-or-link)). If you set your own `aria-label`/`aria-labelledby` (or `aria-description`/`aria-describedby`) on the anchor, that wins and the item leaves it untouched. Apply whatever native anchor attributes you need (`href`, `target`, `rel`, `download`, and so on); the only requirement is that the anchor **contains no text** (it must stay empty for the naming to work). `isLink` is mutually exclusive with `selectionType`. Give the `pie-list` its own accessible name (e.g. `aria-label`).
+
+```js
+import '@justeattakeaway/pie-webc/components/list.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+```
+
+```html
+<pie-list aria-label="Manage your restaurant">
+  <pie-list-item isLink primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+    <a slot="link" href="/orders"></a>
+  </pie-list-item>
+  <pie-list-item isLink primaryText="Menu" secondaryText="Edit items, prices and photos">
+    <a slot="link" href="/menu"></a>
+  </pie-list-item>
+</pie-list>
+```
+
+### Framework variants
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
 

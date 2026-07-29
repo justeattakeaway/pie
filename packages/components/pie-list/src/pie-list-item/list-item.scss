@@ -55,7 +55,8 @@
 // when the slotted control is disabled (the item reflects this as `is-disabled`). The
 // defaults use the standard PIE interactive overlay tokens; override `--list-item-hover-bg` /
 // `--list-item-active-bg` if design specifies dedicated list tokens.
-.c-listItem-container.is-selectable:not(.is-disabled) {
+.c-listItem-container.is-selectable:not(.is-disabled),
+.c-listItem-container.is-link {
     --list-item-hover-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
     --list-item-active-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
 
@@ -82,6 +83,26 @@
 
         --interactive-container-tint: var(--list-item-active-bg);
     }
+}
+
+// Link rows: the whole item is a single navigation target. The container is positioned so the
+// slotted anchor can stretch over it.
+.c-listItem-container.is-link {
+    position: relative;
+}
+
+// Stretch the empty slotted anchor over the entire row so the whole block is the link's
+// click/touch target. It anchors to the container (positioned above).
+slot[name="link"]::slotted(a) {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit; // so the focus ring follows any rounding applied to the row
+}
+
+// Standard PIE focus ring. The anchor is row-sized, so keyboard focus rings the whole item.
+slot[name="link"]::slotted(a:focus-visible) {
+    @include p.focus;
 }
 
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only

@@ -137,6 +137,61 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
+    test.describe('with a link list', () => {
+        test.beforeEach(async ({ page }) => {
+            await new BasePage(page, 'list--link-list').load();
+            await expect(page.getByTestId('item-1')).toBeVisible();
+        });
+
+        test('should name the slotted anchor from the item text', async ({ page }) => {
+            // The item names its (empty) slotted anchor: primaryText is the accessible name and
+            // secondaryText + metaText the description (combined when both present).
+
+            // Both secondary and meta text.
+            await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-label')).toBe('Orders');
+            await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-description')).toBe('View and manage live orders. 12 active');
+
+            // Secondary text only.
+            await expect.poll(() => page.getByTestId('link-2').getAttribute('aria-label')).toBe('Menu');
+            await expect.poll(() => page.getByTestId('link-2').getAttribute('aria-description')).toBe('Edit items and prices');
+
+            // Meta text only.
+            await expect.poll(() => page.getByTestId('link-3').getAttribute('aria-label')).toBe('Payouts');
+            await expect.poll(() => page.getByTestId('link-3').getAttribute('aria-description')).toBe('Weekly');
+
+            // Neither secondary nor meta text.
+            await expect.poll(() => page.getByTestId('link-4').getAttribute('aria-label')).toBe('Restaurant settings');
+            await expect.poll(() => page.getByTestId('link-4').getAttribute('aria-description')).toBeNull();
+        });
+
+        test('should not override a consumer-provided name or description on the anchor', async ({ page }) => {
+            // item-5's anchor carries its own aria-label and aria-description. The item must leave
+            // them untouched rather than replacing them with its primaryText/secondaryText.
+            await expect(page.getByTestId('link-5')).toHaveAttribute('aria-label', 'Visit the help centre');
+            await expect(page.getByTestId('link-5')).toHaveAttribute('aria-description', 'Guides and FAQs');
+        });
+
+        test('should hide the visible item text from assistive technology', async ({ page }) => {
+            await expect.poll(() => page.evaluate((id) => {
+                const root = document.querySelector(`[data-test-id="${id}"]`)?.shadowRoot;
+                return root?.querySelector('.c-listItem-text')?.getAttribute('aria-hidden') ?? null;
+            }, 'item-1')).toBe('true');
+        });
+
+        test('should keep the row as a listitem and expose the anchor as a link', async ({ page }) => {
+            await expect(page.getByTestId('item-1')).toHaveAttribute('role', 'listitem');
+            await expect(page.getByRole('link', { name: 'Orders' })).toBeVisible();
+        });
+
+        test('should navigate when anywhere on the row is clicked', async ({ page }) => {
+            // The empty anchor is stretched over the whole row, so clicking the row body (not the
+            // anchor element itself) still activates the link.
+            await page.getByTestId('item-1').click();
+
+            await expect.poll(() => page.evaluate(() => window.location.hash)).toBe('#orders');
+        });
+    });
+
     test.describe('selectable item CSS classes and ARIA attributes', () => {
         test.beforeEach(async ({ page }) => {
             await new BasePage(page, 'list--selection-types').load();

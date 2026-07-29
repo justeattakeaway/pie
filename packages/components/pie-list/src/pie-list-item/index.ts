@@ -21,6 +21,7 @@ const componentSelector = 'pie-list-item';
  * @tagname pie-list-item
  * @slot leading - Content shown at the start of the item (for example an icon, avatar, or a slotted radio/checkbox).
  * @slot trailing - Content shown at the end of the item. Mutually exclusive with `metaText`.
+ * @slot link - Only rendered when `isLink` is set. Slot a single empty anchor (`<a slot="link" href="...">`); it is stretched over the whole row to make the entire item a navigation link, and is named from the item's text. Must contain no text.
  */
 @safeCustomElement('pie-list-item')
 export class PieListItem extends PieElement implements ListItemProps {
@@ -49,6 +50,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean })
         disabled = defaultProps.disabled;
 
+    @property({ type: Boolean })
+        isLink = defaultProps.isLink;
+
     // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state.
     // Defaults to false when there is no provider (a standalone item or a static list).
     @consume({ context: parentDisabledContext, subscribe: true })
@@ -71,8 +75,28 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     private _hasExplicitRole = false;
 
+    // Captured once (in `_applyLinkAria`): whether the consumer already named/described the slotted
+    // link anchor themselves. If so, their value always wins and we never touch it.
+    private _linkAriaCaptured = false;
+
+    private _consumerNamedLink = false;
+
+    private _consumerDescribedLink = false;
+
     private get _isSelectable (): boolean {
         return this.selectionType !== 'none';
+    }
+
+    // A link row is an `isLink` item that is not also a selection row. The two are mutually
+    // exclusive; if both are set, selection wins and the link behaviour is ignored.
+    private get _isLinkRow (): boolean {
+        return this.isLink && !this._isSelectable;
+    }
+
+    // True when the item lends its text to a slotted control as that control's accessible
+    // name/description: selectable rows (radio/checkbox/switch) and link rows (the slotted anchor).
+    private get _providesAria (): boolean {
+        return this._isSelectable || this._isLinkRow;
     }
 
     // radio/checkbox are owned by a selection group, which is why the item becomes `presentation`
@@ -113,6 +137,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     protected updated () {
         this._applyRole();
         this._ariaProvider?.setValue(this._providedAria);
+        this._applyLinkAria();
     }
 
     /**
@@ -134,7 +159,7 @@ export class PieListItem extends PieElement implements ListItemProps {
      * `aria-labelledby` cannot.
      */
     private get _providedAria (): ContextualAria | undefined {
-        if (!this._isSelectable) return undefined;
+        if (!this._providesAria) return undefined;
 
         const description = [this.secondaryText, this.metaText].filter(Boolean).join('. ');
 
@@ -155,6 +180,48 @@ export class PieListItem extends PieElement implements ListItemProps {
         control.focus();
     };
 
+    /**
+     * When the item is a link, names the slotted (empty) anchor from the item's own text: the parent
+     * owns the child's aria. The anchor is plain light-DOM, so it cannot reference the shadow-DOM text
+     * via `aria-labelledby`; and it is not a PIE control that consumes `ariaContext`, so we set the
+     * attributes imperatively. The visible text is `aria-hidden` in the template, so nothing is
+     * announced twice.
+     *
+     * A consumer-provided name/description always wins: we capture (once) whether the anchor already
+     * carries `aria-label`/`aria-labelledby` or `aria-description`/`aria-describedby` and, if so,
+     * leave that attribute untouched. Otherwise we keep our generated value in sync with the text.
+     */
+    private _applyLinkAria (): void {
+        if (!this._isLinkRow) return;
+
+        const anchor = this.querySelector('a[slot="link"]');
+        if (!anchor) return;
+
+        if (!this._linkAriaCaptured) {
+            this._consumerNamedLink = anchor.hasAttribute('aria-label') || anchor.hasAttribute('aria-labelledby');
+            this._consumerDescribedLink = anchor.hasAttribute('aria-description') || anchor.hasAttribute('aria-describedby');
+            this._linkAriaCaptured = true;
+        }
+
+        const aria = this._providedAria;
+
+        if (!this._consumerNamedLink) {
+            if (aria?.label) {
+                anchor.setAttribute('aria-label', aria.label);
+            } else {
+                anchor.removeAttribute('aria-label');
+            }
+        }
+
+        if (!this._consumerDescribedLink) {
+            if (aria?.description) {
+                anchor.setAttribute('aria-description', aria.description);
+            } else {
+                anchor.removeAttribute('aria-description');
+            }
+        }
+    }
+
     _renderSecondaryText () {
         const { secondaryText } = this;
         if (secondaryText) {
@@ -168,7 +235,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     _renderTrailingContent () {
         const { metaText } = this;
         if (metaText) {
-            return html`<span class="c-listItem-metaText c-listItem-trailing" aria-hidden=${this._isSelectable ? 'true' : nothing}>${metaText}</span>`;
+            return html`<span class="c-listItem-metaText c-listItem-trailing" aria-hidden=${this._providesAria ? 'true' : nothing}>${metaText}</span>`;
         }
 
         return html`<div class="c-listItem-trailing"><slot name="trailing"></slot></div>`;
@@ -183,16 +250,18 @@ export class PieListItem extends PieElement implements ListItemProps {
             'is-bold': this.isBold,
             'has-media': this.hasMedia,
             'is-selectable': this._isSelectable,
+            'is-link': this._isLinkRow,
             'is-disabled': this._isDisabled,
         };
 
         return html`
         <div class=${classMap(containerClasses)}>
+            ${this._isLinkRow ? html`<slot name="link"></slot>` : nothing}
             <div class="c-listItem-leading">
                 <slot name="leading"></slot>
             </div>
 
-            <div class="c-listItem-text" aria-hidden=${this._isSelectable ? 'true' : nothing}>
+            <div class="c-listItem-text" aria-hidden=${this._providesAria ? 'true' : nothing}>
                 <span class="c-listItem-primaryText">${primaryText}</span>
                 ${this._renderSecondaryText()}
             </div>

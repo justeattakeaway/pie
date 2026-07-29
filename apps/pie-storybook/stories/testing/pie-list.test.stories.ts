@@ -115,6 +115,31 @@ const SwitchSelectionTemplate = () => {
 };
 export const SwitchSelection = createStory<ListProps>(SwitchSelectionTemplate, defaultArgs)();
 
+// Test-only: a link list. Each row is a navigation link via `isLink` plus an empty `<a slot="link">`
+// stretched over the row. The four items cover the text combinations (both, secondary only, meta
+// only, neither) so we can assert the anchor's derived aria-label/aria-description, that the visible
+// text is aria-hidden, and that clicking anywhere on the row activates the link.
+const LinkListTemplate = () => withLayout(html`
+    <pie-list aria-label="Manage your restaurant">
+        <pie-list-item isLink data-test-id="item-1" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+            <a slot="link" href="#orders" data-test-id="link-1"></a>
+        </pie-list-item>
+        <pie-list-item isLink data-test-id="item-2" primaryText="Menu" secondaryText="Edit items and prices">
+            <a slot="link" href="#menu" data-test-id="link-2"></a>
+        </pie-list-item>
+        <pie-list-item isLink data-test-id="item-3" primaryText="Payouts" metaText="Weekly">
+            <a slot="link" href="#payouts" data-test-id="link-3"></a>
+        </pie-list-item>
+        <pie-list-item isLink data-test-id="item-4" primaryText="Restaurant settings">
+            <a slot="link" href="#settings" data-test-id="link-4"></a>
+        </pie-list-item>
+        <pie-list-item isLink data-test-id="item-5" primaryText="Help" secondaryText="Support articles">
+            <a slot="link" href="#help" data-test-id="link-5" aria-label="Visit the help centre" aria-description="Guides and FAQs"></a>
+        </pie-list-item>
+    </pie-list>
+`);
+export const LinkList = createStory<ListProps>(LinkListTemplate, defaultArgs)();
+
 /**
  * `isBold` sets the primary text to a bold font-weight.
  */
