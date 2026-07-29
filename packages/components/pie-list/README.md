@@ -257,7 +257,7 @@ import '@justeattakeaway/pie-webc/components/thumbnail.js';
 - take the correct **role** — `presentation` for `radio`/`checkbox` (so the group owns the controls directly), `listitem` for `switch` and `none`;
 - provide its `primaryText`, `secondaryText` and `metaText` as the slotted control's **accessible name and description** (and `aria-hidden` the now-duplicated visible text);
 - **forward a click** anywhere on the row to the control, so the whole row is a hit target;
-- show **hover and active** states on the row (suppressed when the control, or the group, is disabled).
+- show **hover and active** states on the row (suppressed when the control is disabled, or when its group is disabled; switches have no group, so only per-row and per-switch disable applies).
 
 Provide the label through the item's `primaryText` — not as the control's own content. The group still owns the group-level semantics (its own role, shared `name`, selection coordination and group-disable); `selectionType` only governs the item. See the [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) and [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) docs for the group behaviour.
 
@@ -322,6 +322,8 @@ import '@justeattakeaway/pie-webc/components/switch.js';
   </pie-list-item>
 </pie-list>
 ```
+
+Each `pie-switch` manages its own state and emits a native `change` event when toggled. Listen on the switch itself, or on the `pie-list` since the event bubbles. Set a switch's initial state with its `checked` prop. There is no group coordinating them, so each switch is independent.
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
 
