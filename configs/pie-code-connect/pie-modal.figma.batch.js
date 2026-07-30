@@ -31,8 +31,8 @@ const backgroundColor = getInstanceProp('getEnum', 'Variant', {
 // Read props from the Header instance
 const heading = getInstanceProp(['Header'], 'getString', '[𝐓] Title');
 const isDismissible = getInstanceProp(['Header'], 'getBoolean', 'Close');
-const hasBackButton = getInstanceProp(['Header'], 'getPropertyValue', 'Back') === 'True'; // It's not boolean because it's declared as variant
-const isHeadingEmphasised = getInstanceProp(['Header'], 'getPropertyValue', 'Prominent') === 'True'; // It's not boolean because it's declared as variant
+const hasBackButton = getInstanceProp(['Header'], 'getBoolean', 'Back');
+const isHeadingEmphasised = getInstanceProp(['Header'], 'getBoolean', 'Prominent');
 const imageSlotMode = getInstanceProp(['Header'], 'getEnum', 'Header content', {
     None: undefined,
     Image: 'image',
