@@ -25,14 +25,10 @@ yarn build:react  # Generate React component templates
 ```
 
 The build process:
-1. Reads source `*.figma.batch.js` template files from the root directory
+1. Reads source `*.figma.batch.js` template files from the root directory (optionally filtered by `COMPONENT_PREFIX`)
 2. Inlines local `require()` calls from utility files
-3. Substitutes environment variables (e.g., `FRAMEWORK`, `COMPONENT_PREFIX`)
+3. Substitutes `process.env` references (e.g., `process.env.FRAMEWORK`) with their literal values
 4. Writes the processed output to the `dist/` directory
-
-**Environment variables:**
-- `FRAMEWORK` - Set to `'web'` or `'react'` to control template output format
-- `COMPONENT_PREFIX` - (Optional) Filter template files by prefix. For example, `COMPONENT_PREFIX=pie-icons` will only process files starting with `pie-icons`
 
 ### Publish
 
@@ -70,29 +66,31 @@ const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
-const componentNameHtml = figma.batch.id;
-const componentNameReact = figma.batch.name;
-const componentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentNameHtml;
+const { componentName, componentNameReact } = figma.batch;
+const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 const getInstanceProp = createGetInstanceProp(figma);
 
-// Map Figma instance properties to component props
+// PROP MAPPING
 const size = getInstanceProp('getEnum', 'Size', {
     Large: 'large',
     Medium: 'medium',
     Small: 'small',
 }) || 'medium';
+const isDisabled = getInstanceProp('getBoolean', 'Disabled');
+const buttonText = getInstanceProp(['Button'], 'getString', 'Label') || 'Click';
 
-// Build the template
-const template = `<${componentName}
-    size="${size}"
+// TEMPLATE RENDERING
+const template = `<${selectedComponentName}
+    ${renderProp('size', size, 'medium')}
+    ${renderProp('disabled', isDisabled, false)}
 >
-    Your content here
-</${componentName}>`;
+    ${buttonText}
+</${selectedComponentName}>`;
 
 export default {
     example: figma.code`${trimEmptyLines(template)}`,
-    imports: [getImportStatement(componentNameHtml, componentNameReact)],
-    id: componentNameHtml,
+    imports: [getImportStatement(componentName, componentNameReact)],
+    id: componentName,
 };
 ```
 
@@ -108,8 +106,8 @@ Add an entry to `components.figma.batch.json` with:
 
 - `templateFile` - Path to the built (not source) template file in the `dist/` directory (e.g., `"dist/pie-{component-name}.figma.batch.js"`)
 - `components` - Array of component metadata objects, each containing:
-  - `name` - React component name (e.g., `'PieButton'`)
-  - `id` - Kebab-case component ID (e.g., `'pie-button'`)
+  - `componentName` - Kebab-case component name (e.g., `'pie-button'`)
+  - `componentNameReact` - e.g., `'PieButton'`
   - `source` - GitHub source URL to the component's entry point
   - `url` - Figma design URL (the node where the component is located)
   - Optional custom properties for complex template logic (e.g. Components with multiple component sets and diverging props)
@@ -123,8 +121,8 @@ It's common to have multiple Figma component sets related to a single component 
   "templateFile": "dist/pie-my-component.figma.batch.js",
   "components": [
     {
-      "name": "PieMyComponent",
-      "id": "pie-my-component",
+      "componentName": "pie-my-component",
+      "componentNameReact": "PieMyComponent",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-my-component/src/index.ts",
       "url": "https://www.figma.com/design/.../node-id=123-456"
     }
@@ -149,9 +147,9 @@ Add entries to `icons.figma.batch.json` for each icon:
 
 ```json
 {
-  "name": "Archive",
-  "id": "archive",
-  "source": "./packages/tools/pie-icons/src/index.js",
+  "componentName": "archive",
+  "componentNameReact": "Archive",
+  "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
   "url": "https://www.figma.com/design/.../node-id=15777-535"
 }
 ```
@@ -169,10 +167,12 @@ A template file (`*.figma.batch.js`) is a Node.js CommonJS module that defines h
 
 ### Available properties
 
-- `figma.batch.id` - Kebab-case component ID from the batch configuration
-- `figma.batch.name` - Display name from the batch configuration
+- `figma.batch.componentName` - Kebab-case component name from the batch configuration (e.g. `'pie-modal'`)
+- `figma.batch.componentNameReact` - React (PascalCase) component name from the batch configuration (e.g. `'PieModal'`)
 - `figma.selectedInstance` - The Figma component instance currently being processed
 - `process.env.FRAMEWORK` - The target framework (`'web'` or `'react'`)
+
+Any additional custom properties defined on a component in the batch configuration (e.g. `isSubtle` on PieModal) are also available under `figma.batch`.
 
 ### Utility functions
 
@@ -203,41 +203,9 @@ Renders a component prop in web or React syntax.
 
 It automatically omits the prop if its value matches the default.
 
-### Example: Complete template
-
-```javascript
-const figma = require('figma');
-const createGetInstanceProp = require('./utils/get-instance-prop.js');
-const renderProp = require('./utils/render-prop.js');
-const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
-
-const componentNameHtml = figma.batch.id;
-const componentNameReact = figma.batch.name;
-const componentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentNameHtml;
-const getInstanceProp = createGetInstanceProp(figma);
-
-// PROP MAPPING
-const isDisabled = getInstanceProp('getBoolean', 'Disabled');
-const buttonText = getInstanceProp(['Button'], 'getString', 'Label') || 'Click';
-
-// TEMPLATE RENDERING
-const template = `<${componentName}
-    ${renderProp('disabled', isDisabled, false)}
->
-    ${buttonText}
-</${componentName}>`;
-
-export default {
-    example: figma.code`${trimEmptyLines(template)}`,
-    imports: [getImportStatement(componentNameHtml, componentNameReact)],
-    id: componentNameHtml,
-};
-```
-
 ## Publishing Code Connect changes
 
-These are the steps to to publish Code Connect mappings in local development environment:
+These are the steps to publish Code Connect mappings in local development environment:
 
 1. **Have or set up a Personal Access Token:**
 
@@ -247,7 +215,7 @@ Scroll to the "Personal access tokens" section, then click "Generate" new token.
 
 The token should have the following permissions:
 - `file_code_connect:write`
-- `file_content:read permissions`
+- `file_content:read`
 
 Copy it and set the `FIGMA_ACCESS_TOKEN` env var with its value.
 
