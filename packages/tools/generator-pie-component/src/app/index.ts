@@ -24,6 +24,7 @@ export default class extends Generator {
             componentPath: `packages/components/pie-${transformedName.fileName}/`,
             storyPath: 'apps/pie-storybook/stories/',
             testStoryPath: 'apps/pie-storybook/stories/testing/',
+            codeConnectPath: 'configs/pie-code-connect/',
         };
     }
 
@@ -38,7 +39,7 @@ export default class extends Generator {
 
     async writing () {
         const {
-            fileName, componentPath, storyPath, testStoryPath,
+            fileName, componentPath, storyPath, testStoryPath, codeConnectPath,
         } = this.props;
 
         const workspaceDeps = {
@@ -67,6 +68,7 @@ export default class extends Generator {
                         '**/__package__.json',
                         '**/placeholder.scss',
                         '**/pie-placeholder.__spec__.ts',
+                        '**/pie-placeholder.__figma__.__batch__.js',
                     ],
                 },
             },
@@ -113,6 +115,13 @@ export default class extends Generator {
         this.fs.copyTpl(
             this.templatePath('pie-placeholder.mdx'),
             this.destinationPath(`${storyPath}pie-${fileName}.mdx`),
+            this.props,
+        );
+
+        // Figma Code Connect template scaffold
+        this.fs.copyTpl(
+            this.templatePath('pie-placeholder.__figma__.__batch__.js'),
+            this.destinationPath(`${codeConnectPath}pie-${fileName}.figma.batch.js`),
             this.props,
         );
 
