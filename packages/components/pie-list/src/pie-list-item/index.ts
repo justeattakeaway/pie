@@ -12,7 +12,7 @@ import {
     type ContextualAria,
 } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { type ListItemProps, defaultProps, selectionTypes } from './defs';
+import { type ListItemProps, defaultProps, interactionTypes } from './defs';
 import styles from './list-item.scss?inline';
 
 const componentSelector = 'pie-list-item';
@@ -21,7 +21,7 @@ const componentSelector = 'pie-list-item';
  * @tagname pie-list-item
  * @slot leading - Content shown at the start of the item (for example an icon, avatar, or a slotted radio/checkbox).
  * @slot trailing - Content shown at the end of the item. Mutually exclusive with `metaText`.
- * @slot link - Rendered only when `isLink` is set. Slot one empty anchor (e.g. `<a slot="link" href="/x">`) stretched over the whole row as the link target. Must contain no text.
+ * @slot link - Rendered only when `interactionType="link"`. Slot one empty anchor (e.g. `<a slot="link" href="/x">`) stretched over the whole row as the link target. Must contain no text.
  */
 @safeCustomElement('pie-list-item')
 export class PieListItem extends PieElement implements ListItemProps {
@@ -44,14 +44,11 @@ export class PieListItem extends PieElement implements ListItemProps {
         hasMedia = defaultProps.hasMedia;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, selectionTypes, defaultProps.selectionType)
-        selectionType = defaultProps.selectionType;
+    @validPropertyValues(componentSelector, interactionTypes, defaultProps.interactionType)
+        interactionType = defaultProps.interactionType;
 
     @property({ type: Boolean })
         disabled = defaultProps.disabled;
-
-    @property({ type: Boolean })
-        isLink = defaultProps.isLink;
 
     // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state.
     // Defaults to false when there is no provider (a standalone item or a static list).
@@ -83,14 +80,17 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     private _consumerDescribedLink = false;
 
+    // A selection row hosts a slotted control (radio/checkbox/switch) and makes the whole row a
+    // toggle target. `link` is interactive too, but it is a navigation target rather than a
+    // selection control, so it is deliberately excluded here.
     private get _isSelectable (): boolean {
-        return this.selectionType !== 'none';
+        return this.interactionType === 'radio' ||
+            this.interactionType === 'checkbox' ||
+            this.interactionType === 'switch';
     }
 
-    // A link row is an `isLink` item that is not also a selection row. The two are mutually
-    // exclusive; if both are set, selection wins and the link behaviour is ignored.
     private get _isLinkRow (): boolean {
-        return this.isLink && !this._isSelectable;
+        return this.interactionType === 'link';
     }
 
     // True when the item lends its text to a slotted control as that control's accessible
@@ -103,7 +103,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     // (so the group owns the controls directly) and the radio is named on its host. A switch has
     // no group, so the item stays a `listitem`.
     private get _ownedByGroup (): boolean {
-        return this.selectionType === 'radio' || this.selectionType === 'checkbox';
+        return this.interactionType === 'radio' || this.interactionType === 'checkbox';
     }
 
     // True when the row should be treated as disabled: either its own `disabled` prop is set, or the
@@ -122,7 +122,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     connectedCallback () {
         super.connectedCallback();
 
-        // Respect a role the consumer set explicitly; otherwise we manage it from `selectionType`.
+        // Respect a role the consumer set explicitly; otherwise we manage it from `interactionType`.
         this._hasExplicitRole = this.hasAttribute('role');
 
         this._abortController = new AbortController();
@@ -141,9 +141,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     }
 
     /**
-     * Sets the item's role from `selectionType`: `presentation` for radio/checkbox (so the group
-     * owns those controls directly), otherwise `listitem` (static items and switches). A role set
-     * explicitly by the consumer is left untouched.
+     * Sets the item's role from `interactionType`: `presentation` for radio/checkbox (so the group
+     * owns those controls directly), otherwise `listitem` (static items, switches and links). A role
+     * set explicitly by the consumer is left untouched.
      */
     private _applyRole (): void {
         if (this._hasExplicitRole) return;

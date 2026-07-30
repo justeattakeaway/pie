@@ -30,9 +30,9 @@ test.describe('PieList - Component tests', () => {
     });
 
     test('should not apply selectable behaviours to items in a static list', async ({ page }) => {
-        // A static list item (`selectionType` defaults to `none`) must not adopt the selectable
+        // A static list item (`interactionType` defaults to `none`) must not adopt the selectable
         // behaviours (presentation role and hidden text) that only apply for a radio/checkbox/switch
-        // selection type. Uses the meta-text story so both the text and meta-text containers exist.
+        // interaction type. Uses the meta-text story so both the text and meta-text containers exist.
         await new BasePage(page, 'list--meta-text').load();
 
         await expect(page.getByRole('listitem').first()).toBeVisible();
@@ -54,7 +54,7 @@ test.describe('PieList - Component tests', () => {
         expect(hidden.meta).toBeNull();
     });
 
-    test('should set the item role from selectionType', async ({ page }) => {
+    test('should set the item role from interactionType', async ({ page }) => {
         await new BasePage(page, 'list--selection-types').load();
 
         // radio/checkbox are owned by a group, so the item becomes `presentation`.
@@ -199,7 +199,7 @@ test.describe('PieList - Component tests', () => {
 
         test('should apply is-selectable class to radio, checkbox and switch items', async ({ page }) => {
             // `is-selectable` is the CSS hook that enables hover/active states and the row-click
-            // forwarder. Verified for every selectable type so a future selectionType branching
+            // forwarder. Verified for every selectable type so a future interactionType branching
             // cannot silently drop the class for one of them.
             const classes = await page.evaluate(() => {
                 const getClass = (id: string) => document
@@ -221,7 +221,7 @@ test.describe('PieList - Component tests', () => {
 
         test('should apply is-disabled class to disabled radio, checkbox and switch items', async ({ page }) => {
             // `is-disabled` suppresses hover/active states and the pointer cursor. Tested for every
-            // selectable type so the disabled prop wires through correctly regardless of selectionType.
+            // selectable type so the disabled prop wires through correctly regardless of interactionType.
             const classes = await page.evaluate(() => {
                 const getClass = (id: string) => document
                     .querySelector(`[data-test-id="${id}"]`)

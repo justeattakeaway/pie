@@ -68,18 +68,18 @@ const TextOnlyTemplate = () => withLayout(html`
 
 export const TextOnly = createStory<ListProps>(TextOnlyTemplate, defaultArgs)();
 
-// Test-only: exercises selectionType role mapping, CSS classes, and ARIA behaviour across all types.
+// Test-only: exercises interactionType role mapping, CSS classes, and ARIA behaviour across all types.
 // Each selectable item carries metaText so aria-hidden can be verified. Disabled variants are
-// provided for each selectable type to cover the is-disabled CSS hook regardless of selectionType.
+// provided for each selectable type to cover the is-disabled CSS hook regardless of interactionType.
 const SelectionTypesTemplate = () => withLayout(html`
     <pie-list>
         <pie-list-item data-test-id="item-none" primaryText="None" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-radio" .selectionType=${'radio'} primaryText="Radio" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-checkbox" .selectionType=${'checkbox'} primaryText="Checkbox" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-switch" .selectionType=${'switch'} primaryText="Switch" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-radio-disabled" .selectionType=${'radio'} primaryText="Radio disabled" disabled></pie-list-item>
-        <pie-list-item data-test-id="item-checkbox-disabled" .selectionType=${'checkbox'} primaryText="Checkbox disabled" disabled></pie-list-item>
-        <pie-list-item data-test-id="item-switch-disabled" .selectionType=${'switch'} primaryText="Switch disabled" disabled></pie-list-item>
+        <pie-list-item data-test-id="item-radio" .interactionType=${'radio'} primaryText="Radio" metaText="Meta"></pie-list-item>
+        <pie-list-item data-test-id="item-checkbox" .interactionType=${'checkbox'} primaryText="Checkbox" metaText="Meta"></pie-list-item>
+        <pie-list-item data-test-id="item-switch" .interactionType=${'switch'} primaryText="Switch" metaText="Meta"></pie-list-item>
+        <pie-list-item data-test-id="item-radio-disabled" .interactionType=${'radio'} primaryText="Radio disabled" disabled></pie-list-item>
+        <pie-list-item data-test-id="item-checkbox-disabled" .interactionType=${'checkbox'} primaryText="Checkbox disabled" disabled></pie-list-item>
+        <pie-list-item data-test-id="item-switch-disabled" .interactionType=${'switch'} primaryText="Switch disabled" disabled></pie-list-item>
     </pie-list>
 `);
 export const SelectionTypes = createStory<ListProps>(SelectionTypesTemplate, defaultArgs)();
@@ -98,16 +98,16 @@ const SwitchSelectionTemplate = () => {
 
     return withLayout(html`
         <pie-list aria-label="Notification settings" @change=${onChange}>
-            <pie-list-item .selectionType=${'switch'} data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
+            <pie-list-item .interactionType=${'switch'} data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
                 <pie-switch slot="leading" data-test-id="switch-1"></pie-switch>
             </pie-list-item>
-            <pie-list-item .selectionType=${'switch'} data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
+            <pie-list-item .interactionType=${'switch'} data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
                 <pie-switch slot="leading" data-test-id="switch-2"></pie-switch>
             </pie-list-item>
-            <pie-list-item .selectionType=${'switch'} data-test-id="item-3" primaryText="SMS" disabled>
+            <pie-list-item .interactionType=${'switch'} data-test-id="item-3" primaryText="SMS" disabled>
                 <pie-switch slot="leading" data-test-id="switch-3" disabled></pie-switch>
             </pie-list-item>
-            <pie-list-item .selectionType=${'switch'} data-test-id="item-4" primaryText="Post" metaText="Rarely">
+            <pie-list-item .interactionType=${'switch'} data-test-id="item-4" primaryText="Post" metaText="Rarely">
                 <pie-switch slot="leading" data-test-id="switch-4"></pie-switch>
             </pie-list-item>
         </pie-list>
@@ -115,25 +115,25 @@ const SwitchSelectionTemplate = () => {
 };
 export const SwitchSelection = createStory<ListProps>(SwitchSelectionTemplate, defaultArgs)();
 
-// Test-only: a link list. Each row is a navigation link via `isLink` plus an empty `<a slot="link">`
+// Test-only: a link list. Each row is a navigation link via `interactionType="link"` plus an empty `<a slot="link">`
 // stretched over the row. The four items cover the text combinations (both, secondary only, meta
 // only, neither) so we can assert the anchor's derived aria-label/aria-description, that the visible
 // text is aria-hidden, and that clicking anywhere on the row activates the link.
 const LinkListTemplate = () => withLayout(html`
     <pie-list aria-label="Manage your restaurant">
-        <pie-list-item isLink data-test-id="item-1" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+        <pie-list-item .interactionType=${'link'} data-test-id="item-1" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
             <a slot="link" href="#orders" data-test-id="link-1"></a>
         </pie-list-item>
-        <pie-list-item isLink data-test-id="item-2" primaryText="Menu" secondaryText="Edit items and prices">
+        <pie-list-item .interactionType=${'link'} data-test-id="item-2" primaryText="Menu" secondaryText="Edit items and prices">
             <a slot="link" href="#menu" data-test-id="link-2"></a>
         </pie-list-item>
-        <pie-list-item isLink data-test-id="item-3" primaryText="Payouts" metaText="Weekly">
+        <pie-list-item .interactionType=${'link'} data-test-id="item-3" primaryText="Payouts" metaText="Weekly">
             <a slot="link" href="#payouts" data-test-id="link-3"></a>
         </pie-list-item>
-        <pie-list-item isLink data-test-id="item-4" primaryText="Restaurant settings">
+        <pie-list-item .interactionType=${'link'} data-test-id="item-4" primaryText="Restaurant settings">
             <a slot="link" href="#settings" data-test-id="link-4"></a>
         </pie-list-item>
-        <pie-list-item isLink data-test-id="item-5" primaryText="Help" secondaryText="Support articles">
+        <pie-list-item .interactionType=${'link'} data-test-id="item-5" primaryText="Help" secondaryText="Support articles">
             <a slot="link" href="#help" data-test-id="link-5" aria-label="Visit the help centre" aria-description="Guides and FAQs"></a>
         </pie-list-item>
     </pie-list>
