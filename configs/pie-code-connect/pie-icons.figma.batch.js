@@ -3,11 +3,14 @@ const createGetInstanceProp = require('./utils/get-instance-prop.js');
 
 const instance = figma.selectedInstance;
 const getInstanceProp = createGetInstanceProp(instance);
+const getInstanceProp = createGetInstanceProp(figma);
 const isReact = process.env.FRAMEWORK === 'react';
 
 const iconPrefix = isReact ? 'Icon' : 'icon-';
 const isFilled = getInstanceProp([], 'getEnum', 'Fill', { True: true, False: false }) || '';
 const isLarge = getInstanceProp([], 'getEnum', 'Size', { Large: true, Small: false }) || '';
+const isFilled = getInstanceProp('getEnum', 'Fill', { True: true, False: false });
+const isLarge = getInstanceProp('getEnum', 'Size', { Large: true, Small: false });
 
 function getFillSuffix (isReact) {
     if (isFilled) {
