@@ -9,9 +9,11 @@
     align-items: center;
     justify-content: center;
 
-    // NOTE: colour/variant styling is provisional so the shape is visible in isolation.
-    // Sizing is implemented in DSW-4169 (this ticket); only colour/variant remains
-    // provisional and arrives in DSW-4170.
+    inline-size: var(--icon-with-background-size);
+    block-size: var(--icon-with-background-size);
+
+    // NOTE: colour/variant styling is provisional so the shape is visible in
+    // isolation and arrives in DSW-4170.
     background-color: var(--dt-color-container-strong);
     color: var(--dt-color-content-inverse);
 
@@ -24,29 +26,23 @@
 }
 
 // Container sizing is identical for both shapes and driven by the `size` prop.
-// Literal px values come from the design spike; no matching --dt-* token exists.
 .c-iconWithBackground--small {
-    inline-size: 24px;
-    block-size: 24px;
+    --icon-with-background-size: 24px;
 }
 
 .c-iconWithBackground--medium {
-    inline-size: 32px;
-    block-size: 32px;
+    --icon-with-background-size: 32px;
 }
 
 .c-iconWithBackground--large {
-    inline-size: 40px;
-    block-size: 40px;
+    --icon-with-background-size: 40px;
 }
 
 .c-iconWithBackground--xlarge {
-    inline-size: 56px;
-    block-size: 56px;
+    --icon-with-background-size: 56px;
 }
 
 // Icon sizing depends on both shape and size, driven via --icon-size-override.
-// Literal px values come from the design spike; no matching --dt-* token exists.
 .c-iconWithBackground--circle {
     border-radius: var(--dt-radius-rounded-e);
 

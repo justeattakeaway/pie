@@ -43,9 +43,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ### CSS Variables
 
-| Variable               | Description                                                                                                                                                               |
-|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--icon-size-override` | Set internally by the component (based on `shape` and `size`) to size the slotted icon. Consumers should not set a `size` on the slotted icon, as it will have no effect. |
+This component does not expose any CSS variables for style overrides.
 
 ### CSS Parts
 | Part   | Description                        |

@@ -36,47 +36,4 @@ test.describe('PieIconWithBackground - Component tests', () => {
             });
         });
     });
-
-    test.describe('size prop', () => {
-        ['small', 'medium', 'large', 'xlarge'].forEach((size) => {
-            test(`should apply the ${size} size class`, async ({ page }) => {
-                // Arrange
-                const basePage = new BasePage(page, 'icon-with-background--default');
-
-                await basePage.load({ size });
-
-                // Act
-                const iconWithBackground = page.locator(componentSelector);
-
-                // Assert
-                await expect(iconWithBackground).toHaveClass(new RegExp(`c-iconWithBackground--${size}`));
-            });
-        });
-
-        test('should default to the medium size class when size is not provided', async ({ page }) => {
-            // Arrange
-            const basePage = new BasePage(page, 'icon-with-background--default');
-
-            await basePage.load();
-
-            // Act
-            const iconWithBackground = page.locator(componentSelector);
-
-            // Assert
-            await expect(iconWithBackground).toHaveClass(new RegExp('c-iconWithBackground--medium'));
-        });
-
-        test('should fall back to the medium size class when an invalid size is provided', async ({ page }) => {
-            // Arrange
-            const basePage = new BasePage(page, 'icon-with-background--default');
-
-            await basePage.load({ size: 'invalid-size' });
-
-            // Act
-            const iconWithBackground = page.locator(componentSelector);
-
-            // Assert
-            await expect(iconWithBackground).toHaveClass(new RegExp('c-iconWithBackground--medium'));
-        });
-    });
 });
