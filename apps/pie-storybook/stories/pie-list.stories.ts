@@ -347,3 +347,31 @@ export const LinkList = createStory<ListPlaygroundProps>(() => html`
         </pie-list-item>
     </pie-list>
 `, defaultArgs)();
+
+// Button lists --------------------------------------------------------------
+// `interactionType="button"` turns the whole row into a single button (an in-page action rather
+// than navigation). The item renders the button for you (no slotting); it is stretched invisibly
+// over the entire row so the whole item is the target, named by the item's own text, and fires a
+// native `click`. There is no group, so button rows live in a plain `pie-list`.
+
+/**
+ * Button rows: `pie-list-item` with `interactionType="button"`. The item renders an invisible,
+ * row-sized button (keeping the PIE focus ring) named by its text - you slot nothing. Clicking the
+ * row, or pressing Enter/Space while it is focused, fires a `click`; listen for it on the
+ * `pie-list-item` (or on the `pie-list`, since it bubbles).
+ */
+export const ButtonList = createStory<ListPlaygroundProps>(() => {
+    const onButtonActivate = (event: Event) => {
+        if ((event.target as HTMLElement).closest('pie-list-item')) console.info('Button activated');
+    };
+
+    return html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Account actions" @click=${onButtonActivate}>
+        <pie-list-item .interactionType=${'button'} primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New"></pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Change password" secondaryText="Keep your account secure"></pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Notification preferences" secondaryText="Choose what we email you about"></pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Sign out" secondaryText="End your session on this device"></pie-list-item>
+    </pie-list>
+`;
+}, defaultArgs)();

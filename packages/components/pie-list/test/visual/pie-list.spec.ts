@@ -23,6 +23,7 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--borders', snapshotName: 'PieList - Borders between items' },
     { storyId: 'list--switch-selection', snapshotName: 'PieList - Switch selection list' },
     { storyId: 'list--link-list', snapshotName: 'PieList - Link list' },
+    { storyId: 'list--button-list', snapshotName: 'PieList - Button list' },
 ];
 
 test.describe('PieList - Visual tests', () => {

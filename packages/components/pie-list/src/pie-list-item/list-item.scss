@@ -49,9 +49,10 @@
     min-height: 48px;
 }
 
-// Link rows: the whole item is a single navigation target. The container is positioned so the
-// slotted anchor can stretch over it.
-.c-listItem-container.is-link {
+// Overlay rows (link/button): the whole item is a single interactive target. The container is
+// positioned so the slotted anchor/button can stretch over it.
+.c-listItem-container.is-link,
+.c-listItem-container.is-button {
     position: relative;
 }
 
@@ -62,7 +63,8 @@
 // defaults use the standard PIE interactive overlay tokens; override `--list-item-hover-bg` /
 // `--list-item-active-bg` if design specifies dedicated list tokens.
 .c-listItem-container.is-selectable:not(.is-disabled),
-.c-listItem-container.is-link {
+.c-listItem-container.is-link,
+.c-listItem-container.is-button:not(.is-disabled) {
     --list-item-hover-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
     --list-item-active-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
 
@@ -84,6 +86,9 @@
         --interactive-container-tint: var(--list-item-hover-bg);
     }
 
+    // The pressed tint for a pointer press: the container is an ancestor of the pressed element, so
+    // it matches `:active`. (A keyboard press is handled by the `:has()` rule below, because keyboard
+    // `:active` does not propagate up to the container.)
     &:active {
         background-color: var(--list-item-active-bg);
 
@@ -91,17 +96,49 @@
     }
 }
 
-// Stretch the empty slotted anchor over the entire row so the whole block is the link's
-// click/touch target. It anchors to the container (positioned above).
-slot[name="link"]::slotted(a) {
+// Pressed tint for a `button` row's keyboard press. A native `<button>` is `:active` while Space is
+// held, but that state does not propagate to the container, so `&:active` above misses it. The
+// action button is a real shadow-DOM descendant (not slotted), so `:has()` can react to its
+// `:active` directly - no JS needed. A pointer press satisfies both this and `&:active` with the
+// same value, so there is no double up.
+.c-listItem-container.is-button:has(.c-listItem-action:active) {
+    background-color: var(--list-item-active-bg);
+
+    --interactive-container-tint: var(--list-item-active-bg);
+}
+
+// Stretch the interactive target over the entire row so the whole block is the click/touch target.
+// For a link it is the consumer's slotted anchor; for a button it is the native <button> the item
+// renders. Both anchor to the container (positioned above).
+slot[name="link"]::slotted(a),
+.c-listItem-action {
     position: absolute;
     inset: 0;
     z-index: 1;
     border-radius: inherit; // so the focus ring follows any rounding applied to the row
 }
 
-// Standard PIE focus ring. The anchor is row-sized, so keyboard focus rings the whole item.
-slot[name="link"]::slotted(a:focus-visible) {
+// The action element of a `button` row is a native <button> the item renders. Strip its chrome so
+// it is invisible (the row provides the styling); it stays a real, focusable button with native
+// pointer/keyboard activation and screen-reader semantics.
+.c-listItem-action {
+    padding: 0;
+    border: none;
+    background: transparent;
+    appearance: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+// A disabled action button shows the default cursor (it already ignores clicks and is unfocusable
+// natively via the `disabled` attribute).
+.c-listItem-action:disabled {
+    cursor: default;
+}
+
+// Standard PIE focus ring. The anchor/action is row-sized, so keyboard focus rings the whole item.
+slot[name="link"]::slotted(a:focus-visible),
+.c-listItem-action:focus-visible {
     @include p.focus;
 }
 
