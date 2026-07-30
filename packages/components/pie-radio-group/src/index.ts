@@ -45,6 +45,9 @@ const assistiveTextId = 'assistive-text';
 @safeCustomElement('pie-radio-group')
 export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implements RadioGroupProps {
     @state()
+    private _hasLabel = false;
+
+    @state()
     private _fieldSetTabIndex = 0;
 
     @state()
@@ -163,12 +166,24 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     /**
+     * Updates the `_hasLabel` state when content is added to the label slot.
+     * @param {Event} e - The slotchange event.
+     * @private
+     */
+    private _handleLabelSlotChange (e: { target: HTMLSlotElement }): void {
+        const childNodes = e.target.assignedNodes({ flatten: true });
+        this._hasLabel = childNodes.length > 0;
+    }
+
+    /**
      * Renders the label element inside a legend, wrapping the slot content.
      * @returns {TemplateResult } The template for the label slot.
      * @private
      */
     private _renderWrappedLabel (): TemplateResult {
-        return html`<legend><slot name='label'></slot></legend>`;
+        return this._hasLabel
+            ? html`<legend><slot name='label' @slotchange=${this._handleLabelSlotChange}></slot></legend>`
+            : html`<slot name='label' @slotchange=${this._handleLabelSlotChange}></slot>`;
     }
 
     private _applyNameToChildren () : void {
@@ -199,6 +214,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     connectedCallback (): void {
+        this._hasLabel = !!this.querySelector('[slot="label"]');
         super.connectedCallback();
         this._abortController = new AbortController();
         const { signal } = this._abortController;
