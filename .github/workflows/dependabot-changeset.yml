@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   generate-changeset:
-    if: github.actor == 'dependabot[bot]' && startsWith(github.event.pull_request.title, 'deps(npm)')
+    if: startsWith(github.event.pull_request.title, 'deps(npm)')
     runs-on: ubuntu-latest
     steps:
       - name: Generate GitHub App token
