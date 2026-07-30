@@ -4,10 +4,9 @@ const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
-const componentNameHtml = figma.batch.id;
-const componentNameReact = figma.batch.name;
-const componentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentNameHtml;
 const getInstanceProp = createGetInstanceProp(figma);
+const { componentName, componentNameReact } = figma.batch;
+const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
 // Map figma props
 const size = getInstanceProp('getEnum', 'Size', {
@@ -56,7 +55,7 @@ const footerLeadingButtonText = getInstanceProp(['Footer', 'Footer / Button 1'],
 const footerSupportingButtonText = getInstanceProp(['Footer', 'Footer / Button 2'], 'getString', '[𝐓] Label');
 
 // Define template
-const template = `<${componentName}
+const template = `<${selectedComponentName}
     isOpen
     heading="${heading}"
     ${renderProp('size', size, 'medium')}
@@ -72,10 +71,10 @@ const template = `<${componentName}
 >
     ${isFooterEmpty && hasFooterDualActions ? '<div slot="footer"></div>' : ''}
     ${imageSlotMode ? '<img slot="image" src="the-header-image-url.jpg">' : ''}
-</${componentName}>`;
+</${selectedComponentName}>`;
 
 export default {
     example: figma.code`${trimEmptyLines(template)}`,
-    imports: [getImportStatement(componentNameHtml, componentNameReact)],
-    id: componentNameHtml,
+    imports: [getImportStatement(componentName, componentNameReact)],
+    id: componentName,
 };

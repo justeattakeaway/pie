@@ -1,14 +1,11 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 
-const instance = figma.selectedInstance;
-const getInstanceProp = createGetInstanceProp(instance);
 const getInstanceProp = createGetInstanceProp(figma);
+const { componentName, componentNameReact } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 
 const iconPrefix = isReact ? 'Icon' : 'icon-';
-const isFilled = getInstanceProp([], 'getEnum', 'Fill', { True: true, False: false }) || '';
-const isLarge = getInstanceProp([], 'getEnum', 'Size', { Large: true, Small: false }) || '';
 const isFilled = getInstanceProp('getEnum', 'Fill', { True: true, False: false });
 const isLarge = getInstanceProp('getEnum', 'Size', { Large: true, Small: false });
 
@@ -27,7 +24,7 @@ function getSizeSuffix (isReact) {
 }
 
 function getComponentName (isReact) {
-    return `${isReact ? figma.batch.name.split(' ').join('') : figma.batch.id}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
+    return `${isReact ? componentNameReact : componentName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
 }
 
 const importStatement = isReact
