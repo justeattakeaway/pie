@@ -3,29 +3,29 @@
     "templateFile": "dist/pie-modal.figma.batch.js",
     "components": [
       {
-        "componentNameReact": "PieModal",
         "componentName": "pie-modal",
+        "componentNameReact": "PieModal",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-modal/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
         "isSubtle": true
       },
       {
-        "componentNameReact": "PieModal",
         "componentName": "pie-modal",
+        "componentNameReact": "PieModal",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-modal/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
         "isSubtle": false
       },
       {
-        "componentNameReact": "PieModal",
         "componentName": "pie-modal",
+        "componentNameReact": "PieModal",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-modal/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
         "isSubtle": true
       },
       {
-        "componentNameReact": "PieModal",
         "componentName": "pie-modal",
+        "componentNameReact": "PieModal",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-modal/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
         "isSubtle": false
