@@ -3023,9 +3023,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma/code-connect@npm:1.4.9":
-  version: 1.4.9
-  resolution: "@figma/code-connect@npm:1.4.9"
+"@figma/code-connect@npm:1.5.1":
+  version: 1.5.1
+  resolution: "@figma/code-connect@npm:1.5.1"
   dependencies:
     boxen: "npm:5.1.1"
     chalk: "npm:^4.1.2"
@@ -3033,6 +3033,7 @@ __metadata:
     compare-versions: "npm:^6.1.0"
     cross-spawn: "npm:^7.0.3"
     dotenv: "npm:^16.3.1"
+    esbuild-wasm: "npm:0.27.3"
     fast-fuzzy: "npm:^1.12.0"
     find-up: "npm:^5.0.0"
     glob: "npm:^11.0.4"
@@ -3051,7 +3052,7 @@ __metadata:
     zod-validation-error: "npm:^3.2.0"
   bin:
     figma: bin/figma
-  checksum: 10/539793ad6c83335f87ade9d3f275f816f65c8891bdef98aed6ba71e30ba6b468bb87f733ebce9372ed0e93c332e808857610e65f9b42d92568d9396bcdce69e2
+  checksum: 10/202a83e7d922cf6a01af8c31d90053b34c0a69fedec24f973ab22929d8501f926f9f246b40fbe5d7e40c274b5353347c5809aacd132c6136cdc91371e3862502
   languageName: node
   linkType: hard
 
@@ -3692,7 +3693,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-code-connect@workspace:configs/pie-code-connect"
   dependencies:
-    "@figma/code-connect": "npm:1.4.9"
+    "@figma/code-connect": "npm:1.5.1"
   languageName: unknown
   linkType: soft
 
@@ -11956,6 +11957,15 @@ __metadata:
     vitepress-plugin-sandpack@1.1.4:
       unplugged: true
   checksum: 10/3dcb898b69cb84fd5bd8a18a5a63b01d0b9fc4a74539d01c58869f5460e1402a6eb7b1260729a564043a6776c24c04b96d72883918c1fbed9ab5c91a5c064f80
+  languageName: node
+  linkType: hard
+
+"esbuild-wasm@npm:0.27.3":
+  version: 0.27.3
+  resolution: "esbuild-wasm@npm:0.27.3"
+  bin:
+    esbuild: bin/esbuild
+  checksum: 10/2e6a178ad5b61d782b2540cabbb8191008ae21fdba647b8ff3a98e1932f3769df42f3ae245c16268be85bfa8ae49d64c6d980f85a49deccc48fc4bd1d2dedf2f
   languageName: node
   linkType: hard
 
