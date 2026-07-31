@@ -65,6 +65,46 @@ test.describe('PieList - Component tests', () => {
         await expect(page.getByTestId('item-switch')).toHaveAttribute('role', 'listitem');
     });
 
+    test('should not overwrite a role the consumer adds after connection', async ({ page }) => {
+        await new BasePage(page, 'list--text-only').load();
+
+        // Confirm the component has set its managed role first.
+        const item = page.getByRole('listitem').first();
+        await expect(item).toHaveAttribute('role', 'listitem');
+
+        // Consumer adds their own role after connection.
+        await page.evaluate(() => {
+            document.querySelector('pie-list-item')?.setAttribute('role', 'option');
+        });
+
+        // Trigger a Lit update so `_applyRole` runs again.
+        await page.evaluate(() => {
+            (document.querySelector('pie-list-item') as HTMLElement & { primaryText: string }).primaryText = 'Updated';
+        });
+
+        // The component must not overwrite the consumer's role.
+        await expect.poll(() => page.evaluate(() => document.querySelector('pie-list-item')?.getAttribute('role'))).toBe('option');
+    });
+
+    test('should restore its managed role when the consumer removes their explicit role', async ({ page }) => {
+        await new BasePage(page, 'list--text-only').load();
+
+        // Consumer sets an explicit role, then removes it.
+        await page.evaluate(() => {
+            document.querySelector('pie-list-item')?.setAttribute('role', 'option');
+        });
+        await page.evaluate(() => {
+            document.querySelector('pie-list-item')?.removeAttribute('role');
+        });
+
+        // Trigger a Lit update so `_applyRole` re-runs and restores the managed role.
+        await page.evaluate(() => {
+            (document.querySelector('pie-list-item') as HTMLElement & { primaryText: string }).primaryText = 'Updated';
+        });
+
+        await expect.poll(() => page.evaluate(() => document.querySelector('pie-list-item')?.getAttribute('role'))).toBe('listitem');
+    });
+
     test.describe('with a switch selection list', () => {
         test.beforeEach(async ({ page }) => {
             await new BasePage(page, 'list--switch-selection').load();
@@ -189,6 +229,21 @@ test.describe('PieList - Component tests', () => {
             await page.getByTestId('item-1').click();
 
             await expect.poll(() => page.evaluate(() => window.location.hash)).toBe('#orders');
+        });
+
+        test('should remove aria attributes from the anchor when interactionType changes away from link', async ({ page }) => {
+            // Guard: confirm the attributes are present before we change the prop.
+            await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-label')).toBe('Orders');
+            await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-description')).toBe('View and manage live orders. 12 active');
+
+            // Switch to a non-link type.
+            await page.evaluate(() => {
+                (document.querySelector('[data-test-id="item-1"]') as HTMLElement & { interactionType: string }).interactionType = 'none';
+            });
+
+            // The aria attributes we set must be removed, not left orphaned on the anchor.
+            await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-label')).toBeNull();
+            await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-description')).toBeNull();
         });
     });
 
