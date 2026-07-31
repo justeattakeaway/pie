@@ -70,7 +70,9 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     private _abortController!: AbortController;
 
-    private _hasExplicitRole = false;
+    // The last role value we wrote ourselves, so `_applyRole` can tell apart our own managed role
+    // from one the consumer set (and therefore should not overwrite).
+    private _managedRole: string | null = null;
 
     // Captured once (in `_applyLinkAria`): whether the consumer already named/described the slotted
     // link anchor themselves. If so, their value always wins and we never touch it.
@@ -122,9 +124,6 @@ export class PieListItem extends PieElement implements ListItemProps {
     connectedCallback () {
         super.connectedCallback();
 
-        // Respect a role the consumer set explicitly; otherwise we manage it from `interactionType`.
-        this._hasExplicitRole = this.hasAttribute('role');
-
         this._abortController = new AbortController();
         this.addEventListener('click', this._handleHostClick, { signal: this._abortController.signal });
     }
@@ -143,11 +142,17 @@ export class PieListItem extends PieElement implements ListItemProps {
     /**
      * Sets the item's role from `interactionType`: `presentation` for radio/checkbox (so the group
      * owns those controls directly), otherwise `listitem` (static items, switches and links). A role
-     * set explicitly by the consumer is left untouched.
+     * set explicitly by the consumer is left untouched, even if it is added or removed dynamically
+     * after the element connects.
      */
     private _applyRole (): void {
-        if (this._hasExplicitRole) return;
-        this.setAttribute('role', this._ownedByGroup ? 'presentation' : 'listitem');
+        const currentRole = this.getAttribute('role');
+        // Only manage the role if it is absent or was last set by us — not a consumer-supplied value.
+        if (currentRole !== null && currentRole !== this._managedRole) return;
+
+        const nextRole = this._ownedByGroup ? 'presentation' : 'listitem';
+        this._managedRole = nextRole;
+        this.setAttribute('role', nextRole);
     }
 
     /**
@@ -192,7 +197,22 @@ export class PieListItem extends PieElement implements ListItemProps {
      * leave that attribute untouched. Otherwise we keep our generated value in sync with the text.
      */
     private _applyLinkAria (): void {
-        if (!this._isLinkRow) return;
+        if (!this._isLinkRow) {
+            // When transitioning away from `link`, remove any attributes we previously set so they
+            // are not left orphaned on the anchor. Reset capture state so a future transition back
+            // to `link` re-reads the consumer's attrs from the (possibly different) anchor.
+            if (this._linkAriaCaptured) {
+                const anchor = this.querySelector('a[slot="link"]');
+                if (anchor) {
+                    if (!this._consumerNamedLink) anchor.removeAttribute('aria-label');
+                    if (!this._consumerDescribedLink) anchor.removeAttribute('aria-description');
+                }
+                this._linkAriaCaptured = false;
+                this._consumerNamedLink = false;
+                this._consumerDescribedLink = false;
+            }
+            return;
+        }
 
         const anchor = this.querySelector('a[slot="link"]');
         if (!anchor) return;
