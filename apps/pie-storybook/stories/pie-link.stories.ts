@@ -216,6 +216,11 @@ export const Inverse = createLinkStory(
     { bgColor: 'dark (container-dark)' },
 );
 
+export const InverseLight = createLinkStory(
+    { variant: 'inverse-light' },
+    { bgColor: 'dark (container-dark)' },
+);
+
 export const IconSlot = createLinkStory({
     isStandalone: true,
     iconPlacement: 'trailing',
