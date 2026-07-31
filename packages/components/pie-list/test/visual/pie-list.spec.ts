@@ -24,6 +24,7 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--switch-selection', snapshotName: 'PieList - Switch selection list' },
     { storyId: 'list--link-list', snapshotName: 'PieList - Link list' },
     { storyId: 'list--button-list', snapshotName: 'PieList - Button list' },
+    { storyId: 'list--button-list-disabled', snapshotName: 'PieList - Button list (disabled)' },
 ];
 
 test.describe('PieList - Visual tests', () => {

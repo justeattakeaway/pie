@@ -7,6 +7,10 @@ import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser';
+import '@justeattakeaway/pie-icons-webc/dist/IconLock';
+import '@justeattakeaway/pie-icons-webc/dist/IconNotification';
+import '@justeattakeaway/pie-icons-webc/dist/IconLogOut';
 
 import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
 
@@ -165,6 +169,27 @@ const ButtonListTemplate = () => {
     `);
 };
 export const ButtonList = createStory<ListProps>(ButtonListTemplate, defaultArgs)();
+
+// Test-only: a disabled button list. Exercises the disabled colour tokens — text uses
+// `content-disabled` and icons use `disabled-01` (via fill: currentColor). Icons are present in
+// the leading slot so both text and icon colours are captured in the VRT snapshot.
+const ButtonListDisabledTemplate = () => withLayout(html`
+    <pie-list aria-label="Account actions">
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
+            <icon-user slot="leading"></icon-user>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure">
+            <icon-lock slot="leading"></icon-lock>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-3" primaryText="Notification preferences" secondaryText="Choose what we email you about">
+            <icon-notification slot="leading"></icon-notification>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-4" primaryText="Sign out" secondaryText="End your session on this device">
+            <icon-log-out slot="leading"></icon-log-out>
+        </pie-list-item>
+    </pie-list>
+`);
+export const ButtonListDisabled = createStory<ListProps>(ButtonListDisabledTemplate, defaultArgs)();
 
 /**
  * `isBold` sets the primary text to a bold font-weight.

@@ -12,6 +12,10 @@ import '@justeattakeaway/pie-webc/components/checkbox-group';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser';
+import '@justeattakeaway/pie-icons-webc/dist/IconLock';
+import '@justeattakeaway/pie-icons-webc/dist/IconNotification';
+import '@justeattakeaway/pie-icons-webc/dist/IconLogOut';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
@@ -368,10 +372,18 @@ export const ButtonList = createStory<ListPlaygroundProps>(() => {
     return html`
     <style>pie-list { min-width: 350px; }</style>
     <pie-list aria-label="Account actions" @click=${onButtonActivate}>
-        <pie-list-item .interactionType=${'button'} primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New"></pie-list-item>
-        <pie-list-item .interactionType=${'button'} primaryText="Change password" secondaryText="Keep your account secure"></pie-list-item>
-        <pie-list-item .interactionType=${'button'} primaryText="Notification preferences" secondaryText="Choose what we email you about"></pie-list-item>
-        <pie-list-item .interactionType=${'button'} primaryText="Sign out" secondaryText="End your session on this device"></pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
+            <icon-user slot="leading"></icon-user>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Change password" secondaryText="Keep your account secure">
+            <icon-lock slot="leading"></icon-lock>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Notification preferences" secondaryText="Choose what we email you about">
+            <icon-notification slot="leading"></icon-notification>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Sign out" secondaryText="End your session on this device">
+            <icon-log-out slot="leading"></icon-log-out>
+        </pie-list-item>
     </pie-list>
 `;
 }, defaultArgs)();

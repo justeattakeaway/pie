@@ -184,6 +184,20 @@ slot[name="trailing"]::slotted(*),
     --icon-size-override: 24px
 }
 
+// Disabled button row: mute text and icons. Icons use `fill: currentColor`, so setting `color`
+// on the host element cascades through the shadow boundary and changes their rendered fill.
+.c-listItem-container.is-button.is-disabled {
+    .c-listItem-primaryText,
+    .c-listItem-secondaryText,
+    .c-listItem-metaText {
+        color: var(--dt-color-content-disabled);
+    }
+}
+
+.c-listItem-container.is-button.is-disabled ::slotted(.c-pieIcon) {
+    color: var(--dt-color-disabled-01);
+}
+
 // typography
 
 .c-listItem-primaryText {
