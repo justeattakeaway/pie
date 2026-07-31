@@ -1,5 +1,9 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
+type AriaProps = {
+    haspopup?: 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true';
+};
+
 export const interactionTypes = ['none', 'radio', 'checkbox', 'switch', 'link', 'button'] as const;
 
 export type InteractionType = typeof interactionTypes[number];
@@ -67,6 +71,13 @@ export interface ListItemProps {
      * (static) item.
      */
     disabled?: boolean
+
+    /**
+     * ARIA properties for the `pie-list-item`. Only applies when `interactionType="button"`.
+     * Currently supports `haspopup` only, which is forwarded to the internal `<button>` element.
+     * Use `haspopup` when activating the row opens a popup such as a dialog or menu.
+     */
+    aria?: AriaProps
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;

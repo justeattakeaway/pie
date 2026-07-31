@@ -74,6 +74,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
 | `interactionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"`, `"link"`, `"button"` | Declares how the **whole row** behaves, and drives its role, accessible naming, click forwarding and interactive states from this one prop. `"none"` is a static item; `"radio"`/`"checkbox"`/`"switch"` host the matching control in the `leading`/`trailing` slot; `"link"` turns the row into a single navigation link (slot an empty `<a slot="link" href="...">`); `"button"` turns the row into a single button for an in-page action (the item renders the button for you - listen for `click`). See [Selectable lists](#selectable-lists), [Link items](#link-items) and [Button items](#button-items). | `"none"` |
 | `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
+| `aria` | `{ haspopup?: "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" \| "true" }` | ARIA properties for the item. Only applies when `interactionType="button"`. Set `haspopup` when the button row triggers a popup such as a dialog or menu - its value is forwarded to the internal `<button>` element. | `undefined` |
 
 ### Slots
 
@@ -423,6 +424,29 @@ Set `interactionType="button"` to turn the whole row into one button. Use this f
 The item names the button from its own text: `primaryText` becomes the button's `aria-label` and `secondaryText`/`metaText` its `aria-description`, and the visible text is hidden from assistive technology so nothing is announced twice (see [You never set ARIA on a list item or its slotted content](#you-never-set-aria-on-a-list-item-or-its-slotted-content)).
 
 **Handle activation by listening for `click`** on the `pie-list-item` (or on the `pie-list`, since the event bubbles). Because it is a real `<button>`, activation is native: both pointer taps and keyboard (Enter, and Space) fire a `click`, so a single `click` listener covers every input. The row shows a pressed tint while it is pressed - by pointer, or while Space is held on the focused row - and the focus ring on keyboard focus. Give the `pie-list` its own accessible name (e.g. `aria-label`).
+
+**When the button opens a popup (dialog, menu, etc.)**, pass the `aria` prop with `haspopup` set to the popup type. This is forwarded to the internal `<button>` so assistive technology announces it correctly:
+
+```html
+<!-- A row that opens a dialog -->
+<pie-list-item
+  interactionType="button"
+  primaryText="Delete account"
+  secondaryText="Permanently remove your account"
+  .aria=${{ haspopup: 'dialog' }}>
+</pie-list-item>
+```
+
+In React:
+
+```jsx
+<PieListItem
+  interactionType="button"
+  primaryText="Delete account"
+  secondaryText="Permanently remove your account"
+  aria={{ haspopup: 'dialog' }}
+  onClick={openConfirmDialog}
+/>
 
 ```js
 import '@justeattakeaway/pie-webc/components/list.js';

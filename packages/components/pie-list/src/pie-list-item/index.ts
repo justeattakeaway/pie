@@ -51,6 +51,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean })
         disabled = defaultProps.disabled;
 
+    @property({ type: Object })
+        aria: ListItemProps['aria'];
+
     // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state.
     // Defaults to false when there is no provider (a standalone item or a static list).
     @consume({ context: parentDisabledContext, subscribe: true })
@@ -287,7 +290,8 @@ export class PieListItem extends PieElement implements ListItemProps {
             type="button"
             ?disabled=${this._isDisabled}
             aria-label=${ifDefined(aria?.label)}
-            aria-description=${ifDefined(aria?.description)}></button>`;
+            aria-description=${ifDefined(aria?.description)}
+            aria-haspopup=${ifDefined(this.aria?.haspopup)}></button>`;
     }
 
     render () {

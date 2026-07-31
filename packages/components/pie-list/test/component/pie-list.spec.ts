@@ -379,6 +379,22 @@ test.describe('PieList - Component tests', () => {
 
             await page.keyboard.up('Space');
         });
+
+        test('should not render aria-haspopup on the action button when aria prop is not set', async ({ page }) => {
+            // The story loads with no aria prop — the attribute must be completely absent,
+            // not rendered as an empty string or the literal "undefined".
+            await expect.poll(() => actionAria(page, 'item-1', 'aria-haspopup')).toBeNull();
+        });
+
+        test('should forward aria.haspopup to the internal action button', async ({ page }) => {
+            // Set the aria prop on the item and verify it reaches the shadow <button>.
+            await page.evaluate(() => {
+                const item = document.querySelector('[data-test-id="item-1"]') as any;
+                item.aria = { haspopup: 'dialog' };
+            });
+
+            await expect.poll(() => actionAria(page, 'item-1', 'aria-haspopup')).toBe('dialog');
+        });
     });
 
     test.describe('selectable item CSS classes and ARIA attributes', () => {
