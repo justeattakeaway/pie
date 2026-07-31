@@ -236,12 +236,13 @@ test.describe('PieList - Component tests', () => {
             await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-label')).toBe('Orders');
             await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-description')).toBe('View and manage live orders. 12 active');
 
-            // Switch to a non-link type.
+            // Change interactionType to 'none' — the item is no longer a link row.
             await page.evaluate(() => {
-                (document.querySelector('[data-test-id="item-1"]') as HTMLElement & { interactionType: string }).interactionType = 'none';
+                const item = document.querySelector('[data-test-id="item-1"]') as HTMLElement & { interactionType: string };
+                item.interactionType = 'none';
             });
 
-            // The aria attributes we set must be removed, not left orphaned on the anchor.
+            // The anchor must no longer carry the aria attributes we set.
             await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-label')).toBeNull();
             await expect.poll(() => page.getByTestId('link-1').getAttribute('aria-description')).toBeNull();
         });
