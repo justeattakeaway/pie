@@ -1,6 +1,6 @@
 ---
 name: aperture-props-test
-description: Assists the user in testing added or changed component props in the PIE Aperture repo across 4 apps (Nuxt, Next.js v14 & v15, Vanilla). Users invoke it as `/aperture-props-test <component> <prop> [value]`. Run after `/test-aperture` has been triggered on the PIE PR.
+description: Assists the user in testing added or changed component props in the PIE Aperture repo across 4 apps (Nuxt, Next.js v14 & v15, Vanilla). Users invoke it as `/aperture-props-test <component> <prop> [value]`.
 disable-model-invocation: true
 ---
 
