@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.35.0
+
+### Minor Changes
+
+- [Added] - support for Code Connect template files ([#3073](https://github.com/justeattakeaway/pie/pull/3073)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.34.2
 
 ### Patch Changes
