@@ -14,4 +14,5 @@ export type Props = {
   componentPath: string;
   storyPath: string;
   testStoryPath: string;
+  codeConnectPath: string;
 } & TransformedName;
