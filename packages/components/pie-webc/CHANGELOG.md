@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-webc
 
+## 0.11.3
+
+### Patch Changes
+
+- Updated dependencies [[`4417c95`](https://github.com/justeattakeaway/pie/commit/4417c957e83f3a94018f1c7ea29d01d34ee70ebe)]:
+  - @justeattakeaway/pie-link@1.4.0
+  - @justeattakeaway/pie-breadcrumb@1.0.7
+  - @justeattakeaway/pie-cookie-banner@1.10.9
+
 ## 0.11.2
 
 ### Patch Changes
