@@ -53,4 +53,41 @@ test.describe('PieIconWithBackground - Component tests', () => {
             });
         });
     });
+
+    test.describe('variant prop', () => {
+        [
+            { variant: 'neutral', storyId: 'icon-with-background--neutral' },
+            { variant: 'neutral-alternative', storyId: 'icon-with-background--neutral-alternative' },
+            { variant: 'information', storyId: 'icon-with-background--information' },
+            { variant: 'brand-05', storyId: 'icon-with-background--brand-05' },
+        ].forEach(({ variant, storyId }) => {
+            test(`should apply the ${variant} variant class`, async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, storyId);
+
+                await basePage.load();
+
+                // Act
+                const iconWithBackground = page.locator(componentSelector);
+
+                // Assert
+                await expect(iconWithBackground).toHaveClass(new RegExp(`c-iconWithBackground--${variant}(\\s|$)`));
+            });
+        });
+    });
+
+    test.describe('isStrong prop', () => {
+        test('should apply the strong class when isStrong is true', async ({ page }) => {
+            // Arrange
+            const basePage = new BasePage(page, 'icon-with-background--brand-05-strong');
+
+            await basePage.load();
+
+            // Act
+            const iconWithBackground = page.locator(componentSelector);
+
+            // Assert
+            await expect(iconWithBackground).toHaveClass(/c-iconWithBackground--strong/);
+        });
+    });
 });

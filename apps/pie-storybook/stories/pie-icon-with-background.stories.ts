@@ -7,6 +7,7 @@ import {
     type IconWithBackgroundProps,
     shapes,
     sizes,
+    variants,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/icon-with-background';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
@@ -39,6 +40,21 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
                 summary: defaultProps.size,
             },
         },
+        variant: {
+            description: 'The background colour variant of the component.',
+            control: 'select',
+            options: variants,
+            defaultValue: {
+                summary: defaultProps.variant,
+            },
+        },
+        isStrong: {
+            description: 'When true, applies a stronger colour emphasis. Has no effect on the `neutral-alternative` variant.',
+            control: 'boolean',
+            defaultValue: {
+                summary: String(defaultProps.isStrong),
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -51,8 +67,13 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
 
 export default iconWithBackgroundStoryMeta;
 
-const Template: TemplateFunction<IconWithBackgroundProps> = ({ shape, size }) => html`
-    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}">
+const Template: TemplateFunction<IconWithBackgroundProps> = ({
+    shape,
+    size,
+    variant,
+    isStrong,
+}) => html`
+    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}" variant="${ifDefined(variant)}" ?isStrong="${isStrong}">
         <icon-heart-filled></icon-heart-filled>
     </pie-icon-with-background>
 `;
@@ -66,3 +87,22 @@ export const Small = createIconWithBackgroundStory({ size: 'small' });
 export const Medium = createIconWithBackgroundStory({ size: 'medium' });
 export const Large = createIconWithBackgroundStory({ size: 'large' });
 export const Xlarge = createIconWithBackgroundStory({ size: 'xlarge' });
+
+export const Neutral = createIconWithBackgroundStory({ variant: 'neutral' });
+export const NeutralAlternative = createIconWithBackgroundStory({ variant: 'neutral-alternative' }, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+export const Information = createIconWithBackgroundStory({ variant: 'information' });
+export const Success = createIconWithBackgroundStory({ variant: 'success' });
+export const Error = createIconWithBackgroundStory({ variant: 'error' });
+export const Warning = createIconWithBackgroundStory({ variant: 'warning' });
+export const Brand02 = createIconWithBackgroundStory({ variant: 'brand-02' });
+export const Brand03 = createIconWithBackgroundStory({ variant: 'brand-03' });
+export const Brand04 = createIconWithBackgroundStory({ variant: 'brand-04' });
+export const Brand05 = createIconWithBackgroundStory({ variant: 'brand-05' });
+export const Brand06 = createIconWithBackgroundStory({ variant: 'brand-06' });
+export const Brand08 = createIconWithBackgroundStory({ variant: 'brand-08' });
+
+export const Brand05Strong = createIconWithBackgroundStory({ variant: 'brand-05', isStrong: true });
