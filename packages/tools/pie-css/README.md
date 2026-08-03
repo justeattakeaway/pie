@@ -239,7 +239,7 @@ For complete documentation on all available typography utility classes, includin
 
 ### Opt-in Normalise Stylesheet
 
-`pie-css` ships an optional browser normalise stylesheet backed by [`modern-normalize`](https://github.com/sindresorhus/modern-normalize). It is **not** included in the main `dist/index.css` and must be imported separately, giving you full control over whether to apply it.
+`pie-css` ships an optional browser normalise stylesheet backed by [`modern-normalize`](https://github.com/sindresorhus/modern-normalize). It is **not** included in the main `dist/index.css` and must be imported separately, giving you full control over whether to apply it to your application.
 
 #### JS or Framework import (via bundler)
 
