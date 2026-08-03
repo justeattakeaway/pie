@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@lit/context": "1.1.6",
-    "lit": "3.2.0"
+    "lit": "3.3.3"
   },
   "peerDependencies": {
     "@justeattakeaway/pie-css": "1.x"
