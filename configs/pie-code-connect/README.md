@@ -139,11 +139,11 @@ yarn publish-components:react
 
 ## Adding New Icons
 
-Icons are managed similarly to components but with a key difference: there's no need to create a template file, only adding more data to the `icons.figma.batch.json` file.
+Icons are managed similarly to components but with a key difference: there's no need to create a template file, only adding more data to the `icons-standard.figma.batch.json` file.
 
 ### 1. Update icons metadata
 
-Add entries to `icons.figma.batch.json` for each icon:
+Add entries to `icons-standard.figma.batch.json` for each icon:
 
 ```json
 {
