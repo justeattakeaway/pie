@@ -51,6 +51,7 @@
   "devDependencies": {
     "@types/postcss-import": "14.0.3",
     "include-media": "2.0.0",
+    "modern-normalize": "3.0.1",
     "postcss": "8.5.15",
     "postcss-import": "15.1.0",
     "w3c-css-validator": "1.4.1"

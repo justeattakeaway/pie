@@ -3732,6 +3732,7 @@ __metadata:
     "@justeat/pie-design-tokens": "npm:7.14.3"
     "@types/postcss-import": "npm:14.0.3"
     include-media: "npm:2.0.0"
+    modern-normalize: "npm:3.0.1"
     postcss: "npm:8.5.15"
     postcss-import: "npm:15.1.0"
     w3c-css-validator: "npm:1.4.1"
@@ -17634,6 +17635,13 @@ __metadata:
     pkg-types: "npm:^1.3.1"
     ufo: "npm:^1.6.3"
   checksum: 10/e13b79edb113ac9d3ce8b5998d490cd979e907d31b562b9c6630e59623d32710cc83be1da46755ccd3143c57d50debcf98a9903d55e6e07e57910dc3369d96c1
+  languageName: node
+  linkType: hard
+
+"modern-normalize@npm:3.0.1":
+  version: 3.0.1
+  resolution: "modern-normalize@npm:3.0.1"
+  checksum: 10/1c7b85ddd34f73e063d6cac01936f3a02efc8126b3f28cc28d123d8ff7ee5d49e6875574ce57ba13400c4ebc5f5913fd5f7be6a682a4c474ce0a81f786beea4e
   languageName: node
   linkType: hard
 
