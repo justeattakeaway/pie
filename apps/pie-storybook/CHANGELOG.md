@@ -1,5 +1,61 @@
 # Changelog
 
+## 1.87.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.4
+
+## 1.87.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.3
+
+## 1.87.1
+
+### Patch Changes
+
+- Updated dependencies [[`ce29f7a`](https://github.com/justeattakeaway/pie/commit/ce29f7ae238fb5f6b47c4d5ccd86e199138fc728)]:
+  - @justeat/pie-design-tokens@7.14.3
+  - @justeattakeaway/pie-css@1.3.2
+  - @justeattakeaway/pie-webc@0.11.2
+
+## 1.87.0
+
+### Minor Changes
+
+- [Added] - Stories using pie-checkbox in pie-list-item ([#3053](https://github.com/justeattakeaway/pie/pull/3053)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.1
+
+## 1.86.4
+
+### Patch Changes
+
+- Updated dependencies [[`8b46c8a`](https://github.com/justeattakeaway/pie/commit/8b46c8ab6e9ede6b43fd94b009886542e20ca248)]:
+  - @justeattakeaway/pie-webc@0.11.0
+
+## 1.86.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.37
+
+## 1.86.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.27.1
+  - @justeattakeaway/pie-webc@0.10.36
+
 ## 1.86.1
 
 ### Patch Changes

@@ -2141,6 +2141,84 @@
       }
     }
   },
+  "gradient": {
+    "alias": {
+      "default": {
+        "ai-container-default": {
+          "category": "container",
+          "description": "ai-container-default",
+          "globalToken": ["$color-cupcake-10", "$color-aubergine-05"]
+        },
+        "ai-border-default": {
+          "category": "border",
+          "description": "ai-border-default",
+          "globalToken": ["$color-cupcake-40", "$color-aubergine-30"]
+        },
+        "jetplus-brand-01": {
+          "category": "brand",
+          "description": "jetplus-brand-01",
+          "globalToken": ["$color-orange-25", "$color-orange-30", "$color-tomato-50"]
+        },
+        "jetplus-brand-02": {
+          "category": "brand",
+          "description": "jetplus-brand-02",
+          "globalToken": ["$color-orange-10", "$color-orange-20", "$color-tomato-30"]
+        },
+        "jetplus-brand-03": {
+          "category": "brand",
+          "description": "jetplus-brand-03",
+          "globalToken": ["$color-orange-0", "$color-orange-10", "$color-tomato-5"]
+        },
+        "jetplus-support-01": {
+          "category": "support",
+          "description": "jetplus-support-01",
+          "globalToken": ["$color-mozzarella-20", "$transparent"]
+        },
+        "jetplus-support-02": {
+          "category": "support",
+          "description": "jetplus-support-02",
+          "globalToken": ["$color-orange-10", "$transparent"]
+        }
+      },
+      "dark": {
+        "ai-container-default": {
+          "category": "container",
+          "description": "ai-container-default",
+          "globalToken": ["$color-cupcake-80", "$color-purple"]
+        },
+        "ai-border-default": {
+          "category": "border",
+          "description": "ai-border-default",
+          "globalToken": ["$color-cupcake-40", "$color-aubergine-30"]
+        },
+        "jetplus-brand-01": {
+          "category": "brand",
+          "description": "jetplus-brand-01",
+          "globalToken": ["$color-orange-25", "$color-orange-30", "$color-tomato-50"]
+        },
+        "jetplus-brand-02": {
+          "category": "brand",
+          "description": "jetplus-brand-02",
+          "globalToken": ["$color-orange-70", "$color-orange-75", "$color-tomato-90"]
+        },
+        "jetplus-brand-03": {
+          "category": "brand",
+          "description": "jetplus-brand-03",
+          "globalToken": ["$color-orange-75", "$color-orange-90", "$color-tomato-100"]
+        },
+        "jetplus-support-01": {
+          "category": "support",
+          "description": "jetplus-support-01",
+          "globalToken": ["$color-mozzarella-70", "$transparent"]
+        },
+        "jetplus-support-02": {
+          "category": "support",
+          "description": "jetplus-support-02",
+          "globalToken": ["$color-orange-75", "$transparent"]
+        }
+      }
+    }
+  },
   "font": {
     "global": {
       "family-primary": {

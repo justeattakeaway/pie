@@ -6,6 +6,7 @@
     // host declaration wins over a value inherited from an ancestor.
     --list-item-inline-padding: var(--dt-spacing-d);
     --list-item-alignment: flex-start;
+    --list-item-border: none;
 
     // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
     display: block;
@@ -29,7 +30,7 @@
     align-items: var(--list-item-alignment);
     gap: var(--dt-spacing-c);
     min-height: 56px;
-    border-bottom: var(--list-item-border-override, none);
+    border-bottom: var(--list-item-border);
 }
 
 // Two lines of text (primary + secondary) need top-alignment so leading/trailing
@@ -46,6 +47,62 @@
     --list-item-alignment: center;
     align-items: var(--list-item-alignment);
     min-height: 48px;
+}
+
+// Link rows: the whole item is a single navigation target. The container is positioned so the
+// slotted anchor can stretch over it.
+.c-listItem-container.is-link {
+    position: relative;
+}
+
+// Interactive row states. When the item is inside a radio/checkbox group the whole row
+// is a click target (it forwards the click to the slotted control), so it shows hover and
+// active surface tints, matching the control's own interactive states. These are suppressed
+// when the slotted control is disabled (the item reflects this as `is-disabled`). The
+// defaults use the standard PIE interactive overlay tokens; override `--list-item-hover-bg` /
+// `--list-item-active-bg` if design specifies dedicated list tokens.
+.c-listItem-container.is-selectable:not(.is-disabled),
+.c-listItem-container.is-link {
+    --list-item-hover-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+    --list-item-active-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+
+    @supports (background-color: color-mix(in srgb, black, white)) {
+        --list-item-hover-bg: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+        --list-item-active-bg: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+    }
+
+    cursor: pointer;
+
+    // Expose the current interaction tint to slotted controls via an inherited custom property (it
+    // flows through the `<slot>` into slotted content). This is a generic contract for any control
+    // inside an interactive container: a slotted `pie-switch` layers it over its track so the track
+    // co-tints with the container; radio/checkbox instead let it show through their transparent
+    // fills. Unset when not interacting, so a control outside such a container sees nothing.
+    &:hover {
+        background-color: var(--list-item-hover-bg);
+
+        --interactive-container-tint: var(--list-item-hover-bg);
+    }
+
+    &:active {
+        background-color: var(--list-item-active-bg);
+
+        --interactive-container-tint: var(--list-item-active-bg);
+    }
+}
+
+// Stretch the empty slotted anchor over the entire row so the whole block is the link's
+// click/touch target. It anchors to the container (positioned above).
+slot[name="link"]::slotted(a) {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit; // so the focus ring follows any rounding applied to the row
+}
+
+// Standard PIE focus ring. The anchor is row-sized, so keyboard focus rings the whole item.
+slot[name="link"]::slotted(a:focus-visible) {
+    @include p.focus;
 }
 
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only

@@ -1,5 +1,95 @@
 # @justeattakeaway/pie-webc
 
+## 0.11.4
+
+### Patch Changes
+
+- Updated dependencies [[`4a8782f`](https://github.com/justeattakeaway/pie/commit/4a8782f03076007f23eb32bd2b30bc7b01679871)]:
+  - @justeattakeaway/pie-list@0.4.0
+
+## 0.11.3
+
+### Patch Changes
+
+- Updated dependencies [[`4417c95`](https://github.com/justeattakeaway/pie/commit/4417c957e83f3a94018f1c7ea29d01d34ee70ebe)]:
+  - @justeattakeaway/pie-link@1.4.0
+  - @justeattakeaway/pie-breadcrumb@1.0.7
+  - @justeattakeaway/pie-cookie-banner@1.10.9
+
+## 0.11.2
+
+### Patch Changes
+
+- Updated dependencies [[`5c81001`](https://github.com/justeattakeaway/pie/commit/5c8100176581b9d2386c02de682e32c4b7e4fa0b)]:
+  - @justeattakeaway/pie-switch@2.6.0
+  - @justeattakeaway/pie-cookie-banner@1.10.8
+
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`6d0f091`](https://github.com/justeattakeaway/pie/commit/6d0f091014a5275c3bf4ef2e623387844a1c9a6b), [`6d0f091`](https://github.com/justeattakeaway/pie/commit/6d0f091014a5275c3bf4ef2e623387844a1c9a6b), [`6d0f091`](https://github.com/justeattakeaway/pie/commit/6d0f091014a5275c3bf4ef2e623387844a1c9a6b), [`048ec84`](https://github.com/justeattakeaway/pie/commit/048ec84ac904227bcf6a44d86ade5958fee43d8b)]:
+  - @justeattakeaway/pie-checkbox@1.4.0
+  - @justeattakeaway/pie-list@0.3.0
+  - @justeattakeaway/pie-checkbox-group@1.2.0
+  - @justeattakeaway/pie-radio-group@1.2.1
+
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - New `@justeattakeaway/pie-icon-with-background` component shell that renders the default slot ([#3040](https://github.com/justeattakeaway/pie/pull/3040)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`8b46c8a`](https://github.com/justeattakeaway/pie/commit/8b46c8ab6e9ede6b43fd94b009886542e20ca248), [`7dff72f`](https://github.com/justeattakeaway/pie/commit/7dff72fdb1e176c917b5611fc74493312ceb7e57), [`819d63a`](https://github.com/justeattakeaway/pie/commit/819d63acad9b00c2ff546eac996400770a0e24b0), [`819d63a`](https://github.com/justeattakeaway/pie/commit/819d63acad9b00c2ff546eac996400770a0e24b0)]:
+  - @justeattakeaway/pie-icon-with-background@0.1.0
+  - @justeattakeaway/pie-tag@1.0.0
+
+## 0.10.37
+
+### Patch Changes
+
+- Updated dependencies [[`fcec179`](https://github.com/justeattakeaway/pie/commit/fcec1794d60af7bfcda77c55a7440d187253335f)]:
+  - @justeattakeaway/pie-notification@0.24.11
+
+## 0.10.36
+
+### Patch Changes
+
+- Updated dependencies [[`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b), [`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b), [`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b)]:
+  - @justeattakeaway/pie-radio@1.2.0
+  - @justeattakeaway/pie-list@0.2.0
+  - @justeattakeaway/pie-radio-group@1.2.0
+  - @justeattakeaway/pie-accordion@0.2.3
+  - @justeattakeaway/pie-assistive-text@1.0.6
+  - @justeattakeaway/pie-avatar@0.4.44
+  - @justeattakeaway/pie-breadcrumb@1.0.6
+  - @justeattakeaway/pie-button@1.14.9
+  - @justeattakeaway/pie-card@0.27.7
+  - @justeattakeaway/pie-checkbox@1.3.6
+  - @justeattakeaway/pie-checkbox-group@1.1.6
+  - @justeattakeaway/pie-chip@1.0.7
+  - @justeattakeaway/pie-cookie-banner@1.10.7
+  - @justeattakeaway/pie-data-table@0.3.22
+  - @justeattakeaway/pie-divider@1.5.29
+  - @justeattakeaway/pie-form-label@0.18.30
+  - @justeattakeaway/pie-icon-button@2.7.26
+  - @justeattakeaway/pie-link@1.3.41
+  - @justeattakeaway/pie-lottie-player@0.4.9
+  - @justeattakeaway/pie-modal@1.27.3
+  - @justeattakeaway/pie-notification@0.24.10
+  - @justeattakeaway/pie-select@0.9.6
+  - @justeattakeaway/pie-spinner@1.5.2
+  - @justeattakeaway/pie-switch@2.5.6
+  - @justeattakeaway/pie-tabs@0.1.29
+  - @justeattakeaway/pie-tag@0.22.26
+  - @justeattakeaway/pie-text-input@0.30.6
+  - @justeattakeaway/pie-textarea@0.23.1
+  - @justeattakeaway/pie-thumbnail@0.8.35
+  - @justeattakeaway/pie-toast@1.1.2
+  - @justeattakeaway/pie-toast-provider@1.1.2
+
 ## 0.10.35
 
 ### Patch Changes

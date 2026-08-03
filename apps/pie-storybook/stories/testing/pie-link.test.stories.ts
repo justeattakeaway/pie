@@ -181,6 +181,7 @@ const createLinkStory = createStory<LinkProps>(Template, defaultArgs);
 export const Default = createLinkStory();
 export const HighVisibility = createLinkStory({ variant:  'high-visibility' });
 export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const InverseLight = createLinkStory({ variant: 'inverse-light' }, { bgColor: 'dark (container-dark)' });
 
 export const Download = createLinkStory({
     tag: 'a',
@@ -203,6 +204,13 @@ const baseSharedPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
 };
 
 // Default variant stories
+const defaultXsmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['default'],
+    size: ['xsmall'],
+    slot: ['Link'],
+};
+
 const defaultSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['default'],
@@ -217,10 +225,18 @@ const defaultMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     slot: ['Link'],
 };
 
+export const DefaultXsmallVariations = createVariantStory<LinkProps>(Template, defaultXsmallPropsMatrix);
 export const DefaultSmallVariations = createVariantStory<LinkProps>(Template, defaultSmallPropsMatrix);
 export const DefaultMediumVariations = createVariantStory<LinkProps>(Template, defaultMediumPropsMatrix);
 
 // High-visibility variant stories
+const highVisibilityXsmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['high-visibility'],
+    size: ['xsmall'],
+    slot: ['Link'],
+};
+
 const highVisibilitySmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['high-visibility'],
@@ -235,10 +251,18 @@ const highVisibilityMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]
     slot: ['Link'],
 };
 
+export const HighVisibilityXsmallVariations = createVariantStory<LinkProps>(Template, highVisibilityXsmallPropsMatrix);
 export const HighVisibilitySmallVariations = createVariantStory<LinkProps>(Template, highVisibilitySmallPropsMatrix);
 export const HighVisibilityMediumVariations = createVariantStory<LinkProps>(Template, highVisibilityMediumPropsMatrix);
 
 // Inverse variant stories
+const inverseXsmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['inverse'],
+    size: ['xsmall'],
+    slot: ['Link'],
+};
+
 const inverseSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['inverse'],
@@ -253,5 +277,32 @@ const inverseMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     slot: ['Link'],
 };
 
+export const InverseXsmallVariations = createVariantStory<LinkProps>(Template, inverseXsmallPropsMatrix, { bgColor: 'dark (container-dark)' });
 export const InverseSmallVariations = createVariantStory<LinkProps>(Template, inverseSmallPropsMatrix, { bgColor: 'dark (container-dark)' });
 export const InverseMediumVariations = createVariantStory<LinkProps>(Template, inverseMediumPropsMatrix, { bgColor: 'dark (container-dark)' });
+
+// Inverse-light variant stories
+const inverseLightXsmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['inverse-light'],
+    size: ['xsmall'],
+    slot: ['Link'],
+};
+
+const inverseLightSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['inverse-light'],
+    size: ['small'],
+    slot: ['Link'],
+};
+
+const inverseLightMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['inverse-light'],
+    size: ['medium'],
+    slot: ['Link'],
+};
+
+export const InverseLightXsmallVariations = createVariantStory<LinkProps>(Template, inverseLightXsmallPropsMatrix, { bgColor: 'dark (container-dark)' });
+export const InverseLightSmallVariations = createVariantStory<LinkProps>(Template, inverseLightSmallPropsMatrix, { bgColor: 'dark (container-dark)' });
+export const InverseLightMediumVariations = createVariantStory<LinkProps>(Template, inverseLightMediumPropsMatrix, { bgColor: 'dark (container-dark)' });

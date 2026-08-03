@@ -1,0 +1,8 @@
+{
+  "codeConnect": {
+    "include": ["icons.figma.batch.json"],
+    "label": "Web Components",
+    "language": "html",
+    "defaultBranch": "main"
+  }
+}

@@ -1,5 +1,30 @@
 # @justeattakeaway/pie-list
 
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - `pie-list-item` now declares how a row behaves through a single `interactionType` prop (`none` | `radio` | `checkbox` | `switch` | `link`, default `none`), which drives the row's role, accessible naming, click forwarding and interactive states. This replaces the `selectionType` prop. ([#3072](https://github.com/justeattakeaway/pie/pull/3072)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Added] - `interactionType="link"` turns the whole row into a single navigation link: slot an empty `<a slot="link" href="...">` and it is stretched over the entire row and named from the item's text (`primaryText` as the accessible name, `secondaryText`/`metaText` as the description).
+
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - `pie-list-item` supports `selectionType="checkbox"` for use inside a `pie-checkbox-group`: it names the slotted checkbox from its text (applied to the checkbox's internal input) and forwards row clicks to it. ([#3053](https://github.com/justeattakeaway/pie/pull/3053)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - `pie-list-item` can host an interactive control to make the whole row selectable, via a `selection-type` prop (`none` | `radio` | `checkbox` | `switch`, default `none`). With a selection type it takes a `presentation` role (for radio/checkbox), names the control from its `primaryText`, `secondaryText` and `metaText`, hides the duplicated visible text from assistive technology, and forwards row clicks to the control. A `disabled` prop applies the disabled row styling and stops row-click forwarding (set it alongside the control's own `disabled`); a disabling ancestor (a `pie-radio-group`) also cascades its disabled state to the rows. ([#3001](https://github.com/justeattakeaway/pie/pull/3001)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b), [`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b)]:
+  - @justeattakeaway/pie-webc-core@16.1.0
+
 ## 0.1.1
 
 ### Patch Changes

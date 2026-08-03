@@ -7,6 +7,7 @@ import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
+import { consume } from '@lit/context';
 import 'element-internals-polyfill';
 
 import {
@@ -16,7 +17,9 @@ import {
     AssociatedLabelMixin,
     wrapNativeEvent,
     safeCustomElement,
+    ariaContext,
     type PIEInputElement,
+    type ContextualAria,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -61,6 +64,12 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
 
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
+
+    // Optional ARIA supplied by an ancestor (for example a `pie-list-item`), folded into the
+    // input's ARIA below as a fallback behind the switch's own label. Undefined when standalone.
+    @consume({ context: ariaContext, subscribe: true })
+    @state()
+    private _contextAria?: ContextualAria;
 
     @query('input[type="checkbox"]')
     private input!: HTMLInputElement;
@@ -266,7 +275,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
             associatedLabelText,
         } = this;
 
-        const ariaLabel = aria?.label || label || associatedLabelText;
+        const ariaLabel = aria?.label || label || this._contextAria?.label || associatedLabelText;
 
         const classes = {
             'c-switch-wrapper': true,
@@ -282,7 +291,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
                 ?disabled=${disabled}>
                 <div
                     data-test-id="switch-component"
-                    class="c-switch"
+                    class="${classMap({ 'c-switch': true, 'c-switch--in-interactive-container': Boolean(this._contextAria) })}"
                     ?checked=${checked}>
                     <input
                         data-test-id="switch-input"
@@ -294,6 +303,7 @@ export class PieSwitch extends AssociatedLabelMixin(FormControlMixin(DelegatesFo
                         ?disabled="${disabled}"
                         @change="${this.handleChange}"
                         aria-label="${ifDefined(ariaLabel)}"
+                        aria-description="${ifDefined(this._contextAria?.description)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}

@@ -1,0 +1,82 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    display: inline-block;
+}
+
+.c-iconWithBackground {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    // Fallback size if no size modifier is applied.
+    --icon-with-background-size: 32px;
+
+    inline-size: var(--icon-with-background-size);
+    block-size: var(--icon-with-background-size);
+
+    background-color: var(--dt-color-container-strong);
+    color: var(--dt-color-content-inverse);
+
+    ::slotted(svg) {
+        display: block;
+        block-size: var(--icon-size-override);
+        inline-size: var(--icon-size-override);
+    }
+}
+
+.c-iconWithBackground--small {
+    --icon-with-background-size: 24px;
+}
+
+.c-iconWithBackground--medium {
+    --icon-with-background-size: 32px;
+}
+
+.c-iconWithBackground--large {
+    --icon-with-background-size: 40px;
+}
+
+.c-iconWithBackground--xlarge {
+    --icon-with-background-size: 56px;
+}
+
+.c-iconWithBackground--circle {
+    border-radius: var(--dt-radius-rounded-e);
+
+    &.c-iconWithBackground--small {
+        --icon-size-override: 16px;
+    }
+
+    &.c-iconWithBackground--medium {
+        --icon-size-override: 20px;
+    }
+
+    &.c-iconWithBackground--large {
+        --icon-size-override: 24px;
+    }
+
+    &.c-iconWithBackground--xlarge {
+        --icon-size-override: 32px;
+    }
+}
+
+.c-iconWithBackground--square {
+    border-radius: var(--dt-radius-rounded-b);
+
+    &.c-iconWithBackground--small {
+        --icon-size-override: 20px;
+    }
+
+    &.c-iconWithBackground--medium {
+        --icon-size-override: 24px;
+    }
+
+    &.c-iconWithBackground--large {
+        --icon-size-override: 28px;
+    }
+
+    &.c-iconWithBackground--xlarge {
+        --icon-size-override: 36px;
+    }
+}

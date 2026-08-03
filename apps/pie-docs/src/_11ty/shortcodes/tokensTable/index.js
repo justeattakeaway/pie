@@ -7,6 +7,7 @@ const { buildElevationExample } = require('./tokenTypes/elevation');
 const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
 const { buildRadiusExample } = require('./tokenTypes/radius');
+const { buildGradientExample } = require('./tokenTypes/gradient');
 const { deindentHTML } = require('../shortcode-utilities');
 const headingAnchor = require('../../filters/headingAnchor');
 
@@ -30,6 +31,7 @@ const { getTokenData, getTokenCategories } = require('../../../_utilities/tokens
 const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
+        [tokenTypes.GRADIENT]: buildGradientExample,
         [tokenTypes.BLUR]: buildBlurExample,
         [tokenTypes.ELEVATION]: buildElevationExample,
         [tokenTypes.FONT]: buildFontExample,
