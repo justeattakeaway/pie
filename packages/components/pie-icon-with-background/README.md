@@ -31,9 +31,10 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ## Documentation
 
 ### Properties
-| Prop    | Options            | Description                                       | Default  |
-|---------|--------------------|---------------------------------------------------|----------|
-| `shape` | `circle`, `square` | The shape of the background surrounding the icon. | `circle` |
+| Prop    | Options                              | Description                                                             | Default  |
+|---------|--------------------------------------|-------------------------------------------------------------------------|----------|
+| `shape` | `circle`, `square`                   | The shape of the background surrounding the icon.                       | `circle` |
+| `size`  | `small`, `medium`, `large`, `xlarge` | The size of the component, sizing both the container and slotted icon.  | `medium` |
 
 ### Slots
 | Slot      | Description                                     |
