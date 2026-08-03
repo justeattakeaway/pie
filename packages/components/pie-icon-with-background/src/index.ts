@@ -9,6 +9,7 @@ import {
 import styles from './icon-with-background.scss?inline';
 import {
     shapes,
+    sizes,
     defaultProps,
     type IconWithBackgroundProps,
 } from './defs';
@@ -29,10 +30,15 @@ export class PieIconWithBackground extends PieElement implements IconWithBackgro
     @validPropertyValues(componentSelector, shapes, defaultProps.shape)
     public shape = defaultProps.shape;
 
+    @property({ type: String })
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size = defaultProps.size;
+
     render () {
         const classes = {
             'c-iconWithBackground': true,
             [`c-iconWithBackground--${this.shape}`]: true,
+            [`c-iconWithBackground--${this.size}`]: true,
         };
 
         return html`<div part="body" class="${classMap(classes)}" data-test-id="pie-icon-with-background"><slot></slot></div>`;
