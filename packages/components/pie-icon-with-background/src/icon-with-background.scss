@@ -9,15 +9,15 @@
     align-items: center;
     justify-content: center;
 
+    // Fallback size if no size modifier is applied.
+    --icon-with-background-size: 32px;
+
     inline-size: var(--icon-with-background-size);
     block-size: var(--icon-with-background-size);
 
-    // NOTE: colour/variant styling is provisional so the shape is visible in
-    // isolation and arrives in DSW-4170.
     background-color: var(--dt-color-container-strong);
     color: var(--dt-color-content-inverse);
 
-    // Used to size raw SVGs passed into the default slot (parity with pie-tag).
     ::slotted(svg) {
         display: block;
         block-size: var(--icon-size-override);
@@ -25,7 +25,6 @@
     }
 }
 
-// Container sizing is identical for both shapes and driven by the `size` prop.
 .c-iconWithBackground--small {
     --icon-with-background-size: 24px;
 }
@@ -42,7 +41,6 @@
     --icon-with-background-size: 56px;
 }
 
-// Icon sizing depends on both shape and size, driven via --icon-size-override.
 .c-iconWithBackground--circle {
     border-radius: var(--dt-radius-rounded-e);
 
