@@ -3,31 +3,48 @@ eleventyNavigation:
     key: Apps
     parent: Avatar
     order: 3
-draft: true
+shouldShowContents: true
 ---
 
 ## Do's and don'ts
 
-### Do
-
-- Prioritise initials avatar over user icon avatar for individuals.
-- Make sure you use the correct size for its placement, whether it's in a list, stand-alone, or any other context.
-- Always maintain equal width and height dimensions.
-
-### Don't
-
-- Don't use the initials avatar for a non-individual entity (e.g. a company).
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Prioritise initials avatar over user icon avatar for individuals.",
+            "Make sure you use the correct size for its placement, whether it's in a list, stand-alone, or any other context.",
+            "Always maintain equal width and height dimensions."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don't use the initials avatar for a non-individual entity (e.g. a company)."
+        ]
+    }
+} %}
 
 ---
 
 ## Anatomy
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/anatomy.svg",
+alt: "Example of an avatar component anatomy.",
+variant: "secondary",
+width: 200
+} %}
 
-1. **Container:** Background container that organises the information.
-2. **Initials:** Displays the user's first and last name initials.
-3. **User Icon:** It can represent any entity, such as a user or a business.
-4. **Photo:** Displays a picture of the user.
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Container:** Background container that organises the information.",
+        "**Initials:** Displays the user's first and last name initials.",
+        "**User Icon:** It can represent any entity, such as a user or a business.",
+        "**Photo:** Displays a picture of the user."
+    ]
+} %}
 
 ---
 
@@ -37,25 +54,42 @@ draft: true
 
 Use the initials avatar variation when you want to represent an individual user. Use it only when the name is known.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/variants-initials.svg",
+alt: "Example of the avatar in the initials variant.",
+width: 200
+} %}
 
 ### User Icon
 
 Use the user icon avatar variation when you want to represent an individual user whose name has not been specified, or for non-individual entities such as companies, teams or groups.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/variants-user-icon.svg",
+alt: "Example of the avatar in the user icon variant.",
+width: 200
+} %}
 
 ### Photo
 
 Use the Photo avatar variation when you want to display a picture of the user.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/variants-photo.svg",
+alt: "Example of the avatar in the photo variant.",
+variant: "secondary",
+width: 200
+} %}
 
 ### Unauthenticated
 
 Use the unauthenticated variation when the user hasn't logged in or authenticated their session yet.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/variants-unauthenticated.svg",
+alt: "Example of the avatar in the unauthenticated variant.",
+width: 200
+} %}
 
 ---
 
@@ -65,55 +99,115 @@ Use the unauthenticated variation when the user hasn't logged in or authenticate
 
 Depending on the level of visual prominence you want to give to your avatar, you can choose between strong or subtle emphasis.
 
-#### Strong
-
---- > *image placeholder*
-
-#### Subtle
-
---- > *image placeholder*
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Strong</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-strong.svg",
+      width: 200,
+      alt: "Example of the avatar with strong emphasis."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Subtle</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-subtle.svg",
+      width: 200,
+      alt: "Example of the avatar with subtle emphasis."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Colours
 
 Select from a palette of distinct brand colours for your avatar.
 
-#### Neutral
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Neutral</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-neutral.svg",
+      width: 200,
+      alt: "Example of the avatar in the neutral colour variant."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>01 Orange</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-01orange.svg",
+      width: 200,
+      alt: "Example of the avatar in the 01 Orange colour variant."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
---- > *image placeholder*
+{% contentLayout %}
+  {% contentItem %}
+  <h4>02 Orange Subtle</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-02orange-subtle.svg",
+      width: 200,
+      alt: "Example of the avatar in the 02 Orange Subtle colour variant."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>03 Cupcake</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-03cupcake.svg",
+      width: 200,
+      alt: "Example of the avatar in the 03 Cupcake colour variant."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
-#### 01 Orange
+{% contentLayout %}
+  {% contentItem %}
+  <h4>04 Berry</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-04berry.svg",
+      width: 200,
+      alt: "Example of the avatar in the 04 Berry colour variant."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>05 Turmeric</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-05turmeric.svg",
+      width: 200,
+      alt: "Example of the avatar in the 05 Turmeric colour variant."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
---- > *image placeholder*
-
-#### 02 Orange Subtle
-
---- > *image placeholder*
-
-#### 03 Cupcake
-
---- > *image placeholder*
-
-#### 04 Berry
-
---- > *image placeholder*
-
-#### 05 Turmeric
-
---- > *image placeholder*
-
-#### 06 Aubergine
-
---- > *image placeholder*
-
-#### 08 Latte
-
---- > *image placeholder*
+{% contentLayout %}
+  {% contentItem %}
+  <h4>06 Aubergine</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-06aubergine.svg",
+      width: 200,
+      alt: "Example of the avatar in the 06 Aubergine colour variant."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>08 Latte</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/modifiers-colours-08latte.svg",
+      width: 200,
+      alt: "Example of the avatar in the 08 Latte colour variant."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Outline
 
 You can apply an outline to the Photo variant, which helps with clarity and gives a good contrast to the avatar.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/modifiers-outline.svg",
+alt: "Example of an avatar component in the outline colour variant.",
+variant: "secondary",
+width: 200
+} %}
 
 ---
 
@@ -123,13 +217,21 @@ You can apply an outline to the Photo variant, which helps with clarity and give
 
 An avatar should be interactive when it serves a specific purpose or action within the user interface.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/interaction-interactive.svg",
+alt: "Example of an interactive avatar.",
+width: 200
+} %}
 
 ### Non-interactive
 
 Use the avatar in a static form, if you want the avatar to retain its original appearance without any interactive features tied with the content or context.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/interaction-non-interactive.svg",
+alt: "Example of a non-interactive avatar.",
+width: 200
+} %}
 
 ---
 
@@ -137,27 +239,47 @@ Use the avatar in a static form, if you want the avatar to retain its original a
 
 ### Small (S)
 
-Height and width of 24px
+Height and width of 24px.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/sizes-small.svg",
+alt: "Example of a small avatar.",
+variant: "secondary",
+width: 200
+} %}
 
 ### Medium (M)
 
-Height and width of 32px
+Height and width of 32px.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/sizes-medium.svg",
+alt: "Example of a medium avatar.",
+variant: "secondary",
+width: 200
+} %}
 
 ### Large (L)
 
-Height and width of 40px
+Height and width of 40px.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/sizes-large.svg",
+alt: "Example of a large avatar.",
+variant: "secondary",
+width: 200
+} %}
 
 ### X Large (XL)
 
-Height and width of 56px
+Height and width of 56px.
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/sizes-extra-large.svg",
+alt: "Example of an extra large avatar.",
+variant: "secondary",
+width: 200
+} %}
 
 ---
 
@@ -167,27 +289,57 @@ Height and width of 56px
 
 Use the first letter of the user's first and last name as the initials in the avatar, limited to a maximum of two capital letters. The letters should always be centre-aligned.
 
---- > *image placeholder*
+{% notification {
+  type: "information",
+  message: "However, in cases where the concept of first and last name doesn't apply or when there is no specific individual identified, the user icon variant should be used instead."
+} %}
 
---- > *image placeholder*
-
-> However, in cases where the concept of first and last name doesn't apply or when there is no specific individual identified, the user icon variant should be used instead.
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/avatar/apps/content-initials-do.svg",
+            width: 200,
+            alt: "Example of an avatar with initials."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/avatar/apps/content-initials-dont.svg",
+            width: 200,
+            alt: "Example of an avatar with more than two initials, which is not supported."
+        }]
+    }
+} %}
 
 ---
 
-## States
+## Interactive states
 
 ### Default
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/states-default.svg",
+alt: "Example of an avatar component in the default state.",
+width: 200
+} %}
 
 ### Active
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/states-active.svg",
+alt: "Example of an avatar component in the active state.",
+width: 200
+} %}
 
 ### Disabled
 
---- > *image placeholder*
+{% contentPageImage {
+src:"../../../assets/img/components/avatar/apps/states-disabled.svg",
+alt: "Example of an avatar component in the disabled state.",
+width: 200
+} %}
 
 ---
 
@@ -195,4 +347,19 @@ Use the first letter of the user's first and last name as the initials in the av
 
 Here are some examples of Avatar in context:
 
---- > *image placeholder*
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/examples-left.svg",
+      width: 200,
+      alt: "Example of the avatar component in the accounts section of an application."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/avatar/apps/examples-right.svg",
+      width: 200,
+      alt: "Example of the avatar component as it appears in the profile in a navigation bar."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
