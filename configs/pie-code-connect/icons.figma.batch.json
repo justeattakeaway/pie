@@ -2,250 +2,2512 @@
   "templateFile": "./dist/pie-icons.figma.batch.js",
   "components": [
     {
-      "componentName": "archive",
-      "componentNameReact": "Archive",
+      "componentName": "icon-over-16",
+      "componentNameReact": "IconOver16",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1244"
+    },
+    {
+      "componentName": "icon-over-18",
+      "componentNameReact": "IconOver18",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1359"
+    },
+    {
+      "componentName": "icon-over-21",
+      "componentNameReact": "IconOver21",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1382"
+    },
+    {
+      "componentName": "icon-alert-circle",
+      "componentNameReact": "IconAlertCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-489"
+    },
+    {
+      "componentName": "icon-alert-triangle",
+      "componentNameReact": "IconAlertTriangle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-420"
+    },
+    {
+      "componentName": "icon-help-circle",
+      "componentNameReact": "IconHelpCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-753"
+    },
+    {
+      "componentName": "icon-info-circle",
+      "componentNameReact": "IconInfoCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-730"
+    },
+    {
+      "componentName": "icon-info-marker",
+      "componentNameReact": "IconInfoMarker",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-948"
+    },
+    {
+      "componentName": "icon-app-order",
+      "componentNameReact": "IconAppOrder",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-468"
+    },
+    {
+      "componentName": "icon-app-restaurant",
+      "componentNameReact": "IconAppRestaurant",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2617"
+    },
+    {
+      "componentName": "icon-app-success",
+      "componentNameReact": "IconAppSuccess",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-284"
+    },
+    {
+      "componentName": "icon-app-unlock",
+      "componentNameReact": "IconAppUnlock",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24089-937"
+    },
+    {
+      "componentName": "icon-app-users",
+      "componentNameReact": "IconAppUsers",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1336"
+    },
+    {
+      "componentName": "icon-arrow-down",
+      "componentNameReact": "IconArrowDown",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-133"
+    },
+    {
+      "componentName": "icon-arrow-left",
+      "componentNameReact": "IconArrowLeft",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-823"
+    },
+    {
+      "componentName": "icon-arrow-right",
+      "componentNameReact": "IconArrowRight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-115"
+    },
+    {
+      "componentName": "icon-arrow-up",
+      "componentNameReact": "IconArrowUp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-124"
+    },
+    {
+      "componentName": "icon-arrow-up-left",
+      "componentNameReact": "IconArrowUpLeft",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-142"
+    },
+    {
+      "componentName": "icon-arrow-down-circle",
+      "componentNameReact": "IconArrowDownCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-630"
+    },
+    {
+      "componentName": "icon-arrow-in-circle",
+      "componentNameReact": "IconArrowInCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-707"
+    },
+    {
+      "componentName": "icon-arrow-out-circle",
+      "componentNameReact": "IconArrowOutCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-716"
+    },
+    {
+      "componentName": "icon-curved-arrow-down",
+      "componentNameReact": "IconCurvedArrowDown",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-595"
+    },
+    {
+      "componentName": "icon-curved-arrow-left",
+      "componentNameReact": "IconCurvedArrowLeft",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-604"
+    },
+    {
+      "componentName": "icon-curved-arrow-right",
+      "componentNameReact": "IconCurvedArrowRight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-613"
+    },
+    {
+      "componentName": "icon-curved-arrow-up",
+      "componentNameReact": "IconCurvedArrowUp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27909-622"
+    },
+    {
+      "componentName": "icon-camera",
+      "componentNameReact": "IconCamera",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1686"
+    },
+    {
+      "componentName": "icon-cc",
+      "componentNameReact": "IconCc",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24089-1000"
+    },
+    {
+      "componentName": "icon-headset",
+      "componentNameReact": "IconHeadset",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1870"
+    },
+    {
+      "componentName": "icon-pause",
+      "componentNameReact": "IconPause",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-576"
+    },
+    {
+      "componentName": "icon-image",
+      "componentNameReact": "IconImage",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1824"
+    },
+    {
+      "componentName": "icon-image-add",
+      "componentNameReact": "IconImageAdd",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1364-568"
+    },
+    {
+      "componentName": "icon-pause-circle",
+      "componentNameReact": "IconPauseCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-552"
+    },
+    {
+      "componentName": "icon-stop-circle",
+      "componentNameReact": "IconStopCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25399-7135"
+    },
+    {
+      "componentName": "icon-stop",
+      "componentNameReact": "IconStop",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25399-7150"
+    },
+    {
+      "componentName": "icon-play",
+      "componentNameReact": "IconPlay",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-567"
+    },
+    {
+      "componentName": "icon-play-circle",
+      "componentNameReact": "IconPlayCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1533-537"
+    },
+    {
+      "componentName": "icon-megaphone",
+      "componentNameReact": "IconMegaphone",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2169"
+    },
+    {
+      "componentName": "icon-microphone",
+      "componentNameReact": "IconMicrophone",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2077"
+    },
+    {
+      "componentName": "icon-microphone-off",
+      "componentNameReact": "IconMicrophoneOff",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23878-752"
+    },
+    {
+      "componentName": "icon-sound-on",
+      "componentNameReact": "IconSoundOn",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2031"
+    },
+    {
+      "componentName": "icon-sound-off",
+      "componentNameReact": "IconSoundOff",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1364-585"
+    },
+    {
+      "componentName": "icon-soundwave",
+      "componentNameReact": "IconSoundwave",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23940-820"
+    },
+    {
+      "componentName": "icon-backpack",
+      "componentNameReact": "IconBackpack",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2192"
+    },
+    {
+      "componentName": "icon-bag",
+      "componentNameReact": "IconBag",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-166"
+    },
+    {
+      "componentName": "icon-basket",
+      "componentNameReact": "IconBasket",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2096"
+    },
+    {
+      "componentName": "icon-gift",
+      "componentNameReact": "IconGift",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=676-143"
+    },
+    {
+      "componentName": "icon-gift-card",
+      "componentNameReact": "IconGiftCard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-599"
+    },
+    {
+      "componentName": "icon-loyalty-card",
+      "componentNameReact": "IconLoyaltyCard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20668-1674"
+    },
+    {
+      "componentName": "icon-meal-voucher",
+      "componentNameReact": "IconMealVoucher",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-114"
+    },
+    {
+      "componentName": "icon-reorder-rewards",
+      "componentNameReact": "IconReorderRewards",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26934-836"
+    },
+    {
+      "componentName": "icon-offer",
+      "componentNameReact": "IconOffer",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-639"
+    },
+    {
+      "componentName": "icon-offer-star",
+      "componentNameReact": "IconOfferStar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-501"
+    },
+    {
+      "componentName": "icon-voucher",
+      "componentNameReact": "IconVoucher",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1267"
+    },
+    {
+      "componentName": "icon-brand-highlight",
+      "componentNameReact": "IconBrandHighlight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2212"
+    },
+    {
+      "componentName": "icon-calendar",
+      "componentNameReact": "IconCalendar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-227"
+    },
+    {
+      "componentName": "icon-calendar-add",
+      "componentNameReact": "IconCalendarAdd",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-792"
+    },
+    {
+      "componentName": "icon-calendar-alert",
+      "componentNameReact": "IconCalendarAlert",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-783"
+    },
+    {
+      "componentName": "icon-calendar-day",
+      "componentNameReact": "IconCalendarDay",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1571"
+    },
+    {
+      "componentName": "icon-calendar-edit",
+      "componentNameReact": "IconCalendarEdit",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-810"
+    },
+    {
+      "componentName": "icon-calendar-error",
+      "componentNameReact": "IconCalendarError",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-819"
+    },
+    {
+      "componentName": "icon-calendar-repeat",
+      "componentNameReact": "IconCalendarRepeat",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1525"
+    },
+    {
+      "componentName": "icon-calendar-star",
+      "componentNameReact": "IconCalendarStar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-801"
+    },
+    {
+      "componentName": "icon-caret-down",
+      "componentNameReact": "IconCaretDown",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-876"
+    },
+    {
+      "componentName": "icon-caret-left",
+      "componentNameReact": "IconCaretLeft",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-235"
+    },
+    {
+      "componentName": "icon-caret-right",
+      "componentNameReact": "IconCaretRight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-226"
+    },
+    {
+      "componentName": "icon-caret-up",
+      "componentNameReact": "IconCaretUp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-217"
+    },
+    {
+      "componentName": "icon-chat",
+      "componentNameReact": "IconChat",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1074"
+    },
+    {
+      "componentName": "icon-chat-bot",
+      "componentNameReact": "IconChatBot",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-547"
+    },
+    {
+      "componentName": "icon-chat-conversation",
+      "componentNameReact": "IconChatConversation",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-399"
+    },
+    {
+      "componentName": "icon-chat-courier",
+      "componentNameReact": "IconChatCourier",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23525-1039"
+    },
+    {
+      "componentName": "icon-chat-heart",
+      "componentNameReact": "IconChatHeart",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-850"
+    },
+    {
+      "componentName": "icon-chat-help",
+      "componentNameReact": "IconChatHelp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-841"
+    },
+    {
+      "componentName": "icon-chevron-down",
+      "componentNameReact": "IconChevronDown",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-168"
+    },
+    {
+      "componentName": "icon-chevron-left",
+      "componentNameReact": "IconChevronLeft",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=385-60"
+    },
+    {
+      "componentName": "icon-chevron-right",
+      "componentNameReact": "IconChevronRight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-158"
+    },
+    {
+      "componentName": "icon-chevron-up",
+      "componentNameReact": "IconChevronUp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-163"
+    },
+    {
+      "componentName": "icon-chevron-double-left",
+      "componentNameReact": "IconChevronDoubleLeft",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-173"
+    },
+    {
+      "componentName": "icon-chevron-double-right",
+      "componentNameReact": "IconChevronDoubleRight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-179"
+    },
+    {
+      "componentName": "icon-chevron-split",
+      "componentNameReact": "IconChevronSplit",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=568-184"
+    },
+    {
+      "componentName": "icon-chevron-collapse",
+      "componentNameReact": "IconChevronCollapse",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26388-595"
+    },
+    {
+      "componentName": "icon-copy",
+      "componentNameReact": "IconCopy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1597-565"
+    },
+    {
+      "componentName": "icon-email",
+      "componentNameReact": "IconEmail",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1196"
+    },
+    {
+      "componentName": "icon-send",
+      "componentNameReact": "IconSend",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-564"
+    },
+    {
+      "componentName": "icon-share",
+      "componentNameReact": "IconShare",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-537"
+    },
+    {
+      "componentName": "icon-checkbox",
+      "componentNameReact": "IconCheckbox",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4224-3840"
+    },
+    {
+      "componentName": "icon-radio",
+      "componentNameReact": "IconRadio",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4224-3865"
+    },
+    {
+      "componentName": "icon-chart-increase",
+      "componentNameReact": "IconChartIncrease",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-330"
+    },
+    {
+      "componentName": "icon-chart-marker",
+      "componentNameReact": "IconChartMarker",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1732"
+    },
+    {
+      "componentName": "icon-employee-search",
+      "componentNameReact": "IconEmployeeSearch",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-353"
+    },
+    {
+      "componentName": "icon-hand-coins",
+      "componentNameReact": "IconHandCoins",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2548"
+    },
+    {
+      "componentName": "icon-hand-heart",
+      "componentNameReact": "IconHandHeart",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-261"
+    },
+    {
+      "componentName": "icon-id-card",
+      "componentNameReact": "IconIdCard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1005"
+    },
+    {
+      "componentName": "icon-office",
+      "componentNameReact": "IconOffice",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1189"
+    },
+    {
+      "componentName": "icon-pie-chart",
+      "componentNameReact": "IconPieChart",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-445"
+    },
+    {
+      "componentName": "icon-presentation-chart",
+      "componentNameReact": "IconPresentationChart",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1778"
+    },
+    {
+      "componentName": "icon-target",
+      "componentNameReact": "IconTarget",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2123"
+    },
+    {
+      "componentName": "icon-vision",
+      "componentNameReact": "IconVision",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-86"
+    },
+    {
+      "componentName": "icon-conversion-rate",
+      "componentNameReact": "IconConversionRate",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2571"
+    },
+    {
+      "componentName": "icon-dollar",
+      "componentNameReact": "IconDollar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2354"
+    },
+    {
+      "componentName": "icon-euro",
+      "componentNameReact": "IconEuro",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2285"
+    },
+    {
+      "componentName": "icon-krone",
+      "componentNameReact": "IconKrone",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16120-674"
+    },
+    {
+      "componentName": "icon-lei",
+      "componentNameReact": "IconLei",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2594"
+    },
+    {
+      "componentName": "icon-lev",
+      "componentNameReact": "IconLev",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2433"
+    },
+    {
+      "componentName": "icon-pound",
+      "componentNameReact": "IconPound",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2525"
+    },
+    {
+      "componentName": "icon-shekel",
+      "componentNameReact": "IconShekel",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2377"
+    },
+    {
+      "componentName": "icon-swiss-franc",
+      "componentNameReact": "IconSwissFranc",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2479"
+    },
+    {
+      "componentName": "icon-zloty",
+      "componentNameReact": "IconZloty",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16882-7664"
+    },
+    {
+      "componentName": "icon-caffeine",
+      "componentNameReact": "IconCaffeine",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18394-755"
+    },
+    {
+      "componentName": "icon-celery",
+      "componentNameReact": "IconCelery",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3642"
+    },
+    {
+      "componentName": "icon-crustaceans",
+      "componentNameReact": "IconCrustaceans",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3662"
+    },
+    {
+      "componentName": "icon-eggs",
+      "componentNameReact": "IconEggs",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3645"
+    },
+    {
+      "componentName": "icon-fish",
+      "componentNameReact": "IconFish",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3632"
+    },
+    {
+      "componentName": "icon-gluten",
+      "componentNameReact": "IconGluten",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3618"
+    },
+    {
+      "componentName": "icon-halal",
+      "componentNameReact": "IconHalal",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26934-827"
+    },
+    {
+      "componentName": "icon-kosher",
+      "componentNameReact": "IconKosher",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1313"
+    },
+    {
+      "componentName": "icon-mollusc",
+      "componentNameReact": "IconMollusc",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3627"
+    },
+    {
+      "componentName": "icon-mustard",
+      "componentNameReact": "IconMustard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3636"
+    },
+    {
+      "componentName": "icon-nuts",
+      "componentNameReact": "IconNuts",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3600"
+    },
+    {
+      "componentName": "icon-milk",
+      "componentNameReact": "IconMilk",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=8387-3609"
+    },
+    {
+      "componentName": "icon-lupin",
+      "componentNameReact": "IconLupin",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3600"
+    },
+    {
+      "componentName": "icon-peanuts",
+      "componentNameReact": "IconPeanuts",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-328"
+    },
+    {
+      "componentName": "icon-sesame-seeds",
+      "componentNameReact": "IconSesameSeeds",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3652"
+    },
+    {
+      "componentName": "icon-spicy",
+      "componentNameReact": "IconSpicy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-374"
+    },
+    {
+      "componentName": "icon-soybeans",
+      "componentNameReact": "IconSoybeans",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3622"
+    },
+    {
+      "componentName": "icon-sulphites",
+      "componentNameReact": "IconSulphites",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3852"
+    },
+    {
+      "componentName": "icon-vegan",
+      "componentNameReact": "IconVegan",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-422"
+    },
+    {
+      "componentName": "icon-vegetarian",
+      "componentNameReact": "IconVegetarian",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-557"
+    },
+    {
+      "componentName": "icon-consent",
+      "componentNameReact": "IconConsent",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5042-3499"
+    },
+    {
+      "componentName": "icon-cookie-policy",
+      "componentNameReact": "IconCookiePolicy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5014-3340"
+    },
+    {
+      "componentName": "icon-document",
+      "componentNameReact": "IconDocument",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-178"
+    },
+    {
+      "componentName": "icon-document-edit",
+      "componentNameReact": "IconDocumentEdit",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25422-637"
+    },
+    {
+      "componentName": "icon-terms-and-conditions",
+      "componentNameReact": "IconTermsAndConditions",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-925"
+    },
+    {
+      "componentName": "icon-fire",
+      "componentNameReact": "IconFire",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2557-3462"
+    },
+    {
+      "componentName": "icon-lightning",
+      "componentNameReact": "IconLightning",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1284-532"
+    },
+    {
+      "componentName": "icon-moon",
+      "componentNameReact": "IconMoon",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5156"
+    },
+    {
+      "componentName": "icon-snowflake",
+      "componentNameReact": "IconSnowflake",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1502"
+    },
+    {
+      "componentName": "icon-sun",
+      "componentNameReact": "IconSun",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5147"
+    },
+    {
+      "componentName": "icon-temp",
+      "componentNameReact": "IconTemp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1428"
+    },
+    {
+      "componentName": "icon-eye-on",
+      "componentNameReact": "IconEyeOn",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-994"
+    },
+    {
+      "componentName": "icon-eye-off",
+      "componentNameReact": "IconEyeOff",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-971"
+    },
+    {
+      "componentName": "icon-alcohol",
+      "componentNameReact": "IconAlcohol",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1594"
+    },
+    {
+      "componentName": "icon-curry",
+      "componentNameReact": "IconCurry",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-902"
+    },
+    {
+      "componentName": "icon-drink",
+      "componentNameReact": "IconDrink",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-662"
+    },
+    {
+      "componentName": "icon-food",
+      "componentNameReact": "IconFood",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2289"
+    },
+    {
+      "componentName": "icon-fried-chicken",
+      "componentNameReact": "IconFriedChicken",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-741"
+    },
+    {
+      "componentName": "icon-fries",
+      "componentNameReact": "IconFries",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-833"
+    },
+    {
+      "componentName": "icon-ice-cream",
+      "componentNameReact": "IconIceCream",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-616"
+    },
+    {
+      "componentName": "icon-kebab",
+      "componentNameReact": "IconKebab",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-708"
+    },
+    {
+      "componentName": "icon-kebab-bowl",
+      "componentNameReact": "IconKebabBowl",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3716"
+    },
+    {
+      "componentName": "icon-nachos",
+      "componentNameReact": "IconNachos",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-524"
+    },
+    {
+      "componentName": "icon-noodles",
+      "componentNameReact": "IconNoodles",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-593"
+    },
+    {
+      "componentName": "icon-pizza",
+      "componentNameReact": "IconPizza",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-189"
+    },
+    {
+      "componentName": "icon-salad",
+      "componentNameReact": "IconSalad",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-639"
+    },
+    {
+      "componentName": "icon-sandwich",
+      "componentNameReact": "IconSandwich",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-787"
+    },
+    {
+      "componentName": "icon-sushi",
+      "componentNameReact": "IconSushi",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-465"
+    },
+    {
+      "componentName": "icon-taco",
+      "componentNameReact": "IconTaco",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-685"
+    },
+    {
+      "componentName": "icon-wrap",
+      "componentNameReact": "IconWrap",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-570"
+    },
+    {
+      "componentName": "icon-bold",
+      "componentNameReact": "IconBold",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-809"
+    },
+    {
+      "componentName": "icon-code-block",
+      "componentNameReact": "IconCodeBlock",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-818"
+    },
+    {
+      "componentName": "icon-heading-1",
+      "componentNameReact": "IconHeading1",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-842"
+    },
+    {
+      "componentName": "icon-heading-2",
+      "componentNameReact": "IconHeading2",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-851"
+    },
+    {
+      "componentName": "icon-heading-3",
+      "componentNameReact": "IconHeading3",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-860"
+    },
+    {
+      "componentName": "icon-inline-code",
+      "componentNameReact": "IconInlineCode",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-869"
+    },
+    {
+      "componentName": "icon-italic",
+      "componentNameReact": "IconItalic",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-877"
+    },
+    {
+      "componentName": "icon-numbered-list",
+      "componentNameReact": "IconNumberedList",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-888"
+    },
+    {
+      "componentName": "icon-strike",
+      "componentNameReact": "IconStrike",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-897"
+    },
+    {
+      "componentName": "icon-quote",
+      "componentNameReact": "IconQuote",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-906"
+    },
+    {
+      "componentName": "icon-archive",
+      "componentNameReact": "IconArchive",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-535"
     },
     {
-      "componentName": "bookmark",
-      "componentNameReact": "Bookmark",
+      "componentName": "icon-bookmark",
+      "componentNameReact": "IconBookmark",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7724-3876"
     },
     {
-      "componentName": "check",
-      "componentNameReact": "Check",
+      "componentName": "icon-check",
+      "componentNameReact": "IconCheck",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-754"
     },
     {
-      "componentName": "check-circle",
-      "componentNameReact": "CheckCircle",
+      "componentName": "icon-check-circle",
+      "componentNameReact": "IconCheckCircle",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-777"
     },
     {
-      "componentName": "close",
-      "componentNameReact": "Close",
+      "componentName": "icon-close",
+      "componentNameReact": "IconClose",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-708"
     },
     {
-      "componentName": "close-circle",
-      "componentNameReact": "CloseCircle",
+      "componentName": "icon-close-circle",
+      "componentNameReact": "IconCloseCircle",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1119"
     },
     {
-      "componentName": "columns",
-      "componentNameReact": "Columns",
+      "componentName": "icon-columns",
+      "componentNameReact": "IconColumns",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26401-783"
     },
     {
-      "componentName": "double-check",
-      "componentNameReact": "DoubleCheck",
+      "componentName": "icon-double-check",
+      "componentNameReact": "IconDoubleCheck",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=19731-1822"
     },
     {
-      "componentName": "drag",
-      "componentNameReact": "Drag",
+      "componentName": "icon-drag",
+      "componentNameReact": "IconDrag",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-713"
     },
     {
-      "componentName": "edit",
-      "componentNameReact": "Edit",
+      "componentName": "icon-edit",
+      "componentNameReact": "IconEdit",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-879"
     },
     {
-      "componentName": "filters",
-      "componentNameReact": "Filters",
+      "componentName": "icon-filters",
+      "componentNameReact": "IconFilters",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-661"
     },
     {
-      "componentName": "grid-view",
-      "componentNameReact": "GridView",
+      "componentName": "icon-grid-view",
+      "componentNameReact": "IconGridView",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-856"
     },
     {
-      "componentName": "image-flip-horizontal",
-      "componentNameReact": "ImageFlipHorizontal",
+      "componentName": "icon-image-flip-horizontal",
+      "componentNameReact": "IconImageFlipHorizontal",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3732"
     },
     {
-      "componentName": "image-flip-vertical",
-      "componentNameReact": "ImageFlipVertical",
+      "componentName": "icon-image-flip-vertical",
+      "componentNameReact": "IconImageFlipVertical",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3742"
     },
     {
-      "componentName": "layers",
-      "componentNameReact": "Layers",
+      "componentName": "icon-layers",
+      "componentNameReact": "IconLayers",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-776"
     },
     {
-      "componentName": "list",
-      "componentNameReact": "List",
+      "componentName": "icon-list",
+      "componentNameReact": "IconList",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-810"
     },
     {
-      "componentName": "log-out",
-      "componentNameReact": "LogOut",
+      "componentName": "icon-log-out",
+      "componentNameReact": "IconLogOut",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1096"
     },
     {
-      "componentName": "menu",
-      "componentNameReact": "Menu",
+      "componentName": "icon-menu",
+      "componentNameReact": "IconMenu",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-155"
     },
     {
-      "componentName": "minus",
-      "componentNameReact": "Minus",
+      "componentName": "icon-minus",
+      "componentNameReact": "IconMinus",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-833"
     },
     {
-      "componentName": "minus-circle",
-      "componentNameReact": "MinusCircle",
+      "componentName": "icon-minus-circle",
+      "componentNameReact": "IconMinusCircle",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-652"
     },
     {
-      "componentName": "more-horizontal",
-      "componentNameReact": "MoreHorizontal",
+      "componentName": "icon-more-horizontal",
+      "componentNameReact": "IconMoreHorizontal",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=747-100"
     },
     {
-      "componentName": "more-vertical",
-      "componentNameReact": "MoreVertical",
+      "componentName": "icon-more-vertical",
+      "componentNameReact": "IconMoreVertical",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-271"
     },
     {
-      "componentName": "navigation-collapse",
-      "componentNameReact": "NavigationCollapse",
+      "componentName": "icon-navigation-collapse",
+      "componentNameReact": "IconNavigationCollapse",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-823"
     },
     {
-      "componentName": "navigation-expand",
-      "componentNameReact": "NavigationExpand",
+      "componentName": "icon-navigation-expand",
+      "componentNameReact": "IconNavigationExpand",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-829"
     },
     {
-      "componentName": "new-chat",
-      "componentNameReact": "NewChat",
+      "componentName": "icon-new-chat",
+      "componentNameReact": "IconNewChat",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-833"
     },
     {
-      "componentName": "note",
-      "componentNameReact": "Note",
+      "componentName": "icon-note",
+      "componentNameReact": "IconNote",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27983-605"
     },
     {
-      "componentName": "plus",
-      "componentNameReact": "Plus",
+      "componentName": "icon-plus",
+      "componentNameReact": "IconPlus",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-787"
     },
     {
-      "componentName": "plus-circle",
-      "componentNameReact": "PlusCircle",
+      "componentName": "icon-plus-circle",
+      "componentNameReact": "IconPlusCircle",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-637"
     },
     {
-      "componentName": "refresh",
-      "componentNameReact": "Refresh",
+      "componentName": "icon-refresh",
+      "componentNameReact": "IconRefresh",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-810"
     },
     {
-      "componentName": "resize",
-      "componentNameReact": "Resize",
+      "componentName": "icon-resize",
+      "componentNameReact": "IconResize",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2900-5148"
     },
     {
-      "componentName": "restricted",
-      "componentNameReact": "Restricted",
+      "componentName": "icon-restricted",
+      "componentNameReact": "IconRestricted",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-740"
     },
     {
-      "componentName": "search",
-      "componentNameReact": "Search",
+      "componentName": "icon-trash",
+      "componentNameReact": "IconTrash",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-948"
+    },
+    {
+      "componentName": "icon-search",
+      "componentNameReact": "IconSearch",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-569"
     },
     {
-      "componentName": "search-categories",
-      "componentNameReact": "SearchCategories",
+      "componentName": "icon-search-categories",
+      "componentNameReact": "IconSearchCategories",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27543-1150"
     },
     {
-      "componentName": "settings",
-      "componentNameReact": "Settings",
+      "componentName": "icon-settings",
+      "componentNameReact": "IconSettings",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-856"
     },
     {
-      "componentName": "sort",
-      "componentNameReact": "Sort",
+      "componentName": "icon-sort",
+      "componentNameReact": "IconSort",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-749"
     },
     {
-      "componentName": "sort-ascending",
-      "componentNameReact": "SortAscending",
+      "componentName": "icon-sort-ascending",
+      "componentNameReact": "IconSortAscending",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-615"
     },
     {
-      "componentName": "sort-descending",
-      "componentNameReact": "SortDescending",
+      "componentName": "icon-sort-descending",
+      "componentNameReact": "IconSortDescending",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=747-91"
     },
     {
-      "componentName": "swap",
-      "componentNameReact": "Swap",
+      "componentName": "icon-swap",
+      "componentNameReact": "IconSwap",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23099-870"
     },
     {
-      "componentName": "switch-product",
-      "componentNameReact": "SwitchProduct",
+      "componentName": "icon-switch-product",
+      "componentNameReact": "IconSwitchProduct",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7796-3791"
     },
     {
-      "componentName": "sync",
-      "componentNameReact": "Sync",
+      "componentName": "icon-sync",
+      "componentNameReact": "IconSync",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-731"
     },
     {
-      "componentName": "trash",
-      "componentNameReact": "Trash",
+      "componentName": "icon-fullscreen-exit",
+      "componentNameReact": "IconFullscreenExit",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
-      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-948"
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-397"
+    },
+    {
+      "componentName": "icon-fullscreen-expand",
+      "componentNameReact": "IconFullscreenExpand",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-351"
+    },
+    {
+      "componentName": "icon-thumbs-down",
+      "componentNameReact": "IconThumbsDown",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=663-88"
+    },
+    {
+      "componentName": "icon-thumbs-up",
+      "componentNameReact": "IconThumbsUp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2396"
+    },
+    {
+      "componentName": "icon-do-not-touch",
+      "componentNameReact": "IconDoNotTouch",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24089-982"
+    },
+    {
+      "componentName": "icon-house",
+      "componentNameReact": "IconHouse",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1235"
+    },
+    {
+      "componentName": "icon-language",
+      "componentNameReact": "IconLanguage",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1061"
+    },
+    {
+      "componentName": "icon-translate",
+      "componentNameReact": "IconTranslate",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2291-4480"
+    },
+    {
+      "componentName": "icon-link",
+      "componentNameReact": "IconLink",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-879"
+    },
+    {
+      "componentName": "icon-unlink",
+      "componentNameReact": "IconUnlink",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-764"
+    },
+    {
+      "componentName": "icon-external-link",
+      "componentNameReact": "IconExternalLink",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2089-575"
+    },
+    {
+      "componentName": "icon-geolocation",
+      "componentNameReact": "IconGeolocation",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3707"
+    },
+    {
+      "componentName": "icon-geolocation-circle",
+      "componentNameReact": "IconGeolocationCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-662"
+    },
+    {
+      "componentName": "icon-location-pin",
+      "componentNameReact": "IconLocationPin",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-511"
+    },
+    {
+      "componentName": "icon-location-pin-food",
+      "componentNameReact": "IconLocationPinFood",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4373-3318"
+    },
+    {
+      "componentName": "icon-location-pin-user",
+      "componentNameReact": "IconLocationPinUser",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-699"
+    },
+    {
+      "componentName": "icon-location-pin-restaurant",
+      "componentNameReact": "IconLocationPinRestaurant",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-38"
+    },
+    {
+      "componentName": "icon-location-restaurant",
+      "componentNameReact": "IconLocationRestaurant",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3720"
+    },
+    {
+      "componentName": "icon-location-target",
+      "componentNameReact": "IconLocationTarget",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-777"
+    },
+    {
+      "componentName": "icon-map",
+      "componentNameReact": "IconMap",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=13906-672"
+    },
+    {
+      "componentName": "icon-map-legend",
+      "componentNameReact": "IconMapLegend",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27930-1374"
+    },
+    {
+      "componentName": "icon-route-pin",
+      "componentNameReact": "IconRoutePin",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1640"
+    },
+    {
+      "componentName": "icon-key",
+      "componentNameReact": "IconKey",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1027"
+    },
+    {
+      "componentName": "icon-key-unlock",
+      "componentNameReact": "IconKeyUnlock",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2239"
+    },
+    {
+      "componentName": "icon-lock",
+      "componentNameReact": "IconLock",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-466"
+    },
+    {
+      "componentName": "icon-logo-points",
+      "componentNameReact": "IconLogoPoints",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4178-3292"
+    },
+    {
+      "componentName": "icon-logo-skip",
+      "componentNameReact": "IconLogoSkip",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1616-549"
+    },
+    {
+      "componentName": "icon-bakery",
+      "componentNameReact": "IconBakery",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3802"
+    },
+    {
+      "componentName": "icon-ballot-box",
+      "componentNameReact": "IconBallotBox",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1801"
+    },
+    {
+      "componentName": "icon-beauty",
+      "componentNameReact": "IconBeauty",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3812"
+    },
+    {
+      "componentName": "icon-books",
+      "componentNameReact": "IconBooks",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3883"
+    },
+    {
+      "componentName": "icon-building-blocks",
+      "componentNameReact": "IconBuildingBlocks",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=11957-325"
+    },
+    {
+      "componentName": "icon-bulb-lightning",
+      "componentNameReact": "IconBulbLightning",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-247"
+    },
+    {
+      "componentName": "icon-cannabis",
+      "componentNameReact": "IconCannabis",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=11469-574"
+    },
+    {
+      "componentName": "icon-cleaning",
+      "componentNameReact": "IconCleaning",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9715-4069"
+    },
+    {
+      "componentName": "icon-clothing",
+      "componentNameReact": "IconClothing",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9715-4061"
+    },
+    {
+      "componentName": "icon-convenience",
+      "componentNameReact": "IconConvenience",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4373-3411"
+    },
+    {
+      "componentName": "icon-directions",
+      "componentNameReact": "IconDirections",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1046"
+    },
+    {
+      "componentName": "icon-drone",
+      "componentNameReact": "IconDrone",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=19272-1826"
+    },
+    {
+      "componentName": "icon-diy",
+      "componentNameReact": "IconDiy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3863"
+    },
+    {
+      "componentName": "icon-electronic-accessories",
+      "componentNameReact": "IconElectronicAccessories",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3842"
+    },
+    {
+      "componentName": "icon-experiment",
+      "componentNameReact": "IconExperiment",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14888-427"
+    },
+    {
+      "componentName": "icon-flag",
+      "componentNameReact": "IconFlag",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14724-407"
+    },
+    {
+      "componentName": "icon-flowers",
+      "componentNameReact": "IconFlowers",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5025-3347"
+    },
+    {
+      "componentName": "icon-fresh-food",
+      "componentNameReact": "IconFreshFood",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3792"
+    },
+    {
+      "componentName": "icon-gifts",
+      "componentNameReact": "IconGifts",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3822"
+    },
+    {
+      "componentName": "icon-grocery",
+      "componentNameReact": "IconGrocery",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4373-3419"
+    },
+    {
+      "componentName": "icon-hi-vis",
+      "componentNameReact": "IconHiVis",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3329-5148"
+    },
+    {
+      "componentName": "icon-high-contrast",
+      "componentNameReact": "IconHighContrast",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5197"
+    },
+    {
+      "componentName": "icon-law",
+      "componentNameReact": "IconLaw",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=6703-3636"
+    },
+    {
+      "componentName": "icon-loading",
+      "componentNameReact": "IconLoading",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-925"
+    },
+    {
+      "componentName": "icon-pacifier",
+      "componentNameReact": "IconPacifier",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=12108-286"
+    },
+    {
+      "componentName": "icon-paintbrush",
+      "componentNameReact": "IconPaintbrush",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3104-5167"
+    },
+    {
+      "componentName": "icon-pet-supplies",
+      "componentNameReact": "IconPetSupplies",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5807-3637"
+    },
+    {
+      "componentName": "icon-pet-supplies-alt",
+      "componentNameReact": "IconPetSuppliesAlt",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10519-2564"
+    },
+    {
+      "componentName": "icon-pharmacy",
+      "componentNameReact": "IconPharmacy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5807-3646"
+    },
+    {
+      "componentName": "icon-pharmacy-alt",
+      "componentNameReact": "IconPharmacyAlt",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10519-2571"
+    },
+    {
+      "componentName": "icon-qr-code",
+      "componentNameReact": "IconQrCode",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=13906-594"
+    },
+    {
+      "componentName": "icon-recycle",
+      "componentNameReact": "IconRecycle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1405"
+    },
+    {
+      "componentName": "icon-shops",
+      "componentNameReact": "IconShops",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3893"
+    },
+    {
+      "componentName": "icon-sponsored",
+      "componentNameReact": "IconSponsored",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1051"
+    },
+    {
+      "componentName": "icon-stationery",
+      "componentNameReact": "IconStationery",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3873"
+    },
+    {
+      "componentName": "icon-toilet",
+      "componentNameReact": "IconToilet",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2262"
+    },
+    {
+      "componentName": "icon-toys-and-games",
+      "componentNameReact": "IconToysAndGames",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9283-3832"
+    },
+    {
+      "componentName": "icon-tool",
+      "componentNameReact": "IconTool",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=22470-884"
+    },
+    {
+      "componentName": "icon-tutorial",
+      "componentNameReact": "IconTutorial",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5042-3902"
+    },
+    {
+      "componentName": "icon-weight",
+      "componentNameReact": "IconWeight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=22174-870"
+    },
+    {
+      "componentName": "icon-notification",
+      "componentNameReact": "IconNotification",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1120"
+    },
+    {
+      "componentName": "icon-notification-off",
+      "componentNameReact": "IconNotificationOff",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1399-583"
+    },
+    {
+      "componentName": "icon-number-symbol",
+      "componentNameReact": "IconNumberSymbol",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1095"
+    },
+    {
+      "componentName": "icon-numero-symbol",
+      "componentNameReact": "IconNumeroSymbol",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1595-1111"
+    },
+    {
+      "componentName": "icon-number-input",
+      "componentNameReact": "IconNumberInput",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25565-683"
+    },
+    {
+      "componentName": "icon-cloud",
+      "componentNameReact": "IconCloud",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-546"
+    },
+    {
+      "componentName": "icon-cloud-download",
+      "componentNameReact": "IconCloudDownload",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3725"
+    },
+    {
+      "componentName": "icon-cloud-error",
+      "componentNameReact": "IconCloudError",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-684"
+    },
+    {
+      "componentName": "icon-cloud-success",
+      "componentNameReact": "IconCloudSuccess",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-592"
+    },
+    {
+      "componentName": "icon-cloud-upload",
+      "componentNameReact": "IconCloudUpload",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3728"
+    },
+    {
+      "componentName": "icon-download",
+      "componentNameReact": "IconDownload",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-638"
+    },
+    {
+      "componentName": "icon-rss",
+      "componentNameReact": "IconRss",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-555"
+    },
+    {
+      "componentName": "icon-network-error",
+      "componentNameReact": "IconNetworkError",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-546"
+    },
+    {
+      "componentName": "icon-upload",
+      "componentNameReact": "IconUpload",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1166"
+    },
+    {
+      "componentName": "icon-wifi",
+      "componentNameReact": "IconWifi",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-305"
+    },
+    {
+      "componentName": "icon-wifi-alert",
+      "componentNameReact": "IconWifiAlert",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1545-585"
+    },
+    {
+      "componentName": "icon-pay",
+      "componentNameReact": "IconPay",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9717-3599"
+    },
+    {
+      "componentName": "icon-account-credit",
+      "componentNameReact": "IconAccountCredit",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10833-374"
+    },
+    {
+      "componentName": "icon-barcode",
+      "componentNameReact": "IconBarcode",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2400"
+    },
+    {
+      "componentName": "icon-budget-add",
+      "componentNameReact": "IconBudgetAdd",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14491-911"
+    },
+    {
+      "componentName": "icon-cash",
+      "componentNameReact": "IconCash",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-28"
+    },
+    {
+      "componentName": "icon-cash-card",
+      "componentNameReact": "IconCashCard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=529-194"
+    },
+    {
+      "componentName": "icon-cheque",
+      "componentNameReact": "IconCheque",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=540-245"
+    },
+    {
+      "componentName": "icon-coins",
+      "componentNameReact": "IconCoins",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=13213-481"
+    },
+    {
+      "componentName": "icon-credit-card",
+      "componentNameReact": "IconCreditCard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-136"
+    },
+    {
+      "componentName": "icon-credit-card-home",
+      "componentNameReact": "IconCreditCardHome",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-156"
+    },
+    {
+      "componentName": "icon-fast-cash",
+      "componentNameReact": "IconFastCash",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27543-1171"
+    },
+    {
+      "componentName": "icon-instant-bank",
+      "componentNameReact": "IconInstantBank",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3923"
+    },
+    {
+      "componentName": "icon-pin-code",
+      "componentNameReact": "IconPinCode",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14491-761"
+    },
+    {
+      "componentName": "icon-pin-home",
+      "componentNameReact": "IconPinHome",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-94"
+    },
+    {
+      "componentName": "icon-takeaway-pay",
+      "componentNameReact": "IconTakeawayPay",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-68"
+    },
+    {
+      "componentName": "icon-service-charge",
+      "componentNameReact": "IconServiceCharge",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5042-3755"
+    },
+    {
+      "componentName": "icon-unpaid",
+      "componentNameReact": "IconUnpaid",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3953"
+    },
+    {
+      "componentName": "icon-wallet",
+      "componentNameReact": "IconWallet",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4814-3589"
+    },
+    {
+      "componentName": "icon-credits",
+      "componentNameReact": "IconCredits",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25922-605"
+    },
+    {
+      "componentName": "icon-wallet-add",
+      "componentNameReact": "IconWalletAdd",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=14491-920"
+    },
+    {
+      "componentName": "icon-baby-and-kid",
+      "componentNameReact": "IconBabyAndKid",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=11469-561"
+    },
+    {
+      "componentName": "icon-face-excited",
+      "componentNameReact": "IconFaceExcited",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=21751-828"
+    },
+    {
+      "componentName": "icon-face-happy",
+      "componentNameReact": "IconFaceHappy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1165"
+    },
+    {
+      "componentName": "icon-face-neutral",
+      "componentNameReact": "IconFaceNeutral",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=21751-1006"
+    },
+    {
+      "componentName": "icon-face-unhappy",
+      "componentNameReact": "IconFaceUnhappy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26934-812"
+    },
+    {
+      "componentName": "icon-user",
+      "componentNameReact": "IconUser",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5695-3713"
+    },
+    {
+      "componentName": "icon-user-add",
+      "componentNameReact": "IconUserAdd",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2054"
+    },
+    {
+      "componentName": "icon-user-cancelled",
+      "componentNameReact": "IconUserCancelled",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-442"
+    },
+    {
+      "componentName": "icon-user-circle",
+      "componentNameReact": "IconUserCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-212"
+    },
+    {
+      "componentName": "icon-user-community",
+      "componentNameReact": "IconUserCommunity",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-224"
+    },
+    {
+      "componentName": "icon-user-highlight",
+      "componentNameReact": "IconUserHighlight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1847"
+    },
+    {
+      "componentName": "icon-user-group",
+      "componentNameReact": "IconUserGroup",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1709"
+    },
+    {
+      "componentName": "icon-user-marker",
+      "componentNameReact": "IconUserMarker",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1916"
+    },
+    {
+      "componentName": "icon-user-move",
+      "componentNameReact": "IconUserMove",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-516"
+    },
+    {
+      "componentName": "icon-user-partnership",
+      "componentNameReact": "IconUserPartnership",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1663"
+    },
+    {
+      "componentName": "icon-user-repeat",
+      "componentNameReact": "IconUserRepeat",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2502"
+    },
+    {
+      "componentName": "icon-user-shield",
+      "componentNameReact": "IconUserShield",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5014-3331"
+    },
+    {
+      "componentName": "icon-users",
+      "componentNameReact": "IconUsers",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-537"
+    },
+    {
+      "componentName": "icon-components",
+      "componentNameReact": "IconComponents",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3726"
+    },
+    {
+      "componentName": "icon-engineers",
+      "componentNameReact": "IconEngineers",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3753"
+    },
+    {
+      "componentName": "icon-foundations",
+      "componentNameReact": "IconFoundations",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3744"
+    },
+    {
+      "componentName": "icon-patterns",
+      "componentNameReact": "IconPatterns",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3735"
+    },
+    {
+      "componentName": "icon-pie",
+      "componentNameReact": "IconPie",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=7066-3763"
+    },
+    {
+      "componentName": "icon-heart",
+      "componentNameReact": "IconHeart",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16-7"
+    },
+    {
+      "componentName": "icon-heart-strike",
+      "componentNameReact": "IconHeartStrike",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27542-964"
+    },
+    {
+      "componentName": "icon-star",
+      "componentNameReact": "IconStar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-488"
+    },
+    {
+      "componentName": "icon-star-circle",
+      "componentNameReact": "IconStarCircle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2291-4383"
+    },
+    {
+      "componentName": "icon-chef",
+      "componentNameReact": "IconChef",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9288-3963"
+    },
+    {
+      "componentName": "icon-collect",
+      "componentNameReact": "IconCollect",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26643-595"
+    },
+    {
+      "componentName": "icon-cutlery",
+      "componentNameReact": "IconCutlery",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2008"
+    },
+    {
+      "componentName": "icon-delivery",
+      "componentNameReact": "IconDelivery",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27237-681"
+    },
+    {
+      "componentName": "icon-delivery-fee",
+      "componentNameReact": "IconDeliveryFee",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2456"
+    },
+    {
+      "componentName": "icon-dine-in",
+      "componentNameReact": "IconDineIn",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1451"
+    },
+    {
+      "componentName": "icon-dish",
+      "componentNameReact": "IconDish",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1004"
+    },
+    {
+      "componentName": "icon-food-ready",
+      "componentNameReact": "IconFoodReady",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-612"
+    },
+    {
+      "componentName": "icon-kitchen",
+      "componentNameReact": "IconKitchen",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2291-4442"
+    },
+    {
+      "componentName": "icon-local-hero",
+      "componentNameReact": "IconLocalHero",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=22543-898"
+    },
+    {
+      "componentName": "icon-management",
+      "componentNameReact": "IconManagement",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9096-3600"
+    },
+    {
+      "componentName": "icon-order",
+      "componentNameReact": "IconOrder",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-120"
+    },
+    {
+      "componentName": "icon-pick-up",
+      "componentNameReact": "IconPickUp",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-143"
+    },
+    {
+      "componentName": "icon-prepare",
+      "componentNameReact": "IconPrepare",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=6395-3741"
+    },
+    {
+      "componentName": "icon-prepare-bag",
+      "componentNameReact": "IconPrepareBag",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=9302-4946"
+    },
+    {
+      "componentName": "icon-prepare-pause",
+      "componentNameReact": "IconPreparePause",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=6395-3732"
+    },
+    {
+      "componentName": "icon-receipt",
+      "componentNameReact": "IconReceipt",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1027-809"
+    },
+    {
+      "componentName": "icon-receipt-error",
+      "componentNameReact": "IconReceiptError",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3441-3151"
+    },
+    {
+      "componentName": "icon-receipt-success",
+      "componentNameReact": "IconReceiptSuccess",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-551"
+    },
+    {
+      "componentName": "icon-restaurant",
+      "componentNameReact": "IconRestaurant",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-2343"
+    },
+    {
+      "componentName": "icon-restaurant-cancelled",
+      "componentNameReact": "IconRestaurantCancelled",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15777-552"
+    },
+    {
+      "componentName": "icon-restaurant-menu",
+      "componentNameReact": "IconRestaurantMenu",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-562"
+    },
+    {
+      "componentName": "icon-review",
+      "componentNameReact": "IconReview",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1962"
+    },
+    {
+      "componentName": "icon-sign-closed",
+      "componentNameReact": "IconSignClosed",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2640"
+    },
+    {
+      "componentName": "icon-sign-open",
+      "componentNameReact": "IconSignOpen",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16882-7625"
+    },
+    {
+      "componentName": "icon-sign-empty",
+      "componentNameReact": "IconSignEmpty",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=25407-7133"
+    },
+    {
+      "componentName": "icon-ribbon-heart",
+      "componentNameReact": "IconRibbonHeart",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-1000"
+    },
+    {
+      "componentName": "icon-ribbon-success",
+      "componentNameReact": "IconRibbonSuccess",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1548"
+    },
+    {
+      "componentName": "icon-ribbon-star",
+      "componentNameReact": "IconRibbonStar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-1009"
+    },
+    {
+      "componentName": "icon-percentage",
+      "componentNameReact": "IconPercentage",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-512"
+    },
+    {
+      "componentName": "icon-stamp-card",
+      "componentNameReact": "IconStampCard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-5"
+    },
+    {
+      "componentName": "icon-stamp-card-10",
+      "componentNameReact": "IconStampCard10",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-16"
+    },
+    {
+      "componentName": "icon-ai",
+      "componentNameReact": "IconAi",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18739-765"
+    },
+    {
+      "componentName": "icon-at-symbol",
+      "componentNameReact": "IconAtSymbol",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-920"
+    },
+    {
+      "componentName": "icon-atom",
+      "componentNameReact": "IconAtom",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5571-3695"
+    },
+    {
+      "componentName": "icon-battery",
+      "componentNameReact": "IconBattery",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2308"
+    },
+    {
+      "componentName": "icon-bug",
+      "componentNameReact": "IconBug",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-902"
+    },
+    {
+      "componentName": "icon-face-id",
+      "componentNameReact": "IconFaceId",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16494-406"
+    },
+    {
+      "componentName": "icon-fingerprint",
+      "componentNameReact": "IconFingerprint",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-981"
+    },
+    {
+      "componentName": "icon-google-voice",
+      "componentNameReact": "IconGoogleVoice",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1939"
+    },
+    {
+      "componentName": "icon-laptop",
+      "componentNameReact": "IconLaptop",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-132"
+    },
+    {
+      "componentName": "icon-laptop-error",
+      "componentNameReact": "IconLaptopError",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-911"
+    },
+    {
+      "componentName": "icon-laptop-highlight",
+      "componentNameReact": "IconLaptopHighlight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-201"
+    },
+    {
+      "componentName": "icon-laptop-success",
+      "componentNameReact": "IconLaptopSuccess",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1985"
+    },
+    {
+      "componentName": "icon-phone",
+      "componentNameReact": "IconPhone",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1143"
+    },
+    {
+      "componentName": "icon-phone-off",
+      "componentNameReact": "IconPhoneOff",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5571-3699"
+    },
+    {
+      "componentName": "icon-printer",
+      "componentNameReact": "IconPrinter",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-1212"
+    },
+    {
+      "componentName": "icon-pull-request",
+      "componentNameReact": "IconPullRequest",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=24839-597"
+    },
+    {
+      "componentName": "icon-robot",
+      "componentNameReact": "IconRobot",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=23820-871"
+    },
+    {
+      "componentName": "icon-tree-trace",
+      "componentNameReact": "IconTreeTrace",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=26393-637"
+    },
+    {
+      "componentName": "icon-clock",
+      "componentNameReact": "IconClock",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=15-443"
+    },
+    {
+      "componentName": "icon-clock-add",
+      "componentNameReact": "IconClockAdd",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-736"
+    },
+    {
+      "componentName": "icon-clock-alert",
+      "componentNameReact": "IconClockAlert",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-727"
+    },
+    {
+      "componentName": "icon-clock-refresh",
+      "componentNameReact": "IconClockRefresh",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-745"
+    },
+    {
+      "componentName": "icon-stopwatch",
+      "componentNameReact": "IconStopwatch",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3-27"
+    },
+    {
+      "componentName": "icon-bike",
+      "componentNameReact": "IconBike",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2-1968"
+    },
+    {
+      "componentName": "icon-car",
+      "componentNameReact": "IconCar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-731"
+    },
+    {
+      "componentName": "icon-car-clock",
+      "componentNameReact": "IconCarClock",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1380-941"
+    },
+    {
+      "componentName": "icon-dashboard",
+      "componentNameReact": "IconDashboard",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1755"
+    },
+    {
+      "componentName": "icon-driver-car",
+      "componentNameReact": "IconDriverCar",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-857"
+    },
+    {
+      "componentName": "icon-driver-moped",
+      "componentNameReact": "IconDriverMoped",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=5712-3744"
+    },
+    {
+      "componentName": "icon-ebike",
+      "componentNameReact": "IconEbike",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=16120-640"
+    },
+    {
+      "componentName": "icon-escooter",
+      "componentNameReact": "IconEscooter",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27543-1011"
+    },
+    {
+      "componentName": "icon-helmet",
+      "componentNameReact": "IconHelmet",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-376"
+    },
+    {
+      "componentName": "icon-moped",
+      "componentNameReact": "IconMoped",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4-685"
+    },
+    {
+      "componentName": "icon-plane",
+      "componentNameReact": "IconPlane",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2331"
+    },
+    {
+      "componentName": "icon-rocket-ship",
+      "componentNameReact": "IconRocketShip",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1893"
+    },
+    {
+      "componentName": "icon-traffic-light",
+      "componentNameReact": "IconTrafficLight",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27930-1413"
+    },
+    {
+      "componentName": "icon-walking",
+      "componentNameReact": "IconWalking",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=751-187"
+    },
+    {
+      "componentName": "icon-world",
+      "componentNameReact": "IconWorld",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-2100"
+    },
+    {
+      "componentName": "icon-ball",
+      "componentNameReact": "IconBall",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1916"
+    },
+    {
+      "componentName": "icon-fan-festival",
+      "componentNameReact": "IconFanFestival",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1949"
+    },
+    {
+      "componentName": "icon-match-ball",
+      "componentNameReact": "IconMatchBall",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1982"
+    },
+    {
+      "componentName": "icon-score",
+      "componentNameReact": "IconScore",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2000"
+    },
+    {
+      "componentName": "icon-shirt-uniform",
+      "componentNameReact": "IconShirtUniform",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1940"
+    },
+    {
+      "componentName": "icon-spectators",
+      "componentNameReact": "IconSpectators",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1958"
+    },
+    {
+      "componentName": "icon-stadium",
+      "componentNameReact": "IconStadium",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-1991"
+    },
+    {
+      "componentName": "icon-referee",
+      "componentNameReact": "IconReferee",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2017"
+    },
+    {
+      "componentName": "icon-ticket",
+      "componentNameReact": "IconTicket",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2009"
+    },
+    {
+      "componentName": "icon-trophy",
+      "componentNameReact": "IconTrophy",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=20100-2131"
     }
   ]
 }
