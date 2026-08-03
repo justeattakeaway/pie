@@ -7,6 +7,7 @@ import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/radio-group';
 import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-webc/components/checkbox-group';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
@@ -244,12 +245,12 @@ export const LongText = createStory<ListPlaygroundProps>(
 });
 
 // Selectable lists -----------------------------------------------------------
-// A `pie-list-item` becomes a selectable row via its `selectionType` prop, slotting the control
-// into its `leading`/`trailing` slot. Radio and checkbox rows live inside their groups. The
-// playground controls above do not apply to these.
+// A `pie-list-item` becomes a selectable row via its `interactionType` prop, slotting the control
+// into its `leading`/`trailing` slot. Radio and checkbox rows live inside their groups; switch rows
+// (no group) live in a plain `pie-list`. The playground controls above do not apply to these.
 
 /**
- * Single-select: `pie-list-item`s inside a `pie-radio-group`. Set `.selectionType=${'radio'}` on each
+ * Single-select: `pie-list-item`s inside a `pie-radio-group`. Set `.interactionType=${'radio'}` on each
  * row to make the whole row a selectable target named by the item's text. The group lays the rows
  * out as a divided list automatically when its children are `pie-list-item`s.
  */
@@ -257,23 +258,23 @@ export const RadioSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-radio-group { min-width: 350px; }</style>
     <pie-radio-group name="delivery" value="express">
         <pie-form-label slot="label">Delivery method</pie-form-label>
-        <pie-list-item .selectionType=${'radio'} primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+        <pie-list-item .interactionType=${'radio'} primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
             <pie-radio slot="leading" value="standard"></pie-radio>
         </pie-list-item>
-        <pie-list-item .selectionType=${'radio'} primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
+        <pie-list-item .interactionType=${'radio'} primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
             <pie-radio slot="leading" value="express"></pie-radio>
         </pie-list-item>
-        <pie-list-item .selectionType=${'radio'} disabled primaryText="Collection" secondaryText="Collect from a nearby store">
+        <pie-list-item .interactionType=${'radio'} disabled primaryText="Collection" secondaryText="Collect from a nearby store">
             <pie-radio slot="leading" value="collection" disabled></pie-radio>
         </pie-list-item>
-        <pie-list-item .selectionType=${'radio'} primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
+        <pie-list-item .interactionType=${'radio'} primaryText="Locker" secondaryText="Pick up from a parcel locker" metaText="£1.99">
             <pie-radio slot="leading" value="locker"></pie-radio>
         </pie-list-item>
     </pie-radio-group>
 `, defaultArgs)();
 
 /**
- * Multi-select: `pie-list-item`s inside a `pie-checkbox-group`. Set `.selectionType=${'checkbox'}` on
+ * Multi-select: `pie-list-item`s inside a `pie-checkbox-group`. Set `.interactionType=${'checkbox'}` on
  * each row to make the whole row a selectable target named by the item's text. Each row toggles its
  * checkbox independently. The group lays the rows out as a divided list automatically when its
  * children are `pie-list-item`s.
@@ -282,17 +283,67 @@ export const CheckboxSelection = createStory<ListPlaygroundProps>(() => html`
     <style>pie-checkbox-group { min-width: 350px; }</style>
     <pie-checkbox-group name="toppings">
         <pie-form-label slot="label">Toppings</pie-form-label>
-        <pie-list-item .selectionType=${'checkbox'} primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+        <pie-list-item .interactionType=${'checkbox'} primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
             <pie-checkbox slot="leading" name="cheese" value="cheese"></pie-checkbox>
         </pie-list-item>
-        <pie-list-item .selectionType=${'checkbox'} primaryText="Pepperoni" secondaryText="Spicy">
+        <pie-list-item .interactionType=${'checkbox'} primaryText="Pepperoni" secondaryText="Spicy">
             <pie-checkbox slot="leading" name="pepperoni" value="pepperoni" checked></pie-checkbox>
         </pie-list-item>
-        <pie-list-item .selectionType=${'checkbox'} disabled primaryText="Mushrooms">
+        <pie-list-item .interactionType=${'checkbox'} disabled primaryText="Mushrooms">
             <pie-checkbox slot="leading" name="mushrooms" value="mushrooms" disabled></pie-checkbox>
         </pie-list-item>
-        <pie-list-item .selectionType=${'checkbox'} primaryText="Olives" metaText="£0.50">
+        <pie-list-item .interactionType=${'checkbox'} primaryText="Olives" metaText="£0.50">
             <pie-checkbox slot="leading" name="olives" value="olives"></pie-checkbox>
         </pie-list-item>
     </pie-checkbox-group>
+`, defaultArgs)();
+
+/**
+ * Independent toggles: `pie-list-item` with `interactionType="switch"` in a plain `pie-list` (switches
+ * have no group). The switch sits in the `trailing` slot and the whole row toggles it.
+ */
+export const SwitchSelection = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Notification settings">
+        <pie-list-item .interactionType=${'switch'} primaryText="Email" secondaryText="Order updates and receipts">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'switch'} primaryText="Push notifications" secondaryText="Offers and reminders">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'switch'} primaryText="SMS">
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'switch'} primaryText="Post" secondaryText="Currently unavailable" disabled>
+            <pie-switch slot="trailing" disabled></pie-switch>
+        </pie-list-item>
+    </pie-list>
+`, defaultArgs)();
+
+// Link lists ----------------------------------------------------------------
+// `interactionType="link"` turns the whole row into a single navigation link. Slot an empty
+// `<a slot="link">` and it is stretched over the entire row so the whole item is the target, named
+// by the item's own text. There is no group, so link rows live in a plain `pie-list`.
+
+/**
+ * Link rows: `pie-list-item` with `interactionType="link"` and an empty `<a slot="link" href="...">`. The anchor is
+ * stretched over the whole row, so the entire item is the navigation target, named by the item's
+ * text. Leave the anchor empty - the item provides its accessible name and description.
+ */
+export const LinkList = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Manage your restaurant">
+        <pie-list-item .interactionType=${'link'} primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+            <a slot="link" href="#orders"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} primaryText="Menu" secondaryText="Edit items, prices and photos">
+            <a slot="link" href="#menu"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} primaryText="Opening hours" secondaryText="Set your weekly schedule">
+            <a slot="link" href="#opening-hours"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} primaryText="Payouts" secondaryText="Invoices and bank details" metaText="Weekly">
+            <a slot="link" href="#payouts"></a>
+        </pie-list-item>
+    </pie-list>
 `, defaultArgs)();

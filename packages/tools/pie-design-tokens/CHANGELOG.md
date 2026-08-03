@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.14.3
+
+### Patch Changes
+
+- [Added] - Add gradients tokens preview to pie docs ([#3068](https://github.com/justeattakeaway/pie/pull/3068)) by [@maledr5](https://github.com/maledr5)
+
 ## 7.14.2
 
 ### Patch Changes

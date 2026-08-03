@@ -1,0 +1,8 @@
+{
+  "codeConnect": {
+    "include": ["icons.figma.batch.json"],
+    "label": "React",
+    "language": "jsx",
+    "defaultBranch": "main"
+  }
+}
