@@ -21,6 +21,8 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--alignment-override', snapshotName: 'PieList - Alignment override' },
     { storyId: 'list--removed-padding', snapshotName: 'PieList - Removed inline padding' },
     { storyId: 'list--borders', snapshotName: 'PieList - Borders between items' },
+    { storyId: 'list--switch-selection', snapshotName: 'PieList - Switch selection list' },
+    { storyId: 'list--link-list', snapshotName: 'PieList - Link list' },
 ];
 
 test.describe('PieList - Visual tests', () => {

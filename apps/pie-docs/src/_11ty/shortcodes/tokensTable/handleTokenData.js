@@ -8,6 +8,7 @@ const tokenTypes = require('../../../_data/tokenTypes');
 const getExampleColumnSize = (tokenType) => {
     const tokenColumnHandler = {
         [tokenTypes.COLOR]: '240px',
+        [tokenTypes.GRADIENT]: '240px',
         [tokenTypes.FONT]: '240px',
         default: '152px',
     };

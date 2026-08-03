@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-switch
 
+## 2.6.0
+
+### Minor Changes
+
+- [Added] - When used inside a `pie-list-item` (`selection-type="switch"`), `pie-switch` takes its accessible name and description from the item (via context, applied to its internal input) so the whole row names and toggles the switch, and its track tints in step with the row's hover and active states. ([#3069](https://github.com/justeattakeaway/pie/pull/3069)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.5.6
+
+### Patch Changes
+
+- Updated dependencies [[`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b), [`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b)]:
+  - @justeattakeaway/pie-webc-core@16.1.0
+  - @justeattakeaway/pie-icons-webc@1.27.1
+
 ## 2.5.5
 
 ### Patch Changes

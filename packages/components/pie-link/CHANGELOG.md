@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-link
 
+## 1.4.0
+
+### Minor Changes
+
+- [Added] - New `inverse-light` variant and `xsmall` size. ([#3075](https://github.com/justeattakeaway/pie/pull/3075)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.3.41
+
+### Patch Changes
+
+- Updated dependencies [[`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b), [`d7e5d5d`](https://github.com/justeattakeaway/pie/commit/d7e5d5d211be24a29cff33b077509d5cf4b6289b)]:
+  - @justeattakeaway/pie-webc-core@16.1.0
+  - @justeattakeaway/pie-icons-webc@1.27.1
+
 ## 1.3.40
 
 ### Patch Changes

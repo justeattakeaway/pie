@@ -37,7 +37,22 @@ const isColorDark = (hexCode) => {
     return color.channel('lightness', { space: 'hsl' }) < lightnessThreshold;
 };
 
+/**
+ * Splits a color token into it's hexcode and opacity value (if one is provided)
+ * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
+ * @returns {object} an object containing a hexcode and opacity value (if opacity was provided)
+ */
+const splitColorToken = (token) => {
+    const [hexcode, opacity] = token.split('|');
+
+    return {
+        hexcode,
+        opacity,
+    };
+};
+
 module.exports = {
     convertHexcodeToRBG,
     isColorDark,
+    splitColorToken,
 };

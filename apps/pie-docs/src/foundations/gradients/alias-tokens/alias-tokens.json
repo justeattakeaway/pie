@@ -1,0 +1,15 @@
+{
+  "layout": "layouts/toggle-page-layout.njk",
+  "subtitle": "Gradient alias tokens",
+  "subtitleDescription": "Gradient alias tokens are made up of two or more global colour tokens set at stops between 0-100%.",
+  "toggleContent": {
+    "a": {
+      "label": "Light theme",
+      "slug": "light"
+    },
+    "b": {
+      "label": "Dark theme",
+      "slug": "dark"
+    }
+  }
+}
