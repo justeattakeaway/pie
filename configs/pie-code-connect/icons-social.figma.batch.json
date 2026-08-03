@@ -1,0 +1,89 @@
+{
+  "templateFile": "./dist/pie-icons.figma.batch.js",
+  "components": [
+    {
+      "componentName": "icon-social-android",
+      "componentNameReact": "IconSocialAndroid",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=4814-3480",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-apple",
+      "componentNameReact": "IconSocialApple",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=923-535",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-blogger",
+      "componentNameReact": "IconSocialBlogger",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=3633-3273",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-facebook",
+      "componentNameReact": "IconSocialFacebook",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=889-535",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-google",
+      "componentNameReact": "IconSocialGoogle",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=923-542",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-instagram",
+      "componentNameReact": "IconSocialInstagram",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=889-603",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-linkedin",
+      "componentNameReact": "IconSocialLinkedin",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1611-773",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-microsoft",
+      "componentNameReact": "IconSocialMicrosoft",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2820-3475",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-pinterest",
+      "componentNameReact": "IconSocialPinterest",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1611-682",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-tiktok",
+      "componentNameReact": "IconSocialTiktok",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=17716-102",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-twitter",
+      "componentNameReact": "IconSocialTwitter",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=12492-370",
+      "iconType": "social"
+    },
+    {
+      "componentName": "icon-social-youtube",
+      "componentNameReact": "IconSocialYoutube",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=889-621",
+      "iconType": "social"
+    }
+  ]
+}
