@@ -5,22 +5,21 @@ const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 
-const iconPrefix = isReact ? 'Icon' : 'icon-';
 const isFilled = getInstanceProp('getEnum', 'Fill', { True: true, False: false });
 const isLarge = getInstanceProp('getEnum', 'Size', { Large: true, Small: false });
 
-function getFillSuffix () {
+function getFillSuffix (isReact) {
     if (isFilled) return isReact ? 'Filled' : '-filled';
     return '';
 }
 
-function getSizeSuffix () {
+function getSizeSuffix (isReact) {
     if (isLarge) return isReact ? 'Large' : '-large';
     return '';
 }
 
 function getComponentName (isReact) {
-    return `${isReact ? componentNameReact : componentName}${getFillSuffix()}${getSizeSuffix()}`;
+    return `${isReact ? componentNameReact : componentName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
 }
 
 const importStatement = isReact
@@ -28,7 +27,7 @@ const importStatement = isReact
     : `import "@justeattakeaway/pie-icons-webc/dist/${getComponentName(true)}.js"`;
 
 export default {
-    example: figma.code`<${iconPrefix}${getComponentName(isReact)}></${iconPrefix}${getComponentName(isReact)}>`,
+    example: figma.code`<${getComponentName(isReact)}></${getComponentName(isReact)}>`,
     imports: [importStatement],
     id: figma.batch.id,
 };
