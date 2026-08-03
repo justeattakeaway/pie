@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-link
 
+## 1.4.0
+
+### Minor Changes
+
+- [Added] - New `inverse-light` variant and `xsmall` size. ([#3075](https://github.com/justeattakeaway/pie/pull/3075)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.3.41
 
 ### Patch Changes
