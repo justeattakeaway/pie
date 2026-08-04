@@ -6,6 +6,11 @@ import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser';
+import '@justeattakeaway/pie-icons-webc/dist/IconLock';
+import '@justeattakeaway/pie-icons-webc/dist/IconNotification';
+import '@justeattakeaway/pie-icons-webc/dist/IconLogOut';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
