@@ -3,28 +3,44 @@ eleventyNavigation:
     key: Apps
     parent: Show More
     order: 3
-draft: true
+shouldShowContents: true
 ---
 
 ## Do's and Don'ts
 
-### Do
-
-- Use only as a block, not inline.
-- Use to save space while preserving visual balance and maintaining information hierarchy.
-
-### Don't
-
-- Don't use if entire content needs to be expanded or collapsed — use an Accordion instead.
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Use only as a block, not inline.",
+            "Use to save space while preserving visual balance and maintaining information hierarchy."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don't use if entire content needs to be expanded or collapsed — use an Accordion instead."
+        ]
+    }
+} %}
 
 ---
 
 ## Anatomy
 
---- > *image placeholder*
+{% contentPageImage {
+    src:"../../../assets/img/components/show-more/anatomy.svg",
+    alt: "Show more component anatomy with numbered callouts indicating the label and chevron icon.",
+    width: "200"
+} %}
 
-1. **Label:** Text label informing the user about the nature of the link.
-2. **Chevron icon:** Visually support the Label.
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Label:** Text label informing the user about the nature of the link.",
+        "**Chevron icon:** Visually support the Label."
+    ]
+} %}
 
 ---
 
@@ -32,7 +48,11 @@ draft: true
 
 ### Default
 
---- > *image placeholder*
+{% contentPageImage {
+    src:"../../../assets/img/components/show-more/variants-default.svg",
+    alt: "The default variant of the Show more component showing the label and downward chevron.",
+    width: "200"
+} %}
 
 ---
 
@@ -40,15 +60,24 @@ draft: true
 
 Always place the component below the paragraph or sentence. It does not support being inline with content.
 
-### Do
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id blandit augue, id facilisis nisl. Donec et accumsan erat, in hendrerit quam....
-
-Show more ∨
-
-### Don't
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id blandit augue, id facilisis nisl. Donec et accumsan erat, in hendrerit quam.... Show more ∨
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/show-more/position-do.svg",
+            width: "200",
+            alt: "Example of the Show more component below a paragraph."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/show-more/position-dont.svg",
+            width: "200",
+            alt: "Example of the Show more component inline with content, which is not supported."
+        }]
+    }
+} %}
 
 ---
 
@@ -58,7 +87,11 @@ The component was designed to be collapsed by default, but can be modified to be
 
 Tapping "Show More" reveals the hidden content at the bottom of a paragraph. When this component is expanded, the text changes to "Show Less," and the chevron flips to show the direction of the previously hidden content.
 
---- > *image placeholder*
+{% contentPageImage {
+    src:"../../../assets/img/components/show-more/behaviours-do.svg",
+    alt: "Examples showing the Show more component in both collapsed and expanded states within paragraphs of text.",
+    width: "200"
+} %}
 
 ---
 
@@ -68,11 +101,19 @@ Outlines the atomic level interactive elements for the component.
 
 ### Show More
 
---- > *image placeholder*
+{% contentPageImage {
+    src:"../../../assets/img/components/show-more/states-show-more.svg",
+    alt: "The Show more state of the component showing the label with a downward pointing chevron.",
+    width: "200"
+} %}
 
 ### Show Less
 
---- > *image placeholder*
+{% contentPageImage {
+    src:"../../../assets/img/components/show-more/states-show-less.svg",
+    alt: "The Show less state of the component showing the label with an upward pointing chevron.",
+    width: "200"
+} %}
 
 ---
 
@@ -82,10 +123,18 @@ Outlines the atomic level interactive elements for the component.
 
 Here are some examples of the component in left-to-right context:
 
---- > *image placeholder*
+{% contentPageImage {
+    src:"../../../assets/img/components/show-more/examples-ltr.svg",
+    alt: "Show more component used in left-to-right text examples.",
+    width: "200"
+} %}
 
 ### RTL Examples
 
 Here are some examples of the component in right-to-left context:
 
---- > *image placeholder*
+{% contentPageImage {
+    src:"../../../assets/img/components/show-more/examples-rtl.svg",
+    alt: "Show more component used in right-to-left text examples.",
+    width: "200"
+} %}
