@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icon-with-background",
   "description": "PIE Design System Icon With Background built using Web Components",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -40,7 +40,7 @@
     "@justeattakeaway/pie-monorepo-utils": "0.9.8"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "16.1.0"
+    "@justeattakeaway/pie-webc-core": "16.1.1"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
