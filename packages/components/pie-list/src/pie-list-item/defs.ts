@@ -75,6 +75,12 @@ export interface ListItemProps {
     disabled?: boolean
 
     /**
+     * Renders a bottom divider on the item. Defaults to `false` — set it explicitly on every item
+     * that should have a divider (typically all but the last in a group).
+     */
+    hasDivider?: boolean
+
+    /**
      * Additional ARIA properties that the item cannot derive from its text props. `button.haspopup`
      * applies when `interactionType="button"`: its value is forwarded to the internal `<button>`.
      * Set it when the button row triggers a popup such as a dialog or menu.
@@ -90,4 +96,5 @@ export const defaultProps: DefaultProps = {
     hasMedia: false,
     interactionType: 'none',
     disabled: false,
+    hasDivider: false,
 };

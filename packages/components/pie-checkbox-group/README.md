@@ -109,18 +109,16 @@ import { PieFormLabel } from '@justeattakeaway/pie-webc/react/form-label.js';
 
 ### List items in a checkbox group
 
-For a list-style layout (each option on its own row with primary and secondary text, and dividers between rows), wrap each `pie-checkbox` in a [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) with `selection-type="checkbox"` and place them inside the group. The checkbox goes in the item's `leading` (or `trailing`) slot, and you provide the label through the item's `primaryText` rather than as the checkbox's content.
+For a list-style layout (each option on its own row with primary and secondary text), wrap each `pie-checkbox` in a [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) with `interactionType="checkbox"` and place them inside the group. The checkbox goes in the item's `leading` (or `trailing`) slot, and you provide the label through the item's `primaryText` rather than as the checkbox's content.
 
-`selection-type="checkbox"` makes each item a selectable row:
+`interactionType="checkbox"` makes each item a selectable row:
 
 - the item takes a `presentation` role, so the group still owns its checkbox descendants directly;
 - the item's `primaryText` becomes the checkbox's accessible name, and its `secondaryText` and `metaText` its description (applied to the checkbox's internal input), so you do not pass label text to the checkbox itself;
 - the visible item text is hidden from assistive technology so it is not announced twice;
 - clicking anywhere on a row toggles that row's checkbox.
 
-Set `disabled` on a `pie-list-item` to disable that row (alongside the checkbox's own `disabled`); disabling the group disables every row.
-
-The group lays the items out as a single divided list; selection is independent per checkbox, exactly as in a standard checkbox group.
+Set `disabled` on a `pie-list-item` to disable that row (alongside the checkbox's own `disabled`); disabling the group disables every row. Selection is independent per checkbox, exactly as in a standard checkbox group. Set `hasDivider` on every item except the last to add dividers between rows.
 
 ```js
 import '@justeattakeaway/pie-webc/components/checkbox-group.js';
@@ -130,16 +128,16 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 
 ```html
 <pie-checkbox-group>
-  <pie-list-item selection-type="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+  <pie-list-item hasDivider interactionType="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
     <pie-checkbox slot="leading" name="cheese"></pie-checkbox>
   </pie-list-item>
-  <pie-list-item selection-type="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
+  <pie-list-item hasDivider interactionType="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
     <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
   </pie-list-item>
-  <pie-list-item selection-type="checkbox" disabled primaryText="Mushrooms">
+  <pie-list-item hasDivider interactionType="checkbox" disabled primaryText="Mushrooms">
     <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
   </pie-list-item>
-  <pie-list-item selection-type="checkbox" primaryText="Olives" metaText="£0.50">
+  <pie-list-item interactionType="checkbox" primaryText="Olives" metaText="£0.50">
     <pie-checkbox slot="leading" name="olives"></pie-checkbox>
   </pie-list-item>
 </pie-checkbox-group>

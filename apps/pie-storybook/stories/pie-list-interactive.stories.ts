@@ -52,6 +52,7 @@ const renderRadioItem = (args: ListPlaygroundProps, value: string) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${args.hasDivider}
         ?disabled=${args.disabled}>
         <pie-radio slot="leading" value=${value} ?disabled=${args.disabled}></pie-radio>
         ${renderTrailing(args.trailingContent)}
@@ -67,6 +68,7 @@ const renderCheckboxItem = (args: ListPlaygroundProps, name: string) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${args.hasDivider}
         ?disabled=${args.disabled}>
         <pie-checkbox slot="leading" name=${name} value=${name} ?disabled=${args.disabled}></pie-checkbox>
         ${renderTrailing(args.trailingContent)}
@@ -81,6 +83,7 @@ const renderSwitchItem = (args: ListPlaygroundProps) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${args.hasDivider}
         ?disabled=${args.disabled}>
         ${renderLeading(args.leadingContent)}
         <pie-switch slot="trailing" ?disabled=${args.disabled}></pie-switch>
@@ -96,6 +99,7 @@ const renderLinkItem = (args: ListPlaygroundProps, href: string) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${args.hasDivider}
         ?disabled=${args.disabled}>
         <a slot="link" href=${href}></a>
         ${renderLeading(args.leadingContent)}
@@ -112,6 +116,7 @@ const renderButtonItem = (args: ListPlaygroundProps) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${args.hasDivider}
         ?disabled=${args.disabled}>
         ${renderLeading(args.leadingContent)}
         ${renderTrailing(args.trailingContent)}

@@ -104,13 +104,13 @@ const SwitchSelectionTemplate = () => {
 
     return withLayout(html`
         <pie-list aria-label="Notification settings" @change=${onChange}>
-            <pie-list-item .interactionType=${'switch'} data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
+            <pie-list-item hasDivider .interactionType=${'switch'} data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
                 <pie-switch slot="leading" data-test-id="switch-1"></pie-switch>
             </pie-list-item>
-            <pie-list-item .interactionType=${'switch'} data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
+            <pie-list-item hasDivider .interactionType=${'switch'} data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
                 <pie-switch slot="leading" data-test-id="switch-2"></pie-switch>
             </pie-list-item>
-            <pie-list-item .interactionType=${'switch'} data-test-id="item-3" primaryText="SMS" disabled>
+            <pie-list-item hasDivider .interactionType=${'switch'} data-test-id="item-3" primaryText="SMS" disabled>
                 <pie-switch slot="leading" data-test-id="switch-3" disabled></pie-switch>
             </pie-list-item>
             <pie-list-item .interactionType=${'switch'} data-test-id="item-4" primaryText="Post" metaText="Rarely">
@@ -127,16 +127,16 @@ export const SwitchSelection = createStory<ListProps>(SwitchSelectionTemplate, d
 // text is aria-hidden, and that clicking anywhere on the row activates the link.
 const LinkListTemplate = () => withLayout(html`
     <pie-list aria-label="Manage your restaurant">
-        <pie-list-item .interactionType=${'link'} data-test-id="item-1" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-1" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
             <a slot="link" href="#orders" data-test-id="link-1"></a>
         </pie-list-item>
-        <pie-list-item .interactionType=${'link'} data-test-id="item-2" primaryText="Menu" secondaryText="Edit items and prices">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-2" primaryText="Menu" secondaryText="Edit items and prices">
             <a slot="link" href="#menu" data-test-id="link-2"></a>
         </pie-list-item>
-        <pie-list-item .interactionType=${'link'} data-test-id="item-3" primaryText="Payouts" metaText="Weekly">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-3" primaryText="Payouts" metaText="Weekly">
             <a slot="link" href="#payouts" data-test-id="link-3"></a>
         </pie-list-item>
-        <pie-list-item .interactionType=${'link'} data-test-id="item-4" primaryText="Restaurant settings">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-4" primaryText="Restaurant settings">
             <a slot="link" href="#settings" data-test-id="link-4"></a>
         </pie-list-item>
         <pie-list-item .interactionType=${'link'} data-test-id="item-5" primaryText="Help" secondaryText="Support articles">
@@ -161,9 +161,9 @@ const ButtonListTemplate = () => {
 
     return withLayout(html`
         <pie-list aria-label="Account actions" @click=${onClick}>
-            <pie-list-item .interactionType=${'button'} data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New"></pie-list-item>
-            <pie-list-item .interactionType=${'button'} data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure"></pie-list-item>
-            <pie-list-item .interactionType=${'button'} data-test-id="item-3" primaryText="Sign out" metaText="This device"></pie-list-item>
+            <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New"></pie-list-item>
+            <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure"></pie-list-item>
+            <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-3" primaryText="Sign out" metaText="This device"></pie-list-item>
             <pie-list-item .interactionType=${'button'} data-test-id="item-4" primaryText="Delete account"></pie-list-item>
         </pie-list>
     `);
@@ -175,13 +175,13 @@ export const ButtonList = createStory<ListProps>(ButtonListTemplate, defaultArgs
 // the leading slot so both text and icon colours are captured in the VRT snapshot.
 const ButtonListDisabledTemplate = () => withLayout(html`
     <pie-list aria-label="Account actions">
-        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
             <icon-user slot="leading"></icon-user>
         </pie-list-item>
-        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure">
             <icon-lock slot="leading"></icon-lock>
         </pie-list-item>
-        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-3" primaryText="Notification preferences" secondaryText="Choose what we email you about">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-3" primaryText="Notification preferences" secondaryText="Choose what we email you about">
             <icon-notification slot="leading"></icon-notification>
         </pie-list-item>
         <pie-list-item .interactionType=${'button'} disabled data-test-id="item-4" primaryText="Sign out" secondaryText="End your session on this device">
@@ -437,9 +437,9 @@ const RemovedPaddingTemplate = () => withLayout(html`
 export const RemovedPadding = createStory<ListProps>(RemovedPaddingTemplate, defaultArgs)();
 
 /**
- * Verifies the divider border pie-list applies between items. Deliberately
- * omits `withLayout`'s decorative purple border so the real divider (and its
- * absence on the last item) is visible without visual noise.
+ * Verifies the divider rendered by `hasDivider`. Deliberately omits `withLayout`'s decorative
+ * purple border so the real divider (and its absence on the last item) is visible without visual
+ * noise. The consumer sets `hasDivider` on every item except the last.
  */
 const BordersTemplate = () => html`
     <style>
@@ -449,14 +449,55 @@ const BordersTemplate = () => html`
         }
     </style>
     <pie-list>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text"></pie-list-item>
         <pie-list-item primaryText="Primary text"></pie-list-item>
     </pie-list>
 `;
 
 export const Borders = createStory<ListProps>(BordersTemplate, defaultArgs)();
+
+/**
+ * Height verification story. Each item has a light background so the block padding is clearly
+ * visible. Covers default, compact, two-line and media variants with and without a divider.
+ */
+const ItemHeightsTemplate = () => html`
+    <style>
+        pie-list {
+            min-width: 300px;
+            max-width: 500px;
+        }
+        pie-list-item {
+            background-color: #ddeeff;
+        }
+    </style>
+    <h3>Default (single line)</h3>
+    <pie-list>
+        <pie-list-item hasDivider primaryText="With divider"></pie-list-item>
+        <pie-list-item hasDivider primaryText="With divider"></pie-list-item>
+        <pie-list-item hasDivider primaryText="With divider"></pie-list-item>
+        <pie-list-item primaryText="No divider (last)"></pie-list-item>
+    </pie-list>
+
+    <h3>Two-line (primary + secondary)</h3>
+    <pie-list>
+        <pie-list-item hasDivider primaryText="With divider" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="With divider" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="With divider" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item primaryText="No divider (last)" secondaryText="Secondary text"></pie-list-item>
+    </pie-list>
+
+    <h3>Compact</h3>
+    <pie-list>
+        <pie-list-item hasDivider isCompact primaryText="With divider"></pie-list-item>
+        <pie-list-item hasDivider isCompact primaryText="With divider"></pie-list-item>
+        <pie-list-item hasDivider isCompact primaryText="With divider"></pie-list-item>
+        <pie-list-item isCompact primaryText="No divider (last)"></pie-list-item>
+    </pie-list>
+`;
+
+export const ItemHeights = createStory<ListProps>(ItemHeightsTemplate, defaultArgs)();
 
 // Edge cases -----------------------------------------------------------------
 

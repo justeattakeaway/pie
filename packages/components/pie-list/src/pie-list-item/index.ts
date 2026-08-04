@@ -51,6 +51,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean })
         disabled = defaultProps.disabled;
 
+    @property({ type: Boolean })
+        hasDivider = defaultProps.hasDivider;
+
     @property({ type: Object })
         aria: ListItemProps['aria'];
 
@@ -302,6 +305,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             'is-compact': this.isCompact,
             'is-bold': this.isBold,
             'has-media': this.hasMedia,
+            'has-divider': this.hasDivider,
             'is-selectable': this._isSelectable,
             'is-link': this._isLinkRow,
             'is-button': this._isButtonRow,

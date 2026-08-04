@@ -160,19 +160,19 @@ const buildListItemsTemplate = (preChecked = false) => {
         </style>
         <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" @change=${onChange}>
             <!-- item-1: secondary AND meta text (combined into aria-description) -->
-            <pie-list-item .interactionType=${'checkbox'} data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+            <pie-list-item hasDivider .interactionType=${'checkbox'} data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
                 <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese" value="cheese"></pie-checkbox>
             </pie-list-item>
             <!-- item-2: secondary text only -->
-            <pie-list-item .interactionType=${'checkbox'} data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+            <pie-list-item hasDivider .interactionType=${'checkbox'} data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
                 <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni" value="pepperoni" ?checked=${preChecked}></pie-checkbox>
             </pie-list-item>
             <!-- item-3: neither secondary nor meta (no aria-description); a disabled row (both the
                  item and its checkbox are disabled) -->
-            <pie-list-item .interactionType=${'checkbox'} disabled data-test-id="item-3" primaryText="Mushrooms">
+            <pie-list-item hasDivider .interactionType=${'checkbox'} disabled data-test-id="item-3" primaryText="Mushrooms">
                 <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms" value="mushrooms" disabled></pie-checkbox>
             </pie-list-item>
-            <!-- item-4: meta text only -->
+            <!-- item-4: meta text only (last — no divider) -->
             <pie-list-item .interactionType=${'checkbox'} data-test-id="item-4" primaryText="Olives" metaText="£0.50">
                 <pie-checkbox slot="leading" data-test-id="checkbox-4" name="olives" value="olives"></pie-checkbox>
             </pie-list-item>
@@ -191,13 +191,13 @@ const WithListItemsGroupDisabledTemplate = () => html`
             pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
         </style>
         <pie-checkbox-group data-test-id="pie-checkbox-group" name="toppings" disabled>
-            <pie-list-item .interactionType=${'checkbox'} data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+            <pie-list-item hasDivider .interactionType=${'checkbox'} data-test-id="item-1" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
                 <pie-checkbox slot="leading" data-test-id="checkbox-1" name="cheese" value="cheese"></pie-checkbox>
             </pie-list-item>
-            <pie-list-item .interactionType=${'checkbox'} data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
+            <pie-list-item hasDivider .interactionType=${'checkbox'} data-test-id="item-2" primaryText="Pepperoni" secondaryText="Spicy">
                 <pie-checkbox slot="leading" data-test-id="checkbox-2" name="pepperoni" value="pepperoni"></pie-checkbox>
             </pie-list-item>
-            <pie-list-item .interactionType=${'checkbox'} data-test-id="item-3" primaryText="Mushrooms">
+            <pie-list-item hasDivider .interactionType=${'checkbox'} data-test-id="item-3" primaryText="Mushrooms">
                 <pie-checkbox slot="leading" data-test-id="checkbox-3" name="mushrooms" value="mushrooms"></pie-checkbox>
             </pie-list-item>
             <pie-list-item .interactionType=${'checkbox'} data-test-id="item-4" primaryText="Olives" metaText="£0.50">

@@ -24,6 +24,7 @@ export type ListPlaygroundProps = {
     isCompact: boolean;
     isBold: boolean;
     hasMedia: boolean;
+    hasDivider: boolean;
     disabled: boolean;
     leadingContent: 'none' | 'icon' | 'thumbnail';
     trailingContent: 'none' | 'icon' | 'tag';
@@ -38,6 +39,7 @@ export const defaultArgs: ListPlaygroundProps = {
     isCompact: false,
     isBold: false,
     hasMedia: false,
+    hasDivider: false,
     disabled: false,
     leadingContent: 'none',
     trailingContent: 'icon',
@@ -66,6 +68,10 @@ export const listArgTypes: ListStoryMeta['argTypes'] = {
     },
     hasMedia: {
         description: 'Required to display slotted media (e.g. `pie-thumbnail`). Also reduces block padding on single-line items.',
+        control: 'boolean',
+    },
+    hasDivider: {
+        description: 'Renders a bottom divider on the item. Set on every item that should have one (typically all but the last).',
         control: 'boolean',
     },
     disabled: {
@@ -127,6 +133,7 @@ export const renderItem = (args: ListPlaygroundProps, itemStyle = '') => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${args.hasDivider}
         ?disabled=${args.disabled}>
         ${renderLeading(args.leadingContent)}
         ${renderTrailing(args.trailingContent)}

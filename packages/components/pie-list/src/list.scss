@@ -1,7 +1,3 @@
-@use '@justeattakeaway/pie-css/scss' as p;
-
 :host {
     display: block;
-
-    @include p.list-item-divider;
 }

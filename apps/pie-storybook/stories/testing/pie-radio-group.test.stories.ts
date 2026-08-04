@@ -259,19 +259,19 @@ const buildListItemsTemplate = (value?: string) => {
         <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
         <pie-radio-group data-test-id="pie-radio-group" name="delivery" value=${ifDefined(value)} @change=${onChange}>
             <!-- item-1: secondary AND meta text (combined into aria-description) -->
-            <pie-list-item .interactionType=${'radio'} data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
+            <pie-list-item hasDivider .interactionType=${'radio'} data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
                 <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
             </pie-list-item>
             <!-- item-2: secondary text only -->
-            <pie-list-item .interactionType=${'radio'} data-test-id="item-2" primaryText="Express" secondaryText="Next day">
+            <pie-list-item hasDivider .interactionType=${'radio'} data-test-id="item-2" primaryText="Express" secondaryText="Next day">
                 <pie-radio slot="leading" data-test-id="radio-2" value="express"></pie-radio>
             </pie-list-item>
             <!-- item-3: neither secondary nor meta (no aria-description); a disabled row (both the
                  item and its radio are disabled) -->
-            <pie-list-item .interactionType=${'radio'} disabled data-test-id="item-3" primaryText="Collection">
+            <pie-list-item hasDivider .interactionType=${'radio'} disabled data-test-id="item-3" primaryText="Collection">
                 <pie-radio slot="leading" data-test-id="radio-3" value="collection" disabled></pie-radio>
             </pie-list-item>
-            <!-- item-4: meta text only -->
+            <!-- item-4: meta text only (last — no divider) -->
             <pie-list-item .interactionType=${'radio'} data-test-id="item-4" primaryText="Locker" metaText="£1.99">
                 <pie-radio slot="leading" data-test-id="radio-4" value="locker"></pie-radio>
             </pie-list-item>
@@ -291,13 +291,13 @@ const WithListItemsGroupDisabledTemplate = () => html`
             pie-list-item { --list-item-inline-padding: var(--dt-spacing-e); }
         </style>
         <pie-radio-group data-test-id="pie-radio-group" name="delivery" value="express" disabled>
-            <pie-list-item .interactionType=${'radio'} data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
+            <pie-list-item hasDivider .interactionType=${'radio'} data-test-id="item-1" primaryText="Standard" secondaryText="3 to 5 days" metaText="Free">
                 <pie-radio slot="leading" data-test-id="radio-1" value="standard"></pie-radio>
             </pie-list-item>
-            <pie-list-item .interactionType=${'radio'} data-test-id="item-2" primaryText="Express" secondaryText="Next day">
+            <pie-list-item hasDivider .interactionType=${'radio'} data-test-id="item-2" primaryText="Express" secondaryText="Next day">
                 <pie-radio slot="leading" data-test-id="radio-2" value="express"></pie-radio>
             </pie-list-item>
-            <pie-list-item .interactionType=${'radio'} data-test-id="item-3" primaryText="Collection">
+            <pie-list-item hasDivider .interactionType=${'radio'} data-test-id="item-3" primaryText="Collection">
                 <pie-radio slot="leading" data-test-id="radio-3" value="collection"></pie-radio>
             </pie-list-item>
             <pie-list-item .interactionType=${'radio'} data-test-id="item-4" primaryText="Locker" metaText="£1.99">

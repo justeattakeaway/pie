@@ -6,7 +6,6 @@
     // host declaration wins over a value inherited from an ancestor.
     --list-item-inline-padding: var(--dt-spacing-d);
     --list-item-alignment: flex-start;
-    --list-item-border: none;
 
     // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
     display: block;
@@ -16,21 +15,17 @@
 .c-listItem-container {
     --list-item-block-padding: var(--dt-spacing-d);
 
-    // The list component will add a border to each list-item that follows another. This ensures the height accounts for the added border.
-    --list-item-block-end-padding: calc(var(--list-item-block-padding) - var(--list-item-size-modifier));
-
     padding-inline-start: var(--list-item-inline-padding);
     padding-inline-end: var(--list-item-inline-padding);
 
     padding-block-start: var(--list-item-block-padding);
-    padding-block-end: var(--list-item-block-end-padding, var(--list-item-block-padding));
+    padding-block-end: var(--list-item-block-padding);
 
     // Layout
     display: flex;
     align-items: var(--list-item-alignment);
     gap: var(--dt-spacing-c);
     min-height: 56px;
-    border-bottom: var(--list-item-border);
 }
 
 // Two lines of text (primary + secondary) need top-alignment so leading/trailing
@@ -47,6 +42,14 @@
     --list-item-alignment: center;
     align-items: var(--list-item-alignment);
     min-height: 48px;
+}
+
+// A divider is opt-in: set `hasDivider` on each item that should show one (typically all but the
+// last in a group). The 1px is subtracted from block-end padding so a divider item stays the same
+// height as one without.
+.c-listItem-container.has-divider {
+    border-bottom: 1px solid var(--dt-color-divider-default);
+    padding-block-end: calc(var(--list-item-block-padding) - 1px);
 }
 
 // Overlay rows (link/button): the whole item is a single interactive target. The container is
