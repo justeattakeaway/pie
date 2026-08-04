@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.1.1
+
+### Patch Changes
+
+- [Changed] - Dependency updates: lit 3.2.0 → 3.3.3 ([#3082](https://github.com/justeattakeaway/pie/pull/3082)) by [@dependabot](https://github.com/apps/dependabot)
+
 ## 16.1.0
 
 ### Minor Changes

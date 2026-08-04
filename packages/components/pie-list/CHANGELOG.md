@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-list
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - `interactionType="button"` turns the whole row into a single button for an in-page action. The item renders an invisible, row-sized native `<button type="button">` for you (no slotting), named from its text and keeping the PIE focus ring. Activation is native (pointer, Enter and Space fire a bubbling `click`) - listen for `click` on the `pie-list-item`. It is an action trigger only, not a form control. ([#3079](https://github.com/justeattakeaway/pie/pull/3079)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e9ef549`](https://github.com/justeattakeaway/pie/commit/e9ef54989cea1df4f77b9bb2923390318d00fa5e)]:
+  - @justeattakeaway/pie-webc-core@16.1.1
+
 ## 0.4.0
 
 ### Minor Changes
