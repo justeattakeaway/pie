@@ -1,12 +1,9 @@
 {
-  "templateFile": "./dist/pie-icons.figma.batch.js",
+  "templateFile": "./dist/pie-icons-flags.figma.batch.js",
   "components": [
     {
-      "componentName": "icon-flag",
-      "componentNameReact": "IconFlag",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
-      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1698-656",
-      "iconType": "flag"
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1698-656"
     }
   ]
 }

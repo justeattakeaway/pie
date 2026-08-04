@@ -31,22 +31,12 @@ function getSocialIconComponentName (componentBaseName, isReact) {
     return `${componentBaseName}${circleSuffix}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
 }
 
-function getFlagComponentName (componentBaseName, isReact) {
-    const country = getInstanceProp('getPropertyValue', 'Countries');
-    const regexNonAlphaNumeric = /[^a-zA-Z0-9]/g;
-
-    const flagName = isReact ? country.replace(regexNonAlphaNumeric, '') : `-${country.replace(regexNonAlphaNumeric, '-').toLowerCase()}`;
-
-    return `${componentBaseName}${flagName}`;
-}
-
 // https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10207-11597&m=dev
 
 function getComponentName (isReact) {
     const componentBaseName = isReact ? componentNameReact : componentName;
 
     if (iconType === 'social') return getSocialIconComponentName(componentBaseName, isReact);
-    if (iconType === 'flag') return getFlagComponentName(componentBaseName, isReact);
 
     // Regular icons
     return `${componentBaseName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
