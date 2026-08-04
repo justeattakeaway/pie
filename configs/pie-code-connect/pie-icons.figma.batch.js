@@ -31,10 +31,20 @@ function getSocialIconComponentName (componentBaseName, isReact) {
     return `${componentBaseName}${circleSuffix}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
 }
 
+function getFlagComponentName (componentBaseName, isReact) {
+    const country = getInstanceProp('getPropertyValue', 'Countries');
+    const regexNonAlphaNumeric = /[^a-zA-Z0-9]/g;
+
+    const flagName = isReact ? country.replace(regexNonAlphaNumeric, '') : `-${country.replace(regexNonAlphaNumeric, '-').toLowerCase()}`;
+
+    return `${componentBaseName}${flagName}`;
+}
+
 function getComponentName (isReact) {
     const componentBaseName = isReact ? componentNameReact : componentName;
 
     if (iconType === 'social') return getSocialIconComponentName(componentBaseName, isReact);
+    if (iconType === 'flag') return getFlagComponentName(componentBaseName, isReact);
 
     // Regular icons
     return `${componentBaseName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
