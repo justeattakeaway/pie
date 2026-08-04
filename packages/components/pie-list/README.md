@@ -37,6 +37,7 @@
     - [Multi-select (checkboxes)](#multi-select-checkboxes)
     - [Independent toggles (switches)](#independent-toggles-switches)
   - [Link items](#link-items)
+    - [Indicating the current page](#indicating-the-current-page)
   - [Button items](#button-items)
   - [Framework variants](#framework-variants)
 - [Usage Notes and Rules](#usage-notes-and-rules)
@@ -414,6 +415,45 @@ import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
 
 <PieListItem interactionType="link" primaryText="Orders" secondaryText="View and manage live orders">
   <Link slot="link" href="/orders" />
+</PieListItem>
+```
+
+#### Indicating the current page
+
+To highlight the active link in a navigation list, combine `isBold` on the `pie-list-item` with `aria-current="page"` on the slotted anchor. `isBold` gives the active item a heavier weight visually; `aria-current="page"` communicates the current page to assistive technology. `pie-list-item` only manages the anchor's `aria-label` and `aria-description`, so `aria-current` does not conflict with the item's naming logic and is safe to set yourself.
+
+You can also slot a tick icon into the `trailing` slot of the active item as an additional visual indicator. PIE icons render with `role="presentation"` on their SVG, so they are already hidden from assistive technology and no extra `aria-hidden` is needed.
+
+```js
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
+```
+
+```html
+<pie-list aria-label="Account navigation">
+  <pie-list-item interactionType="link" primaryText="Overview">
+    <a slot="link" href="/account"></a>
+  </pie-list-item>
+  <pie-list-item interactionType="link" isBold primaryText="Orders">
+    <a slot="link" href="/account/orders" aria-current="page"></a>
+    <icon-check slot="trailing"></icon-check>
+  </pie-list-item>
+  <pie-list-item interactionType="link" primaryText="Payment methods">
+    <a slot="link" href="/account/payment"></a>
+  </pie-list-item>
+  <pie-list-item interactionType="link" primaryText="Addresses">
+    <a slot="link" href="/account/addresses"></a>
+  </pie-list-item>
+</pie-list>
+```
+
+In React, pass `isBold` as a prop and `aria-current="page"` directly to the `<Link>` component (or raw anchor):
+
+```jsx
+import { IconCheck } from '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
+
+<PieListItem interactionType="link" isBold primaryText="Orders">
+  <Link slot="link" href="/account/orders" aria-current="page" />
+  <IconCheck slot="trailing" />
 </PieListItem>
 ```
 

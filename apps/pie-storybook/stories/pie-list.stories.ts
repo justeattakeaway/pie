@@ -12,6 +12,7 @@ import '@justeattakeaway/pie-webc/components/checkbox-group';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser';
 import '@justeattakeaway/pie-icons-webc/dist/IconLock';
 import '@justeattakeaway/pie-icons-webc/dist/IconNotification';
@@ -348,6 +349,31 @@ export const LinkList = createStory<ListPlaygroundProps>(() => html`
         </pie-list-item>
         <pie-list-item .interactionType=${'link'} primaryText="Payouts" secondaryText="Invoices and bank details" metaText="Weekly">
             <a slot="link" href="#payouts"></a>
+        </pie-list-item>
+    </pie-list>
+`, defaultArgs)();
+
+/**
+ * Combining `isBold` on the active `pie-list-item` with `aria-current="page"` on its slotted anchor
+ * communicates the current page both visually and to assistive technology. A trailing `icon-check`
+ * reinforces the active state visually; PIE icons render with `role="presentation"` so no extra
+ * `aria-hidden` is needed.
+ */
+export const LinkListCurrentPage = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Account navigation">
+        <pie-list-item .interactionType=${'link'} primaryText="Overview">
+            <a slot="link" href="#overview"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} ?isBold=${true} primaryText="Orders">
+            <a slot="link" href="#orders" aria-current="page"></a>
+            <icon-check slot="trailing"></icon-check>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} primaryText="Payment methods">
+            <a slot="link" href="#payment"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} primaryText="Addresses">
+            <a slot="link" href="#addresses"></a>
         </pie-list-item>
     </pie-list>
 `, defaultArgs)();
