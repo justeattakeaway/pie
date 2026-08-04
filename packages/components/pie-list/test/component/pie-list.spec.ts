@@ -386,11 +386,11 @@ test.describe('PieList - Component tests', () => {
             await expect.poll(() => actionAria(page, 'item-1', 'aria-haspopup')).toBeNull();
         });
 
-        test('should forward aria.haspopup to the internal action button', async ({ page }) => {
+        test('should forward aria.button.haspopup to the internal action button', async ({ page }) => {
             // Set the aria prop on the item and verify it reaches the shadow <button>.
             await page.evaluate(() => {
                 const item = document.querySelector('[data-test-id="item-1"]') as any;
-                item.aria = { haspopup: 'dialog' };
+                item.aria = { button: { haspopup: 'dialog' } };
             });
 
             await expect.poll(() => actionAria(page, 'item-1', 'aria-haspopup')).toBe('dialog');

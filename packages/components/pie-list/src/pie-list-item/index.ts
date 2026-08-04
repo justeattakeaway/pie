@@ -291,7 +291,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             ?disabled=${this._isDisabled}
             aria-label=${ifDefined(aria?.label)}
             aria-description=${ifDefined(aria?.description)}
-            aria-haspopup=${ifDefined(this.aria?.haspopup)}></button>`;
+            aria-haspopup=${ifDefined(this.aria?.button?.haspopup)}></button>`;
     }
 
     render () {
