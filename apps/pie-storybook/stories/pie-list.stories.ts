@@ -12,6 +12,11 @@ import '@justeattakeaway/pie-webc/components/checkbox-group';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser';
+import '@justeattakeaway/pie-icons-webc/dist/IconLock';
+import '@justeattakeaway/pie-icons-webc/dist/IconNotification';
+import '@justeattakeaway/pie-icons-webc/dist/IconLogOut';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
@@ -347,3 +352,64 @@ export const LinkList = createStory<ListPlaygroundProps>(() => html`
         </pie-list-item>
     </pie-list>
 `, defaultArgs)();
+
+/**
+ * Combining `isBold` on the active `pie-list-item` with `aria-current="page"` on its slotted anchor
+ * communicates the current page both visually and to assistive technology. A trailing `icon-check`
+ * reinforces the active state visually; PIE icons render with `role="presentation"` so no extra
+ * `aria-hidden` is needed.
+ */
+export const LinkListCurrentPage = createStory<ListPlaygroundProps>(() => html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Account navigation">
+        <pie-list-item .interactionType=${'link'} primaryText="Overview">
+            <a slot="link" href="#overview"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} ?isBold=${true} primaryText="Orders">
+            <a slot="link" href="#orders" aria-current="page"></a>
+            <icon-check slot="trailing"></icon-check>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} primaryText="Payment methods">
+            <a slot="link" href="#payment"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'link'} primaryText="Addresses">
+            <a slot="link" href="#addresses"></a>
+        </pie-list-item>
+    </pie-list>
+`, defaultArgs)();
+
+// Button lists --------------------------------------------------------------
+// `interactionType="button"` turns the whole row into a single button (an in-page action rather
+// than navigation). The item renders the button for you (no slotting); it is stretched invisibly
+// over the entire row so the whole item is the target, named by the item's own text, and fires a
+// native `click`. There is no group, so button rows live in a plain `pie-list`.
+
+/**
+ * Button rows: `pie-list-item` with `interactionType="button"`. The item renders an invisible,
+ * row-sized button (keeping the PIE focus ring) named by its text - you slot nothing. Clicking the
+ * row, or pressing Enter/Space while it is focused, fires a `click`; listen for it on the
+ * `pie-list-item` (or on the `pie-list`, since it bubbles).
+ */
+export const ButtonList = createStory<ListPlaygroundProps>(() => {
+    const onButtonActivate = (event: Event) => {
+        if ((event.target as HTMLElement).closest('pie-list-item')) console.info('Button activated');
+    };
+
+    return html`
+    <style>pie-list { min-width: 350px; }</style>
+    <pie-list aria-label="Account actions" @click=${onButtonActivate}>
+        <pie-list-item .interactionType=${'button'} primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
+            <icon-user slot="leading"></icon-user>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Change password" secondaryText="Keep your account secure">
+            <icon-lock slot="leading"></icon-lock>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Notification preferences" secondaryText="Choose what we email you about">
+            <icon-notification slot="leading"></icon-notification>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Sign out" secondaryText="End your session on this device">
+            <icon-log-out slot="leading"></icon-log-out>
+        </pie-list-item>
+    </pie-list>
+`;
+}, defaultArgs)();
