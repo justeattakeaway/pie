@@ -1,5 +1,6 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
+const PAYMENT_ICON_MAP = require('./utils/payment-icon-map.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact, iconType } = figma.batch;
@@ -41,7 +42,15 @@ function getFlagComponentName (componentBaseName, isReact) {
 }
 
 function getPaymentComponentName (componentBaseName, isReact) {
+    const method = getInstanceProp('getPropertyValue', 'Method');
+    const kebabName = PAYMENT_ICON_MAP[method];
+    if (!kebabName) return componentBaseName;
 
+    if (!isReact) return `${componentBaseName}-${kebabName}`;
+
+    const pascalSuffix = kebabName.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+
+    return `${componentBaseName}${pascalSuffix}`;
 }
 
 // https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10207-11597&m=dev
