@@ -1,5 +1,7 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
+const toPascalCase = require('./utils/to-pascal-case.js');
+const getIconImportStatement = require('./utils/get-icon-import-statement.js');
 const iconFiles = require('./temp/file-names-flag-icons.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
@@ -15,7 +17,7 @@ function getFlagComponentName (componentBaseName, isReact) {
     if (!matchedFileName) return 'icon-not-found';
 
     if (isReact) {
-        return `${componentBaseName}-${matchedFileName}`.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+        return toPascalCase(`${componentBaseName}-${matchedFileName}`);
     }
 
     return `${componentBaseName}-${matchedFileName}`;
@@ -25,9 +27,7 @@ function getComponentName (isReact) {
     return getFlagComponentName('icon-flag', isReact);
 }
 
-const importStatement = isReact
-    ? `import { ${getComponentName(true)} } from "@justeattakeaway/pie-icons-webc/dist/react/${getComponentName(true)}.js"`
-    : `import "@justeattakeaway/pie-icons-webc/dist/${getComponentName(true)}.js"`;
+const importStatement = getIconImportStatement(getComponentName(true), isReact);
 
 export default {
     example: figma.code`<${getComponentName(isReact)}></${getComponentName(isReact)}>`,
