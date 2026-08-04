@@ -2,7 +2,7 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
-const { componentName, componentNameReact } = figma.batch;
+const { componentName, componentNameReact, iconType } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 
 const isFilled = getInstanceProp('getEnum', 'Fill', { True: true, False: false });
@@ -19,7 +19,22 @@ function getSizeSuffix (isReact) {
 }
 
 function getComponentName (isReact) {
-    return `${isReact ? componentNameReact : componentName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
+    const componentBaseName = isReact ? componentNameReact : componentName;
+    if (iconType === 'social') {
+        const isStatic = getInstanceProp('getBoolean', 'Colour');
+
+        if (isStatic) {
+            const staticSuffix = isReact ? 'Static' : '-static';
+            return `${componentBaseName}${staticSuffix}${getSizeSuffix(isReact)}`;
+        }
+
+        const circleSuffix = isReact ? 'Circle' : '-circle';
+
+        return `${componentBaseName}${circleSuffix}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
+    }
+
+    // Regular icons
+    return `${componentBaseName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
 }
 
 const importStatement = isReact
