@@ -2072,8 +2072,8 @@
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=1383-612"
     },
     {
-      "componentName": "icon-kitchen",
-      "componentNameReact": "IconKitchen",
+      "componentName": "icon-cutlery",
+      "componentNameReact": "IconCutlery",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=2291-4442"
     },
