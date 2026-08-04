@@ -20,8 +20,16 @@ function getSizeSuffix (isReact) {
 
 function getComponentName (isReact) {
     const componentBaseName = isReact ? componentNameReact : componentName;
+    const isStatic = getInstanceProp('getBoolean', 'Colour');
 
-    return `${componentBaseName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
+    if (isStatic) {
+        const staticSuffix = isReact ? 'Static' : '-static';
+        return `${componentBaseName}${staticSuffix}${getSizeSuffix(isReact)}`;
+    }
+
+    const circleSuffix = isReact ? 'Circle' : '-circle';
+
+    return `${componentBaseName}${circleSuffix}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
 }
 
 const importStatement = isReact
