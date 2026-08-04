@@ -3,7 +3,8 @@ eleventyNavigation:
   key: Web
   parent: Stacked Notification
   order: 3
-  draft: true
+draft: true
+permalink: false
 shouldShowContents: true
 ---
 
