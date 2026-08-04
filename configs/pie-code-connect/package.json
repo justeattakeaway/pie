@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Figma Code Connect templates and configuration files for PIE web components",
   "scripts": {
-    "build:web": "FRAMEWORK=web node scripts/build-figma-files.js",
-    "build:react": "FRAMEWORK=react node scripts/build-figma-files.js",
+    "get-icons-file-names": "node scripts/get-icons-file-names.js",
+    "build:web": "yarn get-icons-file-names && FRAMEWORK=web node scripts/build-figma-files.js",
+    "build:react": "yarn get-icons-file-names && FRAMEWORK=react node scripts/build-figma-files.js",
     "publish-components:web": "yarn build:web && yarn figma connect publish -c ./config/figma-web-components-batch.config.json",
     "publish-components:react": "yarn build:react && yarn figma connect publish -c ./config/figma-react-components-batch.config.json",
     "publish-icons:web": "COMPONENT_PREFIX=pie-icons yarn build:web && yarn figma connect publish -c ./config/figma-icons-web.config.json",
