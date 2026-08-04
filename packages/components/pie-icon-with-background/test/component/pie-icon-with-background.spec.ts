@@ -55,17 +55,12 @@ test.describe('PieIconWithBackground - Component tests', () => {
     });
 
     test.describe('variant prop', () => {
-        [
-            { variant: 'neutral', storyId: 'icon-with-background--neutral' },
-            { variant: 'neutral-alternative', storyId: 'icon-with-background--neutral-alternative' },
-            { variant: 'information', storyId: 'icon-with-background--information' },
-            { variant: 'brand-05', storyId: 'icon-with-background--brand-05' },
-        ].forEach(({ variant, storyId }) => {
+        (['neutral', 'neutral-alternative', 'information', 'brand-05'] as const).forEach((variant) => {
             test(`should apply the ${variant} variant class`, async ({ page }) => {
                 // Arrange
-                const basePage = new BasePage(page, storyId);
+                const basePage = new BasePage(page, 'icon-with-background--default');
 
-                await basePage.load();
+                await basePage.load({ variant });
 
                 // Act
                 const iconWithBackground = page.locator(componentSelector);
@@ -79,9 +74,9 @@ test.describe('PieIconWithBackground - Component tests', () => {
     test.describe('isStrong prop', () => {
         test('should apply the strong class when isStrong is true', async ({ page }) => {
             // Arrange
-            const basePage = new BasePage(page, 'icon-with-background--brand-05-strong');
+            const basePage = new BasePage(page, 'icon-with-background--default');
 
-            await basePage.load();
+            await basePage.load({ variant: 'brand-05', isStrong: true });
 
             // Act
             const iconWithBackground = page.locator(componentSelector);
