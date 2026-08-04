@@ -48,7 +48,7 @@ width: 200
 
 ## Variants
 
-### Default
+### Brand
 
 {% contentPageImage {
 src: "../../../assets/img/components/badge/variants-default.svg",
