@@ -1,0 +1,12 @@
+{
+  "templateFile": "./dist/pie-icons.figma.batch.js",
+  "components": [
+    {
+      "componentName": "icon-payment",
+      "componentNameReact": "IconPayment",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10207-11597",
+      "iconType": "payment"
+    }
+  ]
+}

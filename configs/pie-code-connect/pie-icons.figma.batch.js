@@ -40,11 +40,18 @@ function getFlagComponentName (componentBaseName, isReact) {
     return `${componentBaseName}${flagName}`;
 }
 
+function getPaymentComponentName (componentBaseName, isReact) {
+
+}
+
+// https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10207-11597&m=dev
+
 function getComponentName (isReact) {
     const componentBaseName = isReact ? componentNameReact : componentName;
 
     if (iconType === 'social') return getSocialIconComponentName(componentBaseName, isReact);
     if (iconType === 'flag') return getFlagComponentName(componentBaseName, isReact);
+    if (iconType === 'payment') return getPaymentComponentName(componentBaseName, isReact);
 
     // Regular icons
     return `${componentBaseName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
