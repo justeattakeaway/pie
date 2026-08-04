@@ -3,6 +3,7 @@ import {
 } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { consume, ContextProvider } from '@lit/context';
 import {
     safeCustomElement,
@@ -50,6 +51,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     @property({ type: Boolean })
         disabled = defaultProps.disabled;
 
+    @property({ type: Object })
+        aria: ListItemProps['aria'];
+
     // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state.
     // Defaults to false when there is no provider (a standalone item or a static list).
     @consume({ context: parentDisabledContext, subscribe: true })
@@ -83,8 +87,8 @@ export class PieListItem extends PieElement implements ListItemProps {
     private _consumerDescribedLink = false;
 
     // A selection row hosts a slotted control (radio/checkbox/switch) and makes the whole row a
-    // toggle target. `link` is interactive too, but it is a navigation target rather than a
-    // selection control, so it is deliberately excluded here.
+    // toggle target. `link`/`button` are interactive too, but they are single navigation/action
+    // targets rather than selection controls, so they are deliberately excluded here.
     private get _isSelectable (): boolean {
         return this.interactionType === 'radio' ||
             this.interactionType === 'checkbox' ||
@@ -95,10 +99,21 @@ export class PieListItem extends PieElement implements ListItemProps {
         return this.interactionType === 'link';
     }
 
-    // True when the item lends its text to a slotted control as that control's accessible
-    // name/description: selectable rows (radio/checkbox/switch) and link rows (the slotted anchor).
+    private get _isButtonRow (): boolean {
+        return this.interactionType === 'button';
+    }
+
+    // A link and a button row share the same visual mechanic: an empty element stretched over the
+    // whole row as the interactive target, named by the item from its own text. They differ in who
+    // owns that element - a link is a consumer-slotted anchor, a button is one the item renders.
+    private get _isOverlayRow (): boolean {
+        return this._isLinkRow || this._isButtonRow;
+    }
+
+    // True when the item lends its text as an interactive element's accessible name/description:
+    // selectable rows (radio/checkbox/switch) and overlay rows (link anchor / action button).
     private get _providesAria (): boolean {
-        return this._isSelectable || this._isLinkRow;
+        return this._isSelectable || this._isOverlayRow;
     }
 
     // radio/checkbox are owned by a selection group, which is why the item becomes `presentation`
@@ -141,9 +156,9 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     /**
      * Sets the item's role from `interactionType`: `presentation` for radio/checkbox (so the group
-     * owns those controls directly), otherwise `listitem` (static items, switches and links). A role
-     * set explicitly by the consumer is left untouched, even if it is added or removed dynamically
-     * after the element connects.
+     * owns those controls directly), otherwise `listitem` (static items, switches, links and
+     * buttons). A role set explicitly by the consumer is left untouched, even if it is added or
+     * removed dynamically after the element connects.
      */
     private _applyRole (): void {
         const currentRole = this.getAttribute('role');
@@ -156,12 +171,10 @@ export class PieListItem extends PieElement implements ListItemProps {
     }
 
     /**
-     * The accessible name and description this item provides to its slotted control, stitched from
-     * its text. Only provided in a selectable list. Each control consumes this via `ariaContext`
-     * and decides how to apply it: `pie-radio` names its host (which carries `role="radio"`),
-     * while `pie-checkbox` / `pie-switch` name their internal input (their host is role-less, so
-     * `aria-label` there would be invalid). Context reaches across the shadow boundary that
-     * `aria-labelledby` cannot.
+     * The accessible name and description this item provides to its interactive element, stitched
+     * from its text. Selection controls consume it via `ariaContext` (each applying it to the
+     * element that carries its role); the action button of a `button` row takes it directly as
+     * `aria-label`/`aria-description` in the template; a link anchor takes it via `_applyLinkAria`.
      */
     private get _providedAria (): ContextualAria | undefined {
         if (!this._providesAria) return undefined;
@@ -186,11 +199,11 @@ export class PieListItem extends PieElement implements ListItemProps {
     };
 
     /**
-     * When the item is a link, names the slotted (empty) anchor from the item's own text: the parent
-     * owns the child's aria. The anchor is plain light-DOM, so it cannot reference the shadow-DOM text
-     * via `aria-labelledby`; and it is not a PIE control that consumes `ariaContext`, so we set the
+     * On a link row, names the slotted (empty) anchor from the item's own text: the parent owns the
+     * child's aria. The anchor is plain light-DOM, so it cannot reference the shadow-DOM text via
+     * `aria-labelledby`; and it is not a PIE control that consumes `ariaContext`, so we set the
      * attributes imperatively. The visible text is `aria-hidden` in the template, so nothing is
-     * announced twice.
+     * announced twice. (A `button` row names its own rendered element in the template instead.)
      *
      * A consumer-provided name/description always wins: we capture (once) whether the anchor already
      * carries `aria-label`/`aria-labelledby` or `aria-description`/`aria-describedby` and, if so,
@@ -261,6 +274,26 @@ export class PieListItem extends PieElement implements ListItemProps {
         return html`<div class="c-listItem-trailing"><slot name="trailing"></slot></div>`;
     }
 
+    /**
+     * The interactive target for a `button` row: an empty, native `<button>` stretched invisibly
+     * over the whole row (see the SCSS). The item renders and owns it - rather than the consumer
+     * slotting one - so it can name it from its own text and keep its attributes private (it is just
+     * an action box, not a configurable control). Being a real button, activation is native: pointer
+     * clicks and keyboard (Enter/Space) both fire a `click` that bubbles out, so consumers listen for
+     * `click` on the `pie-list-item`. It is `type="button"`, so it never submits a form.
+     */
+    _renderActionButton () {
+        const aria = this._providedAria;
+
+        return html`<button
+            class="c-listItem-action"
+            type="button"
+            ?disabled=${this._isDisabled}
+            aria-label=${ifDefined(aria?.label)}
+            aria-description=${ifDefined(aria?.description)}
+            aria-haspopup=${ifDefined(this.aria?.button?.haspopup)}></button>`;
+    }
+
     render () {
         const { primaryText } = this;
 
@@ -271,12 +304,14 @@ export class PieListItem extends PieElement implements ListItemProps {
             'has-media': this.hasMedia,
             'is-selectable': this._isSelectable,
             'is-link': this._isLinkRow,
+            'is-button': this._isButtonRow,
             'is-disabled': this._isDisabled,
         };
 
         return html`
         <div class=${classMap(containerClasses)}>
             ${this._isLinkRow ? html`<slot name="link"></slot>` : nothing}
+            ${this._isButtonRow ? this._renderActionButton() : nothing}
             <div class="c-listItem-leading">
                 <slot name="leading"></slot>
             </div>
