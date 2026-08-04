@@ -18,20 +18,23 @@ function getSizeSuffix (isReact) {
     return '';
 }
 
+function getSocialIconComponentName (componentBaseName, isReact) {
+    const isStatic = getInstanceProp('getBoolean', 'Colour');
+
+    if (isStatic) {
+        const staticSuffix = isReact ? 'Static' : '-static';
+        return `${componentBaseName}${staticSuffix}${getSizeSuffix(isReact)}`;
+    }
+
+    const circleSuffix = isReact ? 'Circle' : '-circle';
+
+    return `${componentBaseName}${circleSuffix}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
+}
+
 function getComponentName (isReact) {
     const componentBaseName = isReact ? componentNameReact : componentName;
-    if (iconType === 'social') {
-        const isStatic = getInstanceProp('getBoolean', 'Colour');
 
-        if (isStatic) {
-            const staticSuffix = isReact ? 'Static' : '-static';
-            return `${componentBaseName}${staticSuffix}${getSizeSuffix(isReact)}`;
-        }
-
-        const circleSuffix = isReact ? 'Circle' : '-circle';
-
-        return `${componentBaseName}${circleSuffix}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
-    }
+    if (iconType === 'social') return getSocialIconComponentName(componentBaseName, isReact);
 
     // Regular icons
     return `${componentBaseName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
