@@ -1,6 +1,6 @@
 {
   "codeConnect": {
-    "include": ["icons-standard.figma.batch.json"],
+    "include": ["icons-flags.figma.batch.json", "icons-social.figma.batch.json", "icons-payment.figma.batch.json", "icons-standard.figma.batch.json"],
     "label": "Web Components",
     "language": "html",
     "defaultBranch": "main"
