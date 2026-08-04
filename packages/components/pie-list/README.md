@@ -9,9 +9,6 @@
 
 `@justeattakeaway/pie-list` is a Web Component built using the Lit library. It provides a simple, accessible list built from two elements: a `pie-list` container and one or more `pie-list-item` children.
 
-> [!NOTE]
-> This component is still growing. More properties, slots and sub-components will be added over time. This documentation covers what is currently supported.
-
 ## Table of Contents
 
 - [Installation](#installation)
