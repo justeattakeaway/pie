@@ -37,4 +37,16 @@ test.describe('PieList - Accessibility tests', () => {
 
         expect(results.violations).toEqual([]);
     });
+
+    test('a11y - should test a button list for WCAG compliance', async ({ page, makeAxeBuilder }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'list--button-list');
+
+        await basePage.load();
+
+        // Act
+        const results = await makeAxeBuilder().analyze();
+
+        expect(results.violations).toEqual([]);
+    });
 });

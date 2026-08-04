@@ -1,7 +1,12 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-// `button` is reserved for future work and is intentionally not yet an accepted value.
-export const interactionTypes = ['none', 'radio', 'checkbox', 'switch', 'link'] as const;
+type AriaProps = {
+    button?: {
+        haspopup?: 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true';
+    };
+};
+
+export const interactionTypes = ['none', 'radio', 'checkbox', 'switch', 'link', 'button'] as const;
 
 export type InteractionType = typeof interactionTypes[number];
 
@@ -50,6 +55,10 @@ export interface ListItemProps {
      * - `switch` - hosts a `pie-switch`; there is no group, so the item stays `role="listitem"`.
      * - `link` - the whole row is a single navigation link. Slot an empty `<a slot="link" href="...">`;
      *   it is stretched over the entire row as the clickable target and named from the item's text.
+     * - `button` - the whole row is a single button (for an in-page action rather than navigation).
+     *   The item renders the button for you (no slotting); it is stretched invisibly over the entire
+     *   row, named from the item's text, and dispatches a native `click` (pointer and keyboard).
+     *   Listen for `click` on the `pie-list-item`. It is not a form control.
      *
      * Set this on each interactive row. When radio/checkbox rows sit inside a `pie-radio-group` /
      * `pie-checkbox-group`, the group lays them out as a divided list automatically; this prop
@@ -64,6 +73,13 @@ export interface ListItemProps {
      * (static) item.
      */
     disabled?: boolean
+
+    /**
+     * Additional ARIA properties that the item cannot derive from its text props. `button.haspopup`
+     * applies when `interactionType="button"`: its value is forwarded to the internal `<button>`.
+     * Set it when the button row triggers a popup such as a dialog or menu.
+     */
+    aria?: AriaProps
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
