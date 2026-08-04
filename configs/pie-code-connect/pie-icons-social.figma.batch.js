@@ -2,34 +2,23 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
-const { componentName, componentNameReact } = figma.batch;
+const { baseName } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 
-const isFilled = getInstanceProp('getEnum', 'Fill', { True: true, False: false });
-const isLarge = getInstanceProp('getEnum', 'Size', { Large: true, Small: false });
-
-function getFillSuffix (isReact) {
-    if (isFilled) return isReact ? 'Filled' : '-filled';
-    return '';
-}
-
-function getSizeSuffix (isReact) {
-    if (isLarge) return isReact ? 'Large' : '-large';
-    return '';
-}
-
 function getComponentName (isReact) {
-    const componentBaseName = isReact ? componentNameReact : componentName;
     const isStatic = getInstanceProp('getBoolean', 'Colour');
+    const sizeSuffix = getInstanceProp('getEnum', 'Size', { Large: true, Small: false }) ? '-large' : '';
+    const fillSuffix = getInstanceProp('getEnum', 'Fill', { True: true, False: false }) ? '-filled' : '';
 
-    if (isStatic) {
-        const staticSuffix = isReact ? 'Static' : '-static';
-        return `${componentBaseName}${staticSuffix}${getSizeSuffix(isReact)}`;
+    const name = isStatic
+        ? `${baseName}-static${sizeSuffix}`
+        : `${baseName}-circle${fillSuffix}${sizeSuffix}`;
+
+    if (isReact) {
+        return name.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
     }
 
-    const circleSuffix = isReact ? 'Circle' : '-circle';
-
-    return `${componentBaseName}${circleSuffix}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
+    return name;
 }
 
 const importStatement = isReact
