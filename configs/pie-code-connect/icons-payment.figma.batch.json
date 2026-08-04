@@ -1,5 +1,5 @@
 {
-  "templateFile": "./dist/pie-icons-payment.figma.batch.js",
+  "templateFile": "./dist/icons-payment.figma.batch.js",
   "components": [
     {
       "componentName": "icon-payment",

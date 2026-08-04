@@ -1,5 +1,5 @@
 {
-  "templateFile": "./dist/pie-icons-social.figma.batch.js",
+  "templateFile": "./dist/icons-social.figma.batch.js",
   "components": [
     {
       "baseName": "icon-social-android",

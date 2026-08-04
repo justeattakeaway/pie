@@ -1,5 +1,5 @@
 {
-  "templateFile": "./dist/pie-icons-standard.figma.batch.js",
+  "templateFile": "./dist/icons-standard.figma.batch.js",
   "components": [
     {
       "baseName": "icon-over-16",
