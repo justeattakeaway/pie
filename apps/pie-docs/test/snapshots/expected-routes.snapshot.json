@@ -126,6 +126,8 @@
     "components/spinner/code",
     "components/spinner/motion",
     "components/spinner/web",
+    "components/stacked-notification",
+    "components/stacked-notification/apps",
     "components/switch",
     "components/switch/code",
     "components/switch/web",
