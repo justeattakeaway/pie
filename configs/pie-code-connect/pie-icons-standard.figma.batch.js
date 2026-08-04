@@ -2,26 +2,19 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
-const { componentName, componentNameReact } = figma.batch;
+const { baseName } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 
-const isFilled = getInstanceProp('getEnum', 'Fill', { True: true, False: false });
-const isLarge = getInstanceProp('getEnum', 'Size', { Large: true, Small: false });
-
-function getFillSuffix (isReact) {
-    if (isFilled) return isReact ? 'Filled' : '-filled';
-    return '';
-}
-
-function getSizeSuffix (isReact) {
-    if (isLarge) return isReact ? 'Large' : '-large';
-    return '';
-}
-
 function getComponentName (isReact) {
-    const componentBaseName = isReact ? componentNameReact : componentName;
+    const fillSuffix = getInstanceProp('getEnum', 'Fill', { True: true, False: false }) ? '-filled' : '';
+    const sizeSuffix = getInstanceProp('getEnum', 'Size', { Large: true, Small: false }) ? '-large' : '';
+    const name = `${baseName}${fillSuffix}${sizeSuffix}`;
 
-    return `${componentBaseName}${getFillSuffix(isReact)}${getSizeSuffix(isReact)}`;
+    if (isReact) {
+        return name.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+    }
+
+    return name;
 }
 
 const importStatement = isReact
