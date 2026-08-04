@@ -447,6 +447,7 @@ In React:
   aria={{ button: { haspopup: 'dialog' } }}
   onClick={openConfirmDialog}
 />
+```
 
 ```js
 import '@justeattakeaway/pie-webc/components/list.js';
