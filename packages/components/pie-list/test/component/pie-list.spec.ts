@@ -510,4 +510,38 @@ test.describe('PieList - Component tests', () => {
             await expect(thumbnail).toBeVisible();
         });
     });
+
+    test.describe('item height', () => {
+        // Returns the rendered offsetHeight (integer px) of the shadow-root container for
+        // every `pie-list-item` on the page. offsetHeight is used rather than
+        // getBoundingClientRect so sub-pixel values are always rounded to whole pixels.
+        const getItemHeights = (page: Page) => page.evaluate(() => Array.from(document.querySelectorAll('pie-list-item')).map((item) => (item.shadowRoot?.querySelector('.c-listItem-container') as HTMLElement | null)?.offsetHeight ?? 0));
+
+        test('should render compact items (primary text only) at 48px', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-compact').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(48));
+        });
+
+        test('should render default items with primary and secondary text at 76px', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-and-secondary').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(76));
+        });
+
+        test('should render default items (primary text only) at 56px', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-only').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(56));
+        });
+    });
 });
