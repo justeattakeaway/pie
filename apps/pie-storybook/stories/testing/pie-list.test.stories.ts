@@ -602,3 +602,48 @@ const MetaTextWithTrailingTemplate = () => withLayout(html`
 `);
 
 export const MetaTextWithTrailing = createStory<ListProps>(MetaTextWithTrailingTemplate, defaultArgs)();
+
+/**
+ * Test-only: compact items with primary text only.
+ * Verifies the compact row height (48px min-height).
+ */
+const ItemHeightCompactTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightCompact = createStory<ListProps>(ItemHeightCompactTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary and secondary text.
+ * Verifies the two-line row height (76px min-height).
+ */
+const ItemHeightPrimaryAndSecondaryTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryAndSecondary = createStory<ListProps>(ItemHeightPrimaryAndSecondaryTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary text only.
+ * Verifies the single-line row height (56px min-height).
+ */
+const ItemHeightPrimaryOnlyTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryOnly = createStory<ListProps>(ItemHeightPrimaryOnlyTemplate, defaultArgs)();
