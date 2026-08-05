@@ -11,7 +11,7 @@ permalink: components/app-bar/
 The app bar is a fixed surface anchored to the top of the screen. It provides a consistent location for navigation controls, a screen title, and contextual actions, helping users understand where they are in the app and what they can do.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/app-bar.svg",
+    src:"../../../assets/img/components/app-bar/ios/app-bar.svg",
     alt: "An app bar."
 } %}
 

@@ -58,6 +58,8 @@ shouldShowContents: true
 
 iOS 26 and Liquid Glass is available on iPhone devices ranging from the iPhone 11 series up through the latest iPhone 17, plus the iPhone SE (2nd generation and later). Our app header component is designed to stay up to date with the latest iPhone model. Currently using notch and status bar for iPhone 17.
 
+---
+
 ## Variants
 
 ### Filled
@@ -405,6 +407,8 @@ Use the native iOS menu component to provide an overflow menu solution. The over
     alt: "An app bar with an overflow menu revealing more options.",
     width: 360
 } %}
+
+---
 
 ## Interactions
 

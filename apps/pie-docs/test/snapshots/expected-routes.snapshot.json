@@ -15,6 +15,7 @@
     "components/accordion/apps",
     "components/accordion/web",
     "components/app-bar",
+    "components/app-bar/android",
     "components/app-bar/ios",
     "components/assistive-text",
     "components/assistive-text/apps",
