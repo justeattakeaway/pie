@@ -1,6 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
+/**
+ * Reads SVG file names from the pie-icons asset subfolders (flag, payment)
+ * and writes them as CommonJS modules into a local `temp/` directory
+ * The list of icons file names will be used as icons base names for flags and payment icons
+ */
 function getIconsFileNames () {
     const SRC_DIR = process.cwd();
     const PIE_ICONS_ASSETS = path.resolve(SRC_DIR, '../../packages/tools/pie-icons/src/assets');
