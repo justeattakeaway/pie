@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.88.0
+
+### Minor Changes
+
+- [Added] - New hasDivider prop for optionally setting dividers on pie-list-item components. ([#3096](https://github.com/justeattakeaway/pie/pull/3096)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Exclude non-story exports from the pie-list storybook file ([#3093](https://github.com/justeattakeaway/pie/pull/3093)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`f221e17`](https://github.com/justeattakeaway/pie/commit/f221e17771aa368d25a435226a169a4a4316877e)]:
+  - @justeattakeaway/pie-css@1.3.3
+  - @justeattakeaway/pie-webc@0.11.6
+
 ## 1.87.4
 
 ### Patch Changes

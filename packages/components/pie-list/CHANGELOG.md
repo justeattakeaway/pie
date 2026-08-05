@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-list
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - New hasDivider prop for optionally setting dividers on pie-list-item components. ([#3096](https://github.com/justeattakeaway/pie/pull/3096)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Removed] - In progress warning from list readme ([#3093](https://github.com/justeattakeaway/pie/pull/3093)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.5.0
 
 ### Minor Changes
