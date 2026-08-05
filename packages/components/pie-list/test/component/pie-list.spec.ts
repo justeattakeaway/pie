@@ -543,5 +543,32 @@ test.describe('PieList - Component tests', () => {
             expect(heights.length).toBeGreaterThan(0);
             heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(56));
         });
+
+        test('should render compact items (primary text only) at 48px when hasDivider is false', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-compact-no-divider').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(48));
+        });
+
+        test('should render default items with primary and secondary text at 76px when hasDivider is false', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-and-secondary-no-divider').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(76));
+        });
+
+        test('should render default items (primary text only) at 56px when hasDivider is false', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-only-no-divider').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(56));
+        });
     });
 });
