@@ -283,6 +283,12 @@ The corner radius of the accordion can be overridden to align with the surroundi
     width: 902
 } %}
 
+### Background colour
+
+The accordion's background colour can be changed to fit the context it's used in. When modifying the background colour, make sure there is sufficient contrast between the background and any text inside the accordion to meet accessibility standards.
+
+<!-- Image goes here -->
+
 ---
 
 ## Content
