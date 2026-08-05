@@ -63,9 +63,9 @@ const withLayout = (content: TemplateResult) => html`
  */
 const TextOnlyTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
         <pie-list-item primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
     </pie-list>
 `);
@@ -77,12 +77,12 @@ export const TextOnly = createStory<ListProps>(TextOnlyTemplate, defaultArgs)();
 // provided for each selectable type to cover the is-disabled CSS hook regardless of interactionType.
 const SelectionTypesTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item data-test-id="item-none" primaryText="None" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-radio" .interactionType=${'radio'} primaryText="Radio" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-checkbox" .interactionType=${'checkbox'} primaryText="Checkbox" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-switch" .interactionType=${'switch'} primaryText="Switch" metaText="Meta"></pie-list-item>
-        <pie-list-item data-test-id="item-radio-disabled" .interactionType=${'radio'} primaryText="Radio disabled" disabled></pie-list-item>
-        <pie-list-item data-test-id="item-checkbox-disabled" .interactionType=${'checkbox'} primaryText="Checkbox disabled" disabled></pie-list-item>
+        <pie-list-item hasDivider data-test-id="item-none" primaryText="None" metaText="Meta"></pie-list-item>
+        <pie-list-item hasDivider data-test-id="item-radio" .interactionType=${'radio'} primaryText="Radio" metaText="Meta"></pie-list-item>
+        <pie-list-item hasDivider data-test-id="item-checkbox" .interactionType=${'checkbox'} primaryText="Checkbox" metaText="Meta"></pie-list-item>
+        <pie-list-item hasDivider data-test-id="item-switch" .interactionType=${'switch'} primaryText="Switch" metaText="Meta"></pie-list-item>
+        <pie-list-item hasDivider data-test-id="item-radio-disabled" .interactionType=${'radio'} primaryText="Radio disabled" disabled></pie-list-item>
+        <pie-list-item hasDivider data-test-id="item-checkbox-disabled" .interactionType=${'checkbox'} primaryText="Checkbox disabled" disabled></pie-list-item>
         <pie-list-item data-test-id="item-switch-disabled" .interactionType=${'switch'} primaryText="Switch disabled" disabled></pie-list-item>
     </pie-list>
 `);
@@ -104,13 +104,13 @@ const SwitchSelectionTemplate = () => {
 
     return withLayout(html`
         <pie-list aria-label="Notification settings" @change=${onChange}>
-            <pie-list-item .interactionType=${'switch'} data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
+            <pie-list-item hasDivider .interactionType=${'switch'} data-test-id="item-1" primaryText="Email" secondaryText="Order updates and receipts" metaText="Weekly">
                 <pie-switch slot="leading" data-test-id="switch-1"></pie-switch>
             </pie-list-item>
-            <pie-list-item .interactionType=${'switch'} data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
+            <pie-list-item hasDivider .interactionType=${'switch'} data-test-id="item-2" primaryText="Push notifications" secondaryText="Offers and reminders">
                 <pie-switch slot="leading" data-test-id="switch-2"></pie-switch>
             </pie-list-item>
-            <pie-list-item .interactionType=${'switch'} data-test-id="item-3" primaryText="SMS" disabled>
+            <pie-list-item hasDivider .interactionType=${'switch'} data-test-id="item-3" primaryText="SMS" disabled>
                 <pie-switch slot="leading" data-test-id="switch-3" disabled></pie-switch>
             </pie-list-item>
             <pie-list-item .interactionType=${'switch'} data-test-id="item-4" primaryText="Post" metaText="Rarely">
@@ -127,16 +127,16 @@ export const SwitchSelection = createStory<ListProps>(SwitchSelectionTemplate, d
 // text is aria-hidden, and that clicking anywhere on the row activates the link.
 const LinkListTemplate = () => withLayout(html`
     <pie-list aria-label="Manage your restaurant">
-        <pie-list-item .interactionType=${'link'} data-test-id="item-1" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-1" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
             <a slot="link" href="#orders" data-test-id="link-1"></a>
         </pie-list-item>
-        <pie-list-item .interactionType=${'link'} data-test-id="item-2" primaryText="Menu" secondaryText="Edit items and prices">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-2" primaryText="Menu" secondaryText="Edit items and prices">
             <a slot="link" href="#menu" data-test-id="link-2"></a>
         </pie-list-item>
-        <pie-list-item .interactionType=${'link'} data-test-id="item-3" primaryText="Payouts" metaText="Weekly">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-3" primaryText="Payouts" metaText="Weekly">
             <a slot="link" href="#payouts" data-test-id="link-3"></a>
         </pie-list-item>
-        <pie-list-item .interactionType=${'link'} data-test-id="item-4" primaryText="Restaurant settings">
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-4" primaryText="Restaurant settings">
             <a slot="link" href="#settings" data-test-id="link-4"></a>
         </pie-list-item>
         <pie-list-item .interactionType=${'link'} data-test-id="item-5" primaryText="Help" secondaryText="Support articles">
@@ -161,9 +161,9 @@ const ButtonListTemplate = () => {
 
     return withLayout(html`
         <pie-list aria-label="Account actions" @click=${onClick}>
-            <pie-list-item .interactionType=${'button'} data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New"></pie-list-item>
-            <pie-list-item .interactionType=${'button'} data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure"></pie-list-item>
-            <pie-list-item .interactionType=${'button'} data-test-id="item-3" primaryText="Sign out" metaText="This device"></pie-list-item>
+            <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New"></pie-list-item>
+            <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure"></pie-list-item>
+            <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-3" primaryText="Sign out" metaText="This device"></pie-list-item>
             <pie-list-item .interactionType=${'button'} data-test-id="item-4" primaryText="Delete account"></pie-list-item>
         </pie-list>
     `);
@@ -175,13 +175,13 @@ export const ButtonList = createStory<ListProps>(ButtonListTemplate, defaultArgs
 // the leading slot so both text and icon colours are captured in the VRT snapshot.
 const ButtonListDisabledTemplate = () => withLayout(html`
     <pie-list aria-label="Account actions">
-        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
             <icon-user slot="leading"></icon-user>
         </pie-list-item>
-        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure">
             <icon-lock slot="leading"></icon-lock>
         </pie-list-item>
-        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-3" primaryText="Notification preferences" secondaryText="Choose what we email you about">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-3" primaryText="Notification preferences" secondaryText="Choose what we email you about">
             <icon-notification slot="leading"></icon-notification>
         </pie-list-item>
         <pie-list-item .interactionType=${'button'} disabled data-test-id="item-4" primaryText="Sign out" secondaryText="End your session on this device">
@@ -196,9 +196,9 @@ export const ButtonListDisabled = createStory<ListProps>(ButtonListDisabledTempl
  */
 const BoldTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
-        <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
-        <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
+        <pie-list-item hasDivider isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
         <pie-list-item isBold primaryText="Primary text" secondaryText="Secondary text"></pie-list-item>
     </pie-list>
 `);
@@ -210,15 +210,15 @@ export const Bold = createStory<ListProps>(BoldTemplate, defaultArgs)();
  */
 const LeadingAndTrailingTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text">
             ${leadingIcon}
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text">
             ${leadingIcon}
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text">
             ${leadingIcon}
             ${trailingIcon}
         </pie-list-item>
@@ -237,15 +237,15 @@ export const LeadingAndTrailing = createStory<ListProps>(LeadingAndTrailingTempl
  */
 const LeadingAndTrailingOnlyPrimaryTextTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item primaryText="Primary text">
+        <pie-list-item hasDivider primaryText="Primary text">
             ${leadingIcon}
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item primaryText="Primary text">
+        <pie-list-item hasDivider primaryText="Primary text">
             ${leadingIcon}
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item primaryText="Primary text">
+        <pie-list-item hasDivider primaryText="Primary text">
             ${leadingIcon}
             ${trailingIcon}
         </pie-list-item>
@@ -264,9 +264,9 @@ export const LeadingAndTrailingOnlyPrimaryText = createStory<ListProps>(LeadingA
  */
 const MetaTextTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" metaText="Meta text"></pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" metaText="Meta text"></pie-list-item>
-        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text" metaText="Meta text"></pie-list-item>
         <pie-list-item primaryText="Primary text" secondaryText="Secondary text" metaText="Meta text"></pie-list-item>
     </pie-list>
 `);
@@ -280,9 +280,9 @@ export const MetaText = createStory<ListProps>(MetaTextTemplate, defaultArgs)();
  */
 const MetaTextOnlyPrimaryTextTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
-        <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
-        <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" metaText="Meta text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" metaText="Meta text"></pie-list-item>
         <pie-list-item primaryText="Primary text" metaText="Meta text"></pie-list-item>
     </pie-list>
 `);
@@ -297,10 +297,10 @@ export const MetaTextOnlyPrimaryText = createStory<ListProps>(MetaTextOnlyPrimar
 const MediaTemplate = () => withLayout(html`
     <h2>Primary text only</h2>
     <pie-list>
-        <pie-list-item hasMedia primaryText="Primary text">
+        <pie-list-item hasDivider hasMedia primaryText="Primary text">
             ${leadingThumbnail}
         </pie-list-item>
-        <pie-list-item hasMedia primaryText="Primary text">
+        <pie-list-item hasDivider hasMedia primaryText="Primary text">
             ${leadingThumbnail}
         </pie-list-item>
         <pie-list-item hasMedia primaryText="Primary text">
@@ -310,10 +310,10 @@ const MediaTemplate = () => withLayout(html`
 
     <h2>With secondary text</h2>
     <pie-list>
-        <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasDivider hasMedia primaryText="Primary text" secondaryText="Secondary text">
             ${leadingThumbnail}
         </pie-list-item>
-        <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
+        <pie-list-item hasDivider hasMedia primaryText="Primary text" secondaryText="Secondary text">
             ${leadingThumbnail}
         </pie-list-item>
         <pie-list-item hasMedia primaryText="Primary text" secondaryText="Secondary text">
@@ -329,13 +329,13 @@ export const Media = createStory<ListProps>(MediaTemplate, defaultArgs)();
  */
 const CompactTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item isCompact primaryText="Primary text">
+        <pie-list-item hasDivider isCompact primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item isCompact primaryText="Primary text">
+        <pie-list-item hasDivider isCompact primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item isCompact primaryText="Primary text">
+        <pie-list-item hasDivider isCompact primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
         <pie-list-item isCompact primaryText="Primary text">
@@ -352,16 +352,19 @@ export const Compact = createStory<ListProps>(CompactTemplate, defaultArgs)();
 const TagsTemplate = () => withLayout(html`
     <pie-list>
         <pie-list-item
+            hasDivider
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingTag}
         </pie-list-item>
         <pie-list-item
+            hasDivider
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingTag}
         </pie-list-item>
         <pie-list-item
+            hasDivider
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingTag}
@@ -384,18 +387,21 @@ const AlignmentOverrideTemplate = () => withLayout(html`
     <style>.centre-aligned { --list-item-alignment: center; }</style>
     <pie-list>
         <pie-list-item
+            hasDivider
             class="centre-aligned"
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingIcon}
         </pie-list-item>
         <pie-list-item
+            hasDivider
             class="centre-aligned"
             primaryText="Primary text"
             secondaryText="Secondary text">
             ${trailingIcon}
         </pie-list-item>
         <pie-list-item
+            hasDivider
             class="centre-aligned"
             primaryText="Primary text"
             secondaryText="Secondary text">
@@ -419,13 +425,13 @@ export const AlignmentOverride = createStory<ListProps>(AlignmentOverrideTemplat
 const RemovedPaddingTemplate = () => withLayout(html`
     <style>.no-inline-padding { --list-item-inline-padding: 0; }</style>
     <pie-list>
-        <pie-list-item class="no-inline-padding" primaryText="Primary text">
+        <pie-list-item hasDivider class="no-inline-padding" primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item class="no-inline-padding" primaryText="Primary text">
+        <pie-list-item hasDivider class="no-inline-padding" primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
-        <pie-list-item class="no-inline-padding" primaryText="Primary text">
+        <pie-list-item hasDivider class="no-inline-padding" primaryText="Primary text">
             ${trailingIcon}
         </pie-list-item>
         <pie-list-item class="no-inline-padding" primaryText="Primary text">
@@ -449,9 +455,9 @@ const BordersTemplate = () => html`
         }
     </style>
     <pie-list>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
-        <pie-list-item primaryText="Primary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text"></pie-list-item>
         <pie-list-item primaryText="Primary text"></pie-list-item>
     </pie-list>
 `;
@@ -466,6 +472,7 @@ export const Borders = createStory<ListProps>(BordersTemplate, defaultArgs)();
 const LongTextTemplate = () => withLayout(html`
     <pie-list>
         <pie-list-item
+            hasDivider
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long"
             metaText="Some very long awful meta text Some very long awful meta text">
@@ -473,6 +480,7 @@ const LongTextTemplate = () => withLayout(html`
         </pie-list-item>
 
         <pie-list-item
+            hasDivider
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long"
             metaText="Some very long awful meta text Some very long awful meta text">
@@ -480,6 +488,7 @@ const LongTextTemplate = () => withLayout(html`
         </pie-list-item>
 
         <pie-list-item
+            hasDivider
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long"
             metaText="Some very long awful meta text Some very long awful meta text">
@@ -504,18 +513,21 @@ export const LongText = createStory<ListProps>(LongTextTemplate, defaultArgs)();
 const LongTextMetaTextOnlyPrimaryTextTemplate = () => withLayout(html`
     <pie-list>
         <pie-list-item
+            hasDivider
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             metaText="Some very long awful meta text Some very long awful meta text">
             ${leadingIcon}
         </pie-list-item>
 
         <pie-list-item
+            hasDivider
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             metaText="Some very long awful meta text Some very long awful meta text">
             ${leadingIcon}
         </pie-list-item>
 
         <pie-list-item
+            hasDivider
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             metaText="Some very long awful meta text Some very long awful meta text">
             ${leadingIcon}
@@ -539,6 +551,7 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
     <style>.centre-aligned { --list-item-alignment: center; }</style>
     <pie-list>
         <pie-list-item
+            hasDivider
             class="centre-aligned"
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long Secondary text that goes on far too long">
@@ -547,6 +560,7 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
         </pie-list-item>
 
         <pie-list-item
+            hasDivider
             class="centre-aligned"
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long Secondary text that goes on far too long">
@@ -555,6 +569,7 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
         </pie-list-item>
 
         <pie-list-item
+            hasDivider
             class="centre-aligned"
             primaryText="Primary text that goes on far too long Primary text that goes on far too long"
             secondaryText="Secondary text that goes on far too long Secondary text that goes on far too long Secondary text that goes on far too long">
@@ -602,3 +617,93 @@ const MetaTextWithTrailingTemplate = () => withLayout(html`
 `);
 
 export const MetaTextWithTrailing = createStory<ListProps>(MetaTextWithTrailingTemplate, defaultArgs)();
+
+/**
+ * Test-only: compact items with primary text only.
+ * Verifies the compact row height (48px min-height).
+ */
+const ItemHeightCompactTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item hasDivider isCompact primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item hasDivider isCompact primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item hasDivider isCompact primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightCompact = createStory<ListProps>(ItemHeightCompactTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary and secondary text.
+ * Verifies the two-line row height (76px min-height).
+ */
+const ItemHeightPrimaryAndSecondaryTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryAndSecondary = createStory<ListProps>(ItemHeightPrimaryAndSecondaryTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary text only.
+ * Verifies the single-line row height (56px min-height).
+ */
+const ItemHeightPrimaryOnlyTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item hasDivider primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryOnly = createStory<ListProps>(ItemHeightPrimaryOnlyTemplate, defaultArgs)();
+
+/**
+ * Test-only: compact items with primary text only, without a divider.
+ * Verifies the compact row height (48px min-height) is the same when hasDivider is false.
+ */
+const ItemHeightCompactNoDividerTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightCompactNoDivider = createStory<ListProps>(ItemHeightCompactNoDividerTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary and secondary text, without a divider.
+ * Verifies the two-line row height (76px min-height) is the same when hasDivider is false.
+ */
+const ItemHeightPrimaryAndSecondaryNoDividerTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryAndSecondaryNoDivider = createStory<ListProps>(ItemHeightPrimaryAndSecondaryNoDividerTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary text only, without a divider.
+ * Verifies the single-line row height (56px min-height) is the same when hasDivider is false.
+ */
+const ItemHeightPrimaryOnlyNoDividerTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryOnlyNoDivider = createStory<ListProps>(ItemHeightPrimaryOnlyNoDividerTemplate, defaultArgs)();

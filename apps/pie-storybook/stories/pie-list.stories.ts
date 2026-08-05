@@ -93,6 +93,7 @@ const listStoryMeta: ListStoryMeta = {
     component: 'pie-list',
     argTypes: listArgTypes,
     args: defaultArgs,
+    excludeStories: ['defaultArgs', 'listArgTypes', 'renderLeading', 'renderTrailing', 'renderItem', 'buildNotes'],
     parameters: {
         design: {
             type: 'figma',
