@@ -49,7 +49,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ## Documentation
 
-`pie-list` is a compound component. The `pie-list` element is the container (it applies the `list` role and renders the dividers between items), and each row is a `pie-list-item` (which applies the `listitem` role).
+`pie-list` is a compound component. The `pie-list` element is the container (it applies the `list` role), and each row is a `pie-list-item` (which applies the `listitem` role). Set `hasDivider` on each item that needs a divider except for the last one.
 
 > [!IMPORTANT]
 > Because `pie-list` uses the `list` role, you **must always give it an accessible name** using either `aria-label` or `aria-labelledby`. Without one, screen reader users get no context for what the list contains. See [Accessibility](#accessibility).
@@ -72,6 +72,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
 | `interactionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"`, `"link"`, `"button"` | Declares how the **whole row** behaves, and drives its role, accessible naming, click forwarding and interactive states from this one prop. `"none"` is a static item; `"radio"`/`"checkbox"`/`"switch"` host the matching control in the `leading`/`trailing` slot; `"link"` turns the row into a single navigation link (slot an empty `<a slot="link" href="...">`); `"button"` turns the row into a single button for an in-page action (the item renders the button for you - listen for `click`). See [Selectable lists](#selectable-lists), [Link items](#link-items) and [Button items](#button-items). | `"none"` |
 | `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
+| `hasDivider` | `true`, `false` | Renders a bottom divider line on the item. Do not set this to `true` on the last item in a list. | `false` |
 | `aria` | `{ button?: { haspopup?: "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" \| "true" } }` | Additional ARIA properties that the item cannot derive from its text props. `button.haspopup` only applies when `interactionType="button"` and is forwarded to the internal `<button>` element. Set it when the button row triggers a popup such as a dialog or menu. | `undefined` |
 
 ### Slots
@@ -118,7 +119,7 @@ This component does not emit any custom events. To listen for interactions, trea
 
   ```html
   <pie-list aria-label="Payment methods">
-    <pie-list-item primaryText="Credit card"></pie-list-item>
+    <pie-list-item hasDivider primaryText="Credit card"></pie-list-item>
     <pie-list-item primaryText="PayPal"></pie-list-item>
   </pie-list>
   ```
@@ -128,7 +129,7 @@ This component does not emit any custom events. To listen for interactions, trea
   ```html
   <h2 id="payment-methods-heading">Payment methods</h2>
   <pie-list aria-labelledby="payment-methods-heading">
-    <pie-list-item primaryText="Credit card"></pie-list-item>
+    <pie-list-item hasDivider primaryText="Credit card"></pie-list-item>
     <pie-list-item primaryText="PayPal"></pie-list-item>
   </pie-list>
   ```
@@ -175,10 +176,12 @@ A basic list with primary, secondary and meta text (note the required `aria-labe
 ```html
 <pie-list aria-label="Recent orders">
   <pie-list-item
+    hasDivider
     primaryText="Primary text"
     secondaryText="Secondary text"
     metaText="Meta text"></pie-list-item>
   <pie-list-item
+    hasDivider
     primaryText="Primary text"
     secondaryText="Secondary text"></pie-list-item>
   <pie-list-item primaryText="Primary text"></pie-list-item>
@@ -242,7 +245,7 @@ Reduced height, see [rules](#usage-notes-and-rules):
 
 ```html
 <pie-list>
-  <pie-list-item isCompact primaryText="Primary text">
+  <pie-list-item hasDivider isCompact primaryText="Primary text">
     <icon-chevron-right slot="trailing"></icon-chevron-right>
   </pie-list-item>
   <pie-list-item isCompact primaryText="Primary text">
@@ -324,10 +327,10 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 ```
 
 ```html
-<!-- `interactionType="radio"` makes each row selectable and the group lays them out as a divided
-     list. `value` on the group selects the matching radio (here, Express). -->
+<!-- `interactionType="radio"` makes each row selectable. `value` on the group selects
+     the matching radio (here, Express). -->
 <pie-radio-group name="delivery" value="express">
-  <pie-list-item interactionType="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
+  <pie-list-item hasDivider interactionType="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days" metaText="Free">
     <pie-radio slot="leading" value="standard"></pie-radio>
   </pie-list-item>
   <pie-list-item interactionType="radio" primaryText="Express delivery" secondaryText="Next working day" metaText="£4.99">
@@ -346,7 +349,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 
 ```html
 <pie-checkbox-group>
-  <pie-list-item interactionType="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
+  <pie-list-item hasDivider interactionType="checkbox" primaryText="Cheese" secondaryText="Extra mature" metaText="Free">
     <pie-checkbox slot="leading" name="cheese"></pie-checkbox>
   </pie-list-item>
   <pie-list-item interactionType="checkbox" primaryText="Pepperoni" secondaryText="Spicy">
@@ -367,10 +370,10 @@ import '@justeattakeaway/pie-webc/components/switch.js';
 
 ```html
 <pie-list aria-label="Notification settings">
-  <pie-list-item interactionType="switch" primaryText="Email" secondaryText="Order updates and receipts">
+  <pie-list-item hasDivider interactionType="switch" primaryText="Email" secondaryText="Order updates and receipts">
     <pie-switch slot="trailing"></pie-switch>
   </pie-list-item>
-  <pie-list-item interactionType="switch" primaryText="Push notifications">
+  <pie-list-item hasDivider interactionType="switch" primaryText="Push notifications">
     <pie-switch slot="trailing"></pie-switch>
   </pie-list-item>
   <pie-list-item interactionType="switch" primaryText="SMS" disabled>
@@ -394,7 +397,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 
 ```html
 <pie-list aria-label="Manage your restaurant">
-  <pie-list-item interactionType="link" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
+  <pie-list-item hasDivider interactionType="link" primaryText="Orders" secondaryText="View and manage live orders" metaText="12 active">
     <a slot="link" href="/orders"></a>
   </pie-list-item>
   <pie-list-item interactionType="link" primaryText="Menu" secondaryText="Edit items, prices and photos">
@@ -427,14 +430,14 @@ import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
 ```html
 <pie-list aria-label="Account navigation">
-  <pie-list-item interactionType="link" primaryText="Overview">
+  <pie-list-item hasDivider interactionType="link" primaryText="Overview">
     <a slot="link" href="/account"></a>
   </pie-list-item>
-  <pie-list-item interactionType="link" isBold primaryText="Orders">
+  <pie-list-item hasDivider interactionType="link" isBold primaryText="Orders">
     <a slot="link" href="/account/orders" aria-current="page"></a>
     <icon-check slot="trailing"></icon-check>
   </pie-list-item>
-  <pie-list-item interactionType="link" primaryText="Payment methods">
+  <pie-list-item hasDivider interactionType="link" primaryText="Payment methods">
     <a slot="link" href="/account/payment"></a>
   </pie-list-item>
   <pie-list-item interactionType="link" primaryText="Addresses">
@@ -493,7 +496,7 @@ import '@justeattakeaway/pie-webc/components/list-item.js';
 
 ```html
 <pie-list aria-label="Account actions">
-  <pie-list-item interactionType="button" primaryText="Edit profile" secondaryText="Update your name and photo"></pie-list-item>
+  <pie-list-item hasDivider interactionType="button" primaryText="Edit profile" secondaryText="Update your name and photo"></pie-list-item>
   <pie-list-item interactionType="button" primaryText="Sign out" secondaryText="End your session on this device"></pie-list-item>
 </pie-list>
 
@@ -546,6 +549,7 @@ To keep lists consistent and correct, follow these rules:
 
 - **Always give `pie-list` an accessible name** with `aria-label` or `aria-labelledby` (use `aria-labelledby` when a visible heading exists). This is required for screen reader users to understand the list. See [Accessibility](#accessibility).
 - **Provide `primaryText`** on every `pie-list-item`; it is the item's main line of content.
+- **Do not set `hasDivider` to `true` on the last item in a list.** Setting it on the last item adds a bottom border beneath the list, which breaks the design. Set `hasDivider` on every item except the last.
 - **For selectable lists, use `pie-list-item` inside `pie-radio-group` or `pie-checkbox-group`, not `pie-list`.** `pie-list` is a static container with no selection or keyboard behaviour. See [Selectable lists](#selectable-lists).
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
