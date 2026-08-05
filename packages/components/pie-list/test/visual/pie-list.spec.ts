@@ -28,6 +28,9 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--item-height-compact', snapshotName: 'PieList - Item height (compact, primary text only)' },
     { storyId: 'list--item-height-primary-and-secondary', snapshotName: 'PieList - Item height (primary and secondary text)' },
     { storyId: 'list--item-height-primary-only', snapshotName: 'PieList - Item height (primary text only)' },
+    { storyId: 'list--item-height-compact-no-divider', snapshotName: 'PieList - Item height (compact, primary text only, no divider)' },
+    { storyId: 'list--item-height-primary-and-secondary-no-divider', snapshotName: 'PieList - Item height (primary and secondary text, no divider)' },
+    { storyId: 'list--item-height-primary-only-no-divider', snapshotName: 'PieList - Item height (primary text only, no divider)' },
 ];
 
 test.describe('PieList - Visual tests', () => {
