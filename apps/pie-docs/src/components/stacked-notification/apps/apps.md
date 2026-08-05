@@ -281,7 +281,7 @@ The amount of text can be as long as the width of the stacked notification. It w
 
 The stacked notification is always attached to a container. Depending on the type of container it will sit partially behind a container.
 
-### Rounder corners container
+### Rounded corners container
 
 The stacked notification will need an overlap with the container so the corners are not left empty.
 
@@ -382,7 +382,7 @@ Here are some examples of a stacked notification in LTR context.
     {% contentPageImage {
       src: "../../../assets/img/components/stacked-notification/ltr-2.svg",
       width: 375,
-      alt: "A stacked notification with left to right content"
+      alt: "A stacked notification with left to right content."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}

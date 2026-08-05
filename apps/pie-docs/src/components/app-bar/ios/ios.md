@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: iOS
   parent: App Bar
-  order: 2
+  order: 3
 draft: false
 shouldShowContents: true
 ---
@@ -22,7 +22,7 @@ shouldShowContents: true
         items: [
             "Do not use anywhere other than the top of the screen.",
             "Do not use images behind transparent heading text.",
-            "Never break from the app header component - it is essential to the product architecture."
+            "Never break from the app header component. It is essential to the product architecture."
         ]
     }
 } %}
@@ -78,7 +78,7 @@ Blurred headers can also be used as an option; these allow the background to be 
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/variant-blurred.svg",
-    alt: "An app nar with a blurred background.",
+    alt: "An app bar with a blurred background.",
     width: 360
 } %}
 
@@ -90,7 +90,7 @@ If using the transparent header above a page background colour, you may need to 
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/variant-transparent.svg",
-    alt: "An app nar with a transparent background.",
+    alt: "An app bar with a transparent background.",
     width: 360
 } %}
 
@@ -108,7 +108,7 @@ If using the transparent header above a page background colour, you may need to 
         items: [{
             src: "../../../assets/img/components/app-bar/ios/variant-transparent-dont.svg",
             width: "362px",
-            alt: "An app bar with text over a complex background making it different to read."
+            alt: "An app bar with text over a complex background making it difficult to read."
         }]
     }
 } %}
@@ -369,7 +369,7 @@ When scrolling through the page content, the header remains sticky at the top of
 
 {% notification {
   type: "information",
-  message: "Currently only documented for engineering purposes - follows native iOS behaviours."
+  message: "Currently only documented for engineering purposes; follows native iOS behaviours."
 } %}
 
 {% contentPageImage {

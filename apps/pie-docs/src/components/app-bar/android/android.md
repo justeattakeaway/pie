@@ -22,7 +22,7 @@ shouldShowContents: true
         items: [
             "Do not use anywhere other than the top of the screen.",
             "Do not use images behind transparent heading text.",
-            "Never break from the app header component - it is essential to the product architecture."
+            "Never break from the app header component. It is essential to the product architecture."
         ]
     }
 } %}
@@ -92,7 +92,7 @@ We suggest setting a 50% opacity behind status bar content to make it more visib
         items: [{
             src: "../../../assets/img/components/app-bar/android/variant-transparent-dont.svg",
             width: "362px",
-            alt: "An app bar with text over a complex background making it different to read."
+            alt: "An app bar with text over a complex background making it difficult to read."
         }]
     }
 } %}
@@ -240,7 +240,7 @@ Titles should be used as default; they should always be clear, succinct, and pro
 
 #### Titles
 
-Titles should not go over one line of text. If they do the text will truncate - you should avoid this happening by  keeping text succinct and testing any translations across devices. Use alternative titles if translations are too long.
+Titles should not go over one line of text. If they do, the text will truncate. Keep text succinct and test any translations across devices. Use alternative titles if translations are too long.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/android/content-overflow-text-1.svg",

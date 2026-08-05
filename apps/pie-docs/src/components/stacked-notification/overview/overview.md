@@ -15,6 +15,4 @@ Stacked notifications are non-interactive elements that provide additional infor
     alt: "A stacked notification."
 } %}
 
-
-
 ---
