@@ -1,4 +1,4 @@
-import { type LitElement, type PropertyValues } from 'lit';
+import { type LitElement } from 'lit';
 import type { GenericConstructor } from '../types/GenericConstructor';
 import { isSafari } from '../../functions/isSafari';
 
@@ -36,8 +36,7 @@ export interface AssociatedLabelInterface {
  *
  *
  * The class this mixin is applied to must already provide `_internals: ElementInternals`
- * (for example via `FormControlMixin`), and must call `super.firstUpdated()` if it overrides
- * `firstUpdated`.
+ * (for example via `FormControlMixin`).
  *
  * @param superClass - The LitElement class (with `_internals`) to extend.
  * @returns A new class extending both the provided LitElement and AssociatedLabelInterface.
@@ -70,8 +69,8 @@ export const AssociatedLabelMixin =
 
             private _labelMutationObserver?: MutationObserver;
 
-            protected firstUpdated (changedProperties: PropertyValues) {
-                super.firstUpdated(changedProperties);
+            connectedCallback () {
+                super.connectedCallback();
                 this.observeAssociatedLabels();
             }
 
@@ -88,6 +87,7 @@ export const AssociatedLabelMixin =
             private observeAssociatedLabels () : void {
                 const { labels } = this._internals;
 
+                console.log({ labels, isSafari: isSafari() });
                 if (!isSafari() || !labels.length) {
                     return;
                 }
@@ -95,8 +95,9 @@ export const AssociatedLabelMixin =
                 this.updateAssociatedLabelText();
 
                 this._labelMutationObserver = new MutationObserver(() => this.updateAssociatedLabelText());
-
+                console.log('MutationObserver', this._labelMutationObserver);
                 labels.forEach((label) => {
+                    console.log('Observing label for mutations', label);
                     this._labelMutationObserver?.observe(label, { childList: true, characterData: true, subtree: true });
                 });
             }
