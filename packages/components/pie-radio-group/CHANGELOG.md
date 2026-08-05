@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 1.2.3
+
+### Patch Changes
+
+- [Changed] - Updated readme references to `pie-list-item` and removed divider css as the list-item handles this itself now. ([#3096](https://github.com/justeattakeaway/pie/pull/3096)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.2.2
 
 ### Patch Changes
