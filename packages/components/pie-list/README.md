@@ -9,9 +9,6 @@
 
 `@justeattakeaway/pie-list` is a Web Component built using the Lit library. It provides a simple, accessible list built from two elements: a `pie-list` container and one or more `pie-list-item` children.
 
-> [!NOTE]
-> This component is still growing. More properties, slots and sub-components will be added over time. This documentation covers what is currently supported.
-
 ## Table of Contents
 
 - [Installation](#installation)
@@ -37,6 +34,8 @@
     - [Multi-select (checkboxes)](#multi-select-checkboxes)
     - [Independent toggles (switches)](#independent-toggles-switches)
   - [Link items](#link-items)
+    - [Indicating the current page](#indicating-the-current-page)
+  - [Button items](#button-items)
   - [Framework variants](#framework-variants)
 - [Usage Notes and Rules](#usage-notes-and-rules)
 - [Questions and Support](#questions-and-support)
@@ -71,8 +70,9 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
 | `hasMedia` | `true`, `false` | **Required whenever you slot a media element (e.g. `pie-thumbnail`) into the item.** Reduces the block padding so single-line media sits correctly (this padding adjustment has no effect when `secondaryText` is set, but you should still set `hasMedia`). | `false` |
-| `interactionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"`, `"link"` | Declares how the **whole row** behaves, and drives its role, accessible naming, click forwarding and interactive states from this one prop. `"none"` is a static item; `"radio"`/`"checkbox"`/`"switch"` host the matching control in the `leading`/`trailing` slot; `"link"` turns the row into a single navigation link (slot an empty `<a slot="link" href="...">`). See [Selectable lists](#selectable-lists) and [Link items](#link-items). | `"none"` |
+| `interactionType` | `"none"`, `"radio"`, `"checkbox"`, `"switch"`, `"link"`, `"button"` | Declares how the **whole row** behaves, and drives its role, accessible naming, click forwarding and interactive states from this one prop. `"none"` is a static item; `"radio"`/`"checkbox"`/`"switch"` host the matching control in the `leading`/`trailing` slot; `"link"` turns the row into a single navigation link (slot an empty `<a slot="link" href="...">`); `"button"` turns the row into a single button for an in-page action (the item renders the button for you - listen for `click`). See [Selectable lists](#selectable-lists), [Link items](#link-items) and [Button items](#button-items). | `"none"` |
 | `disabled` | `true`, `false` | Marks the row as disabled: it takes the disabled styling and stops forwarding row clicks to its control. Set it alongside the slotted control's own `disabled` (the control still governs its own interactivity). No visible effect on a non-selectable (static) item. | `false` |
+| `aria` | `{ button?: { haspopup?: "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" \| "true" } }` | Additional ARIA properties that the item cannot derive from its text props. `button.haspopup` only applies when `interactionType="button"` and is forwarded to the internal `<button>` element. Set it when the button row triggers a popup such as a dialog or menu. | `undefined` |
 
 ### Slots
 
@@ -141,22 +141,22 @@ This component does not emit any custom events. To listen for interactions, trea
 Specifically, for **every** interaction type the item takes care of:
 
 - the **role** on the item itself (`listitem`, or `presentation` for radio/checkbox rows so the group owns the control directly) - you never write `role="..."`;
-- the **accessible name and description** of whatever it hosts - you never write `aria-label`, `aria-labelledby`, `aria-description` or `aria-describedby` on the control or anchor;
+- the **accessible name and description** of whatever it hosts - you never write `aria-label`, `aria-labelledby`, `aria-description` or `aria-describedby` on the control, anchor or button;
 - **hiding the duplicated visible text** from assistive technology (the item `aria-hidden`s its own text once the name/description have been mirrored onto the interactive element), so nothing is announced twice.
 
 The one accessibility attribute you **do** own is the accessible name of the `pie-list` container itself (`aria-label` / `aria-labelledby`), because only you know what the list represents. See the note above.
 
 ### How the naming is derived
 
-When a `pie-list-item` hosts an interactive element (a slotted control set via `interactionType="radio" | "checkbox" | "switch"`, or a slotted link anchor via `interactionType="link"`) it generates that element's accessibility naming from its own text:
+When a `pie-list-item` hosts an interactive element (a slotted control set via `interactionType="radio" | "checkbox" | "switch"`, a slotted link anchor via `interactionType="link"`, or the button it renders for `interactionType="button"`) it generates that element's accessibility naming from its own text:
 
-- `primaryText` becomes the control's **accessible name**;
+- `primaryText` becomes the element's **accessible name**;
 - `secondaryText` and `metaText` become its **accessible description** (combined with a full stop when both are present);
-- the visible text rendered inside the item is `aria-hidden`, so a screen reader announces the name and description once (via the control) rather than twice.
+- the visible text rendered inside the item is `aria-hidden`, so a screen reader announces the name and description once (via the interactive element) rather than twice.
 
-How the naming reaches the element differs by type, but this is entirely internal - you never do it yourself. Selection controls receive it through a shared context and each applies it to the element that carries its role: `pie-radio` names its host, while `pie-checkbox` and `pie-switch` name their internal `input` (their host is role-less). A link anchor is a plain light-DOM element (not a PIE control), so `pie-list-item` sets `aria-label` and `aria-description` on it directly.
+How the naming reaches the element differs by type, but this is entirely internal - you never do it yourself. Selection controls receive it through a shared context and each applies it to the element that carries its role: `pie-radio` names its host, while `pie-checkbox` and `pie-switch` name their internal `input` (their host is role-less). A link anchor is a plain light-DOM element you slot (not a PIE control), so `pie-list-item` sets `aria-label` and `aria-description` on it directly. A `button` row's button is one the item renders itself, so it is named the same way from within the item.
 
-**If you do set something yourself, it always wins.** If a slotted control already has its own name (its `label` or `aria` prop), or the slotted anchor already has an `aria-label`/`aria-labelledby` (or `aria-description`/`aria-describedby`), the item leaves it untouched and does not overwrite it. This is an escape hatch for the rare case that needs it, not something you normally reach for.
+**For slotted elements, anything you set yourself wins.** If a slotted control already has its own name (its `label` or `aria` prop), or the slotted link anchor already has an `aria-label`/`aria-labelledby` (or `aria-description`/`aria-describedby`), the item leaves it untouched and does not overwrite it. This is an escape hatch for the rare case that needs it, not something you normally reach for. (A `button` row's button is rendered and named by the item, so there is nothing for you to set.)
 
 ## Usage Examples
 
@@ -413,6 +413,104 @@ import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
 <PieListItem interactionType="link" primaryText="Orders" secondaryText="View and manage live orders">
   <Link slot="link" href="/orders" />
 </PieListItem>
+```
+
+#### Indicating the current page
+
+To highlight the active link in a navigation list, combine `isBold` on the `pie-list-item` with `aria-current="page"` on the slotted anchor. `isBold` gives the active item a heavier weight visually; `aria-current="page"` communicates the current page to assistive technology. `pie-list-item` only manages the anchor's `aria-label` and `aria-description`, so `aria-current` does not conflict with the item's naming logic and is safe to set yourself.
+
+You can also slot a tick icon into the `trailing` slot of the active item as an additional visual indicator. PIE icons render with `role="presentation"` on their SVG, so they are already hidden from assistive technology and no extra `aria-hidden` is needed.
+
+```js
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
+```
+
+```html
+<pie-list aria-label="Account navigation">
+  <pie-list-item interactionType="link" primaryText="Overview">
+    <a slot="link" href="/account"></a>
+  </pie-list-item>
+  <pie-list-item interactionType="link" isBold primaryText="Orders">
+    <a slot="link" href="/account/orders" aria-current="page"></a>
+    <icon-check slot="trailing"></icon-check>
+  </pie-list-item>
+  <pie-list-item interactionType="link" primaryText="Payment methods">
+    <a slot="link" href="/account/payment"></a>
+  </pie-list-item>
+  <pie-list-item interactionType="link" primaryText="Addresses">
+    <a slot="link" href="/account/addresses"></a>
+  </pie-list-item>
+</pie-list>
+```
+
+In React, pass `isBold` as a prop and `aria-current="page"` directly to the `<Link>` component (or raw anchor):
+
+```jsx
+import { IconCheck } from '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
+
+<PieListItem interactionType="link" isBold primaryText="Orders">
+  <Link slot="link" href="/account/orders" aria-current="page" />
+  <IconCheck slot="trailing" />
+</PieListItem>
+```
+
+### Button items
+
+Set `interactionType="button"` to turn the whole row into one button. Use this for an **in-page action** (opening a dialog, running a command); use [`link`](#link-items) when the row navigates to another page. Unlike a link, **you do not slot anything** - the item renders the interactive element for you: an invisible, row-sized native `<button type="button">` stretched over the row. A click or tap anywhere on the row activates it, and keyboard focus lands on the row as a whole (the focus ring hugs the row). It is just an action trigger, **not a form control** - it is `type="button"`, so it never submits a form, and it carries no value.
+
+The item names the button from its own text: `primaryText` becomes the button's `aria-label` and `secondaryText`/`metaText` its `aria-description`, and the visible text is hidden from assistive technology so nothing is announced twice (see [You never set ARIA on a list item or its slotted content](#you-never-set-aria-on-a-list-item-or-its-slotted-content)).
+
+**Handle activation by listening for `click`** on the `pie-list-item` (or on the `pie-list`, since the event bubbles). Because it is a real `<button>`, activation is native: both pointer taps and keyboard (Enter, and Space) fire a `click`, so a single `click` listener covers every input. The row shows a pressed tint while it is pressed - by pointer, or while Space is held on the focused row - and the focus ring on keyboard focus. Give the `pie-list` its own accessible name (e.g. `aria-label`).
+
+**When the button opens a popup (dialog, menu, etc.)**, pass the `aria` prop with `button.haspopup` set to the popup type. This is forwarded to the internal `<button>` so assistive technology announces it correctly:
+
+```html
+<!-- A row that opens a dialog -->
+<pie-list-item
+  interactionType="button"
+  primaryText="Delete account"
+  secondaryText="Permanently remove your account"
+  .aria=${{ button: { haspopup: 'dialog' } }}>
+</pie-list-item>
+```
+
+In React:
+
+```jsx
+<PieListItem
+  interactionType="button"
+  primaryText="Delete account"
+  secondaryText="Permanently remove your account"
+  aria={{ button: { haspopup: 'dialog' } }}
+  onClick={openConfirmDialog}
+/>
+```
+
+```js
+import '@justeattakeaway/pie-webc/components/list.js';
+import '@justeattakeaway/pie-webc/components/list-item.js';
+```
+
+```html
+<pie-list aria-label="Account actions">
+  <pie-list-item interactionType="button" primaryText="Edit profile" secondaryText="Update your name and photo"></pie-list-item>
+  <pie-list-item interactionType="button" primaryText="Sign out" secondaryText="End your session on this device"></pie-list-item>
+</pie-list>
+
+<script type="module">
+  document.querySelector('pie-list').addEventListener('click', (event) => {
+    const item = event.target.closest('pie-list-item');
+    if (item) runActionFor(item.primaryText);
+  });
+</script>
+```
+
+In React, attach an `onClick` to the item:
+
+```jsx
+import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
+
+<PieListItem interactionType="button" primaryText="Edit profile" secondaryText="Update your name and photo" onClick={openProfileEditor} />
 ```
 
 ### Framework variants

@@ -7,6 +7,10 @@ import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser';
+import '@justeattakeaway/pie-icons-webc/dist/IconLock';
+import '@justeattakeaway/pie-icons-webc/dist/IconNotification';
+import '@justeattakeaway/pie-icons-webc/dist/IconLogOut';
 
 import { type ListProps } from '@justeattakeaway/pie-webc/components/list';
 
@@ -86,6 +90,8 @@ export const SelectionTypes = createStory<ListProps>(SelectionTypesTemplate, def
 
 const EXPECTED_CHANGE_EVENT_MESSAGE = 'Change event dispatched';
 
+const EXPECTED_BUTTON_ACTIVATED_MESSAGE = 'Button activated';
+
 // Test-only: a switch selection list (switches have no group, so they sit directly in a `pie-list`).
 // Switches are in the leading slot here so the trailing slot is free for `metaText`, letting us
 // assert the combined secondary + meta description on the switch itself. Item 3's switch is disabled.
@@ -139,6 +145,51 @@ const LinkListTemplate = () => withLayout(html`
     </pie-list>
 `);
 export const LinkList = createStory<ListProps>(LinkListTemplate, defaultArgs)();
+
+// Test-only: a button list. Each row is an action via `interactionType="button"`; the item renders
+// its own invisible, row-sized native `<button>` (no slotting). The four items cover the text
+// combinations (both, secondary only, meta only, neither) so we can assert the button's derived
+// aria-label/aria-description, that the visible text is aria-hidden, and that clicking the row (or
+// pressing Enter/Space) activates it. A list-level click listener logs on activation (the item fires
+// a native `click` that bubbles), used by the activation tests.
+const ButtonListTemplate = () => {
+    function onClick (event: Event) {
+        if ((event.target as HTMLElement).closest('pie-list-item')) {
+            console.info(EXPECTED_BUTTON_ACTIVATED_MESSAGE);
+        }
+    }
+
+    return withLayout(html`
+        <pie-list aria-label="Account actions" @click=${onClick}>
+            <pie-list-item .interactionType=${'button'} data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New"></pie-list-item>
+            <pie-list-item .interactionType=${'button'} data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure"></pie-list-item>
+            <pie-list-item .interactionType=${'button'} data-test-id="item-3" primaryText="Sign out" metaText="This device"></pie-list-item>
+            <pie-list-item .interactionType=${'button'} data-test-id="item-4" primaryText="Delete account"></pie-list-item>
+        </pie-list>
+    `);
+};
+export const ButtonList = createStory<ListProps>(ButtonListTemplate, defaultArgs)();
+
+// Test-only: a disabled button list. Exercises the disabled colour tokens — text uses
+// `content-disabled` and icons use `disabled-01` (via fill: currentColor). Icons are present in
+// the leading slot so both text and icon colours are captured in the VRT snapshot.
+const ButtonListDisabledTemplate = () => withLayout(html`
+    <pie-list aria-label="Account actions">
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
+            <icon-user slot="leading"></icon-user>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-2" primaryText="Change password" secondaryText="Keep your account secure">
+            <icon-lock slot="leading"></icon-lock>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-3" primaryText="Notification preferences" secondaryText="Choose what we email you about">
+            <icon-notification slot="leading"></icon-notification>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-4" primaryText="Sign out" secondaryText="End your session on this device">
+            <icon-log-out slot="leading"></icon-log-out>
+        </pie-list-item>
+    </pie-list>
+`);
+export const ButtonListDisabled = createStory<ListProps>(ButtonListDisabledTemplate, defaultArgs)();
 
 /**
  * `isBold` sets the primary text to a bold font-weight.
@@ -551,3 +602,48 @@ const MetaTextWithTrailingTemplate = () => withLayout(html`
 `);
 
 export const MetaTextWithTrailing = createStory<ListProps>(MetaTextWithTrailingTemplate, defaultArgs)();
+
+/**
+ * Test-only: compact items with primary text only.
+ * Verifies the compact row height (48px min-height).
+ */
+const ItemHeightCompactTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item isCompact primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightCompact = createStory<ListProps>(ItemHeightCompactTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary and secondary text.
+ * Verifies the two-line row height (76px min-height).
+ */
+const ItemHeightPrimaryAndSecondaryTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" secondaryText="Secondary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryAndSecondary = createStory<ListProps>(ItemHeightPrimaryAndSecondaryTemplate, defaultArgs)();
+
+/**
+ * Test-only: default (non-compact) items with primary text only.
+ * Verifies the single-line row height (56px min-height).
+ */
+const ItemHeightPrimaryOnlyTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item primaryText="Primary text" data-test-id="item-1"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-2"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-3"></pie-list-item>
+        <pie-list-item primaryText="Primary text" data-test-id="item-4"></pie-list-item>
+    </pie-list>
+`);
+
+export const ItemHeightPrimaryOnly = createStory<ListProps>(ItemHeightPrimaryOnlyTemplate, defaultArgs)();
