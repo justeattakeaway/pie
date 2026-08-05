@@ -15,16 +15,14 @@ shouldShowContents: true
         items: [
             "Use to display page titles and additional functionality.",
             "Follow native iOS scrolling behaviours.",
-            "Always use iOS headers relevant to the device you're designing for.",
-            "Always use the app header component — it is essential to the product architecture."
-        ]
+            "Always use iOS headers relevant to the device you're designing for."        ]
     },
     dont: {
         type: usageTypes.text,
         items: [
             "Do not use anywhere other than the top of the screen.",
             "Do not use images behind transparent heading text.",
-            "Never break from the app header component."
+            "Never break from the app header component - it is essential to the product architecture."
         ]
     }
 } %}
@@ -34,7 +32,7 @@ shouldShowContents: true
 ## Anatomy
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/anatomy.svg",
+    src:"../../../assets/img/components/app-bar/ios/anatomy.svg",
     alt: "Anatomy of an app bar.",
     width: 834
 } %}
@@ -60,15 +58,15 @@ shouldShowContents: true
 
 iOS 26 and Liquid Glass is available on iPhone devices ranging from the iPhone 11 series up through the latest iPhone 17, plus the iPhone SE (2nd generation and later). Our app header component is designed to stay up to date with the latest iPhone model. Currently using notch and status bar for iPhone 17.
 
-## Variations
+## Variants
 
 ### Filled
 
 A filled background provides a tokenised container for header content and titles, which should be used as default.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/variant-filled.svg",
+    alt: "An app bar with a filled background.",
     width: 360
 } %}
 
@@ -77,8 +75,8 @@ A filled background provides a tokenised container for header content and titles
 Blurred headers can also be used as an option; these allow the background to be partly visible whilst keeping the text fully accessible. These headers are best used over photos, illustrations, and other strong imagery.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/variant-blurred.svg",
+    alt: "An app nar with a blurred background.",
     width: 360
 } %}
 
@@ -89,8 +87,8 @@ A transparent background allows the page background or image to be fully visible
 If using the transparent header above a page background colour, you may need to do additional checks to make sure the text is accessible. If using the transparent header above an image, please ensure titles are turned off.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/variant-transparent.svg",
+    alt: "An app nar with a transparent background.",
     width: 360
 } %}
 
@@ -98,17 +96,17 @@ If using the transparent header above a page background colour, you may need to 
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/accordion/web/modifiers-icons-do.svg",
+            src: "../../../assets/img/components/app-bar/ios/variant-transparent-do.svg",
             width: "362px",
-            alt: "Accordion with a meaningful icon that relates with the content."
+            alt: "An app bar with inverse icon buttons which are legible on a complex background."
         }]
     },
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/accordion/web/modifiers-icons-dont.svg",
+            src: "../../../assets/img/components/app-bar/ios/variant-transparent-dont.svg",
             width: "362px",
-            alt: "Accordion with improper generic icon."
+            alt: "An app bar with text over a complex background making it different to read."
         }]
     }
 } %}
@@ -124,8 +122,8 @@ If using the transparent header above a page background colour, you may need to 
 Use as default to provide screen navigation. Titles may be hidden for certain use cases, but there must always be a title to ensure screen reading accessibility.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/title-regular.svg",
+    alt: "An app bar with a regular title.",
     width: 360
 } %}
 
@@ -134,18 +132,18 @@ Use as default to provide screen navigation. Titles may be hidden for certain us
 Use when you need to make a title more prominent.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/title-prominent.svg",
+    alt: "An app bar with a prominent title.",
     width: 360
 } %}
 
-### Secondary Text
+### Secondary text
 
 You can add secondary text to the header to provide supplementary information for the user.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/title-secondary.svg",
+    alt: "An app bar with a title and secondary text.",
     width: 360
 } %}
 
@@ -158,8 +156,8 @@ Our app header can use both centre and left alignment for text options. Titles m
 Use as default to provide screen navigation. If you need 2 or more trailing buttons, we suggest using left-aligned text to allow for more room.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/alignment-centre.svg",
+    alt: "An app bar with a centre aligned title.",
     width: 360
 } %}
 
@@ -168,36 +166,36 @@ Use as default to provide screen navigation. If you need 2 or more trailing butt
 Left-aligned text can be used as an option for longer titles and secondary text, or if you need to add two trailing icons.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/alignment-left.svg",
+    alt: "An app bar with a left aligned title.",
     width: 360
 } %}
 
 ### Search
 
-Can be used when you need to use high-level search functionality. Use the placeholder option to show placeholder text; use **Filled** to show when a user has entered a string of text.
+Can be used when you need to use high-level search functionality. Use the placeholder option to show placeholder text; use filled to show when a user has entered a string of text.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/search-1.svg",
+    alt: "An app bar with a search box that contains placeholder text.",
     width: 360
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/search-2.svg",
+    alt: "An app bar with a search box that contains a search string.",
     width: 360
 } %}
 
-### Leading Controls
+### Leading controls
 
 #### Back
 
 Aligns with native behaviour, allowing users to navigate back to the previous screen. An optional label is provided to assist with navigation; this can be turned on or off depending on pillar decisions.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/controls-back.svg",
+    alt: "An app bar with a back button.",
     width: 360
 } %}
 
@@ -206,8 +204,8 @@ Aligns with native behaviour, allowing users to navigate back to the previous sc
 Aligns with native behaviour, allowing users to close the application or view.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/controls-close.svg",
+    alt: "An app bar with a close button.",
     width: 360
 } %}
 
@@ -216,22 +214,22 @@ Aligns with native behaviour, allowing users to close the application or view.
 Allows users to open a side-sheet menu. Used on tablet rather than mobile.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/controls-menu.svg",
+    alt: "An app bar with a menu button.",
     width: 360
 } %}
 
-### Trailing Controls
+### Trailing controls
 
 You can use up to two icons in the trailing controls to aid user navigation and provide additional functionality.
 
-#### Overflow Menu
+#### Overflow menu
 
 Aligns with native behaviour, allowing users to open a native overflow menu that hides additional functionality. When paired with another icon, the overflow menu always appears to the right.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/controls-overflow-menu.svg",
+    alt: "An app bar with an overflow menu.",
     width: 360
 } %}
 
@@ -242,28 +240,27 @@ We allow up to two custom icons within our trailing controls; these are availabl
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/app-bar/emphasis-strong.svg",
+      src: "../../../assets/img/components/app-bar/ios/controls-custom-icons-1.svg",
       width: 360,
-      alt: "A app bar with strong emphasis."
+      alt: "An app bar containing leading and trailing custom icon buttons."
     } %}
     {% endcontentItem %}
     {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/app-bar/emphasis-subtle.svg",
+      src: "../../../assets/img/components/app-bar/ios/controls-custom-icons-2.svg",
       width: 360,
-      alt: "A app bar with subtle emphasis.",
-      variant: "secondary"
+      alt: "An app bar containing one leading and two trailing custom icon buttons."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}
 
-#### Dual Icons
+#### Dual icons
 
 iOS 26 allows for a *dual style* of Liquid Glass button that combines two icon buttons into one Liquid Glass container.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/controls-dual-icons.svg",
+    alt: "An app bar containing two trailing icon buttons in a Liquid Glass style container.",
     width: 360
 } %}
 
@@ -274,8 +271,8 @@ iOS 26 allows for a *dual style* of Liquid Glass button that combines two icon b
 The header always sits flush to the top of the screen, and over the page content.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/placement.svg",
+    alt: "A diagram showing the header flush with the top of the screen.",
     width: 360
 } %}
 
@@ -288,8 +285,8 @@ The header always sits flush to the top of the screen, and over the page content
 Titles should be used as default; they should always be clear, succinct, and provide the relevant content to aid a user's navigation of the app.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/content-titles.svg",
+    alt: "An app bar with a succinct title.",
     width: 360
 } %}
 
@@ -298,14 +295,14 @@ Titles should be used as default; they should always be clear, succinct, and pro
 Text should not go over one line. If it does, the text will truncate — you should avoid this happening by keeping text succinct and testing any translations across devices. Use alternative titles if translations are too long.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/content-overflow-text-1.svg",
+    alt: "An app bar with a long title and secondary text that truncates.",
     width: 360
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/content-overflow-text-2.svg",
+    alt: "An app bar with a long title and secondary text that truncates.",
     width: 360
 } %}
 
@@ -316,8 +313,8 @@ If placeholder text exceeds the length of the search input container, it will tr
 String variants should never have overflow solutions. See Behaviours for when a user types a string of text that is longer than the search bar container.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/search.svg",
+    alt: "An app bar with a search input field containing a long truncated search string.",
     width: 360
 } %}
 
@@ -344,8 +341,8 @@ Use modal patterns when you need to show a multi-step workflow or full-screen ta
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/behaviours-modal.svg",
+    alt: "An example of a native iOS modal.",
     width: 360
 } %}
 
@@ -370,20 +367,20 @@ When scrolling through the page content, the header remains sticky at the top of
 
 {% notification {
   type: "information",
-  message: "Currently only documented for engineering purposes — follows native iOS behaviours."
+  message: "Currently only documented for engineering purposes - follows native iOS behaviours."
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/scrolling-1.svg",
+    alt: "A transparent app bar with scrolling content visible underneath.",
     width: 360
 } %}
 
 We also allow app bar headers with prominent text to change to non-prominent text upon scrolling, to allow for more space on the screen.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/scrolling-2.svg",
+    alt: "Before and after scrolling showing the change from a prominent to a non-prominent app bar.",
     width: 360
 } %}
 
@@ -394,8 +391,8 @@ When typing, a text cursor (not visible in design) indicates where text will be 
 If the user inputs a string of text longer than the container, the search input will scroll automatically so the user will continue to see what they are typing.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/search-bar.svg",
+    alt: "An app bar with a search input field showing how a long string of text will automatically scroll across when typing.",
     width: 360
 } %}
 
@@ -404,8 +401,8 @@ If the user inputs a string of text longer than the container, the search input 
 Use the native iOS menu component to provide an overflow menu solution. The overflow menu can be activated using the overflow menu icon provided in the trailing controls.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/overflow-menu.svg",
+    alt: "An app bar with an overflow menu revealing more options.",
     width: 360
 } %}
 
@@ -416,14 +413,19 @@ Use the native iOS menu component to provide an overflow menu solution. The over
 Defines the touch targets of interactive elements across variants.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/interactions-touch-targets.svg",
+    alt: "Anatomy of touch target interactions.",
     width: 360
 } %}
 
-- **Navigation:** Navigates to the previous screen, closes a modal stack, or opens a menu.
-- **Select:** Allows for selections within the screen.
-- **Clear:** Clears a search query.
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Navigation:** Navigates to the previous screen, closes a modal stack, or opens a menu.",
+        "**Select:** Allows for selections within the screen.",
+        "**Clear:** Clears a search query."
+    ]
+} %}
 
 ---
 
@@ -436,23 +438,23 @@ Here are some examples of the App header in a left-to-right context.
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/app-bar/ltr-1.svg",
+      src: "../../../assets/img/components/app-bar/ios/ltr-1.svg",
       width: 375,
-      alt: "A app bar with left to right content."
+      alt: "An app bar with a non-prominent header in left to right context."
     } %}
     {% endcontentItem %}
     {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/app-bar/ltr-2.svg",
+      src: "../../../assets/img/components/app-bar/ios/ltr-2.svg",
       width: 375,
-      alt: "A app bar with left to right content"
+      alt: "An app bar with a prominent header in left to right context."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/ltr-3.svg",
+    alt: "An app bar with a search box in left to right context.",
     width: 360
 } %}
 
@@ -463,22 +465,22 @@ Here are some examples of the App header in a right-to-left context.
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/app-bar/ltr-1.svg",
+      src: "../../../assets/img/components/app-bar/ios/rtl-1.svg",
       width: 375,
-      alt: "A app bar with left to right content."
+      alt: "An app bar with a non-prominent header in right to left context."
     } %}
     {% endcontentItem %}
     {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/app-bar/ltr-2.svg",
+      src: "../../../assets/img/components/app-bar/ios/rtl-2.svg",
       width: 375,
-      alt: "A app bar with left to right content"
+      alt: "An app bar with a prominent header in right to left context."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/variant-default.svg",
-    alt: "A default app bar.",
+    src:"../../../assets/img/components/app-bar/ios/rtl-3.svg",
+    alt: "An app bar with a search box in right to left context.",
     width: 360
 } %}
