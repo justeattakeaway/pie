@@ -39,5 +39,5 @@ const importStatement = getIconImportStatement(getComponentName(true), isReact);
 export default {
     example: figma.code`<${getComponentName(isReact)}></${getComponentName(isReact)}>`,
     imports: [importStatement],
-    id: figma.batch.id,
+    id: 'icon-payment',
 };
