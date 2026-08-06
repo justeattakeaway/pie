@@ -28,7 +28,7 @@ function getIconsFileNames () {
 
         const outputPath = path.join(TEMP_DIR, output);
         const fileContent = `const iconFiles = ${JSON.stringify(names, null, 2)}
-module.exports = files;`;
+module.exports = iconFiles;`;
 
         fs.writeFileSync(outputPath, fileContent, 'utf8');
 

@@ -171,7 +171,7 @@ These icons work differently because the Figma components are structured differe
 
 The only requirement is that any new icon file is added to `packages/tools/pie-icons/src/assets/payment` or `packages/tools/pie-icons/src/assets/flags`. The file names are used as base names for these icons.
 
-### 2. Publish icons
+## Publishing icons
 
 ```bash
 yarn publish-icons:web
