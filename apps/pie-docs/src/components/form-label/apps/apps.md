@@ -477,7 +477,7 @@ Trailing content is positioned at the end of a form label and should be right-al
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/form-label/layout-position-dont.svg",
+            src: "../../../assets/img/components/form-label/apps/layout-position-dont.svg",
             width: "280px",
             alt: "Examples of discouraged form label usage."
         }]
