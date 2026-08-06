@@ -73,6 +73,7 @@
     "components/icon-button/ios",
     "components/icon-button/web",
     "components/link",
+    "components/link/apps",
     "components/link/code",
     "components/link/web",
     "components/list-item",

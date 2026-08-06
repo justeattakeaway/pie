@@ -108,7 +108,7 @@ The card container comes with a slot, so you can add any content you like to the
 
 ---
 
-## Interactive States
+## Interactive states
 
 {% contentLayout %}
   {% contentItem %}
@@ -155,7 +155,7 @@ Here is an example of a Card in a left-to-right context:
     alt: "A left-to-right example of a card being used on a menu page."
 } %}
 
-### RTL Example
+### RTL example
 
 Here is an example of a Card in a right-to-left context:
 

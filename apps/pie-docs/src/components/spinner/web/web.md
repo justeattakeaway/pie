@@ -134,14 +134,14 @@ The spinner should be centred within the component to indicate that an action is
     {% contentPageImage {
       src: "../../../assets/img/components/spinner/web/spinner-placement-component-1.svg",
       width: 70,
-      alt: ""
+      alt: "A spinner centred within a button component to indicate it is processing an action."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/spinner/web/spinner-placement-component-2.svg",
       width: 48,
-      alt: ""
+      alt: "A spinner centred within an icon button component to indicate it is processing an action."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}

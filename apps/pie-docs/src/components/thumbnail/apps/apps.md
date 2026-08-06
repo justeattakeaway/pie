@@ -42,7 +42,7 @@ shouldShowContents: true
     type: listTypes.ordered,
     items: [
       "**Container:** To align the image in the center and highlight the white-space around the image.",
-      "**Image:** The fill can be an image, placeholder icon or a fill color."
+      "**Image:** The fill can be an image, placeholder icon or a fill colour."
     ]
 } %}
 

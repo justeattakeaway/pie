@@ -19,7 +19,7 @@ shouldShowContents: true
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't use if entire content needs to be expanded or collapsed — use an Accordion instead."
+            "Don't use if entire content needs to be expanded or collapsed. Use an Accordion instead."
         ]
     }
 } %}
@@ -99,7 +99,7 @@ Tapping "Show More" reveals the hidden content at the bottom of a paragraph. Whe
 
 Outlines the atomic level interactive elements for the component.
 
-### Show More
+### Show more
 
 {% contentPageImage {
     src:"../../../assets/img/components/show-more/states-show-more.svg",
@@ -107,7 +107,7 @@ Outlines the atomic level interactive elements for the component.
     width: "200"
 } %}
 
-### Show Less
+### Show less
 
 {% contentPageImage {
     src:"../../../assets/img/components/show-more/states-show-less.svg",
@@ -119,7 +119,7 @@ Outlines the atomic level interactive elements for the component.
 
 ## Examples
 
-### LTR Examples
+### LTR examples
 
 Here are some examples of the component in left-to-right context:
 
@@ -129,7 +129,7 @@ Here are some examples of the component in left-to-right context:
     width: "200"
 } %}
 
-### RTL Examples
+### RTL examples
 
 Here are some examples of the component in right-to-left context:
 

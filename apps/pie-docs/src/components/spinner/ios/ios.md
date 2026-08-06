@@ -86,7 +86,7 @@ eleventyComputed:
     src:"../../../assets/img/components/spinner/ios/variants-inverse-light.png",
     width: 48,
     variant: "inverse",
-    alt: "Inverse variant of the spinner component in white and gray colour on a black background"
+    alt: "Inverse variant of the spinner component in white and grey colour on a black background"
 } %}
 
 ---

@@ -291,7 +291,7 @@ A good form label has certain qualities that make it user-friendly and improve t
             "Don't use technical jargon or industry-specific language that users may not be familiar with.",
             "Don't overcrowd the label with unnecessary information or excessive details.",
             "Don't use overly creative or clever wording that may obscure the meaning or purpose of the input field.",
-            "Don't sacrifice clarity for brevity - ensure that the label provides sufficient guidance without being overly wordy.",
+            "Don't sacrifice clarity for brevity. Ensure that the label provides sufficient guidance without being overly wordy.",
             "Don't use labels as instructional text. For example, “Email” instead of “Put your email here”.",
             "The label should not be used as a minimum value for a Slider or Progress Bar."
         ]
@@ -366,7 +366,7 @@ When using the String modifier, ensure that the content is dynamic and is update
   {% endcontentItem %}
 {% endcontentLayout %}
 
-### Character count, Stepper, Percentage
+### Character count, stepper, percentage
 
 {% notification {
   type: "information",
@@ -426,7 +426,7 @@ Text fields and text areas may have a character limit and counter. Use the chara
   {% endcontentItem %}
 {% endcontentLayout %}
 
-### Stepper, Percentage, String
+### Stepper, percentage, string
 
 User's actions, selections, inputs and statuses are reflected on the trailing content.
 
