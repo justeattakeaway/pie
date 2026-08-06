@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.4.0
+
+### Minor Changes
+
+- [Added] - opt-in app-normalize stylesheet (modern-normalize) ([#3084](https://github.com/justeattakeaway/pie/pull/3084)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.3.3
 
 ### Patch Changes

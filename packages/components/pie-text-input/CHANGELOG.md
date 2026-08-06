@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-text-input
 
+## 0.30.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.8
+  - @justeattakeaway/pie-webc-core@17.0.0
+
 ## 0.30.7
 
 ### Patch Changes
