@@ -24,6 +24,7 @@ export type ListPlaygroundProps = {
     isCompact: boolean;
     isBold: boolean;
     hasMedia: boolean;
+    hasDivider: boolean;
     disabled: boolean;
     leadingContent: 'none' | 'icon' | 'thumbnail';
     trailingContent: 'none' | 'icon' | 'tag';
@@ -38,6 +39,7 @@ export const defaultArgs: ListPlaygroundProps = {
     isCompact: false,
     isBold: false,
     hasMedia: false,
+    hasDivider: true,
     disabled: false,
     leadingContent: 'none',
     trailingContent: 'icon',
@@ -66,6 +68,10 @@ export const listArgTypes: ListStoryMeta['argTypes'] = {
     },
     hasMedia: {
         description: 'Required to display slotted media (e.g. `pie-thumbnail`). Also reduces block padding on single-line items.',
+        control: 'boolean',
+    },
+    hasDivider: {
+        description: 'Renders a divider below the item (omit on the last item in a list).',
         control: 'boolean',
     },
     disabled: {
@@ -118,7 +124,7 @@ export const renderTrailing = (trailingContent: ListPlaygroundProps['trailingCon
     return nothing;
 };
 
-export const renderItem = (args: ListPlaygroundProps, itemStyle = '') => html`
+export const renderItem = (args: ListPlaygroundProps, itemStyle = '', hasDivider = false) => html`
     <pie-list-item
         style=${itemStyle}
         .primaryText=${args.primaryText}
@@ -127,6 +133,7 @@ export const renderItem = (args: ListPlaygroundProps, itemStyle = '') => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
         ${renderLeading(args.leadingContent)}
         ${renderTrailing(args.trailingContent)}
@@ -165,9 +172,9 @@ const makeListTemplate = (headingId: string, heading: string, itemStyle = ''): T
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <h2 id=${headingId}>${heading}</h2>
         <pie-list aria-labelledby=${headingId}>
-            ${renderItem(args, itemStyle)}
-            ${renderItem(args, itemStyle)}
-            ${renderItem(args, itemStyle)}
+            ${renderItem(args, itemStyle, args.hasDivider)}
+            ${renderItem(args, itemStyle, args.hasDivider)}
+            ${renderItem(args, itemStyle, args.hasDivider)}
             ${renderItem(args, itemStyle)}
         </pie-list>
     `;
