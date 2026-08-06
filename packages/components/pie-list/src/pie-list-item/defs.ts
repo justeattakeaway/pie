@@ -75,6 +75,11 @@ export interface ListItemProps {
     disabled?: boolean
 
     /**
+     * When `true`, renders a bottom divider line on the item. Do not set this to true for the last item in a list.
+     */
+    hasDivider?: boolean
+
+    /**
      * Additional ARIA properties that the item cannot derive from its text props. `button.haspopup`
      * applies when `interactionType="button"`: its value is forwarded to the internal `<button>`.
      * Set it when the button row triggers a popup such as a dialog or menu.
@@ -90,4 +95,5 @@ export const defaultProps: DefaultProps = {
     hasMedia: false,
     interactionType: 'none',
     disabled: false,
+    hasDivider: false,
 };
