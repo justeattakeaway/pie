@@ -24,7 +24,7 @@ shouldShowContents: true
     }
 } %}
 
-___
+---
 
 ## Anatomy
 
@@ -43,7 +43,7 @@ ___
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -125,7 +125,7 @@ Mobile devices don't have a hover cursor, so dragging actions might not be the m
 
 ---
 
-## Interactive States
+## Interactive states
 
 {% contentLayout %}
   {% contentItem %}
@@ -199,7 +199,7 @@ Here is an example of a Card in a left-to-right context:
     alt: "A left-to-right example of a card being used on a menu page."
 } %}
 
-### RTL Example
+### RTL example
 
 Here is an example of a Card in a right-to-left context:
 

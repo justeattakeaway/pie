@@ -1,0 +1,40 @@
+{
+    "headings": [
+        "Component",
+        "Name",
+        "Size (px)",
+        "Role examples"
+    ],
+    "rows": [
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/ios/size-table-xs.png", "alt": "XS spinner" } },
+            "XS",
+            "16 x 16",
+            "-"
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/ios/size-table-s.png", "alt": "S spinner" } },
+            "S",
+            "20 x 20",
+            "Buttons, Chip."
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/ios/size-table-m.png", "alt": "M spinner" } },
+            "M",
+            "24 x 24",
+            "Icon Buttons, Uploader."
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/ios/size-table-l.png", "alt": "L spinner" } },
+            "L",
+            "32 x 32",
+            "-"
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/ios/size-table-xl.png", "alt": "XL spinner" } },
+            "XL",
+            "48 x 48",
+            "Whole page."
+        ]
+    ]
+}
