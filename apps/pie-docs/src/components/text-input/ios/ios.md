@@ -3,10 +3,492 @@ eleventyNavigation:
     key: iOS
     parent: Text Input
     order: 4
-draft: true
+shouldShowContents: true
 ---
 
-{% notification {
-  type: "neutral",
-  message: "We're currently working on this documentation. It will be available soon."
+## Anatomy
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/anatomy.svg",
+    alt: "Anatomy of a text input.",
+    width: 420
 } %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Form label (optional):** The [form label](/components/form-label/) provides necessary content / information to a form.",
+        "**String:** Placeholder or user inputted value.",
+        "**Leading content (optional):** An icon, text, or symbol that is used to visually support the input. It is displayed before the input's value. ",
+        "**Trailing content (optional):** An icon, text, or symbol that is used to visually support the input. It is displayed after the input's value.",
+        "**Assistive text (optional):** The [assistive text](/components/assistive-text/) provides additional instructional information / error / success messaging."
+    ]
+} %}
+
+---
+
+## Variants
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Single line</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/variants-single-line.svg",
+      width: "200",
+      alt: "Example of the single line text input variant."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Multi line</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/variants-multi-line.svg",
+      width: "200",
+      alt: "Example of the multi line text input variant."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+{% contentItem %}
+  <h3>Textarea</h3>
+  {% contentPageImage {
+    src: "../../../assets/img/components/text-input/variants-text-area.svg",
+    width: "200",
+    alt: "Example of the textarea text input variant."
+  } %}
+{% endcontentItem %}
+
+---
+
+## Modifiers
+
+### Leading and trailing content
+
+An icon, text, or symbol can be added to visually support the input. Leading and trailing content can be combined depending on the use-case.
+
+#### Icon
+
+{% contentLayout %}
+  {% contentItem %}
+    <p>Use a leading icon for non-interactive icons that visually support the text input.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <p>Use a trailing icon for interactive icons within the text input.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-trailing-icon.svg",
+      width: "256px",
+      alt: "Text input with a trailing icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <p>Use both leading and trailing icons when non-interactive and interactive icons are required.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-both-icons.svg",
+      width: "256px",
+      alt: "Text input with both leading and trailing icons."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Alphanumeric
+
+Use when text input requires clarification of the input format, such as a symbol or unit of measure. It is recommended to use less than 4 characters in leading or trailing content.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-alphanumeric-leading.svg",
+      width: "256px",
+      alt: "Text input with alphanumeric content and a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-alphanumeric-trailing.svg",
+      width: "256px",
+      alt: "Text input with alphanumeric content and a trailing icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-alphanumeric-both.svg",
+      width: "256px",
+      alt: "Text input with alphanumeric content and both leading and trailing icons."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Payment method
+
+Payment method is only available in trailing content.
+Use when a text input requires a card number to be entered, and reflect the card  entered by the user.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/modifiers-payment-method.svg",
+    alt: "Text input with payment method modifier.",
+    width: "256px"
+} %}
+
+### Type
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Placeholder</h4>
+    <p>Placeholder text should not contain crucial information, and only displayed if beneficial to the user.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-type-placeholder.svg",
+      width: "256px",
+      alt: "Text input with placeholder type modifier."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Filled</h4>
+    <p>Placeholder text disappears as soon as the user starts entering data into the text input field.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-type-filled.svg",
+      width: "256px",
+      alt: "Text input with filled type modifier."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### Label
+
+Labels can be removed in certain use cases, but it is advised against due to accessibility reasons. In instances where it needs to be removed, it is recommended that a ‘hidden label’ is embedded into the code for screen readers to announce.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/modifiers-label.svg",
+    alt: "Text input with label modifier.",
+    width: "256px"
+} %}
+
+---
+
+## Sizes
+
+### Height
+
+Use a consistent text input height when it is being used alongside other form components on the same page.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Small</h4>
+    <p>Use when there isn't enough vertical space for the default text input size.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/sizes-height-small.svg",
+      width: "256px",
+      alt: "Text input with small height."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Medium</h4>
+    <p>Default size and should be used whenever possible.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/sizes-height-medium.svg",
+      width: "256px",
+      alt: "Text input with medium height."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Large</h4>
+    <p>Choose this size when there is a lot of space to work with. This size is typically used in simple forms or when a text input is placed by itself on a page.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/sizes-height-large.svg",
+      width: "256px",
+      alt: "Text input with large height."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### Width
+
+Use the field width to set the users' expectations, this can help us communicate how much input is required. For example, if a field should only have 5 characters, a full width field would not be suitable.
+In forms, aim to standardise widths for text inputs to enhance readability for users.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/size-width-default.svg",
+      width: "256px",
+      alt: "Text input with default width."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/size-width-small.svg",
+      width: "110px",
+      alt: "Text input with small width."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Content
+
+### Placeholder
+
+Placeholder text is optional, it should not contain important information, and should only be displayed if it is useful to the user.
+
+- Use clear placeholder text for the text input trigger so that users understand its purpose, e.g. example of the input data.
+- Placeholder text should not be used as a label
+- For additional information or instruction, use [assistive text](/components/assistive-text/) instead.
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/text-input/content-placeholder-do.svg",
+            width: "176px",
+            alt: "Example of a properly used placeholder: 'MM/YY' for an expiry date field."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/text-input/content-placeholder-dont.svg",
+            width: "234px",
+            alt: "Example of an incorrectly used placeholder: 'Username' and 'Must contain 8 characters' as labels for input fields"
+        }]
+    }
+} %}
+
+### Input types
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Alphanumeric</h4>
+    <p>Both letters, numbers and certain special characters are allowed, for the majority of use-cases this will be used.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/content-input-types-alphanumeric.svg",
+      width: "256px",
+      alt: "Text input with alphanumeric content."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Numeric</h4>
+    <p>Only numeric values can be entered, for use-cases such as zip code, phone number, card number. However, some browsers accept dots, commas and the letter 'e' in numeric input.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/content-input-types-numeric.svg",
+      width: "135px",
+      alt: "Text input with numeric content."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Password</h4>
+    <p>Characters are replaced with dots that hide the password text by default.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/content-input-types-password.svg",
+      width: "256px",
+      alt: "Text input with password content."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Layout
+
+Inputs can be placed side by side, if they are required under the umbrella of one label.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/layout.svg",
+    alt: "Example of text inputs placed side by side.",
+    width: "200"
+} %}
+
+---
+
+## Overflow
+
+### Single line
+
+If the string exceeds its available viosible bound, the content overflows to the left.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/overflow-single-line-examples.svg",
+    alt: "Example of single line text input overflow.",
+    width: "200"
+} %}
+
+### Multi line
+
+Multi line text input automatically resizes based on the amount of content the user inputs. A max height of the text input is defined per user case.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/overflow-multi-line-examples.svg",
+    alt: "Example of multi line text input overflow.",
+    width: "200"
+} %}
+
+### Textarea
+
+Textarea text input automatically resizes based on the amount of content the user inputs. A max height of the text input is defined per user case.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/overflow-text-area-examples.svg",
+    alt: "Example of textarea text input overflow.",
+    width: "200"
+} %}
+
+---
+
+## Behaviour
+
+### Assistive text
+
+If space is limited, long assistive text may wrap to multiple lines, especially if there are multiple text inputs sitting side by side. Every text input should have its own assistive text, even if the content is identical.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/behaviour-assistive-text.svg",
+    alt: "Example of assistive text behaviour.",
+    width: "300px"
+} %}
+
+---
+
+## Interactive states
+
+Outlines the atomic level interactive elements for the component.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Default</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/interactive-states-default.svg",
+      width: "256px",
+      alt: "Default interactive state example."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Focus</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/interactive-states-focus-apps.svg",
+      width: "256px",
+      alt: "Interactive state example when input is focused."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Disabled</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/interactive-states-disabled.svg",
+      width: "256px",
+      alt: "Interactive state example when input is disabled.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Read only</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/interactive-states-readonly.svg",
+      width: "256px",
+      alt: "Interactive state example in read only mode."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Error</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/interactive-states-error.svg",
+      width: "256px",
+      alt: "Interactive state example showing an error."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Error - focus</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/interactive-states-error-focus.svg",
+      width: "256px",
+      alt: "Interactive state example showing an error when input is focused."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Examples
+
+### LTR examples
+
+Here are some examples of text inputs in a left-to-right context:
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/examples-LTR-default.svg",
+    alt: "Default example layout with left-to-right text direction.",
+    width: "333px"
+} %}
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-LTR-password.svg",
+      width: "256px",
+      alt: "Password input example with left-to-right text direction."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-LTR-date.svg",
+      width: "112px",
+      alt: "Date selection example with left-to-right text direction."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-LTR-search.svg",
+      width: "256px",
+      alt: "Search bar example with left-to-right text direction."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-LTR-phone.svg",
+      width: "256px",
+      alt: "Phone number input example with left-to-right text direction."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### RTL examples
+
+Here are some examples of text inputs in a right-to-left context:
+
+{% contentPageImage {
+    src:"../../../assets/img/components/text-input/examples-RTL-default.svg",
+    alt: "Default example layout with right-to-left text alignment.",
+    width: "333px"
+} %}
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-RTL-password.svg",
+      width: "256px",
+      alt: "Password input example with right-to-left text alignment."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-RTL-date.svg",
+      width: "112px",
+      alt: "Date selection example with right-to-left text alignment."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-RTL-search.svg",
+      width: "256px",
+      alt: "Search bar example with right-to-left text alignment."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/examples-RTL-phone.svg",
+      width: "256px",
+      alt: "Phone number input example with right-to-left text alignment."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
