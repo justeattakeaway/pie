@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.88.1
+
+### Patch Changes
+
+- [Added] - hasDivider as a reactive control to pie-list stories and set to true by default ([#3099](https://github.com/justeattakeaway/pie/pull/3099)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.88.0
 
 ### Minor Changes

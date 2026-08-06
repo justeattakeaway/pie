@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.88.0",
+  "version": "1.88.1",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
