@@ -6,6 +6,9 @@ import atImport from 'postcss-import';
 const cssInputFilePath = 'css/input.css';
 const cssOutputFilePath = 'dist/index.css';
 
+const normalizeInputFilePath = 'css/app/resets/normalize.css';
+const normalizeOutputFilePath = 'dist/app/resets/normalize.css';
+
 async function processCSS (inputPath: string): Promise<Result> {
     const css = await fs.readFile(inputPath, 'utf8');
 
@@ -30,6 +33,14 @@ async function main (): Promise<void> {
         await writeOutput(cssOutputFilePath, result.css);
 
         console.info(`"${cssOutputFilePath}" file written`);
+
+        console.info(`Processing "${normalizeInputFilePath}" file...`);
+        const normalizeResult = await processCSS(normalizeInputFilePath);
+
+        console.info(`Writing "${normalizeOutputFilePath}" file...`);
+        await writeOutput(normalizeOutputFilePath, normalizeResult.css);
+
+        console.info(`"${normalizeOutputFilePath}" file written`);
     } catch (error) {
         console.error(`An error occurred: ${error}`);
     }
