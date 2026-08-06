@@ -1,8 +1,14 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const selectionTypes = ['none', 'radio', 'checkbox', 'switch'] as const;
+type AriaProps = {
+    button?: {
+        haspopup?: 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true';
+    };
+};
 
-export type SelectionType = typeof selectionTypes[number];
+export const interactionTypes = ['none', 'radio', 'checkbox', 'switch', 'link', 'button'] as const;
+
+export type InteractionType = typeof interactionTypes[number];
 
 export interface ListItemProps {
     /**
@@ -38,20 +44,27 @@ export interface ListItemProps {
     hasMedia?: boolean
 
     /**
-     * The kind of interactive control this item hosts in its `leading` or `trailing` slot. This
-     * makes the whole row a selectable target: the item takes the appropriate role, provides its
-     * text as the control's accessible name/description, hides the duplicated visible text, and
-     * forwards row clicks to the control.
+     * How the whole row behaves. A single prop drives the row's role, its accessible naming, whether
+     * it forwards clicks, and its interactive (hover/active) states. The item always generates the
+     * accessible name and description of whatever it hosts from its own text (`primaryText`,
+     * `secondaryText`, `metaText`), so you never set ARIA on the item or its slotted content yourself.
      *
      * - `none` (default) - a static, non-selectable list item (`role="listitem"`).
      * - `radio` - hosts a `pie-radio` (used inside a `pie-radio-group`); the item is `presentation`.
      * - `checkbox` - hosts a `pie-checkbox` (used inside a `pie-checkbox-group`); the item is `presentation`.
      * - `switch` - hosts a `pie-switch`; there is no group, so the item stays `role="listitem"`.
+     * - `link` - the whole row is a single navigation link. Slot an empty `<a slot="link" href="...">`;
+     *   it is stretched over the entire row as the clickable target and named from the item's text.
+     * - `button` - the whole row is a single button (for an in-page action rather than navigation).
+     *   The item renders the button for you (no slotting); it is stretched invisibly over the entire
+     *   row, named from the item's text, and dispatches a native `click` (pointer and keyboard).
+     *   Listen for `click` on the `pie-list-item`. It is not a form control.
      *
-     * Set this on each selectable row. When the rows sit inside a `pie-radio-group`, the group lays
-     * them out as a divided list automatically; this prop governs the row's role and behaviour.
+     * Set this on each interactive row. When radio/checkbox rows sit inside a `pie-radio-group` /
+     * `pie-checkbox-group`, the group lays them out as a divided list automatically; this prop
+     * governs the row's own role and behaviour.
      */
-    selectionType?: typeof selectionTypes[number]
+    interactionType?: typeof interactionTypes[number]
 
     /**
      * Marks the row as disabled: it takes on the disabled styling and stops forwarding row clicks to
@@ -60,6 +73,18 @@ export interface ListItemProps {
      * (static) item.
      */
     disabled?: boolean
+
+    /**
+     * When `true`, renders a bottom divider line on the item. Do not set this to true for the last item in a list.
+     */
+    hasDivider?: boolean
+
+    /**
+     * Additional ARIA properties that the item cannot derive from its text props. `button.haspopup`
+     * applies when `interactionType="button"`: its value is forwarded to the internal `<button>`.
+     * Set it when the button row triggers a popup such as a dialog or menu.
+     */
+    aria?: AriaProps
 }
 
 export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
@@ -68,6 +93,7 @@ export const defaultProps: DefaultProps = {
     isCompact: false,
     isBold: false,
     hasMedia: false,
-    selectionType: 'none',
+    interactionType: 'none',
     disabled: false,
+    hasDivider: false,
 };

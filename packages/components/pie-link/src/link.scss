@@ -54,6 +54,18 @@
         --link-text-color: var(--dt-color-content-link-inverse);
     }
 
+    &.c-link--inverse-light {
+        --link-text-color: var(--dt-color-content-link-light);
+    }
+
+    &.c-link--xsmall {
+        --link-font-size: #{p.font-size(--dt-font-caption-link-size)};
+        --link-line-height: calc(var(--dt-font-caption-link-line-height) * 1px);
+        --link-font-weight: var(--dt-font-caption-link-weight);
+        --link-text-decoration: var(--dt-font-caption-link-text-decoration);
+        --link-icon-offset-top: 0;
+    }
+
     &.c-link--small {
         --link-font-size: #{p.font-size(--dt-font-body-s-link-size)};
         --link-line-height: calc(var(--dt-font-body-s-link-line-height) * 1px);
@@ -81,6 +93,12 @@
             --link-font-size: #{p.font-size(--dt-font-body-strong-s-link-size)};
             --link-line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
             --link-font-weight: var(--dt-font-body-strong-s-link-weight);
+        }
+
+        &.c-link--xsmall {
+            --link-font-size: #{p.font-size(--dt-font-caption-strong-link-size)};
+            --link-line-height: calc(var(--dt-font-caption-strong-link-line-height) * 1px);
+            --link-font-weight: var(--dt-font-caption-strong-link-weight);
         }
     }
 

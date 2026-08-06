@@ -6,7 +6,6 @@
     // host declaration wins over a value inherited from an ancestor.
     --list-item-inline-padding: var(--dt-spacing-d);
     --list-item-alignment: flex-start;
-    --list-item-border: none;
 
     // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
     display: block;
@@ -16,21 +15,24 @@
 .c-listItem-container {
     --list-item-block-padding: var(--dt-spacing-d);
 
-    // The list component will add a border to each list-item that follows another. This ensures the height accounts for the added border.
-    --list-item-block-end-padding: calc(var(--list-item-block-padding) - var(--list-item-size-modifier));
-
     padding-inline-start: var(--list-item-inline-padding);
     padding-inline-end: var(--list-item-inline-padding);
 
     padding-block-start: var(--list-item-block-padding);
-    padding-block-end: var(--list-item-block-end-padding, var(--list-item-block-padding));
+    padding-block-end: var(--list-item-block-padding);
 
     // Layout
     display: flex;
     align-items: var(--list-item-alignment);
     gap: var(--dt-spacing-c);
     min-height: 56px;
-    border-bottom: var(--list-item-border);
+}
+
+// When hasDivider is true, show a bottom border and subtract 1px from padding-block-end so the
+// total item height is unchanged whether the divider is present or not.
+.c-listItem-container.has-divider {
+    padding-block-end: calc(var(--list-item-block-padding) - 1px);
+    border-bottom: 1px solid var(--dt-color-divider-default);
 }
 
 // Two lines of text (primary + secondary) need top-alignment so leading/trailing
@@ -49,13 +51,22 @@
     min-height: 48px;
 }
 
+// Overlay rows (link/button): the whole item is a single interactive target. The container is
+// positioned so the slotted anchor/button can stretch over it.
+.c-listItem-container.is-link,
+.c-listItem-container.is-button {
+    position: relative;
+}
+
 // Interactive row states. When the item is inside a radio/checkbox group the whole row
 // is a click target (it forwards the click to the slotted control), so it shows hover and
 // active surface tints, matching the control's own interactive states. These are suppressed
 // when the slotted control is disabled (the item reflects this as `is-disabled`). The
 // defaults use the standard PIE interactive overlay tokens; override `--list-item-hover-bg` /
 // `--list-item-active-bg` if design specifies dedicated list tokens.
-.c-listItem-container.is-selectable:not(.is-disabled) {
+.c-listItem-container.is-selectable:not(.is-disabled),
+.c-listItem-container.is-link,
+.c-listItem-container.is-button:not(.is-disabled) {
     --list-item-hover-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
     --list-item-active-bg: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
 
@@ -77,11 +88,60 @@
         --interactive-container-tint: var(--list-item-hover-bg);
     }
 
+    // The pressed tint for a pointer press: the container is an ancestor of the pressed element, so
+    // it matches `:active`. (A keyboard press is handled by the `:has()` rule below, because keyboard
+    // `:active` does not propagate up to the container.)
     &:active {
         background-color: var(--list-item-active-bg);
 
         --interactive-container-tint: var(--list-item-active-bg);
     }
+}
+
+// Pressed tint for a `button` row's keyboard press. A native `<button>` is `:active` while Space is
+// held, but that state does not propagate to the container, so `&:active` above misses it. The
+// action button is a real shadow-DOM descendant (not slotted), so `:has()` can react to its
+// `:active` directly - no JS needed. A pointer press satisfies both this and `&:active` with the
+// same value, so there is no double up.
+.c-listItem-container.is-button:has(.c-listItem-action:active) {
+    background-color: var(--list-item-active-bg);
+
+    --interactive-container-tint: var(--list-item-active-bg);
+}
+
+// Stretch the interactive target over the entire row so the whole block is the click/touch target.
+// For a link it is the consumer's slotted anchor; for a button it is the native <button> the item
+// renders. Both anchor to the container (positioned above).
+slot[name="link"]::slotted(a),
+.c-listItem-action {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit; // so the focus ring follows any rounding applied to the row
+}
+
+// The action element of a `button` row is a native <button> the item renders. Strip its chrome so
+// it is invisible (the row provides the styling); it stays a real, focusable button with native
+// pointer/keyboard activation and screen-reader semantics.
+.c-listItem-action {
+    padding: 0;
+    border: none;
+    background: transparent;
+    appearance: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+// A disabled action button shows the default cursor (it already ignores clicks and is unfocusable
+// natively via the `disabled` attribute).
+.c-listItem-action:disabled {
+    cursor: default;
+}
+
+// Standard PIE focus ring. The anchor/action is row-sized, so keyboard focus rings the whole item.
+slot[name="link"]::slotted(a:focus-visible),
+.c-listItem-action:focus-visible {
+    @include p.focus;
 }
 
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
@@ -124,6 +184,20 @@ slot[name="trailing"]::slotted(*),
 
 ::slotted(.c-pieIcon) {
     --icon-size-override: 24px
+}
+
+// Disabled button row: mute text and icons. Icons use `fill: currentColor`, so setting `color`
+// on the host element cascades through the shadow boundary and changes their rendered fill.
+.c-listItem-container.is-button.is-disabled {
+    .c-listItem-primaryText,
+    .c-listItem-secondaryText,
+    .c-listItem-metaText {
+        color: var(--dt-color-content-disabled);
+    }
+}
+
+.c-listItem-container.is-button.is-disabled ::slotted(.c-pieIcon) {
+    color: var(--dt-color-disabled-01);
 }
 
 // typography

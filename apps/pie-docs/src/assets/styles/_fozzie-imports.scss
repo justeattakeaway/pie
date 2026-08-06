@@ -7,7 +7,7 @@
 
 @use 'fozzie-config' as f;
 
-@include f.normalize;
+@use '@justeattakeaway/pie-css/dist/app/resets/normalize.css';
 @include f.reset;
 @include f.typography;
 @include f.trumps-utilities;

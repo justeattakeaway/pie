@@ -1,7 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const variants = ['default', 'high-visibility', 'inverse'] as const;
-export const sizes = ['small', 'medium'] as const;
+export const variants = ['default', 'high-visibility', 'inverse', 'inverse-light'] as const;
+export const sizes = ['xsmall', 'small', 'medium'] as const;
 export const iconPlacements = ['leading', 'trailing'] as const;
 export const tags = ['a', 'button'] as const;
 export const buttonTypes = ['submit', 'button', 'reset', 'menu'] as const;
@@ -9,11 +9,12 @@ export const underlineTypes = ['default', 'reversed'] as const;
 
 type AriaProps = {
     label?: string;
+    expanded?: boolean;
 };
 
 export interface LinkProps {
     /**
-     * The ARIA labels used for the link.
+     * ARIA properties used for the link.
      */
     aria?: AriaProps;
     /**
@@ -21,7 +22,7 @@ export interface LinkProps {
      */
     tag?: typeof tags[number];
     /**
-     * What style variant the link should be such as default, high-visibility or inverse.
+     * What style variant the link should be such as default, high-visibility, inverse or inverse-light.
      */
     variant?: typeof variants[number];
     /**

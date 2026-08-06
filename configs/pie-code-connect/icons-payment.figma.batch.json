@@ -1,0 +1,12 @@
+{
+  "templateFile": "./dist/icons-payment.figma.batch.js",
+  "components": [
+    {
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=10207-11597",
+      "exceptionsMap": {
+        "ABN Amro": "abn"
+      }
+    }
+  ]
+}
