@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-icon-with-background
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@17.0.0
+
 ## 0.2.0
 
 ### Minor Changes
