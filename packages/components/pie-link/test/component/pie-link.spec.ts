@@ -115,5 +115,45 @@ test.describe('PieLink - Component tests', () => {
             // Assert
             await expect(linkComponent).toHaveAttribute('aria-label', mockedLabel);
         });
+
+        test(`should add an aria-expanded attribute that matches the value of the aria.expanded prop when tag is ${tag}`, async ({ page }) => {
+            // Arrange
+            const linkPage = new BasePage(page, 'link');
+            const props: LinkProps = {
+                tag,
+                aria: {
+                    expanded: true,
+                },
+            };
+
+            await linkPage.load({ ...props });
+
+            // Act
+            const locatorId = tag === 'a' ? link.selectors.anchor.dataTestId : link.selectors.button.dataTestId;
+            const linkComponent = page.getByTestId(locatorId);
+
+            // Assert
+            await expect(linkComponent).toHaveAttribute('aria-expanded', 'true');
+        });
+
+        test(`should set aria-expanded="false" when aria.expanded is false and tag is ${tag}`, async ({ page }) => {
+            // Arrange
+            const linkPage = new BasePage(page, 'link');
+            const props: LinkProps = {
+                tag,
+                aria: {
+                    expanded: false,
+                },
+            };
+
+            await linkPage.load({ ...props });
+
+            // Act
+            const locatorId = tag === 'a' ? link.selectors.anchor.dataTestId : link.selectors.button.dataTestId;
+            const linkComponent = page.getByTestId(locatorId);
+
+            // Assert
+            await expect(linkComponent).toHaveAttribute('aria-expanded', 'false');
+        });
     });
 });
