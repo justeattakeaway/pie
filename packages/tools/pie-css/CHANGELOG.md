@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.3.3
+
+### Patch Changes
+
+- [Removed] - list-item divider mixin ([#3096](https://github.com/justeattakeaway/pie/pull/3096)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.3.2
 
 ### Patch Changes

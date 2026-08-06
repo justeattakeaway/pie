@@ -43,7 +43,7 @@ export default listInteractiveMeta;
 
 // Item render helpers --------------------------------------------------------
 
-const renderRadioItem = (args: ListPlaygroundProps, value: string) => html`
+const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = false) => html`
     <pie-list-item
         .interactionType=${'radio'}
         .primaryText=${args.primaryText}
@@ -52,13 +52,14 @@ const renderRadioItem = (args: ListPlaygroundProps, value: string) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
         <pie-radio slot="leading" value=${value} ?disabled=${args.disabled}></pie-radio>
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>
 `;
 
-const renderCheckboxItem = (args: ListPlaygroundProps, name: string) => html`
+const renderCheckboxItem = (args: ListPlaygroundProps, name: string, hasDivider = false) => html`
     <pie-list-item
         .interactionType=${'checkbox'}
         .primaryText=${args.primaryText}
@@ -67,13 +68,14 @@ const renderCheckboxItem = (args: ListPlaygroundProps, name: string) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
         <pie-checkbox slot="leading" name=${name} value=${name} ?disabled=${args.disabled}></pie-checkbox>
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>
 `;
 
-const renderSwitchItem = (args: ListPlaygroundProps) => html`
+const renderSwitchItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
         .interactionType=${'switch'}
         .primaryText=${args.primaryText}
@@ -81,13 +83,14 @@ const renderSwitchItem = (args: ListPlaygroundProps) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
         ${renderLeading(args.leadingContent)}
         <pie-switch slot="trailing" ?disabled=${args.disabled}></pie-switch>
     </pie-list-item>
 `;
 
-const renderLinkItem = (args: ListPlaygroundProps, href: string) => html`
+const renderLinkItem = (args: ListPlaygroundProps, href: string, hasDivider = false) => html`
     <pie-list-item
         .interactionType=${'link'}
         .primaryText=${args.primaryText}
@@ -96,6 +99,7 @@ const renderLinkItem = (args: ListPlaygroundProps, href: string) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
         <a slot="link" href=${href}></a>
         ${renderLeading(args.leadingContent)}
@@ -103,7 +107,7 @@ const renderLinkItem = (args: ListPlaygroundProps, href: string) => html`
     </pie-list-item>
 `;
 
-const renderButtonItem = (args: ListPlaygroundProps) => html`
+const renderButtonItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
         .interactionType=${'button'}
         .primaryText=${args.primaryText}
@@ -112,6 +116,7 @@ const renderButtonItem = (args: ListPlaygroundProps) => html`
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
+        ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
         ${renderLeading(args.leadingContent)}
         ${renderTrailing(args.trailingContent)}
@@ -128,9 +133,9 @@ const makeRadioListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-radio-group name="interactive-radio">
             <pie-form-label slot="label">Select an option</pie-form-label>
-            ${renderRadioItem(args, 'option-1')}
-            ${renderRadioItem(args, 'option-2')}
-            ${renderRadioItem(args, 'option-3')}
+            ${renderRadioItem(args, 'option-1', args.hasDivider)}
+            ${renderRadioItem(args, 'option-2', args.hasDivider)}
+            ${renderRadioItem(args, 'option-3', args.hasDivider)}
             ${renderRadioItem(args, 'option-4')}
         </pie-radio-group>
     `;
@@ -144,9 +149,9 @@ const makeCheckboxListTemplate = (): TemplateFunction<ListPlaygroundProps> => (a
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-checkbox-group name="interactive-checkbox">
             <pie-form-label slot="label">Select options</pie-form-label>
-            ${renderCheckboxItem(args, 'option-1')}
-            ${renderCheckboxItem(args, 'option-2')}
-            ${renderCheckboxItem(args, 'option-3')}
+            ${renderCheckboxItem(args, 'option-1', args.hasDivider)}
+            ${renderCheckboxItem(args, 'option-2', args.hasDivider)}
+            ${renderCheckboxItem(args, 'option-3', args.hasDivider)}
             ${renderCheckboxItem(args, 'option-4')}
         </pie-checkbox-group>
     `;
@@ -155,9 +160,9 @@ const makeCheckboxListTemplate = (): TemplateFunction<ListPlaygroundProps> => (a
 const makeSwitchListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args) => html`
     <style>pie-list { max-width: 500px; }</style>
     <pie-list aria-label="Settings">
-        ${renderSwitchItem(args)}
-        ${renderSwitchItem(args)}
-        ${renderSwitchItem(args)}
+        ${renderSwitchItem(args, args.hasDivider)}
+        ${renderSwitchItem(args, args.hasDivider)}
+        ${renderSwitchItem(args, args.hasDivider)}
         ${renderSwitchItem(args)}
     </pie-list>
 `;
@@ -169,9 +174,9 @@ const makeLinkListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args)
         <style>pie-list { max-width: 500px; }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Navigation">
-            ${renderLinkItem(args, '#item-1')}
-            ${renderLinkItem(args, '#item-2')}
-            ${renderLinkItem(args, '#item-3')}
+            ${renderLinkItem(args, '#item-1', args.hasDivider)}
+            ${renderLinkItem(args, '#item-2', args.hasDivider)}
+            ${renderLinkItem(args, '#item-3', args.hasDivider)}
             ${renderLinkItem(args, '#item-4')}
         </pie-list>
     `;
@@ -184,7 +189,7 @@ const makeLinkCurrentPageTemplate = (): TemplateFunction<ListPlaygroundProps> =>
         <style>pie-list { max-width: 500px; }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Navigation">
-            ${renderLinkItem(args, '#item-1')}
+            ${renderLinkItem(args, '#item-1', args.hasDivider)}
             <pie-list-item
                 .interactionType=${'link'}
                 .primaryText=${args.primaryText}
@@ -192,12 +197,13 @@ const makeLinkCurrentPageTemplate = (): TemplateFunction<ListPlaygroundProps> =>
                 ?isCompact=${args.isCompact}
                 ?isBold=${true}
                 ?hasMedia=${args.hasMedia}
+                ?hasDivider=${args.hasDivider}
                 ?disabled=${args.disabled}>
                 <a slot="link" href="#current" aria-current="page"></a>
                 ${renderLeading(args.leadingContent)}
                 <icon-check slot="trailing"></icon-check>
             </pie-list-item>
-            ${renderLinkItem(args, '#item-3')}
+            ${renderLinkItem(args, '#item-3', args.hasDivider)}
             ${renderLinkItem(args, '#item-4')}
         </pie-list>
     `;
@@ -213,9 +219,9 @@ const makeButtonListTemplate = (): TemplateFunction<ListPlaygroundProps> => (arg
         <style>pie-list { max-width: 500px; }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Actions" @click=${onButtonActivate}>
-            ${renderButtonItem(args)}
-            ${renderButtonItem(args)}
-            ${renderButtonItem(args)}
+            ${renderButtonItem(args, args.hasDivider)}
+            ${renderButtonItem(args, args.hasDivider)}
+            ${renderButtonItem(args, args.hasDivider)}
             ${renderButtonItem(args)}
         </pie-list>
     `;
