@@ -139,22 +139,39 @@ yarn publish-components:react
 
 ## Adding New Icons
 
-Icons are managed similarly to components but with a key difference: there's no need to create a template file, only adding more data to the `icons.figma.batch.json` file.
+Before adding or updating any icons settings, ensure the SVG files are present in `packages/tools/pie-icons/src/assets`.
 
-### 1. Update icons metadata
+Icons are managed similarly to components but with a key difference: there's no need to create a template file, only adding new data to the respective `batch.json` file, when needed.
 
-Add entries to `icons.figma.batch.json` for each icon:
+There are four categories of icons, each with its own `batch.json` configuration file:
+- `icons-standard.figma.batch.json`
+- `icons-social.figma.batch.json`
+- `icons-payment.figma.batch.json`
+- `icons-flags.figma.batch.json`
+
+### Standard and social icons
+
+These icons require updating their respective `batch.json` file. Each icon must be present in the `components` array:
 
 ```json
 {
-  "componentName": "archive",
-  "componentNameReact": "Archive",
+  "baseName": "icon-app-order",
   "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
-  "url": "https://www.figma.com/design/.../node-id=15777-535"
+  "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-468"
 }
 ```
 
-### 2. Publish icons
+- `baseName` - the icon name in lower kebab case
+- `source` - does not need to be updated
+- `url` - the icon Figma component set URL
+
+### Payment and flags icons
+
+These icons work differently because the Figma components are structured differently - each category has a single Figma component set, so their `batch.json` files do not need to be updated.
+
+The only requirement is that any new icon file is added to `packages/tools/pie-icons/src/assets/payment` or `packages/tools/pie-icons/src/assets/flags`. The file names are used as base names for these icons.
+
+## Publishing icons
 
 ```bash
 yarn publish-icons:web
@@ -167,10 +184,9 @@ A template file (`*.figma.batch.js`) is a Node.js CommonJS module that defines h
 
 ### Available properties
 
-- `figma.batch.componentName` - Kebab-case component name from the batch configuration (e.g. `'pie-modal'`)
-- `figma.batch.componentNameReact` - React (PascalCase) component name from the batch configuration (e.g. `'PieModal'`)
+- `process.env.FRAMEWORK` - The target framework (`'web'` or `'react'`), this is determined by env var set on each of the build scripts
 - `figma.selectedInstance` - The Figma component instance currently being processed
-- `process.env.FRAMEWORK` - The target framework (`'web'` or `'react'`)
+- `figma.batch.baseName` - Kebab-case component name from the batch configuration (e.g. `'pie-modal'`)
 
 Any additional custom properties defined on a component in the batch configuration (e.g. `isSubtle` on PieModal) are also available under `figma.batch`.
 
