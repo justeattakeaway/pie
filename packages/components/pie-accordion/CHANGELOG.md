@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-accordion
 
+## 0.2.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-divider@1.5.31
+  - @justeattakeaway/pie-webc-core@17.0.0
+  - @justeattakeaway/pie-icons-webc@1.27.3
+
+## 0.2.4
+
+### Patch Changes
+
+- Updated dependencies [[`e9ef549`](https://github.com/justeattakeaway/pie/commit/e9ef54989cea1df4f77b9bb2923390318d00fa5e)]:
+  - @justeattakeaway/pie-webc-core@16.1.1
+  - @justeattakeaway/pie-divider@1.5.30
+  - @justeattakeaway/pie-icons-webc@1.27.2
+
 ## 0.2.3
 
 ### Patch Changes

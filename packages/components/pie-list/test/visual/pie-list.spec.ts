@@ -23,6 +23,14 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--borders', snapshotName: 'PieList - Borders between items' },
     { storyId: 'list--switch-selection', snapshotName: 'PieList - Switch selection list' },
     { storyId: 'list--link-list', snapshotName: 'PieList - Link list' },
+    { storyId: 'list--button-list', snapshotName: 'PieList - Button list' },
+    { storyId: 'list--button-list-disabled', snapshotName: 'PieList - Button list (disabled)' },
+    { storyId: 'list--item-height-compact', snapshotName: 'PieList - Item height (compact, primary text only)' },
+    { storyId: 'list--item-height-primary-and-secondary', snapshotName: 'PieList - Item height (primary and secondary text)' },
+    { storyId: 'list--item-height-primary-only', snapshotName: 'PieList - Item height (primary text only)' },
+    { storyId: 'list--item-height-compact-no-divider', snapshotName: 'PieList - Item height (compact, primary text only, no divider)' },
+    { storyId: 'list--item-height-primary-and-secondary-no-divider', snapshotName: 'PieList - Item height (primary and secondary text, no divider)' },
+    { storyId: 'list--item-height-primary-only-no-divider', snapshotName: 'PieList - Item height (primary text only, no divider)' },
 ];
 
 test.describe('PieList - Visual tests', () => {

@@ -28,9 +28,11 @@ The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as
     3. [Typography](#typography)
     4. [z-index variables](#z-index-variables)
     5. [Reusable Animations](#reusable-animations)
-4. [Typography Utility Classes](#typography-utility-classes)
-5. [Component Visual Exports](#component-visual-exports)
+4. [Component Visual Exports](#component-visual-exports)
     1. [Radio Buttons](#radio-buttons)
+5. [Optional features and utilities](#optional-features-and-utilities)
+    1. [Typography Utility Classes](#typography-utility-classes)
+    2. [Opt-in Normalise Stylesheet](#opt-in-normalise-stylesheet)
 6. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
@@ -205,7 +207,21 @@ The starting position of the slide animation can be customised by overriding the
 
 ---
 
-## Typography Utility Classes
+## Component Visual Exports
+
+In addition to typography utilities, pie-css provides ready-to-use CSS classes for some component patterns. These allow you to style native HTML elements with PIE design system styling.
+
+Each component visual export will be found in the `dist` folder of `pie-css` as a separate CSS file, which you can import directly into your project like so: `@justeattakeaway/pie-css/dist/components/{component-name}.css`.
+
+All available component visual exports will have a README file found at `/docs/components/{component-name}.md` in the `pie-css` package, which provides documentation on how to use the styles.
+
+---
+
+## Optional features and utilities
+
+`pie-css` ships a number of optional features and utilities that are not included in the main `dist/index.css` stylesheet. Each must be imported separately so you only include what your project needs.
+
+### Typography Utility Classes
 
 `pie-css` includes a comprehensive set of typography utility classes that provide consistent typography styles across your application. These utility classes are built on top of PIE design tokens and automatically apply the correct font family, weight, size, and line height.
 
@@ -221,15 +237,21 @@ import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 
 For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](/docs/introduction-typography-utility-classes--docs).
 
----
+### Opt-in Normalise Stylesheet
 
-## Component Visual Exports
+`pie-css` ships an optional browser normalise stylesheet backed by [`modern-normalize`](https://github.com/sindresorhus/modern-normalize). It is **not** included in the main `dist/index.css` and must be imported separately, giving you full control over whether to apply it to your application.
 
-In addition to typography utilities, pie-css provides ready-to-use CSS classes for some component patterns. These allow you to style native HTML elements with PIE design system styling.
+#### JS or Framework import (via bundler)
 
-Each component visual export will be found in the `dist` folder of `pie-css` as a separate CSS file, which you can import directly into your project like so: `@justeattakeaway/pie-css/dist/components/{component-name}.css`.
+```js
+import '@justeattakeaway/pie-css/dist/app/resets/normalize.css';
+```
 
-All available component visual exports will have a README file found at `/docs/components/{component-name}.md` in the `pie-css` package, which provides documentation on how to use the styles.
+#### Sass / SCSS
+
+```scss
+@use '@justeattakeaway/pie-css/dist/app/resets/normalize.css';
+```
 
 ---
 

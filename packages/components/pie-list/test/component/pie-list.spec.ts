@@ -248,6 +248,155 @@ test.describe('PieList - Component tests', () => {
         });
     });
 
+    test.describe('with a button list', () => {
+        const EXPECTED_BUTTON_ACTIVATED_MESSAGE = 'Button activated';
+
+        // The item renders its own native `<button>` in its shadow root (nothing is slotted).
+        // Reads an ARIA attribute from that element.
+        const actionAria = (page: Page, id: string, attribute: string) => page.evaluate(
+            ({ itemId, attr }) => document.querySelector(`[data-test-id="${itemId}"]`)?.shadowRoot?.querySelector('.c-listItem-action')?.getAttribute(attr) ?? null,
+            { itemId: id, attr: attribute },
+        );
+
+        // Moves keyboard focus onto a row's internal action button (shadow DOM, so not reachable via
+        // a test id).
+        const focusAction = (page: Page, id: string) => page.evaluate(
+            (itemId) => (document.querySelector(`[data-test-id="${itemId}"]`)?.shadowRoot?.querySelector('.c-listItem-action') as HTMLElement | null)?.focus(),
+            id,
+        );
+
+        // Whether the row container matches `:active` (which drives the pointer pressed tint).
+        const containerActive = (page: Page, id: string) => page.evaluate(
+            (itemId) => document.querySelector(`[data-test-id="${itemId}"]`)?.shadowRoot?.querySelector('.c-listItem-container')?.matches(':active') ?? null,
+            id,
+        );
+
+        // The row container's computed background colour (transparent when idle, tinted when pressed).
+        const containerBg = (page: Page, id: string) => page.evaluate(
+            (itemId) => {
+                const container = document.querySelector(`[data-test-id="${itemId}"]`)?.shadowRoot?.querySelector('.c-listItem-container');
+                return container ? getComputedStyle(container).backgroundColor : null;
+            },
+            id,
+        );
+
+        // Waits for the story's activation log, set up before the action so it cannot be missed.
+        const expectActivation = (page: Page) => page.waitForEvent(
+            'console',
+            (message) => message.type() === 'info' && message.text() === EXPECTED_BUTTON_ACTIVATED_MESSAGE,
+        );
+
+        test.beforeEach(async ({ page }) => {
+            await new BasePage(page, 'list--button-list').load();
+            await expect(page.getByTestId('item-1')).toBeVisible();
+        });
+
+        test('should name the action button from the item text', async ({ page }) => {
+            // The item names the button it renders: primaryText is the accessible name and
+            // secondaryText + metaText the description (combined when both present).
+
+            // Both secondary and meta text.
+            await expect.poll(() => actionAria(page, 'item-1', 'aria-label')).toBe('Edit profile');
+            await expect.poll(() => actionAria(page, 'item-1', 'aria-description')).toBe('Update your name and photo. New');
+
+            // Secondary text only.
+            await expect.poll(() => actionAria(page, 'item-2', 'aria-label')).toBe('Change password');
+            await expect.poll(() => actionAria(page, 'item-2', 'aria-description')).toBe('Keep your account secure');
+
+            // Meta text only.
+            await expect.poll(() => actionAria(page, 'item-3', 'aria-label')).toBe('Sign out');
+            await expect.poll(() => actionAria(page, 'item-3', 'aria-description')).toBe('This device');
+
+            // Neither secondary nor meta text.
+            await expect.poll(() => actionAria(page, 'item-4', 'aria-label')).toBe('Delete account');
+            await expect.poll(() => actionAria(page, 'item-4', 'aria-description')).toBeNull();
+        });
+
+        test('should hide the visible item text from assistive technology', async ({ page }) => {
+            await expect.poll(() => page.evaluate((id) => {
+                const root = document.querySelector(`[data-test-id="${id}"]`)?.shadowRoot;
+                return root?.querySelector('.c-listItem-text')?.getAttribute('aria-hidden') ?? null;
+            }, 'item-1')).toBe('true');
+        });
+
+        test('should keep the row as a listitem and expose the action as a button', async ({ page }) => {
+            await expect(page.getByTestId('item-1')).toHaveAttribute('role', 'listitem');
+            await expect(page.getByRole('button', { name: 'Edit profile' })).toBeVisible();
+        });
+
+        test('should activate when anywhere on the row is clicked', async ({ page }) => {
+            // The invisible action button is stretched over the whole row, so clicking the row body
+            // activates it. The item fires a native click that bubbles; the story logs on activation.
+            const activated = expectActivation(page);
+
+            await page.getByTestId('item-1').click();
+
+            await activated;
+        });
+
+        test('should activate when Enter is pressed on the focused row', async ({ page }) => {
+            await focusAction(page, 'item-1');
+
+            const activated = expectActivation(page);
+            await page.keyboard.press('Enter');
+            await activated;
+        });
+
+        test('should activate when Space is pressed on the focused row', async ({ page }) => {
+            await focusAction(page, 'item-1');
+
+            const activated = expectActivation(page);
+            await page.keyboard.press('Space'); // native button activates on Space key-up
+            await activated;
+        });
+
+        test('should show the pressed styles while the row is pressed with a pointer', async ({ page }) => {
+            // Pointer press tints the row via CSS `:active` (no JS): the container is an ancestor of
+            // the pressed button, so it matches `:active` too.
+            const item = page.getByTestId('item-1');
+
+            // Idle: the row is not active.
+            expect(await containerActive(page, 'item-1')).toBe(false);
+
+            await item.hover();
+            await page.mouse.down();
+
+            await expect.poll(() => containerActive(page, 'item-1')).toBe(true);
+
+            await page.mouse.up();
+        });
+
+        test('should show the pressed styles while Space is held on the focused row', async ({ page }) => {
+            // A native button is `:active` while Space is held; that does not reach the container, so
+            // the tint comes from `:has(.c-listItem-action:active)` on the container (still no JS).
+            await focusAction(page, 'item-1');
+
+            // Idle (focused, no pointer over it): not tinted.
+            expect(await containerBg(page, 'item-1')).toBe('rgba(0, 0, 0, 0)');
+
+            await page.keyboard.down('Space');
+            await expect.poll(() => containerBg(page, 'item-1')).not.toBe('rgba(0, 0, 0, 0)');
+
+            await page.keyboard.up('Space');
+        });
+
+        test('should not render aria-haspopup on the action button when aria prop is not set', async ({ page }) => {
+            // The story loads with no aria prop — the attribute must be completely absent,
+            // not rendered as an empty string or the literal "undefined".
+            await expect.poll(() => actionAria(page, 'item-1', 'aria-haspopup')).toBeNull();
+        });
+
+        test('should forward aria.button.haspopup to the internal action button', async ({ page }) => {
+            // Set the aria prop on the item and verify it reaches the shadow <button>.
+            await page.evaluate(() => {
+                const item = document.querySelector('[data-test-id="item-1"]') as any;
+                item.aria = { button: { haspopup: 'dialog' } };
+            });
+
+            await expect.poll(() => actionAria(page, 'item-1', 'aria-haspopup')).toBe('dialog');
+        });
+    });
+
     test.describe('selectable item CSS classes and ARIA attributes', () => {
         test.beforeEach(async ({ page }) => {
             await new BasePage(page, 'list--selection-types').load();
@@ -359,6 +508,67 @@ test.describe('PieList - Component tests', () => {
 
             // Assert
             await expect(thumbnail).toBeVisible();
+        });
+    });
+
+    test.describe('item height', () => {
+        // Returns the rendered offsetHeight (integer px) of the shadow-root container for
+        // every `pie-list-item` on the page. offsetHeight is used rather than
+        // getBoundingClientRect so sub-pixel values are always rounded to whole pixels.
+        const getItemHeights = (page: Page) => page.evaluate(() => Array.from(document.querySelectorAll('pie-list-item')).map((item) => (item.shadowRoot?.querySelector('.c-listItem-container') as HTMLElement | null)?.offsetHeight ?? 0));
+
+        test('should render compact items (primary text only) at 48px', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-compact').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(48));
+        });
+
+        test('should render default items with primary and secondary text at 76px', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-and-secondary').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(76));
+        });
+
+        test('should render default items (primary text only) at 56px', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-only').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(56));
+        });
+
+        test('should render compact items (primary text only) at 48px when hasDivider is false', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-compact-no-divider').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(48));
+        });
+
+        test('should render default items with primary and secondary text at 76px when hasDivider is false', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-and-secondary-no-divider').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(76));
+        });
+
+        test('should render default items (primary text only) at 56px when hasDivider is false', async ({ page }) => {
+            await new BasePage(page, 'list--item-height-primary-only-no-divider').load();
+
+            const heights = await getItemHeights(page);
+
+            expect(heights.length).toBeGreaterThan(0);
+            heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(56));
         });
     });
 });

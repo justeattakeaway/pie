@@ -1,5 +1,34 @@
 # Changelog
 
+## 5.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`0f44ca1`](https://github.com/justeattakeaway/pie/commit/0f44ca14bb50ad75186e74747d92af8bab8e12fe)]:
+  - @justeattakeaway/pie-css@1.4.0
+  - @justeattakeaway/pie-webc@0.11.7
+  - @justeattakeaway/pie-icons-webc@1.27.3
+
+## 5.11.0
+
+### Minor Changes
+
+- [Added] Avatar and Badge docs for Web and Apps. ([#3083](https://github.com/justeattakeaway/pie/pull/3083)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+### Patch Changes
+
+- Updated dependencies [[`f221e17`](https://github.com/justeattakeaway/pie/commit/f221e17771aa368d25a435226a169a4a4316877e)]:
+  - @justeattakeaway/pie-css@1.3.3
+  - @justeattakeaway/pie-webc@0.11.6
+
+## 5.10.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.5
+  - @justeattakeaway/pie-icons-webc@1.27.2
+
 ## 5.10.2
 
 ### Patch Changes
