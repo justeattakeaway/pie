@@ -34,7 +34,7 @@ const assistiveTextIdValue = 'assistive-text';
 @safeCustomElement('pie-textarea')
 export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(PieElement))) implements TextareaProps, PIEInputElement {
     @property({ type: String })
-    public value = defaultProps.value;
+    public value: TextareaProps['value'];
 
     @property({ type: String })
     public defaultValue: TextareaProps['defaultValue'];
@@ -107,7 +107,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     protected firstUpdated (): void {
         const { signal } = this._abortController;
         this._textarea.addEventListener('keydown', this.handleKeyDown, { signal });
-        this._internals.setFormValue(this.value);
+        this._internals.setFormValue(this.value ?? this.defaultValue ?? '');
     }
 
     protected updated (changedProperties: PropertyValues<this>) {
@@ -165,8 +165,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      * Resets the value to the default value.
      */
     public formResetCallback (): void {
-        this.value = this.defaultValue ?? defaultProps.value;
-
+        this.value = this.defaultValue ?? '';
         this._internals.setFormValue(this.value);
     }
 
@@ -190,7 +189,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this.value = newValue;
         }
 
-        this._internals.setFormValue(this.value);
+        this._internals.setFormValue(this.value ?? null);
 
         this.handleResize();
     };
@@ -234,6 +233,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             readonly,
             placeholder,
             value,
+            defaultValue,
             required,
             status,
             assistiveText,
@@ -261,7 +261,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
                     placeholder=${ifDefined(placeholder)}
-                    .value=${live(value)}
+                    .value=${live(value ?? defaultValue ?? '')}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}
                     ?required=${required}
