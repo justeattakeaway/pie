@@ -8,9 +8,9 @@ exports[`app/base/typography.css > should render the expected CSS content 1`] = 
 
 body {
   font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-body-l-weight);
   font-size: calc(var(--dt-font-body-l-size) * 1px);
   line-height: calc(var(--dt-font-body-l-line-height) * 1px);
-  font-weight: var(--dt-font-body-l-weight);
   color: var(--dt-color-content-default);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,16 +18,16 @@ body {
 
 p {
   font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-body-l-weight);
   font-size: calc(var(--dt-font-body-l-size) * 1px);
   line-height: calc(var(--dt-font-body-l-line-height) * 1px);
-  font-weight: var(--dt-font-body-l-weight);
   margin-block-start: var(--dt-spacing-16);
   margin-block-end: 0;
 }
 
 h1,
 .alpha {
-  font-family: var(--dt-font-heading-xl-family);
+  font-family: var(--dt-font-heading-xl-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xl-weight);
   font-size: calc(var(--dt-font-heading-xl-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-xl-line-height--narrow) * 1px);
@@ -41,7 +41,6 @@ h1,
 }
 h1,
 .alpha {
-  font-family: var(--dt-font-heading-xl-family), var(--dt-font-family-secondary), sans-serif;
   color: var(--dt-color-content-default);
   margin-block-start: var(--dt-spacing-32);
   margin-block-end: var(--dt-spacing-16);
@@ -50,7 +49,7 @@ h1,
 
 h2,
 .beta {
-  font-family: var(--dt-font-heading-m-family);
+  font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-m-weight);
   font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
@@ -64,7 +63,6 @@ h2,
 }
 h2,
 .beta {
-  font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
   color: var(--dt-color-content-default);
   margin: 0;
 }
@@ -75,7 +73,7 @@ h5,
 .gamma,
 .delta,
 .epsilon {
-  font-family: var(--dt-font-heading-s-family);
+  font-family: var(--dt-font-heading-s-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-s-weight);
   font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
@@ -97,7 +95,6 @@ h5,
 .gamma,
 .delta,
 .epsilon {
-  font-family: var(--dt-font-heading-s-family), var(--dt-font-family-secondary), sans-serif;
   color: var(--dt-color-content-default);
   margin: 0;
 }
@@ -979,7 +976,7 @@ exports[`components/radio.css > should render the expected CSS content 1`] = `
 
 exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 ".u-font-heading-xs {
-  font-family: var(--dt-font-heading-xs-family);
+  font-family: var(--dt-font-heading-xs-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xs-weight);
   font-size: calc(var(--dt-font-heading-xs-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-xs-line-height--narrow) * 1px);
@@ -991,7 +988,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-s {
-  font-family: var(--dt-font-heading-s-family);
+  font-family: var(--dt-font-heading-s-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-s-weight);
   font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
@@ -1003,7 +1000,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-m {
-  font-family: var(--dt-font-heading-m-family);
+  font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-m-weight);
   font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
@@ -1015,7 +1012,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-l {
-  font-family: var(--dt-font-heading-l-family);
+  font-family: var(--dt-font-heading-l-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-l-weight);
   font-size: calc(var(--dt-font-heading-l-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-l-line-height--narrow) * 1px);
@@ -1027,7 +1024,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-xl {
-  font-family: var(--dt-font-heading-xl-family);
+  font-family: var(--dt-font-heading-xl-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xl-weight);
   font-size: calc(var(--dt-font-heading-xl-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-xl-line-height--narrow) * 1px);
@@ -1039,7 +1036,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-xxl {
-  font-family: var(--dt-font-heading-xxl-family);
+  font-family: var(--dt-font-heading-xxl-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xxl-weight);
   font-size: calc(var(--dt-font-heading-xxl-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-xxl-line-height--narrow) * 1px);
@@ -1051,7 +1048,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-xs-italic {
-  font-family: var(--dt-font-heading-xs-italic-family);
+  font-family: var(--dt-font-heading-xs-italic-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xs-italic-weight);
   font-style: var(--dt-font-heading-xs-italic-font-style);
   font-variation-settings: "slnt" -20;
@@ -1065,7 +1062,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-s-italic {
-  font-family: var(--dt-font-heading-s-italic-family);
+  font-family: var(--dt-font-heading-s-italic-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-s-italic-weight);
   font-style: var(--dt-font-heading-s-italic-font-style);
   font-variation-settings: "slnt" -20;
@@ -1079,7 +1076,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-m-italic {
-  font-family: var(--dt-font-heading-m-italic-family);
+  font-family: var(--dt-font-heading-m-italic-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-m-italic-weight);
   font-style: var(--dt-font-heading-m-italic-font-style);
   font-variation-settings: "slnt" -20;
@@ -1093,7 +1090,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-l-italic {
-  font-family: var(--dt-font-heading-l-italic-family);
+  font-family: var(--dt-font-heading-l-italic-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-l-italic-weight);
   font-style: var(--dt-font-heading-l-italic-font-style);
   font-variation-settings: "slnt" -20;
@@ -1107,7 +1104,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-xl-italic {
-  font-family: var(--dt-font-heading-xl-italic-family);
+  font-family: var(--dt-font-heading-xl-italic-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xl-italic-weight);
   font-style: var(--dt-font-heading-xl-italic-font-style);
   font-variation-settings: "slnt" -20;
@@ -1121,7 +1118,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-heading-xxl-italic {
-  font-family: var(--dt-font-heading-xxl-italic-family);
+  font-family: var(--dt-font-heading-xxl-italic-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xxl-italic-weight);
   font-style: var(--dt-font-heading-xxl-italic-font-style);
   font-variation-settings: "slnt" -20;
@@ -1135,7 +1132,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-subheading-s {
-  font-family: var(--dt-font-subheading-s-family);
+  font-family: var(--dt-font-subheading-s-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-subheading-s-weight);
   font-size: calc(var(--dt-font-subheading-s-size--narrow) * 1px);
   line-height: calc(var(--dt-font-subheading-s-line-height--narrow) * 1px);
@@ -1147,7 +1144,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-subheading-l {
-  font-family: var(--dt-font-subheading-l-family);
+  font-family: var(--dt-font-subheading-l-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-subheading-l-weight);
   font-size: calc(var(--dt-font-subheading-l-size--narrow) * 1px);
   line-height: calc(var(--dt-font-subheading-l-line-height--narrow) * 1px);
@@ -1159,25 +1156,25 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   }
 }
 .u-font-interactive-xs {
-  font-family: var(--dt-font-interactive-xs-family);
+  font-family: var(--dt-font-interactive-xs-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-interactive-xs-weight);
   font-size: calc(var(--dt-font-interactive-xs-size) * 1px);
   line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
 }
 .u-font-interactive-s {
-  font-family: var(--dt-font-interactive-s-family);
+  font-family: var(--dt-font-interactive-s-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-interactive-s-weight);
   font-size: calc(var(--dt-font-interactive-s-size) * 1px);
   line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
 }
 .u-font-interactive-l {
-  font-family: var(--dt-font-interactive-l-family);
+  font-family: var(--dt-font-interactive-l-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-interactive-l-weight);
   font-size: calc(var(--dt-font-interactive-l-size) * 1px);
   line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
 }
 .u-font-body-s {
-  font-family: var(--dt-font-body-s-family);
+  font-family: var(--dt-font-body-s-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-s-weight);
   font-size: calc(var(--dt-font-body-s-size) * 1px);
   line-height: calc(var(--dt-font-body-s-line-height) * 1px);
@@ -1187,7 +1184,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-body-s-link {
-  font-family: var(--dt-font-body-s-link-family);
+  font-family: var(--dt-font-body-s-link-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-s-link-weight);
   text-decoration: var(--dt-font-body-s-link-text-decoration);
   font-size: calc(var(--dt-font-body-s-link-size) * 1px);
@@ -1198,7 +1195,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-body-l {
-  font-family: var(--dt-font-body-l-family);
+  font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-l-weight);
   font-size: calc(var(--dt-font-body-l-size) * 1px);
   line-height: calc(var(--dt-font-body-l-line-height) * 1px);
@@ -1208,7 +1205,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-body-l-link {
-  font-family: var(--dt-font-body-l-link-family);
+  font-family: var(--dt-font-body-l-link-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-l-link-weight);
   text-decoration: var(--dt-font-body-l-link-text-decoration);
   font-size: calc(var(--dt-font-body-l-link-size) * 1px);
@@ -1219,7 +1216,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-body-strong-s {
-  font-family: var(--dt-font-body-strong-s-family);
+  font-family: var(--dt-font-body-strong-s-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-strong-s-weight);
   font-size: calc(var(--dt-font-body-strong-s-size) * 1px);
   line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
@@ -1229,7 +1226,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-body-strong-s-link {
-  font-family: var(--dt-font-body-strong-s-link-family);
+  font-family: var(--dt-font-body-strong-s-link-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-strong-s-link-weight);
   text-decoration: var(--dt-font-body-strong-s-link-text-decoration);
   font-size: calc(var(--dt-font-body-strong-s-link-size) * 1px);
@@ -1240,7 +1237,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-body-strong-l {
-  font-family: var(--dt-font-body-strong-l-family);
+  font-family: var(--dt-font-body-strong-l-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-strong-l-weight);
   font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
   line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
@@ -1250,7 +1247,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-body-strong-l-link {
-  font-family: var(--dt-font-body-strong-l-link-family);
+  font-family: var(--dt-font-body-strong-l-link-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-strong-l-link-weight);
   text-decoration: var(--dt-font-body-strong-l-link-text-decoration);
   font-size: calc(var(--dt-font-body-strong-l-link-size) * 1px);
@@ -1261,7 +1258,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-caption {
-  font-family: var(--dt-font-caption-family);
+  font-family: var(--dt-font-caption-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-caption-weight);
   font-size: calc(var(--dt-font-caption-size) * 1px);
   line-height: calc(var(--dt-font-caption-line-height) * 1px);
@@ -1271,7 +1268,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-caption-link {
-  font-family: var(--dt-font-caption-link-family);
+  font-family: var(--dt-font-caption-link-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-caption-link-weight);
   text-decoration: var(--dt-font-caption-link-text-decoration);
   font-size: calc(var(--dt-font-caption-link-size) * 1px);
@@ -1282,7 +1279,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-caption-strong {
-  font-family: var(--dt-font-caption-strong-family);
+  font-family: var(--dt-font-caption-strong-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-caption-strong-weight);
   font-size: calc(var(--dt-font-caption-strong-size) * 1px);
   line-height: calc(var(--dt-font-caption-strong-line-height) * 1px);
@@ -1292,7 +1289,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-caption-strong-italic {
-  font-family: var(--dt-font-caption-strong-italic-family);
+  font-family: var(--dt-font-caption-strong-italic-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-caption-strong-italic-weight);
   font-style: var(--dt-font-caption-strong-italic-font-style);
   font-variation-settings: "slnt" -20;
@@ -1304,7 +1301,7 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 
 .u-font-caption-strong-link {
-  font-family: var(--dt-font-caption-strong-link-family);
+  font-family: var(--dt-font-caption-strong-link-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-caption-strong-link-weight);
   text-decoration: var(--dt-font-caption-strong-link-text-decoration);
   font-size: calc(var(--dt-font-caption-strong-link-size) * 1px);
