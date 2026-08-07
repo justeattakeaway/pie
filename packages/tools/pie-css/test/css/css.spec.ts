@@ -12,6 +12,7 @@ import { variants as buttonVariants, sizes as buttonSizes } from '../../../../co
 // Requires the CSS to have been built before running these tests
 const builtCssFilePath = path.join(__dirname, '../../dist/index.css');
 const builtCssTypographyFilePath = path.join(__dirname, '../../dist/helpers/typography.css');
+const builtCssAppTypographyFilePath = path.join(__dirname, '../../dist/app/base/typography.css');
 const builtCssRadioFilePath = path.join(__dirname, '../../dist/components/radio.css');
 const builtCssButtonFilePath = path.join(__dirname, '../../dist/components/button.css');
 
@@ -61,6 +62,30 @@ describe('helpers/typography.css', () => {
     it('should render the expected CSS content', async () => {
         // Arrange
         const css = await fs.readFile(builtCssTypographyFilePath, 'utf8');
+
+        // Act & Assert
+        expect(css).toMatchSnapshot();
+    });
+});
+
+describe('app/base/typography.css', () => {
+    it('should not throw any unexpected W3C CSS validation errors', async () => {
+        // Arrange
+        const css = await fs.readFile(builtCssAppTypographyFilePath, 'utf8');
+
+        const acceptedErrors = ['Property "text-rendering" doesn\'t exist'];
+
+        // Act
+        const result = await cssValidator.validateText(css);
+        const validationErrors = result.errors.filter((error) => !acceptedErrors.includes(error.message));
+
+        // Assert
+        expect(validationErrors).toHaveLength(0);
+    });
+
+    it('should render the expected CSS content', async () => {
+        // Arrange
+        const css = await fs.readFile(builtCssAppTypographyFilePath, 'utf8');
 
         // Act & Assert
         expect(css).toMatchSnapshot();

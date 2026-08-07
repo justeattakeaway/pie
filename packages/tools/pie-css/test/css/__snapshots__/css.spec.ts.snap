@@ -1,5 +1,207 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`app/base/typography.css > should render the expected CSS content 1`] = `
+"html {
+  font-size: calc(var(--dt-font-body-l-size) * 1px);
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-size: calc(var(--dt-font-body-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+  font-weight: var(--dt-font-body-l-weight);
+  color: var(--dt-color-content-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-size: calc(var(--dt-font-body-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+  font-weight: var(--dt-font-body-l-weight);
+  margin-block-start: var(--dt-spacing-16);
+  margin-block-end: 0;
+}
+
+h1,
+.alpha {
+  font-family: var(--dt-font-heading-xl-family);
+  font-weight: var(--dt-font-heading-xl-weight);
+  font-size: calc(var(--dt-font-heading-xl-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xl-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  h1,
+  .alpha {
+    font-size: calc(var(--dt-font-heading-xl-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xl-line-height--wide) * 1px);
+  }
+}
+h1,
+.alpha {
+  font-family: var(--dt-font-heading-xl-family), var(--dt-font-family-secondary), sans-serif;
+  color: var(--dt-color-content-default);
+  margin-block-start: var(--dt-spacing-32);
+  margin-block-end: var(--dt-spacing-16);
+  margin-inline: 0;
+}
+
+h2,
+.beta {
+  font-family: var(--dt-font-heading-m-family);
+  font-weight: var(--dt-font-heading-m-weight);
+  font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  h2,
+  .beta {
+    font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
+  }
+}
+h2,
+.beta {
+  font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
+  color: var(--dt-color-content-default);
+  margin: 0;
+}
+
+h3,
+h4,
+h5,
+.gamma,
+.delta,
+.epsilon {
+  font-family: var(--dt-font-heading-s-family);
+  font-weight: var(--dt-font-heading-s-weight);
+  font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  h3,
+  h4,
+  h5,
+  .gamma,
+  .delta,
+  .epsilon {
+    font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
+  }
+}
+h3,
+h4,
+h5,
+.gamma,
+.delta,
+.epsilon {
+  font-family: var(--dt-font-heading-s-family), var(--dt-font-family-secondary), sans-serif;
+  color: var(--dt-color-content-default);
+  margin: 0;
+}
+
+h6,
+.zeta {
+  font-family: var(--dt-font-heading-xs-family), var(--dt-font-family-secondary), sans-serif;
+  font-size: calc(var(--dt-font-caption-size) * 1px);
+  line-height: calc(var(--dt-font-caption-line-height) * 1px);
+  font-weight: var(--dt-font-heading-xs-weight);
+  color: var(--dt-color-content-default);
+  margin: 0;
+}
+
+* + h2,
+* + .beta {
+  margin-block-start: var(--dt-spacing-32);
+}
+
+* + h3,
+* + .gamma,
+* + h4,
+* + .delta {
+  margin-block-start: var(--dt-spacing-16);
+}
+
+strong,
+b {
+  font-weight: var(--dt-font-body-strong-l-weight);
+}
+
+em,
+i {
+  font-style: italic;
+  font-variation-settings: "slnt" -20;
+}
+
+abbr[title] {
+  border-block-end: 1px dotted var(--dt-color-divider-default);
+  cursor: help;
+  text-decoration: none;
+}
+
+blockquote {
+  padding-inline-start: 10px;
+  margin: var(--dt-spacing-16);
+  border-inline-start: 4px solid var(--dt-color-divider-default);
+}
+blockquote p {
+  font-size: calc(var(--dt-font-body-s-size) * 1px);
+  line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+  font-weight: 300;
+}
+
+button {
+  font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
+}
+
+mark {
+  background: var(--dt-color-support-warning-tonal);
+  padding: 2px 4px;
+  border-radius: var(--dt-radius-rounded-a);
+}
+
+address {
+  font-style: normal;
+  margin-block-start: var(--dt-spacing-16);
+  margin-block-end: 0;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+samp {
+  font-family: var(--dt-font-family-code), Menlo, Monaco, "Courier New", monospace;
+}
+
+hr {
+  margin: var(--dt-spacing-16) 0;
+  border: 0;
+  border-block-start: 1px solid var(--dt-color-divider-default);
+}
+
+.hyphenate {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+"
+`;
+
 exports[`components/button.css > should render the expected CSS content 1`] = `
 ".c-button {
   --btn-border-radius: var(--dt-radius-rounded-e);
