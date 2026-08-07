@@ -149,16 +149,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     /**
-     * Updates the `_hasLabel` state when content is added to the label slot.
-     * @param {Event} e - The slotchange event.
-     * @private
-     */
-    private _handleLabelSlotChange (e: { target: HTMLSlotElement }): void {
-        const childNodes = e.target.assignedNodes({ flatten: true });
-        this._hasLabel = childNodes.length > 0;
-    }
-
-    /**
      * Ensures all newly added radio buttons are tabbable and inherit the name property
      */
     private _handleRadioSlotChange (): void {
@@ -173,6 +163,16 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this._slottedChildren.forEach((radio) => {
             radio.tabIndex = -1;
         });
+    }
+
+    /**
+     * Updates the `_hasLabel` state when content is added to the label slot.
+     * @param {Event} e - The slotchange event.
+     * @private
+     */
+    private _handleLabelSlotChange (e: { target: HTMLSlotElement }): void {
+        const childNodes = e.target.assignedNodes({ flatten: true });
+        this._hasLabel = childNodes.length > 0;
     }
 
     /**
@@ -214,6 +214,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     connectedCallback (): void {
+        this._hasLabel = !!this.querySelector('[slot="label"]');
         super.connectedCallback();
         this._abortController = new AbortController();
         const { signal } = this._abortController;
