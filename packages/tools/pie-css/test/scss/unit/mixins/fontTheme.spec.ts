@@ -29,7 +29,7 @@ describe('mixins.font-theme', () => {
           }
 
           .foo {
-            font-family: var(--dt-font-heading-l-family);
+            font-family: var(--dt-font-heading-l-family), var(--dt-font-family-secondary), sans-serif;
             font-weight: var(--dt-font-heading-l-weight);
             font-size: calc(var(--dt-font-heading-l-size--narrow) * 1px);
             line-height: calc(var(--dt-font-heading-l-line-height--narrow) * 1px);
@@ -72,7 +72,7 @@ describe('mixins.font-theme', () => {
           }
 
           .foo {
-            font-family: var(--dt-font-body-s-family);
+            font-family: var(--dt-font-body-s-family), var(--dt-font-family-secondary), sans-serif;
             font-weight: var(--dt-font-body-s-weight);
             font-size: calc(var(--dt-font-body-s-size) * 1px);
             line-height: calc(var(--dt-font-body-s-line-height) * 1px);
@@ -114,7 +114,7 @@ describe('mixins.font-theme', () => {
           }
 
           .foo {
-            font-family: var(--dt-font-heading-xl-family);
+            font-family: var(--dt-font-heading-xl-family), var(--dt-font-family-secondary), sans-serif;
             font-weight: var(--dt-font-heading-xl-weight);
             font-size: calc(var(--dt-font-heading-xl-size--narrow) * 1px);
             line-height: calc(var(--dt-font-heading-xl-line-height--narrow) * 1px);
@@ -167,7 +167,7 @@ describe('mixins.font-theme', () => {
           }
 
           .foo {
-            font-family: var(--dt-font-interactive-l-family);
+            font-family: var(--dt-font-interactive-l-family), var(--dt-font-family-secondary), sans-serif;
             font-weight: var(--dt-font-interactive-l-weight);
             font-size: calc(var(--dt-font-interactive-l-size) * 1px);
             line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
@@ -211,7 +211,7 @@ describe('mixins.font-theme', () => {
           }
 
           .foo {
-            font-family: var(--dt-font-heading-m-family);
+            font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
             font-weight: var(--dt-font-heading-m-weight);
             font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
             line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
@@ -258,7 +258,7 @@ describe('mixins.font-theme', () => {
           }
 
           .foo {
-            font-family: var(--dt-font-body-s-family);
+            font-family: var(--dt-font-body-s-family), var(--dt-font-family-secondary), sans-serif;
             font-weight: var(--dt-font-body-s-weight);
             font-size: calc(var(--dt-font-body-s-size) * 1px);
             line-height: calc(var(--dt-font-body-s-line-height) * 1px);
@@ -298,7 +298,7 @@ describe('mixins.font-theme', () => {
           }
 
           .foo {
-            font-family: var(--dt-font-body-l-family);
+            font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
             font-weight: var(--dt-font-body-l-weight);
             font-size: calc(var(--dt-font-body-l-size) * 1px);
             line-height: calc(var(--dt-font-body-l-line-height) * 1px);
