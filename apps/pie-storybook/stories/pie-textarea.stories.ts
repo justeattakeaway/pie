@@ -205,11 +205,15 @@ const Template = ({
     `;
 };
 
-const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
+const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => {
+    const chCount = props.value?.length;
+    const counter = props.maxlength ? `${chCount} / ${props.maxlength}` : undefined;
+    return html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
-        <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
+        <pie-form-label for="${ifDefined(props.name)}" trailing=${ifDefined(counter)}>Label</pie-form-label>
         ${Template(props)}
     `;
+};
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
 const CreateTextareaStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
