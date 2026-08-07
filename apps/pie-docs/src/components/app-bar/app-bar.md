@@ -1,9 +1,9 @@
 ---
 eleventyNavigation:
-  key: 'App Bar'
+  key: App Bar
   parent: Components
   order: 3
-  # url: /components/app-bar/
-draft: true
+  url: /components/app-bar/
 permalink: false
 ---
+
