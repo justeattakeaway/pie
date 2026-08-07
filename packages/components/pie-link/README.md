@@ -46,7 +46,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isStandalone` | `true`, `false` | If true, sets the link as a block element. | `false` |
 | `hasVisited` | `true`, `false` | If true, the link will apply the styles for the visited state. Only takes effect if `tag` is `"a"`. | `false` |
 | `iconPlacement` | `"leading"`, `"trailing"` | Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the [icon slot](#slots). **Will have no effect if `isStandalone` is false.** | `undefined` |
-| `aria` | `{ label?: string }` | Aria properties for the link to help with making it accessible. | `undefined` |
+| `aria` | `{ label?: string, expanded?: boolean }` | Aria properties for the link to help with making it accessible. | `undefined` |
 
 
 ### Slots

@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 1.2.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.8
+  - @justeattakeaway/pie-webc-core@17.0.0
+
+## 1.2.2
+
+### Patch Changes
+
+- [Changed] - Updated readme references to `pie-list-item` and removed divider css as the list-item handles this itself now. ([#3096](https://github.com/justeattakeaway/pie/pull/3096)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.2.1
 
 ### Patch Changes
