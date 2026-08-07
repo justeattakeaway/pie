@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-link
 
+## 1.5.0
+
+### Minor Changes
+
+- [Added] - Support `aria.expanded` on `pie-link` and map it to `aria-expanded` on rendered anchor and button elements. ([#3101](https://github.com/justeattakeaway/pie/pull/3101)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@17.0.0
+  - @justeattakeaway/pie-icons-webc@1.27.3
+
 ## 1.4.1
 
 ### Patch Changes
