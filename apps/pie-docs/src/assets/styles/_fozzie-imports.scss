@@ -9,7 +9,7 @@
 
 @use '@justeattakeaway/pie-css/dist/app/resets/normalize.css';
 @include f.reset;
-@include f.typography;
+@use '@justeattakeaway/pie-css/dist/app/base/typography.css';
 @include f.trumps-utilities;
 @include f.buttons;
 @include f.trumps-spacing;
