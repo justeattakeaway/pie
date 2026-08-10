@@ -38,11 +38,10 @@ const hideIcon = getInstanceProp('getBoolean', 'Leading icon') === false;
 const hasActions = getInstanceProp('getPropertyValue', 'Actions') === 'True';
 
 // Read action button labels from the Actions nested component
-const actionsLayerName = isCompact ? '.Actions' : 'Actions'; // TODO Review after the layer is renamed
-const hasDualActions = hasActions && getInstanceProp([actionsLayerName], 'getBoolean', 'Dual actions');
-const hasStackedActions = hasActions && !isCompact && getInstanceProp([actionsLayerName], 'getBoolean', 'Stacked');
-const leadingActionText = getInstanceProp([actionsLayerName, 'Button 1'], 'getString', '[𝐓] Label');
-const supportingActionText = getInstanceProp([actionsLayerName, 'Button 2'], 'getString', '[𝐓] Label');
+const hasDualActions = hasActions && getInstanceProp(['Actions'], 'getBoolean', 'Dual actions');
+const hasStackedActions = hasActions && !isCompact && getInstanceProp(['Actions'], 'getBoolean', 'Stacked');
+const leadingActionText = getInstanceProp(['Actions', 'Button 1'], 'getString', '[𝐓] Label');
+const supportingActionText = getInstanceProp(['Actions', 'Button 2'], 'getString', '[𝐓] Label');
 
 // Define template
 const template = `<${selectedComponentName}
