@@ -40,9 +40,9 @@ const Template: TemplateFunction<IconWithBackgroundProps> = ({
     size,
     variant,
     isStrong,
-    isDisabled,
+    disabled,
 }) => html`
-    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}" variant="${ifDefined(variant)}" ?isStrong="${isStrong}" ?isDisabled="${isDisabled}">
+    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}" variant="${ifDefined(variant)}" ?isStrong="${isStrong}" ?disabled="${disabled}">
         <icon-heart-filled></icon-heart-filled>
     </pie-icon-with-background>
 `;
@@ -73,4 +73,4 @@ const variantAndStrengthPropOptions = {
 
 export const VariantVariations = createVariantStory<IconWithBackgroundProps>(Template, variantAndStrengthPropOptions);
 
-export const Disabled = createIconWithBackgroundStory({ isDisabled: true });
+export const Disabled = createIconWithBackgroundStory({ disabled: true });

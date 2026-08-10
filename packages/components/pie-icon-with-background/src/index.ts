@@ -43,7 +43,7 @@ export class PieIconWithBackground extends PieElement implements IconWithBackgro
     public isStrong = defaultProps.isStrong;
 
     @property({ type: Boolean })
-    public isDisabled = defaultProps.isDisabled;
+    public disabled = defaultProps.disabled;
 
     render () {
         const classes = {
@@ -52,7 +52,7 @@ export class PieIconWithBackground extends PieElement implements IconWithBackgro
             [`c-iconWithBackground--${this.size}`]: true,
             [`c-iconWithBackground--${this.variant}`]: true,
             'c-iconWithBackground--strong': this.isStrong,
-            'is-disabled': this.isDisabled,
+            'is-disabled': this.disabled,
         };
 
         return html`<div part="body" class="${classMap(classes)}" data-test-id="pie-icon-with-background"><slot></slot></div>`;

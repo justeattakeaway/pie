@@ -55,6 +55,13 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
                 summary: String(defaultProps.isStrong),
             },
         },
+        disabled: {
+            description: 'When true, applies disabled colours to the component.',
+            control: 'boolean',
+            defaultValue: {
+                summary: String(defaultProps.disabled),
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -72,8 +79,9 @@ const Template: TemplateFunction<IconWithBackgroundProps> = ({
     size,
     variant,
     isStrong,
+    disabled,
 }) => html`
-    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}" variant="${ifDefined(variant)}" ?isStrong="${isStrong}">
+    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}" variant="${ifDefined(variant)}" ?isStrong="${isStrong}" ?disabled="${disabled}">
         <icon-heart-filled></icon-heart-filled>
     </pie-icon-with-background>
 `;
@@ -104,3 +112,7 @@ export const Brand04 = createIconWithBackgroundStory({ variant: 'brand-04' });
 export const Brand05 = createIconWithBackgroundStory({ variant: 'brand-05' });
 export const Brand06 = createIconWithBackgroundStory({ variant: 'brand-06' });
 export const Brand08 = createIconWithBackgroundStory({ variant: 'brand-08' });
+
+export const Brand05Strong = createIconWithBackgroundStory({ variant: 'brand-05', isStrong: true });
+
+export const Disabled = createIconWithBackgroundStory({ disabled: true });

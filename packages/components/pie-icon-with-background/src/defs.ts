@@ -40,7 +40,7 @@ export interface IconWithBackgroundProps {
     /**
      * When true, applies disabled colours to the component.
      */
-    isDisabled?: boolean;
+    disabled?: boolean;
 }
 
 export type DefaultProps = ComponentDefaultProps<IconWithBackgroundProps>;
@@ -50,5 +50,5 @@ export const defaultProps: DefaultProps = {
     size: 'medium',
     variant: 'neutral',
     isStrong: false,
-    isDisabled: false,
+    disabled: false,
 };
