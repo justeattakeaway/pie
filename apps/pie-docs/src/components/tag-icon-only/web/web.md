@@ -25,7 +25,6 @@ shouldShowContents: true
     }
 } %}
 
-
 ---
 
 ## Anatomy
@@ -83,7 +82,6 @@ Depending on the level of visual prominence you want to give to the icon only ta
   {% endcontentItem %}
 {% endcontentLayout %}
 
-
 ### Colours
 
 Select from a range of colour options across the two levels of emphasis.
@@ -119,6 +117,14 @@ Select from a range of colour options across the two levels of emphasis.
       src: "../../../../assets/img/components/tag-icon-only/outline.svg",
       width: "32px",
       alt: "A tag component with an outline."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    <h4>Translucent</h4>
+    {% contentPageImage {
+      src: "../../../../assets/img/components/tag-icon-only/translucent.svg",
+      width: "32px",
+      alt: "A tag component with the translucent alternative."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -185,6 +191,14 @@ Select from a range of colour options across the two levels of emphasis.
       alt: "A pair of strong and subtle aubergine tags."
     } %}
   {% endcontentItem %}
+  {% contentItem %}
+    <h4>08 Latte</h4>
+    {% contentPageImage {
+      src: "../../../../assets/img/components/tag-icon-only/modifiers-colours-latte.svg",
+      width: "72px",
+      alt: "A pair of strong and subtle latte tags."
+    } %}
+  {% endcontentItem %}
 {% endcontentLayout %}
 
 ---
@@ -214,12 +228,11 @@ It is essential to ensure that the icon clearly conveys the intended message of 
     }
 } %}
 
-___
+---
 
 ## Meaning and purpose
 
 Icon only tags can be used to indicate status or used to convey specific meanings within JET, some examples are displayed below.
-
 
 {% contentPageImage {
     src:"../../../../../assets/img/components/tag-icon-only/meaning-and-purpose.svg",
@@ -236,4 +249,50 @@ Icon only tags can be used to indicate status or used to convey specific meaning
       "**Error:** Drawing attention to critical information for the user. Please review if an icon only tag is appropriate it might be better to use a dialogue, notification, toast or banner component",
       "**Offers:** Drawing attention to contextual information about the details of a deal or promotion to the user"
     ]
+} %}
+
+---
+
+## Interactive states
+
+Icon only tags include default and disabled states.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Default</h3>
+    {% contentPageImage {
+      src: "../../../../assets/img/components/tag-icon-only/interactive-states-default.svg",
+      width: "32px",
+      alt: "Example of the icon only tags in the default state."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Disabled</h3>
+    {% contentPageImage {
+      src: "../../../../assets/img/components/tag-icon-only/interactive-states-disabled.svg",
+      width: "32px",
+      alt: "Example of the icon only tags in the disabled state."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Examples
+
+### LTR examples
+
+Here is an example of an icon only tag in a left-to-right context:
+
+{% contentPageImage {
+    src:"../../../../assets/img/components/tag-icon-only/examples-ltr.svg",
+    alt: "Example of the icon only tag in the letf-to-right context.",
+    width: 32
+} %}
+
+### RTL
+
+{% notification {
+    type: "information",
+    message: "The icon only tag doesn’t change in RTL."
 } %}
