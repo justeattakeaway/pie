@@ -9,17 +9,190 @@
     align-items: center;
     justify-content: center;
 
-    // NOTE: provisional box sizing/colour so the shape is visible in isolation.
-    // Configurable sizing arrives in DSW-4169 and colour/variant styling in DSW-4170.
-    padding: var(--dt-spacing-b);
-    background-color: var(--dt-color-container-strong);
-    color: var(--dt-color-content-inverse);
+    // Fallback size if no size modifier is applied.
+    --icon-with-background-size: 32px;
+
+    inline-size: var(--icon-with-background-size);
+    block-size: var(--icon-with-background-size);
+
+    background-color: var(--icon-with-background-bg-color, var(--dt-color-container-strong));
+    color: var(--icon-with-background-icon-color, var(--dt-color-content-default));
+
+    ::slotted(svg) {
+        display: block;
+        block-size: var(--icon-size-override);
+        inline-size: var(--icon-size-override);
+    }
+}
+
+.c-iconWithBackground--small {
+    --icon-with-background-size: 24px;
+}
+
+.c-iconWithBackground--medium {
+    --icon-with-background-size: 32px;
+}
+
+.c-iconWithBackground--large {
+    --icon-with-background-size: 40px;
+}
+
+.c-iconWithBackground--xlarge {
+    --icon-with-background-size: 56px;
 }
 
 .c-iconWithBackground--circle {
     border-radius: var(--dt-radius-rounded-e);
+
+    &.c-iconWithBackground--small {
+        --icon-size-override: 16px;
+    }
+
+    &.c-iconWithBackground--medium {
+        --icon-size-override: 20px;
+    }
+
+    &.c-iconWithBackground--large {
+        --icon-size-override: 24px;
+    }
+
+    &.c-iconWithBackground--xlarge {
+        --icon-size-override: 32px;
+    }
 }
 
 .c-iconWithBackground--square {
     border-radius: var(--dt-radius-rounded-b);
+
+    &.c-iconWithBackground--small {
+        --icon-size-override: 20px;
+    }
+
+    &.c-iconWithBackground--medium {
+        --icon-size-override: 24px;
+    }
+
+    &.c-iconWithBackground--large {
+        --icon-size-override: 28px;
+    }
+
+    &.c-iconWithBackground--xlarge {
+        --icon-size-override: 36px;
+    }
+}
+
+// Variant colours: subtle tokens by default, strong tokens under `--strong`.
+.c-iconWithBackground--neutral {
+    --icon-with-background-bg-color: var(--dt-color-container-strong);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-container-inverse);
+        --icon-with-background-icon-color: var(--dt-color-content-inverse);
+    }
+}
+
+.c-iconWithBackground--neutral-alternative {
+    --icon-with-background-bg-color: var(--dt-color-container-default);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+}
+
+.c-iconWithBackground--information {
+    --icon-with-background-bg-color: var(--dt-color-support-info-02);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-info);
+        --icon-with-background-icon-color: var(--dt-color-content-inverse);
+    }
+}
+
+.c-iconWithBackground--success {
+    --icon-with-background-bg-color: var(--dt-color-support-positive-02);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-positive);
+        --icon-with-background-icon-color: var(--dt-color-content-inverse);
+    }
+}
+
+.c-iconWithBackground--error {
+    --icon-with-background-bg-color: var(--dt-color-support-error-02);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-error);
+        --icon-with-background-icon-color: var(--dt-color-content-light);
+    }
+}
+
+.c-iconWithBackground--warning {
+    --icon-with-background-bg-color: var(--dt-color-support-warning-02);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-warning);
+        --icon-with-background-icon-color: var(--dt-color-content-dark);
+    }
+}
+
+.c-iconWithBackground--brand-02 {
+    --icon-with-background-bg-color: var(--dt-color-support-brand-02);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-brand-01);
+        --icon-with-background-icon-color: var(--dt-color-content-dark);
+    }
+}
+
+.c-iconWithBackground--brand-03 {
+    --icon-with-background-bg-color: var(--dt-color-support-brand-03-subtle);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-brand-03);
+        --icon-with-background-icon-color: var(--dt-color-content-dark);
+    }
+}
+
+.c-iconWithBackground--brand-04 {
+    --icon-with-background-bg-color: var(--dt-color-support-brand-04-subtle);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-brand-04);
+        --icon-with-background-icon-color: var(--dt-color-content-dark);
+    }
+}
+
+.c-iconWithBackground--brand-05 {
+    --icon-with-background-bg-color: var(--dt-color-support-brand-05-subtle);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-brand-05);
+        --icon-with-background-icon-color: var(--dt-color-content-dark);
+    }
+}
+
+.c-iconWithBackground--brand-06 {
+    --icon-with-background-bg-color: var(--dt-color-support-brand-06-subtle);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-brand-06);
+        --icon-with-background-icon-color: var(--dt-color-content-light);
+    }
+}
+
+.c-iconWithBackground--brand-08 {
+    --icon-with-background-bg-color: var(--dt-color-support-brand-08-subtle);
+    --icon-with-background-icon-color: var(--dt-color-content-default);
+
+    &.c-iconWithBackground--strong {
+        --icon-with-background-bg-color: var(--dt-color-support-brand-08);
+        --icon-with-background-icon-color: var(--dt-color-content-dark);
+    }
 }

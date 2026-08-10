@@ -1,5 +1,41 @@
 # @justeattakeaway/pie-list
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@17.0.0
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - New hasDivider prop for optionally setting dividers on pie-list-item components. ([#3096](https://github.com/justeattakeaway/pie/pull/3096)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Removed] - In progress warning from list readme ([#3093](https://github.com/justeattakeaway/pie/pull/3093)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - `interactionType="button"` turns the whole row into a single button for an in-page action. The item renders an invisible, row-sized native `<button type="button">` for you (no slotting), named from its text and keeping the PIE focus ring. Activation is native (pointer, Enter and Space fire a bubbling `click`) - listen for `click` on the `pie-list-item`. It is an action trigger only, not a form control. ([#3079](https://github.com/justeattakeaway/pie/pull/3079)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e9ef549`](https://github.com/justeattakeaway/pie/commit/e9ef54989cea1df4f77b9bb2923390318d00fa5e)]:
+  - @justeattakeaway/pie-webc-core@16.1.1
+
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - `pie-list-item` now declares how a row behaves through a single `interactionType` prop (`none` | `radio` | `checkbox` | `switch` | `link`, default `none`), which drives the row's role, accessible naming, click forwarding and interactive states. This replaces the `selectionType` prop. ([#3072](https://github.com/justeattakeaway/pie/pull/3072)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Added] - `interactionType="link"` turns the whole row into a single navigation link: slot an empty `<a slot="link" href="...">` and it is stretched over the entire row and named from the item's text (`primaryText` as the accessible name, `secondaryText`/`metaText` as the description).
+
 ## 0.3.0
 
 ### Minor Changes

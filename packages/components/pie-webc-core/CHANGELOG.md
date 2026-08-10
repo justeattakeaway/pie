@@ -1,5 +1,18 @@
 # Changelog
 
+## 17.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`0f44ca1`](https://github.com/justeattakeaway/pie/commit/0f44ca14bb50ad75186e74747d92af8bab8e12fe)]:
+  - @justeattakeaway/pie-css@1.4.0
+
+## 16.1.1
+
+### Patch Changes
+
+- [Changed] - Dependency updates: lit 3.2.0 → 3.3.3 ([#3082](https://github.com/justeattakeaway/pie/pull/3082)) by [@dependabot](https://github.com/apps/dependabot)
+
 ## 16.1.0
 
 ### Minor Changes

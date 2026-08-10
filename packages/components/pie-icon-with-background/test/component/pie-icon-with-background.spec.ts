@@ -36,4 +36,53 @@ test.describe('PieIconWithBackground - Component tests', () => {
             });
         });
     });
+
+    test.describe('size prop', () => {
+        ['small', 'medium', 'large', 'xlarge'].forEach((size) => {
+            test(`should apply the ${size} size class`, async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'icon-with-background--default');
+
+                await basePage.load({ size });
+
+                // Act
+                const iconWithBackground = page.locator(componentSelector);
+
+                // Assert
+                await expect(iconWithBackground).toHaveClass(new RegExp(`c-iconWithBackground--${size}`));
+            });
+        });
+    });
+
+    test.describe('variant prop', () => {
+        (['neutral', 'neutral-alternative', 'information', 'brand-05'] as const).forEach((variant) => {
+            test(`should apply the ${variant} variant class`, async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'icon-with-background--default');
+
+                await basePage.load({ variant });
+
+                // Act
+                const iconWithBackground = page.locator(componentSelector);
+
+                // Assert
+                await expect(iconWithBackground).toHaveClass(new RegExp(`c-iconWithBackground--${variant}(\\s|$)`));
+            });
+        });
+    });
+
+    test.describe('isStrong prop', () => {
+        test('should apply the strong class when isStrong is true', async ({ page }) => {
+            // Arrange
+            const basePage = new BasePage(page, 'icon-with-background--default');
+
+            await basePage.load({ variant: 'brand-05', isStrong: true });
+
+            // Act
+            const iconWithBackground = page.locator(componentSelector);
+
+            // Assert
+            await expect(iconWithBackground).toHaveClass(/c-iconWithBackground--strong/);
+        });
+    });
 });
