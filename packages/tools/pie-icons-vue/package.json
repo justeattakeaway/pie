@@ -54,7 +54,8 @@
     "extends @justeattakeaway/browserslist-config-pie"
   ],
   "dependencies": {
-    "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
+    "@vue/babel-helper-vue-jsx-merge-props": "1.4.0",
+    "is-number": "^7.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.29.7",
