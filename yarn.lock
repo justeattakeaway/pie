@@ -3739,7 +3739,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-data-table@npm:0.3.24, @justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table":
+"@justeattakeaway/pie-data-table@npm:0.3.25, @justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table"
   dependencies:
@@ -3777,7 +3777,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.30.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.27.3"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.8"
-    "@justeattakeaway/pie-webc": "npm:0.11.7"
+    "@justeattakeaway/pie-webc": "npm:0.11.8"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -4072,7 +4072,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.27.3"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.8"
-    "@justeattakeaway/pie-webc": "npm:0.11.7"
+    "@justeattakeaway/pie-webc": "npm:0.11.8"
     "@storybook/addon-a11y": "npm:10.5.0"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.5.0"
@@ -4227,7 +4227,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.11.7, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.11.8, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4242,7 +4242,7 @@ __metadata:
     "@justeattakeaway/pie-chip": "npm:1.0.9"
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
     "@justeattakeaway/pie-cookie-banner": "npm:1.10.11"
-    "@justeattakeaway/pie-data-table": "npm:0.3.24"
+    "@justeattakeaway/pie-data-table": "npm:0.3.25"
     "@justeattakeaway/pie-divider": "npm:1.5.31"
     "@justeattakeaway/pie-form-label": "npm:0.18.32"
     "@justeattakeaway/pie-icon-button": "npm:2.7.28"
