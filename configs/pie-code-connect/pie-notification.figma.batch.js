@@ -9,7 +9,8 @@ const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
 // Map figma props
-const heading = getInstanceProp('getString', '[𝐓] Title');
+const hasTitle = getInstanceProp('getBoolean', 'Title');
+const heading = hasTitle && getInstanceProp('getString', '[𝐓] Title');
 const supportText = getInstanceProp('getString', '[𝐓] Supporting text');
 
 const variant = getInstanceProp('getEnum', 'Variant', {
@@ -33,7 +34,7 @@ const size = getInstanceProp('getEnum', 'Size (only in Narrow)', {
 });
 
 const isCompact = getInstanceProp('getPropertyValue', 'Compact') === 'True';
-const isDismissible = getInstanceProp('getBoolean', 'Close');
+const isDismissible = isCompact === false && getInstanceProp('getBoolean', 'Close');
 const hideIcon = getInstanceProp('getBoolean', 'Leading icon') === false;
 const hasActions = getInstanceProp('getPropertyValue', 'Actions') === 'True';
 
@@ -57,7 +58,7 @@ const template = `<${selectedComponentName}
     ${hasActions ? renderProp('leadingAction', { text: leadingActionText }) : ''}
     ${hasDualActions ? renderProp('supportingAction', { text: supportingActionText }) : ''}
 >
-${supportText}
+  ${supportText}
 </${selectedComponentName}>`;
 
 export default {
