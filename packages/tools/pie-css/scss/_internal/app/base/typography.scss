@@ -29,7 +29,14 @@ h1,
     margin-block-start: var(--dt-spacing-32);
     margin-block-end: var(--dt-spacing-16);
     margin-inline: 0;
+
+    &:first-child,
+    &:first-child {
+        margin-block-start: 0;
+    }
 }
+
+
 
 h2,
 .beta {
@@ -61,15 +68,15 @@ h6,
     margin: 0;
 }
 
-* + h2,
-* + .beta {
+*+h2,
+*+.beta {
     margin-block-start: var(--dt-spacing-32);
 }
 
-* + h3,
-* + .gamma,
-* + h4,
-* + .delta {
+*+h3,
+*+.gamma,
+*+h4,
+*+.delta {
     margin-block-start: var(--dt-spacing-16);
 }
 
