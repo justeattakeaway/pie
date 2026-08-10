@@ -116,7 +116,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         maxlength: {
-            description: 'The maximum number of characters the textarea can hold.',
+            description: 'The maximum number of characters the textarea can hold. Can be combined with label component\'s trailing prop to create a character counter as shown inthe whgat',
             control: 'number',
             defaultValue: {
                 summary: '',
@@ -205,18 +205,25 @@ const Template = ({
     `;
 };
 
-const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => {
+const WithLabelAndCounterTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => {
     const chCount = props.value?.length;
     const counter = props.maxlength ? `${chCount} / ${props.maxlength}` : undefined;
     return html`
-        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
+        <p> Note: The character counter is created using <pie-link href="/?path=/docs/components-form-label">pie-form-label</pie-link>'s trailing prop. </p>
         <pie-form-label for="${ifDefined(props.name)}" trailing=${ifDefined(counter)}>Label</pie-form-label>
         ${Template(props)}
     `;
 };
 
+const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
+        <p>Please note, the label is a separate component. See <pie-link href="/?path=/docs/components-form-label">pie-form-label</pie-link>.</p>
+        <pie-form-label for="${ifDefined(props.name)}"}>Label</pie-form-label>
+        ${Template(props)}why 
+    `;
+
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
 const CreateTextareaStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
+const CreateTextareaStoryWithLabelAndCounter = (props: TextareaProps) => createStory<TextareaProps>(WithLabelAndCounterTemplate, props);
 
 export const Default = CreateTextareaStory({}, {
     argTypes: {
@@ -226,6 +233,13 @@ export const Default = CreateTextareaStory({}, {
 export const WithLabel = CreateTextareaStoryWithLabel({ ...defaultArgs, aria: undefined })({}, {
     argTypes: {
         defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
+    },
+});
+
+export const WithLabelAndCounter = CreateTextareaStoryWithLabelAndCounter({ ...defaultArgs, aria: undefined, maxlength: 50 })({}, {
+    argTypes: {
+        defaultValue: { table: { readonly: true }, description: 'The value the textarea resets to when its parent form is reset. Requires the textarea to be inside a form.' },
+
     },
 });
 
