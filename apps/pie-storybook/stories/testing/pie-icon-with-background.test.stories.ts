@@ -7,6 +7,7 @@ import {
     type IconWithBackgroundProps,
     shapes,
     sizes,
+    variants,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/icon-with-background';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
@@ -34,8 +35,13 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
 
 export default iconWithBackgroundStoryMeta;
 
-const Template: TemplateFunction<IconWithBackgroundProps> = ({ shape, size }) => html`
-    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}">
+const Template: TemplateFunction<IconWithBackgroundProps> = ({
+    shape,
+    size,
+    variant,
+    isStrong,
+}) => html`
+    <pie-icon-with-background shape="${ifDefined(shape)}" size="${ifDefined(size)}" variant="${ifDefined(variant)}" ?isStrong="${isStrong}">
         <icon-heart-filled></icon-heart-filled>
     </pie-icon-with-background>
 `;
@@ -58,3 +64,10 @@ const shapeAndSizePropOptions = {
 };
 
 export const ShapeAndSizeVariations = createVariantStory<IconWithBackgroundProps>(Template, shapeAndSizePropOptions);
+
+const variantAndStrengthPropOptions = {
+    variant: [...variants],
+    isStrong: [true, false],
+};
+
+export const VariantVariations = createVariantStory<IconWithBackgroundProps>(Template, variantAndStrengthPropOptions);
