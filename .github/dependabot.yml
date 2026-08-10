@@ -5,7 +5,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "10:02"
+      time: "10:06"
       timezone: "Europe/London"
     ignore:
       - dependency-name: "*"
