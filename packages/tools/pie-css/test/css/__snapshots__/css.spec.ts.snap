@@ -46,6 +46,11 @@ h1,
   margin-block-end: var(--dt-spacing-16);
   margin-inline: 0;
 }
+h1:first-child, h1:first-child,
+.alpha:first-child,
+.alpha:first-child {
+  margin-block-start: 0;
+}
 
 h2,
 .beta {
