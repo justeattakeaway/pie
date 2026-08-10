@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-data-table
 
+## 0.3.25
+
+### Patch Changes
+
+- [Added] - adds Readme.md info to the Data Table component ([#3078](https://github.com/justeattakeaway/pie/pull/3078)) by [@maledr5](https://github.com/maledr5)
+
+## 0.3.24
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@17.0.0
+
 ## 0.3.23
 
 ### Patch Changes

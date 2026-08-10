@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.88.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.8
+
+## 1.88.2
+
+### Patch Changes
+
+- Updated dependencies [[`0f44ca1`](https://github.com/justeattakeaway/pie/commit/0f44ca14bb50ad75186e74747d92af8bab8e12fe)]:
+  - @justeattakeaway/pie-css@1.4.0
+  - @justeattakeaway/pie-webc@0.11.7
+  - @justeattakeaway/pie-icons-webc@1.27.3
+
 ## 1.88.1
 
 ### Patch Changes
