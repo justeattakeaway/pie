@@ -37,7 +37,6 @@ h1,
 }
 
 
-
 h2,
 .beta {
     @include font-theme('font-heading-m');
@@ -68,15 +67,15 @@ h6,
     margin: 0;
 }
 
-*+h2,
-*+.beta {
+* + h2,
+* + .beta {
     margin-block-start: var(--dt-spacing-32);
 }
 
-*+h3,
-*+.gamma,
-*+h4,
-*+.delta {
+* + h3,
+* + .gamma,
+* + h4,
+* + .delta {
     margin-block-start: var(--dt-spacing-16);
 }
 
