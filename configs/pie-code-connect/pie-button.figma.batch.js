@@ -8,7 +8,8 @@ const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
-// Map figma props
+const instance = figma.selectedInstance;
+
 const state = getInstanceProp('getPropertyValue', 'State');
 const label = getInstanceProp('getString', '[𝐓] Label');
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
@@ -43,33 +44,33 @@ const size = getInstanceProp('getEnum', 'Size', {
 const isDisabled = state === 'Disabled';
 const isLoading = state === 'Loading';
 
-// Icon slot instances
-const leadingIconInstance = hasLeadingIcon ? getInstanceProp('getInstanceSwap', 'Replace leading icon') : null;
-const trailingIconInstance = hasTrailingIcon ? getInstanceProp('getInstanceSwap', 'Replace trailing icon') : null;
+const leadingIcon = hasLeadingIcon ? instance.getInstanceSwap('Replace leading icon') : null;
+const trailingIcon = hasTrailingIcon ? instance.getInstanceSwap('Replace trailing icon') : null;
 
-const leadingIconSnippet = leadingIconInstance && leadingIconInstance.type === 'INSTANCE' && leadingIconInstance.hasCodeConnect()
-    ? leadingIconInstance.executeTemplate().example
-    : null;
-const trailingIconSnippet = trailingIconInstance && trailingIconInstance.type === 'INSTANCE' && trailingIconInstance.hasCodeConnect()
-    ? trailingIconInstance.executeTemplate().example
-    : null;
+let leadingIconSnippet;
+let trailingIconSnippet;
+
+if (leadingIcon && leadingIcon.type === 'INSTANCE' && leadingIcon.hasCodeConnect()) {
+    leadingIconSnippet = leadingIcon.executeTemplate().example;
+}
+
+if (trailingIcon && trailingIcon.type === 'INSTANCE' && trailingIcon.hasCodeConnect()) {
+    trailingIconSnippet = trailingIcon.executeTemplate().example;
+}
 
 // Define template
-const template = `<${componentName}
-const template = `<${selectedComponentName}
+export default {
+    example: figma.html`
+<${selectedComponentName}
     ${renderProp('variant', variant, 'primary')}
     ${renderProp('size', size, 'medium')}
     ${renderProp('disabled', isDisabled, false)}
     ${renderProp('isLoading', isLoading, false)}
-    ${renderProp('iconPlacement', iconPlacement, 'leading')}
->
-    ${leadingIconSnippet ? `<span slot="icon">${leadingIconSnippet}</span>` : ''}
+    ${renderProp('iconPlacement', iconPlacement, 'leading')}>
+    ${leadingIconSnippet || ''}
     ${label}
-    ${trailingIconSnippet ? `<span slot="icon">${trailingIconSnippet}</span>` : ''}
-</${componentName}>`;
-
-export default {
-    example: figma.code`${trimEmptyLines(template)}`,
-    imports: [getImportStatement(componentName, componentNameReact)],
-    id: componentName,
+    ${trailingIconSnippet || ''}
+</${selectedComponentName}>`,
+    imports: ["import '@justeattakeaway/pie-webc/components/button.js';"],
+    id: 'pie-button',
 };
