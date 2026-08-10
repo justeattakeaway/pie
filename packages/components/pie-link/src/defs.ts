@@ -9,11 +9,12 @@ export const underlineTypes = ['default', 'reversed'] as const;
 
 type AriaProps = {
     label?: string;
+    expanded?: boolean;
 };
 
 export interface LinkProps {
     /**
-     * The ARIA labels used for the link.
+     * ARIA properties used for the link.
      */
     aria?: AriaProps;
     /**
