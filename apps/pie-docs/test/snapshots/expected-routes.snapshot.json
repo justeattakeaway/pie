@@ -27,6 +27,7 @@
     "components/bottom-sheet",
     "components/bottom-sheet/android",
     "components/bottom-sheet/ios",
+    "components/bottom-sheet/web",
     "components/breadcrumb",
     "components/breadcrumb/code",
     "components/breadcrumb/web",
