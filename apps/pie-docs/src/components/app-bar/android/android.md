@@ -14,7 +14,7 @@ shouldShowContents: true
         type: usageTypes.text,
         items: [
             "Use to display page titles and additional functionality.",
-            "Use native Android scrolling behaviours."      
+            "Use native Android scrolling behaviours."
         ]
     },
     dont: {
@@ -22,7 +22,7 @@ shouldShowContents: true
         items: [
             "Do not use anywhere other than the top of the screen.",
             "Do not use images behind transparent heading text.",
-            "Never break from the app header component. It is essential to the product architecture."
+            "Never break from the app bar component. It is essential to the product architecture."
         ]
     }
 } %}
@@ -44,7 +44,7 @@ shouldShowContents: true
     "**Android status bar [native]:** Native element that displays device current information.",
     "**Leading controls:** Option of three controls (back, menu, close) to aid user navigation.",
     "**Title (optional):** Provides an optional heading for the page content.",
-    "**Divider (only on filled variants):** Separates header from content.",
+    "**Divider (only on filled variants):** Separates the app bar from content.",
     "**Trailing controls (only in title variants):** Provides optional overflow menu icon or choice of up to two custom icons to aid user navigation.",
     "**Search input (only on search variant):** Allows users to search product content; option of placeholder or search text."
     ]
@@ -56,7 +56,7 @@ shouldShowContents: true
 
 ### Filled
 
-A filled background provides a tokenised container for header content and titles, which should be used as default.
+A filled background provides a tokenised container for the app bar content and titles, which should be used as default.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/android/variant-filled.svg",
@@ -66,9 +66,9 @@ A filled background provides a tokenised container for header content and titles
 
 ### Transparent
 
-A transparent background allows the page background or image to be visible, allowing for more creative header solutions.  Inverse icon buttons are used in transparent background headers to ensure they are easily visible against any content beneath. 
+A transparent background allows the page background or image to be visible, allowing for more creative app bar solutions.  Inverse icon buttons are used in app bars with transparent background to ensure they are easily visible against any content beneath.
 
-If using the transparent header above a page background colour you may need to do additional checks to make sure the text is accessible. If using the transparent header above an image, please ensure titles are hidden.
+If using the transparent variant above a page background colour you may need to do additional checks to make sure the text is accessible. If using the transparent variant above an image, please ensure titles are hidden.
 
 We suggest setting a 50% opacity behind status bar content to make it more visible, as this is a system setting this is not controlled through PIE and must be actioned on the consumer side.
 
@@ -97,7 +97,7 @@ We suggest setting a 50% opacity behind status bar content to make it more visib
     }
 } %}
 
-----
+---
 
 ## Modifiers
 
@@ -127,7 +127,7 @@ Use when you need to make a title more prominent.
 
 Can be used when you need to use high level search functionality. Use placeholder option to show placeholder text, use string to show when a user has entered a string of text.
 
-Do not allow header search functionality if you’re using the prominent header, we only allow header search functionality to be accessed via the regular title variant. 
+Do not allow the search functionality if you’re using the prominent variant, we only allow the search functionality to be accessed via the regular title variant.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/android/search-1.svg",
@@ -191,7 +191,7 @@ Aligns with native behaviour, allowing users to open a native overflow menu that
 
 #### Custom icons
 
-We allow up to two custom icons within our trailing controls, these are available only to provide additional functionality to the app header component.
+We allow up to two custom icons within our trailing controls, these are available only to provide additional functionality to the app bar component.
 
 {% contentLayout %}
   {% contentItem %}
@@ -214,11 +214,11 @@ We allow up to two custom icons within our trailing controls, these are availabl
 
 ## Placement
 
-The header always sits flush to the top of the screen, and over the page content.
+The app bar always sits flush to the top of the screen, and over the page content.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/android/placement.svg",
-    alt: "A diagram showing the header flush with the top of the screen.",
+    alt: "A diagram showing the app bar flush with the top of the screen.",
     width: 360
 } %}
 
@@ -261,7 +261,7 @@ If placeholder text exceeds the length of the search input container, it will tr
 String variants should never have overflow solutions. See Behaviours for when a user types a string of text that is longer than the search bar container.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/app-bar/android/search.svg",
+    src:"../../../assets/img/components/app-bar/android/overflow-search.svg",
     alt: "An app bar with a search input field containing a long truncated search string.",
     width: 360
 } %}
@@ -274,7 +274,7 @@ String variants should never have overflow solutions. See Behaviours for when a 
 
 When scrolling through the page content we only allow filled background variants to  remain sticky at the top of the screen, allow the content to scroll beneath.
 
-We also allow app bar headers with prominent text to change to non-prominent text upon scrolling to allow for more space on the screen. 
+We also allow app bar with prominent text to change to non-prominent text upon scrolling to allow for more space on the screen.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/android/scrolling.svg",
@@ -333,21 +333,21 @@ Defines the touch targets of interactive elements across variants.
 
 ### LTR examples
 
-Here are some examples of the App header in a left-to-right context.
+Here are some examples of the App bar in a left-to-right context.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/android/ltr-1.svg",
       width: 375,
-      alt: "An app bar with a non-prominent header in left to right context."
+      alt: "An app bar in a non-prominent variant in left to right context."
     } %}
     {% endcontentItem %}
     {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/android/ltr-2.svg",
       width: 375,
-      alt: "An app bar with a prominent header in left to right context."
+      alt: "An app bar in a prominent variant in left to right context."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}
@@ -360,21 +360,21 @@ Here are some examples of the App header in a left-to-right context.
 
 ### RTL examples
 
-Here are some examples of the App header in a right-to-left context.
+Here are some examples of the App bar in a right-to-left context.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/android/rtl-1.svg",
       width: 375,
-      alt: "An app bar with a non-prominent header in right to left context."
+      alt: "An app bar with a non-prominent app bar in right to left context."
     } %}
     {% endcontentItem %}
     {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/android/rtl-2.svg",
       width: 375,
-      alt: "An app bar with a prominent header in right to left context."
+      alt: "An app bar with a prominent app bar in right to left context."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}

@@ -15,14 +15,14 @@ shouldShowContents: true
         items: [
             "Use to display page titles and additional functionality.",
             "Follow native iOS scrolling behaviours.",
-            "Always use iOS headers relevant to the device you're designing for."        ]
+            "Always use iOS app bar relevant to the device you're designing for."        ]
     },
     dont: {
         type: usageTypes.text,
         items: [
             "Do not use anywhere other than the top of the screen.",
             "Do not use images behind transparent heading text.",
-            "Never break from the app header component. It is essential to the product architecture."
+            "Never break from the app bar component. It is essential to the product architecture."
         ]
     }
 } %}
@@ -46,7 +46,7 @@ shouldShowContents: true
     "**Leading controls (optional):** Option of three controls (back, menu, close) to aid user navigation.",
     "**Title (optional):** Provides an optional heading for the page content.",
     "**Secondary text (optional):** Provides optional supplementary information.",
-    "**Divider (only on solid and blur variants):** Separates header from content.",
+    "**Divider (only on solid and blur variants):** Separates the app bar from content.",
     "**Trailing controls (only in title variants):** Provides optional overflow menu icon or choice of up to two custom icons to aid user navigation.",
     "**Search input (only on search variant):** Allows users to search product content; option of placeholder or search text."
     ]
@@ -56,7 +56,7 @@ shouldShowContents: true
 
 ## Devices
 
-iOS 26 and Liquid Glass is available on iPhone devices ranging from the iPhone 11 series up through the latest iPhone 17, plus the iPhone SE (2nd generation and later). Our app header component is designed to stay up to date with the latest iPhone model. Currently using notch and status bar for iPhone 17.
+iOS 26 and Liquid Glass is available on iPhone devices ranging from the iPhone 11 series up through the latest iPhone 17, plus the iPhone SE (2nd generation and later). Our app bar component is designed to stay up to date with the latest iPhone model. Currently using notch and status bar for iPhone 17.
 
 ---
 
@@ -64,7 +64,7 @@ iOS 26 and Liquid Glass is available on iPhone devices ranging from the iPhone 1
 
 ### Filled
 
-A filled background provides a tokenised container for header content and titles, which should be used as default.
+A filled background provides a tokenised container for the app bar content and titles, which should be used as default.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/variant-filled.svg",
@@ -74,7 +74,7 @@ A filled background provides a tokenised container for header content and titles
 
 ### Blurred
 
-Blurred headers can also be used as an option; these allow the background to be partly visible whilst keeping the text fully accessible. These headers are best used over photos, illustrations, and other strong imagery.
+Blurred app bars can also be used as an option; these allow the background to be partly visible whilst keeping the text fully accessible. These app bars are best used over photos, illustrations, and other strong imagery.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/variant-blurred.svg",
@@ -84,9 +84,9 @@ Blurred headers can also be used as an option; these allow the background to be 
 
 ### Transparent
 
-A transparent background allows the page background or image to be fully visible, allowing for more creative header solutions. Inverse icon buttons are used in transparent background headers to ensure they are easily visible against any content beneath.
+A transparent background allows the page background or image to be fully visible, allowing for more creative app bar solutions. Inverse icon buttons are used in transparent background variants to ensure they are easily visible against any content beneath.
 
-If using the transparent header above a page background colour, you may need to do additional checks to make sure the text is accessible. If using the transparent header above an image, please ensure titles are turned off.
+If using the transparent variant above a page background colour, you may need to do additional checks to make sure the text is accessible. If using the transparent app bar above an image, please ensure titles are turned off.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/variant-transparent.svg",
@@ -141,7 +141,7 @@ Use when you need to make a title more prominent.
 
 ### Secondary text
 
-You can add secondary text to the header to provide supplementary information for the user.
+You can add secondary text to the app bar to provide supplementary information for the user.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/title-secondary.svg",
@@ -151,7 +151,7 @@ You can add secondary text to the header to provide supplementary information fo
 
 ### Alignment
 
-Our app header can use both centre and left alignment for text options. Titles may be hidden for certain use cases, but there must always be a title to ensure screen reading accessibility.
+Our app bar can use both centre and left alignment for text options. Titles may be hidden for certain use cases, but there must always be a title to ensure screen reading accessibility.
 
 #### Centre
 
@@ -237,7 +237,7 @@ Aligns with native behaviour, allowing users to open a native overflow menu that
 
 #### Custom icons
 
-We allow up to two custom icons within our trailing controls; these are available only to provide additional functionality to the app header component.
+We allow up to two custom icons within our trailing controls; these are available only to provide additional functionality to the app bar component.
 
 {% contentLayout %}
   {% contentItem %}
@@ -270,11 +270,11 @@ iOS 26 allows for a *dual style* of Liquid Glass button that combines two icon b
 
 ## Placement
 
-The header always sits flush to the top of the screen, and over the page content.
+The app bar always sits flush to the top of the screen, and over the page content.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/placement.svg",
-    alt: "A diagram showing the header flush with the top of the screen.",
+    alt: "A diagram showing the app bar flush with the top of the screen.",
     width: 360
 } %}
 
@@ -365,7 +365,7 @@ Use modal patterns when you need to show a multi-step workflow or full-screen ta
 
 ### Scrolling
 
-When scrolling through the page content, the header remains sticky at the top of the screen. The background variant is allowed to follow native patterns and use a background blur and opacity.
+When scrolling through the page content, the app bar remains sticky at the top of the screen. The background variant is allowed to follow native patterns and use a background blur and opacity.
 
 {% notification {
   type: "information",
@@ -378,7 +378,7 @@ When scrolling through the page content, the header remains sticky at the top of
     width: 360
 } %}
 
-We also allow app bar headers with prominent text to change to non-prominent text upon scrolling, to allow for more space on the screen.
+We also allow app bar with prominent text to change to non-prominent text upon scrolling, to allow for more space on the screen.
 
 {% contentPageImage {
     src:"../../../assets/img/components/app-bar/ios/scrolling-2.svg",
@@ -437,21 +437,21 @@ Defines the touch targets of interactive elements across variants.
 
 ### LTR examples
 
-Here are some examples of the App header in a left-to-right context.
+Here are some examples of the App bar in a left-to-right context.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/ios/ltr-1.svg",
       width: 375,
-      alt: "An app bar with a non-prominent header in left to right context."
+      alt: "An app bar with a non-prominent app bar in left to right context."
     } %}
     {% endcontentItem %}
     {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/ios/ltr-2.svg",
       width: 375,
-      alt: "An app bar with a prominent header in left to right context."
+      alt: "An app bar with a prominent app bar in left to right context."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}
@@ -464,21 +464,21 @@ Here are some examples of the App header in a left-to-right context.
 
 ### RTL examples
 
-Here are some examples of the App header in a right-to-left context.
+Here are some examples of the App bar in a right-to-left context.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/ios/rtl-1.svg",
       width: 375,
-      alt: "An app bar with a non-prominent header in right to left context."
+      alt: "An app bar in a non-prominent variant in right to left context."
     } %}
     {% endcontentItem %}
     {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/app-bar/ios/rtl-2.svg",
       width: 375,
-      alt: "An app bar with a prominent header in right to left context."
+      alt: "An app bar in a prominent variant in right to left context."
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}
