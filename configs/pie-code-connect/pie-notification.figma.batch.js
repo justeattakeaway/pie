@@ -6,6 +6,7 @@ const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
+const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
 // Map figma props
 const heading = getInstanceProp('getString', '[𝐓] Title');
@@ -44,7 +45,7 @@ const leadingActionText = getInstanceProp([actionsLayerName, 'Button 1'], 'getSt
 const supportingActionText = getInstanceProp([actionsLayerName, 'Button 2'], 'getString', '[𝐓] Label');
 
 // Define template
-const template = `<${componentName}
+const template = `<${selectedComponentName}
     isOpen
     ${renderProp('heading', heading)}
     ${renderProp('variant', variant, 'neutral')}
@@ -58,7 +59,7 @@ const template = `<${componentName}
     ${hasDualActions ? renderProp('supportingAction', { text: supportingActionText }) : ''}
 >
 ${supportText}
-</${componentName}>`;
+</${selectedComponentName}>`;
 
 export default {
     example: figma.code`${trimEmptyLines(template)}`,
