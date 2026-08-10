@@ -231,10 +231,37 @@ The accordion component supports padding overrides on both the trigger (the top 
 
 The corner radius of the accordion can be overridden to align with the surrounding layout or surface it is placed on.
 
+{% notification { type: "information", message: "When a corner radius is applied, the divider property should be set to hidden." } %}
+
 {% contentPageImage {
     src: "../../../assets/img/components/accordion/apps/overrides-corner-radius.svg",
     alt: "Accordion with corner radius override applied.",
     width: 902
+} %}
+
+### Background colour
+
+By default, the background fill of the accordion uses the token $transparent.
+
+When modifying the background colour, make sure there is sufficient contrast between the text and the chosen background fill colour so it meets accessibility standards.
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/accordion/apps/overrides-background-do.svg",
+            width: "362px",
+            alt: ""
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/accordion/apps/overrides-background-dont.svg",
+            width: "362px",
+            alt: ""
+        }]
+    }
 } %}
 
 ---
