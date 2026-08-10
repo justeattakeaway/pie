@@ -4,10 +4,9 @@ const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
-const componentNameHtml = figma.batch.id;
-const componentNameReact = figma.batch.name;
-const componentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentNameHtml;
 const getInstanceProp = createGetInstanceProp(figma);
+const { componentName, componentNameReact } = figma.batch;
+const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
 // Map figma props
 const state = getInstanceProp('getPropertyValue', 'State');
@@ -57,6 +56,7 @@ const trailingIconSnippet = trailingIconInstance && trailingIconInstance.type ==
 
 // Define template
 const template = `<${componentName}
+const template = `<${selectedComponentName}
     ${renderProp('variant', variant, 'primary')}
     ${renderProp('size', size, 'medium')}
     ${renderProp('disabled', isDisabled, false)}
@@ -70,6 +70,6 @@ const template = `<${componentName}
 
 export default {
     example: figma.code`${trimEmptyLines(template)}`,
-    imports: [getImportStatement(componentNameHtml, componentNameReact)],
-    id: componentNameHtml,
+    imports: [getImportStatement(componentName, componentNameReact)],
+    id: componentName,
 };
