@@ -295,7 +295,7 @@ The stacked notification will need an overlap with the container so the corners 
     type: listTypes.ordered,
     items: [
         "**Primary text bottom margin:** Allow for a 12px bottom margin between the bottom of the text and the top of the container.",
-        "**Container overlap:** Give at least 16px of overlap so the color of the stacked notification shows around the rounded corners of the container."
+        "**Container overlap:** Give at least 16px of overlap so the colour of the stacked notification shows around the rounded corners of the container."
     ]
 } %}
 
