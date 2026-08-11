@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, type PropertyValues,
+    html, nothing, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
@@ -189,7 +189,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this.value = newValue;
         }
 
-        this._internals.setFormValue(this.value ?? null);
+        this._internals.setFormValue(this.value ?? '');
 
         this.handleResize();
     };
@@ -261,7 +261,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
                     placeholder=${ifDefined(placeholder)}
-                    .value=${live(value ?? defaultValue ?? '')}
+                    .value=${value !== undefined ? live(value) : nothing}
+                    .defaultValue=${defaultValue ?? ''}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}
                     ?required=${required}
