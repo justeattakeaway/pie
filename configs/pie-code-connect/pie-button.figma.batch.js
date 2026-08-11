@@ -46,14 +46,19 @@ const isLoading = state === 'Loading';
 const iconInstance = figma.selectedInstance.getInstanceSwap(iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');
 const iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
 
+// Filter empty lines
+const attrs = [
+    renderProp('variant', variant, 'primary'),
+    renderProp('size', size, 'medium'),
+    renderProp('disabled', isDisabled, false),
+    renderProp('isLoading', isLoading, false),
+    renderProp('iconPlacement', iconPlacement, 'leading'),
+].filter(Boolean).join('\n    ');
+
 // Define template
-const template = figma.html`
+const template = figma.code`
 <${selectedComponentName}
-    ${renderProp('variant', variant, 'primary')}
-    ${renderProp('size', size, 'medium')}
-    ${renderProp('disabled', isDisabled, false)}
-    ${renderProp('isLoading', isLoading, false)}
-    ${renderProp('iconPlacement', iconPlacement, 'leading')}>
+    ${attrs}>
     ${iconSnippet}
     ${label}
 </${selectedComponentName}>`;
