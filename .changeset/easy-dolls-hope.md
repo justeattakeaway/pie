@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-switch": minor
 ---
 
-[Changed] - update disabled active background color
+[Changed] - update selected disabled background color
