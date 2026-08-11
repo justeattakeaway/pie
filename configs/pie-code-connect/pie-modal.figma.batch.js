@@ -46,16 +46,15 @@ const imageSlotAspectRatio = imageSlotMode === 'image' && getInstanceProp(['Head
 // Read props from the Footer instance
 const isFooterPinned = getInstanceProp(['Footer'], 'getBoolean', 'Fixed');
 const isFooterEmpty = getInstanceProp(['Footer'], 'getBoolean', 'Empty');
-const hasFooterDualActions = getInstanceProp(['Footer'], 'getBoolean', 'Dual actions'); // "false" display only the Leading action
-const hideSupportingAction = hasFooterDualActions === false && isFooterEmpty === false;
+const hideSupportingAction = getInstanceProp(['Footer'], 'getBoolean', 'Dual actions') === false;
 const hasStackedActions = getInstanceProp(['Footer'], 'getEnum', 'CTA layout', {
     Stacked: true,
     'Side by side': false,
 });
 
 // Read props from the Footer buttons instance
-const footerLeadingButtonText = getInstanceProp(['Footer', 'Footer / Button 1'], 'getString', '[𝐓] Label');
-const footerSupportingButtonText = getInstanceProp(['Footer', 'Footer / Button 2'], 'getString', '[𝐓] Label');
+const footerLeadingButtonText = isFooterEmpty ? '' : getInstanceProp(['Footer', 'Footer / Button 1'], 'getString', '[𝐓] Label');
+const footerSupportingButtonText = hideSupportingAction ? '' : getInstanceProp(['Footer', 'Footer / Button 2'], 'getString', '[𝐓] Label');
 
 // Map slot content
 const slotInstance = figma.selectedInstance.getSlot('Modal content');
@@ -69,10 +68,10 @@ const props = [
     renderProp('hasBackButton', hasBackButton, false),
     renderProp('isDismissible', isDismissible, false),
     renderProp('isHeadingEmphasised', isHeadingEmphasised, false),
-    renderProp('isFooterPinned', isFooterPinned, true),
-    renderProp('leadingAction', { text: footerLeadingButtonText }),
-    hideSupportingAction ? '' : renderProp('supportingAction', { text: footerSupportingButtonText }),
-    renderProp('hasStackedActions', hasStackedActions, false),
+    isFooterEmpty ? '' : renderProp('isFooterPinned', isFooterPinned, true),
+    isFooterEmpty ? '' : renderProp('leadingAction', { text: footerLeadingButtonText }),
+    isFooterEmpty ? '' : renderProp('supportingAction', { text: footerSupportingButtonText }),
+    isFooterEmpty ? '' : renderProp('hasStackedActions', hasStackedActions, null),
     renderProp('imageSlotMode', imageSlotMode),
     renderProp('imageSlotAspectRatio', imageSlotAspectRatio),
 ].filter(Boolean).join('\n    ');
@@ -82,7 +81,7 @@ const template = figma.code`<${selectedComponentName}
     ${props}>
     ${imageSlotMode ? '<img slot="image" src="the-header-image-url.jpg">' : ''}
     ${slotContent.flat()}
-    ${isFooterEmpty && hasFooterDualActions ? '<div slot="footer"></div>' : ''}
+    ${isFooterEmpty ? '<div slot="footer"></div>' : ''}
 </${selectedComponentName}>`;
 
 export default {
