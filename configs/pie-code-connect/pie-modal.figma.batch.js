@@ -54,8 +54,12 @@ const hideSupportingAction = hasFooterDualActions === false && isFooterEmpty ===
 const footerLeadingButtonText = getInstanceProp(['Footer', 'Footer / Button 1'], 'getString', '[𝐓] Label');
 const footerSupportingButtonText = getInstanceProp(['Footer', 'Footer / Button 2'], 'getString', '[𝐓] Label');
 
+// Map slot content
+const slotInstance = figma.selectedInstance.getSlot('Modal content');
+const slotContent = slotInstance.connectedInstances.map((action) => action.executeTemplate().example);
+
 // Define template
-const template = `<${selectedComponentName}
+const template = figma.html`<${selectedComponentName}
     isOpen
     heading="${heading}"
     ${renderProp('size', size, 'medium')}
@@ -69,12 +73,13 @@ const template = `<${selectedComponentName}
     ${renderProp('imageSlotMode', imageSlotMode)}
     ${renderProp('imageSlotAspectRatio', imageSlotAspectRatio)}
 >
-    ${isFooterEmpty && hasFooterDualActions ? '<div slot="footer"></div>' : ''}
     ${imageSlotMode ? '<img slot="image" src="the-header-image-url.jpg">' : ''}
+    ${slotContent.flat()}
+    ${isFooterEmpty && hasFooterDualActions ? '<div slot="footer"></div>' : ''}
 </${selectedComponentName}>`;
 
 export default {
-    example: figma.code`${trimEmptyLines(template)}`,
+    example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
     id: componentName,
 };
