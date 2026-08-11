@@ -591,14 +591,24 @@ test.describe('PieList - Component tests', () => {
         });
 
         test.describe('group-disabled rows — context propagates automatically', () => {
-            test('should apply is-dimmed to a tag inside a disabled pie-radio-group', async ({ page }) => {
-                // The group broadcasts parentDisabledContext; pie-tag consumes it directly without
-                // needing isDimmed set on the tag.
-                expect(await getTagClass(page, 'tag-group-disabled-1')).toContain('is-dimmed');
+            test.describe('pie-radio-group', () => {
+                test('should apply is-dimmed to a tag inside a disabled pie-radio-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-group-disabled-1')).toContain('is-dimmed');
+                });
+
+                test('should NOT apply is-dimmed to a tag inside an enabled pie-radio-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-group-enabled-1')).not.toContain('is-dimmed');
+                });
             });
 
-            test('should NOT apply is-dimmed to a tag inside an enabled pie-radio-group', async ({ page }) => {
-                expect(await getTagClass(page, 'tag-group-enabled-1')).not.toContain('is-dimmed');
+            test.describe('pie-checkbox-group', () => {
+                test('should apply is-dimmed to a tag inside a disabled pie-checkbox-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-checkbox-group-disabled-1')).toContain('is-dimmed');
+                });
+
+                test('should NOT apply is-dimmed to a tag inside an enabled pie-checkbox-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-checkbox-group-enabled-1')).not.toContain('is-dimmed');
+                });
             });
         });
     });

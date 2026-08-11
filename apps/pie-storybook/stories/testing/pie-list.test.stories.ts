@@ -8,6 +8,8 @@ import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-webc/components/radio-group';
 import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/checkbox-group';
+import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser';
 import '@justeattakeaway/pie-icons-webc/dist/IconLock';
@@ -772,6 +774,44 @@ const DisabledTagBehaviourTemplate = () => withLayout(html`
             <pie-tag slot="trailing" data-test-id="tag-group-enabled-4">Label</pie-tag>
         </pie-list-item>
     </pie-radio-group>
+
+    <pie-checkbox-group name="checkbox-group-disabled" disabled>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-1">
+            <pie-checkbox slot="leading" value="a"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-2">
+            <pie-checkbox slot="leading" value="b"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-2">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-3">
+            <pie-checkbox slot="leading" value="c"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-4">
+            <pie-checkbox slot="leading" value="d"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-checkbox-group>
+
+    <pie-checkbox-group name="checkbox-group-enabled">
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-1">
+            <pie-checkbox slot="leading" value="e"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-2">
+            <pie-checkbox slot="leading" value="f"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-2">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-3">
+            <pie-checkbox slot="leading" value="g"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-4">
+            <pie-checkbox slot="leading" value="h"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-checkbox-group>
 `);
 
 export const DisabledTagBehaviour = createStory<ListProps>(DisabledTagBehaviourTemplate, defaultArgs)();
