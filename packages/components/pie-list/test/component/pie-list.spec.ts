@@ -571,4 +571,98 @@ test.describe('PieList - Component tests', () => {
             heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(56));
         });
     });
+
+    test.describe('pie-tag context — parentDisabledContext', () => {
+        // Reads the className of the inner `.c-tag` element inside a pie-tag's shadow root.
+        const getTagClass = (page: Page, testId: string) => page.evaluate(
+            (id) => document.querySelector(`[data-test-id="${id}"]`)?.shadowRoot?.querySelector('.c-tag')?.className ?? '',
+            testId,
+        );
+
+        test.beforeEach(async ({ page }) => {
+            await new BasePage(page, 'list--disabled-list-item-with-tag').load();
+        });
+
+        test('should apply is-dimmed to a pie-tag slotted inside a disabled list-item', async ({ page }) => {
+            // Arrange — story already loaded in beforeEach
+
+            // Act
+            const tagClass = await getTagClass(page, 'tag-in-disabled-item');
+
+            // Assert
+            expect(tagClass).toContain('is-dimmed');
+        });
+
+        test('should NOT apply is-dimmed to a pie-tag slotted inside an enabled list-item', async ({ page }) => {
+            // Arrange — story already loaded in beforeEach
+
+            // Act
+            const tagClass = await getTagClass(page, 'tag-in-enabled-item');
+
+            // Assert
+            expect(tagClass).not.toContain('is-dimmed');
+        });
+
+        test('should apply is-dimmed to a pie-tag that is already explicitly dimmed inside a disabled list-item', async ({ page }) => {
+            // Arrange — story already loaded in beforeEach
+
+            // Act
+            const tagClass = await getTagClass(page, 'tag-explicitly-dimmed-in-disabled-item');
+
+            // Assert
+            expect(tagClass).toContain('is-dimmed');
+        });
+
+        test('should apply is-dimmed to a pie-tag that is explicitly dimmed inside an enabled list-item', async ({ page }) => {
+            // Arrange — story already loaded in beforeEach
+
+            // Act
+            const tagClass = await getTagClass(page, 'tag-explicitly-dimmed-in-enabled-item');
+
+            // Assert
+            expect(tagClass).toContain('is-dimmed');
+        });
+
+        test('should apply is-dimmed to a pie-tag when its parent list-item becomes disabled', async ({ page }) => {
+            // Arrange — story already loaded in beforeEach; item-enabled starts without disabled
+            const classBeforeDisable = await getTagClass(page, 'tag-in-enabled-item');
+            expect(classBeforeDisable).not.toContain('is-dimmed');
+
+            // Act — disable the list-item programmatically
+            await page.evaluate(() => {
+                (document.querySelector('[data-test-id="item-enabled"]') as HTMLElement & { disabled: boolean }).disabled = true;
+            });
+
+            // Wait for Lit to propagate the context update
+            await page.waitForFunction(() => {
+                const tag = document.querySelector('[data-test-id="tag-in-enabled-item"]');
+                return tag?.shadowRoot?.querySelector('.c-tag')?.classList.contains('is-dimmed');
+            });
+
+            // Assert
+            const classAfterDisable = await getTagClass(page, 'tag-in-enabled-item');
+            expect(classAfterDisable).toContain('is-dimmed');
+        });
+
+        test('should remove is-dimmed from a pie-tag when its parent list-item becomes enabled', async ({ page }) => {
+            // Arrange — story already loaded in beforeEach; item-disabled starts as disabled
+            const classBeforeEnable = await getTagClass(page, 'tag-in-disabled-item');
+            expect(classBeforeEnable).toContain('is-dimmed');
+
+            // Act — enable the list-item programmatically
+            await page.evaluate(() => {
+                (document.querySelector('[data-test-id="item-disabled"]') as HTMLElement & { disabled: boolean }).disabled = false;
+            });
+
+            // Wait for Lit to propagate the context update
+            await page.waitForFunction(() => {
+                const tag = document.querySelector('[data-test-id="tag-in-disabled-item"]');
+                return !tag?.shadowRoot?.querySelector('.c-tag')?.classList.contains('is-dimmed');
+            });
+
+            // Assert
+            const classAfterEnable = await getTagClass(page, 'tag-in-disabled-item');
+            expect(classAfterEnable).not.toContain('is-dimmed');
+        });
+    });
 });

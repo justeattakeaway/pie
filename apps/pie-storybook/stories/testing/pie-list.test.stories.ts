@@ -707,3 +707,27 @@ const ItemHeightPrimaryOnlyNoDividerTemplate = () => withLayout(html`
 `);
 
 export const ItemHeightPrimaryOnlyNoDivider = createStory<ListProps>(ItemHeightPrimaryOnlyNoDividerTemplate, defaultArgs)();
+
+/**
+ * Test-only: disabled list items with slotted pie-tags in the trailing slot.
+ * Verifies that a pie-tag inside a disabled item receives the parentDisabledContext
+ * and applies is-dimmed, while a tag in an enabled item does not.
+ */
+const DisabledListItemWithTagTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item hasDivider disabled primaryText="Disabled item" secondaryText="Tag should be dimmed" data-test-id="item-disabled">
+            <pie-tag slot="trailing" variant="information" data-test-id="tag-in-disabled-item">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider primaryText="Enabled item" secondaryText="Tag should not be dimmed" data-test-id="item-enabled">
+            <pie-tag slot="trailing" variant="success" data-test-id="tag-in-enabled-item">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider disabled primaryText="Disabled item" secondaryText="Tag already dimmed explicitly" data-test-id="item-disabled-explicit">
+            <pie-tag slot="trailing" variant="error" isDimmed data-test-id="tag-explicitly-dimmed-in-disabled-item">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item primaryText="Enabled item" secondaryText="Tag explicitly dimmed" data-test-id="item-enabled-explicit">
+            <pie-tag slot="trailing" variant="warning" isDimmed data-test-id="tag-explicitly-dimmed-in-enabled-item">Label</pie-tag>
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const DisabledListItemWithTag = createStory<ListProps>(DisabledListItemWithTagTemplate, defaultArgs)();

@@ -31,6 +31,7 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--item-height-compact-no-divider', snapshotName: 'PieList - Item height (compact, primary text only, no divider)' },
     { storyId: 'list--item-height-primary-and-secondary-no-divider', snapshotName: 'PieList - Item height (primary and secondary text, no divider)' },
     { storyId: 'list--item-height-primary-only-no-divider', snapshotName: 'PieList - Item height (primary text only, no divider)' },
+    { storyId: 'list--disabled-list-item-with-tag', snapshotName: 'PieList - Disabled list item with trailing tag (dimmed via context)' },
 ];
 
 test.describe('PieList - Visual tests', () => {

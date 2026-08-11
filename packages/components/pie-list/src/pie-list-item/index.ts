@@ -75,6 +75,10 @@ export class PieListItem extends PieElement implements ListItemProps {
     // to skip on the server.
     private _ariaProvider = isServer ? undefined : new ContextProvider(this, { context: ariaContext });
 
+    // Provides this item's disabled state to descendants (e.g. `pie-tag`) so they can reflect it
+    // without prop drilling.
+    private _disabledProvider = isServer ? undefined : new ContextProvider(this, { context: parentDisabledContext, initialValue: false });
+
     private _abortController!: AbortController;
 
     // The last role value we wrote ourselves, so `_applyRole` can tell apart our own managed role
@@ -154,6 +158,7 @@ export class PieListItem extends PieElement implements ListItemProps {
     protected updated () {
         this._applyRole();
         this._ariaProvider?.setValue(this._providedAria);
+        this._disabledProvider?.setValue(this._isDisabled);
         this._applyLinkAria();
     }
 
