@@ -19,8 +19,8 @@ const variant = getInstanceProp('getEnum', 'Variant', {
 });
 
 // Map slot content
-const cardSlot = figma.selectedInstance.getSlot('Card content');
-const cardSlotContent = cardSlot.connectedInstances.map((action) => action.executeTemplate().example);
+const slotInstance = figma.selectedInstance.getSlot('Card content');
+const slotContent = slotInstance.connectedInstances.map((action) => action.executeTemplate().example);
 
 // Define template
 const template = figma.html`
@@ -28,7 +28,7 @@ const template = figma.html`
     ${renderProp('variant', variant, 'default')}
     ${renderProp('disabled', isDisabled, false)}
 >
-    ${cardSlotContent.flat()}
+    ${slotContent.flat()}
 </${selectedComponentName}>`;
 
 export default {
