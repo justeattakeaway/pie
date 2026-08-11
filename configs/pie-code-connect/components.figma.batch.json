@@ -53,5 +53,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1-4788"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-card.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-card",
+        "componentNameReact": "PieCard",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-card/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346"
+      }
+    ]
   }
 ]
