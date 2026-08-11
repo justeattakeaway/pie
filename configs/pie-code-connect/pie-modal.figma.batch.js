@@ -48,6 +48,10 @@ const isFooterPinned = getInstanceProp(['Footer'], 'getBoolean', 'Fixed');
 const isFooterEmpty = getInstanceProp(['Footer'], 'getBoolean', 'Empty');
 const hasFooterDualActions = getInstanceProp(['Footer'], 'getBoolean', 'Dual actions'); // "false" display only the Leading action
 const hideSupportingAction = hasFooterDualActions === false && isFooterEmpty === false;
+const hasStackedActions = getInstanceProp(['Footer'], 'getEnum', 'CTA layout', {
+    Stacked: true,
+    'Side by side': false,
+});
 
 // Read props from the Footer buttons instance
 const footerLeadingButtonText = getInstanceProp(['Footer', 'Footer / Button 1'], 'getString', '[𝐓] Label');
@@ -68,6 +72,7 @@ const props = [
     renderProp('isFooterPinned', isFooterPinned, true),
     renderProp('leadingAction', { text: footerLeadingButtonText }),
     hideSupportingAction ? '' : renderProp('supportingAction', { text: footerSupportingButtonText }),
+    renderProp('hasStackedActions', hasStackedActions, false),
     renderProp('imageSlotMode', imageSlotMode),
     renderProp('imageSlotAspectRatio', imageSlotAspectRatio),
 ].filter(Boolean).join('\n    ');
