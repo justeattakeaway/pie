@@ -116,7 +116,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         maxlength: {
-            description: 'The maximum number of characters the textarea can hold. Can be combined with label component\'s trailing prop to create a character counter as shown inthe whgat',
+            description: 'The maximum number of characters the textarea can hold. Can be combined with `pie-form-label`\'s trailing prop to create a character counter.',
             control: 'number',
             defaultValue: {
                 summary: '',
