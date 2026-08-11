@@ -2,7 +2,6 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
@@ -73,6 +72,6 @@ const template = figma.html`
 
 export default {
     example: template,
-    imports: ["import '@justeattakeaway/pie-webc/components/button.js';"],
+    imports: [getImportStatement(componentName, componentNameReact)],
     id: 'pie-button',
 };
