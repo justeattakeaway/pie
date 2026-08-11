@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -428,7 +428,7 @@ User's actions, selections, inputs and statuses are reflected on the trailing co
 
 ### Help or info tooltip icon
 
-A tooltip is triggered by hovering (on desktop) or clicking (on tablet and mobile) the Help or info tooltip icon in the form label. A tooltip will close once the user hovers off the icon or taping outside of the icon.
+A tooltip is triggered by hovering (on desktop) or clicking (on tablet and mobile) the Help or info tooltip icon in the form label. A tooltip will close once the user hovers off the icon or tapping outside of the icon.
 
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/web/interactions-tooltip-icon.svg",

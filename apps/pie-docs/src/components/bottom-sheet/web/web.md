@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Do's and don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -42,7 +42,7 @@ shouldShowContents: true
         "**Icon** (optional): Visually highlights the nature of the contents in the bottom sheet.",
         "**Title** (optional): Sums up the contents of the bottom sheet in one category.",
         "**Pull tab** (optional): Allows the user to hide the bottom sheet.",
-        "**Slot** (optional): Nested component which will be replaced by the actual Bottom Sheet content.",
+        "**Slot** (optional): Nested slot which can be replaced by custom content.",
         "**Primary CTA** (optional): Allows the user to perform an action.",
         "**Secondary CTA** (optional): Allows the user to perform an action.",
         "**Image/Illustration** (optional): Used to display an image or illustration as the head of the bottom sheet.",
@@ -58,7 +58,7 @@ Variants are just indicative templates of the type of content a bottom sheet can
 
 ### Default
 
-This is the default variation of the Bottom Sheet, which features a nested Slot component which can be replaced by a local component containing the Bottom Sheet's contents.
+This is the default variant of the Bottom Sheet, which features a Slot which can be replaced by a local component containing the Bottom Sheet's contents.
 
 {% contentPageImage {
     src:"../../../assets/img/components/bottom-sheet/web/variants-default.svg",
@@ -175,12 +175,12 @@ This header variation can be used to display large illustrations only. They disp
 
 {% notification {
     type: "information",
-    message: "Use large illustrations only. If you need to use small illustrations, use the small illustration property instead."
+    message: "You can change the colour of the illustration background to any of our brand colours, or remove it entirely."
 } %}
 
 {% notification {
     type: "warning",
-    message: "We only specify the types of trailing content in design. In development, however, trailing content is simply free-form text."
+    message: "Use large illustrations only. If you need to use large illustrations, use the small illustration property instead."
 } %}
 
 {% contentPageImage {

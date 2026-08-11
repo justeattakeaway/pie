@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {

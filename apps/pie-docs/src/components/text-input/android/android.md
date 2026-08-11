@@ -307,7 +307,7 @@ Inputs can be placed side by side, if they are required under the umbrella of on
 
 ### Single line
 
-If the string exceeds its available viosible bound, the content overflows to the left.
+If the string exceeds its available visible bound, the content overflows to the left.
 
 {% contentPageImage {
     src:"../../../assets/img/components/text-input/overflow-single-line-examples.svg",

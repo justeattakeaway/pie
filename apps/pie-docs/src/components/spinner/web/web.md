@@ -8,7 +8,7 @@ eleventyComputed:
 shouldShowContents: true
 ---
 
-## Do's and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -152,7 +152,7 @@ The spinner should be centred within the component to indicate that an action is
 
 ### LTR examples
 
-Here are some examples of cards in left-to-right context:
+Here are some examples of spinner component in left-to-right context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/spinner/web/spinner-ltr-1.svg",
@@ -162,7 +162,7 @@ Here are some examples of cards in left-to-right context:
 
 ### RTL examples
 
-Here are some examples of cards in right-to-left context:
+Here are some examples of spinner component in right-to-left context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/spinner/web/spinner-rtl-1.svg",

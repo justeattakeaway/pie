@@ -19,7 +19,7 @@ Dividers are commonly used to visually separate different sections, such as betw
 
 ---
 
-## Dos and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {

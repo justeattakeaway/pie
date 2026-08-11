@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -122,7 +122,7 @@ Select from a range of colour options across the two levels of emphasis.
     {% contentItem %}
     <h4>Translucent</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/tag-icon-only/translucent.svg",
+      src: "../../../../assets/img/components/tag-icon-only/translucent-web.svg",
       width: "32px",
       alt: "A tag component with the translucent alternative."
     } %}
@@ -286,7 +286,7 @@ Here is an example of an icon only tag in a left-to-right context:
 
 {% contentPageImage {
     src:"../../../../assets/img/components/tag-icon-only/examples-ltr.svg",
-    alt: "Example of the icon only tag in the letf-to-right context.",
+    alt: "Example of the icon only tag in the left-to-right context.",
     width: 32
 } %}
 

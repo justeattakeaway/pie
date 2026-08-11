@@ -8,13 +8,13 @@ eleventyComputed:
     sizes: "{% include './sizes.json'%}"
 ---
 
-## Do's and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
         type: usageTypes.text,
         items: [
-            "Use a spinner whenever the wait anticipated wait time is between 2 and 5 seconds.",
+            "Use a spinner whenever the anticipated wait time is between 2 and 5 seconds.",
             "Use when retrieving data or performing slow computations to notify the user that their request is being processed.",
             "On Android, the “swipe to refresh” gesture displays a circular progress indicator to indicate that the UI is being refreshed."
         ]
