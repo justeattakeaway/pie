@@ -43,18 +43,16 @@ const size = getInstanceProp('getEnum', 'Size', {
 const isDisabled = state === 'Disabled';
 const isLoading = state === 'Loading';
 
-const leadingIcon = hasLeadingIcon ? instance.getInstanceSwap('Replace leading icon') : null;
-const trailingIcon = hasTrailingIcon ? instance.getInstanceSwap('Replace trailing icon') : null;
-
-let leadingIconSnippet;
-let trailingIconSnippet;
-
-if (leadingIcon && leadingIcon.type === 'INSTANCE' && leadingIcon.hasCodeConnect()) {
-    leadingIconSnippet = leadingIcon.executeTemplate().example;
-}
-
-if (trailingIcon && trailingIcon.type === 'INSTANCE' && trailingIcon.hasCodeConnect()) {
-    trailingIconSnippet = trailingIcon.executeTemplate().example;
+// Get icon instance
+const iconSwap = iconPlacement === 'trailing'
+    ? instance.getInstanceSwap('Replace trailing icon')
+    : instance.getInstanceSwap('Replace leading icon');
+// Check if icon exists
+const iconNode = iconSwap && iconSwap.type === 'INSTANCE' && iconSwap.hasCodeConnect() ? iconSwap : null;
+const iconSnippet = iconNode ? iconNode.executeTemplate().example : '';
+// Add slot prop to icon snippet
+if (iconSnippet && iconSnippet[0] && iconSnippet[0].code) {
+    iconSnippet[0].code = iconSnippet[0].code.replace('></', ' slot="icon"></');
 }
 
 // Define template
@@ -65,9 +63,8 @@ const template = figma.html`
     ${renderProp('disabled', isDisabled, false)}
     ${renderProp('isLoading', isLoading, false)}
     ${renderProp('iconPlacement', iconPlacement, 'leading')}>
-    ${leadingIconSnippet || ''}
+    ${iconSnippet}
     ${label}
-    ${trailingIconSnippet || ''}
 </${selectedComponentName}>`;
 
 export default {
