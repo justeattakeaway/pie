@@ -1,5 +1,5 @@
 {
   "title": "Stacked Notification",
   "navKey": "Stacked Notification",
-  "description": "coming soon"
+  "description": "Non-interactive element that provides additional information related to the container it is attached to."
 }

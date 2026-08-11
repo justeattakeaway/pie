@@ -56,6 +56,14 @@ async function getExistingFile (github, owner, repo, path, ref) {
 module.exports = async ({ github, context }) => {
     const { owner, repo } = context.repo;
     const pr = context.payload.pull_request;
+
+    const headRepoFullName = pr.head?.repo?.full_name;
+    const baseRepoFullName = `${owner}/${repo}`;
+    if (headRepoFullName !== baseRepoFullName) {
+        console.warn(`Refusing to generate changeset: PR head repository "${headRepoFullName}" is not "${baseRepoFullName}".`);
+        return;
+    }
+
     const prNumber = pr.number;
     const headRef = pr.head.ref;
     const headSha = pr.head.sha;

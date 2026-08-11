@@ -1,0 +1,34 @@
+{
+  "headings": [
+    "Example",
+    "Size",
+    "Height",
+    "Notes"
+  ],
+  "rows": [
+    [
+      { "type": "image", "item": { "src": "../../../assets/img/components/badge/size-table-xlarge.svg", "alt": "XLarge badge" } },
+      "XLarge",
+      "40px",
+      "Available for all types."
+    ],
+    [
+      { "type": "image", "item": { "src": "../../../assets/img/components/badge/size-table-large.svg", "alt": "Large badge" } },
+      "Large",
+      "32px",
+      "Available for all types."
+    ],
+    [
+      { "type": "image", "item": { "src": "../../../assets/img/components/badge/size-table-medium.svg", "alt": "Medium badge" } },
+      "Medium",
+      "24px",
+      "Available for all types."
+    ],
+    [
+      { "type": "image", "item": { "src": "../../../assets/img/components/badge/size-table-small.svg", "alt": "Small badge" } },
+      "Small",
+      "16px",
+      "Available for all types except for Brand as it is not accessible."
+    ]
+  ]
+}

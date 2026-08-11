@@ -10,4 +10,18 @@ test.describe('PieIconWithBackground - Visual tests', () => {
 
         await percySnapshot(page, 'PieIconWithBackground - Shape variations', percyWidths);
     });
+
+    test('should render all shape and size variations', async ({ page }) => {
+        const basePage = new BasePage(page, 'icon-with-background--shape-and-size-variations');
+        await basePage.load();
+
+        await percySnapshot(page, 'PieIconWithBackground - Shape and size variations', percyWidths);
+    });
+
+    test('should render all variant variations', async ({ page }) => {
+        const basePage = new BasePage(page, 'icon-with-background--variant-variations');
+        await basePage.load();
+
+        await percySnapshot(page, 'PieIconWithBackground - Variant variations', percyWidths);
+    });
 });

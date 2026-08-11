@@ -13,13 +13,14 @@ function makeContext ({
     headRef = 'dependabot/npm_and_yarn/foo-1.2.3',
     headSha = 'head-sha-abc',
     baseSha = 'base-sha-xyz',
+    headRepoFullName = 'justeattakeaway/pie',
 } = {}) {
     return {
         repo: { owner: 'justeattakeaway', repo: 'pie' },
         payload: {
             pull_request: {
                 number: prNumber,
-                head: { ref: headRef, sha: headSha },
+                head: { ref: headRef, sha: headSha, repo: { full_name: headRepoFullName } },
                 base: { sha: baseSha },
             },
         },
@@ -117,6 +118,24 @@ describe('generateDependabotChangeset', () => {
                 },
             });
             await generateDependabotChangeset({ github, context });
+            expect(github.rest.repos.createOrUpdateFileContents).not.toHaveBeenCalled();
+        });
+
+        it('refuses to run when the PR head is a forked repo, even with a colliding branch name', async () => {
+            const base = { name: '@justeattakeaway/pie-foo', dependencies: { lodash: '4.0.0' } };
+            const head = { name: '@justeattakeaway/pie-foo', dependencies: { lodash: '4.1.0', 'is-number': '7.0.0' } };
+            const forkedContext = makeContext({ headRepoFullName: 'attacker/pie' });
+            const github = makeGithub({
+                files: [{ filename: 'packages/components/pie-foo/package.json' }],
+                packageContents: {
+                    'base-sha-xyz:packages/components/pie-foo/package.json': base,
+                    'head-sha-abc:packages/components/pie-foo/package.json': head,
+                    'dependabot/npm_and_yarn/foo-1.2.3:.changeset/dependabot-pr-42.md': 'NOT_FOUND',
+                },
+            });
+            await generateDependabotChangeset({ github, context: forkedContext });
+            expect(github.paginate).not.toHaveBeenCalled();
+            expect(github.rest.repos.getContent).not.toHaveBeenCalled();
             expect(github.rest.repos.createOrUpdateFileContents).not.toHaveBeenCalled();
         });
 
