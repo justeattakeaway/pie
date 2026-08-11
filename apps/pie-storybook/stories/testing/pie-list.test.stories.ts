@@ -593,6 +593,85 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
 
 export const LongTextCentreAligned = createStory<ListProps>(LongTextCentreAlignedTemplate, defaultArgs)();
 
+/**
+ * Compact items whose primary text wraps onto more than one line. The leading icon, trailing icon
+ * and meta text should all stay aligned with the first line of the primary text rather than being
+ * centred across every line.
+ */
+const LongTextCompactTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long">
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            metaText="Meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long">
+            ${leadingIcon}
+            ${trailingTag}
+        </pie-list-item>
+
+        <pie-list-item
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long">
+            ${trailingIcon}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const LongTextCompact = createStory<ListProps>(LongTextCompactTemplate, defaultArgs)();
+
+/**
+ * Compact items whose meta text wraps while the primary text stays on one line. The meta text is then
+ * the taller content, so the row grows and the primary text sits level with the meta text's first line
+ * rather than centred against it.
+ */
+const LongMetaTextCompactTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text"></pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text"></pie-list-item>
+    </pie-list>
+`);
+
+export const LongMetaTextCompact = createStory<ListProps>(LongMetaTextCompactTemplate, defaultArgs)();
+
 // Test-only stories -----------------------------------------------------------
 // The stories below exist purely to drive browser tests. They are not intended
 // as usage showcases.

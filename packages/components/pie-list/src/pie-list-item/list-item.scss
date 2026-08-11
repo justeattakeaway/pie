@@ -42,12 +42,13 @@
     min-height: 76px;
 }
 
+// Compact items keep their leading, trailing and meta content aligned with the first line of the
+// primary text rather than centred across all of its lines.
 .c-listItem-container.is-compact {
+    // The height of a single line of primary text, used to align content with the first line.
+    --list-item-first-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --list-item-block-padding: var(--dt-spacing-c);
 
-    // Compact items are centre-aligned.
-    --list-item-alignment: center;
-    align-items: var(--list-item-alignment);
     min-height: 48px;
 }
 
@@ -223,4 +224,13 @@ slot[name="trailing"]::slotted(*),
 .c-listItem-metaText {
     @include p.font-theme('font-body-s');
     color: var(--dt-color-content-subdued);
+}
+
+// `metaText` uses `font-body-s`, so its line box is 20px rather than the primary text's 24px. In a
+// compact row, a one-line-tall centring box sits it on the centre of the first line of primary text
+// instead of 2px above it.
+.c-listItem-container.is-compact .c-listItem-metaText {
+    display: flex;
+    align-items: center;
+    min-height: var(--list-item-first-line-height);
 }

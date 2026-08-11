@@ -241,7 +241,7 @@ Renders as trailing text; do not combine with the `trailing` slot:
 
 ### Compact list
 
-Reduced height, see [rules](#usage-notes-and-rules):
+Reduced height, see [rules](#usage-notes-and-rules). Leading, trailing and meta content is aligned with the first line of the primary text, so it stays level with that line if the text wraps. If `metaText` is the content that wraps, the row grows and the primary text sits level with the meta text's first line:
 
 ```html
 <pie-list>
@@ -613,7 +613,8 @@ To keep lists consistent and correct, follow these rules:
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
 - **Always set `hasMedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
-- **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
+- **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are too short for these.
+- **Keep leading and trailing content in a compact item within one line of primary text (24px tall).** Taller content cannot be aligned with the first line of the primary text. Icons, `pie-radio`, `pie-checkbox`, `pie-switch` and a large `pie-tag` all fit.
 - **Only use `center` for `--list-item-alignment`.** Other values are not supported.
 - **`pie-avatar` is not yet ready** for use in lists. Prefer `pie-thumbnail` for media for now.
 

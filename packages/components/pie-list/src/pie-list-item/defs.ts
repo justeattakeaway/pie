@@ -27,7 +27,13 @@ export interface ListItemProps {
     /**
      * The height of the component is decreased to reduce the vertical space, and used when space needs to be saved.
      *
+     * Leading, trailing and meta content is aligned with the first line of the primary text, so when the
+     * text wraps onto more than one line that content stays level with the first line. If `metaText` is
+     * the content that wraps, it is the taller of the two, so the row grows and the primary text sits
+     * level with the meta text's first line rather than centred against it.
+     *
      * **Note**: Do not use if you require secondary text, or if you want to slot a pie-avatar, pie-thumbnail or Icon with Background component into the list item.
+     * Slotted content should be no taller than a single line of primary text (24px), otherwise it cannot be aligned with the first line.
      */
     isCompact?: boolean
 
