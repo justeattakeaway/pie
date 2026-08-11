@@ -183,7 +183,9 @@ slot[name="trailing"]::slotted(*),
 }
 
 ::slotted(.c-pieIcon) {
-    --icon-size-override: 24px
+    --icon-size-override: 24px;
+
+    color: var(--dt-color-content-subdued);
 }
 
 // Disabled button row: mute text and icons. Icons use `fill: currentColor`, so setting `color`
