@@ -86,31 +86,31 @@ test.describe('PieIconWithBackground - Component tests', () => {
         });
     });
 
-    test.describe('disabled prop', () => {
-        test('should apply the is-disabled class when disabled is true', async ({ page }) => {
+    test.describe('isDimmed prop', () => {
+        test('should apply the is-dimmed class when isDimmed is true', async ({ page }) => {
             // Arrange
             const basePage = new BasePage(page, 'icon-with-background--default');
 
-            await basePage.load({ disabled: true });
+            await basePage.load({ isDimmed: true });
 
             // Act
             const iconWithBackground = page.locator(componentSelector);
 
             // Assert
-            await expect(iconWithBackground).toHaveClass(/is-disabled/);
+            await expect(iconWithBackground).toHaveClass(/is-dimmed/);
         });
 
-        test('should not apply the is-disabled class when disabled is false', async ({ page }) => {
+        test('should not apply the is-dimmed class when isDimmed is false', async ({ page }) => {
             // Arrange
             const basePage = new BasePage(page, 'icon-with-background--default');
 
-            await basePage.load({ disabled: false });
+            await basePage.load({ isDimmed: false });
 
             // Act
             const iconWithBackground = page.locator(componentSelector);
 
             // Assert
-            await expect(iconWithBackground).not.toHaveClass(/is-disabled/);
+            await expect(iconWithBackground).not.toHaveClass(/is-dimmed/);
         });
     });
 });

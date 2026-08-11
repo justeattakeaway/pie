@@ -38,9 +38,9 @@ export interface IconWithBackgroundProps {
     isStrong?: boolean;
 
     /**
-     * When true, applies disabled colours to the component.
+     * When true, applies a dimmed styling to the component.
      */
-    disabled?: boolean;
+    isDimmed?: boolean;
 }
 
 export type DefaultProps = ComponentDefaultProps<IconWithBackgroundProps>;
@@ -50,5 +50,5 @@ export const defaultProps: DefaultProps = {
     size: 'medium',
     variant: 'neutral',
     isStrong: false,
-    disabled: false,
+    isDimmed: false,
 };
