@@ -22,12 +22,14 @@ const variant = getInstanceProp('getEnum', 'Variant', {
 const slotInstance = figma.selectedInstance.getSlot('Card content');
 const slotContent = slotInstance.connectedInstances.map((action) => action.executeTemplate().example);
 
+const props = [
+    renderProp('variant', variant, 'default'),
+    renderProp('disabled', isDisabled, false),
+].filter(Boolean).join('\n    ');
+
 // Define template
-const template = figma.html`
-<${selectedComponentName}
-    ${renderProp('variant', variant, 'default')}
-    ${renderProp('disabled', isDisabled, false)}
->
+const template = figma.code`<${selectedComponentName}
+    ${props}>
     ${slotContent.flat()}
 </${selectedComponentName}>`;
 

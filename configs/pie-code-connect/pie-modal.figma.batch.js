@@ -2,7 +2,6 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
@@ -58,21 +57,24 @@ const footerSupportingButtonText = getInstanceProp(['Footer', 'Footer / Button 2
 const slotInstance = figma.selectedInstance.getSlot('Modal content');
 const slotContent = slotInstance.connectedInstances.map((action) => action.executeTemplate().example);
 
+const props = [
+    'isOpen',
+    renderProp('heading', heading),
+    renderProp('size', size, 'medium'),
+    renderProp('backgroundColor', backgroundColor, 'default'),
+    renderProp('hasBackButton', hasBackButton, false),
+    renderProp('isDismissible', isDismissible, false),
+    renderProp('isHeadingEmphasised', isHeadingEmphasised, false),
+    renderProp('isFooterPinned', isFooterPinned, true),
+    renderProp('leadingAction', { text: footerLeadingButtonText }),
+    hideSupportingAction ? '' : renderProp('supportingAction', { text: footerSupportingButtonText }),
+    renderProp('imageSlotMode', imageSlotMode),
+    renderProp('imageSlotAspectRatio', imageSlotAspectRatio),
+].filter(Boolean).join('\n    ');
+
 // Define template
-const template = figma.html`<${selectedComponentName}
-    isOpen
-    heading="${heading}"
-    ${renderProp('size', size, 'medium')}
-    ${renderProp('backgroundColor', backgroundColor, 'default')}
-    ${renderProp('hasBackButton', hasBackButton, false)}
-    ${renderProp('isDismissible', isDismissible, false)}
-    ${renderProp('isHeadingEmphasised', isHeadingEmphasised, false)}
-    ${renderProp('isFooterPinned', isFooterPinned, true)}
-    ${renderProp('leadingAction', { text: footerLeadingButtonText })}
-    ${hideSupportingAction ? '' : renderProp('supportingAction', { text: footerSupportingButtonText })}
-    ${renderProp('imageSlotMode', imageSlotMode)}
-    ${renderProp('imageSlotAspectRatio', imageSlotAspectRatio)}
->
+const template = figma.code`<${selectedComponentName}
+    ${props}>
     ${imageSlotMode ? '<img slot="image" src="the-header-image-url.jpg">' : ''}
     ${slotContent.flat()}
     ${isFooterEmpty && hasFooterDualActions ? '<div slot="footer"></div>' : ''}

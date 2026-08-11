@@ -2,7 +2,6 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
@@ -44,25 +43,28 @@ const hasStackedActions = hasActions && !isCompact && getInstanceProp(['Actions'
 const leadingActionText = getInstanceProp(['Actions', 'Button 1'], 'getString', '[𝐓] Label');
 const supportingActionText = getInstanceProp(['Actions', 'Button 2'], 'getString', '[𝐓] Label');
 
+const props = [
+    'isOpen',
+    renderProp('heading', heading),
+    renderProp('variant', variant, 'neutral'),
+    renderProp('position', position, 'inline-content'),
+    renderProp('size', size, 'large'),
+    renderProp('isDismissible', isDismissible, false),
+    renderProp('hideIcon', hideIcon, false),
+    renderProp('isCompact', isCompact, false),
+    renderProp('hasStackedActions', hasStackedActions, false),
+    hasActions ? renderProp('leadingAction', { text: leadingActionText }) : '',
+    hasDualActions ? renderProp('supportingAction', { text: supportingActionText }) : '',
+].filter(Boolean).join('\n    ');
+
 // Define template
-const template = `<${selectedComponentName}
-    isOpen
-    ${renderProp('heading', heading)}
-    ${renderProp('variant', variant, 'neutral')}
-    ${renderProp('position', position, 'inline-content')}
-    ${renderProp('size', size, 'large')}
-    ${renderProp('isDismissible', isDismissible, false)}
-    ${renderProp('hideIcon', hideIcon, false)}
-    ${renderProp('isCompact', isCompact, false)}
-    ${renderProp('hasStackedActions', hasStackedActions, false)}
-    ${hasActions ? renderProp('leadingAction', { text: leadingActionText }) : ''}
-    ${hasDualActions ? renderProp('supportingAction', { text: supportingActionText }) : ''}
->
+const template = figma.code`<${selectedComponentName}
+    ${props}>
   ${supportText}
 </${selectedComponentName}>`;
 
 export default {
-    example: figma.code`${trimEmptyLines(template)}`,
+    example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
     id: componentName,
 };

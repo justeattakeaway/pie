@@ -46,8 +46,7 @@ const isLoading = state === 'Loading';
 const iconInstance = figma.selectedInstance.getInstanceSwap(iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');
 const iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
 
-// Filter empty lines
-const attrs = [
+const props = [
     renderProp('variant', variant, 'primary'),
     renderProp('size', size, 'medium'),
     renderProp('disabled', isDisabled, false),
@@ -56,9 +55,8 @@ const attrs = [
 ].filter(Boolean).join('\n    ');
 
 // Define template
-const template = figma.code`
-<${selectedComponentName}
-    ${attrs}>
+const template = figma.code`<${selectedComponentName}
+    ${props}>
     ${iconSnippet}
     ${label}
 </${selectedComponentName}>`;
