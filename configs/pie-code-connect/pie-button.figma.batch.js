@@ -59,8 +59,7 @@ if (trailingIcon && trailingIcon.type === 'INSTANCE' && trailingIcon.hasCodeConn
 }
 
 // Define template
-export default {
-    example: figma.html`
+const template = figma.html`
 <${selectedComponentName}
     ${renderProp('variant', variant, 'primary')}
     ${renderProp('size', size, 'medium')}
@@ -70,7 +69,10 @@ export default {
     ${leadingIconSnippet || ''}
     ${label}
     ${trailingIconSnippet || ''}
-</${selectedComponentName}>`,
+</${selectedComponentName}>`;
+
+export default {
+    example: template,
     imports: ["import '@justeattakeaway/pie-webc/components/button.js';"],
     id: 'pie-button',
 };
