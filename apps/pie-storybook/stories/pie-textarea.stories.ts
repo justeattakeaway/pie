@@ -218,7 +218,7 @@ const WithLabelAndCounterTemplate: TemplateFunction<TextareaProps> = (props: Tex
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/docs/components-form-label">pie-form-label</pie-link>.</p>
         <pie-form-label for="${ifDefined(props.name)}"}>Label</pie-form-label>
-        ${Template(props)}why 
+        ${Template(props)}
     `;
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
