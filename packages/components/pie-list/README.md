@@ -571,6 +571,10 @@ Setting `disabled` on a `pie-radio-group` or `pie-checkbox-group` propagates the
 
 Switches have no group, so each switch row must be disabled individually (see above).
 
+#### SSR and group-disabled
+
+Group-disabled propagation occurs at runtime via Lit context. If you need disabled styles on page load in an SSR environment, set `disabled` directly on each `pie-list-item` and its slotted control, and set `isDimmed` on any `pie-tag`, rather than relying on the group container.
+
 ### Framework variants
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
