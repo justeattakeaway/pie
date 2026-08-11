@@ -7,8 +7,6 @@ const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
-const instance = figma.selectedInstance;
-
 const state = getInstanceProp('getPropertyValue', 'State');
 const label = getInstanceProp('getString', '[𝐓] Label');
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
@@ -44,11 +42,10 @@ const isDisabled = state === 'Disabled';
 const isLoading = state === 'Loading';
 
 // Get icon instance
-const iconSwap = iconPlacement === 'trailing'
-    ? instance.getInstanceSwap('Replace trailing icon')
-    : instance.getInstanceSwap('Replace leading icon');
+const iconInstance = figma.selectedInstance.getInstanceSwap(iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');
+
 // Check if icon exists
-const iconNode = iconSwap && iconSwap.type === 'INSTANCE' && iconSwap.hasCodeConnect() ? iconSwap : null;
+const iconNode = iconInstance && iconInstance.type === 'INSTANCE' && iconInstance.hasCodeConnect() ? iconInstance : null;
 const iconSnippet = iconNode ? iconNode.executeTemplate().example : '';
 // Add slot prop to icon snippet
 if (iconSnippet && iconSnippet[0] && iconSnippet[0].code) {
