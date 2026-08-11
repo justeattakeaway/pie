@@ -21,7 +21,7 @@ p {
   font-weight: var(--dt-font-body-l-weight);
   font-size: calc(var(--dt-font-body-l-size) * 1px);
   line-height: calc(var(--dt-font-body-l-line-height) * 1px);
-  margin-block-start: var(--dt-spacing-16);
+  margin-block-start: var(--dt-spacing-d);
   margin-block-end: 0;
 }
 
@@ -42,8 +42,8 @@ h1,
 h1,
 .alpha {
   color: var(--dt-color-content-default);
-  margin-block-start: var(--dt-spacing-32);
-  margin-block-end: var(--dt-spacing-16);
+  margin-block-start: var(--dt-spacing-f);
+  margin-block-end: var(--dt-spacing-d);
   margin-inline: 0;
 }
 h1:first-child, h1:first-child,
@@ -53,29 +53,51 @@ h1:first-child, h1:first-child,
 }
 
 h2,
+h3,
+h4,
+h5,
+h6,
+.beta,
+.gamma,
+.delta,
+.epsilon,
+.zeta {
+  color: var(--dt-color-content-default);
+  margin: 0;
+}
+
+h2,
 .beta {
+  font-family: var(--dt-font-heading-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-l-weight);
+  font-size: calc(var(--dt-font-heading-l-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-l-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  h2,
+  .beta {
+    font-size: calc(var(--dt-font-heading-l-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-l-line-height--wide) * 1px);
+  }
+}
+
+h3,
+.gamma {
   font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-m-weight);
   font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
   line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  h2,
-  .beta {
+  h3,
+  .gamma {
     font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
     line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
   }
 }
-h2,
-.beta {
-  color: var(--dt-color-content-default);
-  margin: 0;
-}
 
-h3,
 h4,
 h5,
-.gamma,
 .delta,
 .epsilon {
   font-family: var(--dt-font-heading-s-family), var(--dt-font-family-secondary), sans-serif;
@@ -84,46 +106,33 @@ h5,
   line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  h3,
   h4,
   h5,
-  .gamma,
   .delta,
   .epsilon {
     font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
     line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
   }
 }
-h3,
-h4,
-h5,
-.gamma,
-.delta,
-.epsilon {
-  color: var(--dt-color-content-default);
-  margin: 0;
-}
 
 h6,
 .zeta {
-  font-family: var(--dt-font-heading-xs-family), var(--dt-font-family-secondary), sans-serif;
-  font-size: calc(var(--dt-font-caption-size) * 1px);
-  line-height: calc(var(--dt-font-caption-line-height) * 1px);
-  font-weight: var(--dt-font-heading-xs-weight);
-  color: var(--dt-color-content-default);
-  margin: 0;
+  font-family: var(--dt-font-body-strong-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-body-strong-l-weight);
+  font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
 }
 
 * + h2,
 * + .beta {
-  margin-block-start: var(--dt-spacing-32);
+  margin-block-start: var(--dt-spacing-f);
 }
 
 * + h3,
 * + .gamma,
 * + h4,
 * + .delta {
-  margin-block-start: var(--dt-spacing-16);
+  margin-block-start: var(--dt-spacing-d);
 }
 
 strong,
@@ -145,7 +154,7 @@ abbr[title] {
 
 blockquote {
   padding-inline-start: 10px;
-  margin: var(--dt-spacing-16);
+  margin: var(--dt-spacing-d);
   border-inline-start: 4px solid var(--dt-color-divider-default);
 }
 blockquote p {
@@ -166,7 +175,7 @@ mark {
 
 address {
   font-style: normal;
-  margin-block-start: var(--dt-spacing-16);
+  margin-block-start: var(--dt-spacing-d);
   margin-block-end: 0;
 }
 
@@ -191,7 +200,7 @@ samp {
 }
 
 hr {
-  margin: var(--dt-spacing-16) 0;
+  margin: var(--dt-spacing-d) 0;
   border: 0;
   border-block-start: 1px solid var(--dt-color-divider-default);
 }
