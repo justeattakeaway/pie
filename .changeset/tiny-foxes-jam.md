@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-tag": minor
 ---
 
-[Added] - Tag can now be set to isDimmed by parents using Lit Context. This allows the tag to be used in slots and have that state driven based on the parent without prop drilling.
+[Added] - `isDimmed` is now automatically applied when the tag is inside a disabled `pie-radio-group` or `pie-checkbox-group`, via Lit context.

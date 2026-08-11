@@ -516,6 +516,61 @@ import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
 <PieListItem interactionType="button" primaryText="Edit profile" secondaryText="Update your name and photo" onClick={openProfileEditor} />
 ```
 
+### Disabled states
+
+Only interactive rows (`interactionType` of `radio`, `checkbox`, `switch`, or `button`) can be disabled. `link` rows do not support `disabled`. Disabled links are generally a UX and accessibility problem, and we recommend reaching for a different pattern. Setting `disabled` on a non-interactive (`interactionType="none"`) item has no visible or functional effect.
+
+#### Disabling an individual row
+
+Set `disabled` on the `pie-list-item` and also on the slotted control. The item and the control are independent, so each must be disabled explicitly (exactly as you would disable a standalone `pie-checkbox`):
+
+```html
+<!-- Radio -->
+<pie-list-item interactionType="radio" disabled>
+  <pie-radio slot="leading" value="collection" disabled></pie-radio>
+</pie-list-item>
+
+<!-- Checkbox -->
+<pie-list-item interactionType="checkbox" disabled>
+  <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
+</pie-list-item>
+
+<!-- Switch -->
+<pie-list-item interactionType="switch" disabled>
+  <pie-switch slot="trailing" disabled></pie-switch>
+</pie-list-item>
+
+<!-- Button (no slotted control; the item renders its own button) -->
+<pie-list-item interactionType="button" primaryText="Sign out" disabled></pie-list-item>
+```
+
+If the row has a slotted `pie-tag`, set `isDimmed` on it explicitly in the same way:
+
+```html
+<pie-list-item interactionType="button" disabled primaryText="Mushrooms" secondaryText="Out of season">
+  <pie-tag slot="trailing" isDimmed>Out of stock</pie-tag>
+</pie-list-item>
+```
+
+#### Disabling via a container group
+
+Setting `disabled` on a `pie-radio-group` or `pie-checkbox-group` propagates the disabled state automatically to every `pie-list-item`, its slotted control, and any slotted `pie-tag` inside the group. You do not need to set `disabled` on each row or `isDimmed` on each tag individually:
+
+```html
+<pie-radio-group name="delivery" disabled>
+  <pie-list-item interactionType="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days">
+    <pie-radio slot="leading" value="standard"></pie-radio>
+    <pie-tag slot="trailing">Free</pie-tag>
+  </pie-list-item>
+  <pie-list-item interactionType="radio" primaryText="Express delivery" secondaryText="Next working day">
+    <pie-radio slot="leading" value="express"></pie-radio>
+    <pie-tag slot="trailing">£4.99</pie-tag>
+  </pie-list-item>
+</pie-radio-group>
+```
+
+Switches have no group, so each switch row must be disabled individually (see above).
+
 ### Framework variants
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**

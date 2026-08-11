@@ -6,6 +6,8 @@ import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/switch';
+import '@justeattakeaway/pie-webc/components/radio-group';
+import '@justeattakeaway/pie-webc/components/radio';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser';
 import '@justeattakeaway/pie-icons-webc/dist/IconLock';
@@ -709,25 +711,67 @@ const ItemHeightPrimaryOnlyNoDividerTemplate = () => withLayout(html`
 export const ItemHeightPrimaryOnlyNoDivider = createStory<ListProps>(ItemHeightPrimaryOnlyNoDividerTemplate, defaultArgs)();
 
 /**
- * Test-only: disabled list items with slotted pie-tags in the trailing slot.
- * Verifies that a pie-tag inside a disabled item receives the parentDisabledContext
- * and applies is-dimmed, while a tag in an enabled item does not.
+ * Test-only: verifies pie-tag disabled behaviour alongside pie-list-item.
+ *
+ * Section 1 — individual disabled rows: `isDimmed` must be set explicitly on the tag; a disabled
+ * list-item does not propagate its state to slotted tags automatically.
+ *
+ * Section 2 — group-disabled rows: when the containing `pie-radio-group` is disabled, the group's
+ * context propagates to every slotted `pie-tag` automatically (no explicit `isDimmed` needed).
  */
-const DisabledListItemWithTagTemplate = () => withLayout(html`
+const DisabledTagBehaviourTemplate = () => withLayout(html`
     <pie-list>
-        <pie-list-item hasDivider disabled primaryText="Disabled item" secondaryText="Tag should be dimmed" data-test-id="item-disabled">
-            <pie-tag slot="trailing" variant="information" data-test-id="tag-in-disabled-item">Label</pie-tag>
+        <pie-list-item hasDivider .interactionType=${'button'} disabled primaryText="Disabled — tag explicitly dimmed" data-test-id="item-disabled-explicit">
+            <pie-tag slot="trailing" isDimmed data-test-id="tag-disabled-explicit">Label</pie-tag>
         </pie-list-item>
-        <pie-list-item hasDivider primaryText="Enabled item" secondaryText="Tag should not be dimmed" data-test-id="item-enabled">
-            <pie-tag slot="trailing" variant="success" data-test-id="tag-in-enabled-item">Label</pie-tag>
+        <pie-list-item hasDivider .interactionType=${'button'} disabled primaryText="Disabled — tag not dimmed" data-test-id="item-disabled-no-dimmed">
+            <pie-tag slot="trailing" data-test-id="tag-disabled-no-dimmed">Label</pie-tag>
         </pie-list-item>
-        <pie-list-item hasDivider disabled primaryText="Disabled item" secondaryText="Tag already dimmed explicitly" data-test-id="item-disabled-explicit">
-            <pie-tag slot="trailing" variant="error" isDimmed data-test-id="tag-explicitly-dimmed-in-disabled-item">Label</pie-tag>
+        <pie-list-item hasDivider .interactionType=${'button'} primaryText="Enabled — tag explicitly dimmed" data-test-id="item-enabled-explicit">
+            <pie-tag slot="trailing" isDimmed data-test-id="tag-enabled-explicit">Label</pie-tag>
         </pie-list-item>
-        <pie-list-item primaryText="Enabled item" secondaryText="Tag explicitly dimmed" data-test-id="item-enabled-explicit">
-            <pie-tag slot="trailing" variant="warning" isDimmed data-test-id="tag-explicitly-dimmed-in-enabled-item">Label</pie-tag>
+        <pie-list-item .interactionType=${'button'} primaryText="Enabled — tag not dimmed" data-test-id="item-enabled-no-dimmed">
+            <pie-tag slot="trailing" data-test-id="tag-enabled-no-dimmed">Label</pie-tag>
         </pie-list-item>
     </pie-list>
+
+    <pie-radio-group name="group-disabled" disabled>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-1">
+            <pie-radio slot="leading" value="a"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-disabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-2">
+            <pie-radio slot="leading" value="b"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-disabled-2">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-3">
+            <pie-radio slot="leading" value="c"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-disabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-4">
+            <pie-radio slot="leading" value="d"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-disabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-radio-group>
+
+    <pie-radio-group name="group-enabled">
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-1">
+            <pie-radio slot="leading" value="e"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-enabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-2">
+            <pie-radio slot="leading" value="f"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-enabled-2">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-3">
+            <pie-radio slot="leading" value="g"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-enabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-4">
+            <pie-radio slot="leading" value="h"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-enabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-radio-group>
 `);
 
-export const DisabledListItemWithTag = createStory<ListProps>(DisabledListItemWithTagTemplate, defaultArgs)();
+export const DisabledTagBehaviour = createStory<ListProps>(DisabledTagBehaviourTemplate, defaultArgs)();
