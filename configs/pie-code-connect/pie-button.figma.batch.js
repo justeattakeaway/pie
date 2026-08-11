@@ -1,6 +1,7 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
+const getIconSnippet = require('./utils/get-icon-snippet.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
@@ -41,16 +42,9 @@ const size = getInstanceProp('getEnum', 'Size', {
 const isDisabled = state === 'Disabled';
 const isLoading = state === 'Loading';
 
-// Get icon instance
+// Get icon instance, and add the slot prop to the snippet
 const iconInstance = figma.selectedInstance.getInstanceSwap(iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');
-
-// Check if icon exists
-const iconNode = iconInstance && iconInstance.type === 'INSTANCE' && iconInstance.hasCodeConnect() ? iconInstance : null;
-const iconSnippet = iconNode ? iconNode.executeTemplate().example : '';
-// Add slot prop to icon snippet
-if (iconSnippet && iconSnippet[0] && iconSnippet[0].code) {
-    iconSnippet[0].code = iconSnippet[0].code.replace('></', ' slot="icon"></');
-}
+const iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
 
 // Define template
 const template = figma.html`
