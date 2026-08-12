@@ -160,16 +160,16 @@ blockquote {
 blockquote p {
   font-size: calc(var(--dt-font-body-s-size) * 1px);
   line-height: calc(var(--dt-font-body-s-line-height) * 1px);
-  font-weight: 300;
+  font-weight: var(--dt-font-body-s-weight);
 }
 
 button {
-  font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-family: var(--dt-font-interactive-l-family), var(--dt-font-family-secondary), sans-serif;
 }
 
 mark {
   background: var(--dt-color-support-warning-tonal);
-  padding: 2px 4px;
+  padding: var(--dt-spacing-a-small) var(--dt-spacing-a);
   border-radius: var(--dt-radius-rounded-a);
 }
 
@@ -196,7 +196,7 @@ sup {
 }
 
 samp {
-  font-family: var(--dt-font-family-code), Menlo, Monaco, "Courier New", monospace;
+  font-family: var(--dt-font-family-code), Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
 hr {
