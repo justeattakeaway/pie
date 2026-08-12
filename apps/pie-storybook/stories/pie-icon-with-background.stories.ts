@@ -56,7 +56,7 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
             },
         },
         isDimmed: {
-            description: 'When true, applies a dimmed styling to the component.',
+            description: 'When true, applies a purely visual dimmed appearance. Use this when the component is placed inside an interactive parent component that has a disabled state, such as a disabled card or button.',
             control: 'boolean',
             defaultValue: {
                 summary: String(defaultProps.isDimmed),

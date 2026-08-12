@@ -38,7 +38,9 @@ export interface IconWithBackgroundProps {
     isStrong?: boolean;
 
     /**
-     * When true, applies a dimmed styling to the component.
+     * When true, applies a dimmed visual styling to indicate a disabled context.
+     * Useful when this component is placed inside a parent component that has a disabled state.
+     * Named `isDimmed` rather than `disabled` as this component is non-interactive.
      */
     isDimmed?: boolean;
 }
