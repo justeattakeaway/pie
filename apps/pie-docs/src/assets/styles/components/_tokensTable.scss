@@ -119,7 +119,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     margin-block-end: 0;
     margin-inline-start: auto;
     margin-inline-end: auto;
-    inset: calc(var(--base-negative-space) + 8px) 0 calc(var(--base-negative-space) - 8px) 0;
+    inset: calc(var(--base-negative-space) + 8px) 0 calc(var(--base-negative-space) - 8px);
     position: absolute;
 
     @include f.media('>=wide') {
@@ -272,7 +272,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
         padding-inline-start: 0;
         padding-inline-end: 0;
         border-radius: 0;
-        border-width: 0 0 $tokensTable-border-width 0;
+        border-width: 0 0 $tokensTable-border-width;
 
         // Any final token item at the end of a parent category list should not have a bottom border
         // In pages where there are no parent categories,
