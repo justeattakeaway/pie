@@ -75,5 +75,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-radio.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-radio",
+        "componentNameReact": "PieRadio",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-radio/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784"
+      }
+    ]
   }
 ]
