@@ -1,0 +1,60 @@
+const figma = require('figma');
+const createGetInstanceProp = require('./utils/get-instance-prop.js');
+const renderProp = require('./utils/render-prop.js');
+const getIconSnippet = require('./utils/get-icon-snippet.js');
+const getImportStatement = require('./utils/get-import-statement.js');
+
+const getInstanceProp = createGetInstanceProp(figma);
+const { componentName, componentNameReact } = figma.batch;
+const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
+
+// Map figma props
+const state = getInstanceProp('getPropertyValue', 'State');
+const isError = getInstanceProp('getPropertyValue', 'Error') === 'True';
+const hasLeadingContent = getInstanceProp('getBoolean', 'Leading content');
+const hasTrailingContent = getInstanceProp('getBoolean', 'Trailing content');
+
+const size = getInstanceProp('getEnum', 'Size', {
+    Large: 'large',
+    Medium: 'medium',
+    Small: 'small',
+});
+
+const inputValue = getInstanceProp('getString', '[𝐓] String');
+const placeholder = getInstanceProp('getString', '[𝐓] Placeholder');
+const assistiveText = getInstanceProp(['Assistive text'], 'getString', '[𝐓] Assistive text');
+
+const isDisabled = state === 'Disabled';
+const isReadonly = state === 'Read only';
+const status = isError ? 'error' : 'default';
+
+// Get leading icon instance from the nested 'Leading content' instance
+const leadingIconInstance = hasLeadingContent && getInstanceProp(['Leading content'], 'getInstanceSwap', 'Leading icon');
+const leadingIconSnippet = getIconSnippet(leadingIconInstance, (code) => code.replace('></', ' slot="leadingIcon"></'));
+
+// Get trailing icon instance from the nested 'Trailing content' instance
+const trailingIconInstance = hasTrailingContent && getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Trailing icon');
+const trailingIconSnippet = getIconSnippet(trailingIconInstance, (code) => code.replace('></', ' slot="trailingIcon"></'));
+
+const props = [
+    renderProp('size', size, 'medium'),
+    renderProp('placeholder', placeholder),
+    renderProp('value', inputValue, ''),
+    renderProp('status', status, 'default'),
+    renderProp('assistiveText', assistiveText),
+    renderProp('disabled', isDisabled, false),
+    renderProp('readonly', isReadonly, false),
+].filter(Boolean).join('\n    ');
+
+// Define template
+const template = figma.code`<${selectedComponentName}
+    ${props}>
+    ${leadingIconSnippet}
+    ${trailingIconSnippet}
+</${selectedComponentName}>`;
+
+export default {
+    example: template,
+    imports: [getImportStatement(componentName, componentNameReact)],
+    id: 'pie-text-input',
+};

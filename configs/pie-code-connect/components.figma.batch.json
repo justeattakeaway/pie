@@ -86,5 +86,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-text-input.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-text-input",
+        "componentNameReact": "PieTextInput",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-text-input/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6226-7999"
+      }
+    ]
   }
 ]
