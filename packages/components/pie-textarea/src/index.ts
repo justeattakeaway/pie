@@ -261,8 +261,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
                     placeholder=${ifDefined(placeholder)}
-                    .value=${value !== undefined ? live(value) : nothing}
                     .defaultValue=${defaultValue ?? ''}
+                    .value=${value !== undefined ? live(value) : nothing}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}
                     ?required=${required}
