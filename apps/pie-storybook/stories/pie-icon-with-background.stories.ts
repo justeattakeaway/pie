@@ -113,6 +113,4 @@ export const Brand05 = createIconWithBackgroundStory({ variant: 'brand-05' });
 export const Brand06 = createIconWithBackgroundStory({ variant: 'brand-06' });
 export const Brand08 = createIconWithBackgroundStory({ variant: 'brand-08' });
 
-export const Brand05Strong = createIconWithBackgroundStory({ variant: 'brand-05', isStrong: true });
-
 export const Dimmed = createIconWithBackgroundStory({ isDimmed: true });
