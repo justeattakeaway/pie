@@ -57,8 +57,11 @@ const footerLeadingButtonText = isFooterEmpty ? '' : getInstanceProp(['Footer', 
 const footerSupportingButtonText = hideSupportingAction ? '' : getInstanceProp(['Footer', 'Footer / Button 2'], 'getString', '[𝐓] Label');
 
 // Map slot content
-const slotInstance = figma.selectedInstance.getSlot('Modal content');
-const slotContent = slotInstance.connectedInstances.map((action) => action.executeTemplate().example);
+const mainSlotInstance = figma.selectedInstance.getSlot('Modal content');
+const mainSlotContent = mainSlotInstance.connectedInstances.map((action) => action.executeTemplate().example);
+const isFooterSlotEnabled = !isFooterEmpty && getInstanceProp(['Footer'], 'getBoolean', 'Footer content slot');
+const footerSlotInstance = isFooterSlotEnabled && getInstanceProp(['Footer'], 'getSlot', 'Footer content');
+const footerSlotContent = footerSlotInstance && footerSlotInstance.connectedInstances.map((action) => action.executeTemplate().example);
 
 const props = [
     'isOpen',
@@ -80,10 +83,12 @@ const props = [
 const template = figma.code`<${selectedComponentName}
     ${props}>
     ${imageSlotMode ? '<img slot="image" src="the-header-image-url.jpg">' : ''}
-    ${slotContent.flat()}
+    ${mainSlotContent ? mainSlotContent.flat() : ''}
     ${isFooterEmpty ? '<div slot="footer"></div>' : ''}
+    ${isFooterSlotEnabled ? '<div slot="footer">' : ''}
+    ${isFooterSlotEnabled ? footerSlotContent.flat() : ''}
+    ${isFooterSlotEnabled ? '</div>' : ''}
 </${selectedComponentName}>`;
-
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
