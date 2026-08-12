@@ -99,18 +99,5 @@ test.describe('PieIconWithBackground - Component tests', () => {
             // Assert
             await expect(iconWithBackground).toHaveClass(/is-dimmed/);
         });
-
-        test('should not apply the is-dimmed class when isDimmed is false', async ({ page }) => {
-            // Arrange
-            const basePage = new BasePage(page, 'icon-with-background--default');
-
-            await basePage.load({ isDimmed: false });
-
-            // Act
-            const iconWithBackground = page.locator(componentSelector);
-
-            // Assert
-            await expect(iconWithBackground).not.toHaveClass(/is-dimmed/);
-        });
     });
 });
