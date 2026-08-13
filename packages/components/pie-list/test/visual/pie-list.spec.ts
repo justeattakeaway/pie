@@ -27,6 +27,7 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--link-list', snapshotName: 'PieList - Link list' },
     { storyId: 'list--button-list', snapshotName: 'PieList - Button list' },
     { storyId: 'list--button-list-disabled', snapshotName: 'PieList - Button list (disabled)' },
+    { storyId: 'list--coloured-icons-disabled', snapshotName: 'PieList - Coloured slotted icons (enabled and disabled)' },
     { storyId: 'list--item-height-compact', snapshotName: 'PieList - Item height (compact, primary text only)' },
     { storyId: 'list--item-height-primary-and-secondary', snapshotName: 'PieList - Item height (primary and secondary text)' },
     { storyId: 'list--item-height-primary-only', snapshotName: 'PieList - Item height (primary text only)' },

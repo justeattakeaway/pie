@@ -174,9 +174,9 @@ const ButtonListTemplate = () => {
 };
 export const ButtonList = createStory<ListProps>(ButtonListTemplate, defaultArgs)();
 
-// Test-only: a disabled button list. Exercises the disabled colour tokens — text uses
-// `content-disabled` and icons use `disabled-01` (via fill: currentColor). Icons are present in
-// the leading slot so both text and icon colours are captured in the VRT snapshot.
+// Test-only: a disabled button list. Exercises the disabled styling: text uses `content-disabled`
+// and slotted icons are dimmed with opacity. Icons are present in the leading slot so both the text
+// colour and the icon dimming are captured in the VRT snapshot.
 const ButtonListDisabledTemplate = () => withLayout(html`
     <pie-list aria-label="Account actions">
         <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
@@ -194,6 +194,55 @@ const ButtonListDisabledTemplate = () => withLayout(html`
     </pie-list>
 `);
 export const ButtonListDisabled = createStory<ListProps>(ButtonListDisabledTemplate, defaultArgs)();
+
+// Test-only: slotted icons given explicit colours, shown enabled and disabled. Disabled items must
+// dim their icons with opacity and keep the author's colour, rather than overriding it with a
+// disabled colour token. The two lists are identical apart from `disabled`, so the VRT snapshot
+// compares each coloured icon against its own enabled counterpart.
+const ColouredIconsDisabledTemplate = () => withLayout(html`
+    <style>
+        pie-list + pie-list {
+            margin-block-start: var(--dt-spacing-d);
+        }
+    </style>
+    <pie-list aria-label="Coloured icons (enabled)">
+        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-enabled-1" primaryText="Error colour icons" secondaryText="Enabled">
+            <icon-user slot="leading" style="color: var(--dt-color-content-error);"></icon-user>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-error);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-enabled-2" primaryText="Positive colour icons" secondaryText="Enabled">
+            <icon-lock slot="leading" style="color: var(--dt-color-content-positive);"></icon-lock>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-positive);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-enabled-3" primaryText="Link colour icons" secondaryText="Enabled">
+            <icon-notification slot="leading" style="color: var(--dt-color-content-link);"></icon-notification>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-link);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} data-test-id="item-enabled-4" primaryText="Brand colour icons" secondaryText="Enabled">
+            <icon-log-out slot="leading" style="color: var(--dt-color-content-brand);"></icon-log-out>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-brand);"></icon-placeholder>
+        </pie-list-item>
+    </pie-list>
+    <pie-list aria-label="Coloured icons (disabled)">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-disabled-1" primaryText="Error colour icons" secondaryText="Disabled">
+            <icon-user slot="leading" style="color: var(--dt-color-content-error);"></icon-user>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-error);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-disabled-2" primaryText="Positive colour icons" secondaryText="Disabled">
+            <icon-lock slot="leading" style="color: var(--dt-color-content-positive);"></icon-lock>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-positive);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-disabled-3" primaryText="Link colour icons" secondaryText="Disabled">
+            <icon-notification slot="leading" style="color: var(--dt-color-content-link);"></icon-notification>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-link);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-disabled-4" primaryText="Brand colour icons" secondaryText="Disabled">
+            <icon-log-out slot="leading" style="color: var(--dt-color-content-brand);"></icon-log-out>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-brand);"></icon-placeholder>
+        </pie-list-item>
+    </pie-list>
+`);
+export const ColouredIconsDisabled = createStory<ListProps>(ColouredIconsDisabledTemplate, defaultArgs)();
 
 /**
  * `isBold` sets the primary text to a bold font-weight.

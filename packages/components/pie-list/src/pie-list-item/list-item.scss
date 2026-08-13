@@ -189,8 +189,6 @@ slot[name="trailing"]::slotted(*),
     color: var(--dt-color-content-subdued);
 }
 
-// Disabled button/selectable row: mute text and icons. Icons use `fill: currentColor`, so setting
-// `color` on the host element cascades through the shadow boundary and changes their rendered fill.
 .c-listItem-container.is-button.is-disabled,
 .c-listItem-container.is-selectable.is-disabled {
     .c-listItem-primaryText,
@@ -202,7 +200,7 @@ slot[name="trailing"]::slotted(*),
 
 .c-listItem-container.is-button.is-disabled ::slotted(.c-pieIcon),
 .c-listItem-container.is-selectable.is-disabled ::slotted(.c-pieIcon) {
-    color: var(--dt-color-disabled-01);
+    opacity: 50%;
 }
 
 // typography
