@@ -36,6 +36,7 @@ const listInteractiveMeta: ListInteractiveMeta = {
             type: 'figma',
             url: '',
         },
+        layout: 'padded',
     },
 };
 
@@ -129,7 +130,7 @@ const makeRadioListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-radio-group { max-width: 500px; }</style>
+        <style>pie-radio-group { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-radio-group name="interactive-radio">
             <pie-form-label slot="label">Select an option</pie-form-label>
@@ -145,7 +146,7 @@ const makeCheckboxListTemplate = (): TemplateFunction<ListPlaygroundProps> => (a
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-checkbox-group { max-width: 500px; }</style>
+        <style>pie-checkbox-group { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-checkbox-group name="interactive-checkbox">
             <pie-form-label slot="label">Select options</pie-form-label>
@@ -158,7 +159,7 @@ const makeCheckboxListTemplate = (): TemplateFunction<ListPlaygroundProps> => (a
 };
 
 const makeSwitchListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args) => html`
-    <style>pie-list { max-width: 500px; }</style>
+    <style>pie-list { width: min(500px, 100%); }</style>
     <pie-list aria-label="Settings">
         ${renderSwitchItem(args, args.hasDivider)}
         ${renderSwitchItem(args, args.hasDivider)}
@@ -171,7 +172,7 @@ const makeLinkListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args)
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-list { max-width: 500px; }</style>
+        <style>pie-list { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Navigation">
             ${renderLinkItem(args, '#item-1', args.hasDivider)}
@@ -186,7 +187,7 @@ const makeLinkCurrentPageTemplate = (): TemplateFunction<ListPlaygroundProps> =>
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-list { max-width: 500px; }</style>
+        <style>pie-list { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Navigation">
             ${renderLinkItem(args, '#item-1', args.hasDivider)}
@@ -216,7 +217,7 @@ const makeButtonListTemplate = (): TemplateFunction<ListPlaygroundProps> => (arg
     };
 
     return html`
-        <style>pie-list { max-width: 500px; }</style>
+        <style>pie-list { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Actions" @click=${onButtonActivate}>
             ${renderButtonItem(args, args.hasDivider)}

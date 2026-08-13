@@ -105,6 +105,7 @@ const listStoryMeta: ListStoryMeta = {
             type: 'figma',
             url: '',
         },
+        layout: 'padded',
     },
 };
 
@@ -166,7 +167,7 @@ const makeListTemplate = (headingId: string, heading: string, itemStyle = ''): T
     return html`
         <style>
             pie-list {
-                max-width: 500px;
+                width: min(500px, 100%);
             }
         </style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
