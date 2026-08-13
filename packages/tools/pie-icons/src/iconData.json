@@ -341,6 +341,10 @@
                     "displayName": "Reorder Rewards"
                 },
                 {
+                    "name": "reorder-rewards-filled",
+                    "displayName": "Reorder Rewards Filled"
+                },
+                {
                     "name": "voucher",
                     "displayName": "Voucher"
                 },
@@ -2143,6 +2147,10 @@
                 {
                     "name": "heart-filled",
                     "displayName": "Heart Filled"
+                },
+                {
+                    "name": "heart-strike",
+                    "displayName": "Heart Strike"
                 },
                 {
                     "name": "star",
