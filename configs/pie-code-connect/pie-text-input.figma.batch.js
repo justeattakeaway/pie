@@ -26,12 +26,12 @@ const size = getInstanceProp('getEnum', 'Size', {
 const inputValue = getInstanceProp('getString', '[𝐓] String');
 const placeholder = getInstanceProp('getString', '[𝐓] Placeholder');
 const label = getInstanceProp(['Form label', 'Form label / Leading content / Label'], 'getString', '[𝐓] Label');
-const assistiveText = getInstanceProp(['Assistive text'], 'getString', '[𝐓] Assistive text');
+const assistiveText = getInstanceProp(['Assistive text'], 'getString', '[𝐓] Assistive text') || '';
 const status = getInstanceProp(['Assistive text'], 'getEnum', 'Validation', {
     Success: 'success',
     Error: 'error',
     Default: 'default',
-});
+}) || 'default';
 
 const isDisabled = state === 'Disabled';
 const isReadonly = state === 'Read only';
@@ -52,7 +52,7 @@ const props = [
     renderProp('placeholder', placeholder),
     renderProp('value', inputValue, ''),
     renderProp('status', status, 'default'),
-    renderProp('assistiveText', assistiveText),
+    renderProp('assistiveText', assistiveText, ''),
     renderProp('disabled', isDisabled, false),
     renderProp('readonly', isReadonly, false),
 ].filter(Boolean).join('\n    ');
