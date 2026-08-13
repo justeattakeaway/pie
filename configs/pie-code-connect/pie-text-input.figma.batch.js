@@ -23,8 +23,8 @@ const size = getInstanceProp('getEnum', 'Size', {
     Small: 'small',
 });
 
-const inputValue = getInstanceProp('getString', '[𝐓] String');
-const placeholder = getInstanceProp('getString', '[𝐓] Placeholder');
+const value = getInstanceProp('getString', '[𝐓] String');
+const placeholder = value ? '' : getInstanceProp('getString', '[𝐓] Placeholder');
 const label = getInstanceProp(['Form label', 'Form label / Leading content / Label'], 'getString', '[𝐓] Label');
 const assistiveText = getInstanceProp(['Assistive text'], 'getString', '[𝐓] Assistive text') || '';
 const status = getInstanceProp(['Assistive text'], 'getEnum', 'Validation', {
@@ -49,8 +49,8 @@ const trailingIconSnippet = getIconSnippet(trailingIconInstance, (code) => code.
 
 const props = [
     renderProp('size', size, 'medium'),
-    renderProp('placeholder', placeholder),
-    renderProp('value', inputValue, ''),
+    renderProp('placeholder', placeholder, ''),
+    renderProp('value', value, ''),
     renderProp('status', status, 'default'),
     renderProp('assistiveText', assistiveText, ''),
     renderProp('disabled', isDisabled, false),
