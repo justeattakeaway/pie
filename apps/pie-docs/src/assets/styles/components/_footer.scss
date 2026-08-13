@@ -88,8 +88,9 @@
     }
 
     h3 {
-        @include p.font-size(--dt-font-body-s-size);
-        @include p.line-height(--dt-font-body-s-line-height);
+        @include p.font-size(--dt-font-body-strong-s-size);
+        @include p.line-height(--dt-font-body-strong-s-line-height);
+        font-weight: var(--dt-font-body-strong-s-weight);
         text-transform: capitalize;
         margin-block-end: var(--dt-spacing-a);
     }
