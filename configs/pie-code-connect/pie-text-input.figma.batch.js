@@ -10,7 +10,6 @@ const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameR
 
 // Map figma props
 const state = getInstanceProp('getPropertyValue', 'State');
-const isError = getInstanceProp('getPropertyValue', 'Error') === 'True';
 const hasLeadingContent = getInstanceProp('getBoolean', 'Leading content');
 const hasTrailingContent = getInstanceProp('getBoolean', 'Trailing content');
 
@@ -23,10 +22,14 @@ const size = getInstanceProp('getEnum', 'Size', {
 const inputValue = getInstanceProp('getString', '[𝐓] String');
 const placeholder = getInstanceProp('getString', '[𝐓] Placeholder');
 const assistiveText = getInstanceProp(['Assistive text'], 'getString', '[𝐓] Assistive text');
+const status = getInstanceProp(['Assistive text'], 'getEnum', 'Validation', {
+    Success: 'success',
+    Error: 'error',
+    Default: 'default',
+});
 
 const isDisabled = state === 'Disabled';
 const isReadonly = state === 'Read only';
-const status = isError ? 'error' : 'default';
 
 // Get leading icon instance from the nested 'Leading content' instance
 const leadingIconInstance = hasLeadingContent && getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
