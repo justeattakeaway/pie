@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.89.0
+
+### Minor Changes
+
+- [Added] - character limit example in teatarea's WithLabel story ([#3106](https://github.com/justeattakeaway/pie/pull/3106)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`2112542`](https://github.com/justeattakeaway/pie/commit/211254298feb069d4b59c34c04b7e9535e3c421f), [`0767fcb`](https://github.com/justeattakeaway/pie/commit/0767fcbcbc618aac34c91a6f731f47a7035d2845)]:
+  - @justeattakeaway/pie-icons-webc@1.28.0
+  - @justeattakeaway/pie-css@1.5.0
+  - @justeattakeaway/pie-webc@0.11.9
+
 ## 1.88.3
 
 ### Patch Changes

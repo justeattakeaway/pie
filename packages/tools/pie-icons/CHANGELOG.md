@@ -1,5 +1,36 @@
 # Changelog
 
+## 5.31.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3120](https://github.com/justeattakeaway/pie/pull/3120)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Benefits
+
+  - reorder-rewards-filled-large
+  - reorder-rewards-filled
+
+  ## Reaction
+
+  - heart-strike
+
+  [Updated] - Icons
+
+  ## Benefits
+
+  - reorder-rewards-large
+  - reorder-rewards
+  - voucher-filled-large
+  - voucher-filled
+  - voucher-large
+  - voucher
+
+### Patch Changes
+
+- Updated dependencies [[`f175e2a`](https://github.com/justeattakeaway/pie/commit/f175e2ac184bc313c87c037ad3a1df85e17aa0ac), [`262f063`](https://github.com/justeattakeaway/pie/commit/262f063aa4344e29d0e78cfa41b56fb7c92aba94)]:
+  - @justeattakeaway/pie-monorepo-utils@0.9.9
+
 ## 5.30.1
 
 ### Patch Changes
