@@ -127,7 +127,6 @@ export default class extends Generator {
 
         // Update YAML and config files
         this._addPercyTokenEnvVar();
-        this._addGithubLabel();
         this._addBundlewatchConfigEntry();
     }
 
@@ -160,24 +159,6 @@ export default class extends Generator {
         yamlDoc.setIn(['env', key], value);
 
         this.log(chalk('Updating ci.yml...'));
-
-        // Update YAML file bypassing Yeoman fs implementation
-        // For convenience sake, in this particular update, we opt out of yeoman fs implementation
-        // as the udate is part of the automation
-        this._stringifyYamlAndWriteFile(yamlFilePath, yamlDoc);
-    }
-
-    _addGithubLabel () {
-        const { fileName } = this.props;
-        const yamlFilePath = this.destinationPath('.github/project-labeler.yml');
-
-        // Read file
-        const yamlDoc:Document = this._readAndParseYaml(yamlFilePath);
-
-        // Add new entry
-        yamlDoc.set(`pie-${fileName}`, [`packages/components/pie-${fileName}/**/*`]);
-
-        this.log(chalk('Updating project-labeler.yml...'));
 
         // Update YAML file bypassing Yeoman fs implementation
         // For convenience sake, in this particular update, we opt out of yeoman fs implementation
