@@ -989,52 +989,16 @@ exports[`components/radio.css > should render the expected CSS content 1`] = `
 `;
 
 exports[`helpers/typography.css > should render the expected CSS content 1`] = `
-".u-font-heading-xs {
-  font-family: var(--dt-font-heading-xs-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-xs-weight);
-  font-size: calc(var(--dt-font-heading-xs-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-xs-line-height--narrow) * 1px);
+".u-font-heading-xxl {
+  font-family: var(--dt-font-heading-xxl-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-xxl-weight);
+  font-size: calc(var(--dt-font-heading-xxl-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xxl-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  .u-font-heading-xs {
-    font-size: calc(var(--dt-font-heading-xs-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-xs-line-height--wide) * 1px);
-  }
-}
-.u-font-heading-s {
-  font-family: var(--dt-font-heading-s-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-s-weight);
-  font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
-}
-@media (min-width: 768px) {
-  .u-font-heading-s {
-    font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
-  }
-}
-.u-font-heading-m {
-  font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-m-weight);
-  font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
-}
-@media (min-width: 768px) {
-  .u-font-heading-m {
-    font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
-  }
-}
-.u-font-heading-l {
-  font-family: var(--dt-font-heading-l-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-l-weight);
-  font-size: calc(var(--dt-font-heading-l-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-l-line-height--narrow) * 1px);
-}
-@media (min-width: 768px) {
-  .u-font-heading-l {
-    font-size: calc(var(--dt-font-heading-l-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-l-line-height--wide) * 1px);
+  .u-font-heading-xxl {
+    font-size: calc(var(--dt-font-heading-xxl-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xxl-line-height--wide) * 1px);
   }
 }
 .u-font-heading-xl {
@@ -1049,86 +1013,52 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xl-line-height--wide) * 1px);
   }
 }
-.u-font-heading-xxl {
-  font-family: var(--dt-font-heading-xxl-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-xxl-weight);
-  font-size: calc(var(--dt-font-heading-xxl-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-xxl-line-height--narrow) * 1px);
+.u-font-heading-l {
+  font-family: var(--dt-font-heading-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-l-weight);
+  font-size: calc(var(--dt-font-heading-l-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-l-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  .u-font-heading-xxl {
-    font-size: calc(var(--dt-font-heading-xxl-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-xxl-line-height--wide) * 1px);
+  .u-font-heading-l {
+    font-size: calc(var(--dt-font-heading-l-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-l-line-height--wide) * 1px);
   }
 }
-.u-font-heading-xs-italic {
-  font-family: var(--dt-font-heading-xs-italic-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-xs-italic-weight);
-  font-style: var(--dt-font-heading-xs-italic-font-style);
-  font-variation-settings: "slnt" -20;
-  font-size: calc(var(--dt-font-heading-xs-italic-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-xs-italic-line-height--narrow) * 1px);
+.u-font-heading-m {
+  font-family: var(--dt-font-heading-m-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-m-weight);
+  font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  .u-font-heading-xs-italic {
-    font-size: calc(var(--dt-font-heading-xs-italic-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-xs-italic-line-height--wide) * 1px);
+  .u-font-heading-m {
+    font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
   }
 }
-.u-font-heading-s-italic {
-  font-family: var(--dt-font-heading-s-italic-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-s-italic-weight);
-  font-style: var(--dt-font-heading-s-italic-font-style);
-  font-variation-settings: "slnt" -20;
-  font-size: calc(var(--dt-font-heading-s-italic-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-s-italic-line-height--narrow) * 1px);
+.u-font-heading-s {
+  font-family: var(--dt-font-heading-s-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-s-weight);
+  font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  .u-font-heading-s-italic {
-    font-size: calc(var(--dt-font-heading-s-italic-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-s-italic-line-height--wide) * 1px);
+  .u-font-heading-s {
+    font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
   }
 }
-.u-font-heading-m-italic {
-  font-family: var(--dt-font-heading-m-italic-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-m-italic-weight);
-  font-style: var(--dt-font-heading-m-italic-font-style);
-  font-variation-settings: "slnt" -20;
-  font-size: calc(var(--dt-font-heading-m-italic-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-m-italic-line-height--narrow) * 1px);
+.u-font-heading-xs {
+  font-family: var(--dt-font-heading-xs-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-xs-weight);
+  font-size: calc(var(--dt-font-heading-xs-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xs-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  .u-font-heading-m-italic {
-    font-size: calc(var(--dt-font-heading-m-italic-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-m-italic-line-height--wide) * 1px);
-  }
-}
-.u-font-heading-l-italic {
-  font-family: var(--dt-font-heading-l-italic-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-l-italic-weight);
-  font-style: var(--dt-font-heading-l-italic-font-style);
-  font-variation-settings: "slnt" -20;
-  font-size: calc(var(--dt-font-heading-l-italic-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-l-italic-line-height--narrow) * 1px);
-}
-@media (min-width: 768px) {
-  .u-font-heading-l-italic {
-    font-size: calc(var(--dt-font-heading-l-italic-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-l-italic-line-height--wide) * 1px);
-  }
-}
-.u-font-heading-xl-italic {
-  font-family: var(--dt-font-heading-xl-italic-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-heading-xl-italic-weight);
-  font-style: var(--dt-font-heading-xl-italic-font-style);
-  font-variation-settings: "slnt" -20;
-  font-size: calc(var(--dt-font-heading-xl-italic-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-heading-xl-italic-line-height--narrow) * 1px);
-}
-@media (min-width: 768px) {
-  .u-font-heading-xl-italic {
-    font-size: calc(var(--dt-font-heading-xl-italic-size--wide) * 1px);
-    line-height: calc(var(--dt-font-heading-xl-italic-line-height--wide) * 1px);
+  .u-font-heading-xs {
+    font-size: calc(var(--dt-font-heading-xs-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xs-line-height--wide) * 1px);
   }
 }
 .u-font-heading-xxl-italic {
@@ -1145,16 +1075,74 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xxl-italic-line-height--wide) * 1px);
   }
 }
-.u-font-subheading-s {
-  font-family: var(--dt-font-subheading-s-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-subheading-s-weight);
-  font-size: calc(var(--dt-font-subheading-s-size--narrow) * 1px);
-  line-height: calc(var(--dt-font-subheading-s-line-height--narrow) * 1px);
+.u-font-heading-xl-italic {
+  font-family: var(--dt-font-heading-xl-italic-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-xl-italic-weight);
+  font-style: var(--dt-font-heading-xl-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-xl-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xl-italic-line-height--narrow) * 1px);
 }
 @media (min-width: 768px) {
-  .u-font-subheading-s {
-    font-size: calc(var(--dt-font-subheading-s-size--wide) * 1px);
-    line-height: calc(var(--dt-font-subheading-s-line-height--wide) * 1px);
+  .u-font-heading-xl-italic {
+    font-size: calc(var(--dt-font-heading-xl-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xl-italic-line-height--wide) * 1px);
+  }
+}
+.u-font-heading-l-italic {
+  font-family: var(--dt-font-heading-l-italic-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-l-italic-weight);
+  font-style: var(--dt-font-heading-l-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-l-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-l-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-l-italic {
+    font-size: calc(var(--dt-font-heading-l-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-l-italic-line-height--wide) * 1px);
+  }
+}
+.u-font-heading-m-italic {
+  font-family: var(--dt-font-heading-m-italic-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-m-italic-weight);
+  font-style: var(--dt-font-heading-m-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-m-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-m-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-m-italic {
+    font-size: calc(var(--dt-font-heading-m-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-m-italic-line-height--wide) * 1px);
+  }
+}
+.u-font-heading-s-italic {
+  font-family: var(--dt-font-heading-s-italic-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-s-italic-weight);
+  font-style: var(--dt-font-heading-s-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-s-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-s-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-s-italic {
+    font-size: calc(var(--dt-font-heading-s-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-s-italic-line-height--wide) * 1px);
+  }
+}
+.u-font-heading-xs-italic {
+  font-family: var(--dt-font-heading-xs-italic-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-heading-xs-italic-weight);
+  font-style: var(--dt-font-heading-xs-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-xs-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xs-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-xs-italic {
+    font-size: calc(var(--dt-font-heading-xs-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xs-italic-line-height--wide) * 1px);
   }
 }
 .u-font-subheading-l {
@@ -1169,45 +1157,18 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-subheading-l-line-height--wide) * 1px);
   }
 }
-.u-font-interactive-xs {
-  font-family: var(--dt-font-interactive-xs-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-interactive-xs-weight);
-  font-size: calc(var(--dt-font-interactive-xs-size) * 1px);
-  line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
+.u-font-subheading-s {
+  font-family: var(--dt-font-subheading-s-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-subheading-s-weight);
+  font-size: calc(var(--dt-font-subheading-s-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-subheading-s-line-height--narrow) * 1px);
 }
-.u-font-interactive-s {
-  font-family: var(--dt-font-interactive-s-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-interactive-s-weight);
-  font-size: calc(var(--dt-font-interactive-s-size) * 1px);
-  line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
+@media (min-width: 768px) {
+  .u-font-subheading-s {
+    font-size: calc(var(--dt-font-subheading-s-size--wide) * 1px);
+    line-height: calc(var(--dt-font-subheading-s-line-height--wide) * 1px);
+  }
 }
-.u-font-interactive-l {
-  font-family: var(--dt-font-interactive-l-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-interactive-l-weight);
-  font-size: calc(var(--dt-font-interactive-l-size) * 1px);
-  line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
-}
-.u-font-body-s {
-  font-family: var(--dt-font-body-s-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-body-s-weight);
-  font-size: calc(var(--dt-font-body-s-size) * 1px);
-  line-height: calc(var(--dt-font-body-s-line-height) * 1px);
-}
-.u-font-body-s.u-typographySpacing {
-  margin-block-end: calc(var(--dt-font-body-s-paragraph) * 1px);
-}
-
-.u-font-body-s-link {
-  font-family: var(--dt-font-body-s-link-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-body-s-link-weight);
-  text-decoration: var(--dt-font-body-s-link-text-decoration);
-  font-size: calc(var(--dt-font-body-s-link-size) * 1px);
-  line-height: calc(var(--dt-font-body-s-link-line-height) * 1px);
-}
-.u-font-body-s-link.u-typographySpacing {
-  margin-block-end: calc(var(--dt-font-body-s-link-paragraph) * 1px);
-}
-
 .u-font-body-l {
   font-family: var(--dt-font-body-l-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-body-l-weight);
@@ -1229,25 +1190,25 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   margin-block-end: calc(var(--dt-font-body-l-link-paragraph) * 1px);
 }
 
-.u-font-body-strong-s {
-  font-family: var(--dt-font-body-strong-s-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-body-strong-s-weight);
-  font-size: calc(var(--dt-font-body-strong-s-size) * 1px);
-  line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
+.u-font-body-s {
+  font-family: var(--dt-font-body-s-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-body-s-weight);
+  font-size: calc(var(--dt-font-body-s-size) * 1px);
+  line-height: calc(var(--dt-font-body-s-line-height) * 1px);
 }
-.u-font-body-strong-s.u-typographySpacing {
-  margin-block-end: calc(var(--dt-font-body-strong-s-paragraph) * 1px);
+.u-font-body-s.u-typographySpacing {
+  margin-block-end: calc(var(--dt-font-body-s-paragraph) * 1px);
 }
 
-.u-font-body-strong-s-link {
-  font-family: var(--dt-font-body-strong-s-link-family), var(--dt-font-family-secondary), sans-serif;
-  font-weight: var(--dt-font-body-strong-s-link-weight);
-  text-decoration: var(--dt-font-body-strong-s-link-text-decoration);
-  font-size: calc(var(--dt-font-body-strong-s-link-size) * 1px);
-  line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
+.u-font-body-s-link {
+  font-family: var(--dt-font-body-s-link-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-body-s-link-weight);
+  text-decoration: var(--dt-font-body-s-link-text-decoration);
+  font-size: calc(var(--dt-font-body-s-link-size) * 1px);
+  line-height: calc(var(--dt-font-body-s-link-line-height) * 1px);
 }
-.u-font-body-strong-s-link.u-typographySpacing {
-  margin-block-end: calc(var(--dt-font-body-strong-s-link-paragraph) * 1px);
+.u-font-body-s-link.u-typographySpacing {
+  margin-block-end: calc(var(--dt-font-body-s-link-paragraph) * 1px);
 }
 
 .u-font-body-strong-l {
@@ -1269,6 +1230,27 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 .u-font-body-strong-l-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-strong-l-link-paragraph) * 1px);
+}
+
+.u-font-body-strong-s {
+  font-family: var(--dt-font-body-strong-s-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-body-strong-s-weight);
+  font-size: calc(var(--dt-font-body-strong-s-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
+}
+.u-font-body-strong-s.u-typographySpacing {
+  margin-block-end: calc(var(--dt-font-body-strong-s-paragraph) * 1px);
+}
+
+.u-font-body-strong-s-link {
+  font-family: var(--dt-font-body-strong-s-link-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-body-strong-s-link-weight);
+  text-decoration: var(--dt-font-body-strong-s-link-text-decoration);
+  font-size: calc(var(--dt-font-body-strong-s-link-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
+}
+.u-font-body-strong-s-link.u-typographySpacing {
+  margin-block-end: calc(var(--dt-font-body-strong-s-link-paragraph) * 1px);
 }
 
 .u-font-caption {
@@ -1323,6 +1305,25 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 }
 .u-font-caption-strong-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-caption-strong-link-paragraph) * 1px);
+}
+
+.u-font-interactive-l {
+  font-family: var(--dt-font-interactive-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-interactive-l-weight);
+  font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+  line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+}
+.u-font-interactive-s {
+  font-family: var(--dt-font-interactive-s-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-interactive-s-weight);
+  font-size: calc(var(--dt-font-interactive-s-size) * 1px);
+  line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
+}
+.u-font-interactive-xs {
+  font-family: var(--dt-font-interactive-xs-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-interactive-xs-weight);
+  font-size: calc(var(--dt-font-interactive-xs-size) * 1px);
+  line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
 }
 "
 `;
@@ -4143,6 +4144,390 @@ The values start at a high and specific number to avoid any conflicts */
     --dt-z-index-modal: 4000;
     --dt-z-index-cookie-banner: 5000;
     --dt-z-index-toast: 6000;
+}
+"
+`;
+
+exports[`utilities/rwd.css > should render the expected CSS content 1`] = `
+"@charset "UTF-8";
+/**
+ * RWD Utility Classes
+ * =================================
+ * Responsive show/hide helpers using PIE breakpoint tokens.
+ * These are opt-in utilities — not included in dist/index.css.
+ *
+ * Breakpoint names are auto-generated into _token-names.scss from @justeat/pie-design-tokens.
+ * Run \`yarn generate:token-names\` to update if breakpoints change.
+ */
+@media (max-width: 319px) {
+  .u-showAboveXSmall {
+    display: none !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .u-showAboveSmall {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-showAboveMid {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .u-showAboveLarge {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1279px) {
+  .u-showAboveXLarge {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1439px) {
+  .u-showAboveXXLarge {
+    display: none !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .u-showBelowSmall {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-showBelowMid {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .u-showBelowLarge {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .u-showBelowXLarge {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .u-showBelowXXLarge {
+    display: none !important;
+  }
+}
+"
+`;
+
+exports[`utilities/spacing.css > should render the expected CSS content 1`] = `
+"@charset "UTF-8";
+/* stylelint-disable @justeattakeaway/stylelint-no-logical-props-shorthands */
+/**
+ * Spacing Utility Classes
+ * =================================
+ * Thin wrappers over --dt-spacing-* design tokens.
+ * Uses logical properties for RTL compatibility.
+ * These are opt-in utilities — not included in dist/index.css.
+ *
+ * Token names are auto-generated into _spacing-names.scss from @justeat/pie-design-tokens.
+ * Run \`yarn generate:spacing-utilities\` to update if tokens change.
+ *
+ * Margin helpers: u-margin-{direction}--{scale}
+ */
+.u-margin-blockStart--none {
+  margin-block-start: var(--dt-spacing-none) !important;
+}
+
+.u-margin-blockEnd--none {
+  margin-block-end: var(--dt-spacing-none) !important;
+}
+
+.u-margin-inlineStart--none {
+  margin-inline-start: var(--dt-spacing-none) !important;
+}
+
+.u-margin-inlineEnd--none {
+  margin-inline-end: var(--dt-spacing-none) !important;
+}
+
+.u-margin-inline--none {
+  margin-inline: var(--dt-spacing-none) !important;
+}
+
+.u-margin-block--none {
+  margin-block: var(--dt-spacing-none) !important;
+}
+
+.u-margin-blockStart--a-small {
+  margin-block-start: var(--dt-spacing-a-small) !important;
+}
+
+.u-margin-blockEnd--a-small {
+  margin-block-end: var(--dt-spacing-a-small) !important;
+}
+
+.u-margin-inlineStart--a-small {
+  margin-inline-start: var(--dt-spacing-a-small) !important;
+}
+
+.u-margin-inlineEnd--a-small {
+  margin-inline-end: var(--dt-spacing-a-small) !important;
+}
+
+.u-margin-inline--a-small {
+  margin-inline: var(--dt-spacing-a-small) !important;
+}
+
+.u-margin-block--a-small {
+  margin-block: var(--dt-spacing-a-small) !important;
+}
+
+.u-margin-blockStart--a {
+  margin-block-start: var(--dt-spacing-a) !important;
+}
+
+.u-margin-blockEnd--a {
+  margin-block-end: var(--dt-spacing-a) !important;
+}
+
+.u-margin-inlineStart--a {
+  margin-inline-start: var(--dt-spacing-a) !important;
+}
+
+.u-margin-inlineEnd--a {
+  margin-inline-end: var(--dt-spacing-a) !important;
+}
+
+.u-margin-inline--a {
+  margin-inline: var(--dt-spacing-a) !important;
+}
+
+.u-margin-block--a {
+  margin-block: var(--dt-spacing-a) !important;
+}
+
+.u-margin-blockStart--b {
+  margin-block-start: var(--dt-spacing-b) !important;
+}
+
+.u-margin-blockEnd--b {
+  margin-block-end: var(--dt-spacing-b) !important;
+}
+
+.u-margin-inlineStart--b {
+  margin-inline-start: var(--dt-spacing-b) !important;
+}
+
+.u-margin-inlineEnd--b {
+  margin-inline-end: var(--dt-spacing-b) !important;
+}
+
+.u-margin-inline--b {
+  margin-inline: var(--dt-spacing-b) !important;
+}
+
+.u-margin-block--b {
+  margin-block: var(--dt-spacing-b) !important;
+}
+
+.u-margin-blockStart--c {
+  margin-block-start: var(--dt-spacing-c) !important;
+}
+
+.u-margin-blockEnd--c {
+  margin-block-end: var(--dt-spacing-c) !important;
+}
+
+.u-margin-inlineStart--c {
+  margin-inline-start: var(--dt-spacing-c) !important;
+}
+
+.u-margin-inlineEnd--c {
+  margin-inline-end: var(--dt-spacing-c) !important;
+}
+
+.u-margin-inline--c {
+  margin-inline: var(--dt-spacing-c) !important;
+}
+
+.u-margin-block--c {
+  margin-block: var(--dt-spacing-c) !important;
+}
+
+.u-margin-blockStart--d {
+  margin-block-start: var(--dt-spacing-d) !important;
+}
+
+.u-margin-blockEnd--d {
+  margin-block-end: var(--dt-spacing-d) !important;
+}
+
+.u-margin-inlineStart--d {
+  margin-inline-start: var(--dt-spacing-d) !important;
+}
+
+.u-margin-inlineEnd--d {
+  margin-inline-end: var(--dt-spacing-d) !important;
+}
+
+.u-margin-inline--d {
+  margin-inline: var(--dt-spacing-d) !important;
+}
+
+.u-margin-block--d {
+  margin-block: var(--dt-spacing-d) !important;
+}
+
+.u-margin-blockStart--e {
+  margin-block-start: var(--dt-spacing-e) !important;
+}
+
+.u-margin-blockEnd--e {
+  margin-block-end: var(--dt-spacing-e) !important;
+}
+
+.u-margin-inlineStart--e {
+  margin-inline-start: var(--dt-spacing-e) !important;
+}
+
+.u-margin-inlineEnd--e {
+  margin-inline-end: var(--dt-spacing-e) !important;
+}
+
+.u-margin-inline--e {
+  margin-inline: var(--dt-spacing-e) !important;
+}
+
+.u-margin-block--e {
+  margin-block: var(--dt-spacing-e) !important;
+}
+
+.u-margin-blockStart--f {
+  margin-block-start: var(--dt-spacing-f) !important;
+}
+
+.u-margin-blockEnd--f {
+  margin-block-end: var(--dt-spacing-f) !important;
+}
+
+.u-margin-inlineStart--f {
+  margin-inline-start: var(--dt-spacing-f) !important;
+}
+
+.u-margin-inlineEnd--f {
+  margin-inline-end: var(--dt-spacing-f) !important;
+}
+
+.u-margin-inline--f {
+  margin-inline: var(--dt-spacing-f) !important;
+}
+
+.u-margin-block--f {
+  margin-block: var(--dt-spacing-f) !important;
+}
+
+.u-margin-blockStart--g {
+  margin-block-start: var(--dt-spacing-g) !important;
+}
+
+.u-margin-blockEnd--g {
+  margin-block-end: var(--dt-spacing-g) !important;
+}
+
+.u-margin-inlineStart--g {
+  margin-inline-start: var(--dt-spacing-g) !important;
+}
+
+.u-margin-inlineEnd--g {
+  margin-inline-end: var(--dt-spacing-g) !important;
+}
+
+.u-margin-inline--g {
+  margin-inline: var(--dt-spacing-g) !important;
+}
+
+.u-margin-block--g {
+  margin-block: var(--dt-spacing-g) !important;
+}
+
+.u-margin-blockStart--h {
+  margin-block-start: var(--dt-spacing-h) !important;
+}
+
+.u-margin-blockEnd--h {
+  margin-block-end: var(--dt-spacing-h) !important;
+}
+
+.u-margin-inlineStart--h {
+  margin-inline-start: var(--dt-spacing-h) !important;
+}
+
+.u-margin-inlineEnd--h {
+  margin-inline-end: var(--dt-spacing-h) !important;
+}
+
+.u-margin-inline--h {
+  margin-inline: var(--dt-spacing-h) !important;
+}
+
+.u-margin-block--h {
+  margin-block: var(--dt-spacing-h) !important;
+}
+
+.u-margin-blockStart--i {
+  margin-block-start: var(--dt-spacing-i) !important;
+}
+
+.u-margin-blockEnd--i {
+  margin-block-end: var(--dt-spacing-i) !important;
+}
+
+.u-margin-inlineStart--i {
+  margin-inline-start: var(--dt-spacing-i) !important;
+}
+
+.u-margin-inlineEnd--i {
+  margin-inline-end: var(--dt-spacing-i) !important;
+}
+
+.u-margin-inline--i {
+  margin-inline: var(--dt-spacing-i) !important;
+}
+
+.u-margin-block--i {
+  margin-block: var(--dt-spacing-i) !important;
+}
+
+.u-margin-blockStart--j {
+  margin-block-start: var(--dt-spacing-j) !important;
+}
+
+.u-margin-blockEnd--j {
+  margin-block-end: var(--dt-spacing-j) !important;
+}
+
+.u-margin-inlineStart--j {
+  margin-inline-start: var(--dt-spacing-j) !important;
+}
+
+.u-margin-inlineEnd--j {
+  margin-inline-end: var(--dt-spacing-j) !important;
+}
+
+.u-margin-inline--j {
+  margin-inline: var(--dt-spacing-j) !important;
+}
+
+.u-margin-block--j {
+  margin-block: var(--dt-spacing-j) !important;
 }
 "
 `;

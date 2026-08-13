@@ -13,6 +13,8 @@
 @use '@justeattakeaway/pie-css/dist/app/resets/normalize.css';
 @use '@justeattakeaway/pie-css/dist/app/base/typography.css' as pie-typography;
 
+@use '@justeattakeaway/pie-css/dist/utilities/spacing.css';
+@use '@justeattakeaway/pie-css/dist/utilities/rwd.css';
 @use 'utilities';
 
 @use 'base/layout';

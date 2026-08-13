@@ -22,6 +22,7 @@
   },
   "scripts": {
     "build": "run -T tsx ./buildCss.ts && run -T tsx ./buildInternalScss.ts",
+    "generate:token-names": "node scripts/generate-token-names.js",
     "generate:typography-docs": "node scripts/generate-typography-docs.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",

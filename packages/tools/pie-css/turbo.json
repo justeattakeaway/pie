@@ -8,7 +8,17 @@
       "cache": true,
       "inputs": ["$TURBO_DEFAULT$"],
       "dependsOn": [
-        "^build"
+        "^build",
+        "generate:token-names"
+      ]
+    },
+    "generate:token-names": {
+      "cache": true,
+      "inputs": [
+        "scripts/generate-token-names.js"
+      ],
+      "outputs": [
+        "scss/_internal/constants/_token-names.scss"
       ]
     },
     "generate:typography-docs": {

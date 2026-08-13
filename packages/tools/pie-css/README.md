@@ -32,7 +32,9 @@ The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as
     1. [Radio Buttons](#radio-buttons)
 5. [Optional features and utilities](#optional-features-and-utilities)
     1. [Typography Utility Classes](#typography-utility-classes)
-    2. [Opt-in Normalise Stylesheet](#opt-in-normalise-stylesheet)
+    2. [Spacing Utility Classes](#spacing-utility-classes)
+    3. [RWD Utility Classes](#rwd-utility-classes)
+    4. [Opt-in Normalise Stylesheet](#opt-in-normalise-stylesheet)
 6. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
@@ -219,23 +221,122 @@ All available component visual exports will have a README file found at `/docs/c
 
 ## Optional features and utilities
 
-`pie-css` ships a number of optional features and utilities that are not included in the main `dist/index.css` stylesheet. Each must be imported separately so you only include what your project needs.
+`pie-css` ships a number of optional features and utilities that are not included in the main `dist/index.css` stylesheet. Each must be imported separately, so that you only need to include what your project needs.
+
+The currently available optional styles are:
+
+- [Typography Utility Classes](#typography-utility-classes)
+- [Spacing Utility Classes](#spacing-utility-classes)
+- [RWD Utility Classes](#rwd-utility-classes)
+- [Opt-in Normalise Stylesheet](#opt-in-normalise-stylesheet)
 
 ### Typography Utility Classes
 
 `pie-css` includes a comprehensive set of typography utility classes that provide consistent typography styles across your application. These utility classes are built on top of PIE design tokens and automatically apply the correct font family, weight, size, and line height.
 
-Paragraph spacing is now opt-in via the `.u-typographySpacing` utility class, used alongside a typography class on the same element (for example, `<p class="u-font-body-l u-typographySpacing">...</p>`).
+For paragraph utilty classes, paragraph spacing is also opt-in via the `.u-typographySpacing` utility class, which can be used alongside a typography class on the same element. For example, `<p class="u-font-body-l u-typographySpacing">...</p>`.
 
-The utility classes follow a simple naming convention: `u-font-{token-name}`, where the token name matches the design token used in Figma. For example, the `body-l-link` token becomes the `.u-font-body-l-link` utility class.
+The typography utility classes follow a simple naming convention – `u-font-{token-name}` – where the token name matches the PIE design token name. For example, the `body-l-link` token becomes the `.u-font-body-l-link` utility class.
 
-To use the typography utilities, import the typography CSS file:
+To use these classes, import the typography CSS file:
 
 ```js
+// js import
 import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 ```
 
-For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](/docs/introduction-typography-utility-classes--docs).
+```scss
+/* SCSS Import */
+@use '@justeattakeaway/pie-css/dist/utilities/spacing.css';
+```
+
+For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](/docs/pie-css-typography-utility-classes--docs).
+
+
+### Spacing Utility Classes
+
+`pie-css` includes a set of spacing utility classes that apply margin values using the PIE design token spacing scale.
+
+Classes use logical properties for RTL compatibility and include `!important` to ensure they win specificity battles as utility classes.
+
+These utilities follow the naming convention `u-margin-{direction}--{scale}`, where directions use logical property names (`blockStart`, `blockEnd`, `inlineStart`, `inlineEnd`, `inline`, `block`) and the scale is one of: `none`, `a-small`, `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`.
+
+> **Note:** Only use spacing utility classes when you always want the margin to be set to that size across ALL device breakpoints.
+>
+> These utilities override other style declarations, and are most useful when you only want to target margin on an HTML element, saving you writing a classname hook just to control the margin.
+
+To use the spacing utilities, import the CSS file:
+
+```js
+// js import
+import '@justeattakeaway/pie-css/dist/utilities/spacing.css';
+```
+
+```scss
+/* SCSS Import */
+@use '@justeattakeaway/pie-css/dist/utilities/spacing.css';
+```
+
+```html
+<!-- Usage -->
+<div class="u-margin-blockStart--e">Applies spacing-e design token to margin-block-start</div>
+<div class="u-margin-blockEnd--b">Applies spacing-b design token to margin-block-end</div>
+```
+
+> **Note:** `dist/index.css` (or equivalent design token CSS variables) must already be loaded so the `--dt-spacing-*` token references resolve correctly.
+
+For complete documentation on all available spacing utility classes, including usage examples and best practices, see the [Spacing Utilities documentation in Storybook](/docs/pie-css-spacing-utility-classes--docs).
+
+---
+
+### RWD Utility Classes
+
+`pie-css` includes a set of responsive show/hide utility classes that use PIE design token breakpoints. These classes use `display: none !important` at the relevant breakpoint.
+
+To use the RWD utilities, import the CSS file:
+
+```js
+import '@justeattakeaway/pie-css/dist/utilities/rwd.css';
+```
+
+```scss
+@use '@justeattakeaway/pie-css/dist/utilities/rwd.css';
+```
+
+```html
+<!-- Only visible at or above the md breakpoint (768px) -->
+<div class="u-showAboveMid">Desktop navigation</div>
+
+<!-- Only visible below the lg breakpoint (1024px) -->
+<div class="u-showBelowLarge">Mobile-only content</div>
+```
+
+#### `showAbove` classes
+
+Hidden below the named breakpoint, visible at it and above.
+
+| Class | Hidden below | Breakpoint token |
+| --- | --- | --- |
+| `.u-showAboveXSmall` | 320px | `--dt-breakpoint-xs` |
+| `.u-showAboveSmall` | 600px | `--dt-breakpoint-sm` |
+| `.u-showAboveMid` | 768px | `--dt-breakpoint-md` |
+| `.u-showAboveLarge` | 1024px | `--dt-breakpoint-lg` |
+| `.u-showAboveXLarge` | 1280px | `--dt-breakpoint-xl` |
+| `.u-showAboveXXLarge` | 1440px | `--dt-breakpoint-xxl` |
+
+#### `showBelow` classes
+
+Hidden at the named breakpoint and above, visible below it.
+
+| Class | Hidden from | Breakpoint token |
+| --- | --- | --- |
+| `.u-showBelowSmall` | 600px | `--dt-breakpoint-sm` |
+| `.u-showBelowMid` | 768px | `--dt-breakpoint-md` |
+| `.u-showBelowLarge` | 1024px | `--dt-breakpoint-lg` |
+| `.u-showBelowXLarge` | 1280px | `--dt-breakpoint-xl` |
+| `.u-showBelowXXLarge` | 1440px | `--dt-breakpoint-xxl` |
+
+---
 
 ### Opt-in App Typography Base Styles
 
@@ -404,8 +505,7 @@ We will be writing more in-depth docs on all of our SCSS helpers shortly, but fo
 
 We strive to ensure all styles are appropriately tested. How we test the styles differs for CSS and SCSS. Below, we outline both approaches.
 
-> [!WARNING]
-> Any pull requests that fail to test newly added or altered styling will likely be rejected. Please do ensure that tests have been added before raising a pull request.
+> **⚠️ Warning:** Any pull requests that fail to test newly added or altered styling will likely be rejected. Please do ensure that tests have been added before raising a pull request.
 
 ### CSS
 
@@ -415,8 +515,7 @@ For our raw CSS styles, we test two things:
 
 2. Ensure that our CSS output is what we expect via snapshot testing. We use some tools such as PostCSS to generate the output, so we want to ensure that we catch any regressions before our consumers do!
 
-> [!NOTE]
-> Our CSS tests can be found under `/test/css`.
+> **Note:** Our CSS tests can be found under `/test/css`.
 
 ### SCSS
 
@@ -426,5 +525,4 @@ Our SCSS styles are tested in a number of ways:
 
 2. Ensure that all of the compiled CSS passes W3C CSS validation. This is done by compiling the SCSS to CSS and then making a request to the W3C validation service. Because we do not want to spam network requests, we add all the SCSS to `./test/scss/validityTest.scss` and use that file to compile during the test.
 
-> [!NOTE]
-> Our SCSS tests can be found under `/test/scss`.
+> **Note:** Our SCSS tests can be found under `/test/scss`.
