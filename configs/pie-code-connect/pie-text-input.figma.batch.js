@@ -29,11 +29,12 @@ const isReadonly = state === 'Read only';
 const status = isError ? 'error' : 'default';
 
 // Get leading icon instance from the nested 'Leading content' instance
-const leadingIconInstance = hasLeadingContent && getInstanceProp(['Leading content'], 'getInstanceSwap', 'Leading icon');
+const leadingIconInstance = hasLeadingContent && getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
 const leadingIconSnippet = getIconSnippet(leadingIconInstance, (code) => code.replace('></', ' slot="leadingIcon"></'));
+// const leadingContentString = hasLeadingContent && getInstanceProp(['Leading content'], 'getString', 'Leading text');
 
 // Get trailing icon instance from the nested 'Trailing content' instance
-const trailingIconInstance = hasTrailingContent && getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Trailing icon');
+const trailingIconInstance = hasTrailingContent && getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Icon');
 const trailingIconSnippet = getIconSnippet(trailingIconInstance, (code) => code.replace('></', ' slot="trailingIcon"></'));
 
 const props = [
