@@ -36,7 +36,9 @@
         $var-name: '--dt-#{$token-name}-#{$suffix}';
 
         @if meta.variable-exists($scss-name) {
-            @if $suffix == 'font-style' {
+            @if $suffix == 'family' {
+                #{$css-prop}: var(#{$var-name}), var(--dt-font-family-secondary), sans-serif;
+            } @else if $suffix == 'font-style' {
                 // if we're setting font-style: italic, we need to add the font-variation-settings for slant
                 #{$css-prop}: var(#{$var-name});
                 font-variation-settings: 'slnt' -20;
