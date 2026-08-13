@@ -200,7 +200,7 @@ slot[name="trailing"]::slotted(*),
 
 .c-listItem-container.is-button.is-disabled ::slotted(.c-pieIcon),
 .c-listItem-container.is-selectable.is-disabled ::slotted(.c-pieIcon) {
-    opacity: 50%;
+    opacity: 0.5;
 }
 
 // typography
