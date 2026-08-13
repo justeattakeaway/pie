@@ -2,7 +2,6 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
@@ -47,34 +46,51 @@ const imageSlotAspectRatio = imageSlotMode === 'image' && getInstanceProp(['Head
 // Read props from the Footer instance
 const isFooterPinned = getInstanceProp(['Footer'], 'getBoolean', 'Fixed');
 const isFooterEmpty = getInstanceProp(['Footer'], 'getBoolean', 'Empty');
-const hasFooterDualActions = getInstanceProp(['Footer'], 'getBoolean', 'Dual actions'); // "false" display only the Leading action
-const hideSupportingAction = hasFooterDualActions === false && isFooterEmpty === false;
+const hideSupportingAction = getInstanceProp(['Footer'], 'getBoolean', 'Dual actions') === false;
+const hasStackedActions = getInstanceProp(['Footer'], 'getEnum', 'CTA layout', {
+    Stacked: true,
+    'Side by side': false,
+});
 
 // Read props from the Footer buttons instance
-const footerLeadingButtonText = getInstanceProp(['Footer', 'Footer / Button 1'], 'getString', '[𝐓] Label');
-const footerSupportingButtonText = getInstanceProp(['Footer', 'Footer / Button 2'], 'getString', '[𝐓] Label');
+const footerLeadingButtonText = isFooterEmpty ? '' : getInstanceProp(['Footer', 'Footer / Button 1'], 'getString', '[𝐓] Label');
+const footerSupportingButtonText = hideSupportingAction ? '' : getInstanceProp(['Footer', 'Footer / Button 2'], 'getString', '[𝐓] Label');
+
+// Map slot content
+const mainSlotInstance = figma.selectedInstance.getSlot('Modal content');
+const mainSlotContent = mainSlotInstance.connectedInstances.map((action) => action.executeTemplate().example);
+const isFooterSlotEnabled = !isFooterEmpty && getInstanceProp(['Footer'], 'getBoolean', 'Footer content slot');
+const footerSlotInstance = isFooterSlotEnabled && getInstanceProp(['Footer'], 'getSlot', 'Footer content');
+const footerSlotContent = footerSlotInstance && footerSlotInstance.connectedInstances.map((action) => action.executeTemplate().example);
+
+const props = [
+    'isOpen',
+    renderProp('heading', heading),
+    renderProp('size', size, 'medium'),
+    renderProp('backgroundColor', backgroundColor, 'default'),
+    renderProp('hasBackButton', hasBackButton, false),
+    renderProp('isDismissible', isDismissible, false),
+    renderProp('isHeadingEmphasised', isHeadingEmphasised, false),
+    isFooterEmpty ? '' : renderProp('isFooterPinned', isFooterPinned, true),
+    isFooterEmpty ? '' : renderProp('leadingAction', { text: footerLeadingButtonText }),
+    isFooterEmpty ? '' : renderProp('supportingAction', { text: footerSupportingButtonText }),
+    isFooterEmpty ? '' : renderProp('hasStackedActions', hasStackedActions, null),
+    renderProp('imageSlotMode', imageSlotMode),
+    renderProp('imageSlotAspectRatio', imageSlotAspectRatio),
+].filter(Boolean).join('\n    ');
 
 // Define template
-const template = `<${selectedComponentName}
-    isOpen
-    heading="${heading}"
-    ${renderProp('size', size, 'medium')}
-    ${renderProp('backgroundColor', backgroundColor, 'default')}
-    ${renderProp('hasBackButton', hasBackButton, false)}
-    ${renderProp('isDismissible', isDismissible, false)}
-    ${renderProp('isHeadingEmphasised', isHeadingEmphasised, false)}
-    ${renderProp('isFooterPinned', isFooterPinned, true)}
-    ${renderProp('leadingAction', { text: footerLeadingButtonText })}
-    ${hideSupportingAction ? '' : renderProp('supportingAction', { text: footerSupportingButtonText })}
-    ${renderProp('imageSlotMode', imageSlotMode)}
-    ${renderProp('imageSlotAspectRatio', imageSlotAspectRatio)}
->
-    ${isFooterEmpty && hasFooterDualActions ? '<div slot="footer"></div>' : ''}
+const template = figma.code`<${selectedComponentName}
+    ${props}>
     ${imageSlotMode ? '<img slot="image" src="the-header-image-url.jpg">' : ''}
+    ${mainSlotContent ? mainSlotContent.flat() : ''}
+    ${isFooterEmpty ? '<div slot="footer"></div>' : ''}
+    ${isFooterSlotEnabled ? '<div slot="footer">' : ''}
+    ${isFooterSlotEnabled ? footerSlotContent.flat() : ''}
+    ${isFooterSlotEnabled ? '</div>' : ''}
 </${selectedComponentName}>`;
-
 export default {
-    example: figma.code`${trimEmptyLines(template)}`,
+    example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
     id: componentName,
 };

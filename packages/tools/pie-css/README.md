@@ -237,6 +237,26 @@ import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 
 For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](/docs/introduction-typography-utility-classes--docs).
 
+### Opt-in App Typography Base Styles
+
+`pie-css` ships an optional base typography stylesheet that applies element-level styles to `html`, `body`, headings (`h1`–`h6`), `p`, `blockquote`, `hr`, `mark`, and more. Styles use PIE design tokens and follow the PIE type scale, including responsive heading sizes at the 768px breakpoint.
+
+It is **not** included in the main `dist/index.css` and must be imported separately. It requires `dist/index.css` (or equivalent design token CSS variables) to already be loaded so the token references resolve correctly.
+
+#### JS or Framework import (via bundler)
+
+```js
+import '@justeattakeaway/pie-css/dist/app/base/typography.css';
+```
+
+#### Sass / SCSS
+
+```scss
+@use '@justeattakeaway/pie-css/dist/app/base/typography.css';
+```
+
+---
+
 ### Opt-in Normalise Stylesheet
 
 `pie-css` ships an optional browser normalise stylesheet backed by [`modern-normalize`](https://github.com/sindresorhus/modern-normalize). It is **not** included in the main `dist/index.css` and must be imported separately, giving you full control over whether to apply it to your application.
