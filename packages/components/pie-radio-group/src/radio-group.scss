@@ -19,7 +19,8 @@
         margin: 0;
         padding: 0;
 
-        ::slotted(*) {
+        ::slotted(pie-form-label),
+        ::slotted(label) {
             display: block;
             margin-block-end: var(--dt-spacing-b);
         }
