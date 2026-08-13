@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -33,7 +33,7 @@ shouldShowContents: true
 ## Anatomy
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/anatomy.svg",
+    src:"../../../assets/img/components/form-label/web/anatomy.svg",
     alt: "Anatomy of a form label.",
     width: 968
 } %}
@@ -43,6 +43,8 @@ shouldShowContents: true
     items: [
         "**Label:** Describes the purpose and function of the form.",
         "**Help tooltip icon (optional):** An icon the user can hover to obtain additional information to understand the meaning of the label.",
+        "**Info tooltip icon (optional):** An icon the user can hover to obtain additional information to understand the meaning of the label.",
+        "**Placeholder icon (optional):** Allows a decorative icon to be placed.",
         "**Optional (optional):** Text that tells users the field is not required.",
         "**Character count (optional):** Shows how many characters are left within the input field.",
         "**Percentage (optional):** Indicates the proportion of a task that has been completed. ",
@@ -63,7 +65,7 @@ All leading content tells the user what type of information is expected in the f
   {% contentItem %}
     <h4>Label</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/variation-leading-label.svg",
+      src: "../../../assets/img/components/form-label/web/variation-leading-label.svg",
       width: 34,
       alt: "A leading content form label"
     } %}
@@ -71,16 +73,32 @@ All leading content tells the user what type of information is expected in the f
   {% contentItem %}
     <h4>Help tooltip icon</h4>
     {% contentPageImage {
-      src:"../../../assets/img/components/form-label/variation-leading-tooltip-icon.svg",
+      src:"../../../assets/img/components/form-label/web/variation-leading-tooltip-icon.svg",
       alt: "A form label with help tooltip icon",
+      width: 20
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+    <h4>Info tooltip icon</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/web/variation-leading-tooltip-icon-info.svg",
+      alt: "A form label with info tooltip icon",
       width: 20
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Optional</h4>
     {% contentPageImage {
-      src:"../../../assets/img/components/form-label/variation-leading-optional.svg",
+      src:"../../../assets/img/components/form-label/web/variation-leading-optional.svg",
       alt: "A form label with optional text",
+      width: 96
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Placeholder icon</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/web/variation-leading-placeholder-icon.svg",
+      alt: "A form label with placeholder icon",
       width: 96
     } %}
   {% endcontentItem %}
@@ -100,7 +118,7 @@ All trailing content is dynamic and based on user actions, selections, inputs, a
   {% contentItem %}
     <h4>Character count</h4>
     {% contentPageImage {
-      src:"../../../assets/img/components/form-label/variation-trailing-character-count.svg",
+      src:"../../../assets/img/components/form-label/web/variation-trailing-character-count.svg",
       alt: "A form label with trailing character count",
       width: 30
     } %}
@@ -108,7 +126,7 @@ All trailing content is dynamic and based on user actions, selections, inputs, a
   {% contentItem %}
     <h4>Percentage</h4>
     {% contentPageImage {
-      src:"../../../assets/img/components/form-label/variation-trailing-percentage.svg",
+      src:"../../../assets/img/components/form-label/web/variation-trailing-percentage.svg",
       alt: "A form label with trailing percentage",
       width: 22
     } %}
@@ -116,7 +134,7 @@ All trailing content is dynamic and based on user actions, selections, inputs, a
   {% contentItem %}
     <h4>Stepper</h4>
     {% contentPageImage {
-      src:"../../../assets/img/components/form-label/variation-trailing-stepper.svg",
+      src:"../../../assets/img/components/form-label/web/variation-trailing-stepper.svg",
       alt: "A form label with trailing stepper",
       width: 36
     } %}
@@ -124,7 +142,7 @@ All trailing content is dynamic and based on user actions, selections, inputs, a
   {% contentItem %}
     <h4>String</h4>
     {% contentPageImage {
-      src:"../../../assets/img/components/form-label/variation-trailing-string.svg",
+      src:"../../../assets/img/components/form-label/web/variation-trailing-string.svg",
       alt: "A form label with trailing string",
       width: 38
     } %}
@@ -139,13 +157,26 @@ You can customise the form label to suit individual use cases.
 
 ### Leading
 
-#### Help tooltip icon
+#### Help and info tooltip icon
 
 Provides users with more context or information about the label when interacting with the field, especially when the label alone may not provide sufficient explanation.
 
+##### Help icon
+Use the help icon (question mark) when users might have questions. The copy of the tooltip should address a user's potential confusion.
+
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/modifiers-leading-tooltip-icon.svg",
+    src:"../../../assets/img/components/form-label/web/modifiers-help-icon.svg",
     alt: "A leading form label with help tooltip icon",
+    width: 154
+} %}
+
+#### Info tooltip icon
+
+Ideal for providing extra insight or knowledge that isn't critical but is still good to know.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/form-label/web/modifiers-info-icon.svg",
+    alt: "A leading form label with info tooltip icon",
     width: 154
 } %}
 
@@ -154,7 +185,7 @@ Provides users with more context or information about the label when interacting
 Informs the user that filling in the field is optional.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/modifiers-leading-optional.svg",
+    src:"../../../assets/img/components/form-label/web/modifiers-leading-optional.svg",
     alt: "A leading form label with optional text",
     width: 54
 } %}
@@ -166,7 +197,7 @@ If that label length exceeds the width of the form, the label wraps onto a secon
 If the help tooltip icon or the Optional identifier are active, they trail the end of the label.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/modifiers-leading-multiline-label.svg",
+    src:"../../../assets/img/components/form-label/web/modifiers-leading-multiline-label.svg",
     alt: "A leading form label with multiline text",
     width: 176
 } %}
@@ -183,7 +214,7 @@ If the help tooltip icon or the Optional identifier are active, they trail the e
 Used in input forms such as textarea and text input, to show how many characters are left within the input field.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/modifiers-trailing-character-count.svg",
+    src:"../../../assets/img/components/form-label/web/modifiers-trailing-character-count.svg",
     alt: "A form label with trailing character count",
     width: 30
 } %}
@@ -193,7 +224,7 @@ Used in input forms such as textarea and text input, to show how many characters
 Used to indicate the users progression through a series of steps.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/modifiers-trailing-stepper.svg",
+    src:"../../../assets/img/components/form-label/web/modifiers-trailing-stepper.svg",
     alt: "A form label with trailing stepper",
     width: 36
 } %}
@@ -203,7 +234,7 @@ Used to indicate the users progression through a series of steps.
 Indicates the proportion of a task that has been completed.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/modifiers-trailing-percentage.svg",
+    src:"../../../assets/img/components/form-label/web/modifiers-trailing-percentage.svg",
     alt: "A form label with trailing percentage",
     width: 256
 } %}
@@ -213,7 +244,7 @@ Indicates the proportion of a task that has been completed.
 If none of the trailing content above suits your use cases, you can use this dynamic text-only content to meet the needs or requirements of the field to which the form label is associated.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/modifiers-trailing-string.svg",
+    src:"../../../assets/img/components/form-label/web/modifiers-trailing-string.svg",
     alt: "A form label with trailing string",
     width: 256
 } %}
@@ -245,19 +276,18 @@ A good form label has certain qualities that make it user-friendly and improve t
             "Don't use technical jargon or industry-specific language that users may not be familiar with.",
             "Don't overcrowd the label with unnecessary information or excessive details.",
             "Don't use overly creative or clever wording that may obscure the meaning or purpose of the input field.",
-            "Don't sacrifice clarity for brevity - ensure that the label provides sufficient guidance without being overly wordy.",
+            "Don't sacrifice clarity for brevity. Ensure that the label provides sufficient guidance without being overly wordy.",
             "Don't use labels as instructional text. For example, “Email” instead of “Put your email here”.",
             "The label should not be used as a minimum value for a Slider or Progress Bar."
         ]
     }
 } %}
 
-
 {% usage {
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/form-label/content-label-do-1.svg",
+            src: "../../../assets/img/components/form-label/web/content-label-do-1.svg",
             width: "256px",
             alt: "Examples of encouraged form label usage."
         }]
@@ -265,7 +295,7 @@ A good form label has certain qualities that make it user-friendly and improve t
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/form-label/content-label-dont-1.svg",
+            src: "../../../assets/img/components/form-label/web/content-label-dont-1.svg",
             width: "256px",
             alt: "Examples of discouraged form label usage."
         }]
@@ -277,7 +307,7 @@ A good form label has certain qualities that make it user-friendly and improve t
         type: usageTypes.image,
         variant: "secondary",
         items: [{
-            src: "../../../assets/img/components/form-label/content-label-do-2.svg",
+            src: "../../../assets/img/components/form-label/web/content-label-do-2.svg",
             width: "288px",
             alt: "Examples of encouraged form label usage."
         }]
@@ -286,7 +316,7 @@ A good form label has certain qualities that make it user-friendly and improve t
         type: usageTypes.image,
         variant: "secondary",
         items: [{
-            src: "../../../assets/img/components/form-label/content-label-dont-2.svg",
+            src: "../../../assets/img/components/form-label/web/content-label-dont-2.svg",
             width: "288px",
             alt: "Examples of discouraged form label usage."
         }]
@@ -305,7 +335,7 @@ When using the String modifier, ensure that the content is dynamic and is update
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/content-string-do-1.svg",
+      src: "../../../assets/img/components/form-label/web/content-string-do-1.svg",
       width: 308,
       variant: "secondary",
       alt: "Example of encouraged form label usage."
@@ -313,7 +343,7 @@ When using the String modifier, ensure that the content is dynamic and is update
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/content-string-do-2.svg",
+      src: "../../../assets/img/components/form-label/web/content-string-do-2.svg",
       width: 288,
       variant: "secondary",
       alt: "Example of encouraged form label usage."
@@ -321,7 +351,7 @@ When using the String modifier, ensure that the content is dynamic and is update
   {% endcontentItem %}
 {% endcontentLayout %}
 
-### Character count, Stepper, Percentage
+### Character count, stepper, percentage
 
 {% notification {
   type: "information",
@@ -329,9 +359,26 @@ When using the String modifier, ensure that the content is dynamic and is update
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/content-character-count-stepper-percentage.svg",
+    src:"../../../assets/img/components/form-label/web/content-character-count-stepper-percentage.svg",
     alt: "Examples of form labels with character count, percentage, and stepper.",
     width: 168
+} %}
+
+### Overrides
+
+A good form label has certain qualities that make it user-friendly and improve the overall experience. Here are some important attributes of a good form label:
+
+{% contentPageImage {
+    src:"../../../assets/img/components/form-label/web/content-overrides.svg",
+    alt: "Example of form label with leading icon overrides.",
+    width: 54
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Placeholder icon:** The fill colour token is overridable by any suitable colour token."
+    ]
 } %}
 
 ---
@@ -350,26 +397,26 @@ Text fields and text areas may have a character limit and counter. Use the chara
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/behaviours-character-counter-1.svg",
+      src: "../../../assets/img/components/form-label/web/behaviours-character-counter-1.svg",
       width: 256,
       alt: "Example of empty form label with character counter."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/behaviours-character-counter-2.svg",
+      src: "../../../assets/img/components/form-label/web/behaviours-character-counter-2.svg",
       width: 257,
       alt: "Example of filled form label with character counter."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
-### Stepper, Percentage, String
+### Stepper, percentage, string
 
 User's actions, selections, inputs and statuses are reflected on the trailing content.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/behaviours-stepper-percentage-string.svg",
+    src:"../../../assets/img/components/form-label/web/behaviours-stepper-percentage-string.svg",
     alt: "Examples of form label with stepper, percentage, and string.",
     variant: "secondary",
     width: 298
@@ -379,12 +426,12 @@ User's actions, selections, inputs and statuses are reflected on the trailing co
 
 ## Interactions
 
-### Help tooltip icon
+### Help or info tooltip icon
 
-A tooltip is triggered by hovering (on desktop) or clicking (on tablet and mobile) the Help tooltip icon in the form label. A tooltip will close once the user hovers off the icon or taping outside of the icon.
+A tooltip is triggered by hovering (on desktop) or clicking (on tablet and mobile) the Help or info tooltip icon in the form label. A tooltip will close once the user hovers off the icon or tapping outside of the icon.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/interactions-tooltip-icon.svg",
+    src:"../../../assets/img/components/form-label/web/interactions-tooltip-icon.svg",
     alt: "A form label with help tooltip icon",
     width: 256
 } %}
@@ -405,7 +452,7 @@ Trailing content is positioned at the end of a form label and should be right-al
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/form-label/layout-position-do.svg",
+            src: "../../../assets/img/components/form-label/web/layout-position-do.svg",
             width: "280px",
             alt: "Example of encouraged form label usage."
         }]
@@ -413,7 +460,7 @@ Trailing content is positioned at the end of a form label and should be right-al
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/form-label/layout-position-dont.svg",
+            src: "../../../assets/img/components/form-label/web/layout-position-dont.svg",
             width: "280px",
             alt: "Examples of discouraged form label usage."
         }]
@@ -431,21 +478,21 @@ Here are some examples of form label in left-to-right context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-ltr-1.svg",
+      src: "../../../assets/img/components/form-label/web/examples-ltr-1.svg",
       width: 256,
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-ltr-2.svg",
+      src: "../../../assets/img/components/form-label/web/examples-ltr-2.svg",
       width: 326,
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-ltr-3.svg",
+      src: "../../../assets/img/components/form-label/web/examples-ltr-3.svg",
       width: 288,
       variant: "secondary",
       alt: "Example of encouraged form label usage."
@@ -453,7 +500,7 @@ Here are some examples of form label in left-to-right context:
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-ltr-4.svg",
+      src: "../../../assets/img/components/form-label/web/examples-ltr-4.svg",
       width: 288,
       variant: "secondary",
       alt: "Example of encouraged form label usage."
@@ -461,7 +508,7 @@ Here are some examples of form label in left-to-right context:
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-ltr-5.svg",
+      src: "../../../assets/img/components/form-label/web/examples-ltr-5.svg",
       width: 308,
       variant: "secondary",
       alt: "Example of encouraged form label usage."
@@ -476,21 +523,21 @@ Here are some examples of form label in right-to-left context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-rtl-1.svg",
+      src: "../../../assets/img/components/form-label/web/examples-rtl-1.svg",
       width: 256,
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-rtl-2.svg",
+      src: "../../../assets/img/components/form-label/web/examples-rtl-2.svg",
       width: 326,
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-rtl-3.svg",
+      src: "../../../assets/img/components/form-label/web/examples-rtl-3.svg",
       width: 288,
       variant: "secondary",
       alt: "Example of encouraged form label usage."
@@ -498,7 +545,7 @@ Here are some examples of form label in right-to-left context:
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/form-label/examples-rtl-4.svg",
+      src: "../../../assets/img/components/form-label/web/examples-rtl-4.svg",
       width: 288,
       variant: "secondary",
       alt: "Example of encouraged form label usage."
