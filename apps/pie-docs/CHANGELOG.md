@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.13.0
+
+### Minor Changes
+
+- [Changed] - updates icons naming conventions page ([#3103](https://github.com/justeattakeaway/pie/pull/3103)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.10
+
 ## 5.12.0
 
 ### Minor Changes

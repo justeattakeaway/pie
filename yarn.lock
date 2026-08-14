@@ -3721,7 +3721,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@npm:1.10.12, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@npm:1.10.13, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
@@ -3733,7 +3733,7 @@ __metadata:
     "@justeattakeaway/pie-link": "npm:1.5.1"
     "@justeattakeaway/pie-modal": "npm:1.27.6"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-switch": "npm:2.6.3"
+    "@justeattakeaway/pie-switch": "npm:2.7.0"
     "@justeattakeaway/pie-webc-core": "npm:18.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     dompurify: "npm:3.4.8"
@@ -3792,7 +3792,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.31.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.28.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.9"
+    "@justeattakeaway/pie-webc": "npm:0.11.10"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -3820,7 +3820,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
     "@justeattakeaway/pie-css": "npm:1.5.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-switch": "npm:2.6.3"
+    "@justeattakeaway/pie-switch": "npm:2.7.0"
     "@justeattakeaway/pie-text-input": "npm:0.30.9"
     "@justeattakeaway/pie-webc-core": "npm:18.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
@@ -4087,7 +4087,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.28.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.9"
+    "@justeattakeaway/pie-webc": "npm:0.11.10"
     "@storybook/addon-a11y": "npm:10.5.0"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.5.0"
@@ -4106,7 +4106,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-switch@npm:2.6.3, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
+"@justeattakeaway/pie-switch@npm:2.7.0, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-switch@workspace:packages/components/pie-switch"
   dependencies:
@@ -4242,7 +4242,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.11.9, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.11.10, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4256,7 +4256,7 @@ __metadata:
     "@justeattakeaway/pie-checkbox-group": "npm:1.2.4"
     "@justeattakeaway/pie-chip": "npm:1.0.10"
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-cookie-banner": "npm:1.10.12"
+    "@justeattakeaway/pie-cookie-banner": "npm:1.10.13"
     "@justeattakeaway/pie-data-table": "npm:0.3.26"
     "@justeattakeaway/pie-divider": "npm:1.5.32"
     "@justeattakeaway/pie-form-label": "npm:0.18.33"
@@ -4271,7 +4271,7 @@ __metadata:
     "@justeattakeaway/pie-radio-group": "npm:1.2.5"
     "@justeattakeaway/pie-select": "npm:0.9.9"
     "@justeattakeaway/pie-spinner": "npm:1.5.5"
-    "@justeattakeaway/pie-switch": "npm:2.6.3"
+    "@justeattakeaway/pie-switch": "npm:2.7.0"
     "@justeattakeaway/pie-tabs": "npm:0.1.32"
     "@justeattakeaway/pie-tag": "npm:1.0.3"
     "@justeattakeaway/pie-text-input": "npm:0.30.9"
