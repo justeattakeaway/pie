@@ -33,6 +33,7 @@
     --int-states-mixin-bg-color: var(--dt-color-interactive-form);
     --switch-bg-color--checked: var(--dt-color-interactive-brand);
     --switch-bg-color--disabled: var(--dt-color-disabled-01);
+    --switch-bg-color--checked-disabled: var(--dt-color-support-brand-tonal);
     --switch-width: 48px;
     --switch-height: 24px;
     --switch-control-size: 20px;
@@ -61,6 +62,10 @@
         --int-states-mixin-bg-color: var(--switch-bg-color--disabled);
 
         pointer-events: none;
+    }
+
+    [disabled] &[checked] {
+        --int-states-mixin-bg-color: var(--switch-bg-color--checked-disabled);
     }
 
     &:has(.c-switch-input:focus-visible) {
