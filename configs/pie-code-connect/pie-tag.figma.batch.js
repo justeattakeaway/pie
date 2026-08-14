@@ -5,7 +5,7 @@ const getIconSnippet = require('./utils/get-icon-snippet.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
-const { componentName, componentNameReact } = figma.batch;
+const { componentName, componentNameReact, isIconOnly } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
 // Map figma props
@@ -41,21 +41,22 @@ const size = getInstanceProp('getEnum', 'Size', {
 });
 
 // Get icon instance and add the slot prop to the snippet
-const iconInstance = hasLeadingIcon && getInstanceProp('getInstanceSwap', 'Replace icon');
-const iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
+const hasIcon = isIconOnly || hasLeadingIcon;
+const iconInstance = hasIcon && getInstanceProp('getInstanceSwap', 'Icon');
+const iconSnippet = hasIcon && getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
 
 const props = [
     renderProp('variant', variant, 'neutral'),
-    renderProp('size', size, 'large'),
     renderProp('isStrong', isStrong, false),
     renderProp('isDimmed', isDimmed, false),
-    renderProp('hasLeadingIcon', hasLeadingIcon, false),
+    !isIconOnly ? renderProp('size', size, 'large') : false,
+    !isIconOnly ? renderProp('hasLeadingIcon', hasLeadingIcon, false) : false,
 ].filter(Boolean).join('\n    ');
 
 const template = figma.code`<${selectedComponentName}
     ${props}>
-    ${iconSnippet}
-    ${label}
+    ${iconSnippet || ''}
+    ${!isIconOnly ? label : ''}
 </${selectedComponentName}>`;
 
 export default {

@@ -116,7 +116,15 @@
         "componentName": "pie-tag",
         "componentNameReact": "PieTag",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-tag/src/index.ts",
-        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902"
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+        "isIconOnly": false
+      },
+      {
+        "componentName": "pie-tag",
+        "componentNameReact": "PieTag",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-tag/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+        "isIconOnly": true
       }
     ]
   }
