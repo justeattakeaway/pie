@@ -178,6 +178,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/switch/interactive-states-disabled.svg",
       width: 108,
+      variant: "secondary",
       alt: "A switch that is disabled."
     } %}
   {% endcontentItem %}
