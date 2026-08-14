@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-css
 
+## 1.5.0
+
+### Minor Changes
+
+- [Added] - pie-css app typography base element styles ([#3104](https://github.com/justeattakeaway/pie/pull/3104)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Changed] - stylelint minor pkg update
+
 ## 1.4.0
 
 ### Minor Changes

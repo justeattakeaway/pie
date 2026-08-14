@@ -42,13 +42,13 @@ shouldShowContents: true
     type: listTypes.ordered,
     items: [
       "**Container:** To align the image in the center and highlight the white-space around the image.",
-      "**Image:** The fill can be an image, placeholder icon or a fill color."
+      "**Image:** The fill can be an image, placeholder icon or a fill colour."
     ]
 } %}
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -104,7 +104,7 @@ The fill behind the image is set to `$container-default` by default, it can be c
 
 The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increments.
 
-Thumbnails have 3 main sizes to account for corner radius readability; XSmall, Small and Medium, each of them with maximum and minimum widths and heights to signal where it's necessary to change into the variant with a different corner radius.
+Thumbnails have three main sizes to account for corner radius readability; XSmall, Small and Medium, each of them with maximum and minimum widths and heights to signal where it's necessary to change into the variant with a different corner radius.
 
 {% componentDetailsTable {
   tableData: sizes
@@ -172,7 +172,7 @@ Use always logos, product pictures or on brand photos.
 
 {% contentLayout { columns: 3 } %}
   {% contentItem %}
-    <h3>Xsmall</h3>
+    <h3>XSmall</h3>
     <p>Use for logos in information dense cases</p>
     {% contentPageImage {
       src: "../../../assets/img/components/thumbnail/size-xsmall.svg",
