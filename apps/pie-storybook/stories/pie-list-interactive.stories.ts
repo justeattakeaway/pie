@@ -44,6 +44,9 @@ export default listInteractiveMeta;
 
 // Item render helpers --------------------------------------------------------
 
+// Radio and checkbox rows are disabled through their group, not individually: the group propagates
+// its disabled state to every row, its slotted control, and any slotted `pie-tag`. Setting
+// `disabled` on the rows instead would leave the tags undimmed.
 const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = false) => html`
     <pie-list-item
         .interactionType=${'radio'}
@@ -53,9 +56,8 @@ const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = 
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
-        ?hasDivider=${hasDivider}
-        ?disabled=${args.disabled}>
-        <pie-radio slot="leading" value=${value} ?disabled=${args.disabled}></pie-radio>
+        ?hasDivider=${hasDivider}>
+        <pie-radio slot="leading" value=${value}></pie-radio>
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>
 `;
@@ -69,9 +71,8 @@ const renderCheckboxItem = (args: ListPlaygroundProps, name: string, hasDivider 
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
-        ?hasDivider=${hasDivider}
-        ?disabled=${args.disabled}>
-        <pie-checkbox slot="leading" name=${name} value=${name} ?disabled=${args.disabled}></pie-checkbox>
+        ?hasDivider=${hasDivider}>
+        <pie-checkbox slot="leading" name=${name} value=${name}></pie-checkbox>
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>
 `;
@@ -86,7 +87,7 @@ const renderSwitchItem = (args: ListPlaygroundProps, hasDivider = false) => html
         ?hasMedia=${args.hasMedia}
         ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
-        ${renderLeading(args.leadingContent)}
+        ${renderLeading(args.leadingContent, args.disabled)}
         <pie-switch slot="trailing" ?disabled=${args.disabled}></pie-switch>
     </pie-list-item>
 `;
@@ -119,8 +120,8 @@ const renderButtonItem = (args: ListPlaygroundProps, hasDivider = false) => html
         ?hasMedia=${args.hasMedia}
         ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
-        ${renderLeading(args.leadingContent)}
-        ${renderTrailing(args.trailingContent)}
+        ${renderLeading(args.leadingContent, args.disabled)}
+        ${renderTrailing(args.trailingContent, args.disabled)}
     </pie-list-item>
 `;
 
@@ -132,7 +133,7 @@ const makeRadioListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args
     return html`
         <style>pie-radio-group { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
-        <pie-radio-group name="interactive-radio">
+        <pie-radio-group name="interactive-radio" ?disabled=${args.disabled}>
             <pie-form-label slot="label">Select an option</pie-form-label>
             ${renderRadioItem(args, 'option-1', args.hasDivider)}
             ${renderRadioItem(args, 'option-2', args.hasDivider)}
@@ -148,7 +149,7 @@ const makeCheckboxListTemplate = (): TemplateFunction<ListPlaygroundProps> => (a
     return html`
         <style>pie-checkbox-group { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
-        <pie-checkbox-group name="interactive-checkbox">
+        <pie-checkbox-group name="interactive-checkbox" ?disabled=${args.disabled}>
             <pie-form-label slot="label">Select options</pie-form-label>
             ${renderCheckboxItem(args, 'option-1', args.hasDivider)}
             ${renderCheckboxItem(args, 'option-2', args.hasDivider)}

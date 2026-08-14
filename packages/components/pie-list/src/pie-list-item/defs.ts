@@ -93,7 +93,7 @@ export interface ListItemProps {
     aria?: AriaProps
 }
 
-export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText'>>;
+export type DefaultProps = ComponentDefaultProps<ListItemProps, keyof Omit<ListItemProps, 'primaryText' | 'secondaryText' | 'metaText' | 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     isCompact: false,

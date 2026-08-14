@@ -27,7 +27,7 @@ export type ListPlaygroundProps = {
     hasDivider: boolean;
     disabled: boolean;
     leadingContent: 'none' | 'icon' | 'thumbnail';
-    trailingContent: 'none' | 'icon' | 'tag';
+    trailingContent: 'none' | 'icon' | 'tag' | 'thumbnail';
 };
 
 type ListStoryMeta = Meta<ListPlaygroundProps>;
@@ -87,7 +87,7 @@ export const listArgTypes: ListStoryMeta['argTypes'] = {
     trailingContent: {
         description: '**Not a component prop.** Chooses what to slot into the `trailing` slot.',
         control: 'select',
-        options: ['none', 'icon', 'tag'],
+        options: ['none', 'icon', 'tag', 'thumbnail'],
     },
     parameters: {
         table: { disable: true },
@@ -113,15 +113,19 @@ export default listStoryMeta;
 
 // Slot content helpers -------------------------------------------------------
 
-export const renderLeading = (leadingContent: ListPlaygroundProps['leadingContent']) => {
+// `isDisabled` is passed by rows that are disabled individually (they have no container group to
+// propagate from), so the slotted components are given their own disabled styling: `disabled` on a
+// `pie-thumbnail` and `isDimmed` on a `pie-tag`.
+export const renderLeading = (leadingContent: ListPlaygroundProps['leadingContent'], isDisabled = false) => {
     if (leadingContent === 'icon') return html`<icon-placeholder slot="leading"></icon-placeholder>`;
-    if (leadingContent === 'thumbnail') return html`<pie-thumbnail slot="leading" size="40" backgroundColor="strong" variant="outline"></pie-thumbnail>`;
+    if (leadingContent === 'thumbnail') return html`<pie-thumbnail slot="leading" size="40" backgroundColor="strong" variant="outline" ?disabled=${isDisabled}></pie-thumbnail>`;
     return nothing;
 };
 
-export const renderTrailing = (trailingContent: ListPlaygroundProps['trailingContent']) => {
+export const renderTrailing = (trailingContent: ListPlaygroundProps['trailingContent'], isDisabled = false) => {
     if (trailingContent === 'icon') return html`<icon-placeholder slot="trailing"></icon-placeholder>`;
-    if (trailingContent === 'tag') return html`<pie-tag slot="trailing">Label</pie-tag>`;
+    if (trailingContent === 'tag') return html`<pie-tag slot="trailing" ?isDimmed=${isDisabled}>Label</pie-tag>`;
+    if (trailingContent === 'thumbnail') return html`<pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" ?disabled=${isDisabled}></pie-thumbnail>`;
     return nothing;
 };
 
@@ -145,8 +149,8 @@ export const renderItem = (args: ListPlaygroundProps, itemStyle = '', hasDivider
 // that the component intentionally handles (so the behaviour is not surprising).
 export const buildNotes = (args: ListPlaygroundProps) => {
     const notes: string[] = [];
-    if (args.leadingContent === 'thumbnail' && !args.hasMedia) notes.push('Enable "hasMedia" to display the slotted thumbnail.');
-    if (args.isCompact && args.leadingContent === 'thumbnail') notes.push('Media is not displayed in compact items.');
+    if ((args.leadingContent === 'thumbnail' || args.trailingContent === 'thumbnail') && !args.hasMedia) notes.push('Enable "hasMedia" to display the slotted thumbnail.');
+    if (args.isCompact && (args.leadingContent === 'thumbnail' || args.trailingContent === 'thumbnail')) notes.push('Media is not displayed in compact items.');
     if (args.isCompact && args.secondaryText) notes.push('Avoid secondary text in compact items.');
     if (args.metaText && args.trailingContent !== 'none') notes.push('"metaText" replaces the trailing slot, so the trailing content is not shown.');
     return notes;

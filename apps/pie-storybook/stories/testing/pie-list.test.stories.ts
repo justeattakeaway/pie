@@ -843,18 +843,21 @@ export const ItemHeightPrimaryOnlyNoDivider = createStory<ListProps>(ItemHeightP
 /**
  * Test-only: verifies pie-tag disabled behaviour alongside pie-list-item.
  *
- * Section 1 — individual disabled rows: `isDimmed` must be set explicitly on the tag; a disabled
- * list-item does not propagate its state to slotted tags automatically.
+ * Section 1 — individual disabled rows: `isDimmed` must be set explicitly on the tag and `disabled`
+ * on the thumbnail; a disabled list-item does not propagate its state to slotted content
+ * automatically.
  *
  * Section 2 — group-disabled rows: when the containing `pie-radio-group` is disabled, the group's
- * context propagates to every slotted `pie-tag` automatically (no explicit `isDimmed` needed).
+ * context propagates to every slotted `pie-tag` and `pie-thumbnail` automatically (no explicit
+ * `isDimmed` or `disabled` needed).
  */
 const DisabledTagBehaviourTemplate = () => withLayout(html`
     <pie-list>
         <pie-list-item hasDivider .interactionType=${'button'} disabled primaryText="Disabled — tag explicitly dimmed" data-test-id="item-disabled-explicit">
             <pie-tag slot="trailing" isDimmed data-test-id="tag-disabled-explicit">Label</pie-tag>
         </pie-list-item>
-        <pie-list-item hasDivider .interactionType=${'button'} disabled primaryText="Disabled — tag not dimmed" data-test-id="item-disabled-no-dimmed">
+        <pie-list-item hasDivider hasMedia .interactionType=${'button'} disabled primaryText="Disabled — tag not dimmed, thumbnail not disabled" data-test-id="item-disabled-no-dimmed">
+            <pie-thumbnail slot="leading" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-disabled-no-dimmed"></pie-thumbnail>
             <pie-tag slot="trailing" data-test-id="tag-disabled-no-dimmed">Label</pie-tag>
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'button'} primaryText="Enabled — tag explicitly dimmed" data-test-id="item-enabled-explicit">
@@ -872,7 +875,7 @@ const DisabledTagBehaviourTemplate = () => withLayout(html`
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-2">
             <pie-radio slot="leading" value="b"></pie-radio>
-            <pie-tag slot="trailing" data-test-id="tag-group-disabled-2">Label</pie-tag>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-group-disabled-2"></pie-thumbnail>
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-3">
             <pie-radio slot="leading" value="c"></pie-radio>
@@ -891,7 +894,7 @@ const DisabledTagBehaviourTemplate = () => withLayout(html`
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-2">
             <pie-radio slot="leading" value="f"></pie-radio>
-            <pie-tag slot="trailing" data-test-id="tag-group-enabled-2">Label</pie-tag>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-group-enabled-2"></pie-thumbnail>
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-3">
             <pie-radio slot="leading" value="g"></pie-radio>
@@ -910,7 +913,7 @@ const DisabledTagBehaviourTemplate = () => withLayout(html`
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-2">
             <pie-checkbox slot="leading" value="b"></pie-checkbox>
-            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-2">Label</pie-tag>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-checkbox-group-disabled-2"></pie-thumbnail>
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-3">
             <pie-checkbox slot="leading" value="c"></pie-checkbox>
@@ -929,7 +932,7 @@ const DisabledTagBehaviourTemplate = () => withLayout(html`
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-2">
             <pie-checkbox slot="leading" value="f"></pie-checkbox>
-            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-2">Label</pie-tag>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-checkbox-group-enabled-2"></pie-thumbnail>
         </pie-list-item>
         <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-3">
             <pie-checkbox slot="leading" value="g"></pie-checkbox>
