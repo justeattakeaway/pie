@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.11.9",
+  "version": "0.11.10",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -859,7 +859,7 @@
     "@justeattakeaway/pie-checkbox": "1.4.3",
     "@justeattakeaway/pie-checkbox-group": "1.2.4",
     "@justeattakeaway/pie-chip": "1.0.10",
-    "@justeattakeaway/pie-cookie-banner": "1.10.12",
+    "@justeattakeaway/pie-cookie-banner": "1.10.13",
     "@justeattakeaway/pie-data-table": "0.3.26",
     "@justeattakeaway/pie-divider": "1.5.32",
     "@justeattakeaway/pie-form-label": "0.18.33",
@@ -874,7 +874,7 @@
     "@justeattakeaway/pie-radio-group": "1.2.5",
     "@justeattakeaway/pie-select": "0.9.9",
     "@justeattakeaway/pie-spinner": "1.5.5",
-    "@justeattakeaway/pie-switch": "2.6.3",
+    "@justeattakeaway/pie-switch": "2.7.0",
     "@justeattakeaway/pie-tabs": "0.1.32",
     "@justeattakeaway/pie-tag": "1.0.3",
     "@justeattakeaway/pie-text-input": "0.30.9",

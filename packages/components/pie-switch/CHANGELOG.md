@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 2.7.0
+
+### Minor Changes
+
+- [Changed] - update selected disabled background color ([#3117](https://github.com/justeattakeaway/pie/pull/3117)) by [@maledr5](https://github.com/maledr5)
+
 ## 2.6.3
 
 ### Patch Changes
