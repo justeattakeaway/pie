@@ -9,14 +9,6 @@ const { componentName, componentNameReact, isIconOnly } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
 // Map figma props
-const state = getInstanceProp('getPropertyValue', 'State');
-const isDimmed = state === 'Disabled';
-
-const isStrong = getInstanceProp('getPropertyValue', 'Strong') === 'True';
-const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
-
-const label = getInstanceProp('getString', '[𝐓] Label');
-
 const variant = getInstanceProp('getEnum', 'Type', {
     Neutral: 'neutral',
     'Neutral - alternative': 'neutral-alternative',
@@ -34,11 +26,14 @@ const variant = getInstanceProp('getEnum', 'Type', {
     '06 Aubergine': 'brand-06',
     '08 Latte': 'brand-08',
 });
-
 const size = getInstanceProp('getEnum', 'Size', {
     Large: 'large',
     Small: 'small',
 });
+const isStrong = getInstanceProp('getBoolean', 'Strong');
+const isDimmed = getInstanceProp('getPropertyValue', 'State') === 'Disabled';
+const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
+const label = getInstanceProp('getString', '[𝐓] Label');
 
 // Get icon instance and add the slot prop to the snippet
 const hasIcon = isIconOnly || hasLeadingIcon;
