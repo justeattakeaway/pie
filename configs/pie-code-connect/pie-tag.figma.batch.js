@@ -44,6 +44,7 @@ const props = [
     renderProp('variant', variant, 'neutral'),
     renderProp('isStrong', isStrong, false),
     renderProp('isDimmed', isDimmed, false),
+    renderProp('isIconOnly', isIconOnly, false),
     !isIconOnly ? renderProp('size', size, 'large') : false,
     !isIconOnly ? renderProp('hasLeadingIcon', hasLeadingIcon, false) : false,
 ].filter(Boolean).join('\n    ');
