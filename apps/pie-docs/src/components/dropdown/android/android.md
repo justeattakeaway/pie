@@ -3,7 +3,7 @@ eleventyNavigation:
     key: Android
     parent: Dropdown
     order: 3
-draft: true
+shouldShowContents: true
 ---
 
 {% notification {

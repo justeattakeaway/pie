@@ -3,7 +3,7 @@ eleventyNavigation:
     key: iOS
     parent: Dropdown
     order: 4
-draft: true
+shouldShowContents: true
 ---
 
 {% notification {
