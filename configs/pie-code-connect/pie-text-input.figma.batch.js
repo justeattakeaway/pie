@@ -8,9 +8,6 @@ const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 const selectedComponentName = isReact ? componentNameReact : componentName;
-const formLabelComponentNameWeb = 'pie-form-label';
-const formLabelComponentNameReact = 'PieFormLabel';
-const formLabelComponentName = isReact ? formLabelComponentNameReact : formLabelComponentNameWeb;
 
 // Map figma props
 const state = getInstanceProp('getPropertyValue', 'State');
@@ -25,7 +22,6 @@ const size = getInstanceProp('getEnum', 'Size', {
 
 const value = getInstanceProp('getString', '[𝐓] String');
 const placeholder = value ? '' : getInstanceProp('getString', '[𝐓] Placeholder');
-const label = getInstanceProp(['Form label', 'Form label / Leading content / Label'], 'getString', '[𝐓] Label');
 const assistiveText = getInstanceProp(['Assistive text'], 'getString', '[𝐓] Assistive text') || '';
 const status = getInstanceProp(['Assistive text'], 'getEnum', 'Validation', {
     Success: 'success',
@@ -36,7 +32,9 @@ const status = getInstanceProp(['Assistive text'], 'getEnum', 'Validation', {
 const isDisabled = state === 'Disabled';
 const isReadonly = state === 'Read only';
 
-const formLabelSnippet = label ? `<${formLabelComponentName}>${label}</${formLabelComponentName}>` : '';
+// const formLabelInstance = getInstanceProp(['Form label'], 'executeTemplate', null);
+const formLabelInstance = figma.selectedInstance.findInstance('Form label');
+const formLabelSnippet = formLabelInstance?.executeTemplate()?.example;
 
 // Get leading icon instance from the nested 'Leading content' instance
 const leadingIconInstance = hasLeadingContent && getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
@@ -60,6 +58,8 @@ const props = [
 // Define template
 const template = figma.code`${formLabelSnippet}
 <${selectedComponentName}
+    id="the-input-id"
+    aria-labelledby="the-label-id"
     ${props}>
     ${leadingIconSnippet}
     ${trailingIconSnippet}
@@ -67,9 +67,6 @@ const template = figma.code`${formLabelSnippet}
 
 export default {
     example: template,
-    imports: [
-        getImportStatement(componentName, componentNameReact),
-        getImportStatement(formLabelComponentNameWeb, formLabelComponentNameReact),
-    ],
+    imports: [getImportStatement(componentName, componentNameReact)],
     id: 'pie-text-input',
 };
