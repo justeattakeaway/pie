@@ -1,10 +1,12 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
+const createGetInstanceTemplate = require('./utils/get-instance-template.js');
 const renderProp = require('./utils/render-prop.js');
 const getIconSnippet = require('./utils/get-icon-snippet.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
+const getInstanceTemplate = createGetInstanceTemplate(figma);
 const { componentName, componentNameReact } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 const selectedComponentName = isReact ? componentNameReact : componentName;
@@ -32,9 +34,7 @@ const status = getInstanceProp(['Assistive text'], 'getEnum', 'Validation', {
 const isDisabled = state === 'Disabled';
 const isReadonly = state === 'Read only';
 
-// const formLabelInstance = getInstanceProp(['Form label'], 'executeTemplate', null);
-const formLabelInstance = figma.selectedInstance.findInstance('Form label');
-const formLabelSnippet = formLabelInstance?.executeTemplate()?.example;
+const formLabelSnippet = getInstanceTemplate(['Form label']);
 
 // Get leading icon instance from the nested 'Leading content' instance
 const leadingIconInstance = hasLeadingContent && getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
@@ -56,7 +56,7 @@ const props = [
 ].filter(Boolean).join('\n    ');
 
 // Define template
-const template = figma.code`${formLabelSnippet}
+const template = figma.code`${formLabelSnippet || ''}
 <${selectedComponentName}
     id="the-input-id"
     aria-labelledby="the-label-id"
