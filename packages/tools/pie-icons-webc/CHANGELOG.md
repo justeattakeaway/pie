@@ -1,5 +1,36 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.28.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3120](https://github.com/justeattakeaway/pie/pull/3120)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Benefits
+
+  - reorder-rewards-filled-large
+  - reorder-rewards-filled
+
+  ## Reaction
+
+  - heart-strike
+
+  [Updated] - Icons
+
+  ## Benefits
+
+  - reorder-rewards-large
+  - reorder-rewards
+  - voucher-filled-large
+  - voucher-filled
+  - voucher-large
+  - voucher
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@18.0.0
+
 ## 1.27.3
 
 ### Patch Changes

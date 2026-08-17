@@ -1,0 +1,40 @@
+{
+    "headings": [
+        "Component",
+        "Name",
+        "Size (px)",
+        "Role examples"
+    ],
+    "rows": [
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/android/size-table-xs.svg", "alt": "XS spinner" } },
+            "XS",
+            "16 x 16",
+            "-"
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/android/size-table-s.svg", "alt": "S spinner" } },
+            "S",
+            "20 x 20",
+            "Buttons, Chip."
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/android/size-table-m.svg", "alt": "M spinner" } },
+            "M",
+            "24 x 24",
+            "Icon Buttons, Uploader."
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/android/size-table-l.svg", "alt": "L spinner" } },
+            "L",
+            "32 x 32",
+            "-"
+        ],
+        [
+            { "type": "image", "item": { "src": "../../../assets/img/components/spinner/android/size-table-xl.svg", "alt": "XL spinner" } },
+            "XL",
+            "48 x 48",
+            "Whole page."
+        ]
+    ]
+}

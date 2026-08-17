@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.9.9
+
+### Patch Changes
+
+- [Removed] - Removed pull request labeler automation and the related generator support. ([#3119](https://github.com/justeattakeaway/pie/pull/3119)) by [@raoufswe](https://github.com/raoufswe)
+
+- Fixed - Update changeset action to guard on forked repos ([#3112](https://github.com/justeattakeaway/pie/pull/3112)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.9.8
 
 ### Patch Changes
