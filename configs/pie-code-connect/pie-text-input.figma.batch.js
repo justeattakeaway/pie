@@ -13,8 +13,6 @@ const selectedComponentName = isReact ? componentNameReact : componentName;
 
 // Map figma props
 const state = getInstanceProp('getPropertyValue', 'State');
-const hasLeadingContent = getInstanceProp('getBoolean', 'Leading content');
-const hasTrailingContent = getInstanceProp('getBoolean', 'Trailing content');
 
 const size = getInstanceProp('getEnum', 'Size', {
     Large: 'large',
@@ -36,14 +34,31 @@ const isReadonly = state === 'Read only';
 
 const formLabelSnippet = getInstanceTemplate(['Form label']);
 
-// Get leading icon instance from the nested 'Leading content' instance
-const leadingIconInstance = hasLeadingContent && getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
-const leadingIconSnippet = getIconSnippet(leadingIconInstance, (code) => code.replace('></', ' slot="leadingIcon"></'));
-// const leadingContentString = hasLeadingContent && getInstanceProp(['Leading content'], 'getString', 'Leading text');
+// Get leading and trailing content code snippets
 
-// Get trailing icon instance from the nested 'Trailing content' instance
-const trailingIconInstance = hasTrailingContent && getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Icon');
-const trailingIconSnippet = getIconSnippet(trailingIconInstance, (code) => code.replace('></', ' slot="trailingIcon"></'));
+const hasLeadingContent = getInstanceProp('getBoolean', 'Leading content');
+const leadingContentType = hasLeadingContent && getInstanceProp(['Leading content'], 'getString', 'Type');
+let leadingContentSnippet = '';
+if (leadingContentType === 'Icon') {
+    const leadingIconInstance = getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
+    // replace text to have the slot assigned
+    leadingContentSnippet = getIconSnippet(leadingIconInstance, (code) => code.replace('></', ' slot="leadingIcon"></'));
+} else if (leadingContentType === 'Alphanumeric') {
+    leadingContentSnippet = '<span slot="leadingText">#</span>';
+}
+
+const hasTrailingContent = getInstanceProp('getBoolean', 'Trailing content');
+const trailingContentType = hasTrailingContent && getInstanceProp(['Trailing content'], 'getString', 'Type');
+let trailingContentSnippet = '';
+if (trailingContentType === 'Icon') {
+    const trailingIconInstance = getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Icon');
+    // replace text to have the slot assigned
+    trailingContentSnippet = getIconSnippet(trailingIconInstance, (code) => code.replace('></', ' slot="trailingIcon"></'));
+} else if (trailingContentType === 'Alphanumeric') {
+    trailingContentSnippet = '<span slot="trailingText">#</span>';
+} else if (trailingContentType === 'Payment method') {
+    trailingContentSnippet = '<svg-asset-for-the-payment-method slot="trailingIcon"></svg-asset-for-the-payment-method>';
+}
 
 const props = [
     renderProp('size', size, 'medium'),
@@ -61,8 +76,8 @@ const template = figma.code`${formLabelSnippet || ''}
     id="the-input-id"
     aria-labelledby="the-label-id"
     ${props}>
-    ${leadingIconSnippet}
-    ${trailingIconSnippet}
+    ${leadingContentSnippet}
+    ${trailingContentSnippet}
 </${selectedComponentName}>`;
 
 export default {
