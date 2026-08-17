@@ -52,14 +52,14 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
             description: 'When true, applies a stronger colour emphasis. Has no effect on the `neutral-alternative` variant.',
             control: 'boolean',
             defaultValue: {
-                summary: String(defaultProps.isStrong),
+                summary: defaultProps.isStrong,
             },
         },
         isDimmed: {
             description: 'When true, applies a purely visual dimmed appearance. Use this when the component is placed inside an interactive parent component that has a disabled state, such as a disabled card or button.',
             control: 'boolean',
             defaultValue: {
-                summary: String(defaultProps.isDimmed),
+                summary: defaultProps.isDimmed,
             },
         },
     },
