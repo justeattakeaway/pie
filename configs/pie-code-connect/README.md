@@ -8,7 +8,7 @@ Figma Code Connect templates, configuration files, and utility functions for PIE
 
 This package automates the creation of Figma Code Connect templates that link Figma component designs to their corresponding code implementations. It includes:
 
-- **Template files** - Batch code templates for components (web components and React variants) and icons
+- **Template files** - Batch code templates for components (web components, React, and Vue variants) and icons
 - **Configuration files** - Metadata and publish configurations for different component families
 - **Build scripts** - Node.js tooling that processes template files and generates production-ready Code Connect files
 - **Reusable utility functions** - Helpers for reading Figma instance properties, rendering component props, and generating import statements
@@ -22,6 +22,7 @@ Generate production Code Connect files from source templates:
 ```bash
 yarn build:web    # Generate web component templates
 yarn build:react  # Generate React component templates
+yarn build:vue    # Generate Vue component templates
 ```
 
 The build process:
@@ -37,8 +38,15 @@ Build and publish Code Connect mappings to Figma:
 ```bash
 yarn publish-components:web     # Publish web component mappings
 yarn publish-components:react   # Publish React component mappings
+yarn publish-components:vue     # Publish Vue component mappings
+yarn publish-components:all     # Publish component mappings for all frameworks
+
 yarn publish-icons:web          # Publish web icon mappings
 yarn publish-icons:react        # Publish React icon mappings
+yarn publish-icons:vue          # Publish Vue icon mappings
+yarn publish-icons:all          # Publish icon mappings for all frameworks
+
+yarn publish:all                # Publish all component and icon mappings for all frameworks
 ```
 
 These commands build the templates, then use the Figma CLI to publish them using the corresponding configuration file.
@@ -133,8 +141,7 @@ It's common to have multiple Figma component sets related to a single component 
 ### 3. Build and publish
 
 ```bash
-yarn publish-components:web
-yarn publish-components:react
+yarn publish-components:all
 ```
 
 ## Adding New Icons
@@ -174,8 +181,7 @@ The only requirement is that any new icon file is added to `packages/tools/pie-i
 ## Publishing icons
 
 ```bash
-yarn publish-icons:web
-yarn publish-icons:react
+yarn publish-icons:all
 ```
 
 ## Template File Structure
@@ -184,7 +190,7 @@ A template file (`*.figma.batch.js`) is a Node.js CommonJS module that defines h
 
 ### Available properties
 
-- `process.env.FRAMEWORK` - The target framework (`'web'` or `'react'`), this is determined by env var set on each of the build scripts
+- `process.env.FRAMEWORK` - The target framework (`'web'`, `'react'`, or `'vue'`), this is determined by env var set on each of the build scripts
 - `figma.selectedInstance` - The Figma component instance currently being processed
 - `figma.batch.baseName` - Kebab-case component name from the batch configuration (e.g. `'pie-modal'`)
 
@@ -245,10 +251,14 @@ export FIGMA_ACCESS_TOKEN=...
 Ensure the FIGMA_ACCESS_TOKEN env var is readable before publishing for the first time.
 
 ```bash
-yarn publish-icons:web
-yarn publish-icons:react
-yarn publish-components:web
-yarn publish-components:react
+yarn publish:all
+```
+
+Or publish components and icons separately:
+
+```bash
+yarn publish-components:all
+yarn publish-icons:all
 ```
 
 The Figma CLI will read the batch metadata, process each template, and publish the mappings to the specified Figma file and components.

@@ -10,9 +10,12 @@
     "publish-components:web": "yarn build:web && yarn figma connect publish -c ./config/figma-web-components-batch.config.json",
     "publish-components:react": "yarn build:react && yarn figma connect publish -c ./config/figma-react-components-batch.config.json",
     "publish-components:vue": "yarn build:vue && yarn figma connect publish -c ./config/figma-vue-components-batch.config.json",
+    "publish-components:all": "yarn publish-components:web && yarn publish-components:react && yarn publish-components:vue",
     "publish-icons:web": "COMPONENT_PREFIX=icons- yarn build:web && yarn figma connect publish -c ./config/figma-icons-web.config.json",
     "publish-icons:react": "COMPONENT_PREFIX=icons- yarn build:react && yarn figma connect publish -c ./config/figma-icons-react.config.json",
     "publish-icons:vue": "COMPONENT_PREFIX=icons- yarn build:vue && yarn figma connect publish -c ./config/figma-icons-vue.config.json",
+    "publish-icons:all": "yarn publish-icons:web && yarn publish-icons:react && yarn publish-icons:vue",
+    "publish:all": "yarn publish-components:all && yarn publish-icons:all"
   },
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
