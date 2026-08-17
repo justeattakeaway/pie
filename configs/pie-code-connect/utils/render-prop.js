@@ -29,6 +29,23 @@ function renderProp (propName, value, defaultValue) {
         return figma.helpers.react.renderProp(propName, value);
     }
 
+    // Vue formatting
+    if (framework === 'vue') {
+        if (isObject) {
+            const entries = Object.entries(value);
+            return `:${propName}="{ ${entries.map(([key, val]) => `${key}: '${val}'`).join(', ')} }"`;
+        }
+
+        if (typeof value === 'boolean') {
+            if (value === true) return propName;
+            return '';
+        }
+
+        if (typeof value === 'number') return `:${propName}="${value}"`;
+
+        return `${propName}="${value}"`;
+    }
+
     // Web formatting
     if (isObject) return `${propName}='${JSON.stringify(value)}'`;
 
