@@ -371,10 +371,3 @@ export const WithExtraRows = createStory<DataTableProps>(Template, {
 export const WithCustomTableBody = createStory<DataTableProps>(TemplateWithTableBody, {
     columns: sampleColumns,
 })();
-
-export const HeadingsNoData = createStory<DataTableProps>(Template, {
-    columns: sampleColumns,
-    data: [],
-})();
-
-export const NoDataOrHeadings = createStory<DataTableProps>(Template, defaultArgs)();
