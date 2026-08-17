@@ -37,7 +37,7 @@ const label = getInstanceProp('getString', '[𝐓] Label');
 
 // Get icon instance and add the slot prop to the snippet
 const hasIcon = isIconOnly || hasLeadingIcon;
-const iconInstance = hasIcon && getInstanceProp('getInstanceSwap', 'Icon');
+const iconInstance = hasIcon && isIconOnly ? getInstanceProp('getInstanceSwap', 'Icon') : getInstanceProp('getInstanceSwap', 'Replace leading icon');
 const iconSnippet = hasIcon && getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
 
 const props = [
