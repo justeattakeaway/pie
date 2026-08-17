@@ -20,8 +20,9 @@ const size = getInstanceProp('getEnum', 'Size', {
     Small: 'small',
 });
 
-const value = getInstanceProp('getString', '[𝐓] String');
-const placeholder = value ? '' : getInstanceProp('getString', '[𝐓] Placeholder');
+const contentType = getInstanceProp('getString', 'Content');
+const value = contentType === 'Filled' ? getInstanceProp('getString', '[𝐓] String') : '';
+const placeholder = contentType === 'Placeholder' ? getInstanceProp('getString', '[𝐓] Placeholder') : '';
 const assistiveText = getInstanceProp(['Assistive text'], 'getString', '[𝐓] Assistive text') || '';
 const status = getInstanceProp(['Assistive text'], 'getEnum', 'Validation', {
     Success: 'success',
