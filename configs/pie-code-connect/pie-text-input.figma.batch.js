@@ -74,8 +74,7 @@ const props = [
 // Define template
 const template = figma.code`${formLabelSnippet || ''}
 <${selectedComponentName}
-    id="the-input-id"
-    aria-labelledby="the-label-id"
+    ${formLabelSnippet ? 'id="the-input-id" aria-labelledby="the-label-id"' : ''}
     ${props}>
     ${leadingContentSnippet}
     ${trailingContentSnippet}
