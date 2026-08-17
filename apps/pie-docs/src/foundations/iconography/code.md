@@ -6,195 +6,49 @@ eleventyNavigation:
 ---
 
 ## Overview
-- [Our packages](#our-packages)
-- [Web Components (pie-icons-webc)](#web-components-pie-icons-webc)
-- [Vanilla JS (pie-icons)](#vanilla-js-pie-icons)
+- [Web library and Naming conventions](#web-library-and-naming-conventions)
 - [iOS library and naming conventions](#ios-library-and-naming-conventions)
 - [Android library and naming conventions](#android-library-and-naming-conventions)
 
 ---
 
-## Our packages
+## Web library and Naming conventions
 
-We have a number of different icon packages available for use in our applications. We have a package for each framework we support, as well as a base package for the icons themselves.
+We previously had a number of different icon packages available for each supported framework, which are now deprecated in favour of `pie-webc`. For installation and usage instructions, please refer to [this documentation](https://webc.pie.design/?path=/docs/additional-libraries-icons--overview).
 
----
 
-## Web Components (pie-icons-webc)
+The web library uses the same icon names, but the naming style depends on where you use it:
 
-This package generates a framework-agnostic Web Component icon set for web applications. It uses the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in `pie-icons` are compiled into [Lit](https://lit.dev/) web components.
-
-### Usage
-
-#### Installation
-
-```sh
-npm install @justeattakeaway/pie-icons-webc --save
-```
-```sh
-yarn add @justeattakeaway/pie-icons-webc
-```
-
-#### Import into your project
-We suggest importing the bundle for an individual component directly.
-
-{% notification {
-  type: "information",
-  message: "These components are compiled from TypeScript and have type definitions available. Therefore they will work in TypeScript projects."
-} %}
+For **React**, import the component from the React dist — names are in PascalCase:
 
 ```js
-import '@justeattakeaway/pie-icons-webc/dist/IconAppRestaurant.js';
-
-export class MyAmazingComponent extends LitElement {
-  render () {
-    return html`
-      <h2>
-        This is a heading
-        <icon-app-restaurant size="xl" />
-      </h2>`;
-  }
-}
+import { IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react/IconCalendar.js";
+<IconCalendar />
 ```
 
-#### Size
-
-Icons are made available in different size variants:
-- small
-- large, when its name has the `Large` suffix
-
-Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xxs`, `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#small-icon-set).
-
-Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/#large-icon-set).
-
-Example:
+For other frameworks, including **vanilla JS** and **Vue**, the naming convention uses kebab-case.
 
 ```js
-<IconAlertTriangle size="l" />
-<IconAlertTriangleLarge size="40" />
+import '@justeattakeaway/pie-icons-webc/dist/IconCalendar.js';
+<icon-calendar></icon-calendar>
 ```
-
 {% notification {
-  type: "information",
-  message: "For more information, please refer to the [package README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-webc/README.md)."
+type: "information",
+message: "We don't use categories in the names of icons in web"
 } %}
-
----
-
-## Vanilla JS (pie-icons)
-
-`@justeattakeaway/pie-icons` is our base icon package, from which our other icon packages extend.
-
-It is essentially a collection of the SVG files that make up the PIE Iconset. This means that you can use these icons in all the same ways you can use SVGs (e.g. img, background-image, inline, object, embed, iframe).
-
-[This package](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons) also provides a JavaScript API for the iconset, and this is what is used to build the framework-specific icons for Web Components, React and Vue.
-
-
-{% notification {
-  type: "warning",
-  message: "Whilst the `pie-icons` package can be used for web applications, we strongly advise that you use one of our framework-specific implementations instead."
-} %}
-
-### Usage - Client-side Javascript
-
-To use the icons in your application, you need to include the package in your project, add the icons using data-attributes and invoke the `replace()` function:
-
-#### Installation
-You can install the package using `npm` or `yarn`:
-
-```sh
-npm install @justeattakeaway/pie-icons --save
-```
-```sh
-yarn add @justeattakeaway/pie-icons
-```
-
-#### Include the package
-You can load directly from the installed package, or from a CDN provider.
-
-```html
-<script src="path/to/dist/pie-icons.js"></script>
-```
-```html
-<!-- choose one -->
-<script src="https://unpkg.com/@justeattakeaway/pie-icons"></script>
-<script src="https://cdn.jsdelivr.net/npm/@justeattakeaway/pie-icons/dist/pie-icons.min.js"></script>
-```
-
-#### HTML
-Simply add a `data-pie-icons` attribute with the icon name to an element. You can see all of our icons on the [library page](/foundations/iconography/library/).
-
-```html
-<i data-pie-icons="menu"></i>
-```
-
-#### Invoke the package
-Calling the `replace()` function will replace all elements with the `data-pie-icons` attribute with the relevant icon.
-
-```html
-<script>
-  window['pie-icons'].default.replace();
-</script>
-```
----
-
-### Usage - NodeJS
-
-#### Installation
-You can install the package using `npm` or `yarn`:
-
-```sh
-npm install @justeattakeaway/pie-icons --save
-```
-```sh
-yarn add @justeattakeaway/pie-icons
-```
-
-#### Import the package
-Simply import the package in your application where needed:
-
-```js
-import pieIcons from '@justeattakeaway/pie-icons';
-```
-
-#### Call the APIs
-The package exposes a number of APIs for you to use:
-
-```js
-const { icons } = pieIcons.default;
-
-icons.x
-// {
-//    name: 'x',
-//    contents: '<line ... /><line ... />`,
-//    tags: ['cancel', 'close', 'delete', 'remove'],
-//    attrs: {
-//      class: 'c-pieIcon c-pieIcon--x',
-//      xmlns: 'http://www.w3.org/2000/svg',
-//    },
-//    toSvg: [Function],
-// }
-
-icons.x.toSvg()
-// <svg class="c-pieIcon c-pieIcon--x" ...><line ... /><line ... /></svg>
-
-icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
-// <svg class="c-pieIcon c-pieIcon--x foo bar" stroke-width="1" color="red" ...><line ... /><line ... /></svg>
-```
-
-{% notification {
-  type: "information",
-  message: "For more information about the APIs in this package, please take a look at the [API reference](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons#api-reference) in the project README."
-} %}
-
 
 ---
 
 ## iOS library and naming conventions
 
-iOS packs all icons into the JustUI core library. Our iOS library will use the same name of the icon, but transforming it from kebab-case to CamelCase (removing the hyphens). 
+iOS packs all icons into the JustUI core library. Our iOS library will use the same name of the icon, but transforming it from kebab-case to camelCase (removing the hyphens).
 
 For example, the `gift-filled-large` icon would be `giftFilledLarge`.
+
+{% notification {
+type: "information",
+message: "We don't use categories in the names of icons in iOS"
+} %}
 
 ---
 
@@ -202,7 +56,7 @@ For example, the `gift-filled-large` icon would be `giftFilledLarge`.
 
 ### Use the latest version
 
-In order to get all the PIE Icons in your app, you’ll need to include the `com.jet.pie2:icons` library in your gradle module. 
+In order to get all the PIE Icons in your app, you’ll need to include the `com.jet.pie2:icons` library in your gradle module.
 Library versions are controlled via a Bill of Materials (BOM), that will ensure all PIE libraries use a compatible version.
 
 This will handle all versions for you, BOM version: `2025.01.00` or higher:
@@ -231,9 +85,9 @@ implementation("com.jet.pie2:logos")
 
 ### Get the information directly from Figma
 
-Naming convention for icons: ```ic_pie_{category}_{icon_name}```. 
+Naming convention for icons: ```ic_pie_{category}_{icon_name}```.
 
-For example, the icon below would be ```ic_pie_benefits_gift_filled_large``` and available as  
+For example, the icon below would be ```ic_pie_benefits_gift_filled_large``` and available as
 ```@drawableic_pie_benefits_gift_filled_large``` or ```R.drawable ic_pie_benefits_gift_filled_large```.
 
 {% contentPageImage {
@@ -271,7 +125,7 @@ Icon(
     imageVector = ImageVector.vectorResource(id = PieIconR.drawable.ic_pie_arrow_arrow_left),
     tint = JetTheme.colors.contentInteractiveBrand,
     ...
-) 
+)
 ```
 
 ### FAQs

@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.35.1
+
+### Patch Changes
+
+- [Removed] - Removed pull request labeler automation and the related generator support. ([#3119](https://github.com/justeattakeaway/pie/pull/3119)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.35.0
 
 ### Minor Changes
