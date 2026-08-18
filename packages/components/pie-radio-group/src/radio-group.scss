@@ -16,7 +16,14 @@
     flex-flow: column wrap;
 
     > legend {
-        margin-block-end: var(--dt-spacing-b);
+        margin: 0;
+        padding: 0;
+
+        ::slotted(pie-form-label),
+        ::slotted(label) {
+            display: block;
+            margin-block-end: var(--dt-spacing-b);
+        }
     }
 
     &.c-radioGroup--inline {
@@ -24,6 +31,10 @@
 
         // inline only supported for pie-radio in slots (rather than list-item) so gap can be used here
         gap: var(--radio-group-gap--inline);
+
+        > legend {
+            flex-basis: 100%;
+        }
     }
 
     &.c-radioGroup--hasAssistiveText {
