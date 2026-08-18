@@ -18,6 +18,7 @@
   - [CSS Variables](#css-variables)
   - [CSS Parts](#css-parts)
   - [Events](#events)
+  - [Accessibility](#accessibility)
 - [Usage Examples](#usage-examples)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
@@ -56,6 +57,14 @@ This component does not expose any CSS variables for style overrides.
 ### Events
 
 This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+### Accessibility
+
+This component is decorative and non-interactive, and it intentionally applies no ARIA attributes of its own.
+
+PIE icons already render with `role="presentation"` and `focusable="false"`, so an icon passed into the default slot is not announced by screen readers without any further work. Adding `aria-hidden` to the container would therefore be redundant.
+
+If the icon conveys meaning on its own rather than being purely decorative, labelling it is the consumer's responsibility. Provide an accessible name on the surrounding interactive element, or on the slotted content, rather than expecting this component to supply one.
 
 ## Usage Examples
 
