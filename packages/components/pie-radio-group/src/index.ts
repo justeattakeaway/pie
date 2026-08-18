@@ -4,7 +4,6 @@ import {
     unsafeCSS,
     nothing,
     type PropertyValues,
-    type TemplateResult,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
@@ -44,9 +43,6 @@ const assistiveTextId = 'assistive-text';
  */
 @safeCustomElement('pie-radio-group')
 export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implements RadioGroupProps {
-    @state()
-    private _hasLabel = false;
-
     @state()
     private _fieldSetTabIndex = 0;
 
@@ -149,16 +145,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     /**
-     * Updates the `_hasLabel` state when content is added to the label slot.
-     * @param {Event} e - The slotchange event.
-     * @private
-     */
-    private _handleLabelSlotChange (e: { target: HTMLSlotElement }): void {
-        const childNodes = e.target.assignedNodes({ flatten: true });
-        this._hasLabel = childNodes.length > 0;
-    }
-
-    /**
      * Ensures all newly added radio buttons are tabbable and inherit the name property
      */
     private _handleRadioSlotChange (): void {
@@ -173,17 +159,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this._slottedChildren.forEach((radio) => {
             radio.tabIndex = -1;
         });
-    }
-
-    /**
-     * Renders the label element inside a legend, wrapping the slot content.
-     * @returns {TemplateResult } The template for the label slot.
-     * @private
-     */
-    private _renderWrappedLabel (): TemplateResult {
-        return this._hasLabel
-            ? html`<legend><slot name='label' @slotchange=${this._handleLabelSlotChange}></slot></legend>`
-            : html`<slot name='label' @slotchange=${this._handleLabelSlotChange}></slot>`;
     }
 
     private _applyNameToChildren () : void {
@@ -462,7 +437,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
                 data-test-id="pie-radio-group-fieldset"
                 aria-describedby=${hasAssistiveText ? assistiveTextId : nothing}
                 class="${classMap(classes)}">
-                    ${this._renderWrappedLabel()}
+                    <legend><slot name='label'></slot></legend>
                 <slot @slotchange=${this._handleRadioSlotChange}></slot>
             </fieldset>
             ${hasAssistiveText ? html`
