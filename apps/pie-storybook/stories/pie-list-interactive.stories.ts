@@ -50,9 +50,9 @@ export default listInteractiveMeta;
 const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = false) => html`
     <pie-list-item
         interactionType="radio"
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
@@ -65,9 +65,9 @@ const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = 
 const renderCheckboxItem = (args: ListPlaygroundProps, name: string, hasDivider = false) => html`
     <pie-list-item
         interactionType="checkbox"
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
@@ -80,8 +80,8 @@ const renderCheckboxItem = (args: ListPlaygroundProps, name: string, hasDivider 
 const renderSwitchItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
         interactionType="switch"
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
@@ -95,9 +95,9 @@ const renderSwitchItem = (args: ListPlaygroundProps, hasDivider = false) => html
 const renderLinkItem = (args: ListPlaygroundProps, href: string, hasDivider = false) => html`
     <pie-list-item
         interactionType="link"
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
@@ -112,9 +112,9 @@ const renderLinkItem = (args: ListPlaygroundProps, href: string, hasDivider = fa
 const renderButtonItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
         interactionType="button"
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
@@ -194,8 +194,8 @@ const makeLinkCurrentPageTemplate = (): TemplateFunction<ListPlaygroundProps> =>
             ${renderLinkItem(args, '#item-1', args.hasDivider)}
             <pie-list-item
                 interactionType="link"
-                .primaryText=${args.primaryText}
-                .secondaryText=${args.secondaryText || undefined}
+                primaryText=${args.primaryText}
+                secondaryText=${args.secondaryText || undefined}
                 ?isCompact=${args.isCompact}
                 ?isBold=${true}
                 ?hasMedia=${args.hasMedia}
