@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -407,8 +407,6 @@ Outlines the atomic level interactive elements for the component.
 ---
 
 ## Examples
-
-Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
