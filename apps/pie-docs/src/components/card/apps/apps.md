@@ -3,10 +3,164 @@ eleventyNavigation:
     key: Apps
     parent: Card
     order: 3
-draft: true
+shouldShowContents: true
 ---
 
+## Dos and don'ts
+
+{% usage {
+    do: {
+        type: usageTypes.list,
+        items: [
+            "Use a card to display content and actions on a single topic.",
+            "Card contents should be easy to scan for relevant and actionable information."
+        ]
+    },
+    dont: {
+        type: usageTypes.list,
+        items: [
+            "Don't use a card if the container doesn't need to be clickable, find an alternative component."
+        ]
+    }
+} %}
+
+---
+
+## Anatomy
+
+{% contentPageImage {
+    src:"../../../assets/img/components/card/anatomy.svg",
+    alt: "Anatomy of a card.",
+    width: 291
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Container**: Background container that organises the information."
+    ]
+} %}
+
+---
+
+## Variants
+
+### Default
+
+{% contentPageImage {
+    src: "../../../assets/img/components/card/variation-default.svg",
+    width: "100",
+    alt: "A default card, which has a light background."
+} %}
+
+### Outline
+
+{% contentPageImage {
+    src: "../../../assets/img/components/card/variation-outline.svg",
+    width: "100",
+    alt: "An outline card, which has a light background and an outline."
+} %}
+
+### Inverse
+
+{% contentPageImage {
+    src: "../../../assets/img/components/card/variation-inverse.svg",
+    width: "100",
+    alt: "An inverse card, which has a dark background."
+} %}
+
+### Inverse outline
+
+{% contentPageImage {
+    src: "../../../assets/img/components/card/variation-inverse-outline.svg",
+    width: "100",
+    alt: "An inverse outline card, which has a dark background and an outline."
+} %}
+
+---
+
+## Content
+
+The card container comes with a slot, so you can add any content you like to the card. For the internal spacing of the card container, make sure to use PIE spacing tokens. You can find more information about these tokens in the spacing documentation.
+
 {% notification {
-  type: "neutral",
-  message: "We're currently working on this documentation. It will be available soon."
+  type: "information",
+  message: "Find out more about using the slot in the [Figma slot guide](/designers/getting-started/best-practices/#use-figma-slots)."
+  } %}
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/card/content-padding.svg",
+      width: 100,
+      alt: "Padding of the card."
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/card/content-spacing.svg",
+      width: 100,
+      alt: "Internal spacing within a card."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Interactive states
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Default</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/card/interactive-state-default.svg",
+      width: 100,
+      alt: "Default state of a card."
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+    <h3>Active</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/card/interactive-state-active.svg",
+      width: 100,
+      alt: "A card that is active."
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+    <h3>Disabled</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/card/interactive-state-disabled.svg",
+      width: 100,
+      alt: "A disabled card."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Examples
+
+Outlines the atomic level interactive elements for the component.
+
+### LTR examples
+
+Here is an example of a Card in a left-to-right context:
+
+{% contentPageImage {
+    src: "../../../assets/img/components/card/apps-example-ltr.svg",
+    width: 100,
+    alt: "A left-to-right example of a card being used on a menu page."
+} %}
+
+### RTL example
+
+Here is an example of a Card in a right-to-left context:
+
+{% contentPageImage {
+    src: "../../../assets/img/components/card/apps-example-rtl.svg",
+    width: 100,
+    alt: "A right-to-left example of a card being used on a menu page."
 } %}

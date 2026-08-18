@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icon-with-background
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - `variant` and `isStrong` props for background colour and emphasis ([#3080](https://github.com/justeattakeaway/pie/pull/3080)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@18.0.0
+
 ## 0.2.1
 
 ### Patch Changes

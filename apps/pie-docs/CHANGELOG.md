@@ -1,5 +1,49 @@
 # Changelog
 
+## 5.13.0
+
+### Minor Changes
+
+- [Changed] - updates icons naming conventions page ([#3103](https://github.com/justeattakeaway/pie/pull/3103)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.10
+
+## 5.12.0
+
+### Minor Changes
+
+- [Added] - Added apps docs for Card, Form Label, Link, Show More, and Thumbnail ([#3091](https://github.com/justeattakeaway/pie/pull/3091)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] - Added web docs for Bottom Sheet and Show More
+  [Added] - Added Android and iOS docs for Spinner
+  [Updated] - Updated web docs for Card, Divider, Form Label, Spinner, Tag - Icon Only, Text Input, and Thumbnail
+  [Updated] - Updated Android, iOS and web docs for Tag - Icon Only and Text Input
+
+- [Added] - Publishing new docs pages for stacked notification - overview and apps ([#3097](https://github.com/justeattakeaway/pie/pull/3097)) by [@Grrreidy](https://github.com/Grrreidy)
+
+  [Added] - Publishing new docs pages for app-bar - overview, iOS and Android
+
+- [Added] - pie-css app typography base element styles ([#3104](https://github.com/justeattakeaway/pie/pull/3104)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Changed] - stylelint minor pkg update
+
+### Patch Changes
+
+- [Added] New section Overrides background colour. ([#3086](https://github.com/justeattakeaway/pie/pull/3086)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Changed] The default colour of the Accordion component uses the token $transparent.
+
+- [Changed] - updated snapshots after icons update ([#3120](https://github.com/justeattakeaway/pie/pull/3120)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`2112542`](https://github.com/justeattakeaway/pie/commit/211254298feb069d4b59c34c04b7e9535e3c421f), [`0767fcb`](https://github.com/justeattakeaway/pie/commit/0767fcbcbc618aac34c91a6f731f47a7035d2845)]:
+  - @justeattakeaway/pie-icons@5.31.0
+  - @justeattakeaway/pie-icons-webc@1.28.0
+  - @justeattakeaway/pie-css@1.5.0
+  - @justeattakeaway/pie-webc@0.11.9
+
 ## 5.11.2
 
 ### Patch Changes
