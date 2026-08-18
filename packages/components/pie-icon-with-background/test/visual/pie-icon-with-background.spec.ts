@@ -24,4 +24,11 @@ test.describe('PieIconWithBackground - Visual tests', () => {
 
         await percySnapshot(page, 'PieIconWithBackground - Variant variations', percyWidths);
     });
+
+    test('should render the dimmed state', async ({ page }) => {
+        const basePage = new BasePage(page, 'icon-with-background--dimmed');
+        await basePage.load();
+
+        await percySnapshot(page, 'PieIconWithBackground - Dimmed', percyWidths);
+    });
 });
