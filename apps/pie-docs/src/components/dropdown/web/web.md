@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Do's & don'ts
+## Do's and don'ts
 
 {% usage {
     do: {
@@ -255,53 +255,56 @@ Field height of 56px.
 
 ### Field states
 
-#### Default
-
-{% contentPageImage {
-    src:"../../../assets/img/components/dropdown/interactive-states-default.svg",
-    alt: "A dropdown component in its default resting state.",
-    width: "200"
-} %}
-
-#### Hover
-
-{% contentPageImage {
-    src:"../../../assets/img/components/dropdown/interactive-states-hover.svg",
-    alt: "A dropdown component in its hover state, with a visual highlight indicating it is interactive.",
-    width: "200"
-} %}
-
-#### Active (Open)
-
-{% contentPageImage {
-    src:"../../../assets/img/components/dropdown/interactive-states-active.svg",
-    alt: "A dropdown component in its active state with the popover open and options visible.",
-    width: "200"
-} %}
-
-#### Focus
-
-{% contentPageImage {
-    src:"../../../assets/img/components/dropdown/interactive-states-focus.svg",
-    alt: "A dropdown component in its focus state, showing a focus ring around the field.",
-    width: "200"
-} %}
-
-#### Error
-
-{% contentPageImage {
-    src:"../../../assets/img/components/dropdown/interactive-states-error.svg",
-    alt: "A dropdown component in its error state, with an error colour applied to the border and assistive text.",
-    width: "200"
-} %}
-
-#### Disabled
-
-{% contentPageImage {
-    src:"../../../assets/img/components/dropdown/interactive-states-disabled.svg",
-    alt: "A dropdown component in its disabled state, appearing greyed out and non-interactive.",
-    width: "200"
-} %}
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Default</h4>
+    {% contentPageImage {
+        src:"../../../assets/img/components/dropdown/interactive-states-default.svg",
+        alt: "A dropdown component in its default resting state.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Hover</h4>
+    {% contentPageImage {
+        src:"../../../assets/img/components/dropdown/interactive-states-hover.svg",
+        alt: "A dropdown component in its hover state, with a visual highlight indicating it is interactive.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Active (Open)</h4>
+    {% contentPageImage {
+        src:"../../../assets/img/components/dropdown/interactive-states-active.svg",
+        alt: "A dropdown component in its active state with the popover open and options visible.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Focus</h4>
+    {% contentPageImage {
+        src:"../../../assets/img/components/dropdown/interactive-states-focus.svg",
+        alt: "A dropdown component in its focus state, showing a focus ring around the field.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Error</h4>
+    {% contentPageImage {
+        src:"../../../assets/img/components/dropdown/interactive-states-error.svg",
+        alt: "A dropdown component in its error state, with an error colour applied to the border and assistive text.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Disabled</h4>
+    {% contentPageImage {
+        src:"../../../assets/img/components/dropdown/interactive-states-disabled.svg",
+        alt: "A dropdown component in its disabled state, appearing greyed out and non-interactive.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Option states
 
@@ -376,16 +379,18 @@ As the user types in the search field, the options are dynamically updated to di
     width: "200"
 } %}
 
-### Interaction areas
+---
+
+## Interaction areas
 
 {% contentPageImage {
-    src:"../../../assets/img/components/dropdown/overview.svg",
+    src:"../../../assets/img/components/dropdown/interactions.svg",
     alt: "A dropdown component with interaction areas highlighted: the clear selection area and the open/expand area.",
     width: "200"
 } %}
 
 {% list {
-    type: listTypes.bullet,
+    type: listTypes.ordered,
     items: [
         "**Clear selection**: Clicking or tapping on this area will remove any selected options.",
         "**Open/Expand the dropdown**: Represents the placeholder text or value selected by the user."

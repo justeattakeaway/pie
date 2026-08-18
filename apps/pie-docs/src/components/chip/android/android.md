@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Dos and Don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -136,6 +136,11 @@ Action chips behave as interactive elements that trigger navigation or perform a
 } %}
 
 ### Translucent
+
+{% notification {
+    type: "information",
+    message: "The translucent variant does not use blur on Android, as this effect is not compatible with the operating system."
+} %}
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/variation-translucent.svg",
@@ -407,8 +412,6 @@ Outlines the atomic level interactive elements for the component.
 ---
 
 ## Examples
-
-Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 

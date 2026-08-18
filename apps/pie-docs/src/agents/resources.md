@@ -67,9 +67,11 @@ Rules and best-practice guidelines for reviewing an agent skill's `SKILL.md`, fo
 
 ## Prototyping resources
 
-### Figma Make template
+### Figma Make Kit
 
-The [PIE Figma Make template](https://www.figma.com/make/talqHe1wBFCwCdxUk5KfNf/Figma-Make-%7C-Web-Template?t=UVohg5HTOn6SvgGG-6) provides a streamlined, low-code environment for initial explorations.
+The PIE Figma Make Kit is connected directly to the PIE design system npm packages, which means Figma Make can now generate web code using real PIE components and design tokens rather than generic defaults. This doesn't mean the code generated is ready for production but it's much more useful for conversations with engineering.
+
+You can find the PIE Make Kit when you open a new Make file in Figma.
 
 ### Other prototyping tools
 
