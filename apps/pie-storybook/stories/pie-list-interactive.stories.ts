@@ -49,7 +49,7 @@ export default listInteractiveMeta;
 // `disabled` on the rows instead would leave the tags undimmed.
 const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'radio'}
+        interactionType="radio"
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
@@ -64,7 +64,7 @@ const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = 
 
 const renderCheckboxItem = (args: ListPlaygroundProps, name: string, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'checkbox'}
+        interactionType="checkbox"
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
@@ -79,7 +79,7 @@ const renderCheckboxItem = (args: ListPlaygroundProps, name: string, hasDivider 
 
 const renderSwitchItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'switch'}
+        interactionType="switch"
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         ?isCompact=${args.isCompact}
@@ -94,7 +94,7 @@ const renderSwitchItem = (args: ListPlaygroundProps, hasDivider = false) => html
 
 const renderLinkItem = (args: ListPlaygroundProps, href: string, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'link'}
+        interactionType="link"
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
@@ -111,7 +111,7 @@ const renderLinkItem = (args: ListPlaygroundProps, href: string, hasDivider = fa
 
 const renderButtonItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'button'}
+        interactionType="button"
         .primaryText=${args.primaryText}
         .secondaryText=${args.secondaryText || undefined}
         .metaText=${args.metaText || undefined}
@@ -193,7 +193,7 @@ const makeLinkCurrentPageTemplate = (): TemplateFunction<ListPlaygroundProps> =>
         <pie-list aria-label="Navigation">
             ${renderLinkItem(args, '#item-1', args.hasDivider)}
             <pie-list-item
-                .interactionType=${'link'}
+                interactionType="link"
                 .primaryText=${args.primaryText}
                 .secondaryText=${args.secondaryText || undefined}
                 ?isCompact=${args.isCompact}
