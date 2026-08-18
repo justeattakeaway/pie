@@ -2,9 +2,10 @@ import {
     html, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { consume } from '@lit/context';
+import { safeCustomElement, validPropertyValues, parentDisabledContext } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
     variants,
@@ -47,6 +48,10 @@ export class PieTag extends PieElement implements TagProps {
     @property({ type: Boolean })
     public hasLeadingIcon = defaultProps.hasLeadingIcon;
 
+    @consume({ context: parentDisabledContext, subscribe: true })
+    @state()
+    private _parentDisabled = false;
+
     render () {
         const {
             isDimmed,
@@ -61,7 +66,7 @@ export class PieTag extends PieElement implements TagProps {
             'c-tag': true,
             [`c-tag--${size}`]: true,
             [`c-tag--${variant}`]: true,
-            'is-dimmed': isDimmed,
+            'is-dimmed': isDimmed || this._parentDisabled,
             'c-tag--strong': isStrong,
             'c-tag--icon-only': isIconOnly,
             'c-tag--has-icon': hasLeadingIcon,
