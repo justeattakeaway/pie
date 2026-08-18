@@ -37,6 +37,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `size`     | `small`, `medium`, `large`, `xlarge`                                                                                                              | The size of the component, sizing both the container and slotted icon.  | `medium`  |
 | `variant`  | `neutral`, `neutral-alternative`, `information`, `success`, `error`, `warning`, `brand-02`, `brand-03`, `brand-04`, `brand-05`, `brand-06`, `brand-08` | The background colour variant of the component.                         | `neutral` |
 | `isStrong` | `true`, `false`                                                                                                                                   | When true, applies a stronger colour emphasis (no effect on `neutral-alternative`). | `false`   |
+| `isDimmed` | `true`, `false`                                                                                                                                   | When true, applies a dimmed visual styling to indicate a disabled context. Useful when this component is placed inside a parent component that has a disabled state (e.g. a disabled card or form section). Named `isDimmed` rather than `disabled` as this component is non-interactive. | `false`   |
 
 ### Slots
 | Slot      | Description                                     |
