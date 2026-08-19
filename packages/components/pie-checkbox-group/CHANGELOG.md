@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 1.2.5
+
+### Patch Changes
+
+- [Changed] - SSR disclaimer regarding group disabled behaviour. ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.2.4
 
 ### Patch Changes

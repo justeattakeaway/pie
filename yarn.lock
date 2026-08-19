@@ -3664,7 +3664,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox-group@npm:1.2.4, @justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group":
+"@justeattakeaway/pie-checkbox-group@npm:1.2.5, @justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group"
   dependencies:
@@ -3754,7 +3754,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-data-table@npm:0.3.26, @justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table":
+"@justeattakeaway/pie-data-table@npm:0.3.27, @justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table"
   dependencies:
@@ -3792,7 +3792,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.31.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.28.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.10"
+    "@justeattakeaway/pie-webc": "npm:0.11.11"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -3841,7 +3841,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icon-with-background@npm:0.3.0, @justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background":
+"@justeattakeaway/pie-icon-with-background@npm:0.4.0, @justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background"
   dependencies:
@@ -3958,7 +3958,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-list@npm:0.6.2, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
+"@justeattakeaway/pie-list@npm:0.7.0, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-list@workspace:packages/components/pie-list"
   dependencies:
@@ -4028,7 +4028,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-radio-group@npm:1.2.5, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
+"@justeattakeaway/pie-radio-group@npm:1.2.6, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group"
   dependencies:
@@ -4087,7 +4087,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.28.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.10"
+    "@justeattakeaway/pie-webc": "npm:0.11.11"
     "@storybook/addon-a11y": "npm:10.5.0"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.5.0"
@@ -4131,7 +4131,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tag@npm:1.0.3, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
+"@justeattakeaway/pie-tag@npm:1.1.0, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tag@workspace:packages/components/pie-tag"
   dependencies:
@@ -4174,7 +4174,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-thumbnail@npm:0.8.38, @justeattakeaway/pie-thumbnail@workspace:packages/components/pie-thumbnail":
+"@justeattakeaway/pie-thumbnail@npm:0.9.0, @justeattakeaway/pie-thumbnail@workspace:packages/components/pie-thumbnail":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-thumbnail@workspace:packages/components/pie-thumbnail"
   dependencies:
@@ -4244,7 +4244,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.11.10, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.11.11, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4255,30 +4255,30 @@ __metadata:
     "@justeattakeaway/pie-button": "npm:1.14.12"
     "@justeattakeaway/pie-card": "npm:0.27.10"
     "@justeattakeaway/pie-checkbox": "npm:1.4.3"
-    "@justeattakeaway/pie-checkbox-group": "npm:1.2.4"
+    "@justeattakeaway/pie-checkbox-group": "npm:1.2.5"
     "@justeattakeaway/pie-chip": "npm:1.0.10"
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
     "@justeattakeaway/pie-cookie-banner": "npm:1.10.13"
-    "@justeattakeaway/pie-data-table": "npm:0.3.26"
+    "@justeattakeaway/pie-data-table": "npm:0.3.27"
     "@justeattakeaway/pie-divider": "npm:1.5.32"
     "@justeattakeaway/pie-form-label": "npm:0.18.33"
     "@justeattakeaway/pie-icon-button": "npm:2.7.29"
-    "@justeattakeaway/pie-icon-with-background": "npm:0.3.0"
+    "@justeattakeaway/pie-icon-with-background": "npm:0.4.0"
     "@justeattakeaway/pie-link": "npm:1.5.1"
-    "@justeattakeaway/pie-list": "npm:0.6.2"
+    "@justeattakeaway/pie-list": "npm:0.7.0"
     "@justeattakeaway/pie-lottie-player": "npm:0.4.12"
     "@justeattakeaway/pie-modal": "npm:1.27.6"
     "@justeattakeaway/pie-notification": "npm:0.24.14"
     "@justeattakeaway/pie-radio": "npm:1.2.3"
-    "@justeattakeaway/pie-radio-group": "npm:1.2.5"
+    "@justeattakeaway/pie-radio-group": "npm:1.2.6"
     "@justeattakeaway/pie-select": "npm:0.9.9"
     "@justeattakeaway/pie-spinner": "npm:1.5.5"
     "@justeattakeaway/pie-switch": "npm:2.7.0"
     "@justeattakeaway/pie-tabs": "npm:0.1.32"
-    "@justeattakeaway/pie-tag": "npm:1.0.3"
+    "@justeattakeaway/pie-tag": "npm:1.1.0"
     "@justeattakeaway/pie-text-input": "npm:0.30.9"
     "@justeattakeaway/pie-textarea": "npm:0.23.4"
-    "@justeattakeaway/pie-thumbnail": "npm:0.8.38"
+    "@justeattakeaway/pie-thumbnail": "npm:0.9.0"
     "@justeattakeaway/pie-toast": "npm:1.1.5"
     "@justeattakeaway/pie-toast-provider": "npm:1.1.5"
     chalk: "npm:5.6.2"
