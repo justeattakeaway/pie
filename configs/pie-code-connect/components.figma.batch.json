@@ -168,5 +168,24 @@
         "isPhoto": true
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-breadcrumb.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-breadcrumb",
+        "componentNameReact": "PieBreadcrumb",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-breadcrumb/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+        "isCompact": false
+      },
+      {
+        "componentName": "pie-breadcrumb",
+        "componentNameReact": "PieBreadcrumb",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-breadcrumb/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=314-28746",
+        "isCompact": true
+      }
+    ]
   }
 ]
