@@ -34,15 +34,9 @@ $ yarn add @justeattakeaway/pie-webc-core
 ## Importing the package
 
 ```js
-import { RequiredProperty, RtlMixin } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin } from '@justeattakeaway/pie-webc-core';
 
 export class MyComponent extends RtlMixin(LitElement) implements MyComponentProps {
-  // ...
-
-  @property({ type: String })
-  @requiredProperty('my-component')
-  public value!: string;
-
   // ...
 }
 ```
