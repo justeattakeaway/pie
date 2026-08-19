@@ -198,5 +198,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-checkbox-group.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-checkbox-group",
+        "componentNameReact": "PieCheckboxGroup",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-checkbox-group/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6295-1722"
+      }
+    ]
   }
 ]
