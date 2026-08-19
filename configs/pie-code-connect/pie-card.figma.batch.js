@@ -1,9 +1,11 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
+const createGetSlotContent = require('./utils/get-slot-content.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
+const getSlotContent = createGetSlotContent(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
@@ -19,8 +21,7 @@ const variant = getInstanceProp('getEnum', 'Variant', {
 });
 
 // Map slot content
-const slotInstance = figma.selectedInstance.getSlot('Card content');
-const slotContent = slotInstance.connectedInstances.map((action) => action.executeTemplate().example);
+const slotContent = getSlotContent('Card content');
 
 const props = [
     renderProp('variant', variant, 'default'),
@@ -36,5 +37,5 @@ const template = figma.code`<${selectedComponentName}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-button',
+    id: componentName,
 };
