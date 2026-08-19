@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-radio-group",
   "description": "PIE Design System Radio Group built using Web Components",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",

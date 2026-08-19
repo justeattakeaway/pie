@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-radio-group
 
+## 1.2.6
+
+### Patch Changes
+
+- [Changed] - SSR disclaimer regarding group disabled behaviour. ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Always render legend and hide with CSS when empty ([#3071](https://github.com/justeattakeaway/pie/pull/3071)) by [@maledr5](https://github.com/maledr5)
+
 ## 1.2.5
 
 ### Patch Changes
