@@ -1,5 +1,5 @@
 import {
-    html, nothing, unsafeCSS, type PropertyValues,
+    html, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
@@ -33,8 +33,18 @@ const assistiveTextIdValue = 'assistive-text';
  */
 @safeCustomElement('pie-textarea')
 export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(PieElement))) implements TextareaProps, PIEInputElement {
+    private _value: TextareaProps['value'];
+
     @property({ type: String })
-    public value: TextareaProps['value'];
+    public get value (): string {
+        return this._value ?? this.defaultValue ?? '';
+    }
+
+    public set value (val: string | undefined) {
+        const old = this._value;
+        this._value = val;
+        this.requestUpdate('value', old);
+    }
 
     @property({ type: String })
     public defaultValue: TextareaProps['defaultValue'];
@@ -107,12 +117,12 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     protected firstUpdated (): void {
         const { signal } = this._abortController;
         this._textarea.addEventListener('keydown', this.handleKeyDown, { signal });
-        this._internals.setFormValue(this.value ?? this.defaultValue ?? '');
+        this._internals.setFormValue(this.value);
     }
 
     protected updated (changedProperties: PropertyValues<this>) {
         if (changedProperties.has('value')) {
-            this.handleInput(null, this.value);
+            this.handleInput(null, this._value);
         }
 
         if (this.resize === 'auto' && ((changedProperties.has('resize') || changedProperties.has('size')) || changedProperties.has('rows'))) {
@@ -189,7 +199,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this.value = newValue;
         }
 
-        this._internals.setFormValue(this.value ?? '');
+        this._internals.setFormValue(this.value);
 
         this.handleResize();
     };
@@ -232,7 +242,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             name,
             readonly,
             placeholder,
-            value,
             defaultValue,
             required,
             status,
@@ -260,9 +269,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     data-test-id="${componentSelector}"
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
+                    .value=${live(this._value ?? defaultValue ?? '')}
                     placeholder=${ifDefined(placeholder)}
-                    .defaultValue=${defaultValue ?? ''}
-                    .value=${value !== undefined ? live(value) : nothing}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}
                     ?required=${required}
@@ -274,8 +282,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     maxlength=${ifDefined(maxlength)}
-                    rows=${ifDefined(rows)}
-                ></textarea>
+                    rows=${ifDefined(rows)}></textarea>
             </div>
             ${this.renderAssistiveText()}
         </div>`;
