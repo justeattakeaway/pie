@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-link",
   "description": "PIE Design System Link built using Web Components",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -49,8 +49,8 @@
     "@justeattakeaway/pie-wrapper-react": "0.14.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "1.28.0",
-    "@justeattakeaway/pie-webc-core": "18.0.0"
+    "@justeattakeaway/pie-icons-webc": "1.28.1",
+    "@justeattakeaway/pie-webc-core": "18.1.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

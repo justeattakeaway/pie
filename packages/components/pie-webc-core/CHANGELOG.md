@@ -1,5 +1,11 @@
 # Changelog
 
+## 18.1.0
+
+### Minor Changes
+
+- [Removed] - requiredProperty decorator. This was only used once in the repo and caused issues in React. Given the lack of use and the fact it doesn't really stop component misuse, it is ok to remove. ([#3135](https://github.com/justeattakeaway/pie/pull/3135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 18.0.0
 
 ### Patch Changes

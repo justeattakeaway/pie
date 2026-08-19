@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-radio
 
+## 1.2.4
+
+### Patch Changes
+
+- [Removed] - RequiredProperty decorator from the `value` property. This creates noise at runtime but doesn't actually prevent misuse. ([#3135](https://github.com/justeattakeaway/pie/pull/3135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`dbe46d3`](https://github.com/justeattakeaway/pie/commit/dbe46d396da315065477f4418cf07b9136c6b4d6)]:
+  - @justeattakeaway/pie-webc-core@18.1.0
+
 ## 1.2.3
 
 ### Patch Changes
