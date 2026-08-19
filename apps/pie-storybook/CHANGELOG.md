@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.89.2
+
+### Patch Changes
+
+- [Added] - Long text, compact list story covering first line alignment of leading, trailing and meta content ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Added] - Long meta text, compact list story covering a compact item whose meta text wraps
+
+- [Removed] - remove empty data-table stories ([#3128](https://github.com/justeattakeaway/pie/pull/3128)) by [@maledr5](https://github.com/maledr5)
+
+- [Added] - `thumbnail` option for the trailing content control in the list stories ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Fixed] - Radio and checkbox selection list stories now disable the containing group rather than each list item, so the group propagates its disabled state to the rows, their controls and any slotted tag
+  [Changed] - Individually disabled switch and button rows now dim their slotted tag and thumbnail, matching the recommended usage
+  [Changed] - Disabled tag behaviour test story also covers slotted thumbnails
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.11
+
 ## 1.89.1
 
 ### Patch Changes

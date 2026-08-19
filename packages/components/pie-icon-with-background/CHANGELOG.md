@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-with-background
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - New isDimmed prop for pie-icon-with-background ([#3089](https://github.com/justeattakeaway/pie/pull/3089)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
 ## 0.3.0
 
 ### Minor Changes

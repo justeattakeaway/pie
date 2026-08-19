@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - `disabled` is now automatically applied when the thumbnail is inside a disabled `pie-radio-group` or `pie-checkbox-group`, via Lit context. ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.38
 
 ### Patch Changes
