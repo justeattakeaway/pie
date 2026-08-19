@@ -138,5 +138,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-assistive-text.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-assistive-text",
+        "componentNameReact": "PieAssistiveText",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-assistive-text/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=163-43157"
+      }
+    ]
   }
 ]
