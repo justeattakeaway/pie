@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-notification",
   "description": "PIE Design System Notification built using Web Components",
-  "version": "0.24.14",
+  "version": "0.24.15",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -49,9 +49,9 @@
     "@justeattakeaway/pie-wrapper-react": "0.14.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icon-button": "2.7.29",
-    "@justeattakeaway/pie-icons-webc": "1.28.0",
-    "@justeattakeaway/pie-webc-core": "18.0.0"
+    "@justeattakeaway/pie-icon-button": "2.7.30",
+    "@justeattakeaway/pie-icons-webc": "1.28.1",
+    "@justeattakeaway/pie-webc-core": "18.1.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
