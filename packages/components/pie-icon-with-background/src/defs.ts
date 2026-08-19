@@ -36,6 +36,13 @@ export interface IconWithBackgroundProps {
      * When true, applies a stronger colour emphasis. Has no effect on the `neutral-alternative` variant.
      */
     isStrong?: boolean;
+
+    /**
+     * When true, applies a dimmed visual styling to indicate a disabled context.
+     * Useful when this component is placed inside a parent component that has a disabled state.
+     * Named `isDimmed` rather than `disabled` as this component is non-interactive.
+     */
+    isDimmed?: boolean;
 }
 
 export type DefaultProps = ComponentDefaultProps<IconWithBackgroundProps>;
@@ -45,4 +52,5 @@ export const defaultProps: DefaultProps = {
     size: 'medium',
     variant: 'neutral',
     isStrong: false,
+    isDimmed: false,
 };

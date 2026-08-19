@@ -18,6 +18,8 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--long-text', snapshotName: 'PieList - Long text wrapping' },
     { storyId: 'list--long-text-meta-text-only-primary-text', snapshotName: 'PieList - Long text, meta text with only primary text' },
     { storyId: 'list--long-text-centre-aligned', snapshotName: 'PieList - Long text, centre aligned' },
+    { storyId: 'list--long-text-compact', snapshotName: 'PieList - Long text, compact (first line alignment)' },
+    { storyId: 'list--long-meta-text-compact', snapshotName: 'PieList - Long meta text, compact (wrapped meta text)' },
     { storyId: 'list--alignment-override', snapshotName: 'PieList - Alignment override' },
     { storyId: 'list--removed-padding', snapshotName: 'PieList - Removed inline padding' },
     { storyId: 'list--borders', snapshotName: 'PieList - Borders between items' },
@@ -25,12 +27,14 @@ const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--link-list', snapshotName: 'PieList - Link list' },
     { storyId: 'list--button-list', snapshotName: 'PieList - Button list' },
     { storyId: 'list--button-list-disabled', snapshotName: 'PieList - Button list (disabled)' },
+    { storyId: 'list--coloured-icons-disabled', snapshotName: 'PieList - Coloured slotted icons (enabled and disabled)' },
     { storyId: 'list--item-height-compact', snapshotName: 'PieList - Item height (compact, primary text only)' },
     { storyId: 'list--item-height-primary-and-secondary', snapshotName: 'PieList - Item height (primary and secondary text)' },
     { storyId: 'list--item-height-primary-only', snapshotName: 'PieList - Item height (primary text only)' },
     { storyId: 'list--item-height-compact-no-divider', snapshotName: 'PieList - Item height (compact, primary text only, no divider)' },
     { storyId: 'list--item-height-primary-and-secondary-no-divider', snapshotName: 'PieList - Item height (primary and secondary text, no divider)' },
     { storyId: 'list--item-height-primary-only-no-divider', snapshotName: 'PieList - Item height (primary text only, no divider)' },
+    { storyId: 'list--disabled-tag-behaviour', snapshotName: 'PieList - Disabled tag behaviour' },
 ];
 
 test.describe('PieList - Visual tests', () => {

@@ -3038,9 +3038,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma/code-connect@npm:1.5.2":
-  version: 1.5.2
-  resolution: "@figma/code-connect@npm:1.5.2"
+"@figma/code-connect@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@figma/code-connect@npm:2.0.0"
   dependencies:
     boxen: "npm:5.1.1"
     chalk: "npm:^4.1.2"
@@ -3067,7 +3067,7 @@ __metadata:
     zod-validation-error: "npm:^3.2.0"
   bin:
     figma: bin/figma
-  checksum: 10/a3d4a618b13753a734cf7be50a0458cb59f8f38e9897358b3965a7562c475dbb8cc93c4b345cbc0ff50ae8d8677907418d24f7c01b39a35571fb2973b5cdd1a6
+  checksum: 10/89971f53969dc2ab3aef39a3651707293248bb29ea3731bae18814fe3d6f205266772cac8f37148d0bfe7fe0a7a03605642f4e69015ce373082d94fac1b768ab
   languageName: node
   linkType: hard
 
@@ -3708,7 +3708,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-code-connect@workspace:configs/pie-code-connect"
   dependencies:
-    "@figma/code-connect": "npm:1.5.2"
+    "@figma/code-connect": "npm:2.0.0"
   languageName: unknown
   linkType: soft
 
@@ -4141,6 +4141,7 @@ __metadata:
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
     "@justeattakeaway/pie-webc-core": "npm:18.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
+    "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
@@ -4181,6 +4182,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.5.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
     "@justeattakeaway/pie-webc-core": "npm:18.0.0"
+    "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 

@@ -8,9 +8,18 @@ const { baseName } = figma.batch;
 const isReact = process.env.FRAMEWORK === 'react';
 
 function getComponentName (isReact) {
-    const fillSuffix = getInstanceProp('getEnum', 'Fill', { True: true, False: false }) ? '-filled' : '';
-    const sizeSuffix = getInstanceProp('getEnum', 'Size', { Large: true, Small: false }) ? '-large' : '';
-    const name = `${baseName}${fillSuffix}${sizeSuffix}`;
+    const fillSuffix = getInstanceProp('getEnum', 'Fill', { True: '-filled', False: '' }) || '';
+    const selectedSuffix = getInstanceProp('getEnum', 'Selected', { True: '-selected', False: '-unselected' }) || '';
+    const sizeSuffix = getInstanceProp('getEnum', 'Size', { Large: '-large', Small: '' }) || '';
+
+    let name = `${baseName}${sizeSuffix}`;
+    if (fillSuffix) {
+        // Standard pattern for all icons
+        name = `${baseName}${fillSuffix}${sizeSuffix}`;
+    } else if (selectedSuffix) {
+        // Exception pattern for Control icons (checkbox and radio)
+        name = `${baseName}${selectedSuffix}${sizeSuffix}`;
+    }
 
     if (isReact) {
         return toPascalCase(name);

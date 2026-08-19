@@ -190,7 +190,7 @@
     },
     {
       "path": "./packages/components/pie-thumbnail/dist/*.js",
-      "maxSize": "4 KB"
+      "maxSize": "5 KB"
     },
     {
       "path": "./packages/components/pie-select/dist/*.js",

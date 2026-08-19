@@ -36,6 +36,7 @@ const listInteractiveMeta: ListInteractiveMeta = {
             type: 'figma',
             url: '',
         },
+        layout: 'padded',
     },
 };
 
@@ -43,59 +44,60 @@ export default listInteractiveMeta;
 
 // Item render helpers --------------------------------------------------------
 
+// Radio and checkbox rows are disabled through their group, not individually: the group propagates
+// its disabled state to every row, its slotted control, and any slotted `pie-tag`. Setting
+// `disabled` on the rows instead would leave the tags undimmed.
 const renderRadioItem = (args: ListPlaygroundProps, value: string, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'radio'}
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        interactionType="radio"
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
-        ?hasDivider=${hasDivider}
-        ?disabled=${args.disabled}>
-        <pie-radio slot="leading" value=${value} ?disabled=${args.disabled}></pie-radio>
+        ?hasDivider=${hasDivider}>
+        <pie-radio slot="leading" value=${value}></pie-radio>
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>
 `;
 
 const renderCheckboxItem = (args: ListPlaygroundProps, name: string, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'checkbox'}
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        interactionType="checkbox"
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
-        ?hasDivider=${hasDivider}
-        ?disabled=${args.disabled}>
-        <pie-checkbox slot="leading" name=${name} value=${name} ?disabled=${args.disabled}></pie-checkbox>
+        ?hasDivider=${hasDivider}>
+        <pie-checkbox slot="leading" name=${name} value=${name}></pie-checkbox>
         ${renderTrailing(args.trailingContent)}
     </pie-list-item>
 `;
 
 const renderSwitchItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'switch'}
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
+        interactionType="switch"
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
         ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
-        ${renderLeading(args.leadingContent)}
+        ${renderLeading(args.leadingContent, args.disabled)}
         <pie-switch slot="trailing" ?disabled=${args.disabled}></pie-switch>
     </pie-list-item>
 `;
 
 const renderLinkItem = (args: ListPlaygroundProps, href: string, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'link'}
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        interactionType="link"
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
@@ -109,17 +111,17 @@ const renderLinkItem = (args: ListPlaygroundProps, href: string, hasDivider = fa
 
 const renderButtonItem = (args: ListPlaygroundProps, hasDivider = false) => html`
     <pie-list-item
-        .interactionType=${'button'}
-        .primaryText=${args.primaryText}
-        .secondaryText=${args.secondaryText || undefined}
-        .metaText=${args.metaText || undefined}
+        interactionType="button"
+        primaryText=${args.primaryText}
+        secondaryText=${args.secondaryText || undefined}
+        metaText=${args.metaText || undefined}
         ?isCompact=${args.isCompact}
         ?isBold=${args.isBold}
         ?hasMedia=${args.hasMedia}
         ?hasDivider=${hasDivider}
         ?disabled=${args.disabled}>
-        ${renderLeading(args.leadingContent)}
-        ${renderTrailing(args.trailingContent)}
+        ${renderLeading(args.leadingContent, args.disabled)}
+        ${renderTrailing(args.trailingContent, args.disabled)}
     </pie-list-item>
 `;
 
@@ -129,9 +131,9 @@ const makeRadioListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-radio-group { max-width: 500px; }</style>
+        <style>pie-radio-group { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
-        <pie-radio-group name="interactive-radio">
+        <pie-radio-group name="interactive-radio" ?disabled=${args.disabled}>
             <pie-form-label slot="label">Select an option</pie-form-label>
             ${renderRadioItem(args, 'option-1', args.hasDivider)}
             ${renderRadioItem(args, 'option-2', args.hasDivider)}
@@ -145,9 +147,9 @@ const makeCheckboxListTemplate = (): TemplateFunction<ListPlaygroundProps> => (a
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-checkbox-group { max-width: 500px; }</style>
+        <style>pie-checkbox-group { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
-        <pie-checkbox-group name="interactive-checkbox">
+        <pie-checkbox-group name="interactive-checkbox" ?disabled=${args.disabled}>
             <pie-form-label slot="label">Select options</pie-form-label>
             ${renderCheckboxItem(args, 'option-1', args.hasDivider)}
             ${renderCheckboxItem(args, 'option-2', args.hasDivider)}
@@ -158,7 +160,7 @@ const makeCheckboxListTemplate = (): TemplateFunction<ListPlaygroundProps> => (a
 };
 
 const makeSwitchListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args) => html`
-    <style>pie-list { max-width: 500px; }</style>
+    <style>pie-list { width: min(500px, 100%); }</style>
     <pie-list aria-label="Settings">
         ${renderSwitchItem(args, args.hasDivider)}
         ${renderSwitchItem(args, args.hasDivider)}
@@ -171,7 +173,7 @@ const makeLinkListTemplate = (): TemplateFunction<ListPlaygroundProps> => (args)
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-list { max-width: 500px; }</style>
+        <style>pie-list { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Navigation">
             ${renderLinkItem(args, '#item-1', args.hasDivider)}
@@ -186,14 +188,14 @@ const makeLinkCurrentPageTemplate = (): TemplateFunction<ListPlaygroundProps> =>
     const notes = buildNotes(args);
 
     return html`
-        <style>pie-list { max-width: 500px; }</style>
+        <style>pie-list { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Navigation">
             ${renderLinkItem(args, '#item-1', args.hasDivider)}
             <pie-list-item
-                .interactionType=${'link'}
-                .primaryText=${args.primaryText}
-                .secondaryText=${args.secondaryText || undefined}
+                interactionType="link"
+                primaryText=${args.primaryText}
+                secondaryText=${args.secondaryText || undefined}
                 ?isCompact=${args.isCompact}
                 ?isBold=${true}
                 ?hasMedia=${args.hasMedia}
@@ -216,7 +218,7 @@ const makeButtonListTemplate = (): TemplateFunction<ListPlaygroundProps> => (arg
     };
 
     return html`
-        <style>pie-list { max-width: 500px; }</style>
+        <style>pie-list { width: min(500px, 100%); }</style>
         ${notes.length ? html`<p><strong>Note:</strong> ${notes.join(' ')}</p>` : nothing}
         <pie-list aria-label="Actions" @click=${onButtonActivate}>
             ${renderButtonItem(args, args.hasDivider)}

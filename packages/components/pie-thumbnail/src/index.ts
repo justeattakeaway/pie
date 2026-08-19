@@ -3,9 +3,10 @@ import {
     unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues, parentDisabledContext } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
 import { property, query, state } from 'lit/decorators.js';
+import { consume } from '@lit/context';
 import {
     type ThumbnailProps,
     defaultProps,
@@ -61,6 +62,13 @@ export class PieThumbnail extends PieElement implements ThumbnailProps {
 
     @property({ type: Object })
     public placeholder: ThumbnailProps['placeholder'] = defaultProps.placeholder;
+
+    // Whether a disabling ancestor (e.g. `pie-radio-group`) has provided its disabled state, so a
+    // thumbnail slotted into a disabled group takes on the disabled styles without the consumer
+    // setting `disabled` on it. Defaults to false when there is no provider.
+    @consume({ context: parentDisabledContext, subscribe: true })
+    @state()
+    private _parentDisabled = false;
 
     @query('img')
     private img!: HTMLImageElement;
@@ -159,7 +167,7 @@ export class PieThumbnail extends PieElement implements ThumbnailProps {
             [`c-thumbnail--${variant}`]: true,
             [`c-thumbnail--${aspectRatio}`]: true,
             [backgroundColorClassNames[backgroundColor]]: true,
-            'is-disabled': disabled,
+            'is-disabled': disabled || this._parentDisabled,
             'c-thumbnail--padding': hasPadding,
             'is-defaultPlaceholder': _isDefaultPlaceholderVisible,
         };
