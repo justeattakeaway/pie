@@ -4141,6 +4141,7 @@ __metadata:
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
     "@justeattakeaway/pie-webc-core": "npm:18.0.0"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
+    "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
@@ -4181,6 +4182,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.5.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
     "@justeattakeaway/pie-webc-core": "npm:18.0.0"
+    "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 

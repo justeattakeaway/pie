@@ -51,7 +51,8 @@ export interface ThumbnailProps {
      */
     alt?: string;
     /**
-     * When true, the disabled styles are applied.
+     * When true, the disabled styles are applied. Also applied automatically when the thumbnail is
+     * inside a disabled `pie-radio-group` or `pie-checkbox-group`.
      */
     disabled?: boolean;
     /**

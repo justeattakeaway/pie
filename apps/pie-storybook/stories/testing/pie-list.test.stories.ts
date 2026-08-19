@@ -6,6 +6,10 @@ import '@justeattakeaway/pie-webc/components/list-item';
 import '@justeattakeaway/pie-webc/components/thumbnail';
 import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-webc/components/switch';
+import '@justeattakeaway/pie-webc/components/radio-group';
+import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/checkbox-group';
+import '@justeattakeaway/pie-webc/components/checkbox';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser';
 import '@justeattakeaway/pie-icons-webc/dist/IconLock';
@@ -170,9 +174,9 @@ const ButtonListTemplate = () => {
 };
 export const ButtonList = createStory<ListProps>(ButtonListTemplate, defaultArgs)();
 
-// Test-only: a disabled button list. Exercises the disabled colour tokens — text uses
-// `content-disabled` and icons use `disabled-01` (via fill: currentColor). Icons are present in
-// the leading slot so both text and icon colours are captured in the VRT snapshot.
+// Test-only: a disabled button list. Exercises the disabled styling: text uses `content-disabled`
+// and slotted icons are dimmed with opacity. Icons are present in the leading slot so both the text
+// colour and the icon dimming are captured in the VRT snapshot.
 const ButtonListDisabledTemplate = () => withLayout(html`
     <pie-list aria-label="Account actions">
         <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-1" primaryText="Edit profile" secondaryText="Update your name and photo" metaText="New">
@@ -190,6 +194,55 @@ const ButtonListDisabledTemplate = () => withLayout(html`
     </pie-list>
 `);
 export const ButtonListDisabled = createStory<ListProps>(ButtonListDisabledTemplate, defaultArgs)();
+
+// Test-only: slotted icons given explicit colours, shown enabled and disabled. Disabled items must
+// dim their icons with opacity and keep the author's colour, rather than overriding it with a
+// disabled colour token. The two lists are identical apart from `disabled`, so the VRT snapshot
+// compares each coloured icon against its own enabled counterpart.
+const ColouredIconsDisabledTemplate = () => withLayout(html`
+    <style>
+        pie-list + pie-list {
+            margin-block-start: var(--dt-spacing-d);
+        }
+    </style>
+    <pie-list aria-label="Coloured icons (enabled)">
+        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-enabled-1" primaryText="Error colour icons" secondaryText="Enabled">
+            <icon-user slot="leading" style="color: var(--dt-color-content-error);"></icon-user>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-error);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-enabled-2" primaryText="Positive colour icons" secondaryText="Enabled">
+            <icon-lock slot="leading" style="color: var(--dt-color-content-positive);"></icon-lock>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-positive);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-enabled-3" primaryText="Link colour icons" secondaryText="Enabled">
+            <icon-notification slot="leading" style="color: var(--dt-color-content-link);"></icon-notification>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-link);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} data-test-id="item-enabled-4" primaryText="Brand colour icons" secondaryText="Enabled">
+            <icon-log-out slot="leading" style="color: var(--dt-color-content-brand);"></icon-log-out>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-brand);"></icon-placeholder>
+        </pie-list-item>
+    </pie-list>
+    <pie-list aria-label="Coloured icons (disabled)">
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-disabled-1" primaryText="Error colour icons" secondaryText="Disabled">
+            <icon-user slot="leading" style="color: var(--dt-color-content-error);"></icon-user>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-error);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-disabled-2" primaryText="Positive colour icons" secondaryText="Disabled">
+            <icon-lock slot="leading" style="color: var(--dt-color-content-positive);"></icon-lock>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-positive);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} disabled data-test-id="item-disabled-3" primaryText="Link colour icons" secondaryText="Disabled">
+            <icon-notification slot="leading" style="color: var(--dt-color-content-link);"></icon-notification>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-link);"></icon-placeholder>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} disabled data-test-id="item-disabled-4" primaryText="Brand colour icons" secondaryText="Disabled">
+            <icon-log-out slot="leading" style="color: var(--dt-color-content-brand);"></icon-log-out>
+            <icon-placeholder slot="trailing" style="color: var(--dt-color-content-brand);"></icon-placeholder>
+        </pie-list-item>
+    </pie-list>
+`);
+export const ColouredIconsDisabled = createStory<ListProps>(ColouredIconsDisabledTemplate, defaultArgs)();
 
 /**
  * `isBold` sets the primary text to a bold font-weight.
@@ -589,6 +642,85 @@ const LongTextCentreAlignedTemplate = () => withLayout(html`
 
 export const LongTextCentreAligned = createStory<ListProps>(LongTextCentreAlignedTemplate, defaultArgs)();
 
+/**
+ * Compact items whose primary text wraps onto more than one line. The leading icon, trailing icon
+ * and meta text should all stay aligned with the first line of the primary text rather than being
+ * centred across every line.
+ */
+const LongTextCompactTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long">
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long"
+            metaText="Meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long">
+            ${leadingIcon}
+            ${trailingTag}
+        </pie-list-item>
+
+        <pie-list-item
+            isCompact
+            primaryText="Primary text that goes on far too long Primary text that goes on far too long">
+            ${trailingIcon}
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const LongTextCompact = createStory<ListProps>(LongTextCompactTemplate, defaultArgs)();
+
+/**
+ * Compact items whose meta text wraps while the primary text stays on one line. The meta text is then
+ * the taller content, so the row grows and the primary text sits level with the meta text's first line
+ * rather than centred against it.
+ */
+const LongMetaTextCompactTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text"></pie-list-item>
+
+        <pie-list-item
+            hasDivider
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text">
+            ${leadingIcon}
+        </pie-list-item>
+
+        <pie-list-item
+            isCompact
+            primaryText="Primary text"
+            metaText="Some very long awful meta text"></pie-list-item>
+    </pie-list>
+`);
+
+export const LongMetaTextCompact = createStory<ListProps>(LongMetaTextCompactTemplate, defaultArgs)();
+
 // Test-only stories -----------------------------------------------------------
 // The stories below exist purely to drive browser tests. They are not intended
 // as usage showcases.
@@ -707,3 +839,110 @@ const ItemHeightPrimaryOnlyNoDividerTemplate = () => withLayout(html`
 `);
 
 export const ItemHeightPrimaryOnlyNoDivider = createStory<ListProps>(ItemHeightPrimaryOnlyNoDividerTemplate, defaultArgs)();
+
+/**
+ * Test-only: verifies pie-tag disabled behaviour alongside pie-list-item.
+ *
+ * Section 1 — individual disabled rows: `isDimmed` must be set explicitly on the tag and `disabled`
+ * on the thumbnail; a disabled list-item does not propagate its state to slotted content
+ * automatically.
+ *
+ * Section 2 — group-disabled rows: when the containing `pie-radio-group` is disabled, the group's
+ * context propagates to every slotted `pie-tag` and `pie-thumbnail` automatically (no explicit
+ * `isDimmed` or `disabled` needed).
+ */
+const DisabledTagBehaviourTemplate = () => withLayout(html`
+    <pie-list>
+        <pie-list-item hasDivider .interactionType=${'button'} disabled primaryText="Disabled — tag explicitly dimmed" data-test-id="item-disabled-explicit">
+            <pie-tag slot="trailing" isDimmed data-test-id="tag-disabled-explicit">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider hasMedia .interactionType=${'button'} disabled primaryText="Disabled — tag not dimmed, thumbnail not disabled" data-test-id="item-disabled-no-dimmed">
+            <pie-thumbnail slot="leading" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-disabled-no-dimmed"></pie-thumbnail>
+            <pie-tag slot="trailing" data-test-id="tag-disabled-no-dimmed">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'button'} primaryText="Enabled — tag explicitly dimmed" data-test-id="item-enabled-explicit">
+            <pie-tag slot="trailing" isDimmed data-test-id="tag-enabled-explicit">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'button'} primaryText="Enabled — tag not dimmed" data-test-id="item-enabled-no-dimmed">
+            <pie-tag slot="trailing" data-test-id="tag-enabled-no-dimmed">Label</pie-tag>
+        </pie-list-item>
+    </pie-list>
+
+    <pie-radio-group name="group-disabled" disabled>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-1">
+            <pie-radio slot="leading" value="a"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-disabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-2">
+            <pie-radio slot="leading" value="b"></pie-radio>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-group-disabled-2"></pie-thumbnail>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-3">
+            <pie-radio slot="leading" value="c"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-disabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'radio'} primaryText="Disabled via group" data-test-id="item-group-disabled-4">
+            <pie-radio slot="leading" value="d"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-disabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-radio-group>
+
+    <pie-radio-group name="group-enabled">
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-1">
+            <pie-radio slot="leading" value="e"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-enabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-2">
+            <pie-radio slot="leading" value="f"></pie-radio>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-group-enabled-2"></pie-thumbnail>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-3">
+            <pie-radio slot="leading" value="g"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-enabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'radio'} primaryText="Enabled via group" data-test-id="item-group-enabled-4">
+            <pie-radio slot="leading" value="h"></pie-radio>
+            <pie-tag slot="trailing" data-test-id="tag-group-enabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-radio-group>
+
+    <pie-checkbox-group name="checkbox-group-disabled" disabled>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-1">
+            <pie-checkbox slot="leading" value="a"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-2">
+            <pie-checkbox slot="leading" value="b"></pie-checkbox>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-checkbox-group-disabled-2"></pie-thumbnail>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-3">
+            <pie-checkbox slot="leading" value="c"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'checkbox'} primaryText="Disabled via group" data-test-id="item-checkbox-group-disabled-4">
+            <pie-checkbox slot="leading" value="d"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-disabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-checkbox-group>
+
+    <pie-checkbox-group name="checkbox-group-enabled">
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-1">
+            <pie-checkbox slot="leading" value="e"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-1">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-2">
+            <pie-checkbox slot="leading" value="f"></pie-checkbox>
+            <pie-thumbnail slot="trailing" size="40" backgroundColor="strong" variant="outline" data-test-id="thumbnail-checkbox-group-enabled-2"></pie-thumbnail>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-3">
+            <pie-checkbox slot="leading" value="g"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-3">Label</pie-tag>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'checkbox'} primaryText="Enabled via group" data-test-id="item-checkbox-group-enabled-4">
+            <pie-checkbox slot="leading" value="h"></pie-checkbox>
+            <pie-tag slot="trailing" data-test-id="tag-checkbox-group-enabled-4">Label</pie-tag>
+        </pie-list-item>
+    </pie-checkbox-group>
+`);
+
+export const DisabledTagBehaviour = createStory<ListProps>(DisabledTagBehaviourTemplate, defaultArgs)();

@@ -21,7 +21,13 @@ test.describe('PieList - Accessibility tests', () => {
         await basePage.load();
 
         // Act
-        const results = await makeAxeBuilder().analyze();
+        // `item-3` is a disabled row, so its text is muted. Axe reports that as a `color-contrast` violation, but WCAG 2.1
+        // SC 1.4.3 (Contrast Minimum) exempts inactive user interface components, so the row is
+        // conformant as authored and the exclusion below is deliberate rather than a workaround.
+        // Source: https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+        const results = await makeAxeBuilder()
+            .exclude('pie-list-item[data-test-id="item-3"]')
+            .analyze();
 
         expect(results.violations).toEqual([]);
     });

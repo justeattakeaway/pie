@@ -571,4 +571,72 @@ test.describe('PieList - Component tests', () => {
             heights.forEach((height, i) => expect(height, `item ${i + 1}`).toBe(56));
         });
     });
+
+    test.describe('slotted tag and thumbnail disabled behaviour', () => {
+        // Reads the className of the inner `.c-tag` element inside a pie-tag's shadow root.
+        const getTagClass = (page: Page, testId: string) => page.evaluate(
+            (id) => document.querySelector(`[data-test-id="${id}"]`)?.shadowRoot?.querySelector('.c-tag')?.className ?? '',
+            testId,
+        );
+
+        // Reads the className of the inner `.c-thumbnail` element inside a pie-thumbnail's shadow root.
+        const getThumbnailClass = (page: Page, testId: string) => page.evaluate(
+            (id) => document.querySelector(`[data-test-id="${id}"]`)?.shadowRoot?.querySelector('.c-thumbnail')?.className ?? '',
+            testId,
+        );
+
+        test.beforeEach(async ({ page }) => {
+            await new BasePage(page, 'list--disabled-tag-behaviour').load();
+        });
+
+        test.describe('individual disabled rows', () => {
+            test('should NOT apply is-dimmed to a tag when the list-item is disabled but isDimmed is not set', async ({ page }) => {
+                // A disabled list-item must not propagate its disabled state to slotted tags.
+                expect(await getTagClass(page, 'tag-disabled-no-dimmed')).not.toContain('is-dimmed');
+            });
+
+            test('should NOT apply is-disabled to a thumbnail when the list-item is disabled but disabled is not set', async ({ page }) => {
+                // A disabled list-item must not propagate its disabled state to slotted thumbnails.
+                expect(await getThumbnailClass(page, 'thumbnail-disabled-no-dimmed')).not.toContain('is-disabled');
+            });
+        });
+
+        test.describe('group-disabled rows — context propagates automatically', () => {
+            test.describe('pie-radio-group', () => {
+                test('should apply is-dimmed to a tag inside a disabled pie-radio-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-group-disabled-1')).toContain('is-dimmed');
+                });
+
+                test('should NOT apply is-dimmed to a tag inside an enabled pie-radio-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-group-enabled-1')).not.toContain('is-dimmed');
+                });
+
+                test('should apply is-disabled to a thumbnail inside a disabled pie-radio-group', async ({ page }) => {
+                    expect(await getThumbnailClass(page, 'thumbnail-group-disabled-2')).toContain('is-disabled');
+                });
+
+                test('should NOT apply is-disabled to a thumbnail inside an enabled pie-radio-group', async ({ page }) => {
+                    expect(await getThumbnailClass(page, 'thumbnail-group-enabled-2')).not.toContain('is-disabled');
+                });
+            });
+
+            test.describe('pie-checkbox-group', () => {
+                test('should apply is-dimmed to a tag inside a disabled pie-checkbox-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-checkbox-group-disabled-1')).toContain('is-dimmed');
+                });
+
+                test('should NOT apply is-dimmed to a tag inside an enabled pie-checkbox-group', async ({ page }) => {
+                    expect(await getTagClass(page, 'tag-checkbox-group-enabled-1')).not.toContain('is-dimmed');
+                });
+
+                test('should apply is-disabled to a thumbnail inside a disabled pie-checkbox-group', async ({ page }) => {
+                    expect(await getThumbnailClass(page, 'thumbnail-checkbox-group-disabled-2')).toContain('is-disabled');
+                });
+
+                test('should NOT apply is-disabled to a thumbnail inside an enabled pie-checkbox-group', async ({ page }) => {
+                    expect(await getThumbnailClass(page, 'thumbnail-checkbox-group-enabled-2')).not.toContain('is-disabled');
+                });
+            });
+        });
+    });
 });
