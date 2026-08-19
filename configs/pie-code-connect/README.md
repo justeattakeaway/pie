@@ -219,6 +219,16 @@ The main difference between the returned value from the original API and this, i
 
 This approach aims to bring convenience, rather than requiring to figure out each time if the returned value is an error or actual value.
 
+#### `getSlotContent(slotName)`
+
+Retrieves the connected instances for a named slot on the selected Figma instance and returns their rendered template examples as an array.
+
+##### Parameters:
+- `slotName` - The name of the slot as defined in the Figma component (e.g. `'Card content'`)
+
+##### Returns:
+An array of rendered template examples from each connected instance. Pass the result directly to `figma.code` (use `.flat()` if slot instances can themselves return arrays).
+
 #### `renderProp(propName, value, defaultValue)`
 
 Renders a component prop in web or React syntax.
