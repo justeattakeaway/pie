@@ -6,7 +6,7 @@
 
 These utilities use logical properties for full RTL compatibility.
 
-> **Note:** Only use spacing utility classes when you always want the margin to be set to that size across **all** device breakpoints. These utilities override other style declarations and are most useful when you want to control margin on an HTML element without writing a dedicated classname hook.
+> **Note:** Only use spacing utility classes when you always want the margin to be set to that size across **all** device breakpoints and it is the only CSS you want to add to the element. These utilities override other style declarations and are most useful when you want to control margin on an HTML element without writing a dedicated classname hook.
 
 ## Table of Contents
 
