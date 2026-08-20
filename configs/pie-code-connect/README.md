@@ -227,7 +227,7 @@ Retrieves the connected instances for a named slot on the selected Figma instanc
 - `slotName` - The name of the slot as defined in the Figma component (e.g. `'Card content'`)
 
 ##### Returns:
-An array of rendered template examples from each connected instance. Pass the result directly to `figma.code` (use `.flat()` if slot instances can themselves return arrays).
+An array of rendered template examples from each connected instance. Pass the result directly to `figma.code`.
 
 #### `renderProp(propName, value, defaultValue)`
 
