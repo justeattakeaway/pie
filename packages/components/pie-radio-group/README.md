@@ -19,6 +19,7 @@
   - [Events](#events)
 - [Forms Usage](#forms-usage)
 - [Usage Examples](#usage-examples)
+  - [Wrapping radio buttons in custom markup](#wrapping-radio-buttons-in-custom-markup)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -43,7 +44,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Slots
 | Slot      | Description                                                                                      |
 |-----------|--------------------------------------------------------------------------------------------------|
-| `default` | Either [`pie-radio`](https://webc.pie.design/?path=/docs/components-radio--overview) components, or [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) components that each slot a `pie-radio` for a list-style layout (see [List items in a radio group](#list-items-in-a-radio-group)). Do not add other HTML. |
+| `default` | Either [`pie-radio`](https://webc.pie.design/?path=/docs/components-radio--overview) components, or [`pie-list-item`](https://webc.pie.design/?path=/docs/components-list--overview) components that each slot a `pie-radio` for a list-style layout (see [List items in a radio group](#list-items-in-a-radio-group)), or your own markup wrapping each `pie-radio` (see [Wrapping radio buttons in custom markup](#wrapping-radio-buttons-in-custom-markup)). |
 | `label`   | To provide a custom label for the radio group. Please use [`pie-form-label`](https://webc.pie.design/?path=/docs/components-form-label--overview). |
 
 ### CSS Variables
@@ -125,6 +126,44 @@ For full usage details and code examples, see the [`pie-list` documentation](htt
 #### SSR and group-disabled
 
 Group-disabled propagation occurs at runtime via Lit context. If you need disabled styles on page load in an SSR environment, set `disabled` directly on each item rather than relying on the group container.
+
+### Wrapping radio buttons in custom markup
+
+The group finds its radios anywhere in its subtree, so each `pie-radio` can be wrapped in your own markup. This lets you build layouts such as image tiles while the group keeps ownership of selection, keyboard navigation and the disabled state.
+
+The selected state can be styled from the radio's reflected `checked` attribute.
+
+```html
+<pie-radio-group name="device" isInline>
+    <pie-form-label slot="label">What device do you use to manage orders?</pie-form-label>
+    <div class="c-deviceTile">
+        <img src="/images/sunmi.jpg" alt="">
+        <pie-radio value="sunmi">Sunmi</pie-radio>
+    </div>
+    <div class="c-deviceTile">
+        <img src="/images/citaq.jpg" alt="">
+        <pie-radio value="citaq">Citaq</pie-radio>
+    </div>
+</pie-radio-group>
+```
+
+```css
+.c-deviceTile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dt-spacing-b);
+    padding: var(--dt-spacing-b);
+    border: 1px solid var(--dt-color-border-strong);
+    border-radius: var(--dt-radius-rounded-c);
+    cursor: pointer;
+}
+
+.c-deviceTile:has(pie-radio[checked]) {
+    border-color: var(--dt-color-interactive-brand);
+}
+```
+
+The group handles the radios, but the wrapper is yours. You are responsible for wiring up its ARIA, testing the result with screen readers, and handling its clicks and interactive styles.
 
 ## Questions and Support
 
