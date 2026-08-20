@@ -9,6 +9,8 @@
     align-items: center;
     justify-content: center;
 
+    @include p.disable-pointer-events-in-slotted-icons;
+
     // Fallback size if no size modifier is applied.
     --icon-with-background-size: 32px;
 
@@ -195,4 +197,9 @@
         --icon-with-background-bg-color: var(--dt-color-support-brand-08);
         --icon-with-background-icon-color: var(--dt-color-content-dark);
     }
+}
+
+.c-iconWithBackground.is-dimmed {
+    --icon-with-background-bg-color: var(--dt-color-disabled-01);
+    --icon-with-background-icon-color: var(--dt-color-content-disabled);
 }

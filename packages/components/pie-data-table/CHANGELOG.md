@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-data-table
 
+## 0.3.28
+
+### Patch Changes
+
+- Updated dependencies [[`dbe46d3`](https://github.com/justeattakeaway/pie/commit/dbe46d396da315065477f4418cf07b9136c6b4d6)]:
+  - @justeattakeaway/pie-webc-core@18.1.0
+
+## 0.3.27
+
+### Patch Changes
+
+- [Fixed] - fix tree-shaking of sub-component side effects ([#3128](https://github.com/justeattakeaway/pie/pull/3128)) by [@maledr5](https://github.com/maledr5)
+
 ## 0.3.26
 
 ### Patch Changes

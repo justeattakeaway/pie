@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 1.2.6
+
+### Patch Changes
+
+- Updated dependencies [[`dbe46d3`](https://github.com/justeattakeaway/pie/commit/dbe46d396da315065477f4418cf07b9136c6b4d6)]:
+  - @justeattakeaway/pie-webc-core@18.1.0
+  - @justeattakeaway/pie-assistive-text@1.0.10
+
+## 1.2.5
+
+### Patch Changes
+
+- [Changed] - SSR disclaimer regarding group disabled behaviour. ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.2.4
 
 ### Patch Changes

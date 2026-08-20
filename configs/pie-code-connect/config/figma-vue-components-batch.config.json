@@ -1,0 +1,8 @@
+{
+  "codeConnect": {
+    "include": ["components.figma.batch.json"],
+    "label": "Vue",
+    "language": "html",
+    "defaultBranch": "main"
+  }
+}

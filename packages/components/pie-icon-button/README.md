@@ -1,4 +1,4 @@
-`# @justeattakeaway/pie-icon-button
+# @justeattakeaway/pie-icon-button
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-icon-button) | [Design Documentation](https://pie.design/components/icon-button) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-icon-button)
 

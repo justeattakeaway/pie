@@ -10,7 +10,6 @@ import { consume } from '@lit/context';
 
 import {
     FormControlMixin,
-    requiredProperty,
     RtlMixin,
     wrapNativeEvent,
     validPropertyValues,
@@ -63,7 +62,6 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
     public required = defaultProps.required;
 
     @property({ type: String })
-    @requiredProperty(componentSelector)
     public value!: RadioProps['value'];
 
     @property({ type: String })

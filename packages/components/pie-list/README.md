@@ -36,6 +36,10 @@
   - [Link items](#link-items)
     - [Indicating the current page](#indicating-the-current-page)
   - [Button items](#button-items)
+  - [Disabled states](#disabled-states)
+    - [Disabling an individual row](#disabling-an-individual-row)
+    - [Disabling via a container group](#disabling-via-a-container-group)
+    - [SSR and group-disabled](#ssr-and-group-disabled)
   - [Framework variants](#framework-variants)
 - [Usage Notes and Rules](#usage-notes-and-rules)
 - [Questions and Support](#questions-and-support)
@@ -85,13 +89,13 @@ Slots are provided by `pie-list-item`.
 | `trailing` | Content displayed at the end of the item, after the text. Intended for a small icon, a `pie-tag`, etc. Not rendered when `metaText` is set. |
 | `link` | Only rendered when `interactionType="link"`. Slot a single **empty** anchor (`<a slot="link" href="...">`) here. It is stretched over the whole row so the entire item becomes the navigation target. The item supplies the anchor's accessible name and description from its text, so the anchor must contain no text of its own; apply any native anchor attributes you need (`href`, `target`, `rel`, and so on). See [Link items](#link-items). |
 
-The permitted slotted elements are: a PIE WEBC icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, and native HTML radio/checkbox inputs.
+The permitted slotted elements are: a PIE WEBC icon, `pie-tag`, `pie-thumbnail`, `pie-avatar`*, `pie-switch`, `pie-radio` and `pie-checkbox`.
 Some slotted content is designed with specific properties being used. So please read the entire readme to understand correct slot usage.
 
 > [!NOTE]
 > `pie-list` is a **static** container: it has no selection state or keyboard behaviour. For a **selectable** list, do not slot the controls into `pie-list`. Place `pie-list-item`s inside a [`pie-radio-group`](https://webc.pie.design/?path=/docs/components-radio-group--overview) (single-select) or a [`pie-checkbox-group`](https://webc.pie.design/?path=/docs/components-checkbox-group--overview) (multi-select) instead. See [Selectable lists](#selectable-lists) below.
 
-> Slotted PIE icons are always sized by `pie-list-item` (24px). Consumers cannot override this size.
+> Slotted PIE icons are always sized by `pie-list-item`. Consumers cannot override this size.
 
 > \* `pie-avatar` is a permitted slot element but is not covered by usage examples here yet, as it is not ready for use in lists.
 
@@ -241,7 +245,7 @@ Renders as trailing text; do not combine with the `trailing` slot:
 
 ### Compact list
 
-Reduced height, see [rules](#usage-notes-and-rules):
+Reduced height, see [rules](#usage-notes-and-rules). Leading, trailing and meta content is aligned with the first line of the primary text, so it stays level with that line if the text wraps. If `metaText` is the content that wraps, the row grows and the primary text sits level with the meta text's first line:
 
 ```html
 <pie-list>
@@ -516,6 +520,66 @@ import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
 <PieListItem interactionType="button" primaryText="Edit profile" secondaryText="Update your name and photo" onClick={openProfileEditor} />
 ```
 
+### Disabled states
+
+Only interactive rows (`interactionType` of `radio`, `checkbox`, `switch`, or `button`) can be disabled. `link` rows do not support `disabled`. Disabled links are generally a UX and accessibility problem, and we recommend reaching for a different pattern. Setting `disabled` on a non-interactive (`interactionType="none"`) item has no visible or functional effect.
+
+#### Disabling an individual row
+
+Set `disabled` on the `pie-list-item` and also on the slotted control. The item and the control are independent, so each must be disabled explicitly (exactly as you would disable a standalone `pie-checkbox`):
+
+```html
+<!-- Radio -->
+<pie-list-item interactionType="radio" disabled>
+  <pie-radio slot="leading" value="collection" disabled></pie-radio>
+</pie-list-item>
+
+<!-- Checkbox -->
+<pie-list-item interactionType="checkbox" disabled>
+  <pie-checkbox slot="leading" name="mushrooms" disabled></pie-checkbox>
+</pie-list-item>
+
+<!-- Switch -->
+<pie-list-item interactionType="switch" disabled>
+  <pie-switch slot="trailing" disabled></pie-switch>
+</pie-list-item>
+
+<!-- Button (no slotted control; the item renders its own button) -->
+<pie-list-item interactionType="button" primaryText="Sign out" disabled></pie-list-item>
+```
+
+Any component slotted into the row owns its own disabled styling too, so set that explicitly in the same way: `isDimmed` on a `pie-tag`, `disabled` on a `pie-thumbnail`, and so on. This applies to every individually disabled row, including switch rows, which have no container group to propagate from:
+
+```html
+<pie-list-item interactionType="button" disabled primaryText="Mushrooms" secondaryText="Out of season" hasMedia>
+  <pie-thumbnail slot="leading" size="40" disabled></pie-thumbnail>
+  <pie-tag slot="trailing" isDimmed>Out of stock</pie-tag>
+</pie-list-item>
+```
+
+#### Disabling via a container group
+
+Setting `disabled` on a `pie-radio-group` or `pie-checkbox-group` propagates the disabled state automatically to every `pie-list-item`, its slotted control, and any slotted `pie-tag` or `pie-thumbnail` inside the group. You do not need to set `disabled` on each row, or `isDimmed` on each tag, individually:
+
+```html
+<pie-radio-group name="delivery" disabled>
+  <pie-list-item interactionType="radio" primaryText="Standard delivery" secondaryText="3 to 5 working days">
+    <pie-radio slot="leading" value="standard"></pie-radio>
+    <pie-tag slot="trailing">Free</pie-tag>
+  </pie-list-item>
+  <pie-list-item interactionType="radio" primaryText="Express delivery" secondaryText="Next working day">
+    <pie-radio slot="leading" value="express"></pie-radio>
+    <pie-tag slot="trailing">£4.99</pie-tag>
+  </pie-list-item>
+</pie-radio-group>
+```
+
+Switches have no group, so each switch row must be disabled individually (see above).
+
+#### SSR and group-disabled
+
+Group-disabled propagation occurs at runtime via Lit context. If you need disabled styles on page load in an SSR environment, set `disabled` directly on each `pie-list-item`, its slotted control and any `pie-thumbnail`, and set `isDimmed` on any `pie-tag`, rather than relying on the group container.
+
 ### Framework variants
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
@@ -554,7 +618,8 @@ To keep lists consistent and correct, follow these rules:
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
 - **Always set `hasMedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
-- **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are single-line and too short for these.
+- **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are too short for these.
+- **Keep leading and trailing content in a compact item within one line of primary text.** Taller content cannot be aligned with the first line of the primary text. Icons, `pie-radio`, `pie-checkbox`, `pie-switch` and a large `pie-tag` all fit.
 - **Only use `center` for `--list-item-alignment`.** Other values are not supported.
 - **`pie-avatar` is not yet ready** for use in lists. Prefer `pie-thumbnail` for media for now.
 

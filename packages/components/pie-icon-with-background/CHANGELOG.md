@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-icon-with-background
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`dbe46d3`](https://github.com/justeattakeaway/pie/commit/dbe46d396da315065477f4418cf07b9136c6b4d6)]:
+  - @justeattakeaway/pie-webc-core@18.1.0
+
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - New isDimmed prop for pie-icon-with-background ([#3089](https://github.com/justeattakeaway/pie/pull/3089)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
 ## 0.3.0
 
 ### Minor Changes
