@@ -167,7 +167,7 @@ Leading icon provides context and visually supports the label. It is available f
 
 ### Trailing icon
 
-A trailing icon can be applied to indicate further interaction, such as opening up a popover or bottom sheet. Only available in Filter chip. 
+A trailing icon can be applied to indicate further interaction, such as opening up a popover or bottom sheet. Only available in Filter chip.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-trailing-icon.svg",
@@ -187,7 +187,7 @@ Tick icon can be added for clarity and decision support when using chips to filt
 
 ### Close icon
 
-Close icon can be added to the selected state to allow users to remove the selection. Clicking a chip with a close icon will dismiss the chip. Only available in selected Selection chip.
+Close icon can be added to the selected state to allow users to remove the selection. Tapping on a chip with a close icon will dismiss the chip. Only available in selected Selection chip.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-close-icon.svg",

@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Do's and don'ts
+## Dos and don'ts
 
 {% usage {
     do: {
@@ -83,7 +83,7 @@ Use multi select dropdown variant when you need to present a list of options or 
 
 {% contentPageImage {
     src:"../../../assets/img/components/dropdown/android/variants-multiselect.svg",
-    alt: "A search dropdown component showing a text input field inside the dropdown for filtering options.",
+    alt: "A multi-select dropdown component showing a selected chip inside the dropdown for filtering options.",
     width: "200"
 } %}
 
@@ -103,7 +103,7 @@ This variant allows our users to type and search for specific options by providi
 
 {% contentPageImage {
     src:"../../../assets/img/components/dropdown/android/variants-search-multiselect.svg",
-    alt: "A search dropdown component showing a text input field inside the dropdown for filtering options.",
+    alt: "A search dropdown component showing a text input field and a selected chip inside the dropdown for filtering options.",
     width: "200"
 } %}
 

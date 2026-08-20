@@ -192,7 +192,7 @@ Tick icon can be added for clarity and decision support when using chips to filt
 
 ### Close icon
 
-Close icon can be added to the selected state to allow users to remove the selection. Clicking a chip with a close icon will dismiss the chip. Only available in selected Selection chip.
+Close icon can be added to the selected state to allow users to remove the selection. Tapping on a chip with a close icon will dismiss the chip. Only available in selected Selection chip.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-close-icon.svg",
