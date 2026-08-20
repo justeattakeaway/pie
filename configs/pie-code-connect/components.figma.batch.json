@@ -88,6 +88,17 @@
     ]
   },
   {
+    "templateFile": "dist/pie-radio-group.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-radio-group",
+        "componentNameReact": "PieRadioGroup",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-radio-group/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6369-3799"
+      }
+    ]
+  },
+  {
     "templateFile": "dist/pie-text-input.figma.batch.js",
     "components": [
       {
