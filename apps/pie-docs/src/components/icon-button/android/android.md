@@ -46,6 +46,11 @@ shouldShowContents: true
 
 ## Variants
 
+{% notification {
+    type: "information",
+    message: "The translucent variant does not use blur on Android, as this effect is not compatible with the operating system."
+} %}
+
 {% contentLayout %}
   {% contentItem %}
     <h3>Primary</h3>
