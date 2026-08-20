@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-list
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies [[`dbe46d3`](https://github.com/justeattakeaway/pie/commit/dbe46d396da315065477f4418cf07b9136c6b4d6)]:
+  - @justeattakeaway/pie-webc-core@18.1.0
+
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - Various design review tasks such as disabled style fixes and icon colours. A disabled `pie-list-item` no longer automatically dims slotted `pie-tag` elements; set `isDimmed` on the tag explicitly instead. ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Compact list items align leading, trailing and meta content with the first line of the primary text, so it stays level with that line when the text wraps ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - Compact list items now respect the `--list-item-alignment` override, so `center` can be set on them as it can on any other item
+
+- [Changed] - Disabled states documentation now appears in the table of contents and covers slotted `pie-thumbnail` alongside `pie-tag` ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.6.2
 
 ### Patch Changes

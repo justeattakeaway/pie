@@ -224,9 +224,11 @@ export const DataWithStrongHeader = createStory<DataTableProps>(TemplateWithStro
     data: sampleData,
 })();
 
+// Expected an empty screen - testing that it does not render an empty table
 export const HeadingsNoData = createStory<DataTableProps>(Template, {
     columns: sampleColumns,
     data: [],
 })();
 
+// Expected an empty screen - testing that it does not render an empty table
 export const NoDataOrHeadings = createStory<DataTableProps>(Template, defaultArgs)();

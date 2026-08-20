@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`dbe46d3`](https://github.com/justeattakeaway/pie/commit/dbe46d396da315065477f4418cf07b9136c6b4d6)]:
+  - @justeattakeaway/pie-webc-core@18.1.0
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - `disabled` is now automatically applied when the thumbnail is inside a disabled `pie-radio-group` or `pie-checkbox-group`, via Lit context. ([#3115](https://github.com/justeattakeaway/pie/pull/3115)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.38
 
 ### Patch Changes

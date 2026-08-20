@@ -43,7 +43,7 @@ const isDisabled = state === 'Disabled';
 const isLoading = state === 'Loading';
 
 // Get icon instance, and add the slot prop to the snippet
-const iconInstance = figma.selectedInstance.getInstanceSwap(iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');
+const iconInstance = getInstanceProp('getInstanceSwap', iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');
 const iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
 
 const props = [

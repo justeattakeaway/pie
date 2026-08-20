@@ -122,6 +122,10 @@ For a list-style layout (each option on its own row with primary and secondary t
 
 For full usage details and code examples, see the [`pie-list` documentation](https://webc.pie.design/?path=/docs/components-list--overview).
 
+#### SSR and group-disabled
+
+Group-disabled propagation occurs at runtime via Lit context. If you need disabled styles on page load in an SSR environment, set `disabled` directly on each item rather than relying on the group container.
+
 ## Questions and Support
 
 If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
