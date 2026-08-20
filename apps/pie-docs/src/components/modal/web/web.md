@@ -207,6 +207,11 @@ Header may include an illustration or an image.
 
 The body can be toggled on and off and may include text or an open slot to add in a specified design.
 
+{% notification {
+  type: "information",
+  message: "In Figma, you can find the text option by hovering over the modal content slot. Click “Add instances”, and you’ll see the preferred text content listed under “Preferred instances.”
+} %}
+
 {% contentLayout %}
   {% contentPageImage {
       src: "../../../assets/img/components/modal/modifier-body-content-slot.svg",
