@@ -31,7 +31,7 @@ const props = [
 // Define template
 const template = figma.code`<${selectedComponentName}
     ${props}>
-    ${slotContent.flat()}
+    ${slotContent}
 </${selectedComponentName}>`;
 
 export default {
