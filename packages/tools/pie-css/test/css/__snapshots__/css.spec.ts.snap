@@ -4529,5 +4529,53 @@ exports[`utilities/spacing.css > should render the expected CSS content 1`] = `
 .u-margin-block--j {
   margin-block: var(--dt-spacing-j) !important;
 }
+
+.u-margin--none {
+  margin: var(--dt-spacing-none) !important;
+}
+
+.u-margin--a-small {
+  margin: var(--dt-spacing-a-small) !important;
+}
+
+.u-margin--a {
+  margin: var(--dt-spacing-a) !important;
+}
+
+.u-margin--b {
+  margin: var(--dt-spacing-b) !important;
+}
+
+.u-margin--c {
+  margin: var(--dt-spacing-c) !important;
+}
+
+.u-margin--d {
+  margin: var(--dt-spacing-d) !important;
+}
+
+.u-margin--e {
+  margin: var(--dt-spacing-e) !important;
+}
+
+.u-margin--f {
+  margin: var(--dt-spacing-f) !important;
+}
+
+.u-margin--g {
+  margin: var(--dt-spacing-g) !important;
+}
+
+.u-margin--h {
+  margin: var(--dt-spacing-h) !important;
+}
+
+.u-margin--i {
+  margin: var(--dt-spacing-i) !important;
+}
+
+.u-margin--j {
+  margin: var(--dt-spacing-j) !important;
+}
 "
 `;

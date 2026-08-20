@@ -31,3 +31,9 @@ $directions: (
         }
     }
 }
+
+@each $scale in $spacing-names {
+    .u-margin--#{$scale} {
+        margin: var(--dt-spacing-#{$scale}) !important;
+    }
+}

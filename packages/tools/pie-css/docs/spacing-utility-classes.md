@@ -4,7 +4,7 @@
 
 `@justeattakeaway/pie-css` provides a set of spacing utility classes that apply margin values using the PIE design token spacing scale.
 
-These utilities use logical properties for full RTL compatibility and include `!important` so they reliably win specificity battles as true utilities.
+These utilities use logical properties for full RTL compatibility.
 
 > **Note:** Only use spacing utility classes when you always want the margin to be set to that size across **all** device breakpoints. These utilities override other style declarations and are most useful when you want to control margin on an HTML element without writing a dedicated classname hook.
 
@@ -62,16 +62,19 @@ Classes follow this pattern:
 
 ```
 u-margin-{direction}--{scale}
+u-margin--{scale}              (all four sides — no direction)
 ```
 
 For example:
 - `u-margin-blockStart--e` → `margin-block-start: var(--dt-spacing-e)` (24px)
 - `u-margin-inline--b` → `margin-inline: var(--dt-spacing-b)` (8px)
+- `u-margin--d` → `margin: var(--dt-spacing-d)` (16px)
 
 ## Available Directions
 
 | Direction | Logical Property | Physical Equivalent |
 | --- | --- | --- |
+| *(none)* | `margin` | All four sides |
 | `blockStart` | `margin-block-start` | `margin-top` |
 | `blockEnd` | `margin-block-end` | `margin-bottom` |
 | `inlineStart` | `margin-inline-start` | `margin-left` |
@@ -96,7 +99,7 @@ For example:
 | `--i` | `--dt-spacing-i` | 64px |
 | `--j` | `--dt-spacing-j` | 80px |
 
-Each scale entry is available in all six directions, giving 72 utility classes in total (12 scale values × 6 directions).
+Each scale entry is available in all six directions plus the all-sides shorthand, giving 84 utility classes in total (12 scale values × 7 variants).
 
 ## Usage Examples
 
@@ -111,6 +114,9 @@ Each scale entry is available in all six directions, giving 72 utility classes i
 
 <!-- Use spacing tokens for fixed gutters -->
 <div class="u-margin-inline--d">Content with spacing-d side margins</div>
+
+<!-- Apply spacing-d on all four sides -->
+<div class="u-margin--d">Card with uniform margin</div>
 ```
 
 ### Combining Directions

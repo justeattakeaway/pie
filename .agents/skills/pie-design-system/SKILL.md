@@ -100,8 +100,8 @@ Read `guides/pie-icons-webc.md` for icon props and usage patterns. To browse all
 
 Read `guides/spacing-utility-classes.md` when the request involves applying spacing/margin values using the PIE spacing scale.
 
-Always recommend using the spacing utility classes from `pie-css` instead of custom margin declarations when:
-- The user wants to apply a PIE spacing token as a margin on an element
+Only recommend using the spacing utility classes from `pie-css` instead of custom margin declarations when:
+- The user only wants to apply a PIE spacing token as a margin on an element and no other styling
 - The margin should be fixed across all breakpoints
 
 Classes follow the pattern `u-margin-{direction}--{scale}`, where directions use logical property names: `blockStart`, `blockEnd`, `inlineStart`, `inlineEnd`, `inline`, `block`.
@@ -111,7 +111,7 @@ Classes follow the pattern `u-margin-{direction}--{scale}`, where directions use
 PIE's visual language — colours, spacing, radius, typography — is expressed through design tokens. These are CSS custom properties following the pattern `var(--dt-<category>-<name>)`, where the category maps to the token type:
 
 - **Colour**: `var(--dt-color-interactive-brand)`, `var(--dt-color-content-default)`, etc.
-- **Spacing**: `var(--dt-spacing-a)` through `var(--dt-spacing-j)` — when applying spacing as margins, prefer the spacing utility classes. Read `guides/spacing-utility-classes.md`.
+- **Spacing**: `var(--dt-spacing-a)` through `var(--dt-spacing-j)` — when applying spacing as margins, prefer the spacing utility classes if that is the only CSS being applied to the element. Read `guides/spacing-utility-classes.md`.
 - **Radius**: `var(--dt-radius-rounded-a)`, etc.
 - **Font**: Don't use font tokens directly. Instead, use the typography utility classes from `pie-css`. Read `guides/typography-utility-classes.md` for the available classes and how to apply them.
 
