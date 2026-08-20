@@ -165,6 +165,8 @@ The selected state can be styled from the radio's reflected `checked` attribute.
 
 The group handles the radios, but the wrapper is yours. You are responsible for wiring up its ARIA, testing the result with screen readers, and handling its clicks and interactive styles.
 
+We recommend keeping the wrapper free of other interactive elements or components. The group manages focus and keyboard navigation across its radios, so nested controls interfere with both that and how each option is announced.
+
 ## Questions and Support
 
 If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
