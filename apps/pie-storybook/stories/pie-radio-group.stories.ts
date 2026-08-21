@@ -135,3 +135,118 @@ const Template = ({
 };
 
 export const Default = createStory<RadioGroupProps>(Template, defaultArgs)();
+
+const tileOptions = [
+    { value: 'sunmi', label: 'Sunmi', image: './static/images/burger-4by3.png' },
+    { value: 'citaq', label: 'Citaq', image: './static/images/modal-image-4by3.jpg' },
+    { value: 'tablet', label: 'Tablet', image: './static/images/modal-image-illustration.png' },
+];
+
+const ImageTileTemplate = ({
+    name,
+    value,
+    isInline,
+    disabled,
+    assistiveText,
+    status,
+}: RadioGroupProps) => {
+    function onChange (event: CustomEvent) {
+        const selectedRadioElement = event.target as HTMLInputElement;
+        action('change')(selectedRadioElement.value);
+    }
+
+    // The tile is consumer markup, so it forwards its own clicks to the radio it wraps. Clicks that
+    // came from the radio are ignored, otherwise it would be activated twice.
+    function onTileClick (event: MouseEvent) {
+        if ((event.target as HTMLElement).closest('pie-radio')) {
+            return;
+        }
+
+        (event.currentTarget as HTMLElement).querySelector('pie-radio')?.click();
+    }
+
+    return html`
+        <style>
+            pie-radio-group {
+                max-width: 600px;
+            }
+
+            .c-radioTile {
+                flex: 1 1 180px;
+                display: flex;
+                flex-direction: column;
+                gap: var(--dt-spacing-b);
+                padding: var(--dt-spacing-b);
+                border: 1px solid var(--dt-color-border-strong);
+                border-radius: var(--dt-radius-rounded-c);
+                background-color: var(--dt-color-container-default);
+                cursor: pointer;
+            }
+
+            /* The group only spaces slotted \`pie-radio\`s in its column layout, so the tiles space themselves */
+            pie-radio-group:not([isinline]) .c-radioTile:not(:first-of-type) {
+                margin-block-start: var(--dt-spacing-c);
+            }
+
+            /* The hover token is an overlay colour plus an opacity, mixed over the container colour */
+            .c-radioTile:hover {
+                background-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-container-default));
+            }
+
+            /* pie-radio reflects its \`checked\` property, so the selected tile needs no JS */
+            .c-radioTile:has(pie-radio[checked]) {
+                border-color: var(--dt-color-interactive-brand);
+                box-shadow: inset 0 0 0 1px var(--dt-color-interactive-brand);
+            }
+
+            .c-radioTile:has(pie-radio:focus-visible) {
+                box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+            }
+
+            /* The group reflects \`disabled\`, so the tiles can follow the group's state */
+            pie-radio-group[disabled] .c-radioTile {
+                cursor: not-allowed;
+                background-color: var(--dt-color-container-default);
+            }
+
+            .c-radioTile-image {
+                display: block;
+                inline-size: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+                border-radius: var(--dt-radius-rounded-b);
+            }
+        </style>
+        <p>Please note, the tiles here are an example of custom markup wrapping each pie-radio. See the
+        <pie-link href="/?path=/docs/components-radio-group--overview">radio group overview</pie-link>
+        for what the group handles and what you are responsible for.</p>
+        <pie-radio-group
+            name="${ifDefined(name)}"
+            .value=${ifDefined(value)}
+            ?isInline=${isInline}
+            ?disabled=${disabled}
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}
+            @change=${onChange}>
+                <pie-form-label slot="label">What device do you use to manage orders?</pie-form-label>
+                ${tileOptions.map((option) => html`
+                    <div class="c-radioTile" @click=${onTileClick}>
+                        <img class="c-radioTile-image" src=${option.image} alt="">
+                        <pie-radio value=${option.value}>${option.label}</pie-radio>
+                    </div>
+                `)}
+        </pie-radio-group>
+    `;
+};
+
+/**
+ * Demonstrates that a radio group also drives radios wrapped in arbitrary consumer markup, not
+ * just direct `pie-radio` children or `pie-list-item`s. The group still owns selection, keyboard
+ * navigation and the disabled state, while the tile is responsible for forwarding its own clicks
+ * to the radio it wraps.
+ */
+export const ImageTiles = createStory<RadioGroupProps>(ImageTileTemplate, defaultArgs)({
+    name: 'device',
+    value: 'sunmi',
+    isInline: true,
+});
