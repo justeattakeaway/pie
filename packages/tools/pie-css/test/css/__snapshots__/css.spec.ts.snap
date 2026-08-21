@@ -4151,8 +4151,8 @@ The values start at a high and specific number to avoid any conflicts */
 exports[`utilities/rwd.css > should render the expected CSS content 1`] = `
 "@charset "UTF-8";
 /**
- * RWD Utility Classes
- * =================================
+ * Responsive Wed Design Utility Classes
+ * =====================================
  * Responsive show/hide helpers using PIE breakpoint tokens.
  * These are opt-in utilities — not included in dist/index.css.
  *
