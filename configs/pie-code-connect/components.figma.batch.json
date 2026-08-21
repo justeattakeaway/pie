@@ -220,5 +220,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6295-1722"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-divider.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-divider",
+        "componentNameReact": "PieDivider",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-divider/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552"
+      }
+    ]
   }
 ]
