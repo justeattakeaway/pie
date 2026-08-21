@@ -9,7 +9,6 @@ const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
 const state = getInstanceProp('getPropertyValue', 'State');
-const label = getInstanceProp('getString', '[𝐓] Label');
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
 const hasTrailingIcon = getInstanceProp('getBoolean', 'Trailing icon');
 const iconPlacement = hasTrailingIcon && !hasLeadingIcon ? 'trailing' : 'leading';
@@ -41,6 +40,7 @@ const size = getInstanceProp('getEnum', 'Size', {
 
 const isDisabled = state === 'Disabled';
 const isLoading = state === 'Loading';
+const label = !isLoading ? getInstanceProp('getString', '[𝐓] Label') : '';
 
 // Get icon instance, and add the slot prop to the snippet
 const iconInstance = getInstanceProp('getInstanceSwap', iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');

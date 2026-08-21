@@ -7,22 +7,25 @@ const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
-const isChecked = getInstanceProp('getEnum', 'Selected', {
-    True: true,
-    False: false,
+const selection = getInstanceProp('getPropertyValue', 'Selection');
+const checked = selection === 'Selected';
+const indeterminate = selection === 'Partial';
+const disabled = getInstanceProp('getPropertyValue', 'State') === 'Disabled';
+const status = getInstanceProp('getEnum', 'Error', {
+    True: 'error',
+    False: 'default',
 });
-const state = getInstanceProp('getPropertyValue', 'State');
+const labelPosition = getInstanceProp('getBoolean', 'Leading label') ? 'leading' : 'trailing';
 const label = getInstanceProp('getString', '[𝐓] Label');
-
-const isDisabled = state === 'Disabled';
-const isError = state === 'Error';
-const status = isError ? 'error' : 'default';
+const assistiveText = getInstanceProp(['Assistive text'], 'getPropertyValue', '[𝐓] Assistive text') || '';
 
 const props = [
-    renderProp('value', label, ''),
-    renderProp('checked', isChecked, false),
+    renderProp('checked', checked, false),
+    renderProp('indeterminate', indeterminate, false),
+    renderProp('disabled', disabled, false),
     renderProp('status', status, 'default'),
-    renderProp('disabled', isDisabled, false),
+    renderProp('labelPosition', labelPosition, 'trailing'),
+    renderProp('assistiveText', assistiveText, ''),
 ].filter(Boolean).join('\n    ');
 
 const template = figma.code`<${selectedComponentName}
@@ -33,5 +36,5 @@ const template = figma.code`<${selectedComponentName}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-radio',
+    id: componentName,
 };
