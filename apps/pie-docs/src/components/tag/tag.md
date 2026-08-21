@@ -3,6 +3,6 @@ eleventyNavigation:
     key: Tag
     parent: Components
     url: /components/tag/
-    order: 49
+    order: 50
 permalink: false
 ---
