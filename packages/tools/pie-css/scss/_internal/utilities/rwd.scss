@@ -2,8 +2,8 @@
 @use '../constants/token-names' as *;
 
 /**
- * RWD Utility Classes
- * =================================
+ * Responsive Wed Design Utility Classes
+ * =====================================
  * Responsive show/hide helpers using PIE breakpoint tokens.
  * These are opt-in utilities — not included in dist/index.css.
  *
@@ -12,10 +12,13 @@
  */
 
 // showAbove — hidden below the named breakpoint, visible at it and above
+// xs is excluded: hiding below the smallest breakpoint would always show the element
 @each $key, $display-name in $breakpoint-names {
-    .u-showAbove#{$display-name} {
-        @include media('<#{$key}') {
-            display: none !important;
+    @if $key != 'xs' {
+        .u-showAbove#{$display-name} {
+            @include media('<#{$key}') {
+                display: none !important;
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ Read the user's message and figure out what they need. Use the table below to fi
 | Import or find an icon | Icons |
 | Component events and interactions | Events |
 | Design tokens (colours, spacing, etc.) | Design tokens |
-| Apply spacing with utility classes, margin, spacing scale | Spacing utilities |
+| Apply spacing with utility classes | Spacing utilities |
 | Customise or override a component's look | Customising components |
 | Something broken or unexpected | Looking up components → pre-flight #4 |
 

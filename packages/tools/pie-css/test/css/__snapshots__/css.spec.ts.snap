@@ -4159,12 +4159,6 @@ exports[`utilities/rwd.css > should render the expected CSS content 1`] = `
  * Breakpoint names are auto-generated into _token-names.scss from @justeat/pie-design-tokens.
  * Run \`yarn generate:token-names\` to update if breakpoints change.
  */
-@media (max-width: 319px) {
-  .u-showAboveXSmall {
-    display: none !important;
-  }
-}
-
 @media (max-width: 599px) {
   .u-showAboveSmall {
     display: none !important;

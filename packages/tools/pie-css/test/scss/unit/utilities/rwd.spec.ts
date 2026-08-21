@@ -34,21 +34,21 @@ describe('utilities.rwd', () => {
         expect(css).toBe(expectedCss);
     });
 
-    it('should hide .u-showAboveWide below the lg breakpoint (1024px)', () => {
+    it('should hide .u-showBelowMid at and above the md breakpoint (768px)', () => {
         // Arrange
         const scssToTest = `
           @use 'settings/mq' as *;
 
-          .u-showAboveWide {
-            @include media('<lg') {
+          .u-showBelowMid {
+            @include media('>=md') {
               display: none !important;
             }
           }
         `;
 
         const expectedCss = stripCSSWhitespace(`
-          @media (max-width: 1023px) {
-            .u-showAboveWide {
+          @media (min-width: 768px) {
+            .u-showBelowMid {
               display: none !important;
             }
           }

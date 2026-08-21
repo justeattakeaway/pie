@@ -317,7 +317,6 @@ Hidden below the named breakpoint, visible at it and above.
 
 | Class | Hidden below | Breakpoint token |
 | --- | --- | --- |
-| `.u-showAboveXSmall` | 320px | `--dt-breakpoint-xs` |
 | `.u-showAboveSmall` | 600px | `--dt-breakpoint-sm` |
 | `.u-showAboveMid` | 768px | `--dt-breakpoint-md` |
 | `.u-showAboveLarge` | 1024px | `--dt-breakpoint-lg` |
