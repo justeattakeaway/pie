@@ -4,7 +4,6 @@ eleventyNavigation:
     parent: Icon with background
     order: 2
 shouldShowContents: true
-draft: true
 ---
 
 ## Dos and don'ts

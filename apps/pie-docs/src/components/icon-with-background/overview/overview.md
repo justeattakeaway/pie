@@ -4,7 +4,6 @@ eleventyNavigation:
     parent: Icon with background
     order: 1
 permalink: components/icon-with-background/
-draft: true
 ---
 
 ## Overview
