@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: Web
-    parent: Icon with background
+    parent: Icon With Background
     order: 2
 shouldShowContents: true
 ---

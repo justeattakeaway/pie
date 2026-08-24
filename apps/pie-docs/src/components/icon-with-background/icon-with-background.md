@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: 'Icon with background'
+    key: 'Icon With Background'
     parent: Components
     order: 24
     url: /components/icon-with-background/

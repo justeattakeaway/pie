@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: iOS
-    parent: Icon with background
+    parent: Icon With Background
     order: 4
 draft: true
 shouldShowContents: true

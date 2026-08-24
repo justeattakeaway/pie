@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: Overview
-    parent: Icon with background
+    parent: Icon With Background
     order: 1
 permalink: components/icon-with-background/
 ---
