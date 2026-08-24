@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.89.4
+
+### Patch Changes
+
+- [Changed] - set the tag variant for alpha status to neutral ([#3141](https://github.com/justeattakeaway/pie/pull/3141)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Documentation and code example of wrapping pie-radio components in custom markup inside the radio-group ([#3144](https://github.com/justeattakeaway/pie/pull/3144)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a)]:
+  - @justeattakeaway/pie-icons-webc@1.29.0
+  - @justeattakeaway/pie-webc@0.11.13
+
 ## 1.89.3
 
 ### Patch Changes
