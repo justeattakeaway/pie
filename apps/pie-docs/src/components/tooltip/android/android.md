@@ -88,11 +88,11 @@ Used on dark backgrounds or containers.
 
 ## Modifiers
 
-### Pointer placement
+### Placement
 
-A tooltip can open at the top, bottom, left or right depending on the position of the UI trigger on the screen. In addition, we can select the alignment to the associated UI element. The UI element can be aligned to the left, centre or right of the tooltip depending on the space available.
+A tooltip can open at the top, bottom, left or right depending on the position of the UI trigger on the screen. In addition, we can select the alignment to the associated UI element. The UI element can be aligned to the start, centre or end of the tooltip container depending on the space available.
 
-By default, the tooltip opens from the bottom, which means the pointer is positioned top-centre.
+By default, the tooltip opens from the bottom position. 
 
 {% usage {
     do: {
@@ -113,76 +113,76 @@ By default, the tooltip opens from the bottom, which means the pointer is positi
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Top-left</h4>
+  <h4>Bottom-start</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-left.svg",
       width: 200,
-      alt: "Tooltip positioned at the top-left of the trigger element."
+      alt: "Tooltip positioned at the bottom-start of the trigger element."
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>Top-centre</h4>
+  <h4>Bottom</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-centre.svg",
       width: 200,
-      alt: "Tooltip positioned at the top-centre of the trigger element."
+      alt: "Tooltip positioned at the bottom of the trigger element."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Top-right</h4>
+  <h4>Bottom-end</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-right.svg",
       width: 200,
-      alt: "Tooltip positioned at the top-right of the trigger element."
+      alt: "Tooltip positioned at the bottom-end of the trigger element."
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>Bottom-left</h4>
+  <h4>Top-start</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-left.svg",
       width: 200,
-      alt: "Tooltip positioned at the bottom-left of the trigger element."
+      alt: "Tooltip positioned at the top-start of the trigger element."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Bottom-centre</h4>
+  <h4>Top</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-centre.svg",
       width: 200,
-      alt: "Tooltip positioned at the bottom-centre of the trigger element."
+      alt: "Tooltip positioned at the top of the trigger element."
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>Bottom-right</h4>
+  <h4>Top-end</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-right.svg",
       width: 200,
-      alt: "Tooltip positioned at the bottom-right of the trigger element."
+      alt: "Tooltip positioned at the top-end of the trigger element."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Right-centre</h4>
+  <h4>Left</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-right-centre.svg",
       width: 200,
-      alt: "Tooltip positioned at the right-centre of the trigger element."
+      alt: "Tooltip positioned at the left of the trigger element."
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>Left-centre</h4>
+  <h4>Right</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-left-centre.svg",
       width: 200,
-      alt: "Tooltip positioned at the left-centre of the trigger element."
+      alt: "Tooltip positioned at the right of the trigger element."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -296,9 +296,9 @@ width: 200
 
 ## Placement
 
-### Spacing
+### Offset
 
-Tooltip should have 4px spacing between the pointer and the associated UI element.
+By default the tooltip has 4px offset between the pointer and the associated UI element. User can override the offset if needed.
 
 {% contentPageImage {
 src:"../../../assets/img/components/tooltip/android/placement-spacing.svg",
