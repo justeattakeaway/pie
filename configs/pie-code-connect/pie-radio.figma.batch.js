@@ -19,6 +19,7 @@ const isError = state === 'Error';
 const status = isError ? 'error' : 'default';
 
 const props = [
+    renderProp('value', label, ''),
     renderProp('checked', isChecked, false),
     renderProp('status', status, 'default'),
     renderProp('disabled', isDisabled, false),
