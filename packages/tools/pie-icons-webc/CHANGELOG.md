@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.29.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3149](https://github.com/justeattakeaway/pie/pull/3149)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Location
+
+  - binoculars-large
+  - binoculars
+  - compass-large
+  - compass
+  - map-search-large
+  - map-search
+
+  ## People
+
+  - face-hate-filled-large
+  - face-hate-filled
+  - face-hate-large
+  - face-hate
+
 ## 1.28.1
 
 ### Patch Changes

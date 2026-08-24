@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-radio-group
 
+## 1.2.8
+
+### Patch Changes
+
+- [Added] - Documentation and code example of wrapping pie-radio components in custom markup inside the radio-group ([#3144](https://github.com/justeattakeaway/pie/pull/3144)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.11
+
 ## 1.2.7
 
 ### Patch Changes

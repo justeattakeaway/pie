@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-toast",
   "description": "PIE Design System Toast built using Web Components",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -49,8 +49,8 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "1.14.13",
-    "@justeattakeaway/pie-icon-button": "2.7.30",
-    "@justeattakeaway/pie-icons-webc": "1.28.1",
+    "@justeattakeaway/pie-icon-button": "2.7.31",
+    "@justeattakeaway/pie-icons-webc": "1.29.0",
     "@justeattakeaway/pie-webc-core": "18.1.0"
   },
   "customElements": "custom-elements.json",
