@@ -287,5 +287,16 @@
         "type": "action"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-cookie-banner.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-cookie-banner",
+        "componentNameReact": "PieCookieBanner",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085"
+      }
+    ]
   }
 ]
