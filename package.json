@@ -88,7 +88,7 @@
     "@justeattakeaway/pie-webc-testing": "workspace:*",
     "@justeattakeaway/pie-wrapper-react": "workspace:*",
     "@justeattakeaway/stylelint-config-pie": "workspace:*",
-    "@percy/cli": "1.32.6",
+    "@percy/cli": "1.32.7",
     "@percy/playwright": "1.1.2",
     "@playwright/experimental-ct-react": "1.57.0",
     "@playwright/test": "1.57.0",
