@@ -116,7 +116,15 @@
         "componentName": "pie-form-label",
         "componentNameReact": "PieFormLabel",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-form-label/src/index.ts",
-        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6226-8407"
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6226-8407",
+        "note": "label for pie-text-input"
+      },
+      {
+        "componentName": "pie-form-label",
+        "componentNameReact": "PieFormLabel",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-form-label/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1700-146167&t=AAGVH2tYPGNMkJW2-11",
+        "note": "label for pie-select"
       }
     ]
   },
@@ -218,6 +226,76 @@
         "componentNameReact": "PieCheckboxGroup",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-checkbox-group/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6295-1722"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-divider.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-divider",
+        "componentNameReact": "PieDivider",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-divider/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-link.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-link",
+        "componentNameReact": "PieLink",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-link/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=364-48091"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-select.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-select",
+        "componentNameReact": "PieSelect",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-chip.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-chip",
+        "componentNameReact": "PieChip",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-chip/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4086-22374",
+        "type": "selection"
+      },
+      {
+        "componentName": "pie-chip",
+        "componentNameReact": "PieChip",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-chip/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=30364-120195",
+        "type": "filter"
+      },
+      {
+        "componentName": "pie-chip",
+        "componentNameReact": "PieChip",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-chip/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=30364-135441",
+        "type": "action"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-cookie-banner.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-cookie-banner",
+        "componentNameReact": "PieCookieBanner",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085"
       }
     ]
   }
