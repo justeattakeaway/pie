@@ -1,5 +1,26 @@
 # Changelog
 
+## 5.14.0
+
+### Minor Changes
+
+- [Added] - Chip Android and iOS documentation pages. ([#3133](https://github.com/justeattakeaway/pie/pull/3133)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] - Dropdown Android, iOS, and web documentation pages.
+  [Changed] - Updated the Agents resources page to reflect the new PIE Figma Make Kit.
+  [Changed] - Added an information notification to the Icon Button Android page about the translucent variant's blur limitation.
+
+### Patch Changes
+
+- [Updated] Body content section in Modal documentation to guide designer on how to find the text content within the modal slot. ([#3140](https://github.com/justeattakeaway/pie/pull/3140)) by [@tingting-lau](https://github.com/tingting-lau)
+
+- [Changed] - updated snapshots after icons update ([#3149](https://github.com/justeattakeaway/pie/pull/3149)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a)]:
+  - @justeattakeaway/pie-icons@5.32.0
+  - @justeattakeaway/pie-icons-webc@1.29.0
+  - @justeattakeaway/pie-webc@0.11.13
+
 ## 5.13.2
 
 ### Patch Changes
