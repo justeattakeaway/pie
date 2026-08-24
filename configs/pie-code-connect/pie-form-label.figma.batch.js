@@ -10,7 +10,9 @@ const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameR
 // Map figma props
 const isOptional = getInstanceProp('getBoolean', 'Optional');
 const hasCharacterCount = getInstanceProp('getBoolean', 'Character count');
-const label = getInstanceProp(['Form label / Leading content / Label'], 'getString', '[𝐓] Label') || '';
+const textInputLabel = getInstanceProp(['Form label / Leading content / Label'], 'getString', '[𝐓] Label');
+const selectLabel = getInstanceProp(['Form label'], 'getString', '[𝐓] Label');
+const label = textInputLabel || selectLabel || 'Label';
 const multilineLabel = getInstanceProp(['Label group', 'Label + icon', 'Form label / Multiline label'], 'getString', '[𝐓] Multiline label') || '';
 
 const trailing = hasCharacterCount
