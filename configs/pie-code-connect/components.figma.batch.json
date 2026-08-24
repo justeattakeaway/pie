@@ -242,5 +242,31 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=364-48091"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-chip.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-chip",
+        "componentNameReact": "PieChip",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-chip/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4086-22374",
+        "type": "selection"
+      },
+      {
+        "componentName": "pie-chip",
+        "componentNameReact": "PieChip",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-chip/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=30364-120195",
+        "type": "filter"
+      },
+      {
+        "componentName": "pie-chip",
+        "componentNameReact": "PieChip",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-chip/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=30364-135441",
+        "type": "action"
+      }
+    ]
   }
 ]
