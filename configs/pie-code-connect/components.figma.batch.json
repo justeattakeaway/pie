@@ -116,7 +116,15 @@
         "componentName": "pie-form-label",
         "componentNameReact": "PieFormLabel",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-form-label/src/index.ts",
-        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6226-8407"
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=6226-8407",
+        "note": "label for pie-text-input"
+      },
+      {
+        "componentName": "pie-form-label",
+        "componentNameReact": "PieFormLabel",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-form-label/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1700-146167&t=AAGVH2tYPGNMkJW2-11",
+        "note": "label for pie-select"
       }
     ]
   },
@@ -240,6 +248,17 @@
         "componentNameReact": "PieLink",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-link/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=364-48091"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-select.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-select",
+        "componentNameReact": "PieSelect",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090"
       }
     ]
   },
