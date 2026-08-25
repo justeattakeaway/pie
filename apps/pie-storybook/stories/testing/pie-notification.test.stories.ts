@@ -675,3 +675,5 @@ export const SlottedBothActionsStackedCompact = createStory<NotificationProps>(S
     leadingAction: undefined,
     supportingAction: undefined,
 })();
+
+export const DismissibleLongCopy = createNotificationStory({ variant: 'info', isDismissible: true, slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis.' });
