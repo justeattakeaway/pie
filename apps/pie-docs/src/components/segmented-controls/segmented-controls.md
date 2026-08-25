@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Segmented Controls'
     parent: Components
-    order: 39
+    order: 40
     url: /components/segmented-controls/
 permalink: false
 ---

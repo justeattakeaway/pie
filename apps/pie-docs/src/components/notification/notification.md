@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Notification
     parent: Components
-    order: 29
+    order: 30
     url: /components/notification/
 permalink: false
 ---

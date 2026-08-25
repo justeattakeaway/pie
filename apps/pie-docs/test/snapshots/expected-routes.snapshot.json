@@ -81,6 +81,8 @@
     "components/icon-button/code",
     "components/icon-button/ios",
     "components/icon-button/web",
+    "components/icon-with-background",
+    "components/icon-with-background/web",
     "components/link",
     "components/link/apps",
     "components/link/code",

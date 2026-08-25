@@ -1103,6 +1103,51 @@ const rows = [
         }
     ],
     [
+        { componentName: 'Icon With Background' },
+        {
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/?node-id=21149-20620',
+            status: statusTypes.BETA,
+        },
+        {
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            status: statusTypes.BETA,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/components-icon-with-background--overview',
+            status: webComponentStatuses['pie-icon-with-background'],
+        },
+        {
+            resource: resourceTypes.VUE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.REACT,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
+        }
+    ],
+    [
         { componentName: 'Link' },
         {
             resource: resourceTypes.WEB_COMPONENT,
