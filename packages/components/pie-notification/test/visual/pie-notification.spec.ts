@@ -438,6 +438,7 @@ test('should render dismissible notification with long copy', async ({ page }) =
     const basePage = new BasePage(page, 'notification--dismissible-long-copy');
 
     await basePage.load();
+    await page.setViewportSize({ width: 1275, height: 900 });
 
     await percySnapshot(page, 'PieNotification - Dismissible with long copy', screenWidths);
 });
