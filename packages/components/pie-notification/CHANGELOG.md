@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.24.17
+
+### Patch Changes
+
+- [Fixed] - Corrected content width limit for dismissible notifications ([#3153](https://github.com/justeattakeaway/pie/pull/3153)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.24.16
 
 ### Patch Changes
