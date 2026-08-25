@@ -1157,6 +1157,21 @@
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=27930-1374"
     },
     {
+      "baseName": "icon-binoculars",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=28746-964"
+    },
+    {
+      "baseName": "icon-compass",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=28746-943"
+    },
+    {
+      "baseName": "icon-map-search",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=28746-922"
+    },
+    {
       "baseName": "icon-route-pin",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1640"
@@ -1580,6 +1595,11 @@
       "baseName": "icon-face-happy",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1165"
+    },
+    {
+      "baseName": "icon-face-hate",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=28726-617"
     },
     {
       "baseName": "icon-face-neutral",
