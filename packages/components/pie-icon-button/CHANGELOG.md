@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.7.31
+
+### Patch Changes
+
+- [Fixed] - Rogue back tick broke readme formatting in storybook ([#3138](https://github.com/justeattakeaway/pie/pull/3138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a)]:
+  - @justeattakeaway/pie-icons-webc@1.29.0
+
 ## 2.7.30
 
 ### Patch Changes
