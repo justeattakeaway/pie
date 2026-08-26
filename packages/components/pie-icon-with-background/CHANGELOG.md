@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-icon-with-background
 
+## 0.4.2
+
+### Patch Changes
+
+- [Changed] - Component status from alpha to beta ([#3145](https://github.com/justeattakeaway/pie/pull/3145)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@19.0.0
+
 ## 0.4.1
 
 ### Patch Changes

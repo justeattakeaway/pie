@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-data-table
 
+## 0.3.29
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@19.0.0
+
 ## 0.3.28
 
 ### Patch Changes

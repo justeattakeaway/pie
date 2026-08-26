@@ -1,5 +1,43 @@
 # @justeattakeaway/pie-webc
 
+## 0.11.15
+
+### Patch Changes
+
+- Updated dependencies [[`f9b045c`](https://github.com/justeattakeaway/pie/commit/f9b045c4f145bbffcc29853d53bad01990f40e61)]:
+  - @justeattakeaway/pie-icon-with-background@0.4.2
+  - @justeattakeaway/pie-accordion@0.2.9
+  - @justeattakeaway/pie-assistive-text@1.0.12
+  - @justeattakeaway/pie-avatar@0.4.50
+  - @justeattakeaway/pie-breadcrumb@1.0.13
+  - @justeattakeaway/pie-button@1.14.14
+  - @justeattakeaway/pie-card@0.27.12
+  - @justeattakeaway/pie-checkbox@1.4.6
+  - @justeattakeaway/pie-checkbox-group@1.2.8
+  - @justeattakeaway/pie-chip@1.0.13
+  - @justeattakeaway/pie-cookie-banner@1.10.16
+  - @justeattakeaway/pie-data-table@0.3.29
+  - @justeattakeaway/pie-divider@1.5.34
+  - @justeattakeaway/pie-form-label@0.18.35
+  - @justeattakeaway/pie-icon-button@2.7.32
+  - @justeattakeaway/pie-link@1.5.4
+  - @justeattakeaway/pie-list@0.7.2
+  - @justeattakeaway/pie-lottie-player@0.4.14
+  - @justeattakeaway/pie-modal@1.27.9
+  - @justeattakeaway/pie-notification@0.24.18
+  - @justeattakeaway/pie-radio@1.2.5
+  - @justeattakeaway/pie-radio-group@1.2.9
+  - @justeattakeaway/pie-select@0.9.12
+  - @justeattakeaway/pie-spinner@1.5.7
+  - @justeattakeaway/pie-switch@2.7.3
+  - @justeattakeaway/pie-tabs@0.1.34
+  - @justeattakeaway/pie-tag@1.1.2
+  - @justeattakeaway/pie-text-input@0.30.12
+  - @justeattakeaway/pie-textarea@0.23.7
+  - @justeattakeaway/pie-thumbnail@0.9.2
+  - @justeattakeaway/pie-toast@1.1.8
+  - @justeattakeaway/pie-toast-provider@1.1.8
+
 ## 0.11.14
 
 ### Patch Changes
