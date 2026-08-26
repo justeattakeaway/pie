@@ -101,7 +101,7 @@
         gap: var(--dt-spacing-c);
 
         &.is-dismissible {
-            max-width: calc(100% - var(--notification-close-btn-offset) - 40px); // 40px is the size of the medium icon button
+            margin-inline-end: calc(var(--notification-close-btn-offset) + 40px); // 40px is the size of the medium icon button
         }
     }
 
