@@ -3,7 +3,7 @@
 
 In order for our components to render correctly, you will need to install our base CSS package, `@justeattakeaway/pie-css`. This package contains all the CSS variables and base styles required for our components to work correctly.
 Most of these CSS variables are what are known as [Design Tokens](https://pie.design/foundations/design-tokens/). They are a vital part of our design system, and are used to ensure consistency across all of our components.
-This package also provides a suite of [Typography CSS utility classes](/docs/introduction-typography-utility-classes--docs) to allow you to easily style your text with our design tokens.
+This package also provides a suite of [Typography CSS utility classes](/docs/pie-css-typography-utility-classes--docs) to allow you to easily style your text with our design tokens.
 
 ## Table of Contents
 
@@ -115,4 +115,4 @@ declare module '@justeattakeaway/pie-css';
 ```
 ---
 
-For more information on what styles are included in the CSS package, please refer to the [package readme](https://www.npmjs.com/package/@justeattakeaway/pie-css).
+For more information on what styles are included in the `pie-css` package, and it's optional utilities, please refer to the [PIE CSS documentation](/docs/pie-css--docs).

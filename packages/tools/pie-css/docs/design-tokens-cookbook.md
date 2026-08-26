@@ -83,10 +83,12 @@ A spacing token (`--dt-spacing-e`) is applied to padding, providing internal spa
 }
 ```
 
+For cases where you only need to apply a margin to an element without writing any additional CSS, `pie-css` also provides ready-made spacing utility classes. See the [spacing utility classes documentation](./spacing-utility-classes.md) for details.
+
 ## Typography
 
 For typography, we recommend using the utility classes provided by `pie-css` instead of directly applying font tokens. These classes ensure consistent application of our type scale and responsive adjustments across all components.
-Documentation and examples can be found in Storybook [here](https://webc.pie.design/?path=/docs/introduction-typography-utility-classes--docs).
+Documentation and examples can be found in Storybook [here](https://webc.pie.design/?path=/docs/pie-css-typography-utility-classes--docs).
 
 ## Radius
 

@@ -42,6 +42,7 @@
     "dev": "turbo run dev",
     "dev:testing": "turbo run dev:testing",
     "generate:component-statuses": "turbo run generate:component-statuses",
+    "generate:token-names": "turbo run generate:token-names",
     "generate:copilot-instructions": "turbo run generate:copilot-instructions",
     "generate:verify": "cross-env-shell turbo run generate:verify --token=${TURBO_TOKEN}",
     "lint:banned-patterns": "node ./packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.js",

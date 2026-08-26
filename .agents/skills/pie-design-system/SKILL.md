@@ -28,6 +28,7 @@ Read the user's message and figure out what they need. Use the table below to fi
 | Import or find an icon | Icons |
 | Component events and interactions | Events |
 | Design tokens (colours, spacing, etc.) | Design tokens |
+| Apply spacing with utility classes | Spacing utilities |
 | Customise or override a component's look | Customising components |
 | Something broken or unexpected | Looking up components → pre-flight #4 |
 
@@ -95,12 +96,22 @@ Read `guides/events.md` for PIE's event conventions, then check the individual c
 
 Read `guides/pie-icons-webc.md` for icon props and usage patterns. To browse all available icons, list `node_modules/@justeattakeaway/pie-icons-webc/icons/`. Only use icons that exist in the package — inventing icon names causes broken imports at runtime.
 
+## Spacing utilities
+
+Read `guides/spacing-utility-classes.md` when the request involves applying spacing/margin values using the PIE spacing scale.
+
+Only recommend using the spacing utility classes from `pie-css` instead of custom margin declarations when:
+- The user only wants to apply a PIE spacing token as a margin on an element and no other styling
+- The margin should be fixed across all breakpoints
+
+Classes follow the pattern `u-margin-{direction}--{scale}`, where directions use logical property names: `blockStart`, `blockEnd`, `inlineStart`, `inlineEnd`, `inline`, `block`.
+
 ## Design tokens
 
 PIE's visual language — colours, spacing, radius, typography — is expressed through design tokens. These are CSS custom properties following the pattern `var(--dt-<category>-<name>)`, where the category maps to the token type:
 
 - **Colour**: `var(--dt-color-interactive-brand)`, `var(--dt-color-content-default)`, etc.
-- **Spacing**: `var(--dt-spacing-a)` through `var(--dt-spacing-j)`
+- **Spacing**: `var(--dt-spacing-a)` through `var(--dt-spacing-j)` — when applying spacing as margins, prefer the spacing utility classes if that is the only CSS being applied to the element. Read `guides/spacing-utility-classes.md`.
 - **Radius**: `var(--dt-radius-rounded-a)`, etc.
 - **Font**: Don't use font tokens directly. Instead, use the typography utility classes from `pie-css`. Read `guides/typography-utility-classes.md` for the available classes and how to apply them.
 

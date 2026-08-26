@@ -1,0 +1,36 @@
+@use '../../settings/mq' as *;
+@use '../constants/token-names' as *;
+
+/**
+ * Responsive Web Design Utility Classes
+ * =====================================
+ * Responsive show/hide helpers using PIE breakpoint tokens.
+ * These are opt-in utilities — not included in dist/index.css.
+ *
+ * Breakpoint names are auto-generated into _token-names.scss from @justeat/pie-design-tokens.
+ * Run `yarn generate:token-names` to update if breakpoints change.
+ */
+
+// showAbove — hidden below the named breakpoint, visible at it and above
+// xs is excluded: hiding below the smallest breakpoint would always show the element
+@each $key, $display-name in $breakpoint-names {
+    @if $key != 'xs' {
+        .u-showAbove#{$display-name} {
+            @include media('<#{$key}') {
+                display: none !important;
+            }
+        }
+    }
+}
+
+// showBelow — hidden at the named breakpoint and above, visible below it
+// xs is excluded: hiding below the smallest breakpoint would always hide the element
+@each $key, $display-name in $breakpoint-names {
+    @if $key != 'xs' {
+        .u-showBelow#{$display-name} {
+            @include media('>=#{$key}') {
+                display: none !important;
+            }
+        }
+    }
+}

@@ -16,7 +16,7 @@ const NODE_MODULES_PATH = '../../../node_modules';
  *   scss/_internal/helpers/typography.scss  -> dist/helpers/typography.css
  */
 async function buildInternalScss (): Promise<void> {
-    const files = await glob(`${INTERNAL_DIR}/**/*.scss`);
+    const files = await glob(`${INTERNAL_DIR}/**/[^_]*.scss`);
 
     if (files.length === 0) {
         console.info('No SCSS files found in %s', INTERNAL_DIR);

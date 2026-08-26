@@ -1,0 +1,39 @@
+/* stylelint-disable @justeattakeaway/stylelint-no-logical-props-shorthands */
+
+/**
+ * Spacing Utility Classes
+ * =================================
+ * Thin wrappers over --dt-spacing-* design tokens.
+ * Uses logical properties for RTL compatibility.
+ * These are opt-in utilities — not included in dist/index.css.
+ *
+ * Token names are auto-generated into _spacing-names.scss from @justeat/pie-design-tokens.
+ * Run `yarn generate:spacing-utilities` to update if tokens change.
+ *
+ * Margin helpers: u-margin-{direction}--{scale}
+ */
+
+@use '../constants/token-names' as *;
+
+$directions: (
+    'blockStart': 'margin-block-start',
+    'blockEnd': 'margin-block-end',
+    'inlineStart': 'margin-inline-start',
+    'inlineEnd': 'margin-inline-end',
+    'inline': 'margin-inline',
+    'block': 'margin-block'
+);
+
+@each $scale in $spacing-names {
+    @each $suffix, $property in $directions {
+        .u-margin-#{$suffix}--#{$scale} {
+            #{$property}: var(--dt-spacing-#{$scale}) !important;
+        }
+    }
+}
+
+@each $scale in $spacing-names {
+    .u-margin--#{$scale} {
+        margin: var(--dt-spacing-#{$scale}) !important;
+    }
+}
