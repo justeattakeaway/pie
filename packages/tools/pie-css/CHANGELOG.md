@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.6.0
+
+### Minor Changes
+
+- [Added] - spacing and rwd utility classes ([#3132](https://github.com/justeattakeaway/pie/pull/3132)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.5.0
 
 ### Minor Changes

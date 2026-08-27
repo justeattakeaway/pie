@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-accordion
 
+## 0.2.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-divider@1.5.34
+  - @justeattakeaway/pie-webc-core@19.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
 ## 0.2.8
 
 ### Patch Changes

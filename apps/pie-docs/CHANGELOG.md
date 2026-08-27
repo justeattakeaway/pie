@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.15.0
+
+### Minor Changes
+
+- [Added] - Added web docs for Icon with background ([#3145](https://github.com/justeattakeaway/pie/pull/3145)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`3d7d0f2`](https://github.com/justeattakeaway/pie/commit/3d7d0f2610d9cf95b628ce1e6045157e63857cf0)]:
+  - @justeattakeaway/pie-css@1.6.0
+  - @justeattakeaway/pie-webc@0.11.15
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
 ## 5.14.1
 
 ### Patch Changes
