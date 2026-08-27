@@ -60,6 +60,13 @@ export interface ToastProps {
    * The ARIA labels used for various parts of the toast.
    */
   aria?: AriaProps;
+
+  /**
+   * When true, the toast does not expose its own ARIA live region (`role`).
+   * Used by `pie-toast-provider`, which owns a single persistent live region
+   * for announcements, to prevent the same message being announced twice.
+   */
+  suppressLiveRegion?: boolean;
 }
 
 export const componentSelector = 'pie-toast';
@@ -96,4 +103,5 @@ export const defaultProps: DefaultProps = {
     isDismissible: false,
     isMultiline: false,
     duration: 5000,
+    suppressLiveRegion: false,
 };

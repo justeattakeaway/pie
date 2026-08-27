@@ -8,6 +8,7 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     dispatchCustomEvent,
     safeCustomElement,
@@ -72,6 +73,9 @@ export class PieToast extends PieElement implements ToastProps {
 
     @property({ type: Object })
     public aria: ToastProps['aria'];
+
+    @property({ type: Boolean })
+    public suppressLiveRegion = defaultProps.suppressLiveRegion;
 
     @query('pie-button')
     private actionButton?: HTMLElement;
@@ -315,6 +319,21 @@ export class PieToast extends PieElement implements ToastProps {
         return this.variant === 'warning' && this.isStrong;
     }
 
+    /**
+     * Resolves the ARIA live region role for the toast.
+     * Returns `undefined` when `suppressLiveRegion` is set, so the provider's own
+     * persistent live region is the single source of announcements.
+     *
+     * @private
+     */
+    private getLiveRegionRole (): 'alert' | 'status' | undefined {
+        if (this.suppressLiveRegion) {
+            return undefined;
+        }
+
+        return this.variant === 'error' ? 'alert' : 'status';
+    }
+
     render () {
         if (!this.isOpen) {
             return nothing;
@@ -338,7 +357,7 @@ export class PieToast extends PieElement implements ToastProps {
 
         return html`
             <div
-                role="${variant === 'error' ? 'alert' : 'status'}"
+                role="${ifDefined(this.getLiveRegionRole())}"
                 data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
                 <div class="${componentClass}-contentArea">

@@ -43,6 +43,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `leadingAction`  | `{ text: string, ariaLabel?: string }`                                    | The leading action for the toast.                                                                                                                                        | `undefined` |
 | `duration`       | `number`, `null`                                                          | Sets the duration of the toast in milliseconds before it auto-dismisses. `null` disables auto-dismiss. Defaults to 5 seconds if not specified.                          | `5000`      |
 | `aria`           | `{ close?: string }`                                                      | The ARIA labels used for various parts of the toast. `close` sets the `aria-label` on the close button.                                                                 | `undefined` |
+| `suppressLiveRegion` | `true`, `false`                                                     | When true, the toast does not expose its own ARIA live region (`role`). Used by [pie-toast-provider](https://webc.pie.design/?path=/docs/components-toast-provider--overview), which owns a single persistent live region, to prevent a message being announced twice. | `false`     |
 
 ### Slots
 This component does not have any slots. All content is controlled through properties.

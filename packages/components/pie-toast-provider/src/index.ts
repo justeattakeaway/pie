@@ -140,16 +140,27 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
             'pie-animation--slide-out': _currentToast === null,
         };
 
+        const isError = _currentToast?.variant === 'error';
+
         return html`
-        <div 
+        <div
             class=${classMap(classes)}
             data-test-id="pie-toast-provider">
+            <div
+                class="c-toast-provider-announcer is-visuallyHidden"
+                role="${isError ? 'alert' : 'status'}"
+                aria-live="${isError ? 'assertive' : 'polite'}"
+                aria-atomic="true"
+                data-test-id="pie-toast-provider-announcer">
+                ${_currentToast?.message ?? ''}
+            </div>
             ${_currentToast &&
             html`
                 <pie-toast
                     class=${classMap(toastClasses)}
                     message="${_currentToast.message}"
                     variant="${ifDefined(_currentToast.variant)}"
+                    ?suppressLiveRegion="${true}"
                     ?isStrong="${_currentToast.isStrong}"
                     ?isDismissible="${_currentToast.isDismissible}"
                     ?isMultiline="${_currentToast.isMultiline}"

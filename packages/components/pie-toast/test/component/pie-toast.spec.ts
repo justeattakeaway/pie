@@ -276,5 +276,38 @@ test.describe('PieToast - Component tests', () => {
                 await expect(toastComponent).toHaveAttribute('role', 'status');
             });
         });
+
+        test('should not set a role when suppressLiveRegion is true', async ({ page }) => {
+            // Arrange
+            const toastPage = new BasePage(page, 'toast');
+            const props: Partial<ToastProps> = {
+                suppressLiveRegion: true,
+            };
+            await toastPage.load({ ...props });
+
+            // Act
+            const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+
+            // Assert
+            await expect(toastComponent).toBeVisible();
+            await expect(toastComponent).not.toHaveAttribute('role');
+        });
+
+        test('should not set a role when suppressLiveRegion is true even for the error variant', async ({ page }) => {
+            // Arrange
+            const toastPage = new BasePage(page, 'toast');
+            const props: Partial<ToastProps> = {
+                variant: 'error',
+                suppressLiveRegion: true,
+            };
+            await toastPage.load({ ...props });
+
+            // Act
+            const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+
+            // Assert
+            await expect(toastComponent).toBeVisible();
+            await expect(toastComponent).not.toHaveAttribute('role');
+        });
     });
 });
