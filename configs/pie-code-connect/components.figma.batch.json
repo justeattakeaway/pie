@@ -320,5 +320,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-spinner.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-spinner",
+        "componentNameReact": "PieSpinner",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-spinner/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=132-15960"
+      }
+    ]
   }
 ]
