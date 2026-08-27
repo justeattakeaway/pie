@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Android
     parent: Switch
     order: 3
-draft: true
 ---
 
 {% notification {

@@ -3,7 +3,6 @@ eleventyNavigation:
     key: iOS
     parent: Date Picker
     order: 4
-draft: true
 ---
 
 {% notification {

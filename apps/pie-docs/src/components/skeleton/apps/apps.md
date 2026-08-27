@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Apps
     parent: Skeleton
     order: 3
-draft: true
 ---
 
 {% notification {

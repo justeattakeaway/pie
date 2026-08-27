@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: Pagination
     order: 2
-draft: true
 ---
 
 {% notification {

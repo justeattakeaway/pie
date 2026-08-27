@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: Map Pin
     order: 2
-draft: true
 ---
 
 {% notification {

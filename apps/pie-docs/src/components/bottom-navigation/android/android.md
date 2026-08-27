@@ -3,11 +3,10 @@ eleventyNavigation:
   key: Android
   parent: 'Bottom Navigation'
   order: 1
-draft: true
 shouldShowContents: true
-permalink: components/bottom-navigation/
 ---
 
-## Overview
-
-Coming soon.
+{% notification {
+  type: "neutral",
+  message: "We're currently working on this documentation. It will be available soon."
+} %}
