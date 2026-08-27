@@ -345,7 +345,7 @@ test.describe('PieToastProvider - Component tests', () => {
             const mainToast = page.locator('pie-toast-provider#main pie-toast');
             const modalToast = page.locator('pie-toast-provider#modal pie-toast');
 
-            await expect(mainToast).toBeVisible();
+            await expect(mainToast.first()).toBeVisible();
             await expect(modalToast).toBeVisible();
 
             // Verify message content — main has 2 visible toasts, use .first() to match the oldest
@@ -405,7 +405,7 @@ test.describe('PieToastProvider - Component tests', () => {
             const mainToast = page.locator('pie-toast-provider#main pie-toast');
             const modalToast = page.locator('pie-toast-provider#modal pie-toast');
 
-            await expect(mainToast).toBeVisible();
+            await expect(mainToast.first()).toBeVisible();
             await expect(modalToast).not.toBeVisible();
         });
 
