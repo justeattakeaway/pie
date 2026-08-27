@@ -11,8 +11,9 @@ const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameR
 const isOptional = getInstanceProp('getBoolean', 'Optional');
 const hasCharacterCount = getInstanceProp('getBoolean', 'Character count');
 const textInputLabel = getInstanceProp(['Form label / Leading content / Label'], 'getString', '[𝐓] Label');
-const selectLabel = getInstanceProp(['Form label'], 'getString', '[𝐓] Label');
-const label = textInputLabel || selectLabel || 'Label';
+const selectLabel = getInstanceProp('getString', '[𝐓] Label');
+const textAreaLabel = getInstanceProp('getString', '[𝐓] Label');
+const label = textInputLabel || selectLabel || textAreaLabel || 'Label';
 const multilineLabel = getInstanceProp(['Label group', 'Label + icon', 'Form label / Multiline label'], 'getString', '[𝐓] Multiline label') || '';
 
 const trailing = hasCharacterCount

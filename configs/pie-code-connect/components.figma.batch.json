@@ -125,6 +125,13 @@
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-form-label/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1700-146167&t=AAGVH2tYPGNMkJW2-11",
         "note": "label for pie-select"
+      },
+      {
+        "componentName": "pie-form-label",
+        "componentNameReact": "PieFormLabel",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-form-label/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=2011-77602&t=qjAjhUjKge3yaeb0-4",
+        "note": "label for text-area"
       }
     ]
   },
@@ -329,6 +336,17 @@
         "componentNameReact": "PieSpinner",
         "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-spinner/src/index.ts",
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=132-15960"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-textarea.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-textarea",
+        "componentNameReact": "PieTextarea",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-textarea/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=2011-73130"
       }
     ]
   }
