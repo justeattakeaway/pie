@@ -43,6 +43,8 @@
     "components/card/code",
     "components/card/web",
     "components/carousel-indicator",
+    "components/carousel-indicator/apps",
+    "components/carousel-indicator/web",
     "components/checkbox",
     "components/checkbox/android",
     "components/checkbox/code",

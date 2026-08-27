@@ -3,48 +3,90 @@ eleventyNavigation:
     key: Web
     parent: Carousel Indicator
     order: 2
-draft: true
+shouldShowContents: true
 ---
 
 ## Dos and Don'ts
 
-**Do**
-
-- Place the Carousel Indicator below the tallest element within the row.
-- Don't position the Carousel Indicator in any other alignment other than the centre.
-
-**Don't**
-
-- Do not use the Carousel Indicator on its own without the context of a Carousel.
-
---- > IMAGE PLACEHOLDER
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Place the Carousel Indicator below the tallest element within the row.",
+            "Always position the Carousel Indicator in centre alignment only."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don't use the Carousel Indicator on its own without the context of a Carousel."
+        ]
+    }
+} %}
 
 ---
 
 ## Anatomy
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/carousel-indicator/anatomy.svg",
+    alt: "A carousel indicator with two numbered callouts identifying the selected indicator and the unselected indicator.",
+    width: "200"
+} %}
 
-- **Selected indicator:** Highlights which slide is currently in view.
-- **Indicator:** Indicates how many slides there are in total.
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Selected indicator:** Highlights which slide is currently in view.",
+        "**Indicator:** Indicates how many slides there are in total."
+    ]
+} %}
 
 ---
 
 ## Variants
 
---- > IMAGE PLACEHOLDER
-
-- Default
-- Primary
+{% contentLayout %}
+  {% contentItem %}
+  <h3>Default</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/variants-default.svg",
+        alt: "A carousel indicator in the default variant, showing a row of small circular dots.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h3>Primary</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/variants-primary.svg",
+        alt: "A carousel indicator in the primary variant, showing a row of small circular dots in the primary brand colour.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 
 ## Modifiers
 
---- > IMAGE PLACEHOLDER
-
-- Selected
-- Unselected
+{% contentLayout %}
+  {% contentItem %}
+  <h3>Selected</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/modifiers-selected.svg",
+        alt: "A carousel indicator showing the selected modifier, with one dot filled to indicate the active slide.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h3>Unselected</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/modifiers-unselected.svg",
+        alt: "A carousel indicator showing the unselected modifier, with all dots unfilled.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 
@@ -54,26 +96,73 @@ draft: true
 
 The Carousel Indicator should always be centre aligned underneath the 'view' container.
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/carousel-indicator/layout-alignment.svg",
+    alt: "A carousel with a row of indicator dots centred horizontally beneath the slide content.",
+    width: "200"
+} %}
 
 ---
 
 ## Behaviour
 
-The quantity of indicators should be equal to the number of slides. When navigating, all items within the slide transition together. For example, when there are two items per page, the initial two items move off screen and the following two items come into view. The number of items shown can be adjusted per breakpoint to show more/less depending on available space.
+The quantity of indicators should be equal to the number of slides. All items within the slide transition together when navigating. For example, when there are three items in a carousel, the initial two items move off screen so the following item come into view. The number of items shown can be adjusted per breakpoint to show more/less depending on available space.
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/carousel-indicator/behaviour-start.svg",
+    alt: "A carousel at the start position with the first indicator dot selected.",
+    width: "200",
+    caption: "A carousel at the start position with the first indicator dot selected."
+} %}
+
+{% contentPageImage {
+    src: "../../../assets/img/components/carousel-indicator/behaviour-end.svg",
+    alt: "A carousel at the end position with the last indicator dot selected.",
+    width: "200",
+    caption: "A carousel at the end position with the last indicator dot selected."
+} %}
 
 ---
 
 ## Interactive states
 
---- > IMAGE PLACEHOLDER
+{% contentLayout %}
+  {% contentItem %}
+  <h3>Default</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/interactive-states-default.svg",
+        alt: "A carousel indicator in its default state with no interaction applied.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h3>Hover</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/interactive-states-hover.svg",
+        alt: "A carousel indicator with one dot in its hover state.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
-- Default
-- Hover
-- Active
-- Focus
+{% contentLayout %}
+  {% contentItem %}
+  <h3>Active</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/interactive-states-active.svg",
+        alt: "A carousel indicator with one dot in its active (pressed) state.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h3>Focus</h3>
+    {% contentPageImage {
+        src: "../../../assets/img/components/carousel-indicator/interactive-states-focus.svg",
+        alt: "A carousel indicator with one dot showing a visible focus ring.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 
@@ -83,11 +172,18 @@ The quantity of indicators should be equal to the number of slides. When navigat
 
 Here are some examples of a Carousel indicator in LTR context.
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/carousel-indicator/example-ltr.svg",
+    alt: "A carousel indicator displayed in a left-to-right layout context.",
+    width: "200"
+} %}
 
 ### RTL example
 
 Here are some examples of a Carousel indicator in RTL context.
 
---- > IMAGE PLACEHOLDER
-
+{% contentPageImage {
+    src: "../../../assets/img/components/carousel-indicator/example-rtl.svg",
+    alt: "A carousel indicator displayed in a right-to-left layout context.",
+    width: "200"
+} %}
