@@ -15,6 +15,9 @@
 .c-toast-provider {
     position: var(--toast-provider-position);
     z-index: var(--toast-provider-z-index);
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--dt-spacing-d);
 
     &-announcer {
         @include p.visually-hidden;

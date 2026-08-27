@@ -69,3 +69,5 @@ export const defaultProps: DefaultProps = {
  */
 
 export const ON_TOAST_PROVIDER_QUEUE_UPDATE_EVENT = 'pie-toast-provider-queue-update';
+
+export const MAX_VISIBLE_TOASTS = 3;
