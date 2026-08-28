@@ -341,6 +341,7 @@ export class PieToast extends PieElement implements ToastProps {
             <div
                 role="${variant === 'error' ? 'alert' : 'status'}"
                 aria-live="${ifDefined(this.aria?.live)}"
+                aria-atomic="true"
                 data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
                 <div class="${componentClass}-contentArea">

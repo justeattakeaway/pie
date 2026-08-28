@@ -286,8 +286,10 @@ test.describe('PieToast - Component tests', () => {
                 // Act
                 const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
 
-                // Assert — politeness is implied by the role when not overridden
+                // Assert — politeness is implied by the role when not overridden, and the whole
+                // region is announced as a unit
                 await expect(toastComponent).toHaveAttribute('role', 'status');
+                await expect(toastComponent).toHaveAttribute('aria-atomic', 'true');
                 await expect(toastComponent).not.toHaveAttribute('aria-live');
             });
 
