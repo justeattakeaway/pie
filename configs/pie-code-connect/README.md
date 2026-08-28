@@ -227,6 +227,31 @@ The main difference between the returned value from the original API and this, i
 
 This approach aims to bring convenience, rather than requiring to figure out each time if the returned value is an error or actual value.
 
+#### `getIconSnippet(instance, transform)`
+
+Renders an icon instance swap - obtained via `getInstanceProp('getInstanceSwap', propName)` - as a code snippet, optionally assigning it to a slot.
+
+##### Parameters:
+- `instance` - The Figma instance swap node to render
+- `transform` (optional) - Either the name of the slot to assign the icon to (e.g. `'icon'`, `'leadingIcon'`), or a function `(code) => string` for the rare transform the slot shorthand cannot express
+
+##### Returns:
+The rendered snippet array, or an empty string when the instance is missing or has no Code Connect mapping.
+
+Always prefer this over calling `executeTemplate()` directly on the instance, so that a missing icon yields an empty string rather than `undefined` leaking into the published snippet.
+
+##### Examples:
+
+```js
+// Icon that needs no slot attribute (e.g. pie-icon-button)
+const iconInstance = getInstanceProp('getInstanceSwap', 'Replace icon');
+const iconSnippet = getIconSnippet(iconInstance);
+
+// Icon assigned to a named slot - use the component's `@slot` name from `src/index.ts`
+const leadingIconInstance = getInstanceProp('getInstanceSwap', 'Replace leading icon');
+const leadingIconSnippet = getIconSnippet(leadingIconInstance, 'leadingIcon');
+```
+
 #### `getSlotContent(slotName)`
 
 Retrieves the connected instances for a named slot on the selected Figma instance and returns their rendered template examples as an array.
