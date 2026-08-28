@@ -2,4 +2,4 @@
 '@justeattakeaway/pie-toast': minor
 ---
 
-[Added] - `suppressLiveRegion` prop which, when true, stops the toast exposing its own ARIA live region (`role`). This lets `pie-toast-provider` own a single live region and avoid announcing a message twice.
+[Added] - `live` option to the `aria` prop (`"off" | "polite" | "assertive"`) to override the ARIA live region politeness. Set it to `"off"` to disable the toast's own live region, e.g. when `pie-toast-provider` owns the announcement, preventing a message being announced twice.

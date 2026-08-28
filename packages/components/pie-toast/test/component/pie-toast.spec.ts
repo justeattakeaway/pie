@@ -277,37 +277,54 @@ test.describe('PieToast - Component tests', () => {
             });
         });
 
-        test('should not set a role when suppressLiveRegion is true', async ({ page }) => {
-            // Arrange
-            const toastPage = new BasePage(page, 'toast');
-            const props: Partial<ToastProps> = {
-                suppressLiveRegion: true,
-            };
-            await toastPage.load({ ...props });
+        test.describe('aria.live', () => {
+            test('should not set an aria-live attribute by default', async ({ page }) => {
+                // Arrange
+                const toastPage = new BasePage(page, 'toast');
+                await toastPage.load();
 
-            // Act
-            const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                // Act
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
 
-            // Assert
-            await expect(toastComponent).toBeVisible();
-            await expect(toastComponent).not.toHaveAttribute('role');
-        });
+                // Assert — politeness is implied by the role when not overridden
+                await expect(toastComponent).toHaveAttribute('role', 'status');
+                await expect(toastComponent).not.toHaveAttribute('aria-live');
+            });
 
-        test('should not set a role when suppressLiveRegion is true even for the error variant', async ({ page }) => {
-            // Arrange
-            const toastPage = new BasePage(page, 'toast');
-            const props: Partial<ToastProps> = {
-                variant: 'error',
-                suppressLiveRegion: true,
-            };
-            await toastPage.load({ ...props });
+            test('should set aria-live to "off" when aria.live is "off" while keeping its role', async ({ page }) => {
+                // Arrange
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    aria: { live: 'off' },
+                };
+                await toastPage.load({ ...props });
 
-            // Act
-            const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                // Act
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
 
-            // Assert
-            await expect(toastComponent).toBeVisible();
-            await expect(toastComponent).not.toHaveAttribute('role');
+                // Assert
+                await expect(toastComponent).toBeVisible();
+                await expect(toastComponent).toHaveAttribute('role', 'status');
+                await expect(toastComponent).toHaveAttribute('aria-live', 'off');
+            });
+
+            test('should override the implied assertive politeness of the error variant', async ({ page }) => {
+                // Arrange
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    variant: 'error',
+                    aria: { live: 'off' },
+                };
+                await toastPage.load({ ...props });
+
+                // Act
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+
+                // Assert
+                await expect(toastComponent).toBeVisible();
+                await expect(toastComponent).toHaveAttribute('role', 'alert');
+                await expect(toastComponent).toHaveAttribute('aria-live', 'off');
+            });
         });
     });
 });

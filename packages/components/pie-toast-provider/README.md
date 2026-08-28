@@ -17,7 +17,6 @@
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
   - [Events](#events)
-  - [Accessibility](#accessibility)
 - [Usage Examples](#usage-examples)
   - [Creating Toasts with `toaster`](#creating-toasts-with-toaster)
   - [Multiple Providers](#multiple-providers)
@@ -55,12 +54,6 @@ This component does not have any slots. All content is controlled through proper
 | Event                              | Description                                      |
 |-----------------------------------|--------------------------------------------------|
 | `pie-toast-provider-queue-update` | Triggered when a toast is added or removed from the queue. |
-
-### Accessibility
-
-The provider renders a single persistent ARIA live region that is always present in the DOM, even when no toast is visible. When a toast is created, its message is written into this region so screen readers announce it automatically, without focus needing to move (WCAG 4.1.3 Status Messages). `error` toasts use an assertive region (`role="alert"`); all other variants use a polite region (`role="status"`).
-
-Because the provider owns this announcement, the toast it renders has its own live region suppressed (via `pie-toast`'s `suppressLiveRegion` prop) to avoid the message being announced twice. A standalone `pie-toast` used without the provider keeps its own live region.
 
 ## Usage Examples
 

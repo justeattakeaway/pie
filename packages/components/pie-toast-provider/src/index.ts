@@ -142,6 +142,10 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
 
         const isError = _currentToast?.variant === 'error';
 
+        // The provider owns the announcement, so the rendered toast's own live region is disabled
+        // (`aria-live: off`) to prevent the message being announced twice.
+        const toastAria = { ..._currentToast?.aria, live: 'off' as const };
+
         return html`
         <div
             class=${classMap(classes)}
@@ -160,12 +164,11 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
                     class=${classMap(toastClasses)}
                     message="${_currentToast.message}"
                     variant="${ifDefined(_currentToast.variant)}"
-                    ?suppressLiveRegion="${true}"
                     ?isStrong="${_currentToast.isStrong}"
                     ?isDismissible="${_currentToast.isDismissible}"
                     ?isMultiline="${_currentToast.isMultiline}"
                     .leadingAction="${_currentToast.leadingAction}"
-                    .aria="${_currentToast.aria}"
+                    .aria="${toastAria}"
                     .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
                     @pie-toast-close="${this._dismissToast}"
                     @pie-toast-open="${_currentToast.onPieToastOpen}"

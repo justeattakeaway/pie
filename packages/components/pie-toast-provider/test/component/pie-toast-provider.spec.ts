@@ -489,7 +489,7 @@ test.describe('PieToastProvider - Component tests', () => {
             await expect(announcer).toHaveText('Something went wrong');
         });
 
-        test('should suppress the rendered toast own live region to avoid double announcements', async ({ page }) => {
+        test('should disable the rendered toast own live region to avoid double announcements', async ({ page }) => {
             // Arrange
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
             await pieToastProviderPage.load();
@@ -501,10 +501,12 @@ test.describe('PieToastProvider - Component tests', () => {
                 tp.createToast({ message: 'A toast', variant: 'neutral', duration: null });
             });
 
-            // Assert — the provider owns the single live region; the visible toast must not add its own
+            // Assert — the provider owns the single live region, so the visible toast keeps its role
+            // for semantics but has its own announcements switched off (aria-live="off").
             const toastContainer = page.getByTestId('pie-toast');
             await expect(toastContainer).toBeVisible();
-            await expect(toastContainer).not.toHaveAttribute('role');
+            await expect(toastContainer).toHaveAttribute('role', 'status');
+            await expect(toastContainer).toHaveAttribute('aria-live', 'off');
         });
     });
 });

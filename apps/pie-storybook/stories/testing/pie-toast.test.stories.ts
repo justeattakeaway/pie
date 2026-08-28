@@ -75,15 +75,8 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'number',
         },
         aria: {
-            description: 'The ARIA labels used for various parts of the toast.',
+            description: 'The ARIA labels used for various parts of the toast, and an optional `live` override for the live region politeness.',
             control: 'object',
-        },
-        suppressLiveRegion: {
-            description: 'When true, the toast does not expose its own ARIA live region (used by pie-toast-provider).',
-            control: 'boolean',
-            defaultValue: {
-                summary: defaultProps.suppressLiveRegion,
-            },
         },
     },
     args: defaultArgs,
@@ -114,7 +107,6 @@ const Template : TemplateFunction<ToastProps> = ({
     variant,
     duration,
     aria,
-    suppressLiveRegion,
 }: ToastProps) => html`
         <pie-toast
             ?isOpen="${isOpen}"
@@ -124,7 +116,6 @@ const Template : TemplateFunction<ToastProps> = ({
             message="${message}" 
             .duration="${duration}"
             ?isMultiline="${isMultiline}"
-            ?suppressLiveRegion="${suppressLiveRegion}"
             .leadingAction="${leadingAction}"
             .aria="${aria}">
         </pie-toast>
