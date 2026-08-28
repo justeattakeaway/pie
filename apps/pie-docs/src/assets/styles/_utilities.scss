@@ -1,4 +1,4 @@
-@use 'fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use 'variables' as v;
 
 // Allows us to override any default fills applied to svgs and their paths
@@ -22,7 +22,7 @@
     margin: 0;
     padding: 0;
 
-    @include f.media('>=#{v.$wide-screen-content-max-width}') {
+    @include media('>=#{v.$wide-screen-content-max-width}') {
         margin-inline-start: auto;
         margin-inline-end: auto;
     }

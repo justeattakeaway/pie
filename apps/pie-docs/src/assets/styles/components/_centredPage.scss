@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-centredPage {
@@ -12,7 +12,7 @@
     padding-inline-end: var(--dt-spacing-d);
     background-color: var(--dt-color-background-default);
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         padding-inline-start: var(--dt-spacing-i);
         padding-inline-end: var(--dt-spacing-i);
     }
@@ -21,7 +21,7 @@
         margin-block-end: 0;
         font-size: #{p.font-size(--dt-font-heading-xxl-size--narrow)};
 
-        @include f.media('>=wide') {
+        @include media('>=lg') {
             font-size: #{p.font-size(--dt-font-heading-xxl-size--wide)};
         }
     }

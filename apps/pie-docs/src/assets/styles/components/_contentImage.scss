@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '@justeattakeaway/pie-css/scss' as p;
 
@@ -17,7 +17,7 @@ $contentImage-height-l--mobile:           400px;
 .c-contentImage--height-s {
     height: $contentImage-height--mobile;
 
-    @include f.media('>=narrowMid') {
+    @include media('>=sm') {
         height: $contentImage-height;
     }
 }
@@ -25,7 +25,7 @@ $contentImage-height-l--mobile:           400px;
 .c-contentImage--height-m {
     height: $contentImage-height-m--mobile;
 
-    @include f.media('>=narrowMid') {
+    @include media('>=sm') {
         height: $contentImage-height-m;
     }
 }
@@ -33,7 +33,7 @@ $contentImage-height-l--mobile:           400px;
 .c-contentImage--height-l {
     height: $contentImage-height-l--mobile;
 
-    @include f.media('>=narrowMid') {
+    @include media('>=sm') {
         height: $contentImage-height-l;
     }
 }
