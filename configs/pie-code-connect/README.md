@@ -198,7 +198,9 @@ A template file (`*.figma.batch.js`) is a Node.js CommonJS module that defines h
 
 - `process.env.FRAMEWORK` - The target framework (`'web'`, `'react'`, or `'vue'`), this is determined by env var set on each of the build scripts
 - `figma.selectedInstance` - The Figma component instance currently being processed
-- `figma.batch.baseName` - Kebab-case component name from the batch configuration (e.g. `'pie-modal'`)
+- `figma.batch.componentName` - Kebab-case custom element name from the batch configuration (e.g. `'pie-modal'`)
+- `figma.batch.componentNameReact` - PascalCase React wrapper name from the batch configuration (e.g. `'PieModal'`)
+- `figma.batch.baseName` - Kebab-case icon name (e.g. `'icon-over-16'`). Used by the icon templates in place of the two properties above
 
 Any additional custom properties defined on a component in the batch configuration (e.g. `isSubtle` on PieModal) are also available under `figma.batch`.
 
