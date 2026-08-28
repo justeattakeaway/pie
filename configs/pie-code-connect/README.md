@@ -72,11 +72,10 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
+const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
-const getInstanceProp = createGetInstanceProp(figma);
 
 // PROP MAPPING
 const size = getInstanceProp('getEnum', 'Size', {
@@ -87,16 +86,23 @@ const size = getInstanceProp('getEnum', 'Size', {
 const isDisabled = getInstanceProp('getBoolean', 'Disabled');
 const buttonText = getInstanceProp(['Button'], 'getString', 'Label') || 'Click';
 
+// PROP RENDERING
+// `renderProp` returns an empty string when a value matches its default, so falsy
+// entries are filtered out to keep blank lines out of the generated snippet. The
+// join indent matches the four-space offset of `${props}` in the template below.
+const props = [
+    renderProp('size', size, 'medium'),
+    renderProp('disabled', isDisabled, false),
+].filter(Boolean).join('\n    ');
+
 // TEMPLATE RENDERING
-const template = `<${selectedComponentName}
-    ${renderProp('size', size, 'medium')}
-    ${renderProp('disabled', isDisabled, false)}
->
+const template = figma.code`<${selectedComponentName}
+    ${props}>
     ${buttonText}
 </${selectedComponentName}>`;
 
 export default {
-    example: figma.code`${trimEmptyLines(template)}`,
+    example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
     id: componentName,
 };
@@ -231,9 +237,12 @@ An array of rendered template examples from each connected instance. Pass the re
 
 #### `renderProp(propName, value, defaultValue)`
 
-Renders a component prop in web or React syntax.
+Renders a component prop in web, React or Vue syntax, based on `process.env.FRAMEWORK`.
 
-It automatically omits the prop if its value matches the default.
+It automatically omits the prop if its value matches the default, returning an empty
+string in that case. This is why rendered props are collected into an array and passed
+through `.filter(Boolean)` before being joined — it keeps omitted props from leaving
+blank lines in the generated snippet.
 
 ## Publishing Code Connect changes
 
