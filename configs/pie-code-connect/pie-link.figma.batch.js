@@ -41,7 +41,7 @@ const hasIcon = hasLeadingIcon || hasTrailingIcon;
 if (hasIcon) {
     iconPlacement = hasLeadingIcon ? 'leading' : 'trailing';
     const iconInstance = getInstanceProp('getInstanceSwap', hasLeadingIcon ? 'Replace leading icon' : 'Replace trailing icon');
-    iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
+    iconSnippet = getIconSnippet(iconInstance, 'icon');
 }
 
 const label = getInstanceProp('getString', '[𝐓] Link');

@@ -27,7 +27,7 @@ const status = isError ? 'error' : 'default';
 
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
 const leadingIconInstance = hasLeadingIcon && getInstanceProp('getInstanceSwap', 'Replace leading icon');
-const leadingIconSnippet = hasLeadingIcon && getIconSnippet(leadingIconInstance, (code) => code.replace('></', ' slot="leadingIcon"></'));
+const leadingIconSnippet = hasLeadingIcon && getIconSnippet(leadingIconInstance, 'leadingIcon');
 
 const formLabelSnippet = getInstanceTemplate(['Form label']);
 
