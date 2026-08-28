@@ -71,7 +71,7 @@ const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 // Uncomment only if the component uses a form label nested instance:
 // const createGetInstanceTemplate = require('./utils/get-instance-template.js');
-// Uncomment only if the component uses icon slots:
+// Uncomment only if the component renders an icon instance swap:
 // const getIconSnippet = require('./utils/get-icon-snippet.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
@@ -132,12 +132,20 @@ const getIconSnippet = require('./utils/get-icon-snippet.js');
 
 // Icon without a slot attribute:
 const iconInstance = getInstanceProp('getInstanceSwap', 'Replace icon');
-const iconSnippet = iconInstance?.executeTemplate().example;
+const iconSnippet = getIconSnippet(iconInstance);
 
-// Icon that needs a slot attribute:
+// Icon that needs a slot attribute — pass the slot name as the second argument.
+// Use the component's `@slot` name from `src/index.ts` (e.g. `icon`, `leadingIcon`):
 const iconInstance = getInstanceProp('getInstanceSwap', 'Replace leading icon');
-const iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
+const iconSnippet = getIconSnippet(iconInstance, 'leadingIcon');
 ```
+
+Always go through `getIconSnippet` rather than calling `executeTemplate()` directly — it
+guards against instances that are missing or have no Code Connect mapping, returning an
+empty string instead of `undefined` leaking into the snippet.
+
+For the rare transform the slot shorthand cannot express, the second argument also accepts
+a function of the form `(code) => string`.
 
 ### Form label
 
