@@ -14,7 +14,9 @@ You are helping the user sync newly added PIE icons into the Figma Code Connect 
 
 ## Prerequisites
 
-The following tools must be available on your `PATH`. Verify before starting:
+You must have access to the **Figma MCP server** — Step 2 relies on the `mcp__plugin_figma_figma__get_metadata` tool to look up icon node IDs. If the Figma MCP tools are not available, stop and ask the user to connect the Figma MCP server before continuing.
+
+The following tools must also be available on your `PATH`. Verify before starting:
 
 ```bash
 git --version && python3 --version && jq --version
