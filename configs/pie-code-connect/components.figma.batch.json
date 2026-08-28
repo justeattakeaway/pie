@@ -349,5 +349,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=2011-73130"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-toast.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-toast",
+        "componentNameReact": "PieToast",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-toast/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321"
+      }
+    ]
   }
 ]
