@@ -38,6 +38,16 @@ npx skills add git@github.com:justeattakeaway/pie.git --skill skill-reviewer
 
 ---
 
+### add-code-connect-template
+
+Adds a new Figma Code Connect template for a PIE design system component. Given a component name and Figma component set URL, reads the component source, asks about Figma prop mappings, generates the batch template file, and registers it in `components.figma.batch.json`.
+
+```
+npx skills add git@github.com:justeattakeaway/pie.git --skill add-code-connect-template
+```
+
+---
+
 ### sync-code-connect-icons
 
 Syncs newly added icons from `pie-icons` into the Figma Code Connect batch config. Detects the relevant commit, looks up the Figma node IDs, and inserts the new entries in the correct category group.
