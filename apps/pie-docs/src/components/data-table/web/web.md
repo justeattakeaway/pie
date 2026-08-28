@@ -103,7 +103,9 @@ The column header by default uses `$container-default`. An option for a strong h
     width: "200"
 } %}
 
-### Content
+---
+
+## Content
 
 **Title and Secondary text**
 
@@ -122,7 +124,7 @@ The column header by default uses `$container-default`. An option for a strong h
 
 ### Cell types
 
-**Default**
+#### Default
 
 Standard cell type for displaying data.
 
@@ -132,7 +134,7 @@ Standard cell type for displaying data.
     width: "200"
 } %}
 
-**With checkbox**
+#### With checkbox
 
 Only available within the first column of the table to allow users to select one or more rows. When used, the first column header also has to include a Checkbox for the 'select all' functionality.
 
@@ -142,7 +144,7 @@ Only available within the first column of the table to allow users to select one
     width: "200"
 } %}
 
-**Link**
+#### Link
 
 Link that allows the user to navigate to a different page within the application or an entirely different site. It can also be used to display phone numbers or email addresses.
 
@@ -152,7 +154,7 @@ Link that allows the user to navigate to a different page within the application
     width: "200"
 } %}
 
-**Tag**
+#### Tag
 
 Use when displaying values within a category; such as a status.
 
@@ -162,7 +164,7 @@ Use when displaying values within a category; such as a status.
     width: "200"
 } %}
 
-**With icon**
+#### With icon
 
 Helps reinforce the data point with an icon that directly relates to the data point.
 
@@ -172,7 +174,7 @@ Helps reinforce the data point with an icon that directly relates to the data po
     width: "200"
 } %}
 
-**Button**
+#### Button
 
 Available to use within all Data Table variants, but only to be used within the most far right columns of the Data Table to allow the user to take action against a single row. A row level action would be used over the action being located in the bulk action toolbar because the action can only be taken one row at a time, and cannot be actioned in bulk.
 
@@ -182,7 +184,7 @@ Available to use within all Data Table variants, but only to be used within the 
     width: "200"
 } %}
 
-**Icon button**
+#### Icon button
 
 Available to use within all Data Table variants, but only to be used within the most far right columns of the Data Table to allow the user to take action against a single row. A row level action would be used over the action being located in the bulk action toolbar because the action can only be taken one row at a time, and cannot be actioned in bulk.
 
@@ -192,7 +194,7 @@ Available to use within all Data Table variants, but only to be used within the 
     width: "200"
 } %}
 
-**Switch**
+#### Switch
 
 Available to use within all Data Table variants, but only to be used within the most far right columns of the Data Table to allow the user to take action against a single row. A row level action would be used over the action being located in the bulk action toolbar because the action can only be taken one row at a time, and cannot be actioned in bulk.
 
@@ -206,14 +208,19 @@ Available to use within all Data Table variants, but only to be used within the 
 
 ## Overrides
 
-- **Tag:** The Tag's variants can be overridden.
-- **Icon button:** The Icon button's variants can be overridden.
-- **Button:** The Button's variants can be overridden.
-
 {% contentPageImage {
     src: "../../../assets/img/components/data-table/web/overrides.svg",
     alt: "A data table showing cells with overridden tag, icon button, and button variants.",
     width: "200"
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Tag:** The Tag's variants can be overridden.",
+        "**Icon button:** The Icon button's variants can be overridden.",
+        "**Button:** The Button's variants can be overridden."
+    ]
 } %}
 
 ---
@@ -234,7 +241,7 @@ The hover state on a row helps the user visually scan the columns of data in a r
 
 ## Pagination
 
-Pagination divides table data into separate pages and is used when the data rows exceed the maximum rows per page — 10 rows. It indicates the current page in view and offers controls to navigate to the previous or next page, with the option to display the row quantity. The Pagination component is always placed at the bottom of the data table.
+The Pagination component is always placed at the bottom of the data table and indicates the current page, offers previous/next navigation controls, and can optionally display the row quantity. Use Pagination when the table's data exceeds 10 rows per page.
 
 {% contentPageImage {
     src: "../../../assets/img/components/data-table/web/behaviour-pagination-1.svg",
@@ -257,18 +264,21 @@ Columns can be sorted in ascending or descending order. Sorting controls are loc
 {% contentPageImage {
     src: "../../../assets/img/components/data-table/web/behaviour-sort-1.svg",
     alt: "A data table column header in its unsorted state with no sort icon visible.",
+    caption: "Example of sorting controls in the unsorted state.",
     width: "200"
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/data-table/web/behaviour-sort-2.svg",
     alt: "A data table column header in its ascending sort state with an upward sort icon.",
+    caption: "Example of sorting controls in the descending order.",
     width: "200"
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/data-table/web/behaviour-sort-3.svg",
     alt: "A data table column header in its descending sort state with a downward sort icon.",
+    caption: "Example of sorting controls in the ascending order state.",
     width: "200"
 } %}
 
@@ -368,7 +378,26 @@ If the amount of content exceeds the horizontal constraints of the Data Table, a
 
 A Data Table's Checkbox or sort is selected by clicking within the specified touch target area for that element.
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/interactions-example-1.svg",
+    alt: "A data table row showing the touch target areas for a checkbox and a sort indicator within a column header.",
+    width: "200"
+} %}
+
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/interactions-example-2.svg",
+    alt: "A data table showing touch target areas across a column header row and a data row, with multiple columns and a pagination area highlighted.",
+    width: "200"
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "Interaction area in a cell with checkbox.",
+        "Interaction area in a cell with sorting behaviour at the end of a row.",
+        "Interaction area in a cell in the middle of a row."
+    ]
+} %}
 
 ---
 
@@ -376,7 +405,17 @@ A Data Table's Checkbox or sort is selected by clicking within the specified tou
 
 At Narrow the table reduces in width and it is likely that the Data Table's horizontal overflow will be activated. The scrollbar should always be visible. Depending on the quantity of actions within the bulk action toolbar and how long the labels are, actions can be stacked underneath and include a horizontal overflow if needed. The Pagination within the Data Table footer is reduced to only display the Icon Button controls.
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/narrow-example-1.svg",
+    alt: "A data table displayed at a narrow (mobile) viewport, showing a reduced-width layout with a title header, rows of data, and horizontal overflow activated.",
+    width: "200"
+} %}
+
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/narrow-example-2.svg",
+    alt: "A data table at a narrow viewport showing the bulk action toolbar with stacked actions due to limited horizontal space.",
+    width: "200"
+} %}
 
 ---
 
@@ -386,28 +425,54 @@ At Narrow the table reduces in width and it is likely that the Data Table's hori
 
 Standard 'read-only' Data Table displaying a mixture of cell types and pagination.
 
---- > IMAGE PLACEHOLDER
-
-### Confirm
-
-The action is positioned within each row because the action can only be taken one row at a time and cannot be actioned in bulk.
-
---- > IMAGE PLACEHOLDER
-
-### Bulk action toolbar
-
-The action is positioned within the toolbar because the action can be taken in bulk if required, allowing the user to take action against one or more row items at once.
-
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/examples-default.svg",
+    alt: "A read-only data table displaying a mixture of cell types and a pagination footer.",
+    width: "200"
+} %}
 
 ### With selection
 
 The action is positioned outside of the Data Table because the user's selections need to be submitted.
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/examples-with-selection.svg",
+    alt: "A data table with row checkboxes selected and an action button positioned outside the table for submitting the user's selections.",
+    width: "200"
+} %}
+
+### Button
+
+The action is positioned within each row because the action can only be taken one row at a time and cannot be actioned in bulk.
+
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/examples-button.svg",
+    alt: "A data table with a button in the rightmost cell of each row for row-level actions.",
+    width: "200"
+} %}
+
+### Bulk action with toolbar
+
+The action is positioned within the toolbar because the action can be taken in bulk if required, allowing the user to take action against one or more row items at once.
+
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/examples-bulk-action.svg",
+    alt: "A data table with row checkboxes and a bulk action toolbar, allowing the user to apply actions to one or more selected rows at once.",
+    width: "200"
+} %}
 
 ### RTL Examples
 
 Here are some examples of Data Table in RTL context.
 
---- > IMAGE PLACEHOLDER
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/example-rtl-1.svg",
+    alt: "A data table displayed in a right-to-left layout context.",
+    width: "200"
+} %}
+
+{% contentPageImage {
+    src: "../../../assets/img/components/data-table/web/example-rtl-2.svg",
+    alt: "A data table with bulk action toolbar displayed in a right-to-left layout context.",
+    width: "200"
+} %}
