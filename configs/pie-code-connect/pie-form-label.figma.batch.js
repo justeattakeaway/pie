@@ -28,5 +28,5 @@ const template = figma.code`<${selectedComponentName} id="the-label-id" for="the
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-form-label',
+    id: componentName,
 };

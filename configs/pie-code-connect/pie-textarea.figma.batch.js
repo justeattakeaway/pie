@@ -56,5 +56,5 @@ const template = figma.code`${formLabelSnippet || ''}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-textarea',
+    id: componentName,
 };
