@@ -33,7 +33,7 @@
     "eslint-config-airbnb-base": "15.0.0"
   },
   "devDependencies": {
-    "eslint-find-rules": "4.1.0"
+    "eslint-find-rules": "4.2.0"
   },
   "peerDependencies": {
     "eslint": "7.x || 8.x",
