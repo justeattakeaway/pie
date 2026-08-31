@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 const fs = require('fs');
 
-function readFileAsText(filePath) {
+function readFileAsText (filePath) {
     const fileExists = fs.existsSync(filePath);
     if (!fileExists) return null;
 
@@ -9,7 +9,7 @@ function readFileAsText(filePath) {
     return fileContent;
 }
 
-function readChangesetFile(filePath) {
+function readChangesetFile (filePath) {
     const fileContent = readFileAsText(filePath);
 
     const sections = fileContent.split('---')
@@ -23,11 +23,11 @@ function readChangesetFile(filePath) {
     return sections[1];
 }
 
-function hasAddedOrRemovedIcons(changes) {
+function hasAddedOrRemovedIcons (changes) {
     return /^\[Added\]/m.test(changes) || /^\[Removed\]/m.test(changes);
 }
 
-function getPrBody(changes) {
+function getPrBody (changes) {
     const authorChecklist = hasAddedOrRemovedIcons(changes) ? `
 ## Author Checklist (complete before requesting a review)
 - [ ] I ran the sync-code-connect-icons skill and published the new Figma Code Connect templates for the new icons
@@ -54,7 +54,7 @@ ${changes}
  * @param {string} filePath issues json file path
  * @returns A string containing the issues already formatted as MD
  */
-function readIconsIssues(filePath) {
+function readIconsIssues (filePath) {
     const fileContent = readFileAsText(filePath);
     if (!fileContent) return null;
 
