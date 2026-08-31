@@ -11,6 +11,21 @@
     ]
   },
   {
+    "templateFile": "dist/pie-data-table-bulk-action-bar.figma.batch.js",
+    "components": [
+      {
+        "id": "pie-data-table-bulk-action-bar",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130192",
+        "note": "This doesn't map to an actual component, see comment in source code"
+      },
+      {
+        "id": "pie-data-table-bulk-action-bar",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1624-127561",
+        "note": "This doesn't map to an actual component, see comment in source code"
+      }
+    ]
+  },
+  {
     "templateFile": "dist/pie-data-table-header.figma.batch.js",
     "components": [
       {

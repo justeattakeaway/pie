@@ -2,8 +2,10 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
+const createGetInstanceTemplate = require('./utils/get-instance-template.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
+const getInstanceTemplate = createGetInstanceTemplate(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
@@ -15,6 +17,8 @@ const variant = getInstanceProp('getEnum', 'Subtle', {
     False: 'strong',
 });
 
+const bulkActionBar = [getInstanceTemplate(['Bulk-action bar'])];
+
 const props = [
     renderProp('heading', heading, ''),
     renderProp('subHeading', subHeading),
@@ -23,6 +27,7 @@ const props = [
 
 const template = figma.code`<${selectedComponentName}
     ${props}>
+    ${bulkActionBar}
 </${selectedComponentName}>`;
 
 export default {
