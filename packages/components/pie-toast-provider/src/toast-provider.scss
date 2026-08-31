@@ -46,6 +46,25 @@
         bottom: var(--toast-provider-offset);
     }
 
+    .c-toast-provider-item {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition: grid-template-rows var(--dt-motion-timing-200) var(--dt-motion-easing-in);
+
+        > pie-toast {
+            min-block-size: 0;
+            overflow: hidden;
+        }
+
+        &--collapsing {
+            grid-template-rows: 0fr;
+
+            > pie-toast {
+                visibility: hidden;
+            }
+        }
+    }
+
     &.c-toast-provider--bottom-center {
         --pie-animation-slide-translate-start: 0, 100%;
 
