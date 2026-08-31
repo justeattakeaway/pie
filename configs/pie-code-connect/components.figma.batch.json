@@ -1,5 +1,33 @@
 [
   {
+    "templateFile": "dist/pie-data-table.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-data-table",
+        "componentNameReact": "PieDataTable",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-data-table/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231"
+      }
+    ]
+  },
+  {
+    "templateFile": "dist/pie-data-table-header.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-data-table-header",
+        "componentNameReact": "PieDataTableHeader",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-data-table/src/pie-data-table-header/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130155"
+      },
+      {
+        "componentName": "pie-data-table-header",
+        "componentNameReact": "PieDataTableHeader",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-data-table/src/pie-data-table-header/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1624-127560"
+      }
+    ]
+  },
+  {
     "templateFile": "dist/pie-modal.figma.batch.js",
     "components": [
       {
