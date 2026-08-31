@@ -20,5 +20,5 @@ const template = figma.code`<${selectedComponentName} ${props}>
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-cookie-banner',
+    id: componentName,
 };

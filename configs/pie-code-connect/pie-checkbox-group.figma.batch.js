@@ -28,7 +28,7 @@ const checkboxes = [
     getInstanceTemplate(['Checkbox 2']),
     getInstanceTemplate(['Checkbox 3']),
     getInstanceTemplate(['Checkbox 4']),
-    getInstanceTemplate(['Checkbox 4']),
+    getInstanceTemplate(['Checkbox 5']),
 ];
 
 const props = [
