@@ -8,6 +8,7 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     dispatchCustomEvent,
     safeCustomElement,
@@ -339,6 +340,8 @@ export class PieToast extends PieElement implements ToastProps {
         return html`
             <div
                 role="${variant === 'error' ? 'alert' : 'status'}"
+                aria-live="${ifDefined(this.aria?.live)}"
+                aria-atomic="true"
                 data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
                 <div class="${componentClass}-contentArea">

@@ -4,6 +4,10 @@ export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as co
 
 type AriaProps = {
   close?: string;
+  /**
+   * Overrides the ARIA live region politeness of the toast.
+   */
+  live?: 'off' | 'polite' | 'assertive';
 };
 
 export type ActionProps = {
