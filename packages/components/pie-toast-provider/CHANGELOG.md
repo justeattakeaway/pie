@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.2.0
+
+### Minor Changes
+
+- [Fixed] - Toast messages are now announced by screen readers. The provider renders a single persistent ARIA live region (assertive for `error`, polite otherwise) that is always in the DOM, so status messages are announced automatically without focus moving (WCAG 4.1.3). The rendered toast's own live region is switched off (`aria.live: "off"`) to prevent double announcements. ([#3157](https://github.com/justeattakeaway/pie/pull/3157)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`6ba9c1f`](https://github.com/justeattakeaway/pie/commit/6ba9c1f2e3f6bb1943d5ad5fdc326376021a9c68)]:
+  - @justeattakeaway/pie-toast@1.2.0
+
 ## 1.1.8
 
 ### Patch Changes
