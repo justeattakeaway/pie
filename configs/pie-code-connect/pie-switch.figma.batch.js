@@ -7,27 +7,23 @@ const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
-const isChecked = getInstanceProp('getEnum', 'Selected', {
-    True: true,
-    False: false,
-});
-const state = getInstanceProp('getPropertyValue', 'State');
-const label = getInstanceProp('getString', '[𝐓] Label');
+const checked = getInstanceProp('getBoolean', 'Selected');
+const disabled = getInstanceProp('getPropertyValue', 'State') === 'Disabled';
 
-const isDisabled = state === 'Disabled';
-const isError = state === 'Error';
-const status = isError ? 'error' : 'default';
+const hasLeadingLabel = getInstanceProp('getBoolean', 'Leading label');
+const hasTrailingLabel = getInstanceProp('getBoolean', 'Trailing label');
+const labelPlacement = hasTrailingLabel ? 'trailing' : 'leading';
+const label = hasLeadingLabel || hasTrailingLabel ? getInstanceProp('getString', '[𝐓] Label') : '';
 
 const props = [
-    renderProp('value', label, ''),
-    renderProp('checked', isChecked, false),
-    renderProp('status', status, 'default'),
-    renderProp('disabled', isDisabled, false),
+    renderProp('checked', checked, false),
+    renderProp('disabled', disabled, false),
+    renderProp('label', label, ''),
+    renderProp('labelPlacement', labelPlacement, 'leading'),
 ].filter(Boolean).join('\n    ');
 
 const template = figma.code`<${selectedComponentName}
     ${props}>
-    ${label}
 </${selectedComponentName}>`;
 
 export default {

@@ -15,7 +15,9 @@
     "publish-icons:react": "COMPONENT_PREFIX=icons- yarn build:react && yarn figma connect publish -c ./config/figma-icons-react.config.json",
     "publish-icons:vue": "COMPONENT_PREFIX=icons- yarn build:vue && yarn figma connect publish -c ./config/figma-icons-vue.config.json",
     "publish-icons:all": "yarn publish-icons:web && yarn publish-icons:react && yarn publish-icons:vue",
-    "publish:all": "yarn publish-components:all && yarn publish-icons:all"
+    "publish:all": "yarn publish-components:all && yarn publish-icons:all",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix"
   },
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",

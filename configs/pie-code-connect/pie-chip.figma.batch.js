@@ -26,7 +26,7 @@ const label = getInstanceProp('getString', '[𝐓] Label');
 
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
 const iconInstance = hasLeadingIcon && getInstanceProp('getInstanceSwap', 'Replace leading icon');
-const iconSnippet = hasLeadingIcon && getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
+const iconSnippet = hasLeadingIcon && getIconSnippet(iconInstance, 'icon');
 
 // Selection chip maps to type="checkbox"; action chip uses the default "button"
 const isCheckbox = chipType === 'selection';
@@ -52,5 +52,5 @@ const template = figma.code`<${selectedComponentName}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-chip',
+    id: componentName,
 };

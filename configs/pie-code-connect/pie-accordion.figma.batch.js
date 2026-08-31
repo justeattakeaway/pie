@@ -22,7 +22,7 @@ const secondaryLabel = hasSecondaryText ? getInstanceProp('getString', '[𝐓] S
 
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
 const iconInstance = hasLeadingIcon ? getInstanceProp('getInstanceSwap', 'Replace leading icon') : null;
-const iconSnippet = hasLeadingIcon ? getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></')) : '';
+const iconSnippet = hasLeadingIcon ? getIconSnippet(iconInstance, 'icon') : '';
 
 const isDividerHidden = !getInstanceProp('getBoolean', 'Divider');
 

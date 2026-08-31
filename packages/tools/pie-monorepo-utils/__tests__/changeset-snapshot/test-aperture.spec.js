@@ -75,7 +75,7 @@ describe('test-aperture workflow', () => {
             await workflow({ github, context }, execa);
 
             // Assert
-            const { body } = github.rest.issues.createComment.mock.calls[0][0];
+            const { body } = github.rest.issues.createComment.mock.calls[0][0]; // eslint-disable-line prefer-destructuring
             expect(body).toContain('@justeat/pie-design-tokens@0.0.0-snapshot-release-20231220110000');
             expect(body).toContain('@justeattakeaway/pie-css@0.0.0-snapshot-release-20231220110000');
         });
