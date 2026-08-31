@@ -42,8 +42,7 @@ const leadingContentType = hasLeadingContent && getInstanceProp(['Leading conten
 let leadingContentSnippet = '';
 if (leadingContentType === 'Icon') {
     const leadingIconInstance = getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
-    // replace text to have the slot assigned
-    leadingContentSnippet = getIconSnippet(leadingIconInstance, (code) => code.replace('></', ' slot="leadingIcon"></'));
+    leadingContentSnippet = getIconSnippet(leadingIconInstance, 'leadingIcon');
 } else if (leadingContentType === 'Alphanumeric') {
     leadingContentSnippet = '<span slot="leadingText">#</span>';
 }
@@ -53,8 +52,7 @@ const trailingContentType = hasTrailingContent && getInstanceProp(['Trailing con
 let trailingContentSnippet = '';
 if (trailingContentType === 'Icon') {
     const trailingIconInstance = getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Icon');
-    // replace text to have the slot assigned
-    trailingContentSnippet = getIconSnippet(trailingIconInstance, (code) => code.replace('></', ' slot="trailingIcon"></'));
+    trailingContentSnippet = getIconSnippet(trailingIconInstance, 'trailingIcon');
 } else if (trailingContentType === 'Alphanumeric') {
     trailingContentSnippet = '<span slot="trailingText">#</span>';
 } else if (trailingContentType === 'Payment method') {
@@ -83,5 +81,5 @@ const template = figma.code`${formLabelSnippet || ''}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-text-input',
+    id: componentName,
 };
