@@ -835,6 +835,26 @@
       "import": "./react/toast-provider.js",
       "require": "./react/toast-provider.js",
       "types": "./react/toast-provider.d.ts"
+    },
+    "./components/tooltip": {
+      "import": "./components/tooltip.js",
+      "require": "./components/tooltip.js",
+      "types": "./components/tooltip.d.ts"
+    },
+    "./components/tooltip.js": {
+      "import": "./components/tooltip.js",
+      "require": "./components/tooltip.js",
+      "types": "./components/tooltip.d.ts"
+    },
+    "./react/tooltip": {
+      "import": "./react/tooltip.js",
+      "require": "./react/tooltip.js",
+      "types": "./react/tooltip.d.ts"
+    },
+    "./react/tooltip.js": {
+      "import": "./react/tooltip.js",
+      "require": "./react/tooltip.js",
+      "types": "./react/tooltip.d.ts"
     }
   },
   "scripts": {
@@ -881,7 +901,8 @@
     "@justeattakeaway/pie-textarea": "0.23.7",
     "@justeattakeaway/pie-thumbnail": "0.9.2",
     "@justeattakeaway/pie-toast": "1.2.0",
-    "@justeattakeaway/pie-toast-provider": "1.2.0"
+    "@justeattakeaway/pie-toast-provider": "1.2.0",
+    "@justeattakeaway/pie-tooltip": "0.0.0"
   },
   "sideEffects": [
     "**/*.js"
