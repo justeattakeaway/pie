@@ -3517,27 +3517,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:11.2.2":
-  version: 11.2.2
-  resolution: "@justeat/fozzie@npm:11.2.2"
-  dependencies:
-    "@justeat/pie-design-tokens": "npm:6.2.1"
-    include-media: "npm:2.0.0"
-  checksum: 10/6703b5edd79b40dc4f437c569c4874061b302b5888305a541c39c213a003fdf6bd26cfaeda79ee3caee4a3020415aa3c98baf91d6d7538f8adeb2fa7fb325323
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:6.2.1":
-  version: 6.2.1
-  resolution: "@justeat/pie-design-tokens@npm:6.2.1"
-  dependencies:
-    jsonc-parser: "npm:3.2.0"
-    lodash.merge: "npm:4.6.2"
-    mkdirp: "npm:1.0.4"
-  checksum: 10/bb6d5a22e2c5a2f1ab124641940eac75fcb59800f79f8e3510df4cd088c686bca85e86d719ae7e0d96b6b069c40f0724606484e6fa6459893dafdccc7f590f48
-  languageName: node
-  linkType: hard
-
 "@justeat/pie-design-tokens@npm:7.14.3, @justeat/pie-design-tokens@workspace:*, @justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens":
   version: 0.0.0-use.local
   resolution: "@justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens"
@@ -3794,7 +3773,6 @@ __metadata:
     "@11ty/eleventy-navigation": "npm:1.0.5"
     "@docsearch/css": "npm:3.9.0"
     "@docsearch/js": "npm:3.9.0"
-    "@justeat/fozzie": "npm:11.2.2"
     "@justeat/pie-design-tokens": "npm:7.14.3"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
     "@justeattakeaway/pie-css": "npm:1.6.0"
