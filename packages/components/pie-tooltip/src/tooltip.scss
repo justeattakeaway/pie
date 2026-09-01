@@ -159,7 +159,7 @@ $tooltip-alignments: ('', '-start', '-end');
 
 .c-tooltip--type-icon {
     --tooltip-max-inline-size: min(240px, calc(100vw - var(--dt-spacing-d) * 2));
-    --tooltip-border-radius: var(--dt-radius-rounded-a);
+    --tooltip-border-radius: var(--dt-radius-rounded-e);
     --tooltip-padding: var(--dt-spacing-b);
 }
 
