@@ -12,5 +12,5 @@
 }
 
 .is-visuallyHidden {
-    @include m.visually-hidden();
+    @include m.visually-hidden;
 }
