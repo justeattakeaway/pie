@@ -4236,6 +4236,8 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.3"
     "@justeattakeaway/pie-css": "npm:1.6.0"
+    "@justeattakeaway/pie-icon-button": "npm:2.7.32"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.1"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
     "@justeattakeaway/pie-webc-core": "npm:19.0.0"
   languageName: unknown
