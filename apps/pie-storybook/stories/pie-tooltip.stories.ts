@@ -226,6 +226,7 @@ const PlacementTemplate: TemplateFunction<TooltipProps> = ({ isOpen, variant }) 
             <pie-tooltip
                 trigger="placement-trigger-${position}"
                 position="${position}"
+                size="fit-to-content"
                 variant="${ifDefined(variant)}"
                 ?isOpen="${isOpen}"
                 @pie-tooltip-open="${handleOpen}"
