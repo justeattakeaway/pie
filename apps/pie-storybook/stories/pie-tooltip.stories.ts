@@ -435,7 +435,6 @@ const handleTourClose = (event: Event) => {
     }
 };
 
-// The light `inverse` panel suits a multi-line dialog with an action better than the dark default.
 const renderTourStep = (index: number): TemplateResult => {
     const step = tourSteps[index];
     const isLastStep = index === tourSteps.length - 1;
