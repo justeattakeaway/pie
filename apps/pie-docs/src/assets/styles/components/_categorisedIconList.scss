@@ -1,5 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 $icon-size: 16px;
 $icon-size-large: 32px;
@@ -19,7 +19,7 @@ $icon-preview-size: 64px;
 .c-categorisedIconList-select {
     flex-grow:1;
     
-    @include f.media('>=mid') {
+    @include media('>=md') {
         flex-grow: 0;
     }
 }
