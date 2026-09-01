@@ -223,6 +223,10 @@
     {
       "path": "./packages/components/pie-icon-with-background/dist/*.js",
       "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-tooltip/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
