@@ -115,9 +115,9 @@ The panel is a fixed overlay, which is what lets it escape a clipping ancestor. 
 
 | `size` | Behaviour |
 |---|---|
-| `default` | The inline size is capped and content wraps. |
-| `fit-to-content` | The cap is removed, so the panel is as wide as its content, up to the width of the viewport. |
-| `fill-container` | The panel's inline size matches the inline size of the trigger's parent element. |
+| `default` | The panel is always 280px wide. Longer content wraps. |
+| `fit-to-content` | The panel is as wide as its content, up to the width of the viewport. |
+| `fill-container` | The panel's inline size matches the inline size of the trigger's parent element, whatever the content. |
 
 `--tooltip-width` overrides all three.
 

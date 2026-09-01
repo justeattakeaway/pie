@@ -111,20 +111,22 @@ $tooltip-alignments: ('', '-start', '-end');
 // -----------------------------------------------------------------------------
 
 .c-tooltip {
-    --tooltip-inline-size: max-content;
-    --tooltip-max-inline-size: min(280px, calc(100vw - var(--dt-spacing-d) * 2));
+    --tooltip-inline-size: 280px;
+    --tooltip-max-inline-size: calc(100vw - var(--dt-spacing-d) * 2);
     --tooltip-background-color: var(--dt-color-container-inverse);
     --tooltip-content-color: var(--dt-color-content-inverse);
     --tooltip-elevation: var(--dt-elevation-inverse-below-10);
     --tooltip-border-radius: var(--dt-radius-rounded-b);
-    --tooltip-padding: var(--dt-spacing-c);
+    --tooltip-padding-block: var(--dt-spacing-b);
+    --tooltip-padding-inline: var(--dt-spacing-c);
     --tooltip-close-size: 32px;
     --tooltip-arrow-size: 8px;
 
     // Where the arrow's centre sits, measured from the panel's aligned edge, for the `-start`
     // and `-end` alignments. Clear of the rounded corner, and near enough to the edge that the
-    // three alignments on each side read as three distinct placements.
-    --tooltip-arrow-inset: calc(var(--tooltip-border-radius) + var(--tooltip-arrow-size));
+    // three alignments on each side read as three distinct placements. The radius is capped
+    // because a pill radius would otherwise push the arrow off the panel entirely.
+    --tooltip-arrow-inset: calc(min(var(--tooltip-border-radius), var(--dt-spacing-c)) + var(--tooltip-arrow-size));
 
     // Turns the arrow's centre position into a box inset. Percentages resolve against whichever
     // axis the value is used on, so one declaration serves both the inline and the block axis.
@@ -140,10 +142,10 @@ $tooltip-alignments: ('', '-start', '-end');
 
     inline-size: var(--tooltip-width, var(--tooltip-inline-size));
     max-inline-size: var(--tooltip-max-inline-size);
-    padding-block-start: var(--tooltip-padding);
-    padding-block-end: var(--tooltip-padding);
-    padding-inline-start: var(--tooltip-padding);
-    padding-inline-end: var(--tooltip-padding);
+    padding-block-start: var(--tooltip-padding-block);
+    padding-block-end: var(--tooltip-padding-block);
+    padding-inline-start: var(--tooltip-padding-inline);
+    padding-inline-end: var(--tooltip-padding-inline);
     border-radius: var(--tooltip-border-radius);
     background-color: var(--tooltip-background-color);
     box-shadow: var(--tooltip-elevation);
@@ -158,13 +160,12 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 .c-tooltip--type-icon {
-    --tooltip-max-inline-size: min(240px, calc(100vw - var(--dt-spacing-d) * 2));
+    --tooltip-inline-size: 240px;
     --tooltip-border-radius: var(--dt-radius-rounded-e);
-    --tooltip-padding: var(--dt-spacing-b);
 }
 
 .c-tooltip--size-fit-to-content {
-    --tooltip-max-inline-size: calc(100vw - var(--dt-spacing-d) * 2);
+    --tooltip-inline-size: max-content;
 }
 
 // `fill-container` is the inline size of the trigger's parent element, measured by the component.
@@ -174,7 +175,10 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 .c-tooltip.is-dismissible {
-    padding-inline-end: calc(var(--tooltip-padding) + var(--tooltip-close-size));
+    // The close button is taller than a single line of content, so the panel has to make room
+    // for it rather than let it hang out of the bottom edge.
+    min-block-size: calc(var(--tooltip-close-size) + var(--dt-spacing-b) * 2);
+    padding-inline-end: calc(var(--tooltip-padding-inline) + var(--tooltip-close-size));
 }
 
 // -----------------------------------------------------------------------------
@@ -248,11 +252,11 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 .c-tooltip.has-action .c-tooltip-action {
-    margin-block-start: var(--dt-spacing-c);
+    margin-block-start: var(--dt-spacing-a);
 }
 
 .c-tooltip-close {
     position: absolute;
-    inset-block-start: var(--dt-spacing-a);
-    inset-inline-end: var(--dt-spacing-a);
+    inset-block-start: var(--dt-spacing-b);
+    inset-inline-end: var(--dt-spacing-b);
 }

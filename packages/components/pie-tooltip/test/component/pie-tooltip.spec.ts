@@ -17,6 +17,14 @@ const defaultOffset = 8;
  */
 const arrowInset = 16;
 
+/**
+ * The inline size of a `default` panel. `default` is a fixed width, not a cap, so the panel is
+ * this wide whatever its content.
+ */
+const defaultInlineSize = 280;
+
+const longContent = 'Orders placed before 6pm arrive today. Orders placed after 6pm arrive the next working day, including at weekends.';
+
 // Layout is measured in CSS pixels, so allow a pixel of sub-pixel rounding.
 const tolerance = 1;
 
@@ -269,32 +277,37 @@ test.describe('PieTooltip - Component tests', () => {
     });
 
     test.describe('size', () => {
-        test('should cap the panel inline size when size is default', async ({ page }) => {
+        test('should size the panel to 280px when size is default and the content is short', async ({ page }) => {
             // Arrange
-            await loadDefaultStory(page, {
-                size: 'default',
-                content: 'Orders placed before 6pm arrive today. Orders placed after 6pm arrive the next working day, including at weekends.',
-            });
+            await loadDefaultStory(page, { size: 'default', content: 'Arrives today.' });
 
             // Act
             const panel = await getBox(page, tooltip.selectors.panel.dataTestId);
 
             // Assert
-            expect(panel.width).toBeLessThanOrEqual(280);
+            expect(panel.width).toBeCloseTo(defaultInlineSize, 0);
         });
 
-        test('should not cap the panel inline size when size is fit-to-content', async ({ page }) => {
+        test('should size the panel to 280px when size is default and the content is long', async ({ page }) => {
             // Arrange
-            await loadDefaultStory(page, {
-                size: 'fit-to-content',
-                content: 'Orders placed before 6pm arrive today. Orders placed after 6pm arrive the next working day, including at weekends.',
-            });
+            await loadDefaultStory(page, { size: 'default', content: longContent });
 
             // Act
             const panel = await getBox(page, tooltip.selectors.panel.dataTestId);
 
             // Assert
-            expect(panel.width).toBeGreaterThan(280);
+            expect(panel.width).toBeCloseTo(defaultInlineSize, 0);
+        });
+
+        test('should size the panel to its content when size is fit-to-content', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { size: 'fit-to-content', content: longContent });
+
+            // Act
+            const panel = await getBox(page, tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            expect(panel.width).toBeGreaterThan(defaultInlineSize);
         });
 
         test('should match the inline size of the trigger\'s parent element when size is fill-container', async ({ page }) => {
@@ -309,6 +322,21 @@ test.describe('PieTooltip - Component tests', () => {
             // `fill-container` is defined as the inline size of the trigger's parent element.
             expect(container.width).toBeCloseTo(420, 0);
             expect(panel.width).toBeCloseTo(container.width, 0);
+        });
+
+        test('should ignore the content length when size is fill-container', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, {
+                size: 'fill-container',
+                containerInlineSize: '420px',
+                content: 'Arrives today.',
+            });
+
+            // Act
+            const panel = await getBox(page, tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            expect(panel.width).toBeCloseTo(420, 0);
         });
     });
 

@@ -78,7 +78,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             },
         },
         size: {
-            description: 'How the panel sizes itself. `default` caps the inline size and wraps, `fit-to-content` removes the cap, and `fill-container` matches the inline size of the trigger\'s parent element.',
+            description: 'How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as wide as its content, and `fill-container` matches the inline size of the trigger\'s parent element.',
             control: 'select',
             options: sizes,
             defaultValue: {
@@ -214,7 +214,7 @@ const placementGridAreas = `
  * placement itself. The gaps are wide because this story opens all twelve at once.
  */
 const PlacementTemplate: TemplateFunction<TooltipProps> = ({ isOpen, variant }) => html`
-    <div class="tooltip-placement-grid">
+    <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
         ${positions.map((position) => html`
             <button
                 id="placement-trigger-${position}"
@@ -236,7 +236,6 @@ const PlacementTemplate: TemplateFunction<TooltipProps> = ({ isOpen, variant }) 
     <style>
         .tooltip-placement-grid {
             display: grid;
-            grid-template-areas: ${placementGridAreas};
             gap: 40px 104px;
             justify-content: center;
             padding: 120px 180px;
@@ -260,6 +259,76 @@ const PlacementTemplate: TemplateFunction<TooltipProps> = ({ isOpen, variant }) 
 export const Placement = createStory<TooltipProps>(PlacementTemplate, defaultArgs)({}, {
     controls: {
         exclude: ['content', 'heading', 'headingLevel', 'isDismissible', 'position', 'size', 'type', 'aria', 'trigger'],
+    },
+});
+
+// -----------------------------------------------------------------------------
+// Sizes
+// -----------------------------------------------------------------------------
+
+const sizeContainerInlineSize = '420px';
+
+const sizeExamples: Array<{ size: NonNullable<TooltipProps['size']>; note: string }> = [
+    { size: 'default', note: 'Always 280px wide. Longer content wraps.' },
+    { size: 'fit-to-content', note: 'As wide as its content, up to the width of the viewport.' },
+    { size: 'fill-container', note: `Matches the ${sizeContainerInlineSize} container, whatever the content.` },
+];
+
+/**
+ * The dashed outline marks each container. It is an outline rather than a border so the
+ * container's box is exactly the stated width, which means `fill-container` can be read straight
+ * off it. `fill-container` is defined as the inline size of the trigger's parent element, so the
+ * trigger sits directly inside the container here.
+ */
+const SizesTemplate: TemplateFunction<TooltipProps> = ({ content, isOpen, variant }) => html`
+    <div class="tooltip-sizes">
+        ${sizeExamples.map(({ size, note }) => html`
+            <div>
+                <p class="tooltip-sizes-note"><code>size="${size}"</code>: ${note}</p>
+
+                <div class="tooltip-sizes-container" style="inline-size: ${sizeContainerInlineSize};">
+                    <pie-button
+                        id="size-trigger-${size}"
+                        type="button"
+                        variant="secondary"
+                        size="small-productive">
+                        Delivery times
+                    </pie-button>
+
+                    <pie-tooltip
+                        trigger="size-trigger-${size}"
+                        size="${size}"
+                        position="bottom-start"
+                        variant="${ifDefined(variant)}"
+                        ?isOpen="${isOpen}"
+                        @pie-tooltip-open="${handleOpen}"
+                        @pie-tooltip-close="${handleClose}">
+                        <span slot="content">${content}</span>
+                    </pie-tooltip>
+                </div>
+            </div>`)}
+    </div>
+    <style>
+        .tooltip-sizes {
+            display: flex;
+            flex-direction: column;
+            gap: 200px;
+            padding: 48px 48px 280px;
+        }
+
+        .tooltip-sizes-note {
+            margin: 0 0 var(--dt-spacing-c);
+        }
+
+        .tooltip-sizes-container {
+            outline: var(--dt-color-border-strong) dashed 1px;
+            outline-offset: var(--dt-spacing-a);
+        }
+    </style>`;
+
+export const Sizes = createStory<TooltipProps>(SizesTemplate, defaultArgs)({}, {
+    controls: {
+        exclude: ['heading', 'headingLevel', 'isDismissible', 'position', 'size', 'type', 'aria', 'trigger'],
     },
 });
 

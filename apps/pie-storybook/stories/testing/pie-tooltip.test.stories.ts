@@ -253,7 +253,7 @@ const placementGridAreas = `
  * placement itself. The gaps are wide because this story opens all twelve at once.
  */
 const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => html`
-    <div class="tooltip-placement-grid">
+    <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
         ${positions.map((position) => html`
             <button
                 id="placement-${position}"
@@ -275,7 +275,6 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => h
     <style>
         .tooltip-placement-grid {
             display: grid;
-            grid-template-areas: ${placementGridAreas};
             gap: 40px 104px;
             justify-content: center;
             padding: 120px 180px;
@@ -317,23 +316,48 @@ export const PresentationGrid = createStory<TooltipProps>(PresentationGridTempla
     controls: { disable: true },
 });
 
+const sizeContainerInlineSize = 420;
+
+/**
+ * Each trigger sits directly inside a container of a known inline size, because `fill-container`
+ * is defined as the inline size of the trigger's parent element. The container uses an outline
+ * rather than a border so its box is exactly `sizeContainerInlineSize` wide.
+ */
 const SizeGridTemplate: TemplateFunction<TooltipProps> = () => {
     const contentLengths = [
         { label: 'short', content: shortContent },
         { label: 'long', content: longContent },
     ];
 
-    const anchors = sizes.flatMap((size) => contentLengths.map(({ label, content }) => renderAnchoredTooltip({
-        id: `size-${size}-${label}`,
-        label: `${size} / ${label}`,
-        content,
-        position: 'bottom',
-        size,
-    })));
+    const rows = sizes.flatMap((size) => contentLengths.map(({ label, content }) => ({ size, label, content })));
 
     return html`
-        <div style="display: flex; flex-direction: column; gap: 200px; padding: 80px 220px; inline-size: 480px;">
-            ${anchors}
+        <div style="display: flex; flex-direction: column; gap: 200px; padding: 80px 120px 280px;">
+            ${rows.map(({ size, label, content }) => html`
+                <div>
+                    <p style="margin: 0 0 12px;">${size} / ${label}</p>
+
+                    <div
+                        data-test-id="size-container-${size}-${label}"
+                        style="inline-size: ${sizeContainerInlineSize}px; outline: 1px dashed #767676; outline-offset: 4px;">
+                        <button
+                            id="size-${size}-${label}"
+                            data-test-id="size-${size}-${label}"
+                            type="button"
+                            style="padding-block: 8px;">
+                            Delivery times
+                        </button>
+
+                        <pie-tooltip
+                            data-test-id="size-${size}-${label}-tooltip"
+                            trigger="size-${size}-${label}"
+                            position="bottom-start"
+                            size="${size}"
+                            ?isOpen="${true}">
+                            <span slot="content">${content}</span>
+                        </pie-tooltip>
+                    </div>
+                </div>`)}
         </div>`;
 };
 

@@ -69,8 +69,9 @@ export interface TooltipProps {
     position?: typeof positions[number];
 
     /**
-     * How the panel sizes itself. `default` caps the inline size and wraps, `fit-to-content`
-     * removes the cap, and `fill-container` matches the inline size of the trigger's parent element.
+     * How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as
+     * wide as its content, and `fill-container` matches the inline size of the trigger's parent
+     * element.
      */
     size?: typeof sizes[number];
 
