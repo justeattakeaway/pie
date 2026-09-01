@@ -4230,6 +4230,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-tooltip@npm:0.0.0, @justeattakeaway/pie-tooltip@workspace:packages/components/pie-tooltip":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-tooltip@workspace:packages/components/pie-tooltip"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "npm:0.21.3"
+    "@justeattakeaway/pie-css": "npm:1.6.0"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
+    "@justeattakeaway/pie-webc-core": "npm:19.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-webc-core@npm:19.0.0, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
@@ -4290,6 +4301,7 @@ __metadata:
     "@justeattakeaway/pie-thumbnail": "npm:0.9.2"
     "@justeattakeaway/pie-toast": "npm:1.2.0"
     "@justeattakeaway/pie-toast-provider": "npm:1.2.0"
+    "@justeattakeaway/pie-tooltip": "npm:0.0.0"
     chalk: "npm:5.6.2"
   languageName: unknown
   linkType: soft

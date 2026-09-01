@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 
 $tabs-link-padding:                var(--dt-spacing-d);
@@ -41,7 +41,7 @@ $max-scroll-height:                var(--dt-spacing-d);
         }
     }
 
-    @include f.media('<wide') {
+    @include media('<lg') {
         position: sticky;
         top: 0;
         background-color: var(--dt-color-container-default);
@@ -61,7 +61,7 @@ $max-scroll-height:                var(--dt-spacing-d);
     [id] {
         scroll-margin-block-start: calc(var(--header-height) + $max-scroll-height);
 
-        @include f.media('>=wide') {
+        @include media('>=lg') {
             scroll-margin-block-start: $max-scroll-height;
         }
     }

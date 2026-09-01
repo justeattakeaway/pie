@@ -1,5 +1,5 @@
 @use 'sass:color';
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 $anchor-size: var(--dt-spacing-e);
@@ -24,7 +24,7 @@ $anchor-width: calc($anchor-size + $anchor-margin);
         background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
     }
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         margin-inline-start: 0;
         left: 0;
     }
@@ -41,7 +41,7 @@ h4:has(.c-anchorIcon) {
         }
     }
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         margin-inline-start: calc($anchor-width * -1);
 
         // adds area to the left of the heading on desktop views so anchor can be selected when heading is hovered
@@ -66,7 +66,7 @@ $headingSizes: (
         .c-anchorIcon {
             bottom: calc((#{p.font-size($narrowToken)} - $anchor-size) / 2);
 
-            @include f.media('>=wide') {
+            @include media('>=lg') {
                 bottom: calc((#{p.font-size($wideToken)} - $anchor-size) / 2);
             }
         }

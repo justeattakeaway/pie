@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '@justeattakeaway/pie-css/scss' as p;
 
@@ -11,12 +11,12 @@
         padding-inline-start: var(--dt-spacing-d);
         padding-inline-end: var(--dt-spacing-d);
 
-        @include f.media('>=narrowMid') {
+        @include media('>=sm') {
             padding-inline-start: var(--dt-spacing-e);
             padding-inline-end: var(--dt-spacing-e);
         }
 
-        @include f.media('>mid') {
+        @include media('>md') {
             padding-inline-start: var(--dt-spacing-i);
             padding-inline-end: var(--dt-spacing-i);
         }
@@ -33,7 +33,7 @@
     padding-top: var(--dt-spacing-f);
     padding-bottom: var(--dt-spacing-f);
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         padding-top: var(--dt-spacing-i);
         padding-bottom: var(--dt-spacing-i);
     }
@@ -45,7 +45,7 @@
     margin-block-start: var(--dt-spacing-e);
     max-width: 50ch;
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         @include p.font-size(--dt-font-heading-s-size--wide);
         @include p.line-height(--dt-font-heading-s-line-height--wide);
     }

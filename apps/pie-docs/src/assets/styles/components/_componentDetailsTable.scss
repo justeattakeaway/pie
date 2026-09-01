@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '@justeattakeaway/pie-css/scss' as p;
 
@@ -50,7 +50,7 @@
 .c-componentDetailsTable-hasWidePadding {
     th:not(:first-child),
     td:not(:first-child) {
-        @include f.media('>=mid') {
+        @include media('>=md') {
             padding-inline-start: var(--dt-spacing-i);
         }
     }
