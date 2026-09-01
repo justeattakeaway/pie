@@ -14,7 +14,7 @@
 
 @use '@justeattakeaway/pie-css/dist/utilities/spacing.css';
 @use '@justeattakeaway/pie-css/dist/utilities/rwd.css';
-@use '@justeattakeaway/pie-css/dist/utilities/utilities.css';
+@use '@justeattakeaway/pie-css/dist/utilities/utilities.css' as pie-utilities;
 @use 'utilities';
 
 @use 'base/layout';
