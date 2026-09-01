@@ -72,11 +72,10 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
+const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
-const getInstanceProp = createGetInstanceProp(figma);
 
 // PROP MAPPING
 const size = getInstanceProp('getEnum', 'Size', {
@@ -87,16 +86,23 @@ const size = getInstanceProp('getEnum', 'Size', {
 const isDisabled = getInstanceProp('getBoolean', 'Disabled');
 const buttonText = getInstanceProp(['Button'], 'getString', 'Label') || 'Click';
 
+// PROP RENDERING
+// `renderProp` returns an empty string when a value matches its default, so falsy
+// entries are filtered out to keep blank lines out of the generated snippet. The
+// join indent matches the four-space offset of `${props}` in the template below.
+const props = [
+    renderProp('size', size, 'medium'),
+    renderProp('disabled', isDisabled, false),
+].filter(Boolean).join('\n    ');
+
 // TEMPLATE RENDERING
-const template = `<${selectedComponentName}
-    ${renderProp('size', size, 'medium')}
-    ${renderProp('disabled', isDisabled, false)}
->
+const template = figma.code`<${selectedComponentName}
+    ${props}>
     ${buttonText}
 </${selectedComponentName}>`;
 
 export default {
-    example: figma.code`${trimEmptyLines(template)}`,
+    example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
     id: componentName,
 };
@@ -192,7 +198,9 @@ A template file (`*.figma.batch.js`) is a Node.js CommonJS module that defines h
 
 - `process.env.FRAMEWORK` - The target framework (`'web'`, `'react'`, or `'vue'`), this is determined by env var set on each of the build scripts
 - `figma.selectedInstance` - The Figma component instance currently being processed
-- `figma.batch.baseName` - Kebab-case component name from the batch configuration (e.g. `'pie-modal'`)
+- `figma.batch.componentName` - Kebab-case custom element name from the batch configuration (e.g. `'pie-modal'`)
+- `figma.batch.componentNameReact` - PascalCase React wrapper name from the batch configuration (e.g. `'PieModal'`)
+- `figma.batch.baseName` - Kebab-case icon name (e.g. `'icon-over-16'`). Used by the icon templates in place of the two properties above
 
 Any additional custom properties defined on a component in the batch configuration (e.g. `isSubtle` on PieModal) are also available under `figma.batch`.
 
@@ -219,6 +227,31 @@ The main difference between the returned value from the original API and this, i
 
 This approach aims to bring convenience, rather than requiring to figure out each time if the returned value is an error or actual value.
 
+#### `getIconSnippet(instance, transform)`
+
+Renders an icon instance swap - obtained via `getInstanceProp('getInstanceSwap', propName)` - as a code snippet, optionally assigning it to a slot.
+
+##### Parameters:
+- `instance` - The Figma instance swap node to render
+- `transform` (optional) - Either the name of the slot to assign the icon to (e.g. `'icon'`, `'leadingIcon'`), or a function `(code) => string` for the rare transform the slot shorthand cannot express
+
+##### Returns:
+The rendered snippet array, or an empty string when the instance is missing or has no Code Connect mapping.
+
+Always prefer this over calling `executeTemplate()` directly on the instance, so that a missing icon yields an empty string rather than `undefined` leaking into the published snippet.
+
+##### Examples:
+
+```js
+// Icon that needs no slot attribute (e.g. pie-icon-button)
+const iconInstance = getInstanceProp('getInstanceSwap', 'Replace icon');
+const iconSnippet = getIconSnippet(iconInstance);
+
+// Icon assigned to a named slot - use the component's `@slot` name from `src/index.ts`
+const leadingIconInstance = getInstanceProp('getInstanceSwap', 'Replace leading icon');
+const leadingIconSnippet = getIconSnippet(leadingIconInstance, 'leadingIcon');
+```
+
 #### `getSlotContent(slotName)`
 
 Retrieves the connected instances for a named slot on the selected Figma instance and returns their rendered template examples as an array.
@@ -231,9 +264,12 @@ An array of rendered template examples from each connected instance. Pass the re
 
 #### `renderProp(propName, value, defaultValue)`
 
-Renders a component prop in web or React syntax.
+Renders a component prop in web, React or Vue syntax, based on `process.env.FRAMEWORK`.
 
-It automatically omits the prop if its value matches the default.
+It automatically omits the prop if its value matches the default, returning an empty
+string in that case. This is why rendered props are collected into an array and passed
+through `.filter(Boolean)` before being joined — it keeps omitted props from leaving
+blank lines in the generated snippet.
 
 ## Publishing Code Connect changes
 

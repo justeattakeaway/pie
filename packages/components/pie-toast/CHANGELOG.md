@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-toast
 
+## 1.2.0
+
+### Minor Changes
+
+- [Added] - `live` option to the `aria` prop (`"off" | "polite" | "assertive"`) to override the ARIA live region politeness. Set it to `"off"` to disable the toast's own live region, e.g. when `pie-toast-provider` owns the announcement, preventing a message being announced twice. ([#3157](https://github.com/justeattakeaway/pie/pull/3157)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Fixed] - Set `aria-atomic="true"` on the toast's live region so screen readers announce the whole message as a single unit.
+
 ## 1.1.8
 
 ### Patch Changes

@@ -44,7 +44,7 @@ const label = !isLoading ? getInstanceProp('getString', '[𝐓] Label') : '';
 
 // Get icon instance, and add the slot prop to the snippet
 const iconInstance = getInstanceProp('getInstanceSwap', iconPlacement === 'trailing' ? 'Replace trailing icon' : 'Replace leading icon');
-const iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
+const iconSnippet = getIconSnippet(iconInstance, 'icon');
 
 const props = [
     renderProp('variant', variant, 'primary'),
@@ -64,5 +64,5 @@ const template = figma.code`<${selectedComponentName}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-button',
+    id: componentName,
 };

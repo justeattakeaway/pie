@@ -16,6 +16,10 @@
     position: var(--toast-provider-position);
     z-index: var(--toast-provider-z-index);
 
+    &-announcer {
+        @include p.visually-hidden;
+    }
+
     &.c-toast-provider--default {
         inset-inline-start: var(--toast-provider-offset);
         inset-block-end: var(--toast-provider-offset);
