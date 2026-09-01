@@ -1,3 +1,5 @@
+@use '../../mixins' as m;
+
 /**
  * General Utility Classes
  * =======================
@@ -7,4 +9,8 @@
 
 .is-hidden {
     display: none !important;
+}
+
+.is-visuallyHidden {
+    @include m.visually-hidden();
 }
