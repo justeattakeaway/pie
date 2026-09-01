@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: Tabs
     order: 2
-draft: true
 ---
 
 {% notification {

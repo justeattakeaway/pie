@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: Segmented Controls
     order: 2
-draft: true
 ---
 
 {% notification {
