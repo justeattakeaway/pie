@@ -293,7 +293,7 @@ $tooltip-alignments: ('', '-start', '-end');
 // -----------------------------------------------------------------------------
 
 .c-tooltip-heading {
-    @include p.font-theme('font-heading-xs');
+    @include p.font-theme('font-body-s-strong');
 
     margin-block-start: 0;
     margin-block-end: var(--dt-spacing-a);
