@@ -79,7 +79,7 @@ Both events bubble and are composed, and both carry `detail.targetTooltip`.
 
 | Variable | Description | Default |
 |---|---|---|
-| `--tooltip-offset` | The gap between the trigger and the panel. One value applies to all four sides, so the gap is the same whichever side the panel ends up on. | `var(--dt-spacing-b)` |
+| `--tooltip-offset` | The gap between the trigger and the arrow's tip. | `var(--dt-spacing-a)` |
 | `--tooltip-width` | Sets the panel's inline size directly, overriding whatever `size` would have produced. | Any length |
 
 Set both on the `pie-tooltip` element itself.
