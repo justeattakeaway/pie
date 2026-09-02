@@ -163,7 +163,11 @@ const handleClose = (event: Event) => {
 // -----------------------------------------------------------------------------
 
 const DefaultTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
     content,
+    heading,
+    headingLevel,
+    isDismissible,
     isOpen,
     position,
     size,
@@ -181,185 +185,10 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
         <pie-tooltip
             trigger="default-tooltip-trigger"
             ?isOpen="${isOpen}"
+            ?isDismissible="${isDismissible}"
             position="${ifDefined(position)}"
             size="${ifDefined(size)}"
             type="${ifDefined(type)}"
-            variant="${ifDefined(variant)}"
-            @pie-tooltip-open="${handleOpen}"
-            @pie-tooltip-close="${handleClose}">
-            <span slot="content">${content}</span>
-        </pie-tooltip>
-    </div>`;
-
-export const Default = createStory<TooltipProps>(DefaultTemplate, defaultArgs)({}, {
-    controls: {
-        exclude: ['heading', 'headingLevel', 'isDismissible', 'aria', 'trigger'],
-    },
-});
-
-// -----------------------------------------------------------------------------
-// Placement
-// -----------------------------------------------------------------------------
-
-const placementGridAreas = `
-    '.           top-start     top      top-end      .'
-    'left-start  .             .        .            right-start'
-    'left        .             .        .            right'
-    'left-end    .             .        .            right-end'
-    '.           bottom-start  bottom   bottom-end   .'
-`;
-
-/**
- * Uniform square anchors, so the only thing that varies between the twelve panels is the
- * placement itself.
- */
-const PlacementTemplate: TemplateFunction<TooltipProps> = ({ isOpen, variant }) => html`
-    <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
-        ${positions.map((position) => html`
-            <button
-                id="placement-trigger-${position}"
-                class="tooltip-placement-anchor"
-                style="grid-area: ${position};"
-                type="button"
-                aria-label="${position}"></button>
-
-            <pie-tooltip
-                trigger="placement-trigger-${position}"
-                position="${position}"
-                size="fit-to-content"
-                variant="${ifDefined(variant)}"
-                ?isOpen="${isOpen}"
-                @pie-tooltip-open="${handleOpen}"
-                @pie-tooltip-close="${handleClose}">
-                <span slot="content">${position}</span>
-            </pie-tooltip>`)}
-    </div>
-    <style>
-        .tooltip-placement-grid {
-            display: grid;
-            gap: 24px;
-            justify-content: center;
-            padding: 48px 80px;
-        }
-
-        .tooltip-placement-anchor {
-            inline-size: 56px;
-            block-size: 56px;
-            border: var(--dt-color-border-strong) solid 1px;
-            border-radius: var(--dt-radius-rounded-b);
-            background-color: transparent;
-            cursor: pointer;
-        }
-
-        .tooltip-placement-anchor:focus-visible {
-            outline: var(--dt-color-border-selected) solid 2px;
-            outline-offset: 2px;
-        }
-    </style>`;
-
-export const Placement = createStory<TooltipProps>(PlacementTemplate, defaultArgs)({}, {
-    controls: {
-        exclude: ['content', 'heading', 'headingLevel', 'isDismissible', 'position', 'size', 'type', 'aria', 'trigger'],
-    },
-});
-
-// -----------------------------------------------------------------------------
-// Sizes
-// -----------------------------------------------------------------------------
-
-const sizeContainerInlineSize = '420px';
-
-const sizeExamples: Array<{ size: NonNullable<TooltipProps['size']>; note: string }> = [
-    { size: 'default', note: 'Always 280px wide. Longer content wraps.' },
-    { size: 'fit-to-content', note: 'As wide as its content, up to the width of the viewport.' },
-    { size: 'fill-container', note: `Matches the ${sizeContainerInlineSize} container, whatever the content.` },
-];
-
-/**
- * The dashed outline marks each container. It is an outline rather than a border so the
- * container's box is exactly the stated width, which means `fill-container` can be read straight
- * off it. `fill-container` is defined as the inline size of the trigger's parent element, so the
- * trigger sits directly inside the container here.
- */
-const SizesTemplate: TemplateFunction<TooltipProps> = ({ content, isOpen, variant }) => html`
-    <div class="tooltip-sizes">
-        ${sizeExamples.map(({ size, note }) => html`
-            <div>
-                <p class="tooltip-sizes-note"><code>size="${size}"</code>: ${note}</p>
-
-                <div class="tooltip-sizes-container" style="inline-size: ${sizeContainerInlineSize};">
-                    <pie-button
-                        id="size-trigger-${size}"
-                        type="button"
-                        variant="secondary"
-                        size="small-productive">
-                        Delivery times
-                    </pie-button>
-
-                    <pie-tooltip
-                        trigger="size-trigger-${size}"
-                        size="${size}"
-                        position="bottom-start"
-                        variant="${ifDefined(variant)}"
-                        ?isOpen="${isOpen}"
-                        @pie-tooltip-open="${handleOpen}"
-                        @pie-tooltip-close="${handleClose}">
-                        <span slot="content">${content}</span>
-                    </pie-tooltip>
-                </div>
-            </div>`)}
-    </div>
-    <style>
-        .tooltip-sizes {
-            display: flex;
-            flex-direction: column;
-            gap: 200px;
-            padding: 48px 48px 280px;
-        }
-
-        .tooltip-sizes-note {
-            margin: 0 0 var(--dt-spacing-c);
-        }
-
-        .tooltip-sizes-container {
-            outline: var(--dt-color-border-strong) dashed 1px;
-            outline-offset: var(--dt-spacing-a);
-        }
-    </style>`;
-
-export const Sizes = createStory<TooltipProps>(SizesTemplate, defaultArgs)({}, {
-    controls: {
-        exclude: ['heading', 'headingLevel', 'isDismissible', 'position', 'size', 'type', 'aria', 'trigger'],
-    },
-});
-
-// -----------------------------------------------------------------------------
-// Dismissible
-// -----------------------------------------------------------------------------
-
-/**
- * A close button does not by itself make the panel a dialog. The `action` slot is empty here, so
- * this panel is still `role="tooltip"`.
- */
-const DismissibleTemplate: TemplateFunction<TooltipProps> = ({
-    aria,
-    content,
-    heading,
-    headingLevel,
-    isOpen,
-    position,
-    variant,
-}) => html`
-    <div style="padding: 96px; display: flex; justify-content: center;">
-        <pie-button id="dismissible-tooltip-trigger" variant="secondary">
-            Delivery times
-        </pie-button>
-
-        <pie-tooltip
-            trigger="dismissible-tooltip-trigger"
-            ?isOpen="${isOpen}"
-            ?isDismissible="${true}"
-            position="${ifDefined(position)}"
             variant="${ifDefined(variant)}"
             heading="${ifDefined(heading)}"
             headingLevel="${ifDefined(headingLevel)}"
@@ -370,20 +199,7 @@ const DismissibleTemplate: TemplateFunction<TooltipProps> = ({
         </pie-tooltip>
     </div>`;
 
-export const Dismissible = createStory<TooltipProps>(DismissibleTemplate, {
-    ...defaultArgs,
-    heading: 'Delivery times',
-    isDismissible: true,
-    position: 'bottom',
-    aria: {
-        close: 'Close delivery times',
-        label: '',
-    },
-})({}, {
-    controls: {
-        exclude: ['isDismissible', 'size', 'type', 'trigger'],
-    },
-});
+export const Default = createStory<TooltipProps>(DefaultTemplate, defaultArgs)();
 
 // -----------------------------------------------------------------------------
 // Onboarding tour
