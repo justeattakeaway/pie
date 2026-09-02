@@ -31,7 +31,6 @@ import styles from './tooltip.scss?inline';
 import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
-// Valid values available to consumers
 export * from './defs';
 
 const headingId = 'pie-tooltip-heading';
@@ -98,7 +97,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     private _reanchorFrame = 0;
 
-    // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
     /**
@@ -187,9 +185,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._triggerTrackingController = controller;
     }
 
-    /**
-     * @private
-     */
     private stopTrackingTrigger (): void {
         this._triggerTrackingController?.abort();
         this._triggerTrackingController = undefined;
@@ -267,11 +262,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this.dispatchEvent(new Event('pie-tooltip-close', { bubbles: true, composed: true }));
     }
 
-    /**
-     * Template for the panel heading. Doubles as the panel's accessible name in dialog mode.
-     *
-     * @private
-     */
     private renderHeading (): TemplateResult {
         const tag = unsafeStatic(this.headingLevel);
 
@@ -281,11 +271,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
                         data-test-id="${headingId}">${this.heading}</${tag}>`;
     }
 
-    /**
-     * Template for the close button.
-     *
-     * @private
-     */
     private renderCloseButton (): TemplateResult {
         return html`
             <pie-icon-button

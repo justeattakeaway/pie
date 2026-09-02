@@ -1,15 +1,5 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-/**
- * Every placement the panel can take, enumerated in full so that nothing is inferred.
- *
- * The first part names the side of the trigger the panel sits on. The second part, when
- * present, names the alignment along the opposite (cross) axis: `-start` and `-end` align
- * on the inline axis for `top` and `bottom`, and on the block axis for `left` and `right`.
- *
- * Sides and alignments are resolved with logical properties, so they mirror in RTL without
- * any JavaScript awareness of direction.
- */
 export const positions = [
     'top',
     'top-start',
@@ -112,11 +102,6 @@ export interface TooltipProps {
 export const componentSelector = 'pie-tooltip';
 export const componentClass = 'c-tooltip';
 
-/**
- * Event name for when the tooltip close button is clicked.
- *
- * @constant
- */
 export const ON_TOOLTIP_CLOSE_EVENT = `${componentSelector}-close`;
 
 export type DefaultProps = ComponentDefaultProps<TooltipProps, keyof Omit<TooltipProps, 'trigger' | 'heading' | 'aria'>>;

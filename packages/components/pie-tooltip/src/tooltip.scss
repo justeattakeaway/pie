@@ -71,7 +71,6 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $alignment in $tooltip-alignments {
-    // Panel above or below the trigger: the layer spans the trigger's inline size.
     .c-tooltip-layer--top#{$alignment},
     .c-tooltip-layer--bottom#{$alignment} {
         inset-inline-start: 0;
@@ -79,7 +78,6 @@ $tooltip-alignments: ('', '-start', '-end');
         inline-size: 100%;
     }
 
-    // Panel beside the trigger: the layer spans the trigger's block size.
     .c-tooltip-layer--left#{$alignment},
     .c-tooltip-layer--right#{$alignment} {
         inset-block-start: 0;
@@ -121,10 +119,6 @@ $tooltip-alignments: ('', '-start', '-end');
         place-items: end;
     }
 }
-
-// -----------------------------------------------------------------------------
-// Panel
-// -----------------------------------------------------------------------------
 
 .c-tooltip {
     --tooltip-inline-size: 280px;
@@ -255,7 +249,6 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $alignment in $tooltip-alignments {
-    // Panel above trigger: arrow points down, sits below panel.
     .c-tooltip--top#{$alignment} .c-tooltip-arrow {
         @include tooltip-arrow-clip(down);
 
@@ -263,7 +256,6 @@ $tooltip-alignments: ('', '-start', '-end');
         inset-inline-start: var(--tooltip-arrow-cross-inset);
     }
 
-    // Panel below trigger: arrow points up, sits above panel.
     .c-tooltip--bottom#{$alignment} .c-tooltip-arrow {
         @include tooltip-arrow-clip(up);
 
@@ -271,7 +263,6 @@ $tooltip-alignments: ('', '-start', '-end');
         inset-inline-start: var(--tooltip-arrow-cross-inset);
     }
 
-    // Panel to the inline-start of the trigger: arrow points inline-end, sits at inline-end edge.
     .c-tooltip--left#{$alignment} .c-tooltip-arrow {
         @include tooltip-arrow-clip(right);
 
@@ -279,7 +270,6 @@ $tooltip-alignments: ('', '-start', '-end');
         inset-inline-start: var(--tooltip-arrow-main-inset-far);
     }
 
-    // Panel to the inline-end of the trigger: arrow points inline-start, sits at inline-start edge.
     .c-tooltip--right#{$alignment} .c-tooltip-arrow {
         @include tooltip-arrow-clip(left);
 
@@ -287,10 +277,6 @@ $tooltip-alignments: ('', '-start', '-end');
         inset-inline-start: var(--tooltip-arrow-main-inset-near);
     }
 }
-
-// -----------------------------------------------------------------------------
-// Panel contents
-// -----------------------------------------------------------------------------
 
 .c-tooltip-heading {
     @include p.font-theme('font-body-s-strong');
