@@ -193,7 +193,7 @@ export const DismissibleNoHeading = createStory<TooltipProps>(DefaultTemplate, {
 export const FitToContent = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     size: 'fit-to-content',
-    content: longContent,
+    content: shortContent,
 })();
 
 const FillContainerTemplate: TemplateFunction<TooltipProps> = ({
@@ -368,4 +368,9 @@ const EnlargedOffsetTemplate: TemplateFunction<TooltipProps> = () => {
 export const EnlargedOffset = createStory<TooltipProps>(EnlargedOffsetTemplate, defaultArgs)({}, {
     controls: { disable: true },
 });
+
+export const OverriddenWidth = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    tooltipWidth: '400px',
+})();
 
