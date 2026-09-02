@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-breadcrumb",
   "description": "PIE Design System Breadcrumb built using Web Components",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -44,14 +44,14 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.3",
-    "@justeattakeaway/pie-css": "1.6.0",
+    "@justeattakeaway/pie-components-config": "0.21.4",
+    "@justeattakeaway/pie-css": "1.7.0",
     "@justeattakeaway/pie-monorepo-utils": "0.9.9"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "1.29.1",
-    "@justeattakeaway/pie-link": "1.5.4",
-    "@justeattakeaway/pie-webc-core": "19.0.0"
+    "@justeattakeaway/pie-icons-webc": "1.29.2",
+    "@justeattakeaway/pie-link": "1.5.5",
+    "@justeattakeaway/pie-webc-core": "20.0.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

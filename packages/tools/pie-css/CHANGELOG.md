@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.7.0
+
+### Minor Changes
+
+- [Added] - is-hidden utility class ([#3169](https://github.com/justeattakeaway/pie/pull/3169)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.6.0
 
 ### Minor Changes
