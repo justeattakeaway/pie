@@ -41,7 +41,6 @@
   "dependencies": {
     "@docsearch/css": "3.9.0",
     "@docsearch/js": "3.9.0",
-    "@justeat/fozzie": "11.2.2",
     "@justeat/pie-design-tokens": "7.14.3",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/pie-css": "1.6.0",
