@@ -105,9 +105,9 @@ For `top` and `bottom`, `-start` and `-end` align on the inline axis, against th
 
 The arrow follows the alignment. For the centre placements it sits over the trigger's centre. For `-start` and `-end` it sits a fixed distance in from the panel's aligned edge, clear of the rounded corner, so the three alignments on each side are distinguishable from the arrow alone.
 
-In right-to-left languages, the inline-axis alignments mirror: `top-start` aligns against the right-hand edge. `left` and `right` name a physical side and do not swap, so a panel asked for on the left stays on the left. Their `-start` and `-end` alignments are on the block axis, which has no direction to mirror. None of this needs configuration or any JavaScript awareness of direction.
+In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and `left` and `right` swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of `left` and `right` are on the block axis, which has no direction to mirror, so only the side moves. None of this needs configuration or any JavaScript awareness of direction.
 
-The panel is a fixed overlay, which is what lets it escape a clipping ancestor. It re-measures its trigger while open, so it stays attached through scrolling of the page or of any ancestor container, and through viewport resizes. Nothing is observed while the panel is closed. As a consequence of fixed positioning, an ancestor that establishes a containing block for fixed positioning, such as one with a `transform` or a `filter`, will move the panel with it.
+The panel is a fixed overlay, which is what lets it escape a clipping ancestor. It re-measures its trigger while open, so it stays attached through scrolling of the page or of any ancestor container, through viewport resizes, and through a change of writing direction. Nothing is observed while the panel is closed. As a consequence of fixed positioning, an ancestor that establishes a containing block for fixed positioning, such as one with a `transform` or a `filter`, will move the panel with it.
 
 `position` is honoured exactly in this version. The panel does not flip to the opposite side or shift along its cross axis to stay inside the viewport.
 

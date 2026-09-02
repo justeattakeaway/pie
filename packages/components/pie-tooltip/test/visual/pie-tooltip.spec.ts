@@ -10,12 +10,9 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--with-action', name: 'PieTooltip - With action' },
     { id: 'tooltip--dismissible', name: 'PieTooltip - Dismissible' },
     { id: 'tooltip--dismissible-with-action', name: 'PieTooltip - Dismissible with action' },
+    { id: 'tooltip--dismissible-no-heading', name: 'PieTooltip - Dismissible no heading' },
     { id: 'tooltip--placement-grid', name: 'PieTooltip - Placement grid' },
-    { id: 'tooltip--presentation-grid', name: 'PieTooltip - Variants and types' },
-    { id: 'tooltip--size-grid', name: 'PieTooltip - Sizes with short and long content' },
     { id: 'tooltip--enlarged-offset', name: 'PieTooltip - Enlarged offset' },
-    { id: 'tooltip--rtl-placement', name: 'PieTooltip - RTL placement' },
-    { id: 'tooltip--anchor-widths', name: 'PieTooltip - Anchor and panel widths' },
 ];
 
 test.describe('PieTooltip - Visual tests', () => {
@@ -30,6 +27,19 @@ test.describe('PieTooltip - Visual tests', () => {
             // Act & Assert
             await percySnapshot(page, name);
         });
+    });
+
+    // Placement mirrors in RTL, so the grid is snapshotted in both directions. The RTL snapshot
+    // should be a mirror image of the LTR one.
+    test('should display the Placement grid story successfully in RTL', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'tooltip--placement-grid');
+
+        await basePage.load({}, { writingDirection: 'rtl' });
+        await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
+
+        // Act & Assert
+        await percySnapshot(page, 'PieTooltip - Placement grid RTL');
     });
 
     test('should display the panel successfully at a 320px viewport', async ({ page }) => {

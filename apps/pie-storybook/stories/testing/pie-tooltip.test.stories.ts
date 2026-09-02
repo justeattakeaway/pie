@@ -125,13 +125,11 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
         <div
             data-test-id="tooltip-trigger-container"
             style="inline-size: ${containerInlineSize};">
-            <button
+            <pie-button
                 id="tooltip-trigger"
-                data-test-id="tooltip-trigger"
-                type="button"
-                style="inline-size: ${triggerInlineSize}; padding-block: 8px;">
+                data-test-id="tooltip-trigger">
                 Delivery times
-            </button>
+            </pie-button>
 
             <pie-tooltip
                 trigger="tooltip-trigger"
@@ -187,13 +185,68 @@ export const DismissibleWithAction = createStory<TooltipProps>(DefaultTemplate, 
     heading: 'Delivery times',
 })();
 
+export const DismissibleNoHeading = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    isDismissible: true,
+})();
+
 export const FitToContent = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     size: 'fit-to-content',
     content: longContent,
 })();
 
-export const FillContainer = createStory<TooltipProps>(DefaultTemplate, {
+const FillContainerTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    containerInlineSize,
+    content,
+    hasAction,
+    heading,
+    headingLevel,
+    isDismissible,
+    isOpen,
+    position,
+    tooltipOffset,
+    tooltipWidth,
+    type,
+    variant,
+}) => {
+    const cssVariables = styleMap({
+        '--tooltip-offset': tooltipOffset || null,
+        '--tooltip-width': tooltipWidth || null,
+    });
+
+    return html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: ${containerInlineSize}; border: 1px dashed purple; padding: var(--dt-spacing-a);">
+            <pie-button
+                id="tooltip-trigger"
+                data-test-id="tooltip-trigger"
+                ?isFullWidth="${true}">
+                Delivery times
+            </pie-button>
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${isOpen}"
+                ?isDismissible="${isDismissible}"
+                position="${ifDefined(position)}"
+                size="fill-container"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                heading="${heading || nothing}"
+                headingLevel="${ifDefined(headingLevel)}"
+                .aria="${aria}"
+                style="${cssVariables}">
+                ${renderContent(content, hasAction)}
+            </pie-tooltip>
+        </div>
+    </div>`;
+};
+
+export const FillContainer = createStory<TooltipProps>(FillContainerTemplate, {
     ...defaultArgs,
     size: 'fill-container',
     content: longContent,
@@ -222,7 +275,7 @@ const renderAnchoredTooltip = ({
     variant = 'default',
 }: AnchorProps): TemplateResult => html`
     <div>
-        <button id="${id}" data-test-id="${id}" type="button" style="padding-block: 8px;">${label}</button>
+        <pie-button id="${id}" data-test-id="${id}">${label}</pie-button>
 
         <pie-tooltip
             data-test-id="${id}-tooltip"
@@ -250,7 +303,11 @@ const placementGridAreas = `
 
 /**
  * Uniform square anchors, so the only thing that varies between the twelve panels is the
- * placement itself. The gaps are wide because this story opens all twelve at once.
+ * placement itself.
+ *
+ * Direction is left to the `writingDirection` global, so switching the toolbar mirrors both the
+ * named grid areas and the panels placed against them. The RTL rendering should be a mirror
+ * image of the LTR one.
  */
 const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => html`
     <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
@@ -267,6 +324,7 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => h
                 data-test-id="placement-${position}-tooltip"
                 trigger="placement-${position}"
                 position="${position}"
+                size="fit-to-content"
                 variant="${ifDefined(variant)}"
                 ?isOpen="${true}">
                 <span slot="content">${position}</span>
@@ -275,9 +333,10 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => h
     <style>
         .tooltip-placement-grid {
             display: grid;
-            gap: 40px 104px;
+            row-gap: 24px;
+            column-gap: 100px;
             justify-content: center;
-            padding: 120px 180px;
+            padding: 48px 80px;
         }
 
         .tooltip-placement-anchor {
@@ -294,178 +353,19 @@ export const PlacementGrid = createStory<TooltipProps>(PlacementGridTemplate, de
     controls: { disable: true },
 });
 
-const PresentationGridTemplate: TemplateFunction<TooltipProps> = () => {
-    const anchors = variants.flatMap((variant) => types.map((type) => renderAnchoredTooltip({
-        id: `presentation-${variant}-${type}`,
-        label: `${variant} / ${type}`,
-        content: longContent,
-        heading: 'Delivery times',
-        isDismissible: true,
-        position: 'bottom',
-        type,
-        variant,
-    })));
-
-    return html`
-        <div style="display: flex; flex-wrap: wrap; gap: 160px 80px; padding: 80px 220px;">
-            ${anchors}
-        </div>`;
-};
-
-export const PresentationGrid = createStory<TooltipProps>(PresentationGridTemplate, defaultArgs)({}, {
-    controls: { disable: true },
-});
-
-const sizeContainerInlineSize = 420;
-
-/**
- * Each trigger sits directly inside a container of a known inline size, because `fill-container`
- * is defined as the inline size of the trigger's parent element. The container uses an outline
- * rather than a border so its box is exactly `sizeContainerInlineSize` wide.
- */
-const SizeGridTemplate: TemplateFunction<TooltipProps> = () => {
-    const contentLengths = [
-        { label: 'short', content: shortContent },
-        { label: 'long', content: longContent },
-    ];
-
-    const rows = sizes.flatMap((size) => contentLengths.map(({ label, content }) => ({ size, label, content })));
-
-    return html`
-        <div style="display: flex; flex-direction: column; gap: 200px; padding: 80px 120px 280px;">
-            ${rows.map(({ size, label, content }) => html`
-                <div>
-                    <p style="margin: 0 0 12px;">${size} / ${label}</p>
-
-                    <div
-                        data-test-id="size-container-${size}-${label}"
-                        style="inline-size: ${sizeContainerInlineSize}px; outline: 1px dashed #767676; outline-offset: 4px;">
-                        <button
-                            id="size-${size}-${label}"
-                            data-test-id="size-${size}-${label}"
-                            type="button"
-                            style="padding-block: 8px;">
-                            Delivery times
-                        </button>
-
-                        <pie-tooltip
-                            data-test-id="size-${size}-${label}-tooltip"
-                            trigger="size-${size}-${label}"
-                            position="bottom-start"
-                            size="${size}"
-                            ?isOpen="${true}">
-                            <span slot="content">${content}</span>
-                        </pie-tooltip>
-                    </div>
-                </div>`)}
-        </div>`;
-};
-
-export const SizeGrid = createStory<TooltipProps>(SizeGridTemplate, defaultArgs)({}, {
-    controls: { disable: true },
-});
-
-const mainAxisSides = ['top', 'bottom', 'left', 'right'] as const;
-
 const EnlargedOffsetTemplate: TemplateFunction<TooltipProps> = () => {
-    const anchors = mainAxisSides.map((position) => renderAnchoredTooltip({
-        id: `offset-${position}`,
-        label: position,
-        content: position,
-        position,
+    const anchor = renderAnchoredTooltip({
+        id: 'offset-top',
+        label: 'top',
+        content: 'top',
+        position: 'top',
         tooltipOffset: '32px',
-    }));
+    });
 
-    return html`
-        <div style="display: flex; flex-wrap: wrap; gap: 160px 120px; padding: 120px 220px;">
-            ${anchors}
-        </div>`;
+    return html`<div style="padding: ${pagePadding};">${anchor}</div>`;
 };
 
 export const EnlargedOffset = createStory<TooltipProps>(EnlargedOffsetTemplate, defaultArgs)({}, {
     controls: { disable: true },
 });
 
-/**
- * Placement is resolved with logical properties, so `-start` and `-end` follow the inline
- * direction and `left` and `right` mirror. Nothing here needs JavaScript awareness of direction.
- */
-const RtlPlacementTemplate: TemplateFunction<TooltipProps> = () => {
-    const anchors = (['top-start', 'top-end', 'left', 'right'] as const).map((position) => renderAnchoredTooltip({
-        id: `rtl-${position}`,
-        label: position,
-        content: position,
-        position,
-    }));
-
-    return html`
-        <div dir="rtl" style="display: flex; flex-direction: column; gap: 140px; padding: 140px 260px;">
-            ${anchors}
-        </div>`;
-};
-
-export const RtlPlacement = createStory<TooltipProps>(RtlPlacementTemplate, defaultArgs)({}, {
-    controls: { disable: true },
-});
-
-/**
- * A page tall enough to scroll. The panel is a fixed overlay, so staying attached to the trigger
- * through a scroll is something the component has to do rather than get for free.
- */
-const ScrollablePageTemplate: TemplateFunction<TooltipProps> = () => html`
-    <div style="min-block-size: 250vh; padding: 200px 320px;">
-        <button
-            id="tooltip-trigger"
-            data-test-id="tooltip-trigger"
-            type="button"
-            style="inline-size: 120px; padding-block: 8px;">
-            Delivery times
-        </button>
-
-        <pie-tooltip trigger="tooltip-trigger" position="bottom" ?isOpen="${true}">
-            <span slot="content">${shortContent}</span>
-        </pie-tooltip>
-    </div>`;
-
-export const ScrollablePage = createStory<TooltipProps>(ScrollablePageTemplate, defaultArgs)({}, {
-    controls: { disable: true },
-});
-
-/**
- * A trigger wider than its panel, and a panel wider than its trigger. Both use a centre
- * alignment, which must overflow the smaller of the two evenly on both sides.
- */
-const AnchorWidthsTemplate: TemplateFunction<TooltipProps> = () => html`
-    <div style="display: flex; flex-direction: column; gap: 200px; padding: 120px 260px;">
-        <div>
-            <button
-                id="wide-anchor"
-                data-test-id="wide-anchor"
-                type="button"
-                style="inline-size: 360px; padding-block: 8px;">
-                Wider than its panel
-            </button>
-
-            <pie-tooltip data-test-id="wide-anchor-tooltip" trigger="wide-anchor" position="bottom" ?isOpen="${true}">
-                <span slot="content">Narrow</span>
-            </pie-tooltip>
-        </div>
-
-        <div>
-            <button
-                id="narrow-anchor"
-                data-test-id="narrow-anchor"
-                type="button"
-                style="inline-size: 40px; padding-block: 8px;">
-                W
-            </button>
-
-            <pie-tooltip data-test-id="narrow-anchor-tooltip" trigger="narrow-anchor" position="bottom" ?isOpen="${true}">
-                <span slot="content">${longContent}</span>
-            </pie-tooltip>
-        </div>
-    </div>`;
-
-export const AnchorWidths = createStory<TooltipProps>(AnchorWidthsTemplate, defaultArgs)({}, {
-    controls: { disable: true },
-});

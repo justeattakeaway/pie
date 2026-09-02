@@ -36,7 +36,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 // Valid values available to consumers
 export * from './defs';
 
-const headingId = `${componentSelector}-heading`;
+const headingId = 'pie-tooltip-heading';
 
 /**
  * @tagname pie-tooltip
@@ -91,9 +91,13 @@ export class PieTooltip extends PieElement implements TooltipProps {
     @state() private _hasActionContent: boolean | undefined;
 
     /**
-     * Torn down on close and on disconnect, so nothing is observed while the panel is hidden.
+     * Both torn down on close and on disconnect, so nothing is observed while the panel is
+     * hidden. The controller covers the event listeners; `MutationObserver` takes no abort
+     * signal, so the observer is disconnected by hand alongside it.
      */
     private _triggerTrackingController: AbortController | undefined;
+
+    private _directionObserver: MutationObserver | undefined;
 
     private _reanchorFrame = 0;
 
@@ -149,6 +153,10 @@ export class PieTooltip extends PieElement implements TooltipProps {
      * of any ancestor container, not just the document, and the work is coalesced into a single
      * animation frame so a scroll cannot queue more than one measurement.
      *
+     * A change of writing direction is tracked alongside those events. Placement itself mirrors
+     * in CSS with no help from here, but flipping the direction lays the page out again and so
+     * moves the trigger, without firing either a scroll or a resize.
+     *
      * @private
      */
     private startTrackingTrigger (): void {
@@ -173,6 +181,12 @@ export class PieTooltip extends PieElement implements TooltipProps {
         window.addEventListener('scroll', handleViewportChange, { capture: true, passive: true, signal });
         window.addEventListener('resize', handleViewportChange, { passive: true, signal });
 
+        this._directionObserver = new MutationObserver(handleViewportChange);
+        this._directionObserver.observe(this.ownerDocument.documentElement, {
+            attributeFilter: ['dir'],
+            subtree: true,
+        });
+
         this._triggerTrackingController = controller;
     }
 
@@ -182,6 +196,9 @@ export class PieTooltip extends PieElement implements TooltipProps {
     private stopTrackingTrigger (): void {
         this._triggerTrackingController?.abort();
         this._triggerTrackingController = undefined;
+
+        this._directionObserver?.disconnect();
+        this._directionObserver = undefined;
 
         if (this._reanchorFrame) {
             cancelAnimationFrame(this._reanchorFrame);
@@ -309,6 +326,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             [`${componentClass}--size-${size}`]: true,
             'is-dismissible': !!isDismissible,
             'has-action': mode === 'dialog',
+            'has-heading': !!heading,
         };
 
         // In dialog mode the panel is named by its heading, falling back to `aria.label`. In

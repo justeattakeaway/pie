@@ -80,15 +80,16 @@ $tooltip-alignments: ('', '-start', '-end');
         inset-block-start: calc(100% + var(--tooltip-offset));
     }
 
-    // `left` and `right` name a physical side, so they use physical insets and stay put in RTL.
-    // Their `-start` and `-end` alignments are on the block axis, which has no direction to
-    // mirror, so the named side and the alignment are both stable.
+    // `left` and `right` are named for how they read in LTR, but they resolve on the inline
+    // axis: `left` is the inline-start side of the trigger and `right` the inline-end side, so
+    // the pair swaps in RTL. Their `-start` and `-end` alignments are on the block axis, which
+    // has no direction to mirror, so only the side moves.
     .c-tooltip-layer--left#{$alignment} {
-        right: calc(100% + var(--tooltip-offset));
+        inset-inline-end: calc(100% + var(--tooltip-offset));
     }
 
     .c-tooltip-layer--right#{$alignment} {
-        left: calc(100% + var(--tooltip-offset));
+        inset-inline-start: calc(100% + var(--tooltip-offset));
     }
 }
 
@@ -181,11 +182,19 @@ $tooltip-alignments: ('', '-start', '-end');
     padding-inline-end: calc(var(--tooltip-padding-inline) + var(--tooltip-close-size));
 }
 
+// Without a heading the panel body should be vertically centred against the close button.
+.c-tooltip.is-dismissible:not(.has-heading) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 // -----------------------------------------------------------------------------
 // Arrow.
 // A square rotated 45 degrees, so it reads the same mirrored and needs no direction-aware
-// clip path. Its centre sits on the panel edge facing the trigger, and on the cross axis it
-// tracks the trigger's centre whatever the alignment.
+// clip path. Its centre sits on the panel edge facing the trigger, and on the cross axis it is
+// placed by the alignment. Both insets are logical, so the arrow follows the panel when the
+// `left` and `right` sides swap in RTL.
 // -----------------------------------------------------------------------------
 
 @each $side in (top, bottom, left, right) {
@@ -223,15 +232,13 @@ $tooltip-alignments: ('', '-start', '-end');
     }
 
     .c-tooltip--left#{$alignment} .c-tooltip-arrow {
-        left: var(--tooltip-arrow-main-inset-far);
-
         inset-block-start: var(--tooltip-arrow-cross-inset);
+        inset-inline-start: var(--tooltip-arrow-main-inset-far);
     }
 
     .c-tooltip--right#{$alignment} .c-tooltip-arrow {
-        left: var(--tooltip-arrow-main-inset-near);
-
         inset-block-start: var(--tooltip-arrow-cross-inset);
+        inset-inline-start: var(--tooltip-arrow-main-inset-near);
     }
 }
 
@@ -252,7 +259,13 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 .c-tooltip.has-action .c-tooltip-action {
+    display: flex;
+    justify-content: flex-end;
     margin-block-start: var(--dt-spacing-a);
+}
+
+.c-tooltip.is-dismissible.has-action .c-tooltip-action {
+    margin-inline-end: calc(var(--tooltip-close-size) * -1);
 }
 
 .c-tooltip-close {

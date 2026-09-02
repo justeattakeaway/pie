@@ -38,6 +38,19 @@ const getBox = async (page: Page, dataTestId: string): Promise<Box> => {
     return box as Box;
 };
 
+/**
+ * Measures an element inside a specific tooltip's shadow root. The grid stories render twelve
+ * panels at once, so the shared `pie-tooltip-*` test ids have to be scoped by the host's own
+ * test id to identify one of them.
+ */
+const getScopedBox = async (page: Page, hostTestId: string, innerTestId: string): Promise<Box> => {
+    const box = await page.getByTestId(hostTestId).getByTestId(innerTestId).boundingBox();
+
+    expect(box).not.toBeNull();
+
+    return box as Box;
+};
+
 const edges = (box: Box) => ({
     top: box.y,
     bottom: box.y + box.height,
@@ -243,36 +256,61 @@ test.describe('PieTooltip - Component tests', () => {
     });
 
     test.describe('RTL', () => {
+        /**
+         * The placement grid rendered in RTL. Direction comes from the `writingDirection` global,
+         * the same switch the Storybook toolbar drives, so the story under test is the one a
+         * consumer would look at. Every placement is present, each anchor named
+         * `placement-<position>`.
+         */
+        const loadRtlGrid = async (page: Page, position: typeof positions[number]) => {
+            const basePage = new BasePage(page, 'tooltip--placement-grid');
+            const host = `placement-${position}-tooltip`;
+
+            await basePage.load({}, { writingDirection: 'rtl' });
+            await expect(page.getByTestId(host).getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
+
+            return {
+                trigger: edges(await getBox(page, `placement-${position}`)),
+                panel: edges(await getScopedBox(page, host, tooltip.selectors.panel.dataTestId)),
+                arrow: edges(await getScopedBox(page, host, tooltip.selectors.arrow.dataTestId)),
+            };
+        };
+
         test('should mirror an inline-axis alignment without any JavaScript awareness of direction', async ({ page }) => {
-            // Arrange
-            const basePage = new BasePage(page, 'tooltip--rtl-placement');
-
-            await basePage.load();
-            await expect(page.getByTestId('rtl-top-start-tooltip')).toBeVisible();
-
-            // Act
-            const trigger = edges(await getBox(page, 'rtl-top-start'));
-            const panel = edges(await getBox(page, 'rtl-top-start-tooltip'));
+            // Arrange & Act
+            const { trigger, panel } = await loadRtlGrid(page, 'top-start');
 
             // Assert
             // In RTL the inline-start edge is the right-hand edge, so `top-start` aligns there.
             expect(Math.abs(panel.right - trigger.right)).toBeLessThanOrEqual(tolerance);
         });
 
-        test('should keep the left placement on the physical left in RTL', async ({ page }) => {
-            // Arrange
-            const basePage = new BasePage(page, 'tooltip--rtl-placement');
-
-            await basePage.load();
-            await expect(page.getByTestId('rtl-left-tooltip')).toBeVisible();
-
-            // Act
-            const trigger = edges(await getBox(page, 'rtl-left'));
-            const panel = edges(await getBox(page, 'rtl-left-tooltip'));
+        test('should swap the left placement to the right of the trigger in RTL', async ({ page }) => {
+            // Arrange & Act
+            const { trigger, panel } = await loadRtlGrid(page, 'left');
 
             // Assert
-            // `left` and `right` name a physical side, so they do not swap in RTL.
+            // `left` resolves on the inline axis, and the inline-start side is the right-hand
+            // side in RTL, so the panel appears to the right of its trigger.
+            expect(panel.left - trigger.right).toBeCloseTo(defaultOffset, 0);
+        });
+
+        test('should swap the right placement to the left of the trigger in RTL', async ({ page }) => {
+            // Arrange & Act
+            const { trigger, panel } = await loadRtlGrid(page, 'right');
+
+            // Assert
             expect(trigger.left - panel.right).toBeCloseTo(defaultOffset, 0);
+        });
+
+        test('should keep the arrow on the panel edge facing the trigger when the sides swap in RTL', async ({ page }) => {
+            // Arrange & Act
+            const { arrow, panel } = await loadRtlGrid(page, 'left');
+
+            // Assert
+            // The panel sits to the right of the trigger in RTL, so the arrow moves with it and
+            // attaches to the panel's left edge.
+            expect(Math.abs(arrow.centreX - panel.left)).toBeLessThanOrEqual(tolerance);
         });
     });
 

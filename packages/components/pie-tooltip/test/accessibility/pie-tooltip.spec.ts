@@ -19,7 +19,6 @@ const storyIds = [
     'tooltip--presentation-grid',
     'tooltip--size-grid',
     'tooltip--enlarged-offset',
-    'tooltip--rtl-placement',
     'tooltip--anchor-widths',
     'tooltip--scrollable-page',
 ];

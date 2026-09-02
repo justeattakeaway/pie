@@ -211,7 +211,7 @@ const placementGridAreas = `
 
 /**
  * Uniform square anchors, so the only thing that varies between the twelve panels is the
- * placement itself. The gaps are wide because this story opens all twelve at once.
+ * placement itself.
  */
 const PlacementTemplate: TemplateFunction<TooltipProps> = ({ isOpen, variant }) => html`
     <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
@@ -237,9 +237,9 @@ const PlacementTemplate: TemplateFunction<TooltipProps> = ({ isOpen, variant }) 
     <style>
         .tooltip-placement-grid {
             display: grid;
-            gap: 40px 104px;
+            gap: 24px;
             justify-content: center;
-            padding: 120px 180px;
+            padding: 48px 80px;
         }
 
         .tooltip-placement-anchor {
@@ -457,10 +457,18 @@ const showTourStep = (root: HTMLElement, index: number) => {
     // The panel is a fixed overlay pinned to its trigger, so bringing the trigger into view is
     // the consumer's job. A panel whose trigger is below the fold opens off screen, and the tour
     // looks like it has stalled.
-    root.querySelector<HTMLElement>(`#${current.anchor}`)?.scrollIntoView({
-        block: 'center',
-        behavior: prefersReducedMotion() ? 'auto' : 'smooth',
-    });
+    const anchorEl = root.querySelector<HTMLElement>(`#${current.anchor}`);
+    if (anchorEl) {
+        const { top, bottom } = anchorEl.getBoundingClientRect();
+        const alreadyInView = top >= 0 && bottom <= window.innerHeight;
+
+        if (!alreadyInView) {
+            anchorEl.scrollIntoView({
+                block: 'center',
+                behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+            });
+        }
+    }
 
     const panel = findPanel(root, current.anchor);
 
