@@ -137,7 +137,6 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     size,
     tooltipOffset,
     tooltipWidth,
-    triggerInlineSize,
     type,
     variant,
 }) => {
