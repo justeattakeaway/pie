@@ -9,18 +9,11 @@
 
 `@justeattakeaway/pie-tooltip` is a Web Component built using the Lit library. It provides an accessible panel that is anchored to a trigger elsewhere on the page.
 
-## The controlled contract
-
-`pie-tooltip` is a controlled component. It never writes to its own `isOpen`.
-
-1. You own `isOpen`.
-2. You listen for `pie-tooltip-close`.
-3. You pass the value back.
-
 ## Table of Contents
 
 - [Installation](#installation)
 - [Documentation](#documentation)
+  - [Controlled component](#controlled-component)
   - [Properties](#properties)
   - [Slots](#slots)
   - [Events](#events)
@@ -39,6 +32,14 @@
 Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
 ## Documentation
+
+### Controlled component
+
+`pie-tooltip` is a controlled component. It never writes to its own `isOpen`.
+
+1. You own `isOpen`.
+2. You listen for `pie-tooltip-close`.
+3. You pass the value back.
 
 ### Properties
 
@@ -60,7 +61,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Slot | Description |
 |---|---|
 | `content` | The descriptive content of the panel. Must not contain focusable elements. |
-| `action` | Interactive content such as a `pie-button`. Filling this slot switches the panel from a tooltip to a non-modal dialog. |
+| `action` | Designed for using `pie-button`. Filling this slot switches the panel from a tooltip to a non-modal dialog. When using `pie-button` always set the size to `xsmall`.|
 
 ### Events
 
@@ -94,15 +95,7 @@ left     left-start     left-end
 right    right-start    right-end
 ```
 
-For `top` and `bottom`, `-start` and `-end` align on the inline axis, against the leading and trailing edges of the trigger. For `left` and `right` they align on the block axis, against the top and bottom edges of the trigger. With no suffix the panel is centred on the trigger, and a panel larger than its trigger overflows it evenly on both sides.
-
-The arrow follows the alignment. For the centre placements it sits over the trigger's centre. For `-start` and `-end` it sits a fixed distance in from the panel's aligned edge, clear of the rounded corner, so the three alignments on each side are distinguishable from the arrow alone.
-
 In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and `left` and `right` swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of `left` and `right` are on the block axis, which has no direction to mirror, so only the side moves. None of this needs configuration or any JavaScript awareness of direction.
-
-The panel is a fixed overlay, which is what lets it escape a clipping ancestor. It re-measures its trigger while open, so it stays attached through scrolling of the page or of any ancestor container, through viewport resizes, and through a change of writing direction. Nothing is observed while the panel is closed. As a consequence of fixed positioning, an ancestor that establishes a containing block for fixed positioning, such as one with a `transform` or a `filter`, will move the panel with it.
-
-`position` is honoured exactly in this version. The panel does not flip to the opposite side or shift along its cross axis to stay inside the viewport.
 
 ## Sizing
 
@@ -118,29 +111,25 @@ The panel is a fixed overlay, which is what lets it escape a clipping ancestor. 
 
 ### The two modes
 
-The panel presents as one of two patterns, inferred from the `action` slot rather than configured. They carry different obligations.
+The panel presents as one of two patterns, inferred from the `action` slot contents. They carry different obligations.
 
 | | `action` slot empty | `action` slot filled |
 |---|---|---|
 | Panel role | `tooltip` | `dialog` |
 | Contains focusable content | No | Yes |
 | Accessible name on panel | None | Required, from `heading` or `aria.label` |
-| Focus on open | Never moves | Not moved by the component in this version |
 | In the accessibility tree while closed | Yes, as the trigger's description | No |
 
 A close button does not make the panel a dialog. Only the `action` slot does.
 
 ### What the component does
 
-- Sets `role="tooltip"` or `role="dialog"` from the `action` slot, resolved on the client before the first paint. A server render never emits a role that the client then has to correct.
+- Sets `role="tooltip"` or `role="dialog"` from the `action` slot, resolved on the client before the first paint.
 - Names the dialog panel from `heading`, falling back to `aria.label`.
-- Never names the panel in tooltip mode. A tooltip is a description, never a name.
-- Never points `aria-describedby` at the panel's own content. Slotted content may carry semantic structure, which is meant to be navigated rather than flattened into a description.
 - Removes the dialog panel from the accessibility tree while closed. In tooltip mode the content stays in the DOM so that a description referring to it still resolves.
 - Names the close button from `aria.close` and places it in the tab sequence inside the panel.
-- Never traps focus. The panel is non-modal and `aria-modal` is never set.
 - Keeps the panel clear of the trigger at every placement, so the panel cannot obscure a focused trigger (WCAG 2.4.11).
-- Wraps content and applies no fixed block size, so the panel holds up at 200% text zoom, at a 320px viewport, and under text spacing overrides (WCAG 1.4.4, 1.4.10, 1.4.12).
+- Wraps content.
 
 ### What you need to do
 
@@ -148,7 +137,7 @@ A close button does not make the panel a dialog. Only the `action` slot does.
 - **Use a natively interactive element as the trigger**, a button or a link, so focus and click behave correctly.
 - **Own `isOpen`.** Listen for `pie-tooltip-close` and set `isOpen` to `false` in response.
 - **Keep focusable content out of the `content` slot.** Interactive content belongs in the `action` slot, which switches the panel to a dialog.
-- **Place `<pie-tooltip>` immediately after its trigger in the DOM.** The component anchors by `id` and can sit anywhere, but reading and tab order follow DOM order (WCAG 2.4.3).
+- **Place `<pie-tooltip>` immediately after its trigger in the DOM.** The component anchors by `id` and can sit anywhere, but reading and tab order follow DOM order.
 - **In dialog mode, provide `heading` or `aria.label`** so the dialog has an accessible name.
 - **Provide a translated `aria.close`** whenever `isDismissible` is set.
 - **Keep tooltip-mode content short and supplementary.** Anything essential or interactive belongs in dialog mode, or inline in the page.
@@ -232,7 +221,7 @@ Filling the `action` slot switches the panel to a non-modal dialog, which then n
 ```html
 <pie-tooltip trigger="delivery-info" isOpen heading="Delivery times">
   <span slot="content">Orders placed before 6pm arrive today.</span>
-  <pie-button slot="action" size="small-productive">Next</pie-button>
+  <pie-button slot="action" size="xsmall">Next</pie-button>
 </pie-tooltip>
 ```
 

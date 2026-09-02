@@ -93,7 +93,7 @@ const pagePadding = '200px 320px';
 const renderContent = (content: string, hasAction: boolean): TemplateResult => html`
     <span slot="content" data-test-id="pie-tooltip-slotted-content">${content}</span>
     ${hasAction
-    ? html`<pie-button slot="action" size="small-productive" data-test-id="pie-tooltip-slotted-action">Next</pie-button>`
+    ? html`<pie-button slot="action" size="xsmall" data-test-id="pie-tooltip-slotted-action">Next</pie-button>`
     : nothing}`;
 
 /**

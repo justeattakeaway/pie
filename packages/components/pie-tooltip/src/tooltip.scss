@@ -296,7 +296,7 @@ $tooltip-alignments: ('', '-start', '-end');
     @include p.font-theme('font-body-s-strong');
 
     margin-block-start: 0;
-    margin-block-end: var(--dt-spacing-a);
+    margin-block-end: 0;
 }
 
 .c-tooltip-content {
@@ -312,6 +312,21 @@ $tooltip-alignments: ('', '-start', '-end');
 
 .c-tooltip.is-dismissible.has-action .c-tooltip-action {
     margin-inline-end: calc(var(--tooltip-close-size) * -1);
+}
+
+// The close button is out of flow, so nothing above the action row accounts for its block size,
+// and a short heading and content leave the row riding up alongside the button. Reserving the
+// button's block size on the body lines the two up on their block-end edge, which makes the
+// row's own margin the gap from the button as well as from the body.
+.c-tooltip.is-dismissible.has-action .c-tooltip-body {
+    min-block-size: var(--tooltip-close-size);
+}
+
+// Without a heading the body is a single line of content, which should stay centred against the
+// close button rather than sit at the top of the space reserved above.
+.c-tooltip.is-dismissible.has-action:not(.has-heading) .c-tooltip-body {
+    display: grid;
+    align-content: center;
 }
 
 .c-tooltip-close {

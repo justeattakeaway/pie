@@ -347,9 +347,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
                     aria-labelledby="${isDialog && heading ? headingId : nothing}"
                     aria-label="${isDialog && !heading && aria?.label ? aria.label : nothing}">
                     ${isIconType ? nothing : html`<div class="${componentClass}-arrow" data-test-id="${componentSelector}-arrow"></div>`}
-                    ${heading ? this.renderHeading() : nothing}
-                    <div class="${componentClass}-content" data-test-id="${componentSelector}-content">
-                        <slot name="content"></slot>
+                    <div class="${componentClass}-body">
+                        ${heading ? this.renderHeading() : nothing}
+                        <div class="${componentClass}-content" data-test-id="${componentSelector}-content">
+                            <slot name="content"></slot>
+                        </div>
                     </div>
                     <div class="${componentClass}-action" data-test-id="${componentSelector}-action">
                         <slot name="action" @slotchange="${this.resolveMode}"></slot>
