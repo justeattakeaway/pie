@@ -262,7 +262,10 @@ export class PieTooltip extends PieElement implements TooltipProps {
      * @private
      */
     private handleCloseButtonClick (): void {
-        this.dispatchEvent(new Event(ON_TOOLTIP_CLOSE_EVENT, { bubbles: true, composed: true }));
+        // String literal required: the CEM analyser cannot resolve a constant reference to its
+        // value, so using ON_TOOLTIP_CLOSE_EVENT here would emit a spurious event entry in the
+        // custom-elements manifest and generate a broken onON_TOOLTIP_CLOSE_EVENT prop in react.ts.
+        this.dispatchEvent(new Event('pie-tooltip-close', { bubbles: true, composed: true }));
     }
 
     /**
