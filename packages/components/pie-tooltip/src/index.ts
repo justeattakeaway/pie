@@ -19,7 +19,6 @@ import {
     componentSelector,
     defaultProps,
     headingLevels,
-    ON_TOOLTIP_CLOSE_EVENT,
     positions,
     sizes,
     types,
