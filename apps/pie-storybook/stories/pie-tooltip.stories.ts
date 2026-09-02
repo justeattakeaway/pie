@@ -140,19 +140,13 @@ const tooltipStoryMeta: TooltipStoryMeta = {
 
 export default tooltipStoryMeta;
 
-const openAction = action('pie-tooltip-open');
 const closeAction = action('pie-tooltip-close');
 
 /**
  * The consumer's side of the controlled contract: the component never writes to `isOpen`, so the
- * handlers pass the value back. Doing it here rather than inside the component is what lets a
+ * handler passes the value back. Doing it here rather than inside the component is what lets a
  * consumer refuse the change, for example when an API call behind the panel has failed.
  */
-const handleOpen = (event: Event) => {
-    openAction(event);
-    (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = true;
-};
-
 const handleClose = (event: Event) => {
     closeAction(event);
     (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = false;
@@ -193,7 +187,6 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
             heading="${ifDefined(heading)}"
             headingLevel="${ifDefined(headingLevel)}"
             .aria="${aria}"
-            @pie-tooltip-open="${handleOpen}"
             @pie-tooltip-close="${handleClose}">
             <span slot="content">${content}</span>
         </pie-tooltip>

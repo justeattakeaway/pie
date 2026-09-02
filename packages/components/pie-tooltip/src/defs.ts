@@ -111,14 +111,7 @@ export const componentSelector = 'pie-tooltip';
 export const componentClass = 'c-tooltip';
 
 /**
- * Event name for when the tooltip is opened.
- *
- * @constant
- */
-export const ON_TOOLTIP_OPEN_EVENT = `${componentSelector}-open`;
-
-/**
- * Event name for when the tooltip is closed.
+ * Event name for when the tooltip close button is clicked.
  *
  * @constant
  */

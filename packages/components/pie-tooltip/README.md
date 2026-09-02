@@ -14,12 +14,8 @@
 `pie-tooltip` is a controlled component. It never writes to its own `isOpen`.
 
 1. You own `isOpen`.
-2. You listen for `pie-tooltip-open` and `pie-tooltip-close`.
+2. You listen for `pie-tooltip-close`.
 3. You pass the value back.
-
-Nothing in the component changes `isOpen` on your behalf, which means a close request can be refused. If the panel is showing the result of a request that has not finished, you can leave it open.
-
-The component registers no trigger listeners, so a panel with no consumer wiring is inert. That makes it usable straight away for consumer-driven flows such as an onboarding tour, where the flow itself decides which step is visible.
 
 ## Table of Contents
 
@@ -70,10 +66,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Event | Type | Description |
 |---|---|---|
-| `pie-tooltip-open` | `CustomEvent` | Emitted when the tooltip asks to be opened. Set `isOpen` to `true` in response. |
-| `pie-tooltip-close` | `CustomEvent` | Emitted when the tooltip asks to be closed, including when the close button is used. Set `isOpen` to `false` in response. |
-
-Both events bubble and are composed, and both carry `detail.targetTooltip`.
+| `pie-tooltip-close` | `Event` | Emitted when the close button is clicked. Set `isOpen` to `false` in response. Bubbles and is composed. |
 
 ### CSS Variables
 
@@ -153,7 +146,7 @@ A close button does not make the panel a dialog. Only the `action` slot does.
 
 - **Give the trigger its own accessible name.** The tooltip is a description and never supplies a name. An icon-only trigger must set its own label; `pie-icon-button` already requires `aria.label`.
 - **Use a natively interactive element as the trigger**, a button or a link, so focus and click behave correctly.
-- **Own `isOpen`.** Listen for the open and close events and pass the value back.
+- **Own `isOpen`.** Listen for `pie-tooltip-close` and set `isOpen` to `false` in response.
 - **Keep focusable content out of the `content` slot.** Interactive content belongs in the `action` slot, which switches the panel to a dialog.
 - **Place `<pie-tooltip>` immediately after its trigger in the DOM.** The component anchors by `id` and can sit anywhere, but reading and tab order follow DOM order (WCAG 2.4.3).
 - **In dialog mode, provide `heading` or `aria.label`** so the dialog has an accessible name.

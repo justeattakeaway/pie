@@ -10,7 +10,6 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import {
-    dispatchCustomEvent,
     safeCustomElement,
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
@@ -40,8 +39,7 @@ const headingId = 'pie-tooltip-heading';
 
 /**
  * @tagname pie-tooltip
- * @event {CustomEvent} pie-tooltip-open - When the tooltip is opened.
- * @event {CustomEvent} pie-tooltip-close - When the tooltip is closed.
+ * @event {Event} pie-tooltip-close - When the close button is clicked. Set `isOpen` to `false` in response.
  * @slot content - The descriptive content of the panel. Must not contain focusable elements.
  * @slot action - An optional slot for interactive content such as a `pie-button`. Filling this slot switches the panel to a non-modal dialog.
  */
@@ -264,7 +262,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
      * @private
      */
     private handleCloseButtonClick (): void {
-        dispatchCustomEvent(this, ON_TOOLTIP_CLOSE_EVENT, { targetTooltip: this });
+        this.dispatchEvent(new Event(ON_TOOLTIP_CLOSE_EVENT, { bubbles: true, composed: true }));
     }
 
     /**
