@@ -312,9 +312,14 @@ export class PieTooltip extends PieElement implements TooltipProps {
             _mode: mode,
         } = this;
 
+        // The `icon` type is a self-sizing treatment with no arrow, so `size` has nothing to say
+        // about it and the layer has no arrow to leave room for.
+        const isIconType = type === 'icon';
+
         const layerClasses = {
             [`${componentClass}-layer`]: true,
             [`${componentClass}-layer--${position}`]: true,
+            [`${componentClass}-layer--type-${type}`]: true,
             'is-open': !!isOpen,
         };
 
@@ -323,7 +328,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             [`${componentClass}--${position}`]: true,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--type-${type}`]: true,
-            [`${componentClass}--size-${size}`]: true,
+            [`${componentClass}--size-${size}`]: !isIconType,
             'is-dismissible': !!isDismissible,
             'has-action': mode === 'dialog',
             'has-heading': !!heading,
@@ -341,7 +346,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
                     role="${ifDefined(mode)}"
                     aria-labelledby="${isDialog && heading ? headingId : nothing}"
                     aria-label="${isDialog && !heading && aria?.label ? aria.label : nothing}">
-                    <div class="${componentClass}-arrow" data-test-id="${componentSelector}-arrow"></div>
+                    ${isIconType ? nothing : html`<div class="${componentClass}-arrow" data-test-id="${componentSelector}-arrow"></div>`}
                     ${heading ? this.renderHeading() : nothing}
                     <div class="${componentClass}-content" data-test-id="${componentSelector}-content">
                         <slot name="content"></slot>

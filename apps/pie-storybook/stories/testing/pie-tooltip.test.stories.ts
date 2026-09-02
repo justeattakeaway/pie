@@ -14,6 +14,8 @@ import {
 } from '@justeattakeaway/pie-webc/components/tooltip';
 
 import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/icon-button';
+import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 
 import { createStory, type TemplateFunction } from '../../utilities';
 
@@ -95,6 +97,30 @@ const renderContent = (content: string, hasAction: boolean): TemplateResult => h
     : nothing}`;
 
 /**
+ * The `icon` type is the compact treatment intended for icon triggers, so its stories anchor to a
+ * `pie-icon-button` rather than the text button the rest use. The outline variant follows the
+ * story background, which is dark wherever the panel is `inverse`.
+ */
+const renderTrigger = ({
+    type,
+    variant,
+}: Pick<TooltipProps, 'type' | 'variant'>): TemplateResult => (type === 'icon'
+    ? html`
+        <pie-icon-button
+            id="tooltip-trigger"
+            data-test-id="tooltip-trigger"
+            variant="${variant === 'inverse' ? 'inverse-outline' : 'outline'}"
+            .aria="${{ label: 'Delivery times' }}">
+            <icon-info-circle></icon-info-circle>
+        </pie-icon-button>`
+    : html`
+        <pie-button
+            id="tooltip-trigger"
+            data-test-id="tooltip-trigger">
+            Delivery times
+        </pie-button>`);
+
+/**
  * The workhorse story. It attaches no event listeners at all, so it also proves that the
  * component never writes to its own `isOpen`: dismissing an unwired panel changes nothing.
  */
@@ -125,11 +151,7 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
         <div
             data-test-id="tooltip-trigger-container"
             style="inline-size: ${containerInlineSize};">
-            <pie-button
-                id="tooltip-trigger"
-                data-test-id="tooltip-trigger">
-                Delivery times
-            </pie-button>
+            ${renderTrigger({ type, variant })}
 
             <pie-tooltip
                 trigger="tooltip-trigger"
@@ -309,7 +331,7 @@ const placementGridAreas = `
  * named grid areas and the panels placed against them. The RTL rendering should be a mirror
  * image of the LTR one.
  */
-const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => html`
+const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }) => html`
     <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
         ${positions.map((position) => html`
             <button
@@ -325,6 +347,7 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => h
                 trigger="placement-${position}"
                 position="${position}"
                 size="fit-to-content"
+                type="${ifDefined(type)}"
                 variant="${ifDefined(variant)}"
                 ?isOpen="${true}">
                 <span slot="content">${position}</span>
@@ -350,6 +373,29 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ variant }) => h
     </style>`;
 
 export const PlacementGrid = createStory<TooltipProps>(PlacementGridTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const Inverse = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    variant: 'inverse',
+})({}, { bgColor: 'dark (container-dark)' });
+
+export const IconDefault = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    type: 'icon',
+})();
+
+export const IconInverse = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    type: 'icon',
+    variant: 'inverse',
+})({}, { bgColor: 'dark (container-dark)' });
+
+export const IconPlacementGrid = createStory<TooltipProps>(PlacementGridTemplate, {
+    ...defaultArgs,
+    type: 'icon',
+})({}, {
     controls: { disable: true },
 });
 

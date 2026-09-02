@@ -177,7 +177,7 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     <div style="padding: 96px; display: flex; justify-content: center;">
         <pie-icon-button
             id="default-tooltip-trigger"
-            variant="ghost-secondary"
+            variant="outline"
             .aria="${{ label: 'Delivery information' }}">
             <icon-info-circle></icon-info-circle>
         </pie-icon-button>

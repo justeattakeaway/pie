@@ -51,9 +51,9 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `trigger` | Any string | The `id` of the element the panel is anchored to. The trigger lives elsewhere in the DOM and is never slotted into the tooltip. | `undefined` |
 | `isOpen` | `true`, `false` | When true, the panel is visible. The component never writes to this property. | `false` |
 | `position` | `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, `bottom-end`, `left`, `left-start`, `left-end`, `right`, `right-start`, `right-end` | The side of the trigger the panel sits on, and its alignment along the cross axis. | `top` |
-| `size` | `default`, `fit-to-content`, `fill-container` | How the panel sizes itself. | `default` |
+| `size` | `default`, `fit-to-content`, `fill-container` | How the panel sizes itself. Not applied when `type` is `icon`. | `default` |
 | `variant` | `default`, `inverse` | The colour treatment of the panel. `default` is the dark panel, `inverse` the light one. | `default` |
-| `type` | `default`, `icon` | The presentation of the panel. `icon` is the compact treatment intended for icon triggers. | `default` |
+| `type` | `default`, `icon` | The presentation of the panel. `icon` is the compact treatment intended for icon triggers: it has no arrow and is always as wide as its content, so `size` and `--tooltip-width` have no effect on it. | `default` |
 | `isDismissible` | `true`, `false` | When true, a close button is rendered inside the panel. | `false` |
 | `heading` | Any string | The text to display in the panel's heading. In dialog mode this also provides the panel's accessible name. | `undefined` |
 | `headingLevel` | `h2`, `h3`, `h4`, `h5`, `h6` | The HTML heading tag to use for the panel's heading. | `h2` |
@@ -79,8 +79,8 @@ Both events bubble and are composed, and both carry `detail.targetTooltip`.
 
 | Variable | Description | Default |
 |---|---|---|
-| `--tooltip-offset` | The gap between the trigger and the arrow's tip. | `var(--dt-spacing-a)` |
-| `--tooltip-width` | Sets the panel's inline size directly, overriding whatever `size` would have produced. | Any length |
+| `--tooltip-offset` | The gap between the trigger and the arrow's tip, or between the trigger and the panel edge when `type` is `icon`. | `var(--dt-spacing-a)` |
+| `--tooltip-width` | Sets the panel's inline size directly, overriding whatever `size` would have produced. Ignored when `type` is `icon`. | Any length |
 
 Set both on the `pie-tooltip` element itself.
 

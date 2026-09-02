@@ -13,6 +13,10 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--dismissible-no-heading', name: 'PieTooltip - Dismissible no heading' },
     { id: 'tooltip--placement-grid', name: 'PieTooltip - Placement grid' },
     { id: 'tooltip--enlarged-offset', name: 'PieTooltip - Enlarged offset' },
+    { id: 'tooltip--inverse', name: 'PieTooltip - Inverse' },
+    { id: 'tooltip--icon-default', name: 'PieTooltip - Icon default' },
+    { id: 'tooltip--icon-inverse', name: 'PieTooltip - Icon inverse' },
+    { id: 'tooltip--icon-placement-grid', name: 'PieTooltip - Icon placement grid' },
 ];
 
 test.describe('PieTooltip - Visual tests', () => {
@@ -40,6 +44,17 @@ test.describe('PieTooltip - Visual tests', () => {
 
         // Act & Assert
         await percySnapshot(page, 'PieTooltip - Placement grid RTL');
+    });
+
+    test('should display the Icon placement grid story successfully in RTL', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'tooltip--icon-placement-grid');
+
+        await basePage.load({}, { writingDirection: 'rtl' });
+        await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
+
+        // Act & Assert
+        await percySnapshot(page, 'PieTooltip - Icon placement grid RTL');
     });
 
     test('should display the panel successfully at a 320px viewport', async ({ page }) => {
