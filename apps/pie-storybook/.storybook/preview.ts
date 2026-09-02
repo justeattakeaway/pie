@@ -98,6 +98,8 @@ export default {
                             'Overview',
                             'Typography Utility Classes',
                             'Spacing Utility Classes',
+                            'Responsive Utility Classes',
+                            'General Utility Classes'
                         ],
                     ],
                     'Integration guides',
@@ -126,7 +128,6 @@ export default {
                     ],
                     'Additional libraries',
                     [
-                        'PIE CSS',
                         'Icons'
                     ],
                     'Contribution',

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-accordion",
   "description": "PIE Design System Accordion built using Web Components",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,14 +37,14 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.3",
-    "@justeattakeaway/pie-css": "1.6.0",
+    "@justeattakeaway/pie-components-config": "0.21.4",
+    "@justeattakeaway/pie-css": "1.7.0",
     "@justeattakeaway/pie-monorepo-utils": "0.9.9"
   },
   "dependencies": {
-    "@justeattakeaway/pie-divider": "1.5.34",
-    "@justeattakeaway/pie-icons-webc": "1.29.1",
-    "@justeattakeaway/pie-webc-core": "19.0.0"
+    "@justeattakeaway/pie-divider": "1.5.35",
+    "@justeattakeaway/pie-icons-webc": "1.29.2",
+    "@justeattakeaway/pie-webc-core": "20.0.0"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

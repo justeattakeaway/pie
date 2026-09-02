@@ -29,6 +29,7 @@ Read the user's message and figure out what they need. Use the table below to fi
 | Component events and interactions | Events |
 | Design tokens (colours, spacing, etc.) | Design tokens |
 | Apply spacing with utility classes | Spacing utilities |
+| Hide/show elements, visually hidden, screen-reader-only, General CSS utility classes | Utility classes |
 | Customise or override a component's look | Customising components |
 | Something broken or unexpected | Looking up components → pre-flight #4 |
 
@@ -95,6 +96,10 @@ Read `guides/events.md` for PIE's event conventions, then check the individual c
 ## Icons
 
 Read `guides/pie-icons-webc.md` for icon props and usage patterns. To browse all available icons, list `node_modules/@justeattakeaway/pie-icons-webc/icons/`. Only use icons that exist in the package — inventing icon names causes broken imports at runtime.
+
+## Utility classes
+
+Read `guides/utility-classes.md` when the request involves hiding/showing elements, screen-reader-only text, or any of the general display utilities (`is-hidden`, `is-visuallyHidden`). For spacing utilities read `guides/spacing-utility-classes.md`; for responsive show/hide utilities read `guides/rwd-utility-classes.md`.
 
 ## Spacing utilities
 
