@@ -135,7 +135,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             description: 'Fills the `content` slot. The descriptive content of the panel. Must not contain focusable elements.',
             control: 'text',
             table: {
-                category: 'Slots (story controls, not component properties)',
+                category: 'Slots',
             },
         },
         // `type` is declared alongside `control` because a storybook-only arg has no custom
@@ -146,7 +146,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             control: 'boolean',
             type: 'boolean',
             table: {
-                category: 'Slots (story controls, not component properties)',
+                category: 'Slots',
             },
         },
     },
