@@ -59,7 +59,7 @@ export interface TooltipProps {
 
     /**
      * When true, the panel is visible. The component never writes to this property: the
-     * consumer owns it and updates it in response to the open and close events.
+     * consumer owns it and updates it in response to the close event.
      */
     isOpen?: boolean;
 
@@ -71,17 +71,19 @@ export interface TooltipProps {
     /**
      * How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as
      * wide as its content, and `fill-container` matches the inline size of the trigger's parent
-     * element.
+     * element. Not applied when `type` is `icon`.
      */
     size?: typeof sizes[number];
 
     /**
-     * The colour treatment of the panel.
+     * The colour treatment of the panel. `default` is the dark panel, `inverse` the light one.
      */
     variant?: typeof variants[number];
 
     /**
-     * The presentation of the panel. `icon` is the compact treatment intended for icon triggers.
+     * The presentation of the panel. `icon` is the compact treatment intended for icon triggers:
+     * it has no arrow and is always as wide as its content, so `size` and `--tooltip-width` have
+     * no effect on it.
      */
     type?: typeof types[number];
 

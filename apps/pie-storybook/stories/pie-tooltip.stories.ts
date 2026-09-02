@@ -1,4 +1,4 @@
-import { html, type TemplateResult } from 'lit';
+import { html, nothing, type TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
@@ -40,6 +40,7 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 type TooltipProps = TooltipBaseProps & {
     content: string;
+    hasAction: boolean;
 };
 
 type TooltipStoryMeta = Meta<TooltipProps>;
@@ -48,9 +49,12 @@ const defaultArgs: TooltipProps = {
     ...defaultProps,
     isOpen: true,
     content: 'Orders placed before 6pm arrive today.',
+    hasAction: false,
     aria: {
         close: 'Close',
-        label: '',
+        // Only used in dialog mode, where the panel has to be named and there is no heading to
+        // name it. Set here so that turning `hasAction` on gives a named dialog.
+        label: 'Delivery information',
     },
 };
 
@@ -63,7 +67,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             control: 'text',
         },
         isOpen: {
-            description: 'When true, the panel is visible. The component never writes to this property: the consumer owns it and updates it in response to the open and close events.',
+            description: 'When true, the panel is visible. The component never writes to this property: the consumer owns it and updates it in response to the close event.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isOpen,
@@ -78,7 +82,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             },
         },
         size: {
-            description: 'How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as wide as its content, and `fill-container` matches the inline size of the trigger\'s parent element.',
+            description: 'How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as wide as its content, and `fill-container` matches the inline size of the trigger\'s parent element. Not applied when `type` is `icon`.',
             control: 'select',
             options: sizes,
             defaultValue: {
@@ -86,7 +90,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             },
         },
         variant: {
-            description: 'The colour treatment of the panel.',
+            description: 'The colour treatment of the panel. `default` is the dark panel, `inverse` the light one.',
             control: 'select',
             options: variants,
             defaultValue: {
@@ -94,7 +98,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             },
         },
         type: {
-            description: 'The presentation of the panel. `icon` is the compact treatment intended for icon triggers.',
+            description: 'The presentation of the panel. `icon` is the compact treatment intended for icon triggers: it has no arrow and is always as wide as its content, so `size` and `--tooltip-width` have no effect on it.',
             control: 'select',
             options: types,
             defaultValue: {
@@ -124,9 +128,26 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             description: 'The ARIA labels used for various parts of the tooltip. `close` names the close button, and `label` names the panel in dialog mode when no heading is provided.',
             control: 'object',
         },
+        // Neither of these is a component property: they are story controls standing in for the
+        // two slots, grouped under their own heading so they are not read as part of the
+        // component's API.
         content: {
-            description: 'The descriptive content of the panel. Must not contain focusable elements.',
+            description: 'Fills the `content` slot. The descriptive content of the panel. Must not contain focusable elements.',
             control: 'text',
+            table: {
+                category: 'Slots (story controls, not component properties)',
+            },
+        },
+        // `type` is declared alongside `control` because a storybook-only arg has no custom
+        // elements manifest entry to take its type from, so without it the string `"false"`
+        // would arrive as a truthy value.
+        hasAction: {
+            description: 'Fills the `action` slot with a `pie-button`. Filling it switches the panel from a tooltip to a non-modal dialog.',
+            control: 'boolean',
+            type: 'boolean',
+            table: {
+                category: 'Slots (story controls, not component properties)',
+            },
         },
     },
     args: defaultArgs,
@@ -152,6 +173,19 @@ const handleClose = (event: Event) => {
     (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = false;
 };
 
+/**
+ * The action slot is filled by the consumer, so closing the panel from it is the consumer's job
+ * too. The button is slotted into the light DOM, so the panel is its nearest `pie-tooltip`
+ * ancestor.
+ */
+const handleActionClick = (event: Event) => {
+    const panel = (event.currentTarget as HTMLElement).closest<PieTooltip>('pie-tooltip');
+
+    if (panel) {
+        panel.isOpen = false;
+    }
+};
+
 // -----------------------------------------------------------------------------
 // Default
 // -----------------------------------------------------------------------------
@@ -159,6 +193,7 @@ const handleClose = (event: Event) => {
 const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     aria,
     content,
+    hasAction,
     heading,
     headingLevel,
     isDismissible,
@@ -167,7 +202,12 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     size,
     type,
     variant,
-}) => html`
+}) => {
+    const actionSlot = hasAction
+        ? html`<pie-button slot="action" size="xsmall" @click="${handleActionClick}">Got it</pie-button>`
+        : nothing;
+
+    return html`
     <div style="padding: 96px; display: flex; justify-content: center;">
         <pie-icon-button
             id="default-tooltip-trigger"
@@ -189,8 +229,10 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
             .aria="${aria}"
             @pie-tooltip-close="${handleClose}">
             <span slot="content">${content}</span>
+            ${actionSlot}
         </pie-tooltip>
     </div>`;
+};
 
 export const Default = createStory<TooltipProps>(DefaultTemplate, defaultArgs)();
 
