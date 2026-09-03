@@ -1,5 +1,12 @@
 # Changelog
 
+## 20.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`e21b220`](https://github.com/justeattakeaway/pie/commit/e21b2205b06a2d524686414dd35f6025333539ad)]:
+  - @justeattakeaway/pie-css@1.7.0
+
 ## 19.0.0
 
 ### Patch Changes
