@@ -253,3 +253,12 @@ const AutoResolveProviderTemplate = () => html`
 export const AutoResolveProvider: StoryObj<ToastProviderProps> = {
     ...createStory<ToastProviderProps>(AutoResolveProviderTemplate, defaultArgs)(),
 };
+
+export const Stacked: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(PositionTemplate, defaultArgs)(),
+    play: () => {
+        toaster.create({ message: 'First toast message', duration: null });
+        toaster.create({ message: 'Second toast message', duration: null });
+        toaster.create({ message: 'Third toast message', duration: null });
+    },
+};

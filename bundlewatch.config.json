@@ -186,7 +186,7 @@
     },
     {
       "path": "./packages/components/pie-toast-provider/dist/*.js",
-      "maxSize": "3 KB"
+      "maxSize": "3.5 KB"
     },
     {
       "path": "./packages/components/pie-thumbnail/dist/*.js",

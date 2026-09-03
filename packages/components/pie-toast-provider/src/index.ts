@@ -8,6 +8,8 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { state, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { live } from 'lit/directives/live.js';
+import { repeat } from 'lit/directives/repeat.js';
 import {
     dispatchCustomEvent,
     safeCustomElement,
@@ -19,6 +21,7 @@ import {
     positions,
     defaultProps,
     PRIORITY_ORDER,
+    MAX_VISIBLE_TOASTS,
     type Priority,
     type ToastProviderProps,
     type ExtendedToastProps,
@@ -48,7 +51,13 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
     private _toasts: ExtendedToastProps[] = [];
 
     @state()
-    private _currentToast: ExtendedToastProps | null = null;
+    private _visibleToasts: ExtendedToastProps[] = [];
+
+    @state()
+    private _dismissingToasts: ExtendedToastProps[] = [];
+
+    @state()
+    private _collapsingToasts: ExtendedToastProps[] = [];
 
     updated (changedProperties: PropertyValues<this>): void {
         if (changedProperties.has('_toasts' as keyof PieToastProvider)) {
@@ -75,59 +84,84 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
     }
 
     /**
-     * Handles the dismissal of the current toast and displays the next one in the queue (if any).
+     * Starts the slide-out animation for the dismissed toast.
      */
-    private _dismissToast () {
-        this._currentToast?.onPieToastClose?.();
-        this._currentToast = null;
-        requestAnimationFrame(() => { this._showNextToast(); });
+    private _dismissToast (toast: ExtendedToastProps) {
+        if (this._dismissingToasts.includes(toast)) return;
+        toast.onPieToastClose?.();
+        this._dismissingToasts = [...this._dismissingToasts, toast];
+    }
+
+    private _getToastClass (toast: ExtendedToastProps): string {
+        if (this._dismissingToasts.includes(toast)) return 'pie-animation--slide-out';
+        if (this._collapsingToasts.includes(toast)) return '';
+        return 'pie-animation--slide-in';
+    }
+
+    private _getToastDuration (toast: ExtendedToastProps) {
+        if (this._dismissingToasts.includes(toast) || this._collapsingToasts.includes(toast)) return null;
+        return typeof toast.duration === 'undefined' ? nothing : toast.duration;
     }
 
     /**
-     * Displays the next toast in the queue, if available.
+     * Starts the height-collapse phase after the slide-out animation ends.
+     */
+    private _finalizeDismiss (toast: ExtendedToastProps) {
+        this._dismissingToasts = this._dismissingToasts.filter((t) => t !== toast);
+        this._collapsingToasts = [...this._collapsingToasts, toast];
+    }
+
+    /**
+     * Called after the collapse transition ends. Removes the toast from DOM and promotes the next queued toast.
+     */
+    private _finalizeCollapse (toast: ExtendedToastProps) {
+        this._collapsingToasts = this._collapsingToasts.filter((t) => t !== toast);
+        this._visibleToasts = this._visibleToasts.filter((t) => t !== toast);
+        this._showNextToast();
+    }
+
+    /**
+     * Fills visible slots from the queue up to MAX_VISIBLE_TOASTS.
      */
     private _showNextToast () {
-        if (this._toasts.length > 0) {
+        while (this._visibleToasts.length < MAX_VISIBLE_TOASTS && this._toasts.length > 0) {
             const [nextToast, ...remainingToasts] = this._toasts;
-            this._currentToast = nextToast;
+            this._visibleToasts = [...this._visibleToasts, nextToast];
             this._toasts = remainingToasts;
-        } else {
-            this._currentToast = null;
         }
     }
 
     /**
-     * Adds a new toast to the queue and triggers its display if no toast is currently active.
+     * Adds a new toast to the queue (sorted by priority) and fills visible slots.
      * @param {ToastProps} toast - The toast props to display.
      */
     public createToast (toast: ExtendedToastProps) {
         const newToast = { ...toastDefaultProps, ...this.options, ...toast };
 
         this._toasts = [...this._toasts, newToast].sort((a, b) => {
-            const priorityB = this.getPriority(b.variant, !!b.leadingAction?.text);
             const priorityA = this.getPriority(a.variant, !!a.leadingAction?.text);
+            const priorityB = this.getPriority(b.variant, !!b.leadingAction?.text);
 
             return priorityA - priorityB;
         });
 
-        if (!this._currentToast) {
-            this._showNextToast();
-        }
+        this._showNextToast();
     }
 
     /**
-     *
-     * Clears all toasts from the queue and dismisses the currently visible toast.
+     * Clears all toasts from the queue and dismisses all visible toasts.
      */
     public clearToasts () {
         this._toasts = [];
-        this._currentToast = null;
+        this._visibleToasts = [];
+        this._dismissingToasts = [];
+        this._collapsingToasts = [];
     }
 
     render () {
         const {
             position,
-            _currentToast,
+            _visibleToasts,
         } = this;
 
         const classes = {
@@ -135,46 +169,45 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
             [`c-toast-provider--${position}`]: true,
         };
 
-        const toastClasses = {
-            'pie-animation--slide-in': Boolean(_currentToast),
-            'pie-animation--slide-out': _currentToast === null,
-        };
-
-        const isError = _currentToast?.variant === 'error';
-
-        // The provider owns the announcement, so the rendered toast's own live region is disabled
-        // (`aria-live: off`) to prevent the message being announced twice.
-        const toastAria = { ..._currentToast?.aria, live: 'off' as const };
+        const latestToast = _visibleToasts[_visibleToasts.length - 1] ?? null;
+        const isError = latestToast?.variant === 'error';
 
         return html`
         <div
             class=${classMap(classes)}
             data-test-id="pie-toast-provider">
             <div
-                class="c-toast-provider-announcer is-visuallyHidden"
+                class="c-toast-provider-announcer"
                 role="${isError ? 'alert' : 'status'}"
                 aria-live="${isError ? 'assertive' : 'polite'}"
                 aria-atomic="true"
                 data-test-id="pie-toast-provider-announcer">
-                ${_currentToast?.message ?? ''}
+                ${latestToast?.message ?? ''}
             </div>
-            ${_currentToast &&
-            html`
-                <pie-toast
-                    class=${classMap(toastClasses)}
-                    message="${_currentToast.message}"
-                    variant="${ifDefined(_currentToast.variant)}"
-                    ?isStrong="${_currentToast.isStrong}"
-                    ?isDismissible="${_currentToast.isDismissible}"
-                    ?isMultiline="${_currentToast.isMultiline}"
-                    .leadingAction="${_currentToast.leadingAction}"
-                    .aria="${toastAria}"
-                    .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
-                    @pie-toast-close="${this._dismissToast}"
-                    @pie-toast-open="${_currentToast.onPieToastOpen}"
-                    @pie-toast-leading-action-click="${_currentToast.onPieToastLeadingActionClick}">
-                </pie-toast>
-            `}
+            ${repeat(_visibleToasts, (toast) => toast, (toast) => html`
+                <div
+                    class="c-toast-provider-item${this._collapsingToasts.includes(toast) ? ' c-toast-provider-item--collapsing' : ''}"
+                    @transitionend="${() => { if (this._collapsingToasts.includes(toast)) this._finalizeCollapse(toast); }}">
+                    <pie-toast
+                        class="${this._getToastClass(toast)}"
+                        .isOpen="${live(true)}"
+                        message="${toast.message}"
+                        variant="${ifDefined(toast.variant)}"
+                        ?isStrong="${toast.isStrong}"
+                        ?isDismissible="${toast.isDismissible}"
+                        ?isMultiline="${toast.isMultiline}"
+                        .leadingAction="${toast.leadingAction}"
+                        .aria="${{ ...toast.aria, live: 'off' as const }}"
+                        .duration="${this._getToastDuration(toast)}"
+                        @pie-toast-close="${() => this._dismissToast(toast)}"
+@pie-toast-open="${() => {
+    if (!this._dismissingToasts.includes(toast)) toast.onPieToastOpen?.();
+}}"
+                        @pie-toast-leading-action-click="${toast.onPieToastLeadingActionClick}"
+                        @animationend="${() => { if (this._dismissingToasts.includes(toast)) this._finalizeDismiss(toast); }}">
+                    </pie-toast>
+                </div>
+            `)}
             </div>
         `;
     }
