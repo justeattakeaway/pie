@@ -22,6 +22,9 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--icon-placement-grid', name: 'PieTooltip - Icon placement grid' },
 ];
 
+// Tooltip position is calculated in the browser, so Percy must run the component code too.
+const percySnapshotOptions = { enableJavaScript: true };
+
 test.describe('PieTooltip - Visual tests', () => {
     stories.forEach(({ id, name }) => {
         test(`should display the ${name} story successfully`, async ({ page }) => {
@@ -32,7 +35,7 @@ test.describe('PieTooltip - Visual tests', () => {
             await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
 
             // Act & Assert
-            await percySnapshot(page, name);
+            await percySnapshot(page, name, percySnapshotOptions);
         });
     });
 
@@ -46,7 +49,7 @@ test.describe('PieTooltip - Visual tests', () => {
         await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
 
         // Act & Assert
-        await percySnapshot(page, 'PieTooltip - Placement grid RTL');
+        await percySnapshot(page, 'PieTooltip - Placement grid RTL', percySnapshotOptions);
     });
 
     test('should display the Icon placement grid story successfully in RTL', async ({ page }) => {
@@ -57,7 +60,7 @@ test.describe('PieTooltip - Visual tests', () => {
         await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
 
         // Act & Assert
-        await percySnapshot(page, 'PieTooltip - Icon placement grid RTL');
+        await percySnapshot(page, 'PieTooltip - Icon placement grid RTL', percySnapshotOptions);
     });
 
     test('should display the panel successfully at a 320px viewport', async ({ page }) => {
@@ -76,6 +79,9 @@ test.describe('PieTooltip - Visual tests', () => {
         await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
 
         // Act & Assert
-        await percySnapshot(page, 'PieTooltip - Narrow viewport', { widths: [320] });
+        await percySnapshot(page, 'PieTooltip - Narrow viewport', {
+            ...percySnapshotOptions,
+            widths: [320],
+        });
     });
 });
