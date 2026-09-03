@@ -200,7 +200,9 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
                         .aria="${{ ...toast.aria, live: 'off' as const }}"
                         .duration="${this._getToastDuration(toast)}"
                         @pie-toast-close="${() => this._dismissToast(toast)}"
-                        @pie-toast-open="${toast.onPieToastOpen}"
+@pie-toast-open="${() => {
+    if (!this._dismissingToasts.includes(toast)) toast.onPieToastOpen?.();
+}}"
                         @pie-toast-leading-action-click="${toast.onPieToastLeadingActionClick}"
                         @animationend="${() => { if (this._dismissingToasts.includes(toast)) this._finalizeDismiss(toast); }}">
                     </pie-toast>
