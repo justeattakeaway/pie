@@ -208,7 +208,7 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
         : nothing;
 
     return html`
-    <div style="padding: 96px; display: flex; justify-content: center;">
+    <div style="padding: var(--dt-spacing-j); display: flex; justify-content: center;">
         <pie-icon-button
             id="default-tooltip-trigger"
             variant="outline"
@@ -594,7 +594,7 @@ const OnboardingTourTemplate: TemplateFunction<TooltipProps> = () => html`
 
         .tour [data-tour-heading]:focus-visible {
             outline: var(--dt-color-border-strong) dashed 2px;
-            outline-offset: 4px;
+            outline-offset: var(--dt-spacing-a);
         }
 
         .dash {

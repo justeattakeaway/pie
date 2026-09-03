@@ -85,12 +85,11 @@ export default tooltipStoryMeta;
 
 /**
  * The tooltip is a fixed overlay projected over its trigger, so every test story keeps its
- * triggers well clear of the viewport edges. The gutters shrink with the viewport so narrow
- * visual tests remain usable. Placement is deliberately static in this ticket: nothing flips
- * or shifts to stay in view.
+ * triggers well clear of the viewport edges. Placement is deliberately static in this ticket:
+ * nothing flips or shifts to stay in view.
  */
-const pagePadding = 'min(200px, 30vh) min(320px, 12vw)';
-const pageInlinePadding = 'min(320px, 12vw)';
+const pagePadding = 'var(--dt-spacing-j)';
+const pageInlinePadding = 'var(--dt-spacing-j)';
 
 const renderContent = (content: string, hasAction: boolean): TemplateResult => html`
     <span slot="content" data-test-id="pie-tooltip-slotted-content">${content}</span>
@@ -247,7 +246,7 @@ const FillContainerTemplate: TemplateFunction<TooltipProps> = ({
     <div style="padding: ${pagePadding};">
         <div
             data-test-id="tooltip-trigger-container"
-            style="inline-size: min(${containerInlineSize}, 100%); border: 1px dashed purple; padding: var(--dt-spacing-a);">
+            style="inline-size: min(${containerInlineSize}, 100%); border: var(--dt-color-border-strong) dashed 1px; padding: var(--dt-spacing-a);">
             <pie-button
                 id="tooltip-trigger"
                 data-test-id="tooltip-trigger"
@@ -361,10 +360,10 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }
     <style>
         .tooltip-placement-grid {
             display: grid;
-            row-gap: 24px;
-            column-gap: 100px;
+            row-gap: var(--dt-spacing-e);
+            column-gap: var(--dt-spacing-j);
             justify-content: center;
-            padding: 48px 80px;
+            padding: var(--dt-spacing-h) var(--dt-spacing-j);
         }
 
         .tooltip-placement-anchor {
@@ -372,7 +371,7 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }
             block-size: 56px;
             border: var(--dt-color-border-strong) solid 1px;
             border-radius: var(--dt-radius-rounded-b);
-            background-color: transparent;
+            background-color: var(--dt-color-container-default);
             cursor: pointer;
         }
     </style>`;
