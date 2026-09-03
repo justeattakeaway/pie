@@ -6,17 +6,19 @@ $tooltip-alignments: ('', '-start', '-end');
 
 // -----------------------------------------------------------------------------
 // Host.
-// The host is a fixed overlay projected over the trigger's box, so the panel can be placed
-// against the trigger entirely in CSS. The anchor measurements are physical viewport
-// coordinates, which is what `position: fixed` expects. Everything derived from them below
-// uses logical properties, so placement mirrors in RTL with no JavaScript involvement.
+// The host is a zero-size marker pinned to the origin of its own containing block. The
+// trigger's box is measured relative to that origin, so the panel is placed in the
+// document's coordinate space rather than the viewport's. The browser then scrolls the
+// panel along with the page, and it stays glued to its trigger without JavaScript having
+// to move it. Everything derived from the measurements below uses logical properties, so
+// placement mirrors in RTL with no JavaScript involvement.
 // -----------------------------------------------------------------------------
 
 :host {
-    --tooltip-anchor-block-start: 0;
-    --tooltip-anchor-inline-start: 0;
-    --tooltip-anchor-block-size: 0;
-    --tooltip-anchor-inline-size: 0;
+    --tooltip-anchor-top: 0;
+    --tooltip-anchor-left: 0;
+    --tooltip-anchor-width: 0;
+    --tooltip-anchor-height: 0;
     --tooltip-container-inline-size: 0;
     --tooltip-offset: var(--dt-spacing-a);
 
@@ -30,19 +32,54 @@ $tooltip-alignments: ('', '-start', '-end');
     // would touch the trigger.
     --tooltip-layer-offset: calc(var(--tooltip-offset) + var(--tooltip-arrow-size));
 
-    position: fixed;
-    top: var(--tooltip-anchor-block-start);
-    left: var(--tooltip-anchor-inline-start);
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: var(--dt-z-index-tooltip);
 
     display: block;
 
-    inline-size: var(--tooltip-anchor-inline-size);
-    block-size: var(--tooltip-anchor-block-size);
+    inline-size: 0;
+    block-size: 0;
 
-    // The host covers the trigger, so it must never swallow the trigger's own pointer events.
-    // The panel opts back in.
+    // The anchor below covers the trigger, so it must never swallow the trigger's own pointer
+    // events. `pointer-events` inherits, so declaring it here covers the anchor too. The panel
+    // opts back in.
     pointer-events: none;
+}
+
+// -----------------------------------------------------------------------------
+// Origin marker.
+// Zero-size and pinned to the origin of the anchor's containing block, so its own rect reads
+// that origin back directly. It sits in the shadow root rather than being the host itself
+// because a consumer rule such as `pie-tooltip { border: 2px }` beats `:host`, and a border or
+// padding on the host would move the padding box that the anchor resolves against.
+// -----------------------------------------------------------------------------
+
+.c-tooltip-origin {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    inline-size: 0;
+    block-size: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Anchor.
+// A box the size and position of the trigger, expressed relative to the host. The placement
+// layer is positioned against this box, which is what lets everything below place the panel
+// against the trigger entirely in CSS. Its offsets are physical, matching the physical
+// measurements taken in JavaScript.
+// -----------------------------------------------------------------------------
+
+.c-tooltip-anchor {
+    position: absolute;
+    top: var(--tooltip-anchor-top);
+    left: var(--tooltip-anchor-left);
+
+    inline-size: var(--tooltip-anchor-width);
+    block-size: var(--tooltip-anchor-height);
 }
 
 // -----------------------------------------------------------------------------
@@ -275,6 +312,17 @@ $tooltip-alignments: ('', '-start', '-end');
 
         inset-block-start: var(--tooltip-arrow-cross-inset);
         inset-inline-start: var(--tooltip-arrow-main-inset-near);
+    }
+}
+
+// clip-path is physical, so left/right arrows face the wrong way in RTL.
+// `inset-inline-start` already puts the arrow on the correct edge; this flips the shape.
+:host(:dir(rtl)) {
+    @each $alignment in $tooltip-alignments {
+        .c-tooltip--left#{$alignment} .c-tooltip-arrow,
+        .c-tooltip--right#{$alignment} .c-tooltip-arrow {
+            transform: scaleX(-1);
+        }
     }
 }
 
