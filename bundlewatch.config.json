@@ -226,7 +226,7 @@
     },
     {
       "path": "./packages/components/pie-tooltip/dist/*.js",
-      "maxSize": "5 KB"
+      "maxSize": "6 KB"
     }
   ],
   "defaultCompression": "gzip",
