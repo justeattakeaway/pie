@@ -85,10 +85,12 @@ export default tooltipStoryMeta;
 
 /**
  * The tooltip is a fixed overlay projected over its trigger, so every test story keeps its
- * triggers well clear of the viewport edges. Placement is deliberately static in this ticket:
- * nothing flips or shifts to stay in view.
+ * triggers well clear of the viewport edges. The gutters shrink with the viewport so narrow
+ * visual tests remain usable. Placement is deliberately static in this ticket: nothing flips
+ * or shifts to stay in view.
  */
-const pagePadding = '200px 320px';
+const pagePadding = 'min(200px, 30vh) min(320px, 12vw)';
+const pageInlinePadding = 'min(320px, 12vw)';
 
 const renderContent = (content: string, hasAction: boolean): TemplateResult => html`
     <span slot="content" data-test-id="pie-tooltip-slotted-content">${content}</span>
@@ -142,14 +144,16 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
 }) => {
     const cssVariables = styleMap({
         '--tooltip-offset': tooltipOffset || null,
-        '--tooltip-width': tooltipWidth || null,
+        '--tooltip-width': tooltipWidth
+            ? `min(${tooltipWidth}, calc(100vw - (2 * ${pageInlinePadding})))`
+            : null,
     });
 
     return html`
     <div style="padding: ${pagePadding};">
         <div
             data-test-id="tooltip-trigger-container"
-            style="inline-size: ${containerInlineSize};">
+            style="inline-size: min(${containerInlineSize}, 100%);">
             ${renderTrigger({ type, variant })}
 
             <pie-tooltip
@@ -234,14 +238,16 @@ const FillContainerTemplate: TemplateFunction<TooltipProps> = ({
 }) => {
     const cssVariables = styleMap({
         '--tooltip-offset': tooltipOffset || null,
-        '--tooltip-width': tooltipWidth || null,
+        '--tooltip-width': tooltipWidth
+            ? `min(${tooltipWidth}, calc(100vw - (2 * ${pageInlinePadding})))`
+            : null,
     });
 
     return html`
     <div style="padding: ${pagePadding};">
         <div
             data-test-id="tooltip-trigger-container"
-            style="inline-size: ${containerInlineSize}; border: 1px dashed purple; padding: var(--dt-spacing-a);">
+            style="inline-size: min(${containerInlineSize}, 100%); border: 1px dashed purple; padding: var(--dt-spacing-a);">
             <pie-button
                 id="tooltip-trigger"
                 data-test-id="tooltip-trigger"
@@ -418,4 +424,3 @@ export const OverriddenWidth = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     tooltipWidth: '400px',
 })();
-
