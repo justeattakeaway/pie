@@ -77,7 +77,7 @@ test.describe('PieToastProvider - Component tests', () => {
         const toastProviderComponent = page.locator(toastProvider.selectors.container.dataTestId);
 
         // Assert
-        expect(toastProviderComponent).toBeDefined();
+await expect(toastProviderComponent).toBeVisible();
     });
 
     test.describe('Priority Order Tests', () => {
