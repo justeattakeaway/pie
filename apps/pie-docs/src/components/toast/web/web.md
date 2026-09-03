@@ -278,7 +278,7 @@ When multiple toast messages need to be displayed, each new toast stacks above t
 
 {% contentPageImage {
     src: "../../../assets/img/components/toast/toast-stacking.svg",
-    alt: "Three stacked toast messages displayed one above the other with 16px spacing.",
+alt: "Two stacked toast messages displayed one above the other with 16px spacing.",
     width: 968
 } %}
 
