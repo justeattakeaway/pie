@@ -3814,6 +3814,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-icon-button@npm:2.7.32":
+  version: 2.7.32
+  resolution: "@justeattakeaway/pie-icon-button@npm:2.7.32"
+  dependencies:
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.1"
+    "@justeattakeaway/pie-spinner": "npm:1.5.7"
+    "@justeattakeaway/pie-webc-core": "npm:19.0.0"
+  checksum: 10/ba44e92fa8a08fc641162cb3c02b00495b9ec394bb7d4c0434562832e6176e68d7bf9e0b61b6c26db6654844758024d5fffe3624d3f06bc307533215044f4068
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-icon-button@npm:2.7.33, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
@@ -3891,6 +3902,15 @@ __metadata:
     vue-template-compiler: "npm:2.7.14"
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-icons-webc@npm:1.29.1":
+  version: 1.29.1
+  resolution: "@justeattakeaway/pie-icons-webc@npm:1.29.1"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": "npm:19.0.0"
+  checksum: 10/6bd1b689d26e55c3c157cf2c7322dd6755ee348ca88936ebee3c0594e11edb597aed7ba23db5d2baa19fa10c1e7fecbc53166d5bd5006ec5f5a64ee8f0d51802
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-icons-webc@npm:1.29.2, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
   version: 0.0.0-use.local
@@ -4053,6 +4073,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-spinner@npm:1.5.7":
+  version: 1.5.7
+  resolution: "@justeattakeaway/pie-spinner@npm:1.5.7"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": "npm:19.0.0"
+  checksum: 10/59d4207956cb3626e106d77450fa3d9cd38f118388bf9c9aae0529afb7ce08fcf1928e6ca3f5c0344b00fc845334b34f80acfb8d6a1f2a59e60964463fb80a03
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-spinner@npm:1.5.8, @justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner"
@@ -4214,10 +4243,24 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.4"
     "@justeattakeaway/pie-css": "npm:1.7.0"
+    "@justeattakeaway/pie-icon-button": "npm:2.7.32"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.1"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
     "@justeattakeaway/pie-webc-core": "npm:20.0.0"
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-webc-core@npm:19.0.0":
+  version: 19.0.0
+  resolution: "@justeattakeaway/pie-webc-core@npm:19.0.0"
+  dependencies:
+    "@lit/context": "npm:1.1.6"
+    lit: "npm:3.3.3"
+  peerDependencies:
+    "@justeattakeaway/pie-css": 1.x
+  checksum: 10/f778a8d62c5f220d4bebfc1048f32abeabab5ec7daf1db207456fbc9771af525bfeea8a3b338e08945f2324d11cf94da89cc26cb51d440901e7fb3d4c52c9e4b
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-webc-core@npm:20.0.0, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local

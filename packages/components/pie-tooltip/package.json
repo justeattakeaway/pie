@@ -40,6 +40,8 @@
     "@justeattakeaway/pie-monorepo-utils": "0.9.9"
   },
   "dependencies": {
+    "@justeattakeaway/pie-icon-button": "2.7.32",
+    "@justeattakeaway/pie-icons-webc": "1.29.1",
     "@justeattakeaway/pie-webc-core": "20.0.0"
   },
   "customElements": "custom-elements.json",
