@@ -97,9 +97,11 @@ $tooltip-alignments: ('', '-start', '-end');
     grid-template-columns: 100%;
     grid-template-rows: 100%;
     visibility: hidden;
+    transition: visibility 0s linear 150ms;
 
     &.is-open.is-positioned {
         visibility: visible;
+        transition-delay: 0s;
     }
 }
 
@@ -167,6 +169,10 @@ $tooltip-alignments: ('', '-start', '-end');
     --tooltip-padding-block: var(--dt-spacing-b);
     --tooltip-padding-inline: var(--dt-spacing-c);
     --tooltip-close-size: 32px;
+    --tooltip-motion-duration: 150ms;
+    --tooltip-motion-easing: cubic-bezier(0.45, 0, 0.55, 1);
+    --tooltip-motion-translate-x: 0;
+    --tooltip-motion-translate-y: 0;
 
     // Where the arrow's centre sits, measured from the panel's aligned edge, for the `-start`
     // and `-end` alignments. Clear of the rounded corner, and near enough to the edge that the
@@ -197,6 +203,58 @@ $tooltip-alignments: ('', '-start', '-end');
     background-color: var(--tooltip-background-color);
     color: var(--tooltip-content-color);
     pointer-events: auto;
+    opacity: 0;
+    transform: translate(var(--tooltip-motion-translate-x), var(--tooltip-motion-translate-y));
+    transition:
+        opacity var(--tooltip-motion-duration) var(--tooltip-motion-easing),
+        transform var(--tooltip-motion-duration) var(--tooltip-motion-easing);
+}
+
+.c-tooltip-layer.is-open.is-positioned .c-tooltip {
+    --tooltip-motion-duration: 200ms;
+
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+// Each closed position starts 4px towards the trigger. Opening moves the panel away from the
+// trigger; closing returns it along the same path.
+@each $alignment in $tooltip-alignments {
+    .c-tooltip--top#{$alignment} {
+        --tooltip-motion-translate-y: 4px;
+    }
+
+    .c-tooltip--bottom#{$alignment} {
+        --tooltip-motion-translate-y: -4px;
+    }
+
+    .c-tooltip--left#{$alignment} {
+        --tooltip-motion-translate-x: 4px;
+    }
+
+    .c-tooltip--right#{$alignment} {
+        --tooltip-motion-translate-x: -4px;
+    }
+}
+
+// `left` and `right` resolve on the logical inline axis, while transforms are physical.
+:host(:dir(rtl)) {
+    @each $alignment in $tooltip-alignments {
+        .c-tooltip--left#{$alignment} {
+            --tooltip-motion-translate-x: -4px;
+        }
+
+        .c-tooltip--right#{$alignment} {
+            --tooltip-motion-translate-x: 4px;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .c-tooltip-layer,
+    .c-tooltip {
+        transition: none;
+    }
 }
 
 .c-tooltip--inverse {

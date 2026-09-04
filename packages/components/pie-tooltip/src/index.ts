@@ -486,6 +486,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
                         class="${classMap(panelClasses)}"
                         data-test-id="${componentSelector}"
                         role="${ifDefined(mode)}"
+                        aria-hidden="${!isOpen}"
                         aria-labelledby="${isDialog && heading ? headingId : nothing}"
                         aria-label="${isDialog && !heading && aria?.label ? aria.label : nothing}">
                         ${isIconType ? nothing : html`<div class="${componentClass}-arrow" data-test-id="${componentSelector}-arrow"></div>`}
