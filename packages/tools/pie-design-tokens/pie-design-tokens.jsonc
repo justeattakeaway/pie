@@ -1825,9 +1825,9 @@
         "alias": {
           "heading-xs": {
             "size--wide": "size-16",
-            "line-height--wide": "line-height-20",
+            "line-height--wide": "line-height-18",
             "size--narrow": "size-14",
-            "line-height--narrow": "line-height-20",
+            "line-height--narrow": "line-height-16",
             "family": "family-primary",
             "weight": "weight-black"
           },
