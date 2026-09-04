@@ -40,7 +40,7 @@ const copyDirFlat = (srcDir, destDir) => {
             if (entry.isDirectory()) {
                 dirs.push(src);
             } else {
-                copyFileSync(src, join(destDir, relative(srcDir, src).replaceAll('/', '-')));
+                copyFileSync(src, join(destDir, relative(srcDir, src).replaceAll(/[\\/]/g, '-')));
             }
         });
     }
