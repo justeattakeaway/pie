@@ -51,6 +51,19 @@ yarn publish:all                # Publish all component and icon mappings for al
 
 These commands build the templates, then use the Figma CLI to publish them using the corresponding configuration file.
 
+#### Development publishing
+
+Two scripts are available for publishing and unpublishing to a temporary `_dev_` label in Figma. This is useful for testing Code Connect changes without affecting the production mappings:
+
+```bash
+yarn publish-components:dev     # Build and publish web component mappings to the _dev_ label
+yarn unpublish-components:dev   # Unpublish web component mappings from the _dev_ label
+```
+
+These commands use `config/figma-dev-components-batch.config.json`, which targets the same `components.figma.batch.json` metadata but publishes under the `_dev_` label. 
+
+Please remember to unpublish when done.
+
 ## Adding New Components
 
 To add a new component to the Code Connect mappings:
