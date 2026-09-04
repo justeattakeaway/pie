@@ -178,8 +178,8 @@ $tooltip-alignments: ('', '-start', '-end');
     // serves both the inline and the block axis.
     --tooltip-arrow-cross-inset: calc(var(--tooltip-arrow-cross-position, 50%) - var(--tooltip-arrow-size));
 
-    // The arrow sits fully outside the panel edge that faces the trigger.
-    --tooltip-arrow-main-inset-far: 100%;
+    // The arrow sits outside the panel edge facing the trigger, with a 2px overlap into the panel to prevent subpixel gaps.
+    --tooltip-arrow-main-inset-far: calc(100% - 2px);
     --tooltip-arrow-main-inset-near: calc(var(--tooltip-arrow-size) * -1);
 
     @include p.font-theme('font-body-s');
@@ -248,20 +248,20 @@ $tooltip-alignments: ('', '-start', '-end');
 @mixin tooltip-arrow-clip($direction) {
     @if $direction == up {
         inline-size: calc(var(--tooltip-arrow-size) * 2);
-        block-size: var(--tooltip-arrow-size);
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        block-size: calc(var(--tooltip-arrow-size) + 2px);
+        clip-path: polygon(50% 0%, 100% var(--tooltip-arrow-size), 100% 100%, 0% 100%, 0% var(--tooltip-arrow-size));
     } @else if $direction == down {
         inline-size: calc(var(--tooltip-arrow-size) * 2);
-        block-size: var(--tooltip-arrow-size);
-        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        block-size: calc(var(--tooltip-arrow-size) + 2px);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 2px, 50% 100%, 0% 2px);
     } @else if $direction == left {
-        inline-size: var(--tooltip-arrow-size);
+        inline-size: calc(var(--tooltip-arrow-size) + 2px);
         block-size: calc(var(--tooltip-arrow-size) * 2);
-        clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+        clip-path: polygon(0% 50%, var(--tooltip-arrow-size) 0%, 100% 0%, 100% 100%, var(--tooltip-arrow-size) 100%);
     } @else if $direction == right {
-        inline-size: var(--tooltip-arrow-size);
+        inline-size: calc(var(--tooltip-arrow-size) + 2px);
         block-size: calc(var(--tooltip-arrow-size) * 2);
-        clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+        clip-path: polygon(0% 0%, 2px 0%, 100% 50%, 2px 100%, 0% 100%);
     }
 }
 
