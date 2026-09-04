@@ -175,6 +175,30 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
 
 export const Default = createStory<TooltipProps>(DefaultTemplate, defaultArgs)();
 
+const scrollContent = 'Tooltips describe an element or provide an action without interrupting the user. This scrolling fixture keeps the trigger and tooltip at the top of the document while the content below creates a page that extends beyond the viewport.';
+
+const ScrolledTemplate = (): TemplateResult => html`
+    <div style="padding-inline: ${pageInlinePadding};">
+        <pie-button
+            id="tooltip-scroll-trigger"
+            data-test-id="tooltip-trigger">
+            Delivery times
+        </pie-button>
+
+        <pie-tooltip
+            trigger="tooltip-scroll-trigger"
+            position="bottom"
+            ?isOpen="${true}">
+            <span slot="content">Arrives today.</span>
+        </pie-tooltip>
+
+        <p>${Array.from({ length: 50 }, () => scrollContent).join(' ')}</p>
+    </div>`;
+
+export const Scrolled = createStory<TooltipProps>(ScrolledTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
 export const WithHeading = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     heading: 'Delivery times',

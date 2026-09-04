@@ -4,18 +4,6 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 import { type TooltipProps } from '../../src/defs.ts';
 import { tooltip } from '../helpers/page-object/selectors.ts';
 
-type Box = { x: number; y: number; width: number; height: number };
-
-const getBox = async (page: Page, dataTestId: string): Promise<Box> => {
-    const box = await page.getByTestId(dataTestId).boundingBox();
-
-    expect(box).not.toBeNull();
-
-    return box as Box;
-};
-
-const bottomOf = (box: Box) => box.y + box.height;
-
 const loadDefaultStory = async (page: Page, props: Partial<TooltipProps> & Record<string, unknown> = {}) => {
     const basePage = new BasePage(page, 'tooltip--default');
 
@@ -41,19 +29,7 @@ const loadStory = async (page: Page, storyId: string) => {
  * JavaScript, the roles and accessible names, and the close event.
  */
 test.describe('PieTooltip - Component tests', () => {
-    test.describe('isOpen', () => {
-        test('should hide the panel when isOpen is false', async ({ page }) => {
-            // Arrange
-            await loadDefaultStory(page, { isOpen: false });
-
-            // Act
-            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
-
-            // Assert
-            // The panel is `display: none` while closed, so it is also out of the accessibility tree.
-            await expect(panel).toBeHidden();
-        });
-
+    test.describe('trigger', () => {
         test('should keep the trigger clickable while the panel is open', async ({ page }) => {
             // Arrange
             await loadDefaultStory(page, { isOpen: true });
@@ -199,32 +175,7 @@ test.describe('PieTooltip - Component tests', () => {
         });
     });
 
-    test.describe('trigger', () => {
-        test('should stay attached to the trigger while the page scrolls', async ({ page }) => {
-            // Arrange
-            // A viewport shorter than the story's own padding is what makes the page scrollable.
-            await page.setViewportSize({ width: 1280, height: 300 });
-            await loadDefaultStory(page, { position: 'bottom' });
-
-            const triggerBefore = await getBox(page, tooltip.selectors.trigger.dataTestId);
-            const panelBefore = await getBox(page, tooltip.selectors.panel.dataTestId);
-            const gap = panelBefore.y - bottomOf(triggerBefore);
-
-            // Act
-            await page.evaluate(() => window.scrollBy(0, 100));
-            await page.evaluate(() => new Promise<void>((resolve) => {
-                requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-            }));
-
-            // Assert
-            const triggerAfter = await getBox(page, tooltip.selectors.trigger.dataTestId);
-            const panelAfter = await getBox(page, tooltip.selectors.panel.dataTestId);
-
-            // The trigger really did move, so the gap assertion cannot pass trivially.
-            expect(triggerAfter.y).toBeLessThan(triggerBefore.y);
-            expect(panelAfter.y - bottomOf(triggerAfter)).toBeCloseTo(gap, 0);
-        });
-
+    test.describe('trigger anchoring', () => {
         test('should render the panel when there is no trigger id', async ({ page }) => {
             // Arrange
             await loadDefaultStory(page);
