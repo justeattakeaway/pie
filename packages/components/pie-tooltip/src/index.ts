@@ -131,6 +131,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
      */
     @state() private _hasActionContent: boolean | undefined;
 
+    @state() private _isPositioned = false;
+
     /**
      * Both torn down on close and on disconnect, so nothing is observed while the panel is
      * hidden. The controller covers the event listeners; `MutationObserver` takes no abort
@@ -368,6 +370,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
      * @private
      */
     private projectOverTrigger (): void {
+        this._isPositioned = false;
+
         const triggerElement = this.trigger ? this.ownerDocument.getElementById(this.trigger) : null;
 
         if (!triggerElement || !this._originElement) {
@@ -375,6 +379,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
                 this.style.removeProperty(`--tooltip-anchor-${suffix}`);
             });
             this.style.removeProperty('--tooltip-container-inline-size');
+            this._isPositioned = true;
 
             return;
         }
@@ -395,6 +400,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
         const containerInlineSize = container ? container.getBoundingClientRect().width : width;
 
         this.style.setProperty('--tooltip-container-inline-size', `${containerInlineSize}px`);
+        this._isPositioned = true;
     }
 
     /**
@@ -454,6 +460,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             [`${componentClass}-layer--${position}`]: true,
             [`${componentClass}-layer--type-${type}`]: true,
             'is-open': !!isOpen,
+            'is-positioned': this._isPositioned,
         };
 
         const panelClasses = {
