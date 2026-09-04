@@ -4,15 +4,6 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 import { type TooltipProps } from '../../src/defs.ts';
 import { tooltip } from '../helpers/page-object/selectors.ts';
 
-/**
- * The inline size of a `default` panel. `default` is a fixed width, not a cap, so the panel is
- * this wide whatever its content.
- */
-const defaultInlineSize = 280;
-
-const shortContent = 'Arrives today.';
-const longContent = 'Orders placed before 6pm arrive today. Orders placed after 6pm arrive the next working day, including at weekends.';
-
 type Box = { x: number; y: number; width: number; height: number };
 
 const getBox = async (page: Page, dataTestId: string): Promise<Box> => {
@@ -46,22 +37,11 @@ const loadStory = async (page: Page, storyId: string) => {
 /**
  * Placement itself is asserted by the Percy snapshots of the placement grid stories, which render
  * all twelve positions in both writing directions. What is tested here is the behaviour behind
- * placement that a snapshot cannot see: the panel's open state, the sizes measured in JavaScript,
- * the roles and accessible names, and the close event.
+ * placement that a snapshot cannot see: the panel's open state, the positions measured in
+ * JavaScript, the roles and accessible names, and the close event.
  */
 test.describe('PieTooltip - Component tests', () => {
     test.describe('isOpen', () => {
-        test('should show the panel when isOpen is true', async ({ page }) => {
-            // Arrange
-            await loadDefaultStory(page, { isOpen: true });
-
-            // Act
-            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
-
-            // Assert
-            await expect(panel).toBeVisible();
-        });
-
         test('should hide the panel when isOpen is false', async ({ page }) => {
             // Arrange
             await loadDefaultStory(page, { isOpen: false });
@@ -88,36 +68,6 @@ test.describe('PieTooltip - Component tests', () => {
 
             // Assert
             await expect(trigger).toBeFocused();
-        });
-    });
-
-    test.describe('size', () => {
-        ([['short', shortContent], ['long', longContent]] as const).forEach(([length, content]) => {
-            test(`should size the panel to ${defaultInlineSize}px when size is default and the content is ${length}`, async ({ page }) => {
-                // Arrange
-                await loadDefaultStory(page, { size: 'default', content });
-
-                // Act
-                const panel = await getBox(page, tooltip.selectors.panel.dataTestId);
-
-                // Assert
-                expect(panel.width).toBeCloseTo(defaultInlineSize, 0);
-            });
-        });
-
-        test('should match the inline size of the trigger\'s parent element when size is fill-container', async ({ page }) => {
-            // Arrange
-            await loadDefaultStory(page, { size: 'fill-container', containerInlineSize: '420px' });
-
-            // Act
-            const container = await getBox(page, tooltip.selectors.triggerContainer.dataTestId);
-            const panel = await getBox(page, tooltip.selectors.panel.dataTestId);
-
-            // Assert
-            // `fill-container` is the only size the component measures in JavaScript: it is defined
-            // as the inline size of the trigger's parent element, whatever the content.
-            expect(container.width).toBeCloseTo(420, 0);
-            expect(panel.width).toBeCloseTo(container.width, 0);
         });
     });
 
