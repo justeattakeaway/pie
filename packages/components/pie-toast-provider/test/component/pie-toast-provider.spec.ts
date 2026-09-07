@@ -102,10 +102,12 @@ test.describe('PieToastProvider - Component tests', () => {
         await pieToastProviderPage.load();
 
         // Act
-        const toastProviderComponent = page.locator(toastProvider.selectors.container.dataTestId);
+        const toastProviderComponent = page.getByTestId(toastProvider.selectors.container.dataTestId);
 
-        // Assert
-        await expect(toastProviderComponent).toBeVisible();
+        // Assert — the provider renders no toasts until one is created, and its only content is
+        // absolutely positioned, so it has a zero-size box and is never "visible". Attachment is
+        // the meaningful assertion here.
+        await expect(toastProviderComponent).toBeAttached();
     });
 
     test.describe('Priority Order Tests', () => {
