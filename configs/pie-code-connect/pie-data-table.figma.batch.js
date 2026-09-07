@@ -12,16 +12,12 @@ const selectedComponentName = isReact ? componentNameReact : componentName;
 
 const cellInstanceName = 'Row Cell';
 const headerCellInstanceName = 'Column Header Cell';
+const headerRowCellsPath = JSON.stringify(['Cells', 'Cells', 'Column Header']);
+const actionButtonsPath = JSON.stringify(['Bulk-action bar', 'Buttons']);
 
 // Header section
 const _headerComponentName = 'pie-data-table-header';
 const _headerComponentNameReact = 'PieDataTableHeader';
-
-// Get header action buttons
-const actionButtons = figma.selectedInstance.findInstance('Bulk-action bar').children
-    .filter((child) => child.path && child.path.join('|') === 'Bulk-action bar|Buttons')
-    .map((child) => getInstanceCode(child, 'action-button'))
-    .filter(Boolean);
 
 // Determine header props
 const headerComponentName = isReact ? _headerComponentNameReact : _headerComponentName;
@@ -35,11 +31,17 @@ const headerProps = [
     renderProp('variant', headingVariant, 'subtle'),
 ].filter(Boolean).join(' ');
 
+// Get header action buttons
+const actionButtons = figma.selectedInstance
+    .findInstance('Bulk-action bar').children
+    .filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
+    .map((child) => getInstanceCode(child, 'action-button'))
+    .filter(Boolean);
+
 // Pre-render header markup
 const header = figma.code`<${headerComponentName} slot="table-header" ${headerProps}>${actionButtons}</${headerComponentName}>`;
 
 // Determine columns content
-const headerRowCellsPath = JSON.stringify(['Cells', 'Cells', 'Column Header']);
 const columns = figma.selectedInstance
     .findLayers((instance) => {
         const nameMatches = instance.name && instance.name === headerCellInstanceName;
