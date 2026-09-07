@@ -92,6 +92,19 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
         this._dismissingToasts = [...this._dismissingToasts, toast];
     }
 
+    /**
+     * Forwards the toast's open event to the consumer.
+     *
+     * `isOpen` is bound with the `live` directive, so a toast that sets `isOpen` to false while
+     * dismissing is reopened on the next render in order to keep it visible for the slide-out
+     * animation. That reopen dispatches a second `pie-toast-open`, which is not a real open, so it
+     * is not forwarded.
+     */
+    private _handleToastOpen (toast: ExtendedToastProps) {
+        if (this._dismissingToasts.includes(toast)) return;
+        toast.onPieToastOpen?.();
+    }
+
     private _getToastClass (toast: ExtendedToastProps): string {
         if (this._dismissingToasts.includes(toast)) return 'pie-animation--slide-out';
         if (this._collapsingToasts.includes(toast)) return '';
@@ -200,9 +213,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
                         .aria="${{ ...toast.aria, live: 'off' as const }}"
                         .duration="${this._getToastDuration(toast)}"
                         @pie-toast-close="${() => this._dismissToast(toast)}"
-@pie-toast-open="${() => {
-            if (!this._dismissingToasts.includes(toast)) toast.onPieToastOpen?.();
-        }}"
+                        @pie-toast-open="${() => this._handleToastOpen(toast)}"
                         @pie-toast-leading-action-click="${toast.onPieToastLeadingActionClick}"
                         @animationend="${() => { if (this._dismissingToasts.includes(toast)) this._finalizeDismiss(toast); }}">
                     </pie-toast>
