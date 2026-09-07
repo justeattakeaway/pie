@@ -32,14 +32,15 @@ const headerProps = [
 ].filter(Boolean).join(' ');
 
 // Get header action buttons
-const actionButtons = figma.selectedInstance
-    .findInstance('Bulk-action bar').children
-    .filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
+const actionButtons = figma.selectedInstance.findInstance('Bulk-action bar');
+
+const actionButtonsCode = actionButtons && actionButtons?.children
+    ?.filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
     .map((child) => getInstanceCode(child, 'action-button'))
     .filter(Boolean);
 
 // Pre-render header markup
-const header = figma.code`<${headerComponentName} slot="table-header" ${headerProps}>${actionButtons}</${headerComponentName}>`;
+const header = figma.code`<${headerComponentName} slot="table-header" ${headerProps}>${actionButtonsCode}</${headerComponentName}>`;
 
 // Determine columns content
 const columns = figma.selectedInstance
