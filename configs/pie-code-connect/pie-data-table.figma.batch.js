@@ -10,17 +10,20 @@ const isReact = process.env.FRAMEWORK === 'react';
 
 const selectedComponentName = isReact ? componentNameReact : componentName;
 
+const cellInstanceName = 'Row Cell';
+const headerCellInstanceName = 'Column Header Cell';
+
 // Header section
 const _headerComponentName = 'pie-data-table-header';
 const _headerComponentNameReact = 'PieDataTableHeader';
 
-// Header action buttons
+// Get header action buttons
 const actionButtons = figma.selectedInstance.findInstance('Bulk-action bar').children
     .filter((child) => child.path && child.path.join('|') === 'Bulk-action bar|Buttons')
     .map((child) => getInstanceCode(child, 'action-button'))
     .filter(Boolean);
 
-// Header props
+// Determine header props
 const headerComponentName = isReact ? _headerComponentNameReact : _headerComponentName;
 const heading = getInstanceProp(['Header'], 'getString', '[𝐓] Title');
 const hasSubheading = getInstanceProp(['Header'], 'getBoolean', 'Secondary text');
@@ -31,15 +34,18 @@ const headerProps = [
     renderProp('subHeading', subHeading),
     renderProp('variant', headingVariant, 'subtle'),
 ].filter(Boolean).join(' ');
+
+// Pre-render header markup
 const header = figma.code`<${headerComponentName} slot="table-header" ${headerProps}>${actionButtons}</${headerComponentName}>`;
 
-// Determine header row cells content
+// Determine columns content
 const headerRowCellsPath = JSON.stringify(['Cells', 'Cells', 'Column Header']);
-const columns = figma.selectedInstance.findLayers((instance) => {
-    const nameMatches = instance.name && instance.name === 'Column Header Cell';
-    const pathMatches = instance.path && JSON.stringify(instance.path) === headerRowCellsPath;
-    return nameMatches && pathMatches;
-})
+const columns = figma.selectedInstance
+    .findLayers((instance) => {
+        const nameMatches = instance.name && instance.name === headerCellInstanceName;
+        const pathMatches = instance.path && JSON.stringify(instance.path) === headerRowCellsPath;
+        return nameMatches && pathMatches;
+    })
     .map((instance) => {
         const text = instance.getString('[𝐓] String').trim();
         const id = text.toLowerCase().replace(' ', '-');
@@ -47,13 +53,12 @@ const columns = figma.selectedInstance.findLayers((instance) => {
         return { id, name: text, accessor: id };
     });
 
-// Determine regular row cells content
-
-// Accessors determine the key for each cell
-const columnAccessors = columns.map(({ accessor }) => accessor);
+const columnAccessors = columns.map(({ accessor }) => accessor); // Accessors determine the key for each cell
 const columnCount = columnAccessors.length;
 
-const cells = figma.selectedInstance.findLayers((instance) => instance.name && instance.name === 'Row Cell')
+// Determine regular row cells content
+const cells = figma.selectedInstance
+    .findLayers((instance) => instance.name && instance.name === cellInstanceName)
     .map((instance) => instance.getString('[𝐓] String').trim());
 
 // Break unidimensional array into lines and columns
