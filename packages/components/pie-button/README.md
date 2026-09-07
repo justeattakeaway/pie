@@ -16,6 +16,7 @@
   - [Properties](#properties)
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
+  - [CSS Parts](#css-parts)
   - [Events](#events)
 - [Forms Usage](#forms-usage)
   - [Button Attributes](#button-attributes)
@@ -67,6 +68,11 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
+
+### CSS Parts
+| Part   | Description                                                  |
+|--------|--------------------------------------------------------------|
+| `base` | Allows consumers to customise the styles of the button's underlying `button` or `a` element. |
 
 ### Events
 
