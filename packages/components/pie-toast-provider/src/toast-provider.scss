@@ -17,7 +17,6 @@
     z-index: var(--toast-provider-z-index);
     display: flex;
     flex-direction: column-reverse;
-    gap: var(--dt-spacing-d);
 
     &-announcer {
         @include p.visually-hidden;
@@ -49,7 +48,15 @@
     .c-toast-provider-item {
         display: grid;
         grid-template-rows: 1fr;
-        transition: grid-template-rows var(--dt-motion-timing-200) var(--dt-motion-easing-in);
+
+        // The inter-toast spacing lives on the item rather than as a `gap` on the container so it
+        // can collapse alongside the toast height. A `gap` cannot be animated per item, so it would
+        // stay at full size throughout the collapse and then disappear when the item is removed,
+        // making the surviving toasts jump.
+        padding-block-start: var(--dt-spacing-d);
+        transition:
+            grid-template-rows var(--dt-motion-timing-200) var(--dt-motion-easing-in),
+            padding-block-start var(--dt-motion-timing-200) var(--dt-motion-easing-in);
 
         > pie-toast {
             min-block-size: 0;
@@ -58,6 +65,7 @@
 
         &--collapsing {
             grid-template-rows: 0fr;
+            padding-block-start: 0;
 
             > pie-toast {
                 visibility: hidden;
