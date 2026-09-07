@@ -35,6 +35,20 @@ export { toaster } from './toaster';
 const componentSelector = 'pie-toast-provider';
 
 /**
+ * How long to wait for a dismissal phase's motion event before advancing anyway.
+ *
+ * Dismissal runs in two phases, each driven by a motion event: the toast slides out
+ * (`animationend`), then its row collapses (`transitionend`). Neither event fires when motion is
+ * disabled — a consumer setting `animation: none` or `transition: none`, or a hidden element.
+ * Without a fallback the toast would stay mounted forever and no queued toast would ever be
+ * promoted into its slot.
+ *
+ * Comfortably longer than the 200ms slide-out and 200ms collapse, so it never pre-empts real
+ * motion.
+ */
+const MOTION_FALLBACK_MS = 500;
+
+/**
  * @tagname pie-toast-provider
  * @event {CustomEvent} pie-toast-provider-queue-update - when a toast is added or removed from the queue.
  */
@@ -58,6 +72,38 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
 
     @state()
     private _collapsingToasts: ExtendedToastProps[] = [];
+
+    /** Pending {@link MOTION_FALLBACK_MS} timers, keyed by the toast they will advance. */
+    private _motionFallbacks = new Map<ExtendedToastProps, ReturnType<typeof setTimeout>>();
+
+    public disconnectedCallback (): void {
+        this._clearMotionFallbacks();
+        super.disconnectedCallback();
+    }
+
+    /**
+     * Replaces any pending fallback for `toast` with one that runs `advance`.
+     *
+     * Each phase supersedes the previous phase's fallback, so a toast only ever has one timer.
+     */
+    private _scheduleMotionFallback (toast: ExtendedToastProps, advance: () => void): void {
+        this._clearMotionFallback(toast);
+        this._motionFallbacks.set(toast, setTimeout(advance, MOTION_FALLBACK_MS));
+    }
+
+    private _clearMotionFallback (toast: ExtendedToastProps): void {
+        const timer = this._motionFallbacks.get(toast);
+
+        if (timer) {
+            clearTimeout(timer);
+            this._motionFallbacks.delete(toast);
+        }
+    }
+
+    private _clearMotionFallbacks (): void {
+        this._motionFallbacks.forEach((timer) => clearTimeout(timer));
+        this._motionFallbacks.clear();
+    }
 
     updated (changedProperties: PropertyValues<this>): void {
         if (changedProperties.has('_toasts' as keyof PieToastProvider)) {
@@ -90,6 +136,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
         if (this._dismissingToasts.includes(toast)) return;
         toast.onPieToastClose?.();
         this._dismissingToasts = [...this._dismissingToasts, toast];
+        this._scheduleMotionFallback(toast, () => this._finalizeDismiss(toast));
     }
 
     /**
@@ -120,14 +167,20 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
      * Starts the height-collapse phase after the slide-out animation ends.
      */
     private _finalizeDismiss (toast: ExtendedToastProps) {
+        if (!this._dismissingToasts.includes(toast)) return;
+
         this._dismissingToasts = this._dismissingToasts.filter((t) => t !== toast);
         this._collapsingToasts = [...this._collapsingToasts, toast];
+        this._scheduleMotionFallback(toast, () => this._finalizeCollapse(toast));
     }
 
     /**
      * Called after the collapse transition ends. Removes the toast from DOM and promotes the next queued toast.
      */
     private _finalizeCollapse (toast: ExtendedToastProps) {
+        if (!this._collapsingToasts.includes(toast)) return;
+
+        this._clearMotionFallback(toast);
         this._collapsingToasts = this._collapsingToasts.filter((t) => t !== toast);
         this._visibleToasts = this._visibleToasts.filter((t) => t !== toast);
         this._showNextToast();
@@ -165,6 +218,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
      * Clears all toasts from the queue and dismisses all visible toasts.
      */
     public clearToasts () {
+        this._clearMotionFallbacks();
         this._toasts = [];
         this._visibleToasts = [];
         this._dismissingToasts = [];
