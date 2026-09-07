@@ -34,8 +34,8 @@ const headerProps = [
 // Get header action buttons
 const actionButtons = figma.selectedInstance.findInstance('Bulk-action bar');
 
-const actionButtonsCode = actionButtons && actionButtons?.children
-    ?.filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
+const actionButtonsCode = actionButtons?.children
+    .filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
     .map((child) => getInstanceCode(child, 'action-button'))
     .filter(Boolean);
 
@@ -51,7 +51,7 @@ const columns = figma.selectedInstance
     })
     .map((instance) => {
         const text = instance.getString('[𝐓] String').trim();
-        const id = text.toLowerCase().replace(' ', '-');
+        const id = text.toLowerCase().replaceAll(' ', '-');
 
         return { id, name: text, accessor: id };
     });
@@ -67,7 +67,7 @@ const cells = figma.selectedInstance
 // Break unidimensional array into lines and columns
 // where each row is an object and each column value
 // is set to the key of the column header accessor
-const data = cells.reduce((acc, current, i) => {
+const data = columnCount > 0 ? cells.reduce((acc, current, i) => {
     const line = Math.ceil((i + 1) / columnCount) - 1;
     const column = i % columnCount;
 
@@ -77,7 +77,7 @@ const data = cells.reduce((acc, current, i) => {
     acc[line][columnAccessor] = current;
 
     return acc;
-}, []);
+}, []) : [];
 
 const props = [
     renderProp('columns', columns),
