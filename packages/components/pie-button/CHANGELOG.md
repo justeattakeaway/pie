@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.14.16
+
+### Patch Changes
+
+- [Added] - Exposed a `base` CSS part for customising the underlying button or anchor element. ([#3181](https://github.com/justeattakeaway/pie/pull/3181)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - readme to include missing prop values ([#3177](https://github.com/justeattakeaway/pie/pull/3177)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.14.15
 
 ### Patch Changes
