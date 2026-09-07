@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.89.8",
+  "version": "1.89.9",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -19,7 +19,7 @@
     "@justeat/pie-design-tokens": "7.14.3",
     "@justeattakeaway/pie-css": "1.7.0",
     "@justeattakeaway/pie-icons-webc": "1.29.2",
-    "@justeattakeaway/pie-webc": "0.11.17",
+    "@justeattakeaway/pie-webc": "0.11.18",
     "dompurify": "3.4.8"
   },
   "devDependencies": {
