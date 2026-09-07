@@ -274,7 +274,11 @@ If the toast has a close icon button or a dismiss button, the toast can be persi
 
 ### Stacking
 
-When multiple toast messages need to be displayed, each new toast stacks above the previous one with a 16px spacing between them. When a toast is auto-dismissed or manually closed, any toasts above it shifts down to fill the gap. No more than 3 toasts should be displayed at a time, any additional toasts will wait in a queue.
+When multiple toast messages are displayed, each new toast stacks above the previous one with 16px spacing.
+
+When a toast is auto-dismissed or manually closed, any toasts above it shift down to fill the gap.
+
+No more than three toasts should be displayed at a time. Additional toasts wait in a queue.
 
 {% contentPageImage {
     src: "../../../assets/img/components/toast/toast-stacking.svg",
