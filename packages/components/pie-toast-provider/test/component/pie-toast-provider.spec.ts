@@ -67,6 +67,34 @@ async function getQueueSnapshots (page: Page): Promise<ExtendedToastProps[][]> {
     return page.evaluate(() => window.__queueSnapshots ?? []);
 }
 
+/**
+ * Creates toasts on the provider and waits for the resulting render to settle.
+ *
+ * `createToast` fills the visible slots synchronously, but Lit batches the render into a
+ * microtask — so the toasts are not in the DOM yet when `page.evaluate` resolves. Awaiting
+ * `updateComplete` covers that, and re-freezing motion covers the slide-in on the newly
+ * rendered toasts.
+ *
+ * `toasts` is passed into the browser, so it must be plain serialisable data — no
+ * `onPieToast*` callbacks.
+ */
+async function createToasts (
+    page: Page,
+    basePage: BasePage,
+    toasts: ExtendedToastProps[],
+): Promise<void> {
+    await page.evaluate((queued) => {
+        const provider = document.querySelector('pie-toast-provider') as PieToastProvider | null;
+        if (!provider) throw new Error('pie-toast-provider not found in DOM');
+        queued.forEach((toast) => provider.createToast(toast));
+    }, toasts);
+
+    await page.locator('pie-toast-provider')
+        .evaluate((provider) => (provider as PieToastProvider).updateComplete);
+
+    await basePage.freezeAnimations();
+}
+
 test.describe('PieToastProvider - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
@@ -155,24 +183,18 @@ test.describe('PieToastProvider - Component tests', () => {
                 });
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
-                // Act — both toasts fill visible slots immediately (no queue snapshot to poll)
-                await page.evaluate(() => {
-                    const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
-                    tp.createToast({ message: 'Toast 1' });
-                    tp.createToast({ message: 'Toast 2' });
-                });
+                // Act — fill the visible slots (the helper waits for the render)
+                await createToasts(page, pieToastProviderPage, [
+                    { message: 'Toast 1' },
+                    { message: 'Toast 2' },
+                ]);
 
-                // Assert — read visible toasts directly; global options must be applied to each
-                const visibleToasts = await page.evaluate(() => {
-                    const tp = document.querySelector('pie-toast-provider') as unknown as { _visibleToasts: ExtendedToastProps[] };
-                    return tp._visibleToasts;
-                });
-
-                expect(visibleToasts.length).toBeGreaterThan(0);
-                visibleToasts.forEach((toast) => {
-                    expect(toast.isDismissible).toBeTruthy();
-                    expect(toast.variant).toBe('neutral');
-                });
+                // Assert — both toasts render with the global options applied. `isDismissible`
+                // is asserted through the close button, which pie-toast only renders when the
+                // prop is true.
+                await expect(page.locator('pie-toast-provider pie-toast')).toHaveCount(2);
+                await expect(page.locator('pie-toast-provider pie-toast[variant="neutral"]')).toHaveCount(2);
+                await expect(page.getByTestId(toastProvider.selectors.toastClose.dataTestId)).toHaveCount(2);
             });
 
             test('should respect individual toast overrides when provided', async ({ page }) => {
@@ -186,25 +208,22 @@ test.describe('PieToastProvider - Component tests', () => {
                 });
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
-                // Act — all 3 toasts fill visible slots immediately
-                await page.evaluate(() => {
-                    const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
-                    tp.createToast({ message: 'Toast 1' });
-                    tp.createToast({ message: 'Toast 2' });
-                    tp.createToast({ message: 'Toast 3', isDismissible: false });
-                });
+                // Act — fill the visible slots (the helper waits for the render)
+                await createToasts(page, pieToastProviderPage, [
+                    { message: 'Toast 1' },
+                    { message: 'Toast 2' },
+                    { message: 'Toast 3', isDismissible: false },
+                ]);
 
-                // Assert by toast identity in visible slots
-                const visibleToasts = await page.evaluate(() => {
-                    const tp = document.querySelector('pie-toast-provider') as unknown as { _visibleToasts: ExtendedToastProps[] };
-                    return tp._visibleToasts;
-                });
+                // Assert by toast identity, using the close button as the observable proof of
+                // `isDismissible`.
+                const closeButton = toastProvider.selectors.toastClose.dataTestId;
 
-                const toast2 = visibleToasts.find((t) => t.message === 'Toast 2');
-                const toast3 = visibleToasts.find((t) => t.message === 'Toast 3');
+                // Global option should apply
+                await expect(page.locator('pie-toast[message="Toast 2"]').getByTestId(closeButton)).toBeVisible();
 
-                expect(toast2?.isDismissible).toBeTruthy(); // Global option should apply
-                expect(toast3?.isDismissible).toBeFalsy(); // Override should take precedence
+                // Override should take precedence
+                await expect(page.locator('pie-toast[message="Toast 3"]').getByTestId(closeButton)).toHaveCount(0);
             });
         });
 
