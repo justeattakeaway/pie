@@ -37,15 +37,8 @@ export * from './defs';
 
 const headingId = 'pie-tooltip-heading';
 
-/**
- * Whether an element is a containing block for the positioned elements inside it, on the
- * strength of something other than its own `position`.
- *
- * Every property tested here establishes one for absolutely and fixed positioned descendants
- * alike, which is what `resolveOverlayMode` relies on to rank the two modes against each other.
- *
- * @private
- */
+// Returns true if the element establishes a containing block through a property other than
+// `position` — i.e. for both absolute and fixed descendants, not just absolute.
 const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
     const isSet = (value: string | undefined) => !!value && value !== 'none';
 
@@ -63,9 +56,7 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
         return true;
     }
 
-    // Paint, layout, content and strict containment each establish a containing block, whereas
-    // `size` and `style` do not. Any `container-type` other than `normal` applies layout
-    // containment and so establishes one too.
+    // `size` and `style` containment do not establish a containing block; everything else does.
     if (/\b(paint|layout|content|strict)\b/.test(styles.contain)) {
         return true;
     }
@@ -74,7 +65,7 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
         return true;
     }
 
-    // A promised change to any of the above establishes the containing block up front.
+    // will-change pre-establishes the containing block before the property is applied.
     return /\b(transform|perspective|filter|backdrop-filter|contain|translate|rotate|scale)\b/.test(styles.willChange);
 };
 
@@ -125,19 +116,10 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     @query('.c-tooltip-origin') private _originElement!: HTMLElement | null;
 
-    /**
-     * Whether the `action` slot has content. Left `undefined` until it has been resolved on the
-     * client so that a server render never emits a role the client then has to correct.
-     */
     @state() private _hasActionContent: boolean | undefined;
 
     @state() private _isPositioned = false;
 
-    /**
-     * Both torn down on close and on disconnect, so nothing is observed while the panel is
-     * hidden. The controller covers the event listeners; `MutationObserver` takes no abort
-     * signal, so the observer is disconnected by hand alongside it.
-     */
     private _triggerTrackingController: AbortController | undefined;
 
     private _directionObserver: MutationObserver | undefined;
@@ -148,10 +130,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     static styles = unsafeCSS(styles);
 
-    /**
-     * The pattern the panel presents as. `undefined` until the `action` slot has been read,
-     * which only ever happens on the client.
-     */
     private get _mode (): TooltipMode | undefined {
         if (this._hasActionContent === undefined) {
             return undefined;
@@ -160,11 +138,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         return this._hasActionContent ? 'dialog' : 'tooltip';
     }
 
-    /**
-     * `firstUpdated` is a client-only lifecycle hook: Lit does not call it when rendering on the
-     * server. Resolving the mode here keeps the work out of the server render entirely, and the
-     * resulting update is committed before the browser paints.
-     */
     protected firstUpdated (): void {
         this.resolveMode();
         this.projectOverTrigger();
@@ -173,8 +146,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
     protected updated (changedProperties: PropertyValues<this>): void {
         const anchoringProperties: Array<keyof PieTooltip> = ['trigger', 'isOpen', 'position', 'size'];
 
-        // The mode decides which box the offsets are measured against, so it has to be settled
-        // before anything is measured.
         if (this.isOpen && changedProperties.has('isOpen')) {
             this.resolveOverlayMode();
         }
@@ -195,25 +166,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
         super.disconnectedCallback();
     }
 
-    /**
-     * Keeps the anchor over the trigger while the panel is open.
-     *
-     * The offsets are invariant under a scroll of the page, and under a scroll of any container
-     * holding both the trigger and the host's containing block, so in those cases the browser
-     * moves the panel on its own and none of this is what keeps it attached. What it is needed
-     * for is everything else: a `position: sticky` trigger, which moves relative to the document
-     * with no layout change to notify anyone of; a scroller holding the trigger but not the
-     * host's containing block; and `fixed` mode, where the panel holds its viewport position and
-     * every pixel of scrolling has to be reapplied. Listening in the capture phase catches
-     * scrolling of any ancestor container, not just the document, and the work is coalesced into
-     * a single animation frame so a scroll cannot queue more than one measurement.
-     *
-     * A change of writing direction is tracked alongside those events. Placement itself mirrors
-     * in CSS with no help from here, but flipping the direction lays the page out again and so
-     * moves the trigger, without firing either a scroll or a resize.
-     *
-     * @private
-     */
+    // Listens for scroll (capture — catches any ancestor), resize, and dir-attribute changes to
+    // re-anchor the panel. Multiple events per frame coalesce into one rAF.
     private startTrackingTrigger (): void {
         if (this._triggerTrackingController) {
             return;
@@ -239,9 +193,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             });
         };
 
-        // A media query can change an ancestor's `overflow`, so a resize is the one event that
-        // can invalidate the mode. Flagged rather than resolved here, so that dragging the window
-        // edge cannot walk the ancestors more than once in a frame.
+        // Flagged rather than resolved immediately so window-drag cannot walk ancestors more than once per frame.
         const handleResize = () => {
             this._shouldResolveOverlayMode = true;
             handleViewportChange();
@@ -274,35 +226,13 @@ export class PieTooltip extends PieElement implements TooltipProps {
         }
     }
 
-    /**
-     * Reads the `action` slot to decide which of the two patterns the panel presents as.
-     *
-     * Called from `firstUpdated` so that the answer is settled before the first paint, and again
-     * from the slot's `slotchange` so that content added later is picked up.
-     *
-     * @private
-     */
     private resolveMode (): void {
         this._hasActionContent = this._assignedActionElements.length > 0;
     }
 
-    /**
-     * Chooses which positioning mode the host uses.
-     *
-     * `absolute` is what lets the browser move the panel with the page, so it is the default.
-     * What it gives up is that an ancestor with a non-visible `overflow` clips it whenever that
-     * ancestor holds the host's containing block, which `fixed` sometimes escapes. So both are
-     * costed and the less clipped one wins.
-     *
-     * Every property that establishes a containing block for a fixed element establishes one for
-     * an absolute element too, while `position` alone establishes one only for an absolute
-     * element. The ancestors that can clip a fixed element are therefore always a subset of
-     * those that can clip an absolute one, and `fixed` can only ever be clipped less. That makes
-     * it worth its scroll behaviour only when it escapes a clip that `absolute` does not: when
-     * both are clipped the clipping is identical, so `absolute` keeps the better scroll for free.
-     *
-     * @private
-     */
+    // Picks between `absolute` (browser handles scrolling, but clipped by overflow ancestors) and
+    // `fixed` (escapes overflow clips, but must re-offset on every scroll). Switches to `fixed`
+    // only when it escapes a clip that `absolute` would not.
     private resolveOverlayMode (): void {
         let isAtOrAboveAbsoluteContainingBlock = false;
         let isAtOrAboveFixedContainingBlock = false;
@@ -312,10 +242,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
         let node: Node | null = this.parentNode;
 
         while (node) {
-            // At a shadow boundary `parentNode` is the shadow root rather than an element, so
-            // step over it to the host. The flattened tree is deliberately not followed: a
-            // containing block and a clip are both matters of layout, and layout follows the
-            // light DOM rather than slot assignment.
+            // Step over shadow roots to the host; layout follows the light DOM, not slot assignment.
             const element = node instanceof ShadowRoot ? node.host : node;
 
             if (!(element instanceof Element)) {
@@ -333,10 +260,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
                 isAtOrAboveFixedContainingBlock = true;
             }
 
-            // An `overflow` ancestor clips only what resolves its position against it or against
-            // something inside it, so an ancestor met before the containing block clips neither
-            // mode. This is checked after the two flags are set so that an ancestor which is both
-            // the containing block and the clipper counts as clipping.
+            // Check after setting the containing-block flags so an ancestor that is both the
+            // containing block and the clipper is counted correctly.
             if (styles.overflowX !== 'visible' || styles.overflowY !== 'visible') {
                 isAbsoluteClipped = isAbsoluteClipped || isAtOrAboveAbsoluteContainingBlock;
                 isFixedClipped = isFixedClipped || isAtOrAboveFixedContainingBlock;
@@ -349,26 +274,12 @@ export class PieTooltip extends PieElement implements TooltipProps {
             node = element.parentNode;
         }
 
-        // Set inline rather than through a host attribute: it is a single declaration, and it
-        // keeps the whole mode decision next to the offsets it governs.
         this.style.position = isAbsoluteClipped && !isFixedClipped ? 'fixed' : '';
     }
 
-    /**
-     * Projects the trigger's box onto the anchor so that the panel can be placed against it
-     * entirely in CSS.
-     *
-     * The offsets are measured from the origin marker, which is pinned to the origin of the
-     * anchor's containing block, and are then applied relative to that same box. The measurement
-     * is self-referential, so it holds whatever the containing block turns out to be, including
-     * an ancestor whose `transform` makes it one.
-     *
-     * They are physical, matching the physical measurements they come from. Everything derived
-     * from them inside the shadow root uses logical properties, which is what allows placement to
-     * mirror in RTL with no JavaScript involvement.
-     *
-     * @private
-     */
+    // Measures the trigger relative to the origin marker (which sits at the containing block's
+    // origin) and writes CSS custom properties. Self-referential: correct for any containing
+    // block. Physical values; shadow-root CSS uses logical properties for RTL mirroring.
     private projectOverTrigger (): void {
         this._isPositioned = false;
 
@@ -394,8 +305,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this.style.setProperty('--tooltip-anchor-width', `${width}px`);
         this.style.setProperty('--tooltip-anchor-height', `${height}px`);
 
-        // `fill-container` is defined as the inline size of the trigger's parent element. When the
-        // trigger has no parent element to measure, it falls back to the trigger's own inline size.
         const container = triggerElement.parentElement;
         const containerInlineSize = container ? container.getBoundingClientRect().width : width;
 
@@ -403,16 +312,9 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._isPositioned = true;
     }
 
-    /**
-     * Emits a close event. The component never writes to `isOpen`: the consumer owns it and is
-     * responsible for passing the new value back.
-     *
-     * @private
-     */
     private handleCloseButtonClick (): void {
-        // String literal required: the CEM analyser cannot resolve a constant reference to its
-        // value, so using ON_TOOLTIP_CLOSE_EVENT here would emit a spurious event entry in the
-        // custom-elements manifest and generate a broken onON_TOOLTIP_CLOSE_EVENT prop in react.ts.
+        // String literal required: CEM cannot resolve constants, so a named constant here would
+        // generate a spurious event entry and a broken React prop name.
         this.dispatchEvent(new Event('pie-tooltip-close', { bubbles: true, composed: true }));
     }
 
@@ -451,8 +353,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             _mode: mode,
         } = this;
 
-        // The `icon` type is a self-sizing treatment with no arrow, so `size` has nothing to say
-        // about it and the layer has no arrow to leave room for.
         const isIconType = type === 'icon';
 
         const layerClasses = {
@@ -474,8 +374,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             'has-heading': !!heading,
         };
 
-        // In dialog mode the panel is named by its heading, falling back to `aria.label`. In
-        // tooltip mode the panel is never named: a tooltip is a description, never a name.
         const isDialog = mode === 'dialog';
 
         return html`
