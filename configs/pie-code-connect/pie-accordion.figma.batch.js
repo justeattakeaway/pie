@@ -1,7 +1,7 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
-const getIconSnippet = require('./utils/get-icon-snippet.js');
+const getInstanceCode = require('./utils/get-instance-code.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 const createGetSlotContent = require('./utils/get-slot-content.js');
 
@@ -22,7 +22,7 @@ const secondaryLabel = hasSecondaryText ? getInstanceProp('getString', '[𝐓] S
 
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
 const iconInstance = hasLeadingIcon ? getInstanceProp('getInstanceSwap', 'Replace leading icon') : null;
-const iconSnippet = hasLeadingIcon ? getIconSnippet(iconInstance, 'icon') : '';
+const iconSnippet = hasLeadingIcon ? getInstanceCode(iconInstance, 'icon') : '';
 
 const isDividerHidden = !getInstanceProp('getBoolean', 'Divider');
 
