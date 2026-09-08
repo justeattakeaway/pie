@@ -14,7 +14,7 @@ function getInstanceCode (instance, transform) {
 
     // A slot name is shorthand for inserting that slot attribute into the rendered instance
     const transformCode = typeof transform === 'string'
-        ? (str) => str.replace(/(<[\w-]+\s)/, `$1slot="${transform}" `)
+        ? (str) => str.replace(/(<[\w-]+)([\s/>])/, `$1 slot="${transform}"$2`)
         : transform;
 
     if (transformCode && code && code[0] && code[0].code) {
