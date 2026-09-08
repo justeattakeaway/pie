@@ -21,6 +21,7 @@ import {
     componentSelector,
     defaultProps,
     headingLevels,
+    ON_TOOLTIP_CLOSE_EVENT,
     positions,
     sizes,
     types,
@@ -313,9 +314,15 @@ export class PieTooltip extends PieElement implements TooltipProps {
     }
 
     private handleCloseButtonClick (): void {
-        // String literal required: CEM cannot resolve constants, so a named constant here would
-        // generate a spurious event entry and a broken React prop name.
-        this.dispatchEvent(new Event('pie-tooltip-close', { bubbles: true, composed: true }));
+        /**
+         * The custom elements manifest analyser scans `this.dispatchEvent` calls for event names
+         * but cannot resolve constants, so it would record an event literally named
+         * `ON_TOOLTIP_CLOSE_EVENT` and generate a matching React callback prop. `@ignore` skips
+         * this call site; the event is declared by the class-level `@event` tag instead.
+         *
+         * @ignore
+         */
+        this.dispatchEvent(new Event(ON_TOOLTIP_CLOSE_EVENT, { bubbles: true, composed: true }));
     }
 
     private renderHeading (): TemplateResult {
