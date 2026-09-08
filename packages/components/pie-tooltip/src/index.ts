@@ -167,7 +167,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
     }
 
     // Listens for scroll (capture — catches any ancestor), resize, and dir-attribute changes to
-    // re-anchor the panel. Multiple events per frame coalesce into one rAF.
+    // re-anchor the panel. Multiple events per frame coalesce into one requestAnimationFrame call.
     private startTrackingTrigger (): void {
         if (this._triggerTrackingController) {
             return;
