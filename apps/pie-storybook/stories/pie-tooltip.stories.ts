@@ -289,6 +289,8 @@ const findPanel = (root: HTMLElement, anchor: string) => root.querySelector<PieT
  * so showing a step is only ever a matter of this story setting the value.
  */
 const showTourStep = (root: HTMLElement, index: number) => {
+    const current = tourSteps[index];
+
     tourSteps.forEach((step, stepIndex) => {
         const panel = findPanel(root, step.anchor);
 
@@ -296,8 +298,6 @@ const showTourStep = (root: HTMLElement, index: number) => {
             panel.isOpen = stepIndex === index;
         }
     });
-
-    const current = tourSteps[index];
 
     if (!current) {
         root.querySelector<HTMLElement>('[data-tour-heading]')?.focus();
@@ -321,16 +321,24 @@ const showTourStep = (root: HTMLElement, index: number) => {
         }
     }
 
-    const panel = findPanel(root, current.anchor);
+    const targetPanel = findPanel(root, current.anchor);
 
-    // Waiting for `updateComplete` matters: until the update has been committed the panel is
+    // Waiting for updateComplete matters: until the update has been committed the panel is
     // still `display: none`, and a hidden element cannot take focus. The animation frame then
     // lets the browser lay the panel out before focus moves into it.
-    panel?.updateComplete.then(() => {
-        requestAnimationFrame(() => {
-            panel.querySelector<HTMLElement>('[slot="action"]')?.focus({ preventScroll: true });
+    //
+    // The action button only shows a focus ring when the step is reached by keyboard, or on load
+    // before any interaction. A browser grants :focus-visible to a programmatically focused
+    // element only when the interaction before it was a keyboard one, so a step opened by pointer
+    // moves focus without drawing a ring. That is the intended behaviour of :focus-visible, and
+    // the story leaves it to the browser rather than painting a ring of its own.
+    if (targetPanel) {
+        targetPanel.updateComplete.then(() => {
+            requestAnimationFrame(() => {
+                targetPanel.querySelector<HTMLElement>('[slot="action"]')?.focus({ preventScroll: true });
+            });
         });
-    });
+    }
 };
 
 // `currentTarget` is always the element the handler is bound to, so there is no shadow boundary
@@ -376,6 +384,7 @@ const renderTourStep = (index: number): TemplateResult => {
             heading="${step.heading}"
             headingLevel="h3"
             ?isDismissible="${true}"
+            ?isOpen="${index === 0}"
             .aria="${{ close: 'End the tour' }}"
             @pie-tooltip-close="${handleTourClose}">
             <span slot="content">${step.content}</span>
@@ -717,8 +726,14 @@ const OnboardingTourTemplate: TemplateFunction<TooltipProps> = () => html`
         }
     </style>`;
 
-export const OnboardingTour = createStory<TooltipProps>(OnboardingTourTemplate, defaultArgs)({}, {
-    controls: {
-        disable: true,
+export const OnboardingTour = {
+    ...createStory<TooltipProps>(OnboardingTourTemplate, defaultArgs)({}, {
+        controls: {
+            disable: true,
+        },
+    }),
+    play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+        const root = canvasElement.querySelector<HTMLElement>('[data-tour-root]');
+        if (root) showTourStep(root, 0);
     },
-});
+};
