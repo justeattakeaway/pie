@@ -2565,7 +2565,7 @@
           "category": "headings",
           "displayName": "Heading XS",
           "description": "Used for component and layout headings.",
-          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
+          "globalToken": ["$font-size-14", "$font-line-height-16", "$font-family-primary", "$font-weight-black", "$letter-spacing-00"]
         },
         "heading-xxl-italic": {
           "category": "headings",
@@ -2601,7 +2601,7 @@
           "category": "headings",
           "displayName": "Heading XS Italic",
           "description": "Used for component and layout headings.",
-          "globalToken": ["$font-size-14", "$font-line-height-20", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
+          "globalToken": ["$font-size-14", "$font-line-height-16", "$font-family-primary", "$font-weight-black", "$font-style-italic", "$letter-spacing-00"]
         },
         "subheading-l": {
           "category": "subheadings",
