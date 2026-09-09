@@ -3779,7 +3779,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.32.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.3"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.19"
+    "@justeattakeaway/pie-webc": "npm:0.11.20"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -4103,7 +4103,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.3"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.19"
+    "@justeattakeaway/pie-webc": "npm:0.11.20"
     "@storybook/addon-a11y": "npm:10.5.10"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.5.10"
@@ -4237,7 +4237,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tooltip@npm:0.1.1, @justeattakeaway/pie-tooltip@workspace:packages/components/pie-tooltip":
+"@justeattakeaway/pie-tooltip@npm:0.2.0, @justeattakeaway/pie-tooltip@workspace:packages/components/pie-tooltip":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tooltip@workspace:packages/components/pie-tooltip"
   dependencies:
@@ -4285,7 +4285,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.11.19, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.11.20, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4322,7 +4322,7 @@ __metadata:
     "@justeattakeaway/pie-thumbnail": "npm:0.9.4"
     "@justeattakeaway/pie-toast": "npm:1.2.3"
     "@justeattakeaway/pie-toast-provider": "npm:1.2.3"
-    "@justeattakeaway/pie-tooltip": "npm:0.1.1"
+    "@justeattakeaway/pie-tooltip": "npm:0.2.0"
     chalk: "npm:5.6.2"
   languageName: unknown
   linkType: soft

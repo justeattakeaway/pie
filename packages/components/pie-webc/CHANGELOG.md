@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 0.11.20
+
+### Patch Changes
+
+- Updated dependencies [[`2cffd4d`](https://github.com/justeattakeaway/pie/commit/2cffd4d6799da3108c60cae796dbe62c5270f0b2)]:
+  - @justeattakeaway/pie-tooltip@0.2.0
+
 ## 0.11.19
 
 ### Patch Changes
