@@ -61,6 +61,9 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
     @validPropertyValues(componentSelector, positions, defaultProps.position)
     public position = defaultProps.position;
 
+    @property({ type: Boolean })
+    public isStacked = defaultProps.isStacked;
+
     @state()
     private _toasts: ExtendedToastProps[] = [];
 
@@ -187,10 +190,16 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
     }
 
     /**
-     * Fills visible slots from the queue up to MAX_VISIBLE_TOASTS.
+     * Fills the visible slots from the queue.
+     *
+     * The loop only ever adds toasts, so turning `isStacked` off while several are on screen
+     * does not remove any: the extras stay until they dismiss normally, then the provider
+     * settles back to one at a time.
      */
     private _showNextToast () {
-        while (this._visibleToasts.length < MAX_VISIBLE_TOASTS && this._toasts.length > 0) {
+        const maxVisibleToasts = this.isStacked ? MAX_VISIBLE_TOASTS : 1;
+
+        while (this._visibleToasts.length < maxVisibleToasts && this._toasts.length > 0) {
             const [nextToast, ...remainingToasts] = this._toasts;
             this._visibleToasts = [...this._visibleToasts, nextToast];
             this._toasts = remainingToasts;

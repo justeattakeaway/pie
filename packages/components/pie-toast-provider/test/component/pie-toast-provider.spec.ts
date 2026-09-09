@@ -178,6 +178,7 @@ test.describe('PieToastProvider - Component tests', () => {
                 // Arrange
                 const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
                 await pieToastProviderPage.load({
+                    isStacked: true,
                     options: {
                         variant: 'neutral',
                         isDismissible: true,
@@ -203,6 +204,7 @@ test.describe('PieToastProvider - Component tests', () => {
                 // Arrange
                 const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
                 await pieToastProviderPage.load({
+                    isStacked: true,
                     options: {
                         duration: null,
                         isDismissible: true,
@@ -527,7 +529,7 @@ test.describe('PieToastProvider - Component tests', () => {
         test('should display up to 3 toasts simultaneously', async ({ page }) => {
             // Arrange
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
-            await pieToastProviderPage.load();
+            await pieToastProviderPage.load({ isStacked: true });
             await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
             // Act
@@ -545,7 +547,7 @@ test.describe('PieToastProvider - Component tests', () => {
         test('should queue additional toasts when 3 are already visible', async ({ page }) => {
             // Arrange
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
-            await pieToastProviderPage.load();
+            await pieToastProviderPage.load({ isStacked: true });
             await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
             await installQueueListener(page);
 
@@ -567,7 +569,7 @@ test.describe('PieToastProvider - Component tests', () => {
         test('should promote a queued toast when a visible toast is dismissed', async ({ page }) => {
             // Arrange
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
-            await pieToastProviderPage.load();
+            await pieToastProviderPage.load({ isStacked: true });
             await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
             // Act — fill 3 visible slots and queue a 4th
@@ -588,6 +590,50 @@ test.describe('PieToastProvider - Component tests', () => {
             // Assert — Toast 4 is promoted from the queue; total stays at 3
             await expect(page.locator('pie-toast[message="Toast 4"]')).toBeVisible();
             await expect(toastsLocator).toHaveCount(3);
+        });
+
+        test('should display a single toast and queue the rest when isStacked is not set', async ({ page }) => {
+            // Arrange — isStacked defaults to false
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+            await installQueueListener(page);
+
+            // Act
+            const snapshot = await afterNextSnapshot(page, () => page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Toast 1', duration: null });
+                tp.createToast({ message: 'Toast 2', duration: null });
+                tp.createToast({ message: 'Toast 3', duration: null });
+            }));
+
+            // Assert — only the first is displayed, the other two wait in the queue
+            await expect(page.locator('pie-toast-provider pie-toast')).toHaveCount(1);
+            await expect(page.locator('pie-toast[message="Toast 1"]')).toBeVisible();
+            expect(snapshot.map(({ message }) => message)).toEqual(['Toast 2', 'Toast 3']);
+        });
+
+        test('should promote only one queued toast when isStacked is not set', async ({ page }) => {
+            // Arrange — isStacked defaults to false
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Toast 1', duration: null, isDismissible: true });
+                tp.createToast({ message: 'Toast 2', duration: null });
+            });
+
+            const toastsLocator = page.locator('pie-toast-provider pie-toast');
+            await expect(toastsLocator).toHaveCount(1);
+
+            await page.getByTestId(toastProvider.selectors.toastClose.dataTestId).getByRole('button').click();
+
+            // Assert — Toast 2 replaces Toast 1 rather than joining it
+            await expect(page.locator('pie-toast[message="Toast 2"]')).toBeVisible();
+            await expect(toastsLocator).toHaveCount(1);
         });
     });
 });

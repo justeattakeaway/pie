@@ -39,6 +39,13 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.position,
             },
         },
+        isStacked: {
+            description: 'When true, up to 3 toasts are displayed at the same time in a vertical stack. When false, a single toast is displayed at a time and the rest wait in the queue.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isStacked,
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -49,18 +56,20 @@ const onQueueUpdate = (queue: CustomEvent) => {
     console.info('toast provider queue:', queue.detail);
 };
 
-const Template = ({ options = defaultProps.options, position }: ToastProviderProps) => html`
+const Template = ({ options = defaultProps.options, position, isStacked }: ToastProviderProps) => html`
         <pie-toast-provider
             .options="${options}"
             position="${ifDefined(position)}"
+            ?isStacked="${isStacked}"
             @pie-toast-provider-queue-update="${onQueueUpdate}">
         </pie-toast-provider>
     `;
 
-const PositionTemplate = ({ options = defaultProps.options, position }: ToastProviderProps) => html`
+const PositionTemplate = ({ options = defaultProps.options, position, isStacked }: ToastProviderProps) => html`
         <pie-toast-provider
             .options="${options}"
             position="${ifDefined(position)}"
+            ?isStacked="${isStacked}"
             @pie-toast-provider-queue-update="${onQueueUpdate}">
         </pie-toast-provider>
     `;
@@ -255,6 +264,17 @@ export const AutoResolveProvider: StoryObj<ToastProviderProps> = {
 };
 
 export const Stacked: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(PositionTemplate, { ...defaultArgs, isStacked: true })(),
+    play: () => {
+        toaster.create({ message: 'First toast message', duration: null });
+        toaster.create({ message: 'Second toast message', duration: null });
+        toaster.create({ message: 'Third toast message', duration: null });
+    },
+};
+
+// Same three toasts as `Stacked`, but with the default `isStacked: false`, so only the first
+// is displayed and the other two wait in the queue.
+export const Unstacked: StoryObj<ToastProviderProps> = {
     ...createStory<ToastProviderProps>(PositionTemplate, defaultArgs)(),
     play: () => {
         toaster.create({ message: 'First toast message', duration: null });
