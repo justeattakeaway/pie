@@ -33,8 +33,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    if: github.repository == 'justeattakeaway/pie' && github.event_name != 'pull_request' &&
-      (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
+    if: github.repository == 'justeattakeaway/pie' && github.event_name != 'pull_request' && github.ref_name == 'main'
     steps:
     # Checkout the Repo
     - name: Checkout
@@ -69,24 +68,11 @@ jobs:
         EOF
     # Build Packages
     - name: Build
-      if: github.event_name != 'pull_request' &&
-        (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
       uses: ./.github/actions/run-script
       with:
         script-name: "build"
-    - name: Check for pre.json file existence
-      id: check_files
-      uses: andstor/file-existence-action@558493d6c74bf472d87c84eab196434afc2fa029 # v3.1.0
-      with:
-        files: ".changeset/pre.json"
-    - name: exit prerelease mode
-      # If .changeset/pre.json does not exist and we did not recently exit
-      # prerelease mode.
-      if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
-      run: yarn exec changeset pre exit
     - name: Create latest release PR
       id: changesets-main
-      if: contains(github.ref_name, 'main')
       uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
       env:
         GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
@@ -94,39 +80,6 @@ jobs:
         version: yarn changeset:version
         publish: yarn changeset:publish
         commit: "release: release packages with 'latest' tag"
-    # If .changeset/pre.json does not exist and we did not recently exit
-    # prerelease mode, enter prerelease mode with tag beta
-    - name: Enter beta prerelease mode
-      id: changesets-beta
-      if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
-      # If .changeset/pre.json does not exist and we did not recently exit
-      # prerelease mode, enter prerelease mode with tag beta
-      run: yarn exec changeset pre enter beta
-    - name: Create beta release PR
-      if: contains(github.ref_name, 'beta')
-      uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
-      env:
-        GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
-      with:
-        version: yarn changeset:version
-        publish: yarn changeset:publish
-        commit: "release: release packages with 'beta' tag"
-    - name: Enter feature prerelease mode
-      id: changesets-feature
-      if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
-      # If .changeset/pre.json does not exist and we did not recently exit
-      # prerelease mode, enter prerelease mode with tag next
-      run: yarn exec changeset pre enter next
-    - name: Create feature release PR
-      if: contains(github.ref_name, 'feature')
-      uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
-      env:
-        GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
-      with:
-        version: yarn changeset:version
-        publish: yarn changeset:publish
-        commit: "release: release packages with 'next' tag"
-
 
     # This script performs the following logic:
     # 1. Defines a list of packages with their versions.
