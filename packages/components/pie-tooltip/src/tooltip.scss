@@ -1,7 +1,369 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+// All twelve position values are generated explicitly — none inferred.
+$tooltip-alignments: ('', '-start', '-end');
+
+// Zero-size, pinned to the containing block's origin. Trigger position is measured relative
+// to this point so the panel resolves against the document rather than the viewport.
+
 :host {
-    // Note: For consistency sake, the recommended display should be either
-    // "block" or "inline-block", otherwise it can be ommited for floating elements
+    --tooltip-anchor-top: 0;
+    --tooltip-anchor-left: 0;
+    --tooltip-anchor-width: 0;
+    --tooltip-anchor-height: 0;
+    --tooltip-container-inline-size: 0;
+    --tooltip-offset: var(--dt-spacing-a);
+
+    // Arrow protrusion depth; base is size × 2 (16px wide × 8px tall).
+    // Declared on the host so the placement layer can account for it.
+    --tooltip-arrow-size: 8px;
+
+    // Layer must clear both the offset and the arrow so the arrow tip doesn't touch the trigger.
+    --tooltip-layer-offset: calc(var(--tooltip-offset) + var(--tooltip-arrow-size));
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: var(--dt-z-index-tooltip);
+
     display: block;
+
+    inline-size: 0;
+    block-size: 0;
+
+    // Inherits to the anchor; the panel opts back in with `pointer-events: auto`.
+    pointer-events: none;
+}
+
+.c-tooltip-origin {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    inline-size: 0;
+    block-size: 0;
+}
+
+// Sized and positioned to match the trigger; the placement layer resolves against this box.
+.c-tooltip-anchor {
+    position: absolute;
+    top: var(--tooltip-anchor-top);
+    left: var(--tooltip-anchor-left);
+
+    inline-size: var(--tooltip-anchor-width);
+    block-size: var(--tooltip-anchor-height);
+}
+
+// Grid so panel alignment uses logical start/center/end. A panel wider than its track overflows
+// evenly from center, keeping it centred on the trigger.
+.c-tooltip-layer {
+    position: absolute;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    visibility: hidden;
+    transition: visibility 0s linear 150ms;
+
+    &.is-open.is-positioned {
+        visibility: visible;
+        transition-delay: 0s;
+    }
+}
+
+.c-tooltip-layer--type-icon {
+    --tooltip-layer-offset: var(--tooltip-offset);
+}
+
+@each $alignment in $tooltip-alignments {
+    .c-tooltip-layer--top#{$alignment},
+    .c-tooltip-layer--bottom#{$alignment} {
+        inset-inline-start: 0;
+
+        inline-size: 100%;
+    }
+
+    .c-tooltip-layer--left#{$alignment},
+    .c-tooltip-layer--right#{$alignment} {
+        inset-block-start: 0;
+
+        block-size: 100%;
+    }
+
+    .c-tooltip-layer--top#{$alignment} {
+        inset-block-end: calc(100% + var(--tooltip-layer-offset));
+    }
+
+    .c-tooltip-layer--bottom#{$alignment} {
+        inset-block-start: calc(100% + var(--tooltip-layer-offset));
+    }
+
+    // `left`/`right` resolve on the inline axis and swap in RTL. Their -start/-end alignments
+    // are on the block axis, which has no direction to mirror.
+    .c-tooltip-layer--left#{$alignment} {
+        inset-inline-end: calc(100% + var(--tooltip-layer-offset));
+    }
+
+    .c-tooltip-layer--right#{$alignment} {
+        inset-inline-start: calc(100% + var(--tooltip-layer-offset));
+    }
+}
+
+@each $side in (top, bottom, left, right) {
+    .c-tooltip-layer--#{$side} {
+        place-items: center;
+    }
+
+    .c-tooltip-layer--#{$side}-start {
+        place-items: start;
+    }
+
+    .c-tooltip-layer--#{$side}-end {
+        place-items: end;
+    }
+}
+
+.c-tooltip {
+    --tooltip-inline-size: 280px;
+    --tooltip-max-inline-size: calc(100vw - var(--dt-spacing-d) * 2);
+    --tooltip-background-color: var(--dt-color-container-inverse);
+    --tooltip-content-color: var(--dt-color-content-inverse);
+    --tooltip-border-radius: var(--dt-radius-rounded-b);
+    --tooltip-padding-block: var(--dt-spacing-b);
+    --tooltip-padding-inline: var(--dt-spacing-c);
+    --tooltip-close-size: 32px;
+    --tooltip-motion-duration: 150ms;
+    --tooltip-motion-easing: cubic-bezier(0.45, 0, 0.55, 1);
+    --tooltip-motion-translate-x: 0;
+    --tooltip-motion-translate-y: 0;
+
+    // Arrow centre offset from the aligned edge for -start/-end. Clear of the corner radius.
+    --tooltip-arrow-inset: calc(var(--tooltip-border-radius) + var(--tooltip-arrow-size));
+
+    // Centre position → box inset. Percentages resolve per axis, so one declaration covers both.
+    --tooltip-arrow-cross-inset: calc(var(--tooltip-arrow-cross-position, 50%) - var(--tooltip-arrow-size));
+
+    // 2px overlap into the panel prevents subpixel gaps between arrow and edge.
+    --tooltip-arrow-main-inset-far: calc(100% - 2px);
+    --tooltip-arrow-main-inset-near: calc(var(--tooltip-arrow-size) * -1);
+
+    @include p.font-theme('font-body-s');
+
+    position: relative;
+
+    inline-size: var(--tooltip-width, var(--tooltip-inline-size));
+    max-inline-size: var(--tooltip-max-inline-size);
+    padding-block-start: var(--tooltip-padding-block);
+    padding-block-end: var(--tooltip-padding-block);
+    padding-inline-start: var(--tooltip-padding-inline);
+    padding-inline-end: var(--tooltip-padding-inline);
+    border-radius: var(--tooltip-border-radius);
+    background-color: var(--tooltip-background-color);
+    color: var(--tooltip-content-color);
+    pointer-events: auto;
+    opacity: 0;
+    transform: translate(var(--tooltip-motion-translate-x), var(--tooltip-motion-translate-y));
+    transition:
+        opacity var(--tooltip-motion-duration) var(--tooltip-motion-easing),
+        transform var(--tooltip-motion-duration) var(--tooltip-motion-easing);
+}
+
+.c-tooltip-layer.is-open.is-positioned .c-tooltip {
+    --tooltip-motion-duration: 200ms;
+
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+@each $alignment in $tooltip-alignments {
+    .c-tooltip--top#{$alignment} {
+        --tooltip-motion-translate-y: 4px;
+    }
+
+    .c-tooltip--bottom#{$alignment} {
+        --tooltip-motion-translate-y: -4px;
+    }
+
+    .c-tooltip--left#{$alignment} {
+        --tooltip-motion-translate-x: 4px;
+    }
+
+    .c-tooltip--right#{$alignment} {
+        --tooltip-motion-translate-x: -4px;
+    }
+}
+
+// Transforms are physical; logical left/right need their translate flipped in RTL.
+:host(:dir(rtl)) {
+    @each $alignment in $tooltip-alignments {
+        .c-tooltip--left#{$alignment} {
+            --tooltip-motion-translate-x: -4px;
+        }
+
+        .c-tooltip--right#{$alignment} {
+            --tooltip-motion-translate-x: 4px;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .c-tooltip-layer,
+    .c-tooltip {
+        transition: none;
+    }
+}
+
+.c-tooltip--inverse {
+    --tooltip-background-color: var(--dt-color-container-default);
+    --tooltip-content-color: var(--dt-color-content-default);
+}
+
+.c-tooltip--size-fit-to-content {
+    --tooltip-inline-size: max-content;
+}
+
+.c-tooltip--size-fill-container {
+    --tooltip-inline-size: var(--tooltip-container-inline-size);
+    --tooltip-max-inline-size: none;
+}
+
+// Also declares inline-size to prevent `--tooltip-width` from overriding it.
+.c-tooltip--type-icon {
+    --tooltip-border-radius: var(--dt-radius-rounded-e);
+    --tooltip-padding-block: var(--dt-spacing-a);
+    --tooltip-padding-inline: var(--dt-spacing-c);
+
+    inline-size: max-content;
+}
+
+.c-tooltip.is-dismissible {
+    // The close button is taller than one content line; reserve its block size.
+    min-block-size: calc(var(--tooltip-close-size) + var(--dt-spacing-b) * 2);
+    padding-inline-end: calc(var(--tooltip-padding-inline) + var(--tooltip-close-size));
+}
+
+.c-tooltip.is-dismissible:not(.has-heading) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// Arrow: clip-path triangle, 16px wide × 8px tall. Both insets are logical so the arrow
+// follows the panel when left/right swap in RTL.
+@mixin tooltip-arrow-clip($direction) {
+    @if $direction == up {
+        inline-size: calc(var(--tooltip-arrow-size) * 2);
+        block-size: calc(var(--tooltip-arrow-size) + 2px);
+        clip-path: polygon(50% 0%, 100% var(--tooltip-arrow-size), 100% 100%, 0% 100%, 0% var(--tooltip-arrow-size));
+    } @else if $direction == down {
+        inline-size: calc(var(--tooltip-arrow-size) * 2);
+        block-size: calc(var(--tooltip-arrow-size) + 2px);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 2px, 50% 100%, 0% 2px);
+    } @else if $direction == left {
+        inline-size: calc(var(--tooltip-arrow-size) + 2px);
+        block-size: calc(var(--tooltip-arrow-size) * 2);
+        clip-path: polygon(0% 50%, var(--tooltip-arrow-size) 0%, 100% 0%, 100% 100%, var(--tooltip-arrow-size) 100%);
+    } @else if $direction == right {
+        inline-size: calc(var(--tooltip-arrow-size) + 2px);
+        block-size: calc(var(--tooltip-arrow-size) * 2);
+        clip-path: polygon(0% 0%, 2px 0%, 100% 50%, 2px 100%, 0% 100%);
+    }
+}
+
+@each $side in (top, bottom, left, right) {
+    .c-tooltip--#{$side} {
+        --tooltip-arrow-cross-position: 50%;
+    }
+
+    .c-tooltip--#{$side}-start {
+        --tooltip-arrow-cross-position: var(--tooltip-arrow-inset);
+    }
+
+    .c-tooltip--#{$side}-end {
+        --tooltip-arrow-cross-position: calc(100% - var(--tooltip-arrow-inset));
+    }
+}
+
+.c-tooltip-arrow {
+    position: absolute;
+
+    background-color: var(--tooltip-background-color);
+}
+
+@each $alignment in $tooltip-alignments {
+    .c-tooltip--top#{$alignment} .c-tooltip-arrow {
+        @include tooltip-arrow-clip(down);
+
+        inset-block-start: var(--tooltip-arrow-main-inset-far);
+        inset-inline-start: var(--tooltip-arrow-cross-inset);
+    }
+
+    .c-tooltip--bottom#{$alignment} .c-tooltip-arrow {
+        @include tooltip-arrow-clip(up);
+
+        inset-block-start: var(--tooltip-arrow-main-inset-near);
+        inset-inline-start: var(--tooltip-arrow-cross-inset);
+    }
+
+    .c-tooltip--left#{$alignment} .c-tooltip-arrow {
+        @include tooltip-arrow-clip(right);
+
+        inset-block-start: var(--tooltip-arrow-cross-inset);
+        inset-inline-start: var(--tooltip-arrow-main-inset-far);
+    }
+
+    .c-tooltip--right#{$alignment} .c-tooltip-arrow {
+        @include tooltip-arrow-clip(left);
+
+        inset-block-start: var(--tooltip-arrow-cross-inset);
+        inset-inline-start: var(--tooltip-arrow-main-inset-near);
+    }
+}
+
+// clip-path is physical; scaleX(-1) flips left/right arrows to face the correct way in RTL.
+:host(:dir(rtl)) {
+    @each $alignment in $tooltip-alignments {
+        .c-tooltip--left#{$alignment} .c-tooltip-arrow,
+        .c-tooltip--right#{$alignment} .c-tooltip-arrow {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+.c-tooltip-heading {
+    @include p.font-theme('font-body-strong-s');
+
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.c-tooltip-content {
+    overflow-wrap: break-word;
+}
+
+.c-tooltip.has-action .c-tooltip-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-block-start: var(--dt-spacing-a);
+}
+
+.c-tooltip.is-dismissible.has-action .c-tooltip-action {
+    margin-inline-end: calc(var(--tooltip-close-size) * -1);
+}
+
+// Close button is out of flow; reserving its block size on the body aligns the action row with it.
+.c-tooltip.is-dismissible.has-action .c-tooltip-body {
+    min-block-size: var(--tooltip-close-size);
+}
+
+// No heading means one content line; keep it centred against the close button.
+.c-tooltip.is-dismissible.has-action:not(.has-heading) .c-tooltip-body {
+    display: grid;
+    align-content: center;
+}
+
+.c-tooltip-close {
+    position: absolute;
+    inset-block-start: var(--dt-spacing-b);
+    inset-inline-end: var(--dt-spacing-b);
 }

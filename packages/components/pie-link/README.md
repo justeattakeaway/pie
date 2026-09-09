@@ -40,7 +40,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `target` | — | The `target` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`. | `undefined` |
 | `download` | `string` | Sets the download attribute to trigger file downloads. Pass an empty string `""` to enable download with the original filename, or provide a custom filename. Only available when `tag` is `a`. **Use same origin URLs** and point to the file using the `href` property. | `undefined` |
 | `rel` | — | The `rel` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`. | `undefined` |
-| `type` | `"button"`, `"reset"`, `"submit"` | The `type` attribute to apply when `tag` is set to `"button"`. | `"submit"` |
+| `type` | `"button"`, `"reset"`, `"submit"`, `"menu"` | The `type` attribute to apply when `tag` is set to `"button"`. | `"submit"` |
 | `underline` | `"default"`, `"reversed"` | The underline behaviour of the link. The default behaviour has the link text underlined, with the underline disappearing on hover. `"reversed"` will only take effect if `isStandalone` is set to `true`. | `"default"` |
 | `isBold` | `true`, `false` | If true, makes the link text bold. | `false` |
 | `isStandalone` | `true`, `false` | If true, sets the link as a block element. | `false` |

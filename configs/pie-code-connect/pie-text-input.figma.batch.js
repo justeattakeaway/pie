@@ -2,7 +2,7 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const createGetInstanceTemplate = require('./utils/get-instance-template.js');
 const renderProp = require('./utils/render-prop.js');
-const getIconSnippet = require('./utils/get-icon-snippet.js');
+const getInstanceCode = require('./utils/get-instance-code.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
@@ -42,7 +42,7 @@ const leadingContentType = hasLeadingContent && getInstanceProp(['Leading conten
 let leadingContentSnippet = '';
 if (leadingContentType === 'Icon') {
     const leadingIconInstance = getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
-    leadingContentSnippet = getIconSnippet(leadingIconInstance, 'leadingIcon');
+    leadingContentSnippet = getInstanceCode(leadingIconInstance, 'leadingIcon');
 } else if (leadingContentType === 'Alphanumeric') {
     leadingContentSnippet = '<span slot="leadingText">#</span>';
 }
@@ -52,7 +52,7 @@ const trailingContentType = hasTrailingContent && getInstanceProp(['Trailing con
 let trailingContentSnippet = '';
 if (trailingContentType === 'Icon') {
     const trailingIconInstance = getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Icon');
-    trailingContentSnippet = getIconSnippet(trailingIconInstance, 'trailingIcon');
+    trailingContentSnippet = getInstanceCode(trailingIconInstance, 'trailingIcon');
 } else if (trailingContentType === 'Alphanumeric') {
     trailingContentSnippet = '<span slot="trailingText">#</span>';
 } else if (trailingContentType === 'Payment method') {
