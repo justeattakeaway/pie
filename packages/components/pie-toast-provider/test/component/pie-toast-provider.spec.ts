@@ -497,11 +497,15 @@ test.describe('PieToastProvider - Component tests', () => {
                 tp.createToast({ message: 'Something went wrong', variant: 'error', duration: null });
             });
 
-            // Assert
-            const announcer = page.getByTestId(toastProvider.selectors.announcer.dataTestId);
+            // Assert — error messages go to the dedicated assertive region, so its politeness can
+            // never be downgraded by a later non-error toast.
+            const announcer = page.getByTestId(toastProvider.selectors.announcerAssertive.dataTestId);
             await expect(announcer).toHaveAttribute('role', 'alert');
             await expect(announcer).toHaveAttribute('aria-live', 'assertive');
             await expect(announcer).toHaveText('Something went wrong');
+
+            // ...and not to the polite one
+            await expect(page.getByTestId(toastProvider.selectors.announcer.dataTestId)).toHaveText('');
         });
 
         test('should disable the rendered toast own live region to avoid double announcements', async ({ page }) => {
@@ -522,6 +526,70 @@ test.describe('PieToastProvider - Component tests', () => {
             await expect(toastContainer).toBeVisible();
             await expect(toastContainer).toHaveAttribute('role', 'status');
             await expect(toastContainer).toHaveAttribute('aria-live', 'off');
+        });
+
+        test('should announce every stacked toast message when several become visible in one render', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load({ isStacked: true });
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act — all three creates are synchronous, so Lit batches them into a single render
+            await createToasts(page, pieToastProviderPage, [
+                { message: 'First message', duration: null },
+                { message: 'Second message', duration: null },
+                { message: 'Third message', duration: null },
+            ]);
+
+            // Assert — one node per message, in arrival order. Asserting on the child count matters:
+            // a single merged node would satisfy a text assertion but would be announced only once.
+            const announcements = page.getByTestId(toastProvider.selectors.announcer.dataTestId).locator('div');
+            await expect(announcements).toHaveCount(3);
+            await expect(announcements).toHaveText(['First message', 'Second message', 'Third message']);
+        });
+
+        test('should announce one message at a time when isStacked is not set', async ({ page }) => {
+            // Arrange — isStacked defaults to false
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await createToasts(page, pieToastProviderPage, [
+                { message: 'First message', duration: null, isDismissible: true },
+                { message: 'Second message', duration: null },
+            ]);
+
+            // Assert — only the visible toast is announced; the queued one waits its turn
+            const announcements = page.getByTestId(toastProvider.selectors.announcer.dataTestId).locator('div');
+            await expect(announcements).toHaveCount(1);
+            await expect(announcements).toHaveText(['First message']);
+
+            // Act — dismissing the first promotes the second
+            await page.getByTestId(toastProvider.selectors.toastClose.dataTestId).getByRole('button').click();
+
+            // Assert — the region now holds the promoted message instead
+            await expect(announcements).toHaveCount(1);
+            await expect(announcements).toHaveText(['Second message']);
+        });
+
+        test('should keep error and non-error announcements in separate regions', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load({ isStacked: true });
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act — a non-error toast arrives after an error one
+            await createToasts(page, pieToastProviderPage, [
+                { message: 'Something went wrong', variant: 'error', duration: null },
+                { message: 'You favourited KFC', variant: 'neutral', duration: null },
+            ]);
+
+            // Assert — each region holds only its own messages, so the error stays assertive
+            await expect(page.getByTestId(toastProvider.selectors.announcerAssertive.dataTestId))
+                .toHaveText('Something went wrong');
+            await expect(page.getByTestId(toastProvider.selectors.announcer.dataTestId))
+                .toHaveText('You favourited KFC');
         });
     });
 

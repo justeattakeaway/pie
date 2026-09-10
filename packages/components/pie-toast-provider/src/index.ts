@@ -76,6 +76,15 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
     @state()
     private _collapsingToasts: ExtendedToastProps[] = [];
 
+    /**
+     * Messages currently held in the live regions, in the order they became visible.
+     *
+     * The toast objects themselves are reused as entries: they are unique per `createToast`, which
+     * gives `repeat` a stable key and lets the entries be pruned by identity when a toast leaves.
+     */
+    @state()
+    private _announcements: ExtendedToastProps[] = [];
+
     /** Pending {@link MOTION_FALLBACK_MS} timers, keyed by the toast they will advance. */
     private _motionFallbacks = new Map<ExtendedToastProps, ReturnType<typeof setTimeout>>();
 
@@ -186,6 +195,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
         this._clearMotionFallback(toast);
         this._collapsingToasts = this._collapsingToasts.filter((t) => t !== toast);
         this._visibleToasts = this._visibleToasts.filter((t) => t !== toast);
+        this._announcements = this._announcements.filter((t) => t !== toast);
         this._showNextToast();
     }
 
@@ -203,6 +213,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
             const [nextToast, ...remainingToasts] = this._toasts;
             this._visibleToasts = [...this._visibleToasts, nextToast];
             this._toasts = remainingToasts;
+            this._announcements = [...this._announcements, nextToast];
         }
     }
 
@@ -232,6 +243,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
         this._visibleToasts = [];
         this._dismissingToasts = [];
         this._collapsingToasts = [];
+        this._announcements = [];
     }
 
     render () {
@@ -245,8 +257,21 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
             [`c-toast-provider--${position}`]: true,
         };
 
-        const latestToast = _visibleToasts[_visibleToasts.length - 1] ?? null;
-        const isError = latestToast?.variant === 'error';
+        // Two regions with fixed politeness, rather than one region that switches: a neutral toast
+        // arriving after an error must not downgrade the error's announcement.
+        //
+        // `aria-atomic="false"` is what makes batching work. Lit renders several newly visible
+        // toasts in a single update, and assistive tech announces only the nodes added in that
+        // update, so each message is read in turn instead of the last one replacing the rest.
+        // `aria-relevant` defaults to `additions text`, so pruning a departed toast is silent.
+        const politeAnnouncements = this._announcements.filter(({ variant }) => variant !== 'error');
+        const assertiveAnnouncements = this._announcements.filter(({ variant }) => variant === 'error');
+
+        const renderAnnouncements = (announcements: ExtendedToastProps[]) => repeat(
+            announcements,
+            (toast) => toast,
+            (toast) => html`<div>${toast.message}</div>`,
+        );
 
         return html`
         <div
@@ -254,11 +279,19 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
             data-test-id="pie-toast-provider">
             <div
                 class="c-toast-provider-announcer"
-                role="${isError ? 'alert' : 'status'}"
-                aria-live="${isError ? 'assertive' : 'polite'}"
-                aria-atomic="true"
+                role="status"
+                aria-live="polite"
+                aria-atomic="false"
                 data-test-id="pie-toast-provider-announcer">
-                ${latestToast?.message ?? ''}
+                ${renderAnnouncements(politeAnnouncements)}
+            </div>
+            <div
+                class="c-toast-provider-announcer"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="false"
+                data-test-id="pie-toast-provider-announcer-assertive">
+                ${renderAnnouncements(assertiveAnnouncements)}
             </div>
             ${repeat(_visibleToasts, (toast) => toast, (toast) => html`
                 <div
