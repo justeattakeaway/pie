@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.21.4
+
+### Patch Changes
+
+- Added - Improved mechanism for detecting component readiness in visual tests ([#3170](https://github.com/justeattakeaway/pie/pull/3170)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.21.3
 
 ### Patch Changes

@@ -140,10 +140,24 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
             'pie-animation--slide-out': _currentToast === null,
         };
 
+        const isError = _currentToast?.variant === 'error';
+
+        // The provider owns the announcement, so the rendered toast's own live region is disabled
+        // (`aria-live: off`) to prevent the message being announced twice.
+        const toastAria = { ..._currentToast?.aria, live: 'off' as const };
+
         return html`
-        <div 
+        <div
             class=${classMap(classes)}
             data-test-id="pie-toast-provider">
+            <div
+                class="c-toast-provider-announcer is-visuallyHidden"
+                role="${isError ? 'alert' : 'status'}"
+                aria-live="${isError ? 'assertive' : 'polite'}"
+                aria-atomic="true"
+                data-test-id="pie-toast-provider-announcer">
+                ${_currentToast?.message ?? ''}
+            </div>
             ${_currentToast &&
             html`
                 <pie-toast
@@ -154,7 +168,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
                     ?isDismissible="${_currentToast.isDismissible}"
                     ?isMultiline="${_currentToast.isMultiline}"
                     .leadingAction="${_currentToast.leadingAction}"
-                    .aria="${_currentToast.aria}"
+                    .aria="${toastAria}"
                     .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
                     @pie-toast-close="${this._dismissToast}"
                     @pie-toast-open="${_currentToast.onPieToastOpen}"

@@ -2,7 +2,7 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const getIconSnippet = require('./utils/get-icon-snippet.js');
+const getInstanceCode = require('./utils/get-instance-code.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
@@ -41,7 +41,7 @@ const hasIcon = hasLeadingIcon || hasTrailingIcon;
 if (hasIcon) {
     iconPlacement = hasLeadingIcon ? 'leading' : 'trailing';
     const iconInstance = getInstanceProp('getInstanceSwap', hasLeadingIcon ? 'Replace leading icon' : 'Replace trailing icon');
-    iconSnippet = getIconSnippet(iconInstance, (code) => code.replace('></', ' slot="icon"></'));
+    iconSnippet = getInstanceCode(iconInstance, 'icon');
 }
 
 const label = getInstanceProp('getString', '[𝐓] Link');
@@ -64,5 +64,5 @@ const template = figma.code`<${selectedComponentName}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-link',
+    id: componentName,
 };

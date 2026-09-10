@@ -1,5 +1,6 @@
 import { type Page } from '@playwright/test';
 import { buildUrl } from './storybook-extensions';
+import { freezeAnimations as freezePageAnimations, settlePage } from './settle';
 
 declare global {
     interface Window { __eventsArray: Array<string>; }
@@ -35,7 +36,19 @@ export class BasePage {
 
     async open (url: string) {
         await this.page.goto(url, { waitUntil: this.waitUntilStrategy });
+        await settlePage(this.page);
         return this;
+    }
+
+    /**
+     * Stops the animations again after `open` stops them.
+     *
+     * `open` does not stop the animations in a shadow root that the page makes later. Call
+     * this method after an action that adds new components. For example, after you open a
+     * modal or make a toast. Call it before a test makes a snapshot.
+     */
+    async freezeAnimations () {
+        await freezePageAnimations(this.page);
     }
 
     /**

@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-link
 
+## 1.5.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@21.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+
+## 1.5.6
+
+### Patch Changes
+
+- [Updated] - readme to include missing prop values ([#3177](https://github.com/justeattakeaway/pie/pull/3177)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.5.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@20.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
 ## 1.5.4
 
 ### Patch Changes

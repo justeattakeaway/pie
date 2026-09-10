@@ -1,11 +1,11 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-navToggle {
     display: none;
     line-height: 0;
     cursor: pointer;
 
-    @include f.media('<wide') {
+    @include media('<lg') {
         display: block;
         position: absolute;
         left: 20px;
@@ -14,7 +14,7 @@
 }
 
 .c-navToggle-input {
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         display: none;
     }
 }
@@ -23,7 +23,7 @@
     // TODO: placeholder animation just to give the toggle nav some jazz - discuss animation specs with design
     transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1), width 0.5s cubic-bezier(0.25, 1, 0.25, 1);
 
-    @include f.media('<wide') {
+    @include media('<lg') {
         left: -100%;
         visibility: hidden;
     }
@@ -51,7 +51,7 @@ html:has(.c-navToggle-input:checked) body {
 
 .c-navToggle-input:checked ~ .c-main:before,
 .c-navToggle-input:checked ~ .c-footer:before {
-    @include f.media('<wide') {
+    @include media('<lg') {
         content: '';
         position: absolute;
         inset: 0;
