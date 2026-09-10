@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.11.19",
+  "version": "0.11.20",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -902,7 +902,7 @@
     "@justeattakeaway/pie-thumbnail": "0.9.4",
     "@justeattakeaway/pie-toast": "1.2.3",
     "@justeattakeaway/pie-toast-provider": "1.2.3",
-    "@justeattakeaway/pie-tooltip": "0.1.1"
+    "@justeattakeaway/pie-tooltip": "0.2.0"
   },
   "sideEffects": [
     "**/*.js"
