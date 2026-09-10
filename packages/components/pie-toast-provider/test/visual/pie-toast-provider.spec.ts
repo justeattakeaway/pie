@@ -16,6 +16,16 @@ test.describe('PieToastProvider - Visual tests`', () => {
         await percySnapshot(page, 'PieToastProvider - Custom Z-Index Visual Test');
     });
 
+    test('should display 3 stacked toasts correctly', async ({ page }) => {
+        const basePage = new BasePage(page, 'toast-provider--stacked');
+        await basePage.load();
+
+        const toastElements = page.locator('pie-toast');
+        await toastElements.first().waitFor({ state: 'visible' });
+
+        await percySnapshot(page, 'PieToastProvider - Stacked toasts');
+    });
+
     positions.forEach((position) => {
         directions.forEach((direction) => {
             test(`should render position: ${position} correctly with direction: ${direction}`, async ({ page }) => {

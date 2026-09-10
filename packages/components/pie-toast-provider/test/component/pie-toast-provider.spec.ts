@@ -68,15 +68,31 @@ async function getQueueSnapshots (page: Page): Promise<ExtendedToastProps[][]> {
 }
 
 /**
- * Finds the first toast whose `message` matches across all captured snapshots.
- * Searching by identity rather than queue position makes assertions resilient
- * to priority-driven reordering.
+ * Creates toasts on the provider and waits for the resulting render to settle.
+ *
+ * `createToast` fills the visible slots synchronously, but Lit batches the render into a
+ * microtask — so the toasts are not in the DOM yet when `page.evaluate` resolves. Awaiting
+ * `updateComplete` covers that, and re-freezing motion covers the slide-in on the newly
+ * rendered toasts.
+ *
+ * `toasts` is passed into the browser, so it must be plain serialisable data — no
+ * `onPieToast*` callbacks.
  */
-async function findToastByMessage (page: Page, message: string): Promise<ExtendedToastProps | undefined> {
-    return page.evaluate(
-        (msg) => (window.__queueSnapshots ?? []).flat().find((t) => t.message === msg),
-        message,
-    );
+async function createToasts (
+    page: Page,
+    basePage: BasePage,
+    toasts: ExtendedToastProps[],
+): Promise<void> {
+    await page.evaluate((queued) => {
+        const provider = document.querySelector('pie-toast-provider') as PieToastProvider | null;
+        if (!provider) throw new Error('pie-toast-provider not found in DOM');
+        queued.forEach((toast) => provider.createToast(toast));
+    }, toasts);
+
+    await page.locator('pie-toast-provider')
+        .evaluate((provider) => (provider as PieToastProvider).updateComplete);
+
+    await basePage.freezeAnimations();
 }
 
 test.describe('PieToastProvider - Component tests', () => {
@@ -86,10 +102,12 @@ test.describe('PieToastProvider - Component tests', () => {
         await pieToastProviderPage.load();
 
         // Act
-        const toastProviderComponent = page.locator(toastProvider.selectors.container.dataTestId);
+        const toastProviderComponent = page.getByTestId(toastProvider.selectors.container.dataTestId);
 
-        // Assert
-        await expect(toastProviderComponent).toBeDefined();
+        // Assert — the provider renders no toasts until one is created, and its only content is
+        // absolutely positioned, so it has a zero-size box and is never "visible". Attachment is
+        // the meaningful assertion here.
+        await expect(toastProviderComponent).toBeAttached();
     });
 
     test.describe('Priority Order Tests', () => {
@@ -160,59 +178,56 @@ test.describe('PieToastProvider - Component tests', () => {
                 // Arrange
                 const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
                 await pieToastProviderPage.load({
+                    isStacked: true,
                     options: {
                         variant: 'neutral',
                         isDismissible: true,
                     },
                 });
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
-                await installQueueListener(page);
 
-                // Act
-                await afterNextSnapshot(page, () => page.evaluate(() => {
-                    const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
-                    tp.createToast({ message: 'Toast 1' });
-                    tp.createToast({ message: 'Toast 2' });
-                }));
+                // Act — fill the visible slots (the helper waits for the render)
+                await createToasts(page, pieToastProviderPage, [
+                    { message: 'Toast 1' },
+                    { message: 'Toast 2' },
+                ]);
 
-                // Assert — iterate every toast that passed through the queue.
-                // Note: the first toast is immediately moved to _currentToast by the component
-                // and does not appear in the queue snapshots.
-                const seenToasts = (await getQueueSnapshots(page)).flat();
-                expect(seenToasts.length).toBeGreaterThan(0);
-                seenToasts.forEach((toast) => {
-                    expect(toast.isDismissible).toBeTruthy();
-                    expect(toast.variant).toBe('neutral');
-                });
+                // Assert — both toasts render with the global options applied. `isDismissible`
+                // is asserted through the close button, which pie-toast only renders when the
+                // prop is true.
+                await expect(page.locator('pie-toast-provider pie-toast')).toHaveCount(2);
+                await expect(page.locator('pie-toast-provider pie-toast[variant="neutral"]')).toHaveCount(2);
+                await expect(page.getByTestId(toastProvider.selectors.toastClose.dataTestId)).toHaveCount(2);
             });
 
             test('should respect individual toast overrides when provided', async ({ page }) => {
                 // Arrange
                 const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
                 await pieToastProviderPage.load({
+                    isStacked: true,
                     options: {
                         duration: null,
                         isDismissible: true,
                     },
                 });
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
-                await installQueueListener(page);
 
-                // Act
-                await afterNextSnapshot(page, () => page.evaluate(() => {
-                    const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
-                    tp.createToast({ message: 'Toast 1' });
-                    tp.createToast({ message: 'Toast 2' });
-                    tp.createToast({ message: 'Toast 3', isDismissible: false });
-                }));
+                // Act — fill the visible slots (the helper waits for the render)
+                await createToasts(page, pieToastProviderPage, [
+                    { message: 'Toast 1' },
+                    { message: 'Toast 2' },
+                    { message: 'Toast 3', isDismissible: false },
+                ]);
 
-                // Assert by toast identity, not by queue index, to stay resilient to
-                // priority-driven reordering.
-                const toast2 = await findToastByMessage(page, 'Toast 2');
-                const toast3 = await findToastByMessage(page, 'Toast 3');
+                // Assert by toast identity, using the close button as the observable proof of
+                // `isDismissible`.
+                const closeButton = toastProvider.selectors.toastClose.dataTestId;
 
-                expect(toast2?.isDismissible).toBeTruthy(); // Global option should apply
-                expect(toast3?.isDismissible).toBeFalsy(); // Override should take precedence
+                // Global option should apply
+                await expect(page.locator('pie-toast[message="Toast 2"]').getByTestId(closeButton)).toBeVisible();
+
+                // Override should take precedence
+                await expect(page.locator('pie-toast[message="Toast 3"]').getByTestId(closeButton)).toHaveCount(0);
             });
         });
 
@@ -353,11 +368,11 @@ test.describe('PieToastProvider - Component tests', () => {
             const mainToast = page.locator('pie-toast-provider#main pie-toast');
             const modalToast = page.locator('pie-toast-provider#modal pie-toast');
 
-            await expect(mainToast).toBeVisible();
+            await expect(mainToast.first()).toBeVisible();
             await expect(modalToast).toBeVisible();
 
-            // Verify message content
-            await expect(mainToast).toHaveAttribute('message', 'Main toast 1');
+            // Verify message content — main has 2 visible toasts, use .first() to match the oldest
+            await expect(mainToast.first()).toHaveAttribute('message', 'Main toast 1');
             await expect(modalToast).toHaveAttribute('message', 'Modal toast 1');
         });
 
@@ -413,7 +428,7 @@ test.describe('PieToastProvider - Component tests', () => {
             const mainToast = page.locator('pie-toast-provider#main pie-toast');
             const modalToast = page.locator('pie-toast-provider#modal pie-toast');
 
-            await expect(mainToast).toBeVisible();
+            await expect(mainToast.first()).toBeVisible();
             await expect(modalToast).not.toBeVisible();
         });
 
@@ -482,11 +497,15 @@ test.describe('PieToastProvider - Component tests', () => {
                 tp.createToast({ message: 'Something went wrong', variant: 'error', duration: null });
             });
 
-            // Assert
-            const announcer = page.getByTestId(toastProvider.selectors.announcer.dataTestId);
+            // Assert — error messages go to the dedicated assertive region, so its politeness can
+            // never be downgraded by a later non-error toast.
+            const announcer = page.getByTestId(toastProvider.selectors.announcerAssertive.dataTestId);
             await expect(announcer).toHaveAttribute('role', 'alert');
             await expect(announcer).toHaveAttribute('aria-live', 'assertive');
             await expect(announcer).toHaveText('Something went wrong');
+
+            // ...and not to the polite one
+            await expect(page.getByTestId(toastProvider.selectors.announcer.dataTestId)).toHaveText('');
         });
 
         test('should disable the rendered toast own live region to avoid double announcements', async ({ page }) => {
@@ -507,6 +526,182 @@ test.describe('PieToastProvider - Component tests', () => {
             await expect(toastContainer).toBeVisible();
             await expect(toastContainer).toHaveAttribute('role', 'status');
             await expect(toastContainer).toHaveAttribute('aria-live', 'off');
+        });
+
+        test('should announce every stacked toast message when several become visible in one render', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load({ isStacked: true });
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act — all three creates are synchronous, so Lit batches them into a single render
+            await createToasts(page, pieToastProviderPage, [
+                { message: 'First message', duration: null },
+                { message: 'Second message', duration: null },
+                { message: 'Third message', duration: null },
+            ]);
+
+            // Assert — one node per message, in arrival order. Asserting on the child count matters:
+            // a single merged node would satisfy a text assertion but would be announced only once.
+            const announcements = page.getByTestId(toastProvider.selectors.announcer.dataTestId).locator('div');
+            await expect(announcements).toHaveCount(3);
+            await expect(announcements).toHaveText(['First message', 'Second message', 'Third message']);
+        });
+
+        test('should announce one message at a time when isStacked is not set', async ({ page }) => {
+            // Arrange — isStacked defaults to false
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await createToasts(page, pieToastProviderPage, [
+                { message: 'First message', duration: null, isDismissible: true },
+                { message: 'Second message', duration: null },
+            ]);
+
+            // Assert — only the visible toast is announced; the queued one waits its turn
+            const announcements = page.getByTestId(toastProvider.selectors.announcer.dataTestId).locator('div');
+            await expect(announcements).toHaveCount(1);
+            await expect(announcements).toHaveText(['First message']);
+
+            // Act — dismissing the first promotes the second
+            await page.getByTestId(toastProvider.selectors.toastClose.dataTestId).getByRole('button').click();
+
+            // Assert — the region now holds the promoted message instead
+            await expect(announcements).toHaveCount(1);
+            await expect(announcements).toHaveText(['Second message']);
+        });
+
+        test('should keep error and non-error announcements in separate regions', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load({ isStacked: true });
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act — a non-error toast arrives after an error one
+            await createToasts(page, pieToastProviderPage, [
+                { message: 'Something went wrong', variant: 'error', duration: null },
+                { message: 'You favourited KFC', variant: 'neutral', duration: null },
+            ]);
+
+            // Assert — each region holds only its own messages, so the error stays assertive
+            await expect(page.getByTestId(toastProvider.selectors.announcerAssertive.dataTestId))
+                .toHaveText('Something went wrong');
+            await expect(page.getByTestId(toastProvider.selectors.announcer.dataTestId))
+                .toHaveText('You favourited KFC');
+        });
+    });
+
+    test.describe('Stacking', () => {
+        test('should display up to 3 toasts simultaneously', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load({ isStacked: true });
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Toast 1', duration: null });
+                tp.createToast({ message: 'Toast 2', duration: null });
+                tp.createToast({ message: 'Toast 3', duration: null });
+            });
+
+            // Assert — all 3 rendered at the same time
+            await expect(page.locator('pie-toast-provider pie-toast')).toHaveCount(3);
+        });
+
+        test('should queue additional toasts when 3 are already visible', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load({ isStacked: true });
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+            await installQueueListener(page);
+
+            // Act — 4th toast cannot fit in visible slots and must enter the queue
+            const snapshot = await afterNextSnapshot(page, () => page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Toast 1', duration: null });
+                tp.createToast({ message: 'Toast 2', duration: null });
+                tp.createToast({ message: 'Toast 3', duration: null });
+                tp.createToast({ message: 'Toast 4', duration: null });
+            }));
+
+            // Assert — 3 visible, exactly 1 in the waiting queue
+            await expect(page.locator('pie-toast-provider pie-toast')).toHaveCount(3);
+            expect(snapshot).toHaveLength(1);
+            expect(snapshot[0].message).toBe('Toast 4');
+        });
+
+        test('should promote a queued toast when a visible toast is dismissed', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load({ isStacked: true });
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act — fill 3 visible slots and queue a 4th
+            await page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Toast 1', duration: null, isDismissible: true });
+                tp.createToast({ message: 'Toast 2', duration: null });
+                tp.createToast({ message: 'Toast 3', duration: null });
+                tp.createToast({ message: 'Toast 4', duration: null });
+            });
+
+            const toastsLocator = page.locator('pie-toast-provider pie-toast');
+            await expect(toastsLocator).toHaveCount(3);
+
+            // Dismiss Toast 1 — only it has isDismissible: true so only one close button exists
+            await page.getByTestId('pie-toast-close').getByRole('button').click();
+
+            // Assert — Toast 4 is promoted from the queue; total stays at 3
+            await expect(page.locator('pie-toast[message="Toast 4"]')).toBeVisible();
+            await expect(toastsLocator).toHaveCount(3);
+        });
+
+        test('should display a single toast and queue the rest when isStacked is not set', async ({ page }) => {
+            // Arrange — isStacked defaults to false
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+            await installQueueListener(page);
+
+            // Act
+            const snapshot = await afterNextSnapshot(page, () => page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Toast 1', duration: null });
+                tp.createToast({ message: 'Toast 2', duration: null });
+                tp.createToast({ message: 'Toast 3', duration: null });
+            }));
+
+            // Assert — only the first is displayed, the other two wait in the queue
+            await expect(page.locator('pie-toast-provider pie-toast')).toHaveCount(1);
+            await expect(page.locator('pie-toast[message="Toast 1"]')).toBeVisible();
+            expect(snapshot.map(({ message }) => message)).toEqual(['Toast 2', 'Toast 3']);
+        });
+
+        test('should promote only one queued toast when isStacked is not set', async ({ page }) => {
+            // Arrange — isStacked defaults to false
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Toast 1', duration: null, isDismissible: true });
+                tp.createToast({ message: 'Toast 2', duration: null });
+            });
+
+            const toastsLocator = page.locator('pie-toast-provider pie-toast');
+            await expect(toastsLocator).toHaveCount(1);
+
+            await page.getByTestId(toastProvider.selectors.toastClose.dataTestId).getByRole('button').click();
+
+            // Assert — Toast 2 replaces Toast 1 rather than joining it
+            await expect(page.locator('pie-toast[message="Toast 2"]')).toBeVisible();
+            await expect(toastsLocator).toHaveCount(1);
         });
     });
 });

@@ -53,6 +53,12 @@ export interface ToastProviderProps {
      * When set to `default`, the toasts will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.
      */
     position?: typeof positions[number];
+
+    /**
+     * When true, up to `MAX_VISIBLE_TOASTS` toasts are displayed at the same time in a vertical
+     * stack. When false, a single toast is displayed at a time and the rest wait in the queue.
+     */
+    isStacked?: boolean;
 }
 
 export type DefaultProps = ComponentDefaultProps<ToastProviderProps>;
@@ -60,6 +66,7 @@ export type DefaultProps = ComponentDefaultProps<ToastProviderProps>;
 export const defaultProps: DefaultProps = {
     options: {},
     position: 'default',
+    isStacked: false,
 };
 
 /**
@@ -69,3 +76,12 @@ export const defaultProps: DefaultProps = {
  */
 
 export const ON_TOAST_PROVIDER_QUEUE_UPDATE_EVENT = 'pie-toast-provider-queue-update';
+
+/**
+ * The most toasts the provider will display at once when `isStacked` is true.
+ *
+ * With `isStacked` false (the default) a single toast is displayed regardless of this value.
+ *
+ * @constant
+ */
+export const MAX_VISIBLE_TOASTS = 3;
