@@ -1,5 +1,50 @@
 # Changelog
 
+## 5.16.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.20
+
+## 5.16.2
+
+### Patch Changes
+
+- Updated dependencies [[`efb9e72`](https://github.com/justeattakeaway/pie/commit/efb9e722981bbe2304b5a1a448fb6dace56e9f42)]:
+  - @justeattakeaway/pie-css@1.8.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+  - @justeattakeaway/pie-webc@0.11.19
+
+## 5.16.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.18
+
+## 5.16.0
+
+### Minor Changes
+
+- [Removed] - fozzie references ([#3169](https://github.com/justeattakeaway/pie/pull/3169)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - fozzie calls to pie-css ([#3159](https://github.com/justeattakeaway/pie/pull/3159)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`e21b220`](https://github.com/justeattakeaway/pie/commit/e21b2205b06a2d524686414dd35f6025333539ad)]:
+  - @justeattakeaway/pie-css@1.7.0
+  - @justeattakeaway/pie-webc@0.11.17
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
+## 5.15.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.16
+
 ## 5.15.0
 
 ### Minor Changes

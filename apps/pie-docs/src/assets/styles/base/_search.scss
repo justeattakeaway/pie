@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :root {
@@ -19,7 +19,7 @@
     gap: var(--dt-spacing-d);
     padding-block-end: var(--dt-spacing-d);
 
-    @include f.media('>=narrow') {
+    @include media('>=414px') {
         grid-template-columns: repeat(2, 1fr);
         padding-block-end: var(--dt-spacing-g);
         gap: 48px; // gap between grid columns

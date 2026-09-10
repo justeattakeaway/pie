@@ -434,4 +434,79 @@ test.describe('PieToastProvider - Component tests', () => {
             await expect(mainToast).not.toBeVisible();
         });
     });
+
+    test.describe('Live region announcer', () => {
+        test('should always render a persistent, empty polite live region before any toast', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            const announcer = page.getByTestId(toastProvider.selectors.announcer.dataTestId);
+
+            // Assert — the region exists (empty) before any toast so screen readers can observe it
+            await expect(announcer).toHaveAttribute('role', 'status');
+            await expect(announcer).toHaveAttribute('aria-live', 'polite');
+            await expect(announcer).toHaveText('');
+        });
+
+        test('should announce a non-error toast message in the polite live region', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'You favourited KFC', variant: 'neutral', duration: null });
+            });
+
+            // Assert
+            const announcer = page.getByTestId(toastProvider.selectors.announcer.dataTestId);
+            await expect(announcer).toHaveAttribute('role', 'status');
+            await expect(announcer).toHaveAttribute('aria-live', 'polite');
+            await expect(announcer).toHaveText('You favourited KFC');
+        });
+
+        test('should announce an error toast message in the assertive live region', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'Something went wrong', variant: 'error', duration: null });
+            });
+
+            // Assert
+            const announcer = page.getByTestId(toastProvider.selectors.announcer.dataTestId);
+            await expect(announcer).toHaveAttribute('role', 'alert');
+            await expect(announcer).toHaveAttribute('aria-live', 'assertive');
+            await expect(announcer).toHaveText('Something went wrong');
+        });
+
+        test('should disable the rendered toast own live region to avoid double announcements', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
+            await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+
+            // Act
+            await page.evaluate(() => {
+                const tp = document.querySelector('pie-toast-provider') as PieToastProvider;
+                tp.createToast({ message: 'A toast', variant: 'neutral', duration: null });
+            });
+
+            // Assert — the provider owns the single live region, so the visible toast keeps its role
+            // for semantics but has its own announcements switched off (aria-live="off").
+            const toastContainer = page.getByTestId('pie-toast');
+            await expect(toastContainer).toBeVisible();
+            await expect(toastContainer).toHaveAttribute('role', 'status');
+            await expect(toastContainer).toHaveAttribute('aria-live', 'off');
+        });
+    });
 });

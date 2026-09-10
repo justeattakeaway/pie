@@ -7,7 +7,6 @@
  */
 
 @use '@justeattakeaway/pie-css/dist/index.css'; // import design token CSS Variables
-@use 'fozzie-imports';
 
 // PIE helper opt-ins
 @use '@justeattakeaway/pie-css/dist/app/resets/normalize.css';
@@ -15,6 +14,7 @@
 
 @use '@justeattakeaway/pie-css/dist/utilities/spacing.css';
 @use '@justeattakeaway/pie-css/dist/utilities/rwd.css';
+@use '@justeattakeaway/pie-css/dist/utilities/utilities.css' as pie-utilities;
 @use 'utilities';
 
 @use 'base/layout';

@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '@justeattakeaway/pie-css/scss' as p;
 
@@ -34,7 +34,7 @@ $usage-bg-minHeight: 280px;
     margin-block-start: var(--dt-spacing-e);
     margin-block-end: var(--dt-spacing-f);
 
-    @include f.media('>=narrowMid') {
+    @include media('>=sm') {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -48,7 +48,7 @@ $usage-bg-minHeight: 280px;
 
         .c-usage-caption:nth-child(4) { grid-row: 4; }
 
-        @include f.media('>=narrowMid') {
+        @include media('>=sm') {
             .c-usage:nth-child(1),
             .c-usage:nth-child(2),
             .c-usage-caption:nth-child(3),

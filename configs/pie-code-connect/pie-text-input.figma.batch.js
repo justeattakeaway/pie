@@ -2,7 +2,7 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const createGetInstanceTemplate = require('./utils/get-instance-template.js');
 const renderProp = require('./utils/render-prop.js');
-const getIconSnippet = require('./utils/get-icon-snippet.js');
+const getInstanceCode = require('./utils/get-instance-code.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
@@ -42,8 +42,7 @@ const leadingContentType = hasLeadingContent && getInstanceProp(['Leading conten
 let leadingContentSnippet = '';
 if (leadingContentType === 'Icon') {
     const leadingIconInstance = getInstanceProp(['Leading content'], 'getInstanceSwap', 'Icon');
-    // replace text to have the slot assigned
-    leadingContentSnippet = getIconSnippet(leadingIconInstance, (code) => code.replace('></', ' slot="leadingIcon"></'));
+    leadingContentSnippet = getInstanceCode(leadingIconInstance, 'leadingIcon');
 } else if (leadingContentType === 'Alphanumeric') {
     leadingContentSnippet = '<span slot="leadingText">#</span>';
 }
@@ -53,8 +52,7 @@ const trailingContentType = hasTrailingContent && getInstanceProp(['Trailing con
 let trailingContentSnippet = '';
 if (trailingContentType === 'Icon') {
     const trailingIconInstance = getInstanceProp(['Trailing content'], 'getInstanceSwap', 'Icon');
-    // replace text to have the slot assigned
-    trailingContentSnippet = getIconSnippet(trailingIconInstance, (code) => code.replace('></', ' slot="trailingIcon"></'));
+    trailingContentSnippet = getInstanceCode(trailingIconInstance, 'trailingIcon');
 } else if (trailingContentType === 'Alphanumeric') {
     trailingContentSnippet = '<span slot="trailingText">#</span>';
 } else if (trailingContentType === 'Payment method') {
@@ -83,5 +81,5 @@ const template = figma.code`${formLabelSnippet || ''}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-text-input',
+    id: componentName,
 };

@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use './table';
 @use '@justeattakeaway/pie-css/scss' as p;
 
@@ -39,7 +39,7 @@
         }
     }
 
-    @include f.media('<narrowMid') {
+    @include media('<sm') {
         display: flex;
         align-items: center;
         gap: $swatch-gap;
@@ -66,7 +66,7 @@
     }
 
     // When rows stack at narrow viewports
-    @include f.media('<narrowMid') {
+    @include media('<sm') {
         tr {
             display: grid;
             grid-template-columns: 1fr;

@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 $navToggleWidth:        24px; // must be kept in sync with the svg icon width defined in header.njk
 $headerLogoHeight:      24px;
@@ -10,7 +10,7 @@ $headerInlinePadding:   20px;
     border-bottom: 1px solid var(--dt-color-divider-default);
     padding: var(--dt-spacing-d);
 
-    @include f.media('<wide') {
+    @include media('<lg') {
         padding-inline-start: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
     }
 }

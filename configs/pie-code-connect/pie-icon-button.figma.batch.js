@@ -1,6 +1,7 @@
 const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
+const getInstanceCode = require('./utils/get-instance-code.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
@@ -35,7 +36,7 @@ const isDisabled = state === 'Disabled';
 const isLoading = state === 'Loading';
 
 const iconInstance = getInstanceProp('getInstanceSwap', 'Replace icon');
-const iconSnippet = iconInstance?.executeTemplate().example;
+const iconSnippet = getInstanceCode(iconInstance);
 
 const props = [
     renderProp('variant', variant, 'primary'),
@@ -52,5 +53,5 @@ const template = figma.code`<${selectedComponentName}
 export default {
     example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
-    id: 'pie-icon-button',
+    id: componentName,
 };

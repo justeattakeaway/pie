@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.6
+
+### Patch Changes
+
+- Added - Improved mechanism for detecting component readiness in visual tests ([#3170](https://github.com/justeattakeaway/pie/pull/3170)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.13.5
 
 ### Patch Changes

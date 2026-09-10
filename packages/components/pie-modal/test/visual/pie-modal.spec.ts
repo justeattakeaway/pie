@@ -28,8 +28,6 @@ sizes.forEach((size) => {
         await modalDefaultPage.load(props);
         await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-        await page.waitForTimeout(500);
-
         await percySnapshot(page, `Modal - size = ${size}`);
     });
 });
@@ -51,8 +49,6 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-            await page.waitForTimeout(500);
-
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = medium');
         });
 
@@ -69,8 +65,6 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
             await modalDefaultPage.load(props);
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-            await page.waitForTimeout(500);
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = small');
         });
@@ -94,8 +88,6 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
 
               await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-              await page.waitForTimeout(500);
-
               await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
           });
       });
@@ -118,8 +110,6 @@ test.describe('Prop: `isDismissible`', () => {
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-            await page.waitForTimeout(500);
-
             await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
         });
     });
@@ -138,8 +128,6 @@ test.describe('Prop: `isDismissible`', () => {
             await modalDefaultPage.load(props);
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-            await page.waitForTimeout(500);
 
             await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
         });
@@ -162,8 +150,6 @@ test.describe('Prop: `isHeadingEmphasised`', () => {
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-            await page.waitForTimeout(500);
-
             await percySnapshot(page, 'Modal - isHeadingEmphasised: `true`');
         });
     });
@@ -182,8 +168,6 @@ test.describe('Prop: `isHeadingEmphasised`', () => {
             await modalDefaultPage.load(props);
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-            await page.waitForTimeout(500);
 
             await percySnapshot(page, 'Modal - isHeadingEmphasised: `false`');
         });
@@ -209,8 +193,6 @@ test.describe('Prop: `hasBackButton`', () => {
 
                 await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-                await page.waitForTimeout(500);
-
                 await percySnapshot(page, `Modal with back button displayed - hasBackButton: ${true} - dir: ${dir}`);
             });
         });
@@ -229,8 +211,6 @@ test.describe('Prop: `hasBackButton`', () => {
                 await modalDefaultPage.load(props, { writingDirection: dir });
 
                 await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-                await page.waitForTimeout(500);
 
                 await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
             });
@@ -254,8 +234,6 @@ test.describe('Prop: `heading`', () => {
 
         await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-        await page.waitForTimeout(500);
-
         await percySnapshot(page, 'Modal - Long heading');
     });
 });
@@ -277,8 +255,6 @@ test.describe('Prop: `isLoading`', () => {
 
         await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-        await page.waitForTimeout(500);
-
         await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
     });
 });
@@ -294,8 +270,6 @@ test.describe('Prop: `backgroundColor`', () => {
             await modalDefaultPage.load(props);
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-            await page.waitForTimeout(500);
 
             await percySnapshot(page, 'Modal - default backgroundColor');
         });
@@ -315,8 +289,6 @@ test.describe('Prop: `backgroundColor`', () => {
                 await modalDefaultPage.load(props);
 
                 await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-                await page.waitForTimeout(500);
 
                 await percySnapshot(page, `Modal - assigned backgroundColor: ${backgroundColor}`);
             });
@@ -339,8 +311,6 @@ test.describe('Prop: `leadingAction`', () => {
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-            await page.waitForTimeout(500);
-
             await percySnapshot(page, 'Modal displays leadingAction');
         });
     });
@@ -360,8 +330,6 @@ test.describe('Prop: `leadingAction`', () => {
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-            await page.waitForTimeout(500);
-
             await percySnapshot(page, 'Modal leadingAction variant can be overridden');
         });
     });
@@ -380,8 +348,6 @@ test.describe('Prop: `leadingAction`', () => {
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-            await page.waitForTimeout(500);
-
             await percySnapshot(page, 'Modal will not render `leadingAction` button when `text` is empty');
         });
     });
@@ -399,8 +365,6 @@ test.describe('Prop: `leadingAction`', () => {
 
             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
             await expect.soft(modalDefaultPage.modalComponent.footerLocator).not.toBeVisible();
-
-            await page.waitForTimeout(500);
 
             await percySnapshot(page, 'Modal does not display leadingAction');
         });
@@ -426,8 +390,6 @@ test.describe('Prop: `supportingAction`', () => {
 
                 await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-                await page.waitForTimeout(500);
-
                 await percySnapshot(page, 'Modal falls back to default variant property `ghost`');
             });
         });
@@ -449,8 +411,6 @@ test.describe('Prop: `supportingAction`', () => {
 
                 await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-                await page.waitForTimeout(500);
-
                 await percySnapshot(page, 'Modal will not render `supportingAction` button when `text` is empty');
             });
         });
@@ -468,8 +428,6 @@ test.describe('Prop: `supportingAction`', () => {
                 await modalDefaultPage.load(props);
 
                 await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-                await page.waitForTimeout(500);
 
                 await percySnapshot(page, 'Modal will not render `supportingAction` when it is not supplied');
             });
@@ -490,8 +448,6 @@ test.describe('when `supportingAction.text` is supplied but `leadingAction.text`
         await modalDefaultPage.load(props);
 
         await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-        await page.waitForTimeout(500);
 
         await percySnapshot(page, 'Modal will not render `supportingAction` when `leadingAction` is not supplied');
     });
@@ -518,8 +474,6 @@ test.describe('Prop: `position`', () => {
                             await modalDefaultPage.load(props);
 
                             await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-                            await page.waitForTimeout(500);
 
                             await percySnapshot(page, `Modal position: ${position}, size: ${size}, isFullWidthBelowMid: ${isFullWidthBelowMid}`);
                         });
@@ -548,14 +502,15 @@ test.describe('Prop: `isFooterPinned`', () => {
             if (!isFooterPinned) {
                 await page.locator('pie-modal').waitFor({ state: 'attached' });
 
-                await page.evaluate(() => {
-                    document.querySelector('pie-modal')?.removeAttribute('isfooterpinned');
+                await page.evaluate(async () => {
+                    const modal = document.querySelector('pie-modal');
+                    modal?.removeAttribute('isfooterpinned');
+                    // `load` made the page ready. This change starts a new render, thus wait for it.
+                    await (modal as unknown as { updateComplete: Promise<unknown> })?.updateComplete;
                 });
             }
 
             await expect.soft(modalLargeTextContentPage.modalComponent.componentLocator).toBeVisible();
-
-            await page.waitForTimeout(500);
 
             await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}`);
         });
@@ -577,14 +532,15 @@ test.describe('Prop: `isFooterPinned`', () => {
                 if (!isFooterPinned) {
                     await page.locator('pie-modal').waitFor({ state: 'attached' });
 
-                    await page.evaluate(() => {
-                        document.querySelector('pie-modal')?.removeAttribute('isfooterpinned');
+                    await page.evaluate(async () => {
+                        const modal = document.querySelector('pie-modal');
+                        modal?.removeAttribute('isfooterpinned');
+                        // `load` made the page ready. This change starts a new render, thus wait for it.
+                        await (modal as unknown as { updateComplete: Promise<unknown> })?.updateComplete;
                     });
                 }
 
                 await expect.soft(modalLargeTextContentPage.modalComponent.componentLocator).toBeVisible();
-
-                await page.waitForTimeout(500);
 
                 await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}, fullscreen with size: ${size}`);
             });
@@ -614,8 +570,6 @@ test.describe('Prop: `hasStackedActions`', () => {
 
               await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-              await page.waitForTimeout(500);
-
               await percySnapshot(page, `Modal - hasStackedActions = true, size = ${size}`);
           });
       });
@@ -630,8 +584,6 @@ test.describe('Slot: `footer`', () => {
             await modalCustomFooterPage.load(props);
 
             await expect.soft(modalCustomFooterPage.modalComponent.componentLocator).toBeVisible();
-
-            await page.waitForTimeout(500);
 
             await percySnapshot(page, 'Modal - has footer slot content');
         });

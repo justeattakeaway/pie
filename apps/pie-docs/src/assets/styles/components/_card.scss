@@ -1,5 +1,5 @@
 @use 'sass:color';
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 $card-min-width: 270px;
@@ -35,7 +35,7 @@ h2 + .c-card--standalone {
     grid-template-columns: 1fr;
 
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         grid-template-columns: auto auto auto;
 
         @container ((max-width: #{$card-container-max-width})) {
@@ -106,7 +106,7 @@ $iconBackgroundColours: (
     @include p.line-height(--dt-font-heading-s-line-height--wide);
     margin-block-start: var(--dt-spacing-e);
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         @include p.font-size(--dt-font-heading-m-size--wide);
         @include p.line-height(--dt-font-heading-m-line-height--wide);
     }
@@ -159,7 +159,10 @@ $iconBackgroundColours: (
 
 .c-card-label > span {
     display: block;
-    @include f.truncate(20ch);
+    max-width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .c-card-labelContainer .c-card-label {
