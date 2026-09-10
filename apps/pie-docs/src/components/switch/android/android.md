@@ -3,9 +3,214 @@ eleventyNavigation:
     key: Android
     parent: Switch
     order: 3
+shouldShowContents: true
 ---
 
-{% notification {
-  type: "neutral",
-  message: "We're currently working on this documentation. It will be available soon."
+## Dos and Don'ts
+
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Use switches to trigger actions that have an immediate effect, such as turning dark mode on and off."
+
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don't use a switch to trigger actions that don't have immediate effect. In that scenario use a checkbox instead."
+        ]
+    }
 } %}
+
+---
+
+## Anatomy
+
+{% contentPageImage {
+    src:"../../../assets/img/components/switch/android/anatomy.svg",
+    alt: "Anatomy of a switch.",
+    width: 85
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Label (Optional):** Maximum of one label. Provides necessary context to a form.",
+        "**Handle:** Positioned to the right when the switch is turned on, and to the left when turned off."
+    ]
+} %}
+
+---
+
+## Modifiers
+
+### Labels
+
+Labels can be removed in certain use cases, but is advised against due to accessibility reasons. In instances where there is no label, it is recommended that a 'hidden label' is embedded into the code for screen readers to announce.
+
+Switches can have their label placed to the left or the right of the switch.
+
+{% notification {
+  type: "information",
+  message: "Only one label is allowed to be present."
+} %}
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Left</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/modifiers-labels-left.svg",
+      width: 97,
+      alt: "A switch with its label placed to the left."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Right</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/modifiers-labels-right.svg",
+      width: 94,
+      alt: "A switch with its label placed to the right."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## States
+
+The switch has two states available, unselected and selected.
+
+### LTR
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Selected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/states-selected-ltr.svg",
+      width: 200,
+      alt: "A selected switch with LTR orientation."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Unselected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/states-unselected-ltr.svg",
+      width: 200,
+      alt: "An unselected switch with LTR orientation."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### RTL
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Selected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/states-selected-rtl.svg",
+      width: 200,
+      alt: "A selected switch with RTL orientation."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Unselected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/states-unselected-rtl.svg",
+      width: 200,
+      alt: "An unselected switch with RTL orientation."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Content
+
+### Labels
+
+- Keep labels short so forms are easy to read and scan.
+- Use sentence case.
+
+---
+
+## Interactive states
+
+Outlines the atomic level interactive elements for the component.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Default</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/interactive-states-default.svg",
+      width: 200,
+      alt: "Default state of a switch."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Active</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/interactive-states-active.svg",
+      width: 200,
+      alt: "A switch that is active."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Disabled</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/interactive-states-disabled.svg",
+      width: 200,
+      variant: "secondary",
+      alt: "A switch that is disabled."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Examples
+
+Outlines the atomic level interactive elements for the component.
+
+### LTR examples
+
+Here are some examples of switches in left-to-right context:
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/examples-ltr-1.svg",
+      width: 200,
+      alt: "A left to right example of switch with default state."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/examples-ltr-2.svg",
+      width: 200,
+      alt: "A left to right example of switch with hover state."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### RTL examples
+
+Here are some examples of switches in right to left context:
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/examples-rtl-1.svg",
+      width: 200,
+      alt: "A right to left example of switch with default state."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/switch/android/examples-rtl-2.svg",
+      width: 200,
+      alt: "A right to left example of switch with hover state."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
