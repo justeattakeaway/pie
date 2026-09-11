@@ -137,6 +137,7 @@
     "components/pagination/web",
     "components/payment-method-card",
     "components/popover",
+    "components/popover/ios",
     "components/popover/web",
     "components/progress-bar",
     "components/progress-bar/apps",
