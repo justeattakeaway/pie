@@ -15,6 +15,6 @@ writingDirections.forEach((direction) => {
         await switchVariationsPage.load({}, { writingDirection: direction });
 
         // Assert
-        await percySnapshot(page, `PIE Switch - Writing Direction: ${direction}`, percyWidths);
+        await percySnapshot(page, `PIE Toast - Writing Direction: ${direction}`, percyWidths);
     });
 });
