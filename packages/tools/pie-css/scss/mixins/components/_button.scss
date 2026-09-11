@@ -282,6 +282,7 @@
         &.#{$prefix}--small-productive {
             @include responsive-wide($prefix) {
                 --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
+                --btn-text-color: var(--dt-color-content-interactive-light-solid);
 
                 @include interactive-states('--dt-color-interactive-brand');
             }
