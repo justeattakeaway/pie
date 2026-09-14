@@ -72,18 +72,10 @@ Used to display the average rating of user's reviews.
 
 ## Sizes
 
-<style>
-  .c-ratingSizes .c-simpleTable th:first-child,
-  .c-ratingSizes .c-simpleTable td:first-child { width: 8%; }
-  .c-ratingSizes .c-simpleTable th:nth-child(3),
-  .c-ratingSizes .c-simpleTable td:nth-child(3) { width: 8%; }
-</style>
-<div class="c-ratingSizes">
 {% simpleTable {
     tableData: ratingSizesData,
     isFullWidth: true
 } %}
-</div>
 
 ---
 
