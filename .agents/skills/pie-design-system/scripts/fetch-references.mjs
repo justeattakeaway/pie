@@ -41,8 +41,7 @@ const resolvePkg = (scope, name) => {
         dir = parent;
     }
 };
-const readPkgJson = (scope, name) =>
-    JSON.parse(readFileSync(join(resolvePkg(scope, name), 'package.json'), 'utf-8'));
+const readPkgJson = (scope, name) => JSON.parse(readFileSync(join(resolvePkg(scope, name), 'package.json'), 'utf-8'));
 
 // Recursively copy all files from src dir into a flat dest dir
 const copyDirFlat = (srcDir, destDir) => {

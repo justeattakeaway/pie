@@ -172,6 +172,11 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:scripts"
+      # Lint agent skill scripts
+      - name: Lint agent skill scripts
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:agents"
       # Lint banned patterns
       - name: Lint banned patterns
         uses: ./.github/actions/run-script

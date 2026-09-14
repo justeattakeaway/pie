@@ -45,6 +45,7 @@
     "generate:token-names": "turbo run generate:token-names",
     "generate:copilot-instructions": "turbo run generate:copilot-instructions",
     "generate:verify": "cross-env-shell turbo run generate:verify --token=${TURBO_TOKEN}",
+    "lint:agents": "eslint '.agents/**/*.{js,mjs,cjs}'",
     "lint:banned-patterns": "node ./packages/tools/pie-monorepo-utils/lint-banned-patterns/lint-banned-patterns.js",
     "lint:config:fix": "eslint --fix turbo.json (packages|apps)/**/turbo.json",
     "lint:scripts": "cross-env-shell turbo run lint:scripts --token=${TURBO_TOKEN}",

@@ -11,7 +11,7 @@ description: Usage guidelines for the PIE design system by Just Eat Takeaway. Us
 
 1. Check whether `.versions` exists.
 2. **If missing** → check the core packages are installed. If any are missing, stop and ask the user to install them rather than installing anything yourself. Then run `scripts/fetch-references.mjs` with the consumer project as the working directory, since it reads their installed packages.
-3. **If present** → compare each entry in `.versions` against the installed version of that package, and re-run the script if any differ. Otherwise proceed to the next section.
+3. **If present** → compare each entry in `.versions` against the installed version of that package, and re-run the script if any differ.
 
 `.versions` keys are fully scoped package names, so read the scope from the key rather than assuming it:
 
@@ -26,25 +26,26 @@ description: Usage guidelines for the PIE design system by Just Eat Takeaway. Us
 
 Only the first three need installing directly; design tokens arrive as a dependency of `pie-css`.
 
-The script writes its output into the skill's own directory, so a skill installed globally holds one shared set of references. If the versions in `.versions` do not match the project you are currently working in, they belong to a different project — re-run the script before relying on them.
+The script writes into this skill's own directory, so a globally installed skill holds one shared set of references — a mismatch at step 3 means they belong to a different project.
 
 ## Answer the question
 
-Read the user's message and figure out what they need. Use the table below to find the right section — if the request spans multiple areas (e.g., "add a button with an icon"), read all relevant sections before responding.
+Use the table below to find the right section. Where the request spans multiple areas (e.g., "add a button with an icon"), read all relevant sections before responding.
 
 | User wants… | Section |
 |---|---|
 | Set up PIE in a new project | First-time PIE integration |
 | Review PIE usage | Review Project |
-| Font setup, typography, font loading, type scale, italic rendering | Typography |
+| Fonts, typography, type scale, font loading | Typography |
 | Component API / props / slots / usage or Building UI | Looking up components |
 | Whether a component exists, or is ready/safe to use | Component status |
 | Framework setup, or which usage example to show (React, Next, Vue, Nuxt, none) | Framework and integration guides |
+| Prop types, TypeScript imports | Framework and integration guides |
 | Import or find an icon | Icons |
 | Component events and interactions | Events |
 | Design tokens (colours, spacing, etc.) | Design tokens |
 | Apply spacing with utility classes | Spacing utilities |
-| Hide/show elements, visually hidden, screen-reader-only, General CSS utility classes | Utility classes |
+| Hide/show elements, screen-reader-only text, CSS utility classes | Utility classes |
 | Customise or override a component's look | Customising components |
 | A component renders with the wrong/old styling, fails to upgrade, or the console reports a custom element already registered | Component registration and versions |
 | Something broken or unexpected | Looking up components → pre-flight #6 |
@@ -59,30 +60,17 @@ Only follow these steps if PIE has never been set up in the project (no existing
 2. Read `guides/typography.md` and wire up the type scale.
 3. Read the integration guide for the project's framework — see **Framework and integration guides**.
 
-These steps establish the foundation every PIE component relies on. Skipping them leads to broken styles and missing tokens.
-
 ## Review Project (for evaluate/review/audit requests)
 
-If the user asks to review/evaluate/audit PIE usage, you **must** read and assess against all of the following sections to ensure a comprehensive review:
+If the user asks to review/evaluate/audit PIE usage, you **must** read and assess against every one of these sections: Typography, Looking up components, Component status, Component registration and versions, Events, Icons, Design tokens, Customising components.
 
-1. Typography
-2. Looking up components
-3. Component status
-4. Component registration and versions
-5. Events
-6. Icons
-7. Design tokens
-8. Customising components
-
-Do not finalize the response until each category has an explicit pass/fail outcome.
+Do not finalize the response until each one has an explicit pass/fail outcome.
 
 ## Typography
 
-Read `guides/typography.md` and `guides/typography-utility-classes.md` when the request involves fonts, type scale, font loading, italic behavior, or general UI baseline setup.
+Read `guides/typography.md` and `guides/typography-utility-classes.md` for anything touching fonts, the type scale, font loading, or general UI baseline setup.
 
-Always recommend using the typography utility classes from `pie-css` instead of custom font styles. These classes ensure consistent application of PIE's type scale and responsive adjustments across all components.
-
-Verify that the implementation in the guide is followed, including @font-face declarations and CSS definitions included globally in the application styles.
+Always use the typography utility classes from `pie-css` rather than custom font styles or the font tokens directly — they apply PIE's type scale and its responsive adjustments consistently. Verify the guide's implementation is in place, including the `@font-face` declarations and the global CSS definitions.
 
 ## Looking up components
 
@@ -102,14 +90,7 @@ Entries are keyed by package name, and each one lists the custom elements that p
 
 This file covers components only. Icons live in a separate package and never appear here, so never conclude an `icon-*` element is unavailable from this file — use the **Icons** section instead. An empty `elements` array means the element names could not be determined, so check the component's doc rather than assuming the element is named after the package.
 
-**Example 1 — "how do I make a loading button?":**
-Read `components/pie-button.md`, find the `isLoading` prop, show usage in the project's framework.
-
-**Example 2 — "what props does the modal have?":**
-Read `components/pie-modal.md`, list its Properties section.
-
-**Example 3 — "I need a form with checkboxes and a submit button":**
-Read `components/pie-checkbox.md` and `components/pie-button.md`. Show how to compose them together, including form association patterns.
+Two files in `guides/` look like component docs and are not: `components-BUTTON.md` and `components-RADIO.md` hold CSS-only styles that make a non-interactive element look like a button or radio. Use them only when that element must not be a control itself, for example inside a card whose parent link handles the click. For any button or radio the user operates, use `components/pie-button.md` or `components/pie-radio.md`.
 
 ## Framework and integration guides
 
@@ -127,7 +108,9 @@ Then match it to a guide in `guides/`:
 
 **React wrappers take `className`, not `class`.** `@lit/react` treats `className` as a reserved property and coerces it to the element's `class` attribute, so it reaches the host correctly. Writing `class` in JSX is not the supported form.
 
-The guides are pinned to specific major versions and the consumer may be on a different one. Where no guide matches their installed major version, use the nearest, check its guidance against the project's own config before relying on it, and **say so in your response** — name the guide you used and the version it covers. A consumer on Next 15 reading advice drawn from the Next 14 guide needs to know that is what happened.
+The guides are pinned to specific major versions and the consumer may be on a different one. Where no guide matches their installed major version, use the nearest, check its guidance against the project's own config before relying on it, and **say so in your response** — name the guide you used and the version it covers.
+
+For prop and event types, read `guides/typescript-usage.md`. It covers the type imports per framework, the `react` entry point, and where the `type` keyword is required.
 
 ## Component status
 
@@ -141,8 +124,6 @@ PIE supports exactly three statuses. Anything else is not a supported component.
 | `beta` | Testing a new major change of a stable component. | Recommend normally. Do not mention status. |
 | `alpha` | Preliminary usage; expect changes. | State that it is alpha and that its API may change, and tell the user to confirm with #help-designsystem before building on it. |
 
-A component in `beta` or `stable` can be safely used, which is why those two carry no status comment.
-
 Treat all three of these as "not a supported PIE component": a component absent from `component-metadata.json`, an entry whose `status` is not one of the three above, and an entry with no readable doc in `components/`. In each case tell the user it is not available and point them to #help-designsystem on Slack for timelines or to discuss an alternative. Do not recommend it and do not guess at its API.
 
 This applies to components only. Icons are a separate package and are never listed in `component-metadata.json` — see the **Icons** section for how to check those.
@@ -153,18 +134,16 @@ When the only PIE-supported way to build something is an `alpha` component, use 
 
 ## Component registration and versions
 
-PIE components register themselves when imported. If more than one copy or version of a component ends up on the page, whichever registers first wins, and every instance on the page uses that one — so a component can render with an older version's styling or behaviour, or fail to render, even where the markup looks correct.
-
-Read `guides/component-versions.md` when a component renders with unexpected or outdated styling, does not pick up an upgrade, or the console reports that a custom element name has already been registered. Then have the user check:
+Read `guides/component-versions.md` when a component renders with unexpected or outdated styling, does not pick up an upgrade, or the console reports that a custom element name has already been registered. First registration wins, so one duplicate copy on the page puts every instance of that component on the wrong version. Then have the user check:
 
 1. The `v` attribute on the rendered element in devtools, which reports the version actually in use and survives server-side rendering. Compare it against the version their project pins.
 2. Their dependency tree for more than one copy, for example `npm ls @justeattakeaway/pie-webc` or `yarn why`. Mixing the `pie-webc` umbrella package with individual component packages, or a shared internal library pinning its own version, both produce duplicates. Micro-frontends are the most common cause, since each bundle can carry its own copy.
 
-Do not suppress a registration error by wrapping the import in a `try`/`catch` or gating it behind `customElements.get(...)`. That hides the symptom and leaves the page on whichever version won, which is the actual problem.
+Do not suppress a registration error by wrapping the import in a `try`/`catch` or gating it behind `customElements.get(...)` — that leaves the page on whichever version won, which is the actual problem.
 
 ## Events
 
-Read `guides/events.md` for PIE's event conventions, then check the individual component doc for its specific event list. PIE components follow a consistent event pattern — understanding the guide once covers every component.
+Read `guides/events.md` for PIE's event conventions, which are consistent across every component, then the component's own doc for its event list.
 
 ## Icons
 
@@ -197,12 +176,7 @@ Where that guide is absent, apply the spacing token directly instead, for exampl
 
 ## Design tokens
 
-PIE's visual language — colours, spacing, radius, typography — is expressed through design tokens. These are CSS custom properties following the pattern `var(--dt-<category>-<name>)`, where the category maps to the token type:
-
-- **Colour**: `var(--dt-color-interactive-brand)`, `var(--dt-color-content-default)`, etc.
-- **Spacing**: `var(--dt-spacing-a)` through `var(--dt-spacing-j)` — when applying spacing as margins, prefer the spacing utility classes if that is the only CSS being applied to the element. Read `guides/spacing-utility-classes.md`.
-- **Radius**: `var(--dt-radius-rounded-a)`, etc.
-- **Font**: Don't use font tokens directly. Instead, use the typography utility classes from `pie-css`. Read `guides/typography-utility-classes.md` for the available classes and how to apply them.
+Design tokens are CSS custom properties following the pattern `var(--dt-<category>-<name>)`, for example `var(--dt-color-interactive-brand)`, `var(--dt-spacing-d)` or `var(--dt-radius-rounded-a)`. Two categories route elsewhere: for spacing as a margin see **Spacing utilities**, and for anything font-related use the typography utility classes rather than the font tokens, see **Typography**.
 
 When the user asks about tokens:
 
@@ -211,18 +185,15 @@ When the user asks about tokens:
 3. **Only use alias tokens, never global tokens.** Global tokens (e.g., `--dt-color-orange-30`) are raw values meant for internal token definitions — they aren't semantic and will break when themes change. Always recommend alias tokens (e.g., `--dt-color-interactive-brand`) which carry meaning and adapt across themes.
 4. Only recommend token names that appear in the metadata. Inventing token names causes silent failures — CSS treats unknown custom properties as empty.
 
-**Example — "what colour token should I use for a button?":**
-Read `tokens/tokensMetadata.json`, find tokens under the `color` → `alias` section related to interactive content, and recommend the appropriate one (e.g., `var(--dt-color-interactive-brand)`).
-
 ## Customising components
 
 When a user wants to override or customise a component's appearance, follow this order:
 
-1. **Check existing props first** — read the component's doc in `components/` and look for built-in variants, sizes, or visual props that already achieve what the user wants. Most common customisations are handled by props.
+1. **Check existing props first** — read the component's doc in `components/` and look for built-in variants, sizes, or visual props that already achieve what the user wants.
 2. **Use CSS variables and parts** — if props don't cover it, check the component's own **CSS Variables** and **CSS Parts** sections in its doc. Then read `guides/customising-components.md` and `guides/css-variables.md` for general customisation patterns.
-3. **Reach out to the team** — if neither props nor the supported CSS mechanisms solve the problem, advise the user to raise it in #help-designsystem on Slack. The team can confirm whether support is planned or give the green light for a custom override.
+3. **Reach out to the team** — if neither props nor the supported CSS mechanisms solve the problem, advise the user to raise it in #help-designsystem on Slack. The team can confirm whether support is planned or green-light a custom override, which the consumer then owns across upgrades.
 
-Avoid jumping straight to CSS hacks or shadow DOM workarounds — unsupported overrides break on upgrades and bypass the design system's accessibility and theming guarantees.
+Until the team approves an override, restyle only through props, CSS variables and CSS parts. Styles reaching into a component's shadow DOM break on upgrades and bypass the design system's accessibility and theming guarantees.
 
 ## Pre-flight checklist
 

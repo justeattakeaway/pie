@@ -2,6 +2,19 @@
 
 Skills extend AI agents with domain knowledge specific to this repo. They are installed per-project using the `npx skills` CLI.
 
+## Working on these skills from a clone of this repo
+
+Claude Code discovers skills in `.claude/skills/`, not `.agents/skills/`. Link the one you need once:
+
+```sh
+mkdir -p .claude/skills
+ln -s ../../.agents/skills/<skill-name> .claude/skills/<skill-name>
+```
+
+`.claude/` is not tracked, so the link is local to your machine and each contributor creates their own. A fresh clone gives you the skill source but no discovery until you do.
+
+After editing a skill, run `/reload-skills`. It reports "no changes" when only the body of a `SKILL.md` changed, which is expected — the body is served from a cache and the reload still picks it up.
+
 ## Available skills
 
 ### pie-design-system
