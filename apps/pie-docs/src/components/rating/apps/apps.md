@@ -3,9 +3,169 @@ eleventyNavigation:
     key: Apps
     parent: Rating
     order: 3
+shouldShowContents: true
+eleventyComputed:
+    ratingSizesData: "{% include '../web/rating-sizes.json' %}"
 ---
 
-{% notification {
-  type: "neutral",
-  message: "We're currently working on this documentation. It will be available soon."
+## Dos and Don'ts
+
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Use as a tool for users to compare others' opinions."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don't customise the amount of stars. Ratings should always have five available stars."
+        ]
+    }
 } %}
+
+---
+
+## Anatomy
+
+{% contentPageImage {
+    src:"../../../assets/img/components/rating/anatomy.svg",
+    alt: "Annotated diagram of a rating component showing its three star states: filled, partially filled, and empty.",
+    width: "200"
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Star:** Filled.",
+        "**Star:** Partially filled and only available in the static variant.",
+        "**Star:** Empty."
+    ]
+} %}
+
+---
+
+## Variants
+
+### Interactive
+
+Used to collect the user's satisfaction regarding a product, service or item.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/rating/variants-interactive.svg",
+    alt: "A rating component in the interactive variant, showing five stars for user input.",
+    width: "200"
+} %}
+
+### Static
+
+Used to display the average rating of user's reviews.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/rating/variants-static.svg",
+    alt: "A rating component in the static variant, showing a filled star rating display.",
+    width: "200"
+} %}
+
+---
+
+## Sizes
+
+<style>
+  .c-ratingSizes .c-simpleTable th:first-child,
+  .c-ratingSizes .c-simpleTable td:first-child { width: 8%; }
+  .c-ratingSizes .c-simpleTable th:nth-child(3),
+  .c-ratingSizes .c-simpleTable td:nth-child(3) { width: 8%; }
+</style>
+<div class="c-ratingSizes">
+{% simpleTable {
+    tableData: ratingSizesData,
+    isFullWidth: true
+} %}
+</div>
+
+---
+
+## Interactive states
+
+Outlines the atomic level interactive elements for the component.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Default</h3>
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/interactive-states-default.svg",
+        alt: "Rating component showing the default interactive state.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Selected</h3>
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/interactive-states-selected.svg",
+        alt: "Rating component showing the selected interactive state.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Examples
+
+### LTR example
+
+Here are some examples of the Rating component in the LTR context.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/examples-ltr-1.svg",
+        alt: "First example of a rating component in a left-to-right layout.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/examples-ltr-2.svg",
+        alt: "Second example of a rating component in a left-to-right layout.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/examples-ltr-3.svg",
+        alt: "Third example of a rating component in a left-to-right layout.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### RTL example
+
+Here are some examples of the Rating component in the RTL context.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/examples-rtl-1.svg",
+        alt: "First example of a rating component in a right-to-left layout.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/examples-rtl-2.svg",
+        alt: "Second example of a rating component in a right-to-left layout.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+        src:"../../../assets/img/components/rating/examples-rtl-3.svg",
+        alt: "Third example of a rating component in a right-to-left layout.",
+        width: "200"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
