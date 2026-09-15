@@ -367,3 +367,45 @@ $tooltip-alignments: ('', '-start', '-end');
     inset-block-start: var(--dt-spacing-b);
     inset-inline-end: var(--dt-spacing-b);
 }
+
+// Hover bridge: a transparent pseudo-element extending from each panel edge toward its
+// trigger, covering the --tooltip-layer-offset gap. Keeps the hover region intact so
+// the pointer can travel from the trigger into the panel without the close timer firing.
+// Sized from --tooltip-layer-offset so widening --tooltip-offset cannot open a hole.
+@each $alignment in $tooltip-alignments {
+    .c-tooltip--top#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-block-start: 100%;
+        block-size: var(--tooltip-layer-offset);
+        inset-inline-start: 0;
+        inline-size: 100%;
+    }
+
+    .c-tooltip--bottom#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-block-end: 100%;
+        block-size: var(--tooltip-layer-offset);
+        inset-inline-start: 0;
+        inline-size: 100%;
+    }
+
+    .c-tooltip--left#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-inline-start: 100%;
+        inline-size: var(--tooltip-layer-offset);
+        inset-block-start: 0;
+        block-size: 100%;
+    }
+
+    .c-tooltip--right#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-inline-end: 100%;
+        inline-size: var(--tooltip-layer-offset);
+        inset-block-start: 0;
+        block-size: 100%;
+    }
+}

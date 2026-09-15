@@ -19,6 +19,7 @@ export const sizes = ['default', 'fit-to-content', 'fill-container'] as const;
 export const variants = ['default', 'inverse'] as const;
 export const types = ['default', 'icon'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
+export const triggers = ['hover', 'focus', 'click', 'touch'] as const;
 
 /**
  * The two patterns the panel can present as. Inferred from the `action` slot rather than
@@ -27,6 +28,7 @@ export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const modes = ['tooltip', 'dialog'] as const;
 
 export type TooltipMode = typeof modes[number];
+export type TooltipTrigger = typeof triggers[number];
 
 type AriaProps = {
     /**
@@ -97,14 +99,24 @@ export interface TooltipProps {
      * The ARIA labels used for various parts of the tooltip.
      */
     aria?: AriaProps;
+
+    /**
+     * Which interactions request that the panel opens and closes. The component never opens or
+     * closes itself: a configured interaction emits `pie-tooltip-open` or `pie-tooltip-close`
+     * and the consumer decides whether to honour it by setting `isOpen`. Empty by default, so
+     * no interaction is watched at all. Configure `hover` and `focus` together for keyboard
+     * reachability, and `click` or `touch` for pointer users.
+     */
+    triggers?: Array<TooltipTrigger>;
 }
 
 export const componentSelector = 'pie-tooltip';
 export const componentClass = 'c-tooltip';
 
+export const ON_TOOLTIP_OPEN_EVENT = `${componentSelector}-open`;
 export const ON_TOOLTIP_CLOSE_EVENT = `${componentSelector}-close`;
 
-export type DefaultProps = ComponentDefaultProps<TooltipProps, keyof Omit<TooltipProps, 'trigger' | 'heading' | 'aria'>>;
+export type DefaultProps = ComponentDefaultProps<TooltipProps, keyof Omit<TooltipProps, 'trigger' | 'heading' | 'aria' | 'triggers'>>;
 
 export const defaultProps: DefaultProps = {
     isOpen: false,

@@ -31,6 +31,19 @@ type TooltipProps = TooltipBaseProps & {
 
 type TooltipStoryMeta = Meta<TooltipProps>;
 
+/**
+ * The component never opens or closes itself, so the trigger stories have to honour the requests
+ * for the interactions to be observable at all. This is the whole of the consumer's side of the
+ * contract: take the event, set the value.
+ */
+const handleOpen = (event: Event) => {
+    (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = true;
+};
+
+const handleClose = (event: Event) => {
+    (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = false;
+};
+
 const shortContent = 'Arrives today.';
 const longContent = 'Orders placed before 6pm arrive today. Orders placed after 6pm arrive the next working day, including at weekends.';
 
@@ -447,3 +460,164 @@ export const OverriddenWidth = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     tooltipWidth: '400px',
 })();
+
+// -----------------------------------------------------------------------------
+// Trigger interactions
+// -----------------------------------------------------------------------------
+
+/**
+ * Hover and focus triggers. Used for testing open/close via mouseenter/leave and focusin/out,
+ * and for the hover bridge gap test (with default and enlarged offset).
+ */
+const HoverFocusTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    hasAction,
+    heading,
+    isDismissible,
+    position,
+    size,
+    tooltipOffset,
+    type,
+    variant,
+}) => {
+    const cssVariables = styleMap({ '--tooltip-offset': tooltipOffset || null });
+
+    return html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                ?isDismissible="${isDismissible}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                heading="${heading || nothing}"
+                .aria="${aria}"
+                .triggers="${['hover', 'focus']}"
+                style="${cssVariables}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                ${renderContent(content, hasAction)}
+            </pie-tooltip>
+        </div>
+    </div>`;
+};
+
+export const HoverFocus = createStory<TooltipProps>(HoverFocusTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const HoverFocusEnlargedOffset = createStory<TooltipProps>(HoverFocusTemplate, {
+    ...defaultArgs,
+    tooltipOffset: '32px',
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Click trigger. Used for testing toggle, light-dismiss, and Escape. The panel starts closed
+ * so the tests can click to open it.
+ */
+const ClickTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    hasAction,
+    heading,
+    isDismissible,
+    position,
+    size,
+    type,
+    variant,
+}) => html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                ?isDismissible="${isDismissible}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                heading="${heading || nothing}"
+                .aria="${aria}"
+                .triggers="${['click']}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                ${renderContent(content, hasAction)}
+            </pie-tooltip>
+        </div>
+    </div>`;
+
+export const ClickToggle = createStory<TooltipProps>(ClickTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const ClickDismissible = createStory<TooltipProps>(ClickTemplate, {
+    ...defaultArgs,
+    isDismissible: true,
+    heading: 'Delivery times',
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Focus trigger with action slot. Used to verify focus staying inside the panel when
+ * moving from the trigger into the action button does not close the panel.
+ */
+const FocusWithActionTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    position,
+    size,
+    type,
+    variant,
+}) => html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                .aria="${aria}"
+                .triggers="${['focus']}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                <span slot="content" data-test-id="pie-tooltip-slotted-content">${content}</span>
+                <pie-button slot="action" size="xsmall" data-test-id="pie-tooltip-slotted-action">Next</pie-button>
+            </pie-tooltip>
+        </div>
+    </div>`;
+
+export const FocusWithAction = createStory<TooltipProps>(FocusWithActionTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+/**
+ * No triggers configured. The panel is always open and demonstrates the component is inert:
+ * nothing can self-close it.
+ */
+export const Inert = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    isOpen: true,
+})({}, {
+    controls: { disable: true },
+});

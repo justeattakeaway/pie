@@ -1,6 +1,7 @@
 import {
     nothing,
     unsafeCSS,
+    isServer,
     type PropertyValues,
     type TemplateResult,
 } from 'lit';
@@ -22,6 +23,7 @@ import {
     defaultProps,
     headingLevels,
     ON_TOOLTIP_CLOSE_EVENT,
+    ON_TOOLTIP_OPEN_EVENT,
     positions,
     sizes,
     types,
@@ -72,7 +74,8 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
 
 /**
  * @tagname pie-tooltip
- * @event {Event} pie-tooltip-close - When the close button is clicked. Set `isOpen` to `false` in response.
+ * @event {Event} pie-tooltip-open - When a configured trigger asks for the panel. Set `isOpen` to `true` in response.
+ * @event {Event} pie-tooltip-close - When the close button is clicked, or a configured trigger asks to dismiss the panel. Set `isOpen` to `false` in response.
  * @slot content - The descriptive content of the panel. Must not contain focusable elements.
  * @slot action - An optional slot for interactive content such as a `pie-button`. Filling this slot switches the panel to a non-modal dialog.
  */
@@ -113,6 +116,9 @@ export class PieTooltip extends PieElement implements TooltipProps {
     @property({ type: Object })
     public aria: TooltipProps['aria'];
 
+    @property({ type: Array })
+    public triggers: TooltipProps['triggers'] = [];
+
     @queryAssignedElements({ slot: 'action' }) private _assignedActionElements!: Array<HTMLElement>;
 
     @query('.c-tooltip-origin') private _originElement!: HTMLElement | null;
@@ -122,12 +128,15 @@ export class PieTooltip extends PieElement implements TooltipProps {
     @state() private _isPositioned = false;
 
     private _triggerTrackingController: AbortController | undefined;
+    private _interactionController: AbortController | undefined;
 
     private _directionObserver: MutationObserver | undefined;
 
     private _reanchorFrame = 0;
 
     private _shouldResolveOverlayMode = false;
+
+    private _hoverCloseTimer: ReturnType<typeof setTimeout> | undefined;
 
     static styles = unsafeCSS(styles);
 
@@ -142,6 +151,9 @@ export class PieTooltip extends PieElement implements TooltipProps {
     protected firstUpdated (): void {
         this.resolveMode();
         this.projectOverTrigger();
+        if (!isServer) {
+            this._rebuildInteractionListeners();
+        }
     }
 
     protected updated (changedProperties: PropertyValues<this>): void {
@@ -160,9 +172,14 @@ export class PieTooltip extends PieElement implements TooltipProps {
         } else {
             this.stopTrackingTrigger();
         }
+
+        if (!isServer && (changedProperties.has('triggers') || changedProperties.has('trigger'))) {
+            this._rebuildInteractionListeners();
+        }
     }
 
     public disconnectedCallback (): void {
+        this._teardownInteractionListeners();
         this.stopTrackingTrigger();
         super.disconnectedCallback();
     }
@@ -314,15 +331,130 @@ export class PieTooltip extends PieElement implements TooltipProps {
     }
 
     private handleCloseButtonClick (): void {
+        this._requestClose();
+    }
+
+    private _getTriggerElement (): Element | null {
+        return this.trigger ? this.ownerDocument.getElementById(this.trigger) : null;
+    }
+
+    private _requestOpen (): void {
+        if (this.isOpen) return;
+
         /**
-         * The custom elements manifest analyser scans `this.dispatchEvent` calls for event names
-         * but cannot resolve constants, so it would record an event literally named
-         * `ON_TOOLTIP_CLOSE_EVENT` and generate a matching React callback prop. `@ignore` skips
-         * this call site; the event is declared by the class-level `@event` tag instead.
-         *
+         * @ignore
+         */
+        this.dispatchEvent(new Event(ON_TOOLTIP_OPEN_EVENT, { bubbles: true, composed: true }));
+    }
+
+    private _requestClose (): void {
+        if (!this.isOpen) return;
+
+        /**
          * @ignore
          */
         this.dispatchEvent(new Event(ON_TOOLTIP_CLOSE_EVENT, { bubbles: true, composed: true }));
+    }
+
+    private _startHoverCloseTimer (): void {
+        if (this._hoverCloseTimer !== undefined) return;
+        this._hoverCloseTimer = setTimeout(() => {
+            this._hoverCloseTimer = undefined;
+            this._requestClose();
+        }, 100);
+    }
+
+    private _cancelHoverCloseTimer (): void {
+        if (this._hoverCloseTimer !== undefined) {
+            clearTimeout(this._hoverCloseTimer);
+            this._hoverCloseTimer = undefined;
+        }
+    }
+
+    private _rebuildInteractionListeners (): void {
+        this._teardownInteractionListeners();
+
+        if (!this.triggers?.length) return;
+
+        const controller = new AbortController();
+        const { signal } = controller;
+        this._interactionController = controller;
+
+        const triggerEl = this._getTriggerElement();
+
+        this.ownerDocument.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && this.isOpen) {
+                this._requestClose();
+            }
+        }, { signal });
+
+        if (!triggerEl) return;
+
+        if (this.triggers.includes('hover')) {
+            triggerEl.addEventListener('mouseenter', () => {
+                this._cancelHoverCloseTimer();
+                this._requestOpen();
+            }, { signal });
+
+            triggerEl.addEventListener('mouseleave', () => {
+                this._startHoverCloseTimer();
+            }, { signal });
+
+            // panel mouseenter/leave for the hover bridge (includes the bridge pseudo-element)
+            const panel = this.renderRoot.querySelector('.c-tooltip');
+            if (panel) {
+                panel.addEventListener('mouseenter', () => {
+                    this._cancelHoverCloseTimer();
+                }, { signal });
+
+                panel.addEventListener('mouseleave', () => {
+                    this._startHoverCloseTimer();
+                }, { signal });
+            }
+        }
+
+        if (this.triggers.includes('focus')) {
+            // open on focus, close on blur unless focus moved into panel action content
+            triggerEl.addEventListener('focusin', () => {
+                this._requestOpen();
+            }, { signal });
+
+            triggerEl.addEventListener('focusout', (e: Event) => {
+                const related = (e as FocusEvent).relatedTarget as Node | null;
+                // relatedTarget is retargeted to the shadow host when focus moves into shadow DOM
+                const staysInside = related && (this.contains(related) || related === this);
+                if (!staysInside) {
+                    this._requestClose();
+                }
+            }, { signal });
+        }
+
+        if (this.triggers.includes('click') || this.triggers.includes('touch')) {
+            triggerEl.addEventListener('click', (e: Event) => {
+                e.stopPropagation();
+                if (this.isOpen) {
+                    this._requestClose();
+                } else {
+                    this._requestOpen();
+                }
+            }, { signal });
+
+            // Light-dismiss: click anywhere outside the panel and trigger
+            this.ownerDocument.addEventListener('click', (e: Event) => {
+                const target = e.composedPath()[0] as Node;
+                const isInsidePanel = this.contains(target) || this.shadowRoot?.contains(target);
+                const isInsideTrigger = triggerEl.contains(target) || target === triggerEl;
+                if (!isInsidePanel && !isInsideTrigger && this.isOpen) {
+                    this._requestClose();
+                }
+            }, { signal });
+        }
+    }
+
+    private _teardownInteractionListeners (): void {
+        this._interactionController?.abort();
+        this._interactionController = undefined;
+        this._cancelHoverCloseTimer();
     }
 
     private renderHeading (): TemplateResult {
