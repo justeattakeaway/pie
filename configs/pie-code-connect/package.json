@@ -19,7 +19,8 @@
     "unpublish-components:dev": "yarn figma connect unpublish -c ./config/figma-dev-components-batch.config.json",
     "publish:all": "yarn publish-components:all && yarn publish-icons:all",
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix"
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "test": "run -T vitest run --config ../../vite.config.js"
   },
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
