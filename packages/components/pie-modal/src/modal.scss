@@ -64,6 +64,14 @@
 
     position: fixed;
     top: 0;
+
+    // The UA gives `dialog:modal` `overflow: auto`, which makes the dialog clip everything inside
+    // it and prevents an overlay such as `pie-tooltip` from rendering outside the modal. The
+    // dialog itself never needs to scroll: it is a flex column whose `.c-modal-scrollContainer`
+    // owns scrolling, which is also the element the body scroll lock is pointed at.
+    // Because this stops the radius below clipping children, the first and last children round
+    // their own corners to match it.
+    overflow: visible;
     border-radius: var(--modal-border-radius);
     border: none;
     box-shadow: var(--modal-elevation);
@@ -181,6 +189,13 @@
     }
 
     & .c-modal-imageSlot {
+        // The image slot is the dialog's first child and paints to its top edge, in illustration
+        // mode with a background colour and in image mode with a full-width image. The dialog no
+        // longer clips, so the slot rounds its own top corners. `--modal-border-radius` is already
+        // `rounded-none` in the fullscreen breakpoints, so those flatten automatically.
+        border-start-start-radius: var(--modal-border-radius);
+        border-start-end-radius: var(--modal-border-radius);
+
         &.c-modal-imageSlot--illustration {
             display: flex;
             justify-content: center;
@@ -410,6 +425,16 @@
         display: flex;
         flex-direction: column;
         overflow-y: auto;
+
+        // When the footer is not pinned this wrapper is the dialog's last child and paints the
+        // scroll-shadow cover to its bottom edge, so it rounds its own bottom corners now that the
+        // dialog no longer clips. Not scoped with `:last-child`: the footer slot is always
+        // rendered, so the wrapper is never actually last in the DOM. The cost is that in the
+        // pinned-footer configuration this also rounds the content article mid-modal, where the
+        // only thing cut is a gradient that fades to `--modal-bg-color` over the dialog's own
+        // `--modal-bg-color`, so nothing shows.
+        border-end-start-radius: var(--modal-border-radius);
+        border-end-end-radius: var(--modal-border-radius);
 
         // These are the shadows used to indicate scrolling above and below content
         --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--modal-bg-color) 70%) 0 100%;

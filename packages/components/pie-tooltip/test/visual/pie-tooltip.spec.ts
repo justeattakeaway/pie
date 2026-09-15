@@ -20,6 +20,8 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--icon-default', name: 'PieTooltip - Icon default' },
     { id: 'tooltip--icon-inverse', name: 'PieTooltip - Icon inverse' },
     { id: 'tooltip--icon-placement-grid', name: 'PieTooltip - Icon placement grid' },
+    { id: 'tooltip--in-clipping-scroll-container', name: 'PieTooltip - In clipping scroll container' },
+    { id: 'tooltip--clipper-inside-containing-block', name: 'PieTooltip - Clipper inside containing block' },
 ];
 
 // Tooltip position is calculated in the browser, so Percy must run the component code too.
@@ -33,6 +35,33 @@ test.describe('PieTooltip - Visual tests', () => {
 
             await basePage.load();
             await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
+
+            // Act & Assert
+            await percySnapshot(page, name, percySnapshotOptions);
+        });
+    });
+
+    /**
+     * The only assertion a human reviews that shows the panel actually painted outside the modal.
+     * These stories need a click, so they cannot join the list above.
+     */
+    [
+        { id: 'tooltip--in-modal', name: 'PieTooltip - In modal' },
+        { id: 'tooltip--in-modal-with-pinned-footer', name: 'PieTooltip - In modal with pinned footer' },
+    ].forEach(({ id, name }) => {
+        test(`should display the ${name} story successfully`, async ({ page }) => {
+            // Arrange
+            const basePage = new BasePage(page, id);
+
+            await basePage.load();
+
+            // `showModal()` runs from an async `firstUpdated`, so the dialog can open after the
+            // page has otherwise settled.
+            await expect(page.getByTestId(tooltip.selectors.modal.dataTestId)).toBeVisible();
+            await basePage.freezeAnimations();
+
+            await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+            await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
 
             // Act & Assert
             await percySnapshot(page, name, percySnapshotOptions);

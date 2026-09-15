@@ -15,6 +15,7 @@ import {
 
 import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/icon-button';
+import '@justeattakeaway/pie-webc/components/modal';
 import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 
 import { createStory, type TemplateFunction } from '../../utilities';
@@ -27,9 +28,23 @@ type TooltipProps = TooltipBaseProps & {
     tooltipWidth: string;
     triggerInlineSize: string;
     containerInlineSize: string;
+    isFooterPinned: boolean;
 };
 
 type TooltipStoryMeta = Meta<TooltipProps>;
+
+/**
+ * The component never opens or closes itself, so the trigger stories have to honour the requests
+ * for the interactions to be observable at all. This is the whole of the consumer's side of the
+ * contract: take the event, set the value.
+ */
+const handleOpen = (event: Event) => {
+    (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = true;
+};
+
+const handleClose = (event: Event) => {
+    (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = false;
+};
 
 const shortContent = 'Arrives today.';
 const longContent = 'Orders placed before 6pm arrive today. Orders placed after 6pm arrive the next working day, including at weekends.';
@@ -43,6 +58,7 @@ const defaultArgs: TooltipProps = {
     tooltipWidth: '',
     triggerInlineSize: '120px',
     containerInlineSize: '400px',
+    isFooterPinned: false,
     heading: '',
     aria: {
         close: 'Close',
@@ -71,6 +87,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
         tooltipWidth: { control: 'text' },
         triggerInlineSize: { control: 'text' },
         containerInlineSize: { control: 'text' },
+        isFooterPinned: { control: 'boolean', type: 'boolean' },
     },
     args: defaultArgs,
     parameters: {
@@ -447,3 +464,280 @@ export const OverriddenWidth = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     tooltipWidth: '400px',
 })();
+
+// -----------------------------------------------------------------------------
+// Trigger interactions
+// -----------------------------------------------------------------------------
+
+/**
+ * Hover and focus triggers. Used for testing open/close via mouseenter/leave and focusin/out,
+ * and for the hover bridge gap test (with default and enlarged offset).
+ */
+const HoverFocusTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    hasAction,
+    heading,
+    isDismissible,
+    position,
+    size,
+    tooltipOffset,
+    type,
+    variant,
+}) => {
+    const cssVariables = styleMap({ '--tooltip-offset': tooltipOffset || null });
+
+    return html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                ?isDismissible="${isDismissible}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                heading="${heading || nothing}"
+                .aria="${aria}"
+                .triggers="${['hover', 'focus']}"
+                style="${cssVariables}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                ${renderContent(content, hasAction)}
+            </pie-tooltip>
+        </div>
+    </div>`;
+};
+
+export const HoverFocus = createStory<TooltipProps>(HoverFocusTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const HoverFocusEnlargedOffset = createStory<TooltipProps>(HoverFocusTemplate, {
+    ...defaultArgs,
+    tooltipOffset: '32px',
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Click trigger. Used for testing toggle, light-dismiss, and Escape. The panel starts closed
+ * so the tests can click to open it.
+ */
+const ClickTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    hasAction,
+    heading,
+    isDismissible,
+    position,
+    size,
+    type,
+    variant,
+}) => html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                ?isDismissible="${isDismissible}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                heading="${heading || nothing}"
+                .aria="${aria}"
+                .triggers="${['click']}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                ${renderContent(content, hasAction)}
+            </pie-tooltip>
+        </div>
+    </div>`;
+
+export const ClickToggle = createStory<TooltipProps>(ClickTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const ClickDismissible = createStory<TooltipProps>(ClickTemplate, {
+    ...defaultArgs,
+    isDismissible: true,
+    heading: 'Delivery times',
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Focus trigger with action slot. Used to verify focus staying inside the panel when
+ * moving from the trigger into the action button does not close the panel.
+ */
+const FocusWithActionTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    position,
+    size,
+    type,
+    variant,
+}) => html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                .aria="${aria}"
+                .triggers="${['focus']}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                <span slot="content" data-test-id="pie-tooltip-slotted-content">${content}</span>
+                <pie-button slot="action" size="xsmall" data-test-id="pie-tooltip-slotted-action">Next</pie-button>
+            </pie-tooltip>
+        </div>
+    </div>`;
+
+export const FocusWithAction = createStory<TooltipProps>(FocusWithActionTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+/**
+ * No triggers configured. The panel is always open and demonstrates the component is inert:
+ * nothing can self-close it.
+ */
+export const Inert = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    isOpen: true,
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * A panel slotted into `pie-modal`. The modal's scroll container clips absolutely positioned
+ * descendants and the `<dialog>` is a containing block for fixed ones, so this is the composition
+ * that exercises the whole overlay-mode resolution: the panel has to leave both to be readable.
+ *
+ * The trigger is the last thing in the modal's content, with the panel below it, so a clipped
+ * panel is unmistakable. The panel opens on click rather than on load because a closed dialog is
+ * `display: none` and nothing inside it has a box to measure.
+ */
+const InModalTemplate: TemplateFunction<TooltipProps> = ({
+    content,
+    heading,
+    isFooterPinned,
+}) => html`
+    <pie-modal
+        heading="Delivery options"
+        ?isOpen="${true}"
+        ?isDismissible="${true}"
+        ?isFooterPinned="${isFooterPinned}"
+        .leadingAction="${isFooterPinned ? { text: 'Confirm' } : undefined}">
+        <p>Choose when you want your order to arrive. Delivery windows are confirmed once the
+        restaurant accepts your order.</p>
+        <p>Orders are prepared in the order they are received, so a later window may still arrive
+        early if the kitchen is quiet.</p>
+        <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+        <pie-tooltip
+            trigger="tooltip-trigger"
+            position="bottom"
+            heading="${heading || nothing}"
+            ?isOpen="${false}"
+            .triggers="${['click']}"
+            @pie-tooltip-open="${handleOpen}"
+            @pie-tooltip-close="${handleClose}">
+            ${renderContent(content, false)}
+        </pie-tooltip>
+    </pie-modal>`;
+
+/**
+ * Footer not pinned: the clipping `.c-modal-scrollContainer` wrapper sits *above* the panel's
+ * absolute containing block, so `absolute` is clipped by it.
+ */
+export const InModal = createStory<TooltipProps>(InModalTemplate, {
+    ...defaultArgs,
+    isOpen: false,
+    heading: 'Delivery times',
+    content: longContent,
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Footer pinned: the content article is *both* the absolute containing block and the clipper,
+ * which exercises the ordering of the containing-block and overflow checks in the ancestor walk.
+ */
+export const InModalWithPinnedFooter = createStory<TooltipProps>(InModalTemplate, {
+    ...defaultArgs,
+    isOpen: false,
+    heading: 'Delivery times',
+    content: longContent,
+    isFooterPinned: true,
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Light-DOM control case, all in one element: the scroll container is *both* the panel's absolute
+ * containing block and the clipper, so it clips an `absolute` panel. Nothing above it establishes
+ * a containing block for `fixed`, so promoting escapes the clip outright and the panel must
+ * promote. Guards the heuristic against under-promotion.
+ */
+const InClippingScrollContainerTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
+    <div style="padding: ${pagePadding} ${pageInlinePadding};">
+        <div
+            data-test-id="clipping-container"
+            style="position: relative; overflow: auto; block-size: 120px; border: 1px solid var(--dt-color-border-strong);">
+            <div style="padding-block-start: 60px;">
+                <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+                <pie-tooltip
+                    trigger="tooltip-trigger"
+                    position="bottom"
+                    ?isOpen="${true}">
+                    ${renderContent(content, false)}
+                </pie-tooltip>
+            </div>
+        </div>
+    </div>`;
+
+export const InClippingScrollContainer = createStory<TooltipProps>(InClippingScrollContainerTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+/**
+ * The opposite control case: the clipper is *inside* the panel's absolute containing block, which
+ * is the one arrangement an `absolute` box escapes on its own. There is nothing to gain, so the
+ * panel must stay `absolute`. Guards against over-promotion, which would buy a re-projection on
+ * every scroll for no benefit.
+ */
+const ClipperInsideContainingBlockTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
+    <div style="position: relative; padding: ${pagePadding} ${pageInlinePadding};">
+        <div data-test-id="clipping-container" style="overflow: hidden; block-size: 120px; border: 1px solid var(--dt-color-border-strong);">
+            <div style="padding-block-start: 60px;">
+                <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+                <pie-tooltip
+                    trigger="tooltip-trigger"
+                    position="bottom"
+                    ?isOpen="${true}">
+                    ${renderContent(content, false)}
+                </pie-tooltip>
+            </div>
+        </div>
+    </div>`;
+
+export const ClipperInsideContainingBlock = createStory<TooltipProps>(ClipperInsideContainingBlockTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
