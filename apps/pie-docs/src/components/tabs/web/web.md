@@ -106,7 +106,7 @@ The default view is that one tab is preselected and is usually the first tab. On
 
 {% contentPageImage {
     src:"../../../assets/img/components/tabs/behaviour.svg",
-    alt: "Edxample of tab component with one tab selected at a time with the others unselected.",
+    alt: "Example of tab component with one tab selected at a time with the others unselected.",
     width: "200"
 } %}
 
@@ -116,7 +116,7 @@ The default view is that one tab is preselected and is usually the first tab. On
 
 ### Scrolling
 
-When the number of Tabs exceeds the available horizontal container, the Tabs become scrollable — this functionality is available across both wide and narrow screen sizes.
+When the number of Tabs exceeds the available horizontal container, the Tabs become scrollable. This functionality is available across both wide and narrow screen sizes.
 
 {% contentPageImage {
     src:"../../../assets/img/components/tabs/overflow-scrolling-start.svg",
@@ -128,7 +128,7 @@ When the number of Tabs exceeds the available horizontal container, the Tabs bec
 {% contentPageImage {
     src:"../../../assets/img/components/tabs/overflow-scrolling-middle.svg",
     alt: "Tabs component with the scroll position in the middle.",
-    caption: "Tabs component with the scroll position at the start.",
+    caption: "Tabs component with the scroll position in the middle.",
     width: "200"
 } %}
 

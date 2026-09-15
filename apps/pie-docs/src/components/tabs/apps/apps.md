@@ -126,7 +126,7 @@ The default view is that one tab is preselected and is usually the first tab. On
 
 {% contentPageImage {
     src:"../../../assets/img/components/tabs/apps/behaviour.svg",
-    alt: "Edxample of tab component with one tab selected at a time with the others unselected.",
+    alt: "Example of tab component with one tab selected at a time with the others unselected.",
     width: "200"
 } %}
 
@@ -138,7 +138,7 @@ Each tab holds the same width which is determined by the width of the widest tab
 
 {% contentPageImage {
     src:"../../../assets/img/components/tabs/apps/behaviour-alignment.svg",
-    alt: "Edxample of tab component centre-aligned in a mobile screen.",
+    alt: "Example of tab component centre-aligned in a mobile screen.",
     width: "200"
 } %}
 
@@ -148,7 +148,7 @@ Each tab holds the same width which is determined by the width of the widest tab
 
 ### Scrolling
 
-When the number of Tabs exceeds the available horizontal container, the Tabs become scrollable — this functionality is available across both wide and narrow screen sizes.
+When the number of Tabs exceeds the available horizontal container, the Tabs become scrollable. This functionality is available across both wide and narrow screen sizes.
 
 {% contentPageImage {
     src:"../../../assets/img/components/tabs/apps/overflow-scrolling-start.svg",
@@ -160,7 +160,7 @@ When the number of Tabs exceeds the available horizontal container, the Tabs bec
 {% contentPageImage {
     src:"../../../assets/img/components/tabs/apps/overflow-scrolling-middle.svg",
     alt: "Tabs component with the scroll position in the middle.",
-    caption: "Tabs component with the scroll position at the start.",
+    caption: "Tabs component with the scroll position in the middle.",
     width: "200"
 } %}
 

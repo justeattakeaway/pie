@@ -388,7 +388,7 @@ Outlines the atomic level interactive elements for the component.
 
 ---
 
-## LTR Examples
+## LTR examples
 
 Here are some examples of Uploader in LTR context.
 
@@ -410,7 +410,7 @@ Here are some examples of Uploader in LTR context.
 
 ---
 
-## RTL Examples
+## RTL examples
 
 Here are some examples of Uploader in RTL context.
 

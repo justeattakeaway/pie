@@ -129,9 +129,11 @@ Alignment is always relative to the container width instead of the entire page.
 
 ---
 
-## LTR examples
+## Examples
 
-Here is an example of the Pagination in RTL context.
+### LTR examples
+
+Here is an example of the Pagination in LTR context.
 
 {% contentPageImage {
     src:"../../../assets/img/components/pagination/apps/example-ltr.svg",
@@ -139,9 +141,7 @@ Here is an example of the Pagination in RTL context.
     width: "200"
 } %}
 
----
-
-## RTL Examples
+### RTL examples
 
 Here is an example of the Pagination in RTL context.
 

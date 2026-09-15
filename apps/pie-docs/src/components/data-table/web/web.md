@@ -461,7 +461,7 @@ The action is positioned within the toolbar because the action can be taken in b
     width: "200"
 } %}
 
-### RTL Examples
+### RTL examples
 
 Here are some examples of Data Table in RTL context.
 

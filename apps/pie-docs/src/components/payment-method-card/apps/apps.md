@@ -328,7 +328,7 @@ Resizing the component is not needed. The component follows the size and shape o
 
 {% notification {
   type: "warning",
-  message: "**Recomendation:** Don't resize the component if placed on a bigger screen. It should resemble the actual size of a physical card."
+  message: "**Recommendation:** Don't resize the component if placed on a bigger screen. It should resemble the actual size of a physical card."
 } %}
 
 #### Narrow screens

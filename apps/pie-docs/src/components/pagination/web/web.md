@@ -271,7 +271,9 @@ Outlines the atomic level interactive elements for the component.
 
 ---
 
-## LTR examples
+## Examples
+
+### LTR examples
 
 Here are some examples of Pagination in LTR context.
 
@@ -287,9 +289,7 @@ Here are some examples of Pagination in LTR context.
     width: "200"
 } %}
 
----
-
-## RTL Examples
+### RTL examples
 
 Here are some examples of Pagination in RTL context.
 
