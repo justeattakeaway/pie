@@ -1,3 +1,4 @@
+---
 "@justeattakeaway/pie-tooltip": minor
 ---
 
