@@ -101,6 +101,14 @@ right    right-start    right-end
 
 In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and `left` and `right` swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of `left` and `right` are on the block axis, which has no direction to mirror, so only the side moves. None of this needs configuration or any JavaScript awareness of direction.
 
+### Clipping ancestors
+
+A panel inside a scrolling region, or inside a container with `overflow: hidden`, would be cut off where that container ends. To avoid that, the component inspects its layout ancestors and switches itself to `position: fixed` whenever doing so escapes a clip that `position: absolute` cannot. The inspection follows the flattened tree, so a panel slotted into another component, such as `pie-modal`, is measured against the ancestors it is really laid out inside rather than the ones it is written inside.
+
+One case cannot be escaped. An overflow ancestor clips a positioned panel only if it is that panel's containing block or sits above it, so a container that clips *and* establishes a containing block for fixed positioning, by carrying a `transform`, `filter`, `contain: paint` or `container-type`, defeats both values. If you own such a container, give it `overflow: visible` and round the corners of the children that reach its edges instead.
+
+Place `pie-tooltip` inside the same container as its trigger. A panel left outside a modal dialog whose trigger is inside it would be made inert by the dialog, and would compete on `z-index` (`--dt-z-index-tooltip` is below `--dt-z-index-modal`) rather than sharing the dialog's stacking context.
+
 ## Sizing
 
 | `size` | Behaviour |

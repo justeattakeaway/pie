@@ -65,7 +65,9 @@ $tooltip-alignments: ('', '-start', '-end');
     visibility: hidden;
     transition: visibility 0s linear 150ms;
 
-    &.is-open.is-positioned {
+    // `is-anchorVisible` is false when the trigger has been scrolled entirely out of a clipping
+    // ancestor: there is nothing left to point at, so the panel hides rather than float free.
+    &.is-open.is-positioned.is-anchorVisible {
         visibility: visible;
         transition-delay: 0s;
     }
@@ -168,7 +170,7 @@ $tooltip-alignments: ('', '-start', '-end');
         transform var(--tooltip-motion-duration) var(--tooltip-motion-easing);
 }
 
-.c-tooltip-layer.is-open.is-positioned .c-tooltip {
+.c-tooltip-layer.is-open.is-positioned.is-anchorVisible .c-tooltip {
     --tooltip-motion-duration: 200ms;
 
     opacity: 1;

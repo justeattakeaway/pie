@@ -15,6 +15,7 @@ import {
 
 import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/icon-button';
+import '@justeattakeaway/pie-webc/components/modal';
 import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 
 import { createStory, type TemplateFunction } from '../../utilities';
@@ -27,6 +28,7 @@ type TooltipProps = TooltipBaseProps & {
     tooltipWidth: string;
     triggerInlineSize: string;
     containerInlineSize: string;
+    isFooterPinned: boolean;
 };
 
 type TooltipStoryMeta = Meta<TooltipProps>;
@@ -56,6 +58,7 @@ const defaultArgs: TooltipProps = {
     tooltipWidth: '',
     triggerInlineSize: '120px',
     containerInlineSize: '400px',
+    isFooterPinned: false,
     heading: '',
     aria: {
         close: 'Close',
@@ -84,6 +87,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
         tooltipWidth: { control: 'text' },
         triggerInlineSize: { control: 'text' },
         containerInlineSize: { control: 'text' },
+        isFooterPinned: { control: 'boolean', type: 'boolean' },
     },
     args: defaultArgs,
     parameters: {
@@ -619,5 +623,121 @@ export const Inert = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     isOpen: true,
 })({}, {
+    controls: { disable: true },
+});
+
+/**
+ * A panel slotted into `pie-modal`. The modal's scroll container clips absolutely positioned
+ * descendants and the `<dialog>` is a containing block for fixed ones, so this is the composition
+ * that exercises the whole overlay-mode resolution: the panel has to leave both to be readable.
+ *
+ * The trigger is the last thing in the modal's content, with the panel below it, so a clipped
+ * panel is unmistakable. The panel opens on click rather than on load because a closed dialog is
+ * `display: none` and nothing inside it has a box to measure.
+ */
+const InModalTemplate: TemplateFunction<TooltipProps> = ({
+    content,
+    heading,
+    isFooterPinned,
+}) => html`
+    <pie-modal
+        heading="Delivery options"
+        ?isOpen="${true}"
+        ?isDismissible="${true}"
+        ?isFooterPinned="${isFooterPinned}"
+        .leadingAction="${isFooterPinned ? { text: 'Confirm' } : undefined}">
+        <p>Choose when you want your order to arrive. Delivery windows are confirmed once the
+        restaurant accepts your order.</p>
+        <p>Orders are prepared in the order they are received, so a later window may still arrive
+        early if the kitchen is quiet.</p>
+        <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+        <pie-tooltip
+            trigger="tooltip-trigger"
+            position="bottom"
+            heading="${heading || nothing}"
+            ?isOpen="${false}"
+            .triggers="${['click']}"
+            @pie-tooltip-open="${handleOpen}"
+            @pie-tooltip-close="${handleClose}">
+            ${renderContent(content, false)}
+        </pie-tooltip>
+    </pie-modal>`;
+
+/**
+ * Footer not pinned: the clipping `.c-modal-scrollContainer` wrapper sits *above* the panel's
+ * absolute containing block, so `absolute` is clipped by it.
+ */
+export const InModal = createStory<TooltipProps>(InModalTemplate, {
+    ...defaultArgs,
+    isOpen: false,
+    heading: 'Delivery times',
+    content: longContent,
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Footer pinned: the content article is *both* the absolute containing block and the clipper,
+ * which exercises the ordering of the containing-block and overflow checks in the ancestor walk.
+ */
+export const InModalWithPinnedFooter = createStory<TooltipProps>(InModalTemplate, {
+    ...defaultArgs,
+    isOpen: false,
+    heading: 'Delivery times',
+    content: longContent,
+    isFooterPinned: true,
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Light-DOM control case, all in one element: the scroll container is *both* the panel's absolute
+ * containing block and the clipper, so it clips an `absolute` panel. Nothing above it establishes
+ * a containing block for `fixed`, so promoting escapes the clip outright and the panel must
+ * promote. Guards the heuristic against under-promotion.
+ */
+const InClippingScrollContainerTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
+    <div style="padding: ${pagePadding} ${pageInlinePadding};">
+        <div
+            data-test-id="clipping-container"
+            style="position: relative; overflow: auto; block-size: 120px; border: 1px solid var(--dt-color-border-strong);">
+            <div style="padding-block-start: 60px;">
+                <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+                <pie-tooltip
+                    trigger="tooltip-trigger"
+                    position="bottom"
+                    ?isOpen="${true}">
+                    ${renderContent(content, false)}
+                </pie-tooltip>
+            </div>
+        </div>
+    </div>`;
+
+export const InClippingScrollContainer = createStory<TooltipProps>(InClippingScrollContainerTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+/**
+ * The opposite control case: the clipper is *inside* the panel's absolute containing block, which
+ * is the one arrangement an `absolute` box escapes on its own. There is nothing to gain, so the
+ * panel must stay `absolute`. Guards against over-promotion, which would buy a re-projection on
+ * every scroll for no benefit.
+ */
+const ClipperInsideContainingBlockTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
+    <div style="position: relative; padding: ${pagePadding} ${pageInlinePadding};">
+        <div data-test-id="clipping-container" style="overflow: hidden; block-size: 120px; border: 1px solid var(--dt-color-border-strong);">
+            <div style="padding-block-start: 60px;">
+                <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+                <pie-tooltip
+                    trigger="tooltip-trigger"
+                    position="bottom"
+                    ?isOpen="${true}">
+                    ${renderContent(content, false)}
+                </pie-tooltip>
+            </div>
+        </div>
+    </div>`;
+
+export const ClipperInsideContainingBlock = createStory<TooltipProps>(ClipperInsideContainingBlockTemplate, defaultArgs)({}, {
     controls: { disable: true },
 });
