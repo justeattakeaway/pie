@@ -139,7 +139,7 @@ A map pin should be interactive when it serves a specific purpose or action with
 
 #### Non-interactive
 
-Use the map pin in a static form, if you want the avatar to retain its original appearance without any interactive features tied with the content or context.
+Use the map pin in a static form if you want the pin to retain its original appearance without any interactive features tied with the content or context.
 
 {% contentPageImage {
     src:"../../../assets/img/components/map-pin/apps/modifiers-interaction-not-interactive.svg",

@@ -268,16 +268,20 @@ Columns can be sorted in ascending or descending order. Sorting controls are loc
     width: "200"
 } %}
 
+<br>
+
 {% contentPageImage {
     src: "../../../assets/img/components/data-table/web/behaviour-sort-2.svg",
-    alt: "A data table column header in its ascending sort state with an upward sort icon.",
-    caption: "Example of sorting controls in the descending order.",
+    alt: "A data table column header in its descending sort state with an upward sort icon.",
+    caption: "Example of sorting controls in the descending order state.",
     width: "200"
 } %}
 
+<br>
+
 {% contentPageImage {
     src: "../../../assets/img/components/data-table/web/behaviour-sort-3.svg",
-    alt: "A data table column header in its descending sort state with a downward sort icon.",
+    alt: "A data table column header in its ascending sort state with a downward sort icon.",
     caption: "Example of sorting controls in the ascending order state.",
     width: "200"
 } %}
