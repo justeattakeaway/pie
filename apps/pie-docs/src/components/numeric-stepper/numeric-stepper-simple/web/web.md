@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: Numeric Stepper - Simple
     order: 2
-draft: true
 ---
 
 {% notification {
