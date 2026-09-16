@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Android
     parent: Date Picker
     order: 3
-draft: true
 ---
 
 {% notification {
