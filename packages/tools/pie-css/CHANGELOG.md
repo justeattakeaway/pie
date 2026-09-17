@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.8.1
+
+### Patch Changes
+
+- [Fixed] - isResponsive doesn't set the correct text color for small to medium buttons ([#3190](https://github.com/justeattakeaway/pie/pull/3190)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.8.0
 
 ### Minor Changes
