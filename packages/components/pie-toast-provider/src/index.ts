@@ -34,18 +34,7 @@ export { toaster } from './toaster';
 
 const componentSelector = 'pie-toast-provider';
 
-/**
- * How long to wait for a dismissal phase's motion event before advancing anyway.
- *
- * Dismissal runs in two phases, each driven by a motion event: the toast slides out
- * (`animationend`), then its row collapses (`transitionend`). Neither event fires when motion is
- * disabled — a consumer setting `animation: none` or `transition: none`, or a hidden element.
- * Without a fallback the toast would stay mounted forever and no queued toast would ever be
- * promoted into its slot.
- *
- * Comfortably longer than the 200ms slide-out and 200ms collapse, so it never pre-empts real
- * motion.
- */
+// Fallback timeout if motion events don't fire (e.g., when motion is disabled).
 const MOTION_FALLBACK_MS = 500;
 
 /**

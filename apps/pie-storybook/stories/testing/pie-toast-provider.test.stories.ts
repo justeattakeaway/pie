@@ -272,8 +272,6 @@ export const Stacked: StoryObj<ToastProviderProps> = {
     },
 };
 
-// Same three toasts as `Stacked`, but with the default `isStacked: false`, so only the first
-// is displayed and the other two wait in the queue.
 export const Unstacked: StoryObj<ToastProviderProps> = {
     ...createStory<ToastProviderProps>(PositionTemplate, defaultArgs)(),
     play: () => {

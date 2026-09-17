@@ -55,8 +55,8 @@ export interface ToastProviderProps {
     position?: typeof positions[number];
 
     /**
-     * When true, up to `MAX_VISIBLE_TOASTS` toasts are displayed at the same time in a vertical
-     * stack. When false, a single toast is displayed at a time and the rest wait in the queue.
+     * When true, up to 3 toasts are displayed at the same time in a vertical stack. When false,
+     * a single toast is displayed at a time and the rest wait in the queue.
      */
     isStacked?: boolean;
 }
