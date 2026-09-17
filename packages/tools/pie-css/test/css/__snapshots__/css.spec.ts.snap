@@ -307,6 +307,7 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 @media (min-width: 769px) {
   .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive, .c-button--primary.c-button--small-productive.c-button--responsive {
     --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
+    --btn-text-color: var(--dt-color-content-interactive-light-solid);
   }
 }
 @media (min-width: 769px) and (hover: hover) {
