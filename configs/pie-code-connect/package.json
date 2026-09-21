@@ -18,6 +18,9 @@
     "publish-components:dev": "yarn build:web && yarn figma connect publish -c ./config/figma-dev-components-batch.config.json",
     "unpublish-components:dev": "yarn figma connect unpublish -c ./config/figma-dev-components-batch.config.json",
     "publish:all": "yarn publish-components:all && yarn publish-icons:all",
+    "snapshot:update": "node scripts/snapshot-update.js",
+    "snapshot:compare": "node scripts/snapshot-compare.js",
+    "snapshot:compare:ci": "node scripts/snapshot-compare.js --ci",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run --config ../../vite.config.js"
@@ -27,6 +30,6 @@
   "license": "Apache-2.0",
   "type": "commonjs",
   "devDependencies": {
-    "@figma/code-connect": "2.0.0"
+    "@figma/code-connect": "2.0.1"
   }
 }
