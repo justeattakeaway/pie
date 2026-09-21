@@ -1,0 +1,36 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "41960:20085",
+    "availableProperties": [
+      {
+        "name": "Screen Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Wide",
+          "Narrow"
+        ],
+        "default": "Wide"
+      },
+      {
+        "name": "Legal Compliance",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Scrolled",
+        "type": "VARIANT",
+        "variantOptions": [
+          "None",
+          "Top",
+          "Bottom"
+        ],
+        "default": "None"
+      }
+    ]
+  }
+]

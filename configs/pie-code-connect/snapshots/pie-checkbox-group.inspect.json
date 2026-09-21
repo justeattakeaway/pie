@@ -1,0 +1,60 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "6295:1722",
+    "availableProperties": [
+      {
+        "name": "Assistive text",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Form label",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Checkbox 4",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Checkbox 5",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Checkbox 3",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Orientation",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Vertical",
+          "Horizontal"
+        ],
+        "default": "Horizontal"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Disabled"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Error",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

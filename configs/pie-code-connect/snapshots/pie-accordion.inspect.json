@@ -1,0 +1,86 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "4:23842",
+    "availableProperties": [
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "[𝐓] Primary text",
+        "type": "TEXT",
+        "default": "Primary text"
+      },
+      {
+        "name": "[𝐓] Secondary text",
+        "type": "TEXT",
+        "default": "Secondary text"
+      },
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Secondary text",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Divider",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Accordion content",
+        "type": "SLOT",
+        "default": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        }
+      },
+      {
+        "name": "Screen size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Wide",
+          "Narrow"
+        ],
+        "default": "Wide"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Low emphasis",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Expanded",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

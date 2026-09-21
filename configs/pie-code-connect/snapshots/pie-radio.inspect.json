@@ -1,0 +1,40 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "198:33784",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Label",
+        "type": "TEXT",
+        "default": "Label"
+      },
+      {
+        "name": "Label",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Selected",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Error",
+          "Disabled"
+        ],
+        "default": "Default"
+      }
+    ]
+  }
+]
