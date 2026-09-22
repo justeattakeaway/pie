@@ -41,16 +41,6 @@ test.describe('PieTooltip - Visual tests', () => {
         });
     });
 
-    /**
-     * The only assertion a human reviews that shows the panel actually painted outside the modal.
-     * These use the `InModalOpen` / `InModalWithPinnedFooterOpen` story variants, which declare
-     * `isOpen` directly in the Storybook template so Percy sees the open state when it re-renders
-     * the story with JavaScript enabled.
-     *
-     * No click is needed. The tooltip cannot position itself until `pie-modal` calls `showModal()`,
-     * so the test waits for the panel to become visible (the ResizeObserver fires once the dialog
-     * is open and the trigger has a box to measure) before freezing animations and snapshotting.
-     */
     [
         { id: 'tooltip--in-modal-open', name: 'PieTooltip - In modal' },
         { id: 'tooltip--in-modal-with-pinned-footer-open', name: 'PieTooltip - In modal with pinned footer' },
