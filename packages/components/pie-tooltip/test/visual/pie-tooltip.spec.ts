@@ -51,12 +51,8 @@ test.describe('PieTooltip - Visual tests', () => {
 
             await basePage.load();
 
-            // `showModal()` runs from an async `firstUpdated`, so the dialog can open after the
-            // page has otherwise settled.
             await expect(page.getByTestId(tooltip.selectors.modal.dataTestId)).toBeVisible();
 
-            // The tooltip cannot measure the trigger until the dialog is open. Wait for it to
-            // position and paint before freezing, so the snapshot captures the settled state.
             await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
 
             await basePage.freezeAnimations();
