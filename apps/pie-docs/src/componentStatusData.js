@@ -234,7 +234,7 @@ const rows = [
             status: statusTypes.STABLE,
         }
     ],
-     [
+    [
         { componentName: 'Bottom Navigation' },
         {
             resource: resourceTypes.WEB_COMPONENT,
