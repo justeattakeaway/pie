@@ -64,13 +64,6 @@
 
     position: fixed;
     top: 0;
-
-    // The UA gives `dialog:modal` `overflow: auto`, which makes the dialog clip everything inside
-    // it and prevents an overlay such as `pie-tooltip` from rendering outside the modal. The
-    // dialog itself never needs to scroll: it is a flex column whose `.c-modal-scrollContainer`
-    // owns scrolling, which is also the element the body scroll lock is pointed at.
-    // Because this stops the radius below clipping children, the first and last children round
-    // their own corners to match it.
     overflow: visible;
     border-radius: var(--modal-border-radius);
     border: none;
