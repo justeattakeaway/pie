@@ -48,10 +48,6 @@ const tooltip = {
             description: 'The selector for the `pie-modal` dialog the panel is slotted into',
             dataTestId: 'pie-modal',
         },
-        clippingContainer: {
-            description: 'The selector for the light-DOM container the overlay-mode control stories clip with',
-            dataTestId: 'clipping-container',
-        },
     },
 };
 
