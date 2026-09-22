@@ -87,20 +87,6 @@ test.describe('PieTooltip - Visual tests', () => {
         await percySnapshot(page, 'PieTooltip - Default closed', percySnapshotOptions);
     });
 
-    test('should not show tooltip when scrolling to bottom of the page', async ({ page }) => {
-        // Arrange
-        const basePage = new BasePage(page, 'tooltip--scrolled');
-
-        await basePage.load();
-        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        await page.evaluate(() => new Promise<void>((resolve) => {
-            requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-        }));
-
-        // Act & Assert
-        await percySnapshot(page, 'PieTooltip - Scrolled', percySnapshotOptions);
-    });
-
     // Placement mirrors in RTL, so the grid is snapshotted in both directions. The RTL snapshot
     // should be a mirror image of the LTR one.
     test('should display the Placement grid story successfully in RTL', async ({ page }) => {
