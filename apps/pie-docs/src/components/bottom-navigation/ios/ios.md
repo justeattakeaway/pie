@@ -21,7 +21,7 @@ shouldShowContents: true
         type: usageTypes.text,
         items: [
             "Don't change the tabs for a specific user flow. The navigation bar should be consistent across app screens.",
-            "Ensure the icons are simple and universally understood to minimise confusion.",
+            "Avoid using complex icons. Ensure the icons are simple and universally understood to minimise confusion.",
             "Avoid long or complex wording; keep labels concise and direct."
         ]
     }
@@ -43,7 +43,7 @@ shouldShowContents: true
         "**Container:** Provides a filled background.",
         "**Icon (selected):** The icon is always filled and is visually distinguished from the inactive ones.",
         "**Label:** Describes the purpose and function of the tab to provide clarity, especially for less common or ambiguous icons.",
-        "**Home indicator:** Navigation bar for accessing core system functions on ios.",
+        "**Home indicator:** Navigation bar for accessing core system functions on iOS.",
         "**Icon (unselected):** Visually supports the label and doesn't have a fill.",
         "**Notification badge:** Displays notifications, or counts on navigation items."
     ]
@@ -53,7 +53,7 @@ shouldShowContents: true
 
 ## Variants
 
-The iOS 26 (and later) bottom navigation bar dynamically shifts between Bright and Dim when used above specific content, this is to increase legibility.
+The bottom navigation bar on iOS 26 (and later) dynamically shifts between Bright and Dim when used above specific content to increase legibility.
 
 {% contentLayout %}
   {% contentItem %}
@@ -128,7 +128,7 @@ Badges appear on top of the icon. They show the number of notifications in a spe
 
 ### Icon
 
-Please always use solid icons to ensure for the best possible legibility when used with Liquid Glass.
+Always use solid icons to ensure the best possible legibility when used with Liquid Glass.
 
 {% contentPageImage {
     src:"../../../assets/img/components/bottom-navigation/ios/content-icon.svg",
@@ -229,20 +229,20 @@ The selection indicator lifts from the navigation bar and becomes Liquid Glass w
 
 ### LTR examples
 
-Here are some examples of the ios Bottom navigation in left-to-right context.
+Here are some examples of the iOS Bottom navigation in left-to-right context.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
         src:"../../../assets/img/components/bottom-navigation/ios/examples-ltr-1.svg",
-        alt: "An example of the ios bottom navigation in a left-to-right layout.",
+        alt: "An example of the iOS bottom navigation in a left-to-right layout.",
         width: "200"
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
         src:"../../../assets/img/components/bottom-navigation/ios/examples-ltr-2.svg",
-        alt: "An example of the ios bottom navigation in a left-to-right layout.",
+        alt: "An example of the iOS bottom navigation in a left-to-right layout.",
         width: "200"
     } %}
   {% endcontentItem %}
@@ -250,20 +250,20 @@ Here are some examples of the ios Bottom navigation in left-to-right context.
 
 ### RTL examples
 
-Here are some examples of the ios Bottom navigation in right-to-left context.
+Here are some examples of the iOS Bottom navigation in right-to-left context.
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
         src:"../../../assets/img/components/bottom-navigation/ios/examples-rtl-1.svg",
-        alt: "An example of the ios bottom navigation in a right-to-left layout.",
+        alt: "An example of the iOS bottom navigation in a right-to-left layout.",
         width: "200"
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
         src:"../../../assets/img/components/bottom-navigation/ios/examples-rtl-2.svg",
-        alt: "An example of the ios bottom navigation in a right-to-left layout.",
+        alt: "An example of the iOS bottom navigation in a right-to-left layout.",
         width: "200"
     } %}
   {% endcontentItem %}

@@ -21,7 +21,7 @@ shouldShowContents: true
         type: usageTypes.text,
         items: [
             "Don't change the tabs for a specific user flow. The navigation bar should be consistent across app screens.",
-            "Ensure the icons are simple and universally understood to minimise confusion.",
+            "Avoid using complex icons. Ensure the icons are simple and universally understood to minimise confusion.",
             "Avoid long or complex wording; keep labels concise and direct."
         ]
     }
@@ -120,7 +120,7 @@ Badges appear on top of the icon. They show the number of notifications in a spe
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-        src:"../../../assets/img/components/bottom-navigation/android/content-notification-docked.svg",
+        src:"../../../assets/img/components/bottom-navigation/android/content-notification-floating.svg",
         alt: "A floating bottom navigation bar showing a notification badge on a tab.",
         width: "200"
     } %}
