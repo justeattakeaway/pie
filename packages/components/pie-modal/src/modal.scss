@@ -414,14 +414,6 @@
         display: flex;
         flex-direction: column;
         overflow-y: auto;
-
-        // When the footer is not pinned this wrapper is the dialog's last child and paints the
-        // scroll-shadow cover to its bottom edge, so it rounds its own bottom corners now that the
-        // dialog no longer clips. Not scoped with `:last-child`: the footer slot is always
-        // rendered, so the wrapper is never actually last in the DOM. The cost is that in the
-        // pinned-footer configuration this also rounds the content article mid-modal, where the
-        // only thing cut is a gradient that fades to `--modal-bg-color` over the dialog's own
-        // `--modal-bg-color`, so nothing shows.
         border-end-start-radius: var(--modal-border-radius);
         border-end-end-radius: var(--modal-border-radius);
 
