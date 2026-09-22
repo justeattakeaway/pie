@@ -43,11 +43,17 @@ test.describe('PieTooltip - Visual tests', () => {
 
     /**
      * The only assertion a human reviews that shows the panel actually painted outside the modal.
-     * These stories need a click, so they cannot join the list above.
+     * These use the `InModalOpen` / `InModalWithPinnedFooterOpen` story variants, which declare
+     * `isOpen` directly in the Storybook template so Percy sees the open state when it re-renders
+     * the story with JavaScript enabled.
+     *
+     * No click is needed. The tooltip cannot position itself until `pie-modal` calls `showModal()`,
+     * so the test waits for the panel to become visible (the ResizeObserver fires once the dialog
+     * is open and the trigger has a box to measure) before freezing animations and snapshotting.
      */
     [
-        { id: 'tooltip--in-modal', name: 'PieTooltip - In modal' },
-        { id: 'tooltip--in-modal-with-pinned-footer', name: 'PieTooltip - In modal with pinned footer' },
+        { id: 'tooltip--in-modal-open', name: 'PieTooltip - In modal' },
+        { id: 'tooltip--in-modal-with-pinned-footer-open', name: 'PieTooltip - In modal with pinned footer' },
     ].forEach(({ id, name }) => {
         test(`should display the ${name} story successfully`, async ({ page }) => {
             // Arrange
@@ -58,10 +64,12 @@ test.describe('PieTooltip - Visual tests', () => {
             // `showModal()` runs from an async `firstUpdated`, so the dialog can open after the
             // page has otherwise settled.
             await expect(page.getByTestId(tooltip.selectors.modal.dataTestId)).toBeVisible();
-            await basePage.freezeAnimations();
 
-            await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+            // The tooltip cannot measure the trigger until the dialog is open. Wait for it to
+            // position and paint before freezing, so the snapshot captures the settled state.
             await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
+
+            await basePage.freezeAnimations();
 
             // Act & Assert
             await percySnapshot(page, name, percySnapshotOptions);

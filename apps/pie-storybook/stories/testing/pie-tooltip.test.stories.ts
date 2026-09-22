@@ -655,7 +655,7 @@ const InModalTemplate: TemplateFunction<TooltipProps> = ({
             trigger="tooltip-trigger"
             position="bottom"
             heading="${heading || nothing}"
-            ?isOpen="${true}"
+            ?isOpen="${false}"
             .triggers="${['click']}"
             @pie-tooltip-open="${handleOpen}"
             @pie-tooltip-close="${handleClose}">
@@ -683,6 +683,61 @@ export const InModal = createStory<TooltipProps>(InModalTemplate, {
 export const InModalWithPinnedFooter = createStory<TooltipProps>(InModalTemplate, {
     ...defaultArgs,
     isOpen: false,
+    heading: 'Delivery times',
+    content: longContent,
+    isFooterPinned: true,
+})({}, {
+    controls: { disable: true },
+});
+
+/**
+ * Percy-only variants of the modal stories. `isOpen` is declared directly in the template so
+ * Storybook's Lit render sets the `isopen` attribute — the only form Percy sees when it
+ * re-renders the story with JavaScript enabled. No triggers are configured, so Percy never
+ * clicks and never closes the panel.
+ *
+ * The tooltip cannot measure the trigger until `pie-modal` calls `showModal()`, so the panel
+ * starts invisible. A ResizeObserver watches the trigger; once the dialog is open and the
+ * trigger has a box to measure, the observer fires, `projectOverTrigger` runs, and the panel
+ * becomes visible. The visual test waits for that before snapshotting.
+ */
+const InModalOpenTemplate: TemplateFunction<TooltipProps> = ({
+    content,
+    heading,
+    isFooterPinned,
+}) => html`
+    <pie-modal
+        heading="Delivery options"
+        ?isOpen="${true}"
+        ?isDismissible="${true}"
+        ?isFooterPinned="${isFooterPinned}"
+        .leadingAction="${isFooterPinned ? { text: 'Confirm' } : undefined}">
+        <p>Choose when you want your order to arrive. Delivery windows are confirmed once the
+        restaurant accepts your order.</p>
+        <p>Orders are prepared in the order they are received, so a later window may still arrive
+        early if the kitchen is quiet.</p>
+        <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+        <pie-tooltip
+            trigger="tooltip-trigger"
+            position="bottom"
+            heading="${heading || nothing}"
+            ?isOpen="${true}">
+            ${renderContent(content, false)}
+        </pie-tooltip>
+    </pie-modal>`;
+
+export const InModalOpen = createStory<TooltipProps>(InModalOpenTemplate, {
+    ...defaultArgs,
+    isOpen: true,
+    heading: 'Delivery times',
+    content: longContent,
+})({}, {
+    controls: { disable: true },
+});
+
+export const InModalWithPinnedFooterOpen = createStory<TooltipProps>(InModalOpenTemplate, {
+    ...defaultArgs,
+    isOpen: true,
     heading: 'Delivery times',
     content: longContent,
     isFooterPinned: true,
