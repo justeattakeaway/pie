@@ -182,10 +182,6 @@
     }
 
     & .c-modal-imageSlot {
-        // The image slot is the dialog's first child and paints to its top edge, in illustration
-        // mode with a background colour and in image mode with a full-width image. The dialog no
-        // longer clips, so the slot rounds its own top corners. `--modal-border-radius` is already
-        // `rounded-none` in the fullscreen breakpoints, so those flatten automatically.
         border-start-start-radius: var(--modal-border-radius);
         border-start-end-radius: var(--modal-border-radius);
 
