@@ -20,11 +20,6 @@ Popovers are displayed as a small box that contains text or interactive elements
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Popover documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Popover'
 } %}
