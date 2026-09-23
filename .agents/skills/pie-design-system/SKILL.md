@@ -1,6 +1,6 @@
 ---
 name: pie-design-system
-description: Usage guidelines for the PIE design system by Just Eat Takeaway. Use when building, modifying, debugging any user-facing web UI, referencing @justeattakeaway/pie-* packages or when the user asks for a UI that should follow JET/PIE design standards.
+description: Usage guidelines for the PIE design system by Just Eat Takeaway. Use when building, modifying, debugging any user-facing web UI, referencing @justeattakeaway/pie-* packages, implementing or generating code from a Figma file or when the user asks for a UI that should follow JET/PIE design standards.
 ---
 
 ## Bootstrap (IMPORTANT do this first, every time)

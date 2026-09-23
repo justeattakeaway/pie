@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Apps
     parent: Progress Stepper
     order: 3
-draft: true
 ---
 
 {% notification {

@@ -12,7 +12,6 @@ The purpose of avatars is to provide a visual representation of the user or enti
 
 Avatars can vary in design and appearance, ranging from simple user icons to initials. They can also be static icons or dynamic and interactive elements that respond to user actions or display additional information upon interaction.
 
-
 {% contentPageImage {
     src:"../../../assets/img/components/avatar/overview.svg",
     alt: "An avatar that contains initials."
@@ -21,11 +20,6 @@ Avatars can vary in design and appearance, ranging from simple user icons to ini
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Avatar documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Avatar'
