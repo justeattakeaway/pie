@@ -22,11 +22,6 @@ Reserved for mobile and responsive interfaces, they offer a convenient and space
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Bottom Sheet documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Bottom Sheet'
 } %}

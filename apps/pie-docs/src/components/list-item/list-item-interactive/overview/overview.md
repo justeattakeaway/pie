@@ -20,11 +20,6 @@ Interactive list items can contain additional elements like checkboxes, radio bu
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We're currently working on updating our List Item Interactive documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'List Item Interactive'
 } %}

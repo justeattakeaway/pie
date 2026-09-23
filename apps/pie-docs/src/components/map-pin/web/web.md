@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Web
     parent: Map Pin
     order: 2
+shouldShowContents: true
 ---
 
 ## Dos and Don'ts
