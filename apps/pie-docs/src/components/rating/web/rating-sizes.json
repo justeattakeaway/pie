@@ -1,0 +1,58 @@
+{
+    "headings": [
+        { "text": "Name" },
+        { "text": "Component" },
+        { "text": "Size" },
+        { "text": "Notes" }
+    ],
+    "rows": [
+        {
+            "data": [
+                { "text": "XX Large" },
+                { "text": "<img src=\"../../../assets/img/components/rating/sizes-extra-extra-large.svg\" alt=\"Rating component at XX Large size\" />" },
+                { "text": "56px" },
+                { "text": "Recommended to be used to be interactive." }
+            ]
+        },
+        {
+            "data": [
+                { "text": "X Large" },
+                { "text": "<img src=\"../../../assets/img/components/rating/sizes-extra-large.svg\" alt=\"Rating component at X Large size\" />" },
+                { "text": "40px" },
+                { "text": "Recommended to be used to be interactive." }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Large" },
+                { "text": "<img src=\"../../../assets/img/components/rating/sizes-large.svg\" alt=\"Rating component at Large size\" />" },
+                { "text": "32px" },
+                { "text": "Recommended to be used to be interactive." }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Medium" },
+                { "text": "<img src=\"../../../assets/img/components/rating/sizes-medium.svg\" alt=\"Rating component at Medium size\" />" },
+                { "text": "24px" },
+                { "text": "Recommended to be used as a static display." }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Small" },
+                { "text": "<img src=\"../../../assets/img/components/rating/sizes-small.svg\" alt=\"Rating component at Small size\" />" },
+                { "text": "20px" },
+                { "text": "Recommended to be used as a static display." }
+            ]
+        },
+        {
+            "data": [
+                { "text": "X Small" },
+                { "text": "<img src=\"../../../assets/img/components/rating/sizes-extra-small.svg\" alt=\"Rating component at X Small size\" />" },
+                { "text": "16px" },
+                { "text": "Recommended to be used as a static display." }
+            ]
+        }
+    ]
+}
