@@ -19687,7 +19687,7 @@ __metadata:
     pinst: "npm:3.0.0"
     rimraf: "npm:6.1.3"
     rollup-plugin-visualizer: "npm:5.12.0"
-    sass: "npm:1.100.0"
+    sass: "npm:1.104.1"
     stylelint: "npm:16.26.1"
     stylelint-config-standard-scss: "npm:13.0.0"
     stylelint-order: "npm:6.0.4"
@@ -21734,7 +21734,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.100.0, sass@npm:^1.49.7":
+"sass@npm:1.104.1":
+  version: 1.104.1
+  resolution: "sass@npm:1.104.1"
+  dependencies:
+    "@parcel/watcher": "npm:^2.4.1"
+    chokidar: "npm:^5.0.0"
+    immutable: "npm:^5.1.5"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  dependenciesMeta:
+    "@parcel/watcher":
+      optional: true
+  bin:
+    sass: sass.js
+  checksum: 10/e237f0ab079bf3dce05c25b3445cf3e940d0efa1ef4b7f143b728eb86f0256d9c1315f0b29b64a073f443a98c4c6e2f67fc9b4d92eb5079ddd55a324eebd901e
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.49.7":
   version: 1.100.0
   resolution: "sass@npm:1.100.0"
   dependencies:
