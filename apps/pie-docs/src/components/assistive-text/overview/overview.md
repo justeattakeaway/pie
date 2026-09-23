@@ -12,7 +12,6 @@ Assistive text helps users understand what kind of information they should enter
 
 The purpose of assistive text is to enhance the user experience by reducing confusion, improving input accuracy, and ensuring users provide the expected information in the desired format.
 
-
 {% contentPageImage {
     src:"../../../assets/img/components/assistive-text/overview.svg",
     alt: "Assistive text that is highlighting an error underneath a text input."
@@ -21,11 +20,6 @@ The purpose of assistive text is to enhance the user experience by reducing conf
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We're currently working on updating our Assistive Text documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Assistive Text'
