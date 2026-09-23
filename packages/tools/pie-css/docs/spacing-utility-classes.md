@@ -130,6 +130,15 @@ You can apply multiple utility classes to the same element:
 </section>
 ```
 
+Directional utilities can also be combined with the all-sides shorthand. The stylesheet is ordered so that more specific (directional) rules always win over the shorthand, regardless of the order the classes appear in the `class` attribute:
+
+```html
+<!-- spacing-e on all sides, except block-start which is spacing-a -->
+<div class="u-margin--e u-margin-blockStart--a">
+    Card with overridden top margin
+</div>
+```
+
 ### Removing Existing Margin
 
 Use the `none` scale to explicitly zero out a margin:

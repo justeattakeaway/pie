@@ -2,7 +2,7 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const createGetInstanceTemplate = require('./utils/get-instance-template.js');
 const renderProp = require('./utils/render-prop.js');
-const getIconSnippet = require('./utils/get-icon-snippet.js');
+const getInstanceCode = require('./utils/get-instance-code.js');
 const getImportStatement = require('./utils/get-import-statement.js');
 
 const getInstanceProp = createGetInstanceProp(figma);
@@ -27,7 +27,7 @@ const status = isError ? 'error' : 'default';
 
 const hasLeadingIcon = getInstanceProp('getBoolean', 'Leading icon');
 const leadingIconInstance = hasLeadingIcon && getInstanceProp('getInstanceSwap', 'Replace leading icon');
-const leadingIconSnippet = hasLeadingIcon && getIconSnippet(leadingIconInstance, 'leadingIcon');
+const leadingIconSnippet = hasLeadingIcon && getInstanceCode(leadingIconInstance, 'leadingIcon');
 
 const formLabelSnippet = getInstanceTemplate(['Form label']);
 

@@ -1,5 +1,47 @@
 # Changelog
 
+## 5.17.0
+
+### Minor Changes
+
+- [Added] Full documentation content for: carousel-indicator (apps + web), data-table (web), date-picker (ios), map-pin (apps + web), pagination (apps + web), payment-method-card (apps), popover (ios + web), progress-bar (apps), rating (apps + web), segmented-controls (apps), switch (android + ios), tabs (apps + web), uploader (apps + web). ([#3158](https://github.com/justeattakeaway/pie/pull/3158)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] Resources table to overview pages for: app-bar and stacked-notification.
+
+  [Added] App bar and stacked notification entries to componentStatusData.js.
+
+  [Removed] Removed draft: true from: data-visualisation bar-chart (web), data-visualisation line-chart (web), date-picker (web), numeric-stepper-form (apps + web), numeric-stepper-input (apps + web), numeric-stepper-simple (apps + web), numeric-stepper (apps + web), progress-bar (apps + web), progress-stepper (apps + web), segmented-controls (apps + web), skeleton (apps + web).
+
+  [Removed] Deleted all links to Figma docs for web and apps from componentStatusData.js.
+
+### Patch Changes
+
+- Updated dependencies [[`9438d1b`](https://github.com/justeattakeaway/pie/commit/9438d1b0e395439c6a451b4fd0ef1fe313676bcd)]:
+  - @justeattakeaway/pie-css@1.8.1
+
+## 5.16.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.20
+
+## 5.16.2
+
+### Patch Changes
+
+- Updated dependencies [[`efb9e72`](https://github.com/justeattakeaway/pie/commit/efb9e722981bbe2304b5a1a448fb6dace56e9f42)]:
+  - @justeattakeaway/pie-css@1.8.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+  - @justeattakeaway/pie-webc@0.11.19
+
+## 5.16.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.18
+
 ## 5.16.0
 
 ### Minor Changes

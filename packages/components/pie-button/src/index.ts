@@ -252,6 +252,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 rel="${ifDefined(rel)}"
                 target="${ifDefined(target)}"
                 download="${ifDefined(download)}"
+                part="base"
                 aria-label="${ifDefined(aria?.label)}"
                 class="${classMap(classes)}">
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
@@ -274,6 +275,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
             <button
                 @click=${this._handleClick}
                 class=${classMap(buttonClasses)}
+                part="base"
                 type=${type}
                 ?disabled=${disabled}
                 aria-label="${ifDefined(aria?.label)}">
