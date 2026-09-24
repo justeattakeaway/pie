@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-lottie-player
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-lottie-player component status from alpha to stable ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.16
 
 ### Patch Changes

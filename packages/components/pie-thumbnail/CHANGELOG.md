@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-thumbnail component status from beta to stable ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.4
 
 ### Patch Changes

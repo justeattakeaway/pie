@@ -1,5 +1,21 @@
 # @justeattakeaway/pie-webc
 
+## 0.11.21
+
+### Patch Changes
+
+- Updated dependencies [[`c58c82f`](https://github.com/justeattakeaway/pie/commit/c58c82f4a0a19fa01122879964d7c3c9a03a3126), [`bfe6c85`](https://github.com/justeattakeaway/pie/commit/bfe6c85c3daf66062374a178ad01088d3d8862af), [`bfe6c85`](https://github.com/justeattakeaway/pie/commit/bfe6c85c3daf66062374a178ad01088d3d8862af), [`bfe6c85`](https://github.com/justeattakeaway/pie/commit/bfe6c85c3daf66062374a178ad01088d3d8862af), [`bfe6c85`](https://github.com/justeattakeaway/pie/commit/bfe6c85c3daf66062374a178ad01088d3d8862af), [`bfe6c85`](https://github.com/justeattakeaway/pie/commit/bfe6c85c3daf66062374a178ad01088d3d8862af), [`bfe6c85`](https://github.com/justeattakeaway/pie/commit/bfe6c85c3daf66062374a178ad01088d3d8862af), [`bfe6c85`](https://github.com/justeattakeaway/pie/commit/bfe6c85c3daf66062374a178ad01088d3d8862af), [`c58c82f`](https://github.com/justeattakeaway/pie/commit/c58c82f4a0a19fa01122879964d7c3c9a03a3126)]:
+  - @justeattakeaway/pie-modal@1.27.13
+  - @justeattakeaway/pie-accordion@1.0.0
+  - @justeattakeaway/pie-card@1.0.0
+  - @justeattakeaway/pie-data-table@0.4.0
+  - @justeattakeaway/pie-form-label@1.0.0
+  - @justeattakeaway/pie-lottie-player@1.0.0
+  - @justeattakeaway/pie-notification@1.0.0
+  - @justeattakeaway/pie-thumbnail@1.0.0
+  - @justeattakeaway/pie-tooltip@0.3.0
+  - @justeattakeaway/pie-cookie-banner@1.10.20
+
 ## 0.11.20
 
 ### Patch Changes

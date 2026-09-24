@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-accordion
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-accordion component status from beta to stable ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.2.11
 
 ### Patch Changes
