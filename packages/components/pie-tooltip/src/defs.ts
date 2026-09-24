@@ -19,7 +19,7 @@ export const sizes = ['default', 'fit-to-content', 'fill-container'] as const;
 export const variants = ['default', 'inverse'] as const;
 export const types = ['default', 'icon'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
-export const triggers = ['hover', 'focus', 'click', 'touch'] as const;
+export const triggers = ['hover', 'focus', 'click'] as const;
 
 /**
  * The two patterns the panel can present as. Inferred from the `action` slot rather than
@@ -105,7 +105,7 @@ export interface TooltipProps {
      * closes itself: a configured interaction emits `pie-tooltip-open` or `pie-tooltip-close`
      * and the consumer decides whether to honour it by setting `isOpen`. Empty by default, so
      * no interaction is watched at all. Configure `hover` and `focus` together for keyboard
-     * reachability, and `click` or `touch` for pointer users.
+     * reachability, and `click` for pointer users.
      */
     triggers?: Array<TooltipTrigger>;
 }

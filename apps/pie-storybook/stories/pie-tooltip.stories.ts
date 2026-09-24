@@ -49,7 +49,7 @@ type TooltipStoryMeta = Meta<TooltipProps>;
 const defaultArgs: TooltipProps = {
     ...defaultProps,
     isOpen: false,
-    triggers: ['hover', 'focus'],
+    triggers: [...triggers],
     content: 'Orders placed before 6pm arrive today.',
     hasAction: false,
     aria: {
@@ -131,8 +131,8 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             control: 'object',
         },
         triggers: {
-            description: 'Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel\'s state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability, and `click` or `touch` for pointer users.',
-            control: 'multi-select',
+            description: 'Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel\'s state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability, and `click` for pointer users.',
+            control: 'check',
             options: triggers,
         },
         // Neither of these is a component property: they are story controls standing in for the

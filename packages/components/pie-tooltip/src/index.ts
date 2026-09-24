@@ -601,7 +601,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             }, { signal });
         }
 
-        if (this.triggers.includes('click') || this.triggers.includes('touch')) {
+        if (this.triggers.includes('click')) {
             triggerEl.addEventListener('click', (e: Event) => {
                 e.stopPropagation();
                 if (this.isOpen) {

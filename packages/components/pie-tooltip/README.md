@@ -39,9 +39,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 1. You own `isOpen`.
 2. You listen for `pie-tooltip-open` and `pie-tooltip-close`.
-3. You pass the value back.
-
-This holds however the panel is driven. Setting `triggers` does not hand control back to the component: a configured interaction, a click on the close button and a press of Escape all do the same thing, which is to emit an event and wait. Nothing moves until you set `isOpen`, so you are always free to refuse, for example when the content behind the panel has failed to load.
+3. You pass the value back to open/close the tooltip.
 
 ### Properties
 
@@ -57,7 +55,7 @@ This holds however the panel is driven. Setting `triggers` does not hand control
 | `heading` | Any string | The text to display in the panel's heading. In dialog mode this also provides the panel's accessible name. | `undefined` |
 | `headingLevel` | `h2`, `h3`, `h4`, `h5`, `h6` | The HTML heading tag to use for the panel's heading. | `h2` |
 | `aria` | `{ close?: string, label?: string }` | `close` names the close button. `label` names the panel in dialog mode when no `heading` is provided. | `undefined` |
-| `triggers` | Array of `hover`, `focus`, `click`, `touch` | Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel's state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability. | `[]` |
+| `triggers` | Array of `hover`, `focus`, `click` | Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel's state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability. | `[]` |
 
 ### Slots
 
@@ -88,7 +86,7 @@ Set both on the `pie-tooltip` element itself.
 
 ## Positioning
 
-The component projects itself over the trigger's box and places the panel against that box in CSS. The trigger is found by `id`, so `pie-tooltip` can sit anywhere in the DOM, but reading and tab order follow DOM order, so place it immediately after its trigger.
+Place the tooltip next to its trigger element in the DOM for the best accessibility practice. The `position` element will place the tooltip near to the trigger based on which value is provided.
 
 `position` names a side and, optionally, an alignment along the opposite axis:
 
@@ -99,15 +97,7 @@ left     left-start     left-end
 right    right-start    right-end
 ```
 
-In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and `left` and `right` swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of `left` and `right` are on the block axis, which has no direction to mirror, so only the side moves. None of this needs configuration or any JavaScript awareness of direction.
-
-### Clipping ancestors
-
-A panel inside a scrolling region, or inside a container with `overflow: hidden`, would be cut off where that container ends. To avoid that, the component inspects its layout ancestors and switches itself to `position: fixed` whenever doing so escapes a clip that `position: absolute` cannot. The inspection follows the flattened tree, so a panel slotted into another component, such as `pie-modal`, is measured against the ancestors it is really laid out inside rather than the ones it is written inside.
-
-One case cannot be escaped. An overflow ancestor clips a positioned panel only if it is that panel's containing block or sits above it, so a container that clips *and* establishes a containing block for fixed positioning, by carrying a `transform`, `filter`, `contain: paint` or `container-type`, defeats both values. If you own such a container, give it `overflow: visible` and round the corners of the children that reach its edges instead.
-
-Place `pie-tooltip` inside the same container as its trigger. A panel left outside a modal dialog whose trigger is inside it would be made inert by the dialog, and would compete on `z-index` (`--dt-z-index-tooltip` is below `--dt-z-index-modal`) rather than sharing the dialog's stacking context.
+In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and `left` and `right` swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of `left` and `right` are on the block axis, which has no direction to mirror, so only the side moves.
 
 ## Sizing
 
@@ -169,15 +159,6 @@ The trigger lives outside the tooltip and the component leaves it untouched, so 
 | `describedby` | Tooltip mode, and the trigger is a plain HTML element | The `id` of the element you put in the `content` slot |
 
 Leave `expanded` off a hover-only or focus-only panel. Nothing is being toggled, so it has nothing to describe. There is no `controls` in the table because it adds nothing here: the description already carries the relationship, and support for it is patchy.
-
-PIE triggers take all of this through their `aria` property rather than as attributes. Setting `aria-haspopup` or `aria-expanded` directly on a `pie-icon-button` element does nothing, because the element that reaches the accessibility tree is the `<button>` inside its shadow root and nothing forwards host attributes to it.
-
-| | `aria.label` | `aria.haspopup` | `aria.expanded` | `aria.describedby` |
-|---|---|---|---|---|
-| `pie-icon-button` | Yes | Yes | Yes | Present, but see below |
-| `pie-button` | Yes | Not supported yet | Not supported yet | Not supported yet |
-
-So `pie-icon-button` can be wired for dialog mode in full. `pie-button` can only carry a name today, which makes it the wrong trigger for a dialog panel until it gains the rest.
 
 #### A description cannot cross a shadow boundary
 
@@ -321,22 +302,12 @@ Escape is watched only while at least one trigger is configured, so a panel driv
 
 ### Managing focus
 
-The component never calls `focus()`. Nothing about the panel's own state tells it whether a given open was a deliberate user action or a programmatic one, so moving focus is left to you.
-
-In tooltip mode there is nothing to do. A tooltip must not take focus, and the close button that `isDismissible` renders is reachable by tabbing on its own, because sequential focus navigation enters shadow DOM and the panel follows its trigger in DOM order.
+In tooltip mode there is nothing to do. A tooltip must not take focus, and the close button that `isDismissible` renders is reachable by tabbing.
 
 In dialog mode you own two moments:
 
 - **On open, move focus into the panel.** Wait for the panel to render and be positioned first, because a `visibility: hidden` element cannot take focus. `await panel.updateComplete` followed by one animation frame is enough.
 - **On close, put focus back**, but only if focus was still inside the panel. Closing on a hover-away or a click elsewhere must not pull focus away from whatever the user has moved on to.
-
-Detecting the second condition needs no access to the panel's internals:
-
-```js
-const panelHadFocus = document.activeElement?.closest('pie-tooltip');
-```
-
-`document.activeElement` reports the outermost shadow host rather than the focused element itself, so focus on the close button inside the panel's shadow root reads as the `pie-tooltip` element. Focus on content you slotted reports that element, and `closest` walks up to the same panel. One check covers both.
 
 ## Usage Examples
 
