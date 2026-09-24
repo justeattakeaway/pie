@@ -47,6 +47,13 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.position,
             },
         },
+        isStacked: {
+            description: 'When true, up to 3 toasts are displayed at the same time in a vertical stack. When false, a single toast is displayed at a time and the rest wait in the queue.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isStacked,
+            },
+        },
         '--toast-provider-z-index': {
             description: 'Controls the stacking order of the toasts.',
             control: 'text',
@@ -69,7 +76,9 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
 
 export default toastProviderStoryMeta;
 
-const Template = ({ options = defaultProps.options, position, '--toast-provider-z-index': customZIndex }: ToastProviderProps & { '--toast-provider-z-index'?: string }) => {
+const Template = ({
+    options = defaultProps.options, position, isStacked, '--toast-provider-z-index': customZIndex,
+}: ToastProviderProps & { '--toast-provider-z-index'?: string }) => {
     const onQueueUpdate = (event: CustomEvent) => {
         const queueLength = document.querySelector('#queue-length-tag') as HTMLElement;
         if (queueLength) {
@@ -81,6 +90,7 @@ const Template = ({ options = defaultProps.options, position, '--toast-provider-
     <pie-toast-provider
         .options=${options}
         position=${ifDefined(position)}
+        ?isStacked=${isStacked}
         style="${customZIndex ? `--toast-provider-z-index: ${customZIndex}` : ''}"
         @pie-toast-provider-queue-update=${onQueueUpdate}>
     </pie-toast-provider>
