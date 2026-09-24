@@ -1,7 +1,6 @@
 import {
     nothing,
     unsafeCSS,
-    isServer,
     type PropertyValues,
     type TemplateResult,
 } from 'lit';
@@ -72,12 +71,6 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
     return /\b(transform|perspective|filter|backdrop-filter|contain|translate|rotate|scale)\b/.test(styles.willChange);
 };
 
-// Returns the element's layout ancestors, innermost first, in flattened-tree order.
-//
-// Layout and clipping follow the flattened tree, not the light DOM: a slotted element is laid out
-// where its `<slot>` sits, so the walk steps to `assignedSlot` when the element is slotted and
-// from a shadow root to its host when it is not. A slot can itself be slotted, so `assignedSlot`
-// is re-tested on every step. Each step moves strictly outward, so the walk cannot cycle.
 const flattenedAncestors = (element: Element): Array<Element> => {
     const { documentElement } = element.ownerDocument;
     const ancestors: Array<Element> = [];
@@ -227,9 +220,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
     protected firstUpdated (): void {
         this.resolveMode();
         this.projectOverTrigger();
-        if (!isServer) {
-            this._rebuildInteractionListeners();
-        }
+        this._rebuildInteractionListeners();
     }
 
     protected updated (changedProperties: PropertyValues<this>): void {
@@ -256,7 +247,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this.stopTrackingTrigger();
         }
 
-        if (!isServer && (changedProperties.has('triggers') || changedProperties.has('trigger'))) {
+        if (changedProperties.has('triggers') || changedProperties.has('trigger')) {
             this._rebuildInteractionListeners();
         }
     }

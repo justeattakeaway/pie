@@ -33,11 +33,6 @@ type TooltipProps = TooltipBaseProps & {
 
 type TooltipStoryMeta = Meta<TooltipProps>;
 
-/**
- * The component never opens or closes itself, so the trigger stories have to honour the requests
- * for the interactions to be observable at all. This is the whole of the consumer's side of the
- * contract: take the event, set the value.
- */
 const handleOpen = (event: Event) => {
     (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = true;
 };
@@ -445,10 +440,6 @@ export const OverriddenWidth = createStory<TooltipProps>(DefaultTemplate, {
 // Trigger interactions
 // -----------------------------------------------------------------------------
 
-/**
- * Hover and focus triggers. Used for testing open/close via mouseenter/leave and focusin/out,
- * and for the hover bridge gap test (with default and enlarged offset).
- */
 const HoverFocusTemplate: TemplateFunction<TooltipProps> = ({
     aria,
     content,
@@ -501,10 +492,6 @@ export const HoverFocusEnlargedOffset = createStory<TooltipProps>(HoverFocusTemp
     controls: { disable: true },
 });
 
-/**
- * Click trigger. Used for testing toggle, light-dismiss, and Escape. The panel starts closed
- * so the tests can click to open it.
- */
 const ClickTemplate: TemplateFunction<TooltipProps> = ({
     aria,
     content,
