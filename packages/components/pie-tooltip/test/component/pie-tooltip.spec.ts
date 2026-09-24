@@ -22,6 +22,15 @@ const loadStory = async (page: Page, storyId: string) => {
     return basePage;
 };
 
+const loadTriggerStory = async (page: Page, storyId: string) => {
+    const basePage = new BasePage(page, storyId);
+
+    await basePage.load();
+    await expect(page.getByTestId(tooltip.selectors.trigger.dataTestId)).toBeVisible();
+
+    return basePage;
+};
+
 /**
  * Placement itself is asserted by the Percy snapshots of the placement grid stories, which render
  * all twelve positions in both writing directions. What is tested here is the behaviour behind
@@ -172,6 +181,133 @@ test.describe('PieTooltip - Component tests', () => {
             const isOpen = await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null)?.isOpen);
 
             expect(isOpen).toBe(true);
+        });
+    });
+
+    test.describe('triggers', () => {
+        test.describe('hover', () => {
+            test('should emit pie-tooltip-open when the trigger is hovered', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+                await basePage.listenForEvent('pie-tooltip-open');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).hover();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+            });
+
+            test('should emit pie-tooltip-close when the cursor leaves the tooltip', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).hover();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act - move the cursor far away from both the trigger and the panel
+                await page.mouse.move(0, 0);
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+        });
+
+        test.describe('focus', () => {
+            test('should emit pie-tooltip-open when the trigger receives focus', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+                await basePage.listenForEvent('pie-tooltip-open');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).focus();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+            });
+
+            test('should emit pie-tooltip-close when focus leaves the trigger', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).focus();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.keyboard.press('Tab');
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+        });
+
+        test.describe('click', () => {
+            test('should emit pie-tooltip-open when the trigger is clicked while the panel is closed', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--click-toggle');
+                await basePage.listenForEvent('pie-tooltip-open');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+            });
+
+            test('should emit pie-tooltip-close when the trigger is clicked while the panel is open', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--click-toggle');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+
+            test('should emit pie-tooltip-close when clicking outside the panel', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--click-toggle');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act - click somewhere outside the panel and trigger
+                await page.mouse.click(0, 0);
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
         });
     });
 

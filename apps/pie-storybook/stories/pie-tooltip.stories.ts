@@ -11,6 +11,7 @@ import {
     headingLevels,
     positions,
     sizes,
+    triggers,
     types,
     variants,
 } from '@justeattakeaway/pie-webc/components/tooltip';
@@ -47,7 +48,8 @@ type TooltipStoryMeta = Meta<TooltipProps>;
 
 const defaultArgs: TooltipProps = {
     ...defaultProps,
-    isOpen: true,
+    isOpen: false,
+    triggers: [...triggers],
     content: 'Orders placed before 6pm arrive today.',
     hasAction: false,
     aria: {
@@ -128,6 +130,11 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             description: 'The ARIA labels used for various parts of the tooltip. `close` names the close button, and `label` names the panel in dialog mode when no heading is provided.',
             control: 'object',
         },
+        triggers: {
+            description: 'Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel\'s state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability, and `click` for pointer users.',
+            control: 'check',
+            options: triggers,
+        },
         // Neither of these is a component property: they are story controls standing in for the
         // two slots, grouped under their own heading so they are not read as part of the
         // component's API.
@@ -161,13 +168,20 @@ const tooltipStoryMeta: TooltipStoryMeta = {
 
 export default tooltipStoryMeta;
 
+const openAction = action('pie-tooltip-open');
 const closeAction = action('pie-tooltip-close');
 
 /**
- * The consumer's side of the controlled contract: the component never writes to `isOpen`, so the
- * handler passes the value back. Doing it here rather than inside the component is what lets a
- * consumer refuse the change, for example when an API call behind the panel has failed.
+ * The consumer's side of the controlled contract: the component never opens or closes itself, so
+ * a configured trigger only asks. These handlers pass the value back. Doing it here rather than
+ * inside the component is what lets a consumer refuse the change, for example when an API call
+ * behind the panel has failed.
  */
+const handleOpen = (event: Event) => {
+    openAction(event);
+    (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = true;
+};
+
 const handleClose = (event: Event) => {
     closeAction(event);
     (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = false;
@@ -200,6 +214,7 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     isOpen,
     position,
     size,
+    triggers: triggersProp,
     type,
     variant,
 }) => {
@@ -227,6 +242,8 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
             heading="${ifDefined(heading)}"
             headingLevel="${ifDefined(headingLevel)}"
             .aria="${aria}"
+            .triggers="${triggersProp ?? []}"
+            @pie-tooltip-open="${handleOpen}"
             @pie-tooltip-close="${handleClose}">
             <span slot="content">${content}</span>
             ${actionSlot}
@@ -235,6 +252,13 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
 };
 
 export const Default = createStory<TooltipProps>(DefaultTemplate, defaultArgs)();
+
+export const Dismissible = createStory<TooltipProps>(DefaultTemplate, {
+    ...defaultArgs,
+    isDismissible: true,
+    triggers: ['click'],
+    isOpen: false,
+})();
 
 // -----------------------------------------------------------------------------
 // Onboarding tour
@@ -324,7 +348,7 @@ const showTourStep = (root: HTMLElement, index: number) => {
     const targetPanel = findPanel(root, current.anchor);
 
     // Waiting for updateComplete matters: until the update has been committed the panel is
-    // still `display: none`, and a hidden element cannot take focus. The animation frame then
+    // still `visibility: hidden`, and a hidden element cannot take focus. The animation frame then
     // lets the browser lay the panel out before focus moves into it.
     //
     // The action button only shows a focus ring when the step is reached by keyboard, or on load
@@ -385,6 +409,7 @@ const renderTourStep = (index: number): TemplateResult => {
             headingLevel="h3"
             ?isDismissible="${true}"
             ?isOpen="${index === 0}"
+            .triggers="${[]}"
             .aria="${{ close: 'End the tour' }}"
             @pie-tooltip-close="${handleTourClose}">
             <span slot="content">${step.content}</span>
