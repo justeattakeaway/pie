@@ -26,6 +26,14 @@ yarn test:output --filter=@justeat/pie-design-tokens -- -u
 yarn test --filter=@justeat/pie-design-tokens
 ```
 
+Changes in pie-tokens might impact tests in `pie-css` and `pie-docs`. Make sure to run all tests before pushing your changes.
+When changes are expected in these packages, you can run the following commands to update snapshots:
+
+```console
+yarn test --filter=@justeattakeaway/pie-css -- -u
+yarn test --filter=@justeattakeaway/pie-docs -- -u
+```
+
 Each change needs to be accompanied by a changeset, which handles both the changelog entry and the version bump:
 
 ```console
