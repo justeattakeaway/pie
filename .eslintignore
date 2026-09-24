@@ -5,3 +5,6 @@ lit-browsers-report
 lit-visual-report
 test-results
 react-browsers-report
+
+# ESLint ignores dotfile directories by default; agent skills live in .agents
+!.agents
