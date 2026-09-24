@@ -17,7 +17,7 @@
   },
   "Card": {
     "piePackage": "@justeattakeaway/pie-card",
-    "status": "beta"
+    "status": "stable"
   },
   "Checkbox": {
     "piePackage": "@justeattakeaway/pie-checkbox",
@@ -69,7 +69,7 @@
   },
   "Notification": {
     "piePackage": "@justeattakeaway/pie-notification",
-    "status": "beta"
+    "status": "stable"
   },
   "Radio": {
     "piePackage": "@justeattakeaway/pie-radio",
@@ -105,6 +105,6 @@
   },
   "Toggler": {
     "piePackage": "@justeattakeaway/pie-accordion",
-    "status": "beta"
+    "status": "stable"
   }
 }
