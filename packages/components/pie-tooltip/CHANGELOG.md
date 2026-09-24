@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-tooltip
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - New 'triggers' prop to drive interactions that can trigger the tooltip opening ([#3194](https://github.com/justeattakeaway/pie/pull/3194)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.29.3
+
 ## 0.2.0
 
 ### Minor Changes

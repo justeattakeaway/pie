@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.27.13
+
+### Patch Changes
+
+- [Fixed] - The dialog no longer clips its own contents, so an overlay slotted into the modal, such as `pie-tooltip`, can render outside it. The image slot and the scroll container now round their own corners to match the modal's radius. ([#3194](https://github.com/justeattakeaway/pie/pull/3194)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.27.12
 
 ### Patch Changes

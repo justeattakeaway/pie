@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.18.0
+
+### Minor Changes
+
+- [Added] - Bottom Navigation documentation pages for iOS and Android. ([#3200](https://github.com/justeattakeaway/pie/pull/3200)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Removed] - "We're currently working on updating docs..." warning notification from overview pages: Assistive Text, Avatar, Badge, Bottom Sheet, Carousel Indicator, Dropdown, FAB, List Item, List Item Interactive, Map Pin, Pagination, Popover, Progress Bar, Rating, Segmented Controls, Show More, Slider, Tabs, Tooltip, Uploader
+
+### Patch Changes
+
+- [CHANGED] Replaced index image for Payment Method component. ([#3209](https://github.com/justeattakeaway/pie/pull/3209)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+- Updated dependencies [[`d7925e0`](https://github.com/justeattakeaway/pie/commit/d7925e0c07d18ecfe6c58c48235c174e4dc71868)]:
+  - @justeat/pie-design-tokens@7.15.0
+  - @justeattakeaway/pie-webc@0.11.21
+  - @justeattakeaway/pie-css@1.8.2
+  - @justeattakeaway/pie-icons@5.32.1
+
 ## 5.17.0
 
 ### Minor Changes

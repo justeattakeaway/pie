@@ -1,5 +1,13 @@
 # Changelog
 
+## 7.15.0
+
+### Minor Changes
+
+- [Changed] - Updated `line-height--narrow` to use `line-height-16`. ([#3176](https://github.com/justeattakeaway/pie/pull/3176)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  Likely to cause some visual changes
+
 ## 7.14.3
 
 ### Patch Changes
