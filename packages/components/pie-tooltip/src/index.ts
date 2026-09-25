@@ -337,6 +337,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     private _hoverCloseTimer: ReturnType<typeof setTimeout> | undefined;
 
+    private _openedByClick = false;
+
     static styles = unsafeCSS(styles);
 
     private get _mode (): TooltipMode | undefined {
@@ -361,6 +363,10 @@ export class PieTooltip extends PieElement implements TooltipProps {
         // Opening is a re-entry point because the ancestor chain may have changed while closed.
         if (this.isOpen && changedProperties.has('isOpen')) {
             this._overlayModeDirty = true;
+        }
+
+        if (!this.isOpen) {
+            this._openedByClick = false;
         }
 
         // A new trigger has a different ancestor chain, so the overlay mode and the clippers the
@@ -888,11 +894,22 @@ export class PieTooltip extends PieElement implements TooltipProps {
         if (this.triggers.includes('click')) {
             triggerEl.addEventListener('click', (e: Event) => {
                 e.stopPropagation();
-                if (this.isOpen) {
-                    this._requestClose();
-                } else {
+
+                if (!this.isOpen) {
+                    // Opens are attributed to the click so a later click can toggle it closed.
+                    this._openedByClick = true;
                     this._requestOpen();
+
+                    return;
                 }
+
+                if (!this._openedByClick) {
+                    this._openedByClick = true;
+
+                    return;
+                }
+
+                this._requestClose();
             }, { signal });
 
             // Light-dismiss: click anywhere outside the panel and trigger
