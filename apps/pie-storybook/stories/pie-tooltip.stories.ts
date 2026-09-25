@@ -7,11 +7,11 @@ import '@justeattakeaway/pie-webc/components/tooltip';
 import {
     type PieTooltip,
     type TooltipProps as TooltipBaseProps,
+    type TooltipTrigger,
     defaultProps,
     headingLevels,
     positions,
     sizes,
-    triggers,
     types,
     variants,
 } from '@justeattakeaway/pie-webc/components/tooltip';
@@ -39,9 +39,13 @@ import '@justeattakeaway/pie-icons-webc/dist/IconStar.js';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
-type TooltipProps = TooltipBaseProps & {
+// `triggers` is intentionally replaced by three booleans for simplicity when wiring to the story template
+type TooltipProps = Omit<TooltipBaseProps, 'triggers'> & {
     content: string;
     hasAction: boolean;
+    triggerOnHover: boolean;
+    triggerOnFocus: boolean;
+    triggerOnClick: boolean;
 };
 
 type TooltipStoryMeta = Meta<TooltipProps>;
@@ -49,7 +53,9 @@ type TooltipStoryMeta = Meta<TooltipProps>;
 const defaultArgs: TooltipProps = {
     ...defaultProps,
     isOpen: false,
-    triggers: [...triggers],
+    triggerOnHover: true,
+    triggerOnFocus: true,
+    triggerOnClick: false,
     content: 'Orders placed before 6pm arrive today.',
     hasAction: false,
     aria: {
@@ -59,6 +65,16 @@ const defaultArgs: TooltipProps = {
         label: 'Delivery information',
     },
 };
+
+const toTriggers = ({
+    triggerOnHover,
+    triggerOnFocus,
+    triggerOnClick,
+}: Pick<TooltipProps, 'triggerOnHover' | 'triggerOnFocus' | 'triggerOnClick'>): Array<TooltipTrigger> => [
+    ...(triggerOnHover ? ['hover' as const] : []),
+    ...(triggerOnFocus ? ['focus' as const] : []),
+    ...(triggerOnClick ? ['click' as const] : []),
+];
 
 const tooltipStoryMeta: TooltipStoryMeta = {
     title: 'Components/Tooltip',
@@ -130,10 +146,34 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             description: 'The ARIA labels used for various parts of the tooltip. `close` names the close button, and `label` names the panel in dialog mode when no heading is provided.',
             control: 'object',
         },
-        triggers: {
-            description: 'Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel\'s state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability, and `click` for pointer users.',
-            control: 'check',
-            options: triggers,
+        // The `triggers` prop is exposed as three booleans rather than one array control, because
+        // array args do not round-trip through the Storybook URL. See the `TooltipProps` comment.
+        triggerOnHover: {
+            name: 'triggers: hover',
+            description: 'Request the panel to open and close on hover. Pair with `focus` for keyboard reachability.',
+            control: 'boolean',
+            type: 'boolean',
+            table: {
+                category: 'Triggers',
+            },
+        },
+        triggerOnFocus: {
+            name: 'triggers: focus',
+            description: 'Request the panel to open and close when the trigger receives focus.',
+            control: 'boolean',
+            type: 'boolean',
+            table: {
+                category: 'Triggers',
+            },
+        },
+        triggerOnClick: {
+            name: 'triggers: click',
+            description: 'Request the panel to open and close when the trigger is clicked. Intended for pointer users.',
+            control: 'boolean',
+            type: 'boolean',
+            table: {
+                category: 'Triggers',
+            },
         },
         // Neither of these is a component property: they are story controls standing in for the
         // two slots, grouped under their own heading so they are not read as part of the
@@ -214,13 +254,17 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     isOpen,
     position,
     size,
-    triggers: triggersProp,
+    triggerOnClick,
+    triggerOnFocus,
+    triggerOnHover,
     type,
     variant,
 }) => {
     const actionSlot = hasAction
         ? html`<pie-button slot="action" size="xsmall" @click="${handleActionClick}">Got it</pie-button>`
         : nothing;
+
+    const triggersProp = toTriggers({ triggerOnHover, triggerOnFocus, triggerOnClick });
 
     return html`
     <div style="padding: var(--dt-spacing-j); display: flex; justify-content: center;">
@@ -242,7 +286,7 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
             heading="${ifDefined(heading)}"
             headingLevel="${ifDefined(headingLevel)}"
             .aria="${aria}"
-            .triggers="${triggersProp ?? []}"
+            .triggers="${triggersProp}"
             @pie-tooltip-open="${handleOpen}"
             @pie-tooltip-close="${handleClose}">
             <span slot="content">${content}</span>
@@ -256,7 +300,9 @@ export const Default = createStory<TooltipProps>(DefaultTemplate, defaultArgs)()
 export const Dismissible = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     isDismissible: true,
-    triggers: ['click'],
+    triggerOnHover: false,
+    triggerOnFocus: false,
+    triggerOnClick: true,
     isOpen: false,
 })();
 

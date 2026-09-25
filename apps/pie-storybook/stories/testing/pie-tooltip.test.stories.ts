@@ -543,6 +543,45 @@ export const ClickDismissible = createStory<TooltipProps>(ClickTemplate, {
     controls: { disable: true },
 });
 
+const FocusClickTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    hasAction,
+    heading,
+    isDismissible,
+    position,
+    size,
+    type,
+    variant,
+}) => html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                ?isDismissible="${isDismissible}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                heading="${heading || nothing}"
+                .aria="${aria}"
+                .triggers="${['hover', 'focus', 'click']}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                ${renderContent(content, hasAction)}
+            </pie-tooltip>
+        </div>
+    </div>`;
+
+export const FocusClick = createStory<TooltipProps>(FocusClickTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
 /**
  * Focus trigger with action slot. Used to verify focus staying inside the panel when
  * moving from the trigger into the action button does not close the panel.

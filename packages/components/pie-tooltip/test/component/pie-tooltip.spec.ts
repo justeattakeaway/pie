@@ -308,6 +308,49 @@ test.describe('PieTooltip - Component tests', () => {
                 // Assert
                 expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
             });
+
+            test('should not close the panel when a click follows focus opening it', async ({ page }) => {
+                // Arrange
+                // With `focus` and `click` both configured, a pointer click fires `focusin` (which
+                // opens the panel) before `click`. The click must not then toggle it straight back
+                // closed, or the panel flashes open and shut.
+                const basePage = await loadTriggerStory(page, 'tooltip--focus-click');
+
+                await basePage.listenForEvent('pie-tooltip-open');
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+
+                const isOpen = await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null)?.isOpen);
+
+                expect(isOpen).toBe(true);
+            });
+
+            test('should close the panel on the next click after a focus-open click', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--focus-click');
+
+                // The first click "sticks" the panel open rather than toggling it.
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
         });
     });
 
