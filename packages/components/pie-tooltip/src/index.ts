@@ -133,6 +133,115 @@ const intersectRects = (a: DOMRect, b: DOMRect): DOMRect | null => {
     return new DOMRect(left, top, right - left, bottom - top);
 };
 
+type TooltipSide = 'top' | 'bottom' | 'left' | 'right';
+type TooltipAlignment = '' | '-start' | '-end';
+
+interface CandidateRect {
+    left: number;
+    top: number;
+    right: number;
+    bottom: number;
+}
+
+const oppositeSide: Record<TooltipSide, TooltipSide> = {
+    top: 'bottom',
+    bottom: 'top',
+    left: 'right',
+    right: 'left',
+};
+
+const crossSides: Record<TooltipSide, Array<TooltipSide>> = {
+    top: ['left', 'right'],
+    bottom: ['left', 'right'],
+    left: ['top', 'bottom'],
+    right: ['top', 'bottom'],
+};
+
+const parsePosition = (position: TooltipProps['position']): { side: TooltipSide; alignment: TooltipAlignment } => {
+    const match = /^(top|bottom|left|right)(-start|-end)?$/.exec(position ?? '');
+
+    if (!match) {
+        return { side: 'top', alignment: '' };
+    }
+
+    return { side: match[1] as TooltipSide, alignment: (match[2] ?? '') as TooltipAlignment };
+};
+
+const toPhysicalSide = (side: TooltipSide, isRtl: boolean): TooltipSide => {
+    if (!isRtl) {
+        return side;
+    }
+
+    if (side === 'left') {
+        return 'right';
+    }
+
+    if (side === 'right') {
+        return 'left';
+    }
+
+    return side;
+};
+
+const getCandidateRect = (
+    side: TooltipSide,
+    alignment: TooltipAlignment,
+    anchor: DOMRect,
+    panelWidth: number,
+    panelHeight: number,
+    offset: number,
+    isRtl: boolean,
+): CandidateRect => {
+    const physicalSide = toPhysicalSide(side, isRtl);
+    const isVerticalSide = physicalSide === 'top' || physicalSide === 'bottom';
+
+    let left = 0;
+    let top = 0;
+
+    if (physicalSide === 'top') {
+        top = anchor.top - offset - panelHeight;
+    } else if (physicalSide === 'bottom') {
+        top = anchor.bottom + offset;
+    } else if (physicalSide === 'left') {
+        left = anchor.left - offset - panelWidth;
+    } else {
+        left = anchor.right + offset;
+    }
+
+    if (isVerticalSide) {
+        if (alignment === '') {
+            left = anchor.left + (anchor.width / 2) - (panelWidth / 2);
+        } else if (alignment === '-start') {
+            left = isRtl ? anchor.right - panelWidth : anchor.left;
+        } else {
+            left = isRtl ? anchor.left : anchor.right - panelWidth;
+        }
+    } else if (alignment === '') {
+        top = anchor.top + (anchor.height / 2) - (panelHeight / 2);
+    } else {
+        top = alignment === '-start' ? anchor.top : anchor.bottom - panelHeight;
+    }
+
+    return {
+        left,
+        top,
+        right: left + panelWidth,
+        bottom: top + panelHeight,
+    };
+};
+
+const containsRect = (boundary: DOMRect, rect: CandidateRect): boolean => rect.left >= boundary.left &&
+    rect.right <= boundary.right &&
+    rect.top >= boundary.top &&
+    rect.bottom <= boundary.bottom;
+
+const getVisibleArea = (boundary: DOMRect, rect: CandidateRect): number => {
+    const width = Math.min(boundary.right, rect.right) - Math.max(boundary.left, rect.left);
+    const height = Math.min(boundary.bottom, rect.bottom) - Math.max(boundary.top, rect.top);
+
+    return Math.max(0, width) * Math.max(0, height);
+};
+
 /**
  * @tagname pie-tooltip
  * @event {Event} pie-tooltip-open - When a configured trigger asks for the panel. Set `isOpen` to `true` in response.
@@ -190,9 +299,17 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     @state() private _isAnchorVisible = true;
 
+    @state() private _resolvedPosition: TooltipProps['position'] | undefined;
+
     private _clippedTriggerElement: Element | null = null;
 
     private _triggerClippers: Array<Element> = [];
+
+    private _overlayClippers: Array<Element> = [];
+
+    private _collisionSignature: string | null = null;
+
+    private _overlayModeDirty = true;
 
     private _triggerTrackingController: AbortController | undefined;
     private _interactionController: AbortController | undefined;
@@ -203,9 +320,9 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     private _reanchorFrame = 0;
 
-    private _shouldResolveOverlayMode = false;
-
     private _hoverCloseTimer: ReturnType<typeof setTimeout> | undefined;
+
+    private _openedByClick = false;
 
     static styles = unsafeCSS(styles);
 
@@ -219,6 +336,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     protected firstUpdated (): void {
         this.resolveMode();
+        this._overlayModeDirty = true;
+        this.resolveOverlayMode();
         this.projectOverTrigger();
         this._rebuildInteractionListeners();
     }
@@ -227,10 +346,26 @@ export class PieTooltip extends PieElement implements TooltipProps {
         const anchoringProperties: Array<keyof PieTooltip> = ['trigger', 'isOpen', 'position', 'size'];
 
         if (this.isOpen && changedProperties.has('isOpen')) {
-            this.resolveOverlayMode();
+            this._overlayModeDirty = true;
         }
 
-        if (anchoringProperties.some((prop) => changedProperties.has(prop))) {
+        if (!this.isOpen) {
+            this._openedByClick = false;
+        }
+
+        if (changedProperties.has('trigger')) {
+            this._overlayModeDirty = true;
+        }
+
+        const isAnchoringChange = anchoringProperties.some((prop) => changedProperties.has(prop));
+
+        if (isAnchoringChange) {
+            this._collisionSignature = null;
+        }
+
+        this.resolveOverlayMode();
+
+        if (isAnchoringChange) {
             this.projectOverTrigger();
         }
 
@@ -276,18 +411,14 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this._reanchorFrame = requestAnimationFrame(() => {
                 this._reanchorFrame = 0;
 
-                if (this._shouldResolveOverlayMode) {
-                    this._shouldResolveOverlayMode = false;
-                    this.resolveOverlayMode();
-                }
-
+                this.resolveOverlayMode();
                 this.projectOverTrigger();
             });
         };
 
         // Flagged rather than resolved immediately so window-drag cannot walk ancestors more than once per frame.
         const handleResize = () => {
-            this._shouldResolveOverlayMode = true;
+            this._overlayModeDirty = true;
             handleViewportChange();
         };
 
@@ -318,7 +449,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._triggerObserver = new ResizeObserver(() => {
             // Geometry changed, so the ancestor chain may have too. Flagged rather than resolved
             // here so the walk runs at most once per frame.
-            this._shouldResolveOverlayMode = true;
+            this._overlayModeDirty = true;
             handleViewportChange();
         });
 
@@ -347,8 +478,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._triggerObserver?.disconnect();
         this._triggerObserver = undefined;
 
-        this._shouldResolveOverlayMode = false;
-
         if (this._reanchorFrame) {
             cancelAnimationFrame(this._reanchorFrame);
             this._reanchorFrame = 0;
@@ -367,10 +496,16 @@ export class PieTooltip extends PieElement implements TooltipProps {
     // ancestor of it; a clipper strictly inside the containing block does not clip. So each
     // clipper is counted against a mode only once that mode's containing block has been reached.
     private resolveOverlayMode (): void {
+        if (!this._overlayModeDirty) {
+            return;
+        }
+
+        this._overlayModeDirty = false;
+
         let isAtOrAboveAbsoluteContainingBlock = false;
         let isAtOrAboveFixedContainingBlock = false;
-        let absoluteClippers = 0;
-        let fixedClippers = 0;
+        const absoluteClippingAncestors: Array<Element> = [];
+        const fixedClippingAncestors: Array<Element> = [];
 
         const { documentElement, body } = this.ownerDocument;
 
@@ -410,11 +545,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
             // block and the clipper is counted correctly.
             if (clips && !propagatesOverflowToViewport) {
                 if (isAtOrAboveAbsoluteContainingBlock) {
-                    absoluteClippers += 1;
+                    absoluteClippingAncestors.push(element);
                 }
 
                 if (isAtOrAboveFixedContainingBlock) {
-                    fixedClippers += 1;
+                    fixedClippingAncestors.push(element);
                 }
             }
         });
@@ -422,7 +557,10 @@ export class PieTooltip extends PieElement implements TooltipProps {
         // The fixed containing block is always at or above the absolute one, so the clippers that
         // apply to a fixed box are a subset of those that apply to an absolute one. A lower count
         // therefore always means a strictly better escape, never a worse one.
-        this.style.position = fixedClippers < absoluteClippers ? 'fixed' : '';
+        const useFixed = fixedClippingAncestors.length < absoluteClippingAncestors.length;
+
+        this.style.position = useFixed ? 'fixed' : '';
+        this._overlayClippers = useFixed ? fixedClippingAncestors : absoluteClippingAncestors;
     }
 
     // Measures the trigger relative to the origin marker (which sits at the containing block's
@@ -480,7 +618,120 @@ export class PieTooltip extends PieElement implements TooltipProps {
         const containerInlineSize = container ? container.getBoundingClientRect().width : width;
 
         this.style.setProperty('--tooltip-container-inline-size', `${containerInlineSize}px`);
+
+        this.resolveCollision(visibleRect);
+
         this._isPositioned = true;
+    }
+
+    private resolveCollision (anchorRect: DOMRect): void {
+        const panel = this.renderRoot.querySelector<HTMLElement>(`.${componentClass}`);
+
+        if (!panel) {
+            return;
+        }
+
+        const boundary = this._getCollisionBoundary();
+
+        if (!boundary) {
+            this._collisionSignature = null;
+            this._setResolvedPosition(this.position ?? defaultProps.position);
+
+            return;
+        }
+
+        const isIconType = this.type === 'icon';
+        const hostStyles = getComputedStyle(this);
+        const isRtl = hostStyles.direction === 'rtl';
+
+        const panelWidth = panel.offsetWidth;
+        const panelHeight = panel.offsetHeight;
+        const signature = [
+            anchorRect.left, anchorRect.top, anchorRect.width, anchorRect.height,
+            boundary.left, boundary.top, boundary.width, boundary.height,
+            panelWidth, panelHeight,
+            isRtl,
+        ].join(':');
+
+        if (this._collisionSignature === signature) {
+            return;
+        }
+
+        this._collisionSignature = signature;
+
+        const offset = parseFloat(hostStyles.getPropertyValue('--tooltip-offset')) || 0;
+        const arrowSize = parseFloat(hostStyles.getPropertyValue('--tooltip-arrow-size')) || 0;
+        const layerOffset = isIconType ? offset : offset + arrowSize;
+
+        const { side: preferredSide, alignment: preferredAlignment } = parsePosition(this.position ?? defaultProps.position);
+
+        let fitting: { side: TooltipSide; alignment: TooltipAlignment } | undefined;
+        let bestFallback: { side: TooltipSide; alignment: TooltipAlignment } | undefined;
+        let bestArea = -1;
+
+        this._getCandidatePositions(preferredSide, preferredAlignment).some(({ side, alignment }) => {
+            const rect = getCandidateRect(
+                side,
+                alignment,
+                anchorRect,
+                panelWidth,
+                panelHeight,
+                layerOffset,
+                isRtl,
+            );
+
+            if (containsRect(boundary, rect)) {
+                fitting = { side, alignment };
+
+                return true;
+            }
+
+            const area = getVisibleArea(boundary, rect);
+
+            if (area > bestArea) {
+                bestArea = area;
+                bestFallback = { side, alignment };
+            }
+
+            return false;
+        });
+
+        const resolved = fitting ?? bestFallback;
+        const resolvedPosition = resolved
+            ? `${resolved.side}${resolved.alignment}` as TooltipProps['position']
+            : this.position ?? defaultProps.position;
+
+        this._setResolvedPosition(resolvedPosition);
+    }
+
+    private _setResolvedPosition (position: TooltipProps['position']): void {
+        if (this._resolvedPosition !== position) {
+            this._resolvedPosition = position;
+        }
+    }
+
+    private _getCollisionBoundary (): DOMRect | null {
+        const { documentElement } = this.ownerDocument;
+        const viewport = new DOMRect(0, 0, documentElement.clientWidth, documentElement.clientHeight);
+
+        return this._overlayClippers.reduce<DOMRect | null>(
+            (rect, clipper) => (rect ? intersectRects(rect, getClipRect(clipper)) : null),
+            viewport,
+        );
+    }
+
+    private _getCandidatePositions (
+        preferredSide: TooltipSide,
+        preferredAlignment: TooltipAlignment,
+    ): Array<{ side: TooltipSide; alignment: TooltipAlignment }> {
+        const sideOrder: Array<TooltipSide> = [preferredSide, oppositeSide[preferredSide], ...crossSides[preferredSide]];
+        const allAlignments: Array<TooltipAlignment> = ['', '-start', '-end'];
+
+        return sideOrder.flatMap((side) => {
+            const alignments = [preferredAlignment, ...allAlignments.filter((alignment) => alignment !== preferredAlignment)];
+
+            return alignments.map((alignment) => ({ side, alignment }));
+        });
     }
 
     // Cached because `projectOverTrigger` runs on every re-anchoring frame, and collecting these
@@ -595,11 +846,22 @@ export class PieTooltip extends PieElement implements TooltipProps {
         if (this.triggers.includes('click')) {
             triggerEl.addEventListener('click', (e: Event) => {
                 e.stopPropagation();
-                if (this.isOpen) {
-                    this._requestClose();
-                } else {
+
+                if (!this.isOpen) {
+                    // Only click-opens toggle
+                    this._openedByClick = true;
                     this._requestOpen();
+
+                    return;
                 }
+
+                if (!this._openedByClick) {
+                    this._openedByClick = true;
+
+                    return;
+                }
+
+                this._requestClose();
             }, { signal });
 
             // Light-dismiss: click anywhere outside the panel and trigger
@@ -648,13 +910,15 @@ export class PieTooltip extends PieElement implements TooltipProps {
             heading,
             isDismissible,
             isOpen,
-            position,
+            position: preferredPosition,
             size,
             type,
             variant,
+            _resolvedPosition,
             _mode: mode,
         } = this;
 
+        const position = _resolvedPosition ?? preferredPosition;
         const isIconType = type === 'icon';
 
         const layerClasses = {

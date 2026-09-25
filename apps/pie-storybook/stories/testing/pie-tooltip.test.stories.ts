@@ -96,9 +96,10 @@ const tooltipStoryMeta: TooltipStoryMeta = {
 export default tooltipStoryMeta;
 
 /**
- * The tooltip is a fixed overlay projected over its trigger, so every test story keeps its
- * triggers well clear of the viewport edges. Placement is deliberately static in this ticket:
- * nothing flips or shifts to stay in view.
+ * Most test stories keep their triggers well clear of the viewport edges, so the preferred
+ * position is used unchanged. The edge-anchored stories below deliberately place a trigger
+ * against each edge to exercise collision detection, which flips or shifts the panel regardless
+ * of the `position` prop.
  */
 const pagePadding = 'var(--dt-spacing-j)';
 const pageInlinePadding = 'var(--dt-spacing-j)';
@@ -375,6 +376,9 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }
             row-gap: var(--dt-spacing-e);
             column-gap: var(--dt-spacing-j);
             justify-content: center;
+            align-content: center;
+            box-sizing: border-box;
+            min-block-size: 100vh;
             padding: var(--dt-spacing-h) var(--dt-spacing-j);
         }
 
@@ -536,6 +540,45 @@ export const ClickDismissible = createStory<TooltipProps>(ClickTemplate, {
     isDismissible: true,
     heading: 'Delivery times',
 })({}, {
+    controls: { disable: true },
+});
+
+const FocusClickTemplate: TemplateFunction<TooltipProps> = ({
+    aria,
+    content,
+    hasAction,
+    heading,
+    isDismissible,
+    position,
+    size,
+    type,
+    variant,
+}) => html`
+    <div style="padding: ${pagePadding};">
+        <div
+            data-test-id="tooltip-trigger-container"
+            style="inline-size: min(400px, 100%);">
+            ${renderTrigger({ type, variant })}
+
+            <pie-tooltip
+                trigger="tooltip-trigger"
+                ?isOpen="${false}"
+                ?isDismissible="${isDismissible}"
+                position="${ifDefined(position)}"
+                size="${ifDefined(size)}"
+                type="${ifDefined(type)}"
+                variant="${ifDefined(variant)}"
+                heading="${heading || nothing}"
+                .aria="${aria}"
+                .triggers="${['hover', 'focus', 'click']}"
+                @pie-tooltip-open="${handleOpen}"
+                @pie-tooltip-close="${handleClose}">
+                ${renderContent(content, hasAction)}
+            </pie-tooltip>
+        </div>
+    </div>`;
+
+export const FocusClick = createStory<TooltipProps>(FocusClickTemplate, defaultArgs)({}, {
     controls: { disable: true },
 });
 
@@ -735,12 +778,89 @@ export const InClippingScrollContainer = createStory<TooltipProps>(InClippingScr
     controls: { disable: true },
 });
 
-/**
- * The opposite control case: the clipper is *inside* the panel's absolute containing block, which
- * is the one arrangement an `absolute` box escapes on its own. There is nothing to gain, so the
- * panel must stay `absolute`. Guards against over-promotion, which would buy a re-projection on
- * every scroll for no benefit.
- */
+const EdgeTemplate = (edge: 'top' | 'right' | 'bottom' | 'left', position: TooltipProps['position']) => {
+    const edges: Record<string, string> = {
+        top: 'top: 0; left: 50%;',
+        right: 'right: 0; top: 50%;',
+        bottom: 'bottom: 0; left: 50%;',
+        left: 'left: 0; top: 50%;',
+    };
+
+    return html`
+    <div
+        data-test-id="tooltip-trigger-container"
+        style="position: fixed; ${edges[edge]}">
+        <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+    </div>
+
+    <pie-tooltip
+        trigger="tooltip-trigger"
+        position="${position}"
+        size="fit-to-content"
+        ?isOpen="${true}">
+        <span slot="content" data-test-id="pie-tooltip-slotted-content">Arrives today.</span>
+    </pie-tooltip>`;
+};
+
+export const CollisionTopEdge = createStory<TooltipProps>(() => EdgeTemplate('top', 'top'), defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const CollisionBottomEdge = createStory<TooltipProps>(() => EdgeTemplate('bottom', 'bottom'), defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const CollisionLeftEdge = createStory<TooltipProps>(() => EdgeTemplate('left', 'left'), defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+export const CollisionRightEdge = createStory<TooltipProps>(() => EdgeTemplate('right', 'right'), defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+const CollisionCornerTemplate: TemplateFunction<TooltipProps> = () => html`
+    <div
+        data-test-id="tooltip-trigger-container"
+        style="position: fixed; inset-block-start: 0; inset-inline-start: 0;">
+        <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+    </div>
+
+    <pie-tooltip
+        trigger="tooltip-trigger"
+        position="top-end"
+        ?isOpen="${true}">
+        <span slot="content" data-test-id="pie-tooltip-slotted-content">Arrives today.</span>
+    </pie-tooltip>`;
+
+export const CollisionCorner = createStory<TooltipProps>(CollisionCornerTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
+const CollisionInClippingContainerTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
+    <div style="padding: ${pagePadding} var(--dt-spacing-c);">
+        <div
+            data-test-id="clipping-container"
+            style="position: relative; overflow: hidden; transform: translateZ(0); inline-size: min(480px, 100%); block-size: 160px; border: 1px solid var(--dt-color-border-strong);">
+            <div style="padding-block-start: 90px; padding-block-end: 8px; display: flex; flex-direction: column; align-items: center;">
+                <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
+                <pie-tooltip
+                    trigger="tooltip-trigger"
+                    position="bottom"
+                    size="fit-to-content"
+                    ?isOpen="${true}">
+                    ${renderContent(content, false)}
+                </pie-tooltip>
+            </div>
+        </div>
+    </div>`;
+
+export const CollisionInClippingContainer = createStory<TooltipProps>(
+    CollisionInClippingContainerTemplate,
+    defaultArgs,
+)({}, {
+    controls: { disable: true },
+});
+
 const ClipperInsideContainingBlockTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
     <div style="position: relative; padding: ${pagePadding} ${pageInlinePadding};">
         <div data-test-id="clipping-container" style="overflow: hidden; block-size: 120px; border: 1px solid var(--dt-color-border-strong);">

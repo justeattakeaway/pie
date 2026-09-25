@@ -47,7 +47,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |---|---|---|---|
 | `trigger` | Any string | The `id` of the element the panel is anchored to. The trigger lives elsewhere in the DOM and is never slotted into the tooltip. | `undefined` |
 | `isOpen` | `true`, `false` | When true, the panel is visible. The component never writes to this property. | `false` |
-| `position` | `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, `bottom-end`, `left`, `left-start`, `left-end`, `right`, `right-start`, `right-end` | The side of the trigger the panel sits on, and its alignment along the cross axis. | `top` |
+| `position` | `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, `bottom-end`, `left`, `left-start`, `left-end`, `right`, `right-start`, `right-end` | The preferred side of the trigger the panel sits on, and its alignment along the cross axis. The panel repositions itself when this would collide with the viewport or a clipping scroll container. | `top` |
 | `size` | `default`, `fit-to-content`, `fill-container` | How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as wide as its content, and `fill-container` matches the inline size of the trigger's parent element. Not applied when `type` is `icon`. | `default` |
 | `variant` | `default`, `inverse` | The colour treatment of the panel. `default` is the dark panel, `inverse` the light one. | `default` |
 | `type` | `default`, `icon` | The presentation of the panel. `icon` is the compact treatment intended for icon triggers: it has no arrow and is always as wide as its content, so `size` and `--tooltip-width` have no effect on it. | `default` |
@@ -98,6 +98,17 @@ right    right-start    right-end
 ```
 
 In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and `left` and `right` swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of `left` and `right` are on the block axis, which has no direction to mirror, so only the side moves.
+
+### Collision detection
+
+`position` is a preference, not a guarantee. Before the panel is shown, and on every scroll, resize or direction change while it is open, the component measures the panel against the space available and repositions it if the preferred position would collide.
+
+- It flips to the opposite side first: `top` to `bottom`, and so on.
+- It then tries the remaining sides.
+- Within a side, it shifts the alignment (for example `top-start` to `top-end`) so the panel stays fully in view.
+- If no position fits entirely, it uses whichever position shows the most of the panel.
+
+The available space is the viewport, narrowed by any ancestor that clips the panel. Collision detection is always on and cannot be disabled.
 
 ## Sizing
 
