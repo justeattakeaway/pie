@@ -778,16 +778,6 @@ export const InClippingScrollContainer = createStory<TooltipProps>(InClippingScr
     controls: { disable: true },
 });
 
-// -----------------------------------------------------------------------------
-// Collision detection
-// -----------------------------------------------------------------------------
-
-/**
- * Pins the trigger to a physical edge of the viewport so the preferred position is guaranteed to
- * collide and the panel has to flip. The offsets are physical (`left`/`right`/`top`/`bottom`),
- * not logical, so the trigger stays put when the story is rendered in RTL; only the `position`
- * prop is logical and mirrors. Placement is verified by the Percy snapshot of each story.
- */
 const EdgeTemplate = (edge: 'top' | 'right' | 'bottom' | 'left', position: TooltipProps['position']) => {
     const edges: Record<string, string> = {
         top: 'top: 0; left: 50%;',
@@ -828,11 +818,6 @@ export const CollisionRightEdge = createStory<TooltipProps>(() => EdgeTemplate('
     controls: { disable: true },
 });
 
-/**
- * A trigger pinned to the top-left corner with `top-end`. The side collides vertically and the
- * `-end` alignment collides horizontally, so the panel has to flip to `bottom` and shift to
- * `-start` to stay in view.
- */
 const CollisionCornerTemplate: TemplateFunction<TooltipProps> = () => html`
     <div
         data-test-id="tooltip-trigger-container"
@@ -851,14 +836,6 @@ export const CollisionCorner = createStory<TooltipProps>(CollisionCornerTemplate
     controls: { disable: true },
 });
 
-/**
- * The trigger sits at the bottom of a short, wide container that clips its overflow. The
- * `transform` makes the container the containing block for both absolute and fixed descendants,
- * so neither positioning mode can escape it: the collision boundary is the container, not the
- * viewport. It is wide enough for the panel to fit horizontally and short enough that the
- * preferred `bottom` position would hang past its bottom edge, so the panel flips to `top`
- * inside the container. Placement is verified by the Percy snapshot.
- */
 const CollisionInClippingContainerTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
     <div style="padding: ${pagePadding} var(--dt-spacing-c);">
         <div
@@ -884,12 +861,6 @@ export const CollisionInClippingContainer = createStory<TooltipProps>(
     controls: { disable: true },
 });
 
-/**
- * The opposite control case: the clipper is *inside* the panel's absolute containing block, which
- * is the one arrangement an `absolute` box escapes on its own. There is nothing to gain, so the
- * panel must stay `absolute`. Guards against over-promotion, which would buy a re-projection on
- * every scroll for no benefit.
- */
 const ClipperInsideContainingBlockTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
     <div style="position: relative; padding: ${pagePadding} ${pageInlinePadding};">
         <div data-test-id="clipping-container" style="overflow: hidden; block-size: 120px; border: 1px solid var(--dt-color-border-strong);">
