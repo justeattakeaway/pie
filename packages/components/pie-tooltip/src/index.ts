@@ -133,6 +133,121 @@ const intersectRects = (a: DOMRect, b: DOMRect): DOMRect | null => {
     return new DOMRect(left, top, right - left, bottom - top);
 };
 
+type TooltipSide = 'top' | 'bottom' | 'left' | 'right';
+type TooltipAlignment = '' | '-start' | '-end';
+
+interface CandidateRect {
+    left: number;
+    top: number;
+    right: number;
+    bottom: number;
+}
+
+const oppositeSide: Record<TooltipSide, TooltipSide> = {
+    top: 'bottom',
+    bottom: 'top',
+    left: 'right',
+    right: 'left',
+};
+
+const crossSides: Record<TooltipSide, Array<TooltipSide>> = {
+    top: ['left', 'right'],
+    bottom: ['left', 'right'],
+    left: ['top', 'bottom'],
+    right: ['top', 'bottom'],
+};
+
+// Splits a position value into its side and alignment. `top` has an empty alignment.
+const parsePosition = (position: TooltipProps['position']): { side: TooltipSide; alignment: TooltipAlignment } => {
+    const match = /^(top|bottom|left|right)(-start|-end)?$/.exec(position ?? '');
+
+    if (!match) {
+        return { side: 'top', alignment: '' };
+    }
+
+    return { side: match[1] as TooltipSide, alignment: (match[2] ?? '') as TooltipAlignment };
+};
+
+// The panel's `left`/`right` classes resolve on the logical inline axis, which mirrors in RTL.
+// Collision is measured in physical viewport space, so the logical side has to be mapped first.
+const toPhysicalSide = (side: TooltipSide, isRtl: boolean): TooltipSide => {
+    if (!isRtl) {
+        return side;
+    }
+
+    if (side === 'left') {
+        return 'right';
+    }
+
+    if (side === 'right') {
+        return 'left';
+    }
+
+    return side;
+};
+
+// The box a candidate position would place the panel in, in viewport coordinates. Mirrors the
+// placement rules in `tooltip.scss`: the main axis sits `offset` beyond the anchor, the cross
+// axis follows the alignment (with inline alignments mirroring in RTL).
+const getCandidateRect = (
+    side: TooltipSide,
+    alignment: TooltipAlignment,
+    anchor: DOMRect,
+    panelWidth: number,
+    panelHeight: number,
+    offset: number,
+    isRtl: boolean,
+): CandidateRect => {
+    const physicalSide = toPhysicalSide(side, isRtl);
+    const isVerticalSide = physicalSide === 'top' || physicalSide === 'bottom';
+
+    let left = 0;
+    let top = 0;
+
+    if (physicalSide === 'top') {
+        top = anchor.top - offset - panelHeight;
+    } else if (physicalSide === 'bottom') {
+        top = anchor.bottom + offset;
+    } else if (physicalSide === 'left') {
+        left = anchor.left - offset - panelWidth;
+    } else {
+        left = anchor.right + offset;
+    }
+
+    if (isVerticalSide) {
+        if (alignment === '') {
+            left = anchor.left + (anchor.width / 2) - (panelWidth / 2);
+        } else if (alignment === '-start') {
+            left = isRtl ? anchor.right - panelWidth : anchor.left;
+        } else {
+            left = isRtl ? anchor.left : anchor.right - panelWidth;
+        }
+    } else if (alignment === '') {
+        top = anchor.top + (anchor.height / 2) - (panelHeight / 2);
+    } else {
+        top = alignment === '-start' ? anchor.top : anchor.bottom - panelHeight;
+    }
+
+    return {
+        left,
+        top,
+        right: left + panelWidth,
+        bottom: top + panelHeight,
+    };
+};
+
+const containsRect = (boundary: DOMRect, rect: CandidateRect): boolean => rect.left >= boundary.left &&
+    rect.right <= boundary.right &&
+    rect.top >= boundary.top &&
+    rect.bottom <= boundary.bottom;
+
+const getVisibleArea = (boundary: DOMRect, rect: CandidateRect): number => {
+    const width = Math.min(boundary.right, rect.right) - Math.max(boundary.left, rect.left);
+    const height = Math.min(boundary.bottom, rect.bottom) - Math.max(boundary.top, rect.top);
+
+    return Math.max(0, width) * Math.max(0, height);
+};
+
 /**
  * @tagname pie-tooltip
  * @event {Event} pie-tooltip-open - When a configured trigger asks for the panel. Set `isOpen` to `true` in response.
@@ -190,9 +305,26 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     @state() private _isAnchorVisible = true;
 
+    // The position actually rendered. `undefined` until the first collision resolution, at which
+    // point `render` falls back to the `position` prop so the first paint is never wrong. It is
+    // then replaced by the best-fitting alternative whenever the preference would collide with the
+    // viewport or a clipping ancestor.
+    @state() private _resolvedPosition: TooltipProps['position'] | undefined;
+
     private _clippedTriggerElement: Element | null = null;
 
     private _triggerClippers: Array<Element> = [];
+
+    // The ancestors that clip the panel itself, for the resolved overlay mode: the host's
+    // clipping ancestors, filtered by whether they are at or above the mode's containing block.
+    private _overlayClippers: Array<Element> = [];
+
+    // Signature of the last collision resolution: the anchor box, the collision boundary and the
+    // panel size. Any of them changing can change the answer; none changing means the previous
+    // resolution still holds and the measurement can be skipped.
+    private _collisionSignature: string | null = null;
+
+    private _overlayModeDirty = true;
 
     private _triggerTrackingController: AbortController | undefined;
     private _interactionController: AbortController | undefined;
@@ -202,8 +334,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
     private _triggerObserver: ResizeObserver | undefined;
 
     private _reanchorFrame = 0;
-
-    private _shouldResolveOverlayMode = false;
 
     private _hoverCloseTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -219,6 +349,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     protected firstUpdated (): void {
         this.resolveMode();
+        this._overlayModeDirty = true;
+        this.resolveOverlayMode();
         this.projectOverTrigger();
         this._rebuildInteractionListeners();
     }
@@ -226,11 +358,28 @@ export class PieTooltip extends PieElement implements TooltipProps {
     protected updated (changedProperties: PropertyValues<this>): void {
         const anchoringProperties: Array<keyof PieTooltip> = ['trigger', 'isOpen', 'position', 'size'];
 
+        // Opening is a re-entry point because the ancestor chain may have changed while closed.
         if (this.isOpen && changedProperties.has('isOpen')) {
-            this.resolveOverlayMode();
+            this._overlayModeDirty = true;
         }
 
-        if (anchoringProperties.some((prop) => changedProperties.has(prop))) {
+        // A new trigger has a different ancestor chain, so the overlay mode and the clippers the
+        // collision boundary is built from have to be re-resolved.
+        if (changedProperties.has('trigger')) {
+            this._overlayModeDirty = true;
+        }
+
+        const isAnchoringChange = anchoringProperties.some((prop) => changedProperties.has(prop));
+
+        // A resolved-position update re-enters here; the anchor box is unchanged, so the cache is
+        // kept to stop the measure-and-resolve pass repeating itself.
+        if (isAnchoringChange) {
+            this._collisionSignature = null;
+        }
+
+        this.resolveOverlayMode();
+
+        if (isAnchoringChange) {
             this.projectOverTrigger();
         }
 
@@ -276,18 +425,14 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this._reanchorFrame = requestAnimationFrame(() => {
                 this._reanchorFrame = 0;
 
-                if (this._shouldResolveOverlayMode) {
-                    this._shouldResolveOverlayMode = false;
-                    this.resolveOverlayMode();
-                }
-
+                this.resolveOverlayMode();
                 this.projectOverTrigger();
             });
         };
 
         // Flagged rather than resolved immediately so window-drag cannot walk ancestors more than once per frame.
         const handleResize = () => {
-            this._shouldResolveOverlayMode = true;
+            this._overlayModeDirty = true;
             handleViewportChange();
         };
 
@@ -318,7 +463,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._triggerObserver = new ResizeObserver(() => {
             // Geometry changed, so the ancestor chain may have too. Flagged rather than resolved
             // here so the walk runs at most once per frame.
-            this._shouldResolveOverlayMode = true;
+            this._overlayModeDirty = true;
             handleViewportChange();
         });
 
@@ -347,8 +492,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._triggerObserver?.disconnect();
         this._triggerObserver = undefined;
 
-        this._shouldResolveOverlayMode = false;
-
         if (this._reanchorFrame) {
             cancelAnimationFrame(this._reanchorFrame);
             this._reanchorFrame = 0;
@@ -367,10 +510,19 @@ export class PieTooltip extends PieElement implements TooltipProps {
     // ancestor of it; a clipper strictly inside the containing block does not clip. So each
     // clipper is counted against a mode only once that mode's containing block has been reached.
     private resolveOverlayMode (): void {
+        // The ancestor walk is only worth repeating when the chain, the trigger, or the preferred
+        // position actually changed — not on every re-anchoring frame. `projectOverTrigger` reads
+        // `_triggerClippers` regardless, so a skip is still safe.
+        if (!this._overlayModeDirty) {
+            return;
+        }
+
+        this._overlayModeDirty = false;
+
         let isAtOrAboveAbsoluteContainingBlock = false;
         let isAtOrAboveFixedContainingBlock = false;
-        let absoluteClippers = 0;
-        let fixedClippers = 0;
+        const absoluteClippingAncestors: Array<Element> = [];
+        const fixedClippingAncestors: Array<Element> = [];
 
         const { documentElement, body } = this.ownerDocument;
 
@@ -378,6 +530,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
         // when the ancestor chain does.
         this._refreshTriggerClippers();
 
+        // The panel is clipped by the host's ancestors, not the trigger's, so the collision
+        // boundary below is built from this walk rather than `_triggerClippers`.
         flattenedAncestors(this).forEach((element) => {
             const styles = getComputedStyle(element);
 
@@ -410,11 +564,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
             // block and the clipper is counted correctly.
             if (clips && !propagatesOverflowToViewport) {
                 if (isAtOrAboveAbsoluteContainingBlock) {
-                    absoluteClippers += 1;
+                    absoluteClippingAncestors.push(element);
                 }
 
                 if (isAtOrAboveFixedContainingBlock) {
-                    fixedClippers += 1;
+                    fixedClippingAncestors.push(element);
                 }
             }
         });
@@ -422,7 +576,10 @@ export class PieTooltip extends PieElement implements TooltipProps {
         // The fixed containing block is always at or above the absolute one, so the clippers that
         // apply to a fixed box are a subset of those that apply to an absolute one. A lower count
         // therefore always means a strictly better escape, never a worse one.
-        this.style.position = fixedClippers < absoluteClippers ? 'fixed' : '';
+        const useFixed = fixedClippingAncestors.length < absoluteClippingAncestors.length;
+
+        this.style.position = useFixed ? 'fixed' : '';
+        this._overlayClippers = useFixed ? fixedClippingAncestors : absoluteClippingAncestors;
     }
 
     // Measures the trigger relative to the origin marker (which sits at the containing block's
@@ -480,7 +637,143 @@ export class PieTooltip extends PieElement implements TooltipProps {
         const containerInlineSize = container ? container.getBoundingClientRect().width : width;
 
         this.style.setProperty('--tooltip-container-inline-size', `${containerInlineSize}px`);
+
+        // Resolved after the anchor properties are written, so the panel is measured in the layout
+        // the candidate positions are actually resolved against (`fill-container` width depends on
+        // the container size set just above).
+        this.resolveCollision(visibleRect);
+
         this._isPositioned = true;
+    }
+
+    // Chooses the position the panel is actually rendered in. The consumer's preference is kept
+    // whenever it fits. Otherwise the sides are tried in order — the preferred side, its same-axis
+    // flip (top↔bottom, left↔right), then the cross axis — and within each side the alignment is
+    // shifted (for example `top-start` to `top-end`) before the side is abandoned. Every candidate
+    // is measured against the viewport intersected with the clipping ancestors, so a panel inside
+    // a scroll container repositions within the space it can actually occupy.
+    private resolveCollision (anchorRect: DOMRect): void {
+        const panel = this.renderRoot.querySelector<HTMLElement>(`.${componentClass}`);
+
+        if (!panel) {
+            return;
+        }
+
+        const boundary = this._getCollisionBoundary();
+
+        if (!boundary) {
+            this._collisionSignature = null;
+            this._setResolvedPosition(this.position ?? defaultProps.position);
+
+            return;
+        }
+
+        const isIconType = this.type === 'icon';
+        const hostStyles = getComputedStyle(this);
+        const isRtl = hostStyles.direction === 'rtl';
+
+        // Layout dimensions, not the bounding rect: the panel is measured mid open animation, and
+        // `getBoundingClientRect` would include the transient motion translation. Direction is part
+        // of the signature because it changes the physical side a logical position resolves to.
+        const panelWidth = panel.offsetWidth;
+        const panelHeight = panel.offsetHeight;
+        const signature = [
+            anchorRect.left, anchorRect.top, anchorRect.width, anchorRect.height,
+            boundary.left, boundary.top, boundary.width, boundary.height,
+            panelWidth, panelHeight,
+            isRtl,
+        ].join(':');
+
+        if (this._collisionSignature === signature) {
+            return;
+        }
+
+        this._collisionSignature = signature;
+
+        // `--tooltip-layer-offset` is a `calc()` over these two, so it cannot be parsed directly;
+        // the icon treatment drops the arrow term, matching the stylesheet.
+        const offset = parseFloat(hostStyles.getPropertyValue('--tooltip-offset')) || 0;
+        const arrowSize = parseFloat(hostStyles.getPropertyValue('--tooltip-arrow-size')) || 0;
+        const layerOffset = isIconType ? offset : offset + arrowSize;
+
+        const { side: preferredSide, alignment: preferredAlignment } = parsePosition(this.position ?? defaultProps.position);
+
+        // The preferred position is first in the list, so the first candidate that fits wins. If
+        // none fits, fall back to whichever shows the most panel.
+        let fitting: { side: TooltipSide; alignment: TooltipAlignment } | undefined;
+        let bestFallback: { side: TooltipSide; alignment: TooltipAlignment } | undefined;
+        let bestArea = -1;
+
+        this._getCandidatePositions(preferredSide, preferredAlignment).some(({ side, alignment }) => {
+            const rect = getCandidateRect(
+                side,
+                alignment,
+                anchorRect,
+                panelWidth,
+                panelHeight,
+                layerOffset,
+                isRtl,
+            );
+
+            if (containsRect(boundary, rect)) {
+                fitting = { side, alignment };
+
+                return true;
+            }
+
+            const area = getVisibleArea(boundary, rect);
+
+            if (area > bestArea) {
+                bestArea = area;
+                bestFallback = { side, alignment };
+            }
+
+            return false;
+        });
+
+        const resolved = fitting ?? bestFallback;
+        const resolvedPosition = resolved
+            ? `${resolved.side}${resolved.alignment}` as TooltipProps['position']
+            : this.position ?? defaultProps.position;
+
+        this._setResolvedPosition(resolvedPosition);
+    }
+
+    private _setResolvedPosition (position: TooltipProps['position']): void {
+        if (this._resolvedPosition !== position) {
+            this._resolvedPosition = position;
+        }
+    }
+
+    // The area the panel may occupy: the viewport, narrowed by every ancestor that clips the panel
+    // in the resolved overlay mode. Client dimensions exclude any scrollbar, so the panel will not
+    // sit under one.
+    private _getCollisionBoundary (): DOMRect | null {
+        const { documentElement } = this.ownerDocument;
+        const viewport = new DOMRect(0, 0, documentElement.clientWidth, documentElement.clientHeight);
+
+        return this._overlayClippers.reduce<DOMRect | null>(
+            (rect, clipper) => (rect ? intersectRects(rect, getClipRect(clipper)) : null),
+            viewport,
+        );
+    }
+
+    // The ordered fallback list, by side then by alignment. Sides run preference → same-axis flip
+    // → cross axis. Within each side the preferred alignment is tried first, then the other two,
+    // so the panel shifts along the cross axis before it gives up the side altogether. A candidate
+    // that does not fit is simply skipped, so an unhelpful shift costs nothing.
+    private _getCandidatePositions (
+        preferredSide: TooltipSide,
+        preferredAlignment: TooltipAlignment,
+    ): Array<{ side: TooltipSide; alignment: TooltipAlignment }> {
+        const sideOrder: Array<TooltipSide> = [preferredSide, oppositeSide[preferredSide], ...crossSides[preferredSide]];
+        const allAlignments: Array<TooltipAlignment> = ['', '-start', '-end'];
+
+        return sideOrder.flatMap((side) => {
+            const alignments = [preferredAlignment, ...allAlignments.filter((alignment) => alignment !== preferredAlignment)];
+
+            return alignments.map((alignment) => ({ side, alignment }));
+        });
     }
 
     // Cached because `projectOverTrigger` runs on every re-anchoring frame, and collecting these
@@ -648,13 +941,15 @@ export class PieTooltip extends PieElement implements TooltipProps {
             heading,
             isDismissible,
             isOpen,
-            position,
+            position: preferredPosition,
             size,
             type,
             variant,
+            _resolvedPosition,
             _mode: mode,
         } = this;
 
+        const position = _resolvedPosition ?? preferredPosition;
         const isIconType = type === 'icon';
 
         const layerClasses = {

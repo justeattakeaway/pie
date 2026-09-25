@@ -56,7 +56,10 @@ export interface TooltipProps {
     isOpen?: boolean;
 
     /**
-     * The side of the trigger the panel sits on, and its alignment along the cross axis.
+     * The preferred side of the trigger the panel sits on, and its alignment along the cross axis.
+     * The component repositions the panel automatically — flipping to the opposite side and/or
+     * shifting its alignment — when the preferred position would collide with the viewport or with
+     * a clipping scroll container. This behaviour cannot be disabled.
      */
     position?: typeof positions[number];
 
