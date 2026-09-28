@@ -37,6 +37,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |----------|---------|---------------------------------------------------------------------------------------------------|---------|
 | options  | `{}`    | Default options for all toasts; accepts all toast [props](https://webc.pie.design/?path=/story/components-toast).        | `{}`    |
 | position | `"default"`, `"bottom-left"`, `"bottom-right"`, `"bottom-center"` | Sets the position of the toast provider. When set to `default`, the toasts will be positioned at bottom-left for RTL languages and bottom-right for LTR languages. | `default` |
+| isStacked | `true`, `false` | When true, up to 3 toasts are displayed at the same time in a vertical stack. When false, a single toast is displayed at a time and the rest wait in the queue. | `false` |
 
 ### Slots
 This component does not have any slots. All content is controlled through properties.
