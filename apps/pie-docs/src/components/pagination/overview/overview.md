@@ -20,11 +20,6 @@ Pagination is commonly used in websites, applications, or documents that present
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Pagination documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Pagination'
 } %}

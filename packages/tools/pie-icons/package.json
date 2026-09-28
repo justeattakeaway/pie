@@ -43,7 +43,7 @@
     "is-svg": "6.1.0",
     "prettier": "2.8.8",
     "slugify": "1.6.9",
-    "svgo": "4.0.1",
+    "svgo": "4.1.0",
     "webpack": "5.107.1",
     "webpack-cli": "7.0.2"
   }

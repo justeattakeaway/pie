@@ -7,6 +7,7 @@ permalink: components/side-sheet/
 ---
 
 ## Overview
+
 The purpose of side sheets is to provide users with easy access to secondary information, navigation, or actions, without the need to navigate to a different page or interrupt the main content.
 
 Side sheets are designed to overlay a portion of the screen, expanding the available space for content or functionality while keeping the main content partially visible. They can include a close control for users to hide the side sheet as needed.

@@ -7,6 +7,7 @@ permalink: components/rating/
 ---
 
 ## Overview
+
 The purpose of the rating component is to gather user feedback and/or provide a visual representation of the collective ratings. It helps users make informed decisions, provides social proof and assists in evaluating the quality or popularity of a product or service.
 
 Ratings are commonly used in review systems, product ratings or feedback forms where users are asked to provide their subjective assessment.
@@ -19,11 +20,6 @@ Ratings are commonly used in review systems, product ratings or feedback forms w
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Star Rating documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Rating'

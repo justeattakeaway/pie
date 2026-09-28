@@ -27,6 +27,7 @@
     "components/badge",
     "components/badge/apps",
     "components/badge/web",
+    "components/bottom-navigation",
     "components/bottom-navigation/android",
     "components/bottom-navigation/ios",
     "components/bottom-sheet",

@@ -20,6 +20,8 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--icon-default', name: 'PieTooltip - Icon default' },
     { id: 'tooltip--icon-inverse', name: 'PieTooltip - Icon inverse' },
     { id: 'tooltip--icon-placement-grid', name: 'PieTooltip - Icon placement grid' },
+    { id: 'tooltip--in-clipping-scroll-container', name: 'PieTooltip - In clipping scroll container' },
+    { id: 'tooltip--clipper-inside-containing-block', name: 'PieTooltip - Clipper inside containing block' },
 ];
 
 // Tooltip position is calculated in the browser, so Percy must run the component code too.
@@ -39,6 +41,27 @@ test.describe('PieTooltip - Visual tests', () => {
         });
     });
 
+    [
+        { id: 'tooltip--in-modal-open', name: 'PieTooltip - In modal' },
+        { id: 'tooltip--in-modal-with-pinned-footer-open', name: 'PieTooltip - In modal with pinned footer' },
+    ].forEach(({ id, name }) => {
+        test(`should display the ${name} story successfully`, async ({ page }) => {
+            // Arrange
+            const basePage = new BasePage(page, id);
+
+            await basePage.load();
+
+            await expect(page.getByTestId(tooltip.selectors.modal.dataTestId)).toBeVisible();
+
+            await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
+
+            await basePage.freezeAnimations();
+
+            // Act & Assert
+            await percySnapshot(page, name, percySnapshotOptions);
+        });
+    });
+
     test('Should not show the tooltip when it is not open', async ({ page }) => {
         // Arrange
         const basePage = new BasePage(page, 'tooltip--default');
@@ -48,20 +71,6 @@ test.describe('PieTooltip - Visual tests', () => {
 
         // Act & Assert
         await percySnapshot(page, 'PieTooltip - Default closed', percySnapshotOptions);
-    });
-
-    test('should not show tooltip when scrolling to bottom of the page', async ({ page }) => {
-        // Arrange
-        const basePage = new BasePage(page, 'tooltip--scrolled');
-
-        await basePage.load();
-        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        await page.evaluate(() => new Promise<void>((resolve) => {
-            requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-        }));
-
-        // Act & Assert
-        await percySnapshot(page, 'PieTooltip - Scrolled', percySnapshotOptions);
     });
 
     // Placement mirrors in RTL, so the grid is snapshotted in both directions. The RTL snapshot

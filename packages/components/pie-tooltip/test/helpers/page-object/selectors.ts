@@ -44,6 +44,10 @@ const tooltip = {
             description: 'The selector for the trigger\'s parent element, which `fill-container` is measured against',
             dataTestId: 'tooltip-trigger-container',
         },
+        modal: {
+            description: 'The selector for the `pie-modal` dialog the panel is slotted into',
+            dataTestId: 'pie-modal',
+        },
     },
 };
 

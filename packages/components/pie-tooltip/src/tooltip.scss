@@ -65,7 +65,9 @@ $tooltip-alignments: ('', '-start', '-end');
     visibility: hidden;
     transition: visibility 0s linear 150ms;
 
-    &.is-open.is-positioned {
+    // `is-anchorVisible` is false when the trigger has been scrolled entirely out of a clipping
+    // ancestor: there is nothing left to point at, so the panel hides rather than float free.
+    &.is-open.is-positioned.is-anchorVisible {
         visibility: visible;
         transition-delay: 0s;
     }
@@ -168,7 +170,7 @@ $tooltip-alignments: ('', '-start', '-end');
         transform var(--tooltip-motion-duration) var(--tooltip-motion-easing);
 }
 
-.c-tooltip-layer.is-open.is-positioned .c-tooltip {
+.c-tooltip-layer.is-open.is-positioned.is-anchorVisible .c-tooltip {
     --tooltip-motion-duration: 200ms;
 
     opacity: 1;
@@ -366,4 +368,46 @@ $tooltip-alignments: ('', '-start', '-end');
     position: absolute;
     inset-block-start: var(--dt-spacing-b);
     inset-inline-end: var(--dt-spacing-b);
+}
+
+// Hover bridge: a transparent pseudo-element extending from each panel edge toward its
+// trigger, covering the --tooltip-layer-offset gap. Keeps the hover region intact so
+// the pointer can travel from the trigger into the panel without the close timer firing.
+// Sized from --tooltip-layer-offset so widening --tooltip-offset cannot open a hole.
+@each $alignment in $tooltip-alignments {
+    .c-tooltip--top#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-block-start: 100%;
+        block-size: var(--tooltip-layer-offset);
+        inset-inline-start: 0;
+        inline-size: 100%;
+    }
+
+    .c-tooltip--bottom#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-block-end: 100%;
+        block-size: var(--tooltip-layer-offset);
+        inset-inline-start: 0;
+        inline-size: 100%;
+    }
+
+    .c-tooltip--left#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-inline-start: 100%;
+        inline-size: var(--tooltip-layer-offset);
+        inset-block-start: 0;
+        block-size: 100%;
+    }
+
+    .c-tooltip--right#{$alignment}::before {
+        content: '';
+        position: absolute;
+        inset-inline-end: 100%;
+        inline-size: var(--tooltip-layer-offset);
+        inset-block-start: 0;
+        block-size: 100%;
+    }
 }
