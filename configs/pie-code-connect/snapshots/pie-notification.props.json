@@ -1,0 +1,92 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "2009:70463",
+    "availableProperties": [
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Close",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "[𝐓] Title",
+        "type": "TEXT",
+        "default": "Title"
+      },
+      {
+        "name": "Title",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "[𝐓] Supporting text",
+        "type": "TEXT",
+        "default": "Supporting text"
+      },
+      {
+        "name": "Screen size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Wide",
+          "Narrow"
+        ],
+        "default": "Wide"
+      },
+      {
+        "name": "Position",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Inline with content",
+          "Full width"
+        ],
+        "default": "Inline with content"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Neutral",
+          "Neutral alternative",
+          "Translucent",
+          "Info",
+          "Warning",
+          "Error",
+          "Success"
+        ],
+        "default": "Neutral"
+      },
+      {
+        "name": "Compact",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Size (only in Narrow)",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Small"
+        ],
+        "default": "Large"
+      },
+      {
+        "name": "Actions",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "True"
+      }
+    ]
+  }
+]

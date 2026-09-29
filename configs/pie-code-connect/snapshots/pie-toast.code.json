@@ -1,0 +1,722 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Neutral, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Neutral, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Neutral, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Neutral, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Info, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Info, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Info, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Info, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Warning, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Warning, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Warning, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Warning, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Error, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Error, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Error, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Error, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Success, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Success, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Success, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Success, Strong=False, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Neutral, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Neutral, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Neutral, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Neutral, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Info, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Info, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Info, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Info, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Warning, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Warning, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Warning, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Warning, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Error, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Error, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Error, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Error, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Success, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Success, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Success, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n     isMultiline\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Success, Strong=True, Multi-line=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Neutral, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Neutral, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Neutral, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Neutral, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Info, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Info, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Info, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Info, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Warning, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Warning, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Warning, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Warning, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Error, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Error, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Error, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Error, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Success, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Success, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Success, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Success, Strong=False, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Neutral, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Neutral, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Neutral, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     message=\"Message\"\n     isStrong\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Neutral, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Info, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Info, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Info, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"info\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Info, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Warning, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Warning, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Warning, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"warning\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Warning, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Error, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Error, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Error, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"error\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Error, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=false, Type=Success, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=false, Type=Success, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=false, Close=true, Type=Success, Strong=True, Multi-line=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321",
+    "nodeId": "193:32321",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieToast\n     variant=\"success\"\n     message=\"Message\"\n     isStrong\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    isOpen>\n</PieToast>",
+    "language": "React",
+    "propertyCombinationLabel": "Button=true, Close=true, Type=Success, Strong=True, Multi-line=False"
+  }
+]

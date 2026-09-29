@@ -1,0 +1,308 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=false, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=false, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=false, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=false, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=true, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=true, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=true, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=true, Scrim=True, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=false, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=false, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=false, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=false, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=true, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=true, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=true, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=true, Scrim=False, Overflow=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=false, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=false, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=false, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\"\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=false, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=true, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=true, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=true, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=true, Scrim=True, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=false, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=false, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=false, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     hideCurrentPage>\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=false, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=false, Current page=true, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=false, Current page=true, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=false, Breadcrumb 4=true, Current page=true, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-121967",
+    "nodeId": "1575:121967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n    >\n    <PieBreadcrumbItem href=\"/page-1\">Breadcrumb 1</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-2\">Breadcrumb 2</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-3\">Breadcrumb 3</PieBreadcrumbItem>\n    <PieBreadcrumbItem href=\"/page-4\">Breadcrumb 4</PieBreadcrumbItem>\n    <PieBreadcrumbItem>Current page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Breadcrumb 3=true, Breadcrumb 4=true, Current page=true, Scrim=False, Overflow=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=314-28746",
+    "nodeId": "314:28746",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     isCompact\n     variant=\"scrim\">\n    <PieBreadcrumbItem href=\"/page-url\">Destination page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Scrim=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=314-28746",
+    "nodeId": "314:28746",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieBreadcrumb\n     isCompact>\n    <PieBreadcrumbItem href=\"/page-url\">Destination page</PieBreadcrumbItem>\n</PieBreadcrumb>",
+    "language": "React",
+    "propertyCombinationLabel": "Scrim=False"
+  }
+]

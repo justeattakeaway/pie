@@ -1,0 +1,47 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=132-15960",
+    "nodeId": "132:15960",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSpinner\n    >\n</PieSpinner>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Brand"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=132-15960",
+    "nodeId": "132:15960",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSpinner\n     variant=\"secondary\">\n</PieSpinner>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=132-15960",
+    "nodeId": "132:15960",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSpinner\n     variant=\"secondary-dark\">\n</PieSpinner>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary dark"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=132-15960",
+    "nodeId": "132:15960",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSpinner\n     variant=\"inverse\">\n</PieSpinner>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=132-15960",
+    "nodeId": "132:15960",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSpinner\n     variant=\"inverse-light\">\n</PieSpinner>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse light"
+  }
+]
