@@ -1,0 +1,78 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "6226:7999",
+    "availableProperties": [
+      {
+        "name": "Assistive text",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "[𝐓] String",
+        "type": "TEXT",
+        "default": "String"
+      },
+      {
+        "name": "Form label",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "[𝐓] Placeholder",
+        "type": "TEXT",
+        "default": "Placeholder"
+      },
+      {
+        "name": "Leading content",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Trailing content",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Medium",
+          "Small"
+        ],
+        "default": "Medium"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Focus",
+          "Disabled",
+          "Read only"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Error",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Content",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Placeholder",
+          "Filled"
+        ],
+        "default": "Placeholder"
+      }
+    ]
+  }
+]

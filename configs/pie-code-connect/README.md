@@ -12,6 +12,7 @@ This package automates the creation of Figma Code Connect templates that link Fi
 - **Configuration files** - Metadata and publish configurations for different component families
 - **Build scripts** - Node.js tooling that processes template files and generates production-ready Code Connect files
 - **Reusable utility functions** - Helpers for reading Figma instance properties, rendering component props, and generating import statements
+- **Snapshot tests** - A regression guardrail that captures the Code Connect output for each component and diffs it against a committed baseline
 
 ## Scripts
 
@@ -63,6 +64,80 @@ yarn unpublish-components:dev   # Unpublish web component mappings from the _dev
 These commands use `config/figma-dev-components-batch.config.json`, which targets the same `components.figma.batch.json` metadata but publishes under the `_dev_` label. 
 
 Please remember to unpublish when done.
+
+### Snapshot testing
+
+Code Connect output is easy to change by accident: a component structure changes,
+an edit to a template, or a utility function, can silently alter the snippet that 
+everyone receives from Figma. These scripts capture that output and diff it
+against a committed baseline, so unintended changes surface in review instead of Figma.
+
+```bash
+yarn snapshot:update       # Regenerate the baseline in snapshots/
+yarn snapshot:compare      # Diff the current output against the baseline, prompting to accept changes
+yarn snapshot:compare:ci   # The same comparison, but fails instead of prompting
+```
+
+Both commands run `yarn build:react` first, then call `figma connect preview` for every
+template listed in `components.figma.batch.json` — the same manifest that
+`config/figma-react-components-batch.config.json` publishes from. 
+They need `FIGMA_ACCESS_TOKEN` to be set (see
+[Publishing Code Connect changes](#publishing-code-connect-changes)): preview reads
+component metadata from the Figma API, and the snippets themselves are rendered
+server-side.
+
+Each component produces two snapshot files:
+
+- `snapshots/<component>.props.json` - The component's Figma property surface: its
+  properties and variants (name, type, options and default), as reported by the API
+- `snapshots/<component>.code.json` - The code rendered for every combination of the
+  component's boolean and variant properties, up to 500 per Figma node
+
+Each is named for what it captures rather than for the Figma CLI flag behind it
+(`--inspect` and `--all` respectively).
+
+Snapshots cover the **React** mappings only, via
+`config/figma-react-components-batch.config.json`. Icons are excluded.
+
+#### Typical workflow
+
+1. Change a template, a utility function, or a component's props.
+2. Run `yarn snapshot:compare`. Each component reports one of three states:
+
+   ```
+   pie-divider … ok
+   pie-button … CHANGED (props, code)
+   pie-select … CHANGED (code: 4/96 renders failing)
+   pie-data-table … FAILED
+   ```
+
+   `CHANGED` names the checks whose output moved. `FAILED` means the preview itself did
+   not complete, and the reason is listed under `--- Errors ---`. A check is also
+   flagged when a property combination stopped rendering, which is easy to miss
+   otherwise. The run ends with a tally, so nothing has to be counted by hand.
+3. Answer `y` at the prompt to rewrite the affected baselines, or `n` to leave them
+   alone.
+4. Read the change with `git diff snapshots/`, where it can be reviewed and staged
+   piece by piece like any other edit. If it was not intended, `git checkout
+   snapshots/` and fix the template instead.
+5. Commit the updated `snapshots/` files alongside your change, so reviewers can see
+   what the change does to the published output.
+
+#### Things worth knowing
+
+- **The manifest decides what is covered, not `dist/`.** Adding a component to
+  `components.figma.batch.json` adds it to the baseline automatically. A leftover build
+  artefact in `dist/` that the manifest does not list is ignored, and a manifest entry
+  that has not been built is reported as a failure rather than passed over in silence.
+- **A component that renders nothing is reported as failed, not changed.** The Figma
+  CLI exits non-zero when no property combination renders, so the baseline is left
+  alone rather than recording a broken state. The message comes from the CLI's JSON
+  output (the failing property, and the properties the component does expose) rather
+  than from its exit code, and its startup logging is stripped out.
+- **Use `snapshot:compare:ci` in any non-interactive context.** The interactive variant
+  ends at a prompt and will not fail a build.
+- **A diff does not always mean a code change.** Snapshots reflect live Figma state, so
+  a designer renaming a variant or adding a property produces one too.
 
 ## Adding New Components
 
@@ -162,6 +237,10 @@ It's common to have multiple Figma component sets related to a single component 
 ```bash
 yarn publish-components:all
 ```
+
+### 4. Update the components snapshots (optional)
+
+If a new component template was added, run `yarn snapshot:update` and make sure to commit the new component snapshots.
 
 ## Adding New Icons
 

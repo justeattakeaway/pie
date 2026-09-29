@@ -32,12 +32,19 @@ const headerProps = [
 ].filter(Boolean).join(' ');
 
 // Get header action buttons
-const actionButtons = figma.selectedInstance.findInstance('Bulk-action bar');
+const hasSelectableRows = getInstanceProp('getBoolean', 'Selectable rows');
+let actionButtonsCode = '';
+let bulkActionBar;
 
-const actionButtonsCode = actionButtons?.children
-    .filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
-    .map((child) => getInstanceCode(child, 'action-button'))
-    .filter(Boolean);
+if (hasSelectableRows) {
+    [bulkActionBar] = figma.selectedInstance
+        .findLayers((instance) => instance.name && instance.name === 'Bulk-action bar');
+
+    actionButtonsCode = bulkActionBar?.children
+        .filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
+        .map((child) => getInstanceCode(child, 'action-button'))
+        .filter(Boolean) ?? [];
+}
 
 // Pre-render header markup
 const header = figma.code`<${headerComponentName} slot="table-header" ${headerProps}>${actionButtonsCode}</${headerComponentName}>`;

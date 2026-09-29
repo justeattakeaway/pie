@@ -1,0 +1,127 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "6226:8407",
+    "availableProperties": [
+      {
+        "name": "Help tooltip",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Optional",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Character count",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Tooltip icon",
+        "type": "INSTANCE_SWAP",
+        "default": "1651:137630"
+      },
+      {
+        "name": "Multiline label",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "1700:146167",
+    "availableProperties": [
+      {
+        "name": "Help tooltip",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Optional",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "[𝐓] Label",
+        "type": "TEXT",
+        "default": "Label"
+      },
+      {
+        "name": "[𝐓] Multiline label",
+        "type": "TEXT",
+        "default": "Multiline label"
+      },
+      {
+        "name": "Tooltip icon",
+        "type": "INSTANCE_SWAP",
+        "default": "1651:137630"
+      },
+      {
+        "name": "Multiline label",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "2011:77602",
+    "availableProperties": [
+      {
+        "name": "Help tooltip",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Optional",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Character Count",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "[𝐓] Character count",
+        "type": "TEXT",
+        "default": "X/XX"
+      },
+      {
+        "name": "[𝐓] Label",
+        "type": "TEXT",
+        "default": "Label"
+      },
+      {
+        "name": "[𝐓] Multiline label",
+        "type": "TEXT",
+        "default": "Multiline label"
+      },
+      {
+        "name": "Tooltip icon",
+        "type": "INSTANCE_SWAP",
+        "default": "1651:137630"
+      },
+      {
+        "name": "Multiline label",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

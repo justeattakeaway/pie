@@ -1,0 +1,29 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=163-43157",
+    "nodeId": "163:43157",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieAssistiveText\n     message=\"Assistive text\">\n</PieAssistiveText>",
+    "language": "React",
+    "propertyCombinationLabel": "Validation=None"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=163-43157",
+    "nodeId": "163:43157",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieAssistiveText\n     variant=\"success\"\n     message=\"Assistive text\">\n</PieAssistiveText>",
+    "language": "React",
+    "propertyCombinationLabel": "Validation=Success"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=163-43157",
+    "nodeId": "163:43157",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieAssistiveText\n     variant=\"error\"\n     message=\"Assistive text\">\n</PieAssistiveText>",
+    "language": "React",
+    "propertyCombinationLabel": "Validation=Error"
+  }
+]

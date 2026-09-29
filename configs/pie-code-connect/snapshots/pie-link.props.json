@@ -1,0 +1,84 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "364:48091",
+    "availableProperties": [
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "Trailing icon",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Replace trailing icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "[𝐓] Link",
+        "type": "TEXT",
+        "default": "Link"
+      },
+      {
+        "name": "Type",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "High visibility",
+          "Inverse",
+          "Inverse light"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "XSmall",
+          "Small",
+          "Medium"
+        ],
+        "default": "Medium"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Visited"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Underline",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Reversed"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Bold",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

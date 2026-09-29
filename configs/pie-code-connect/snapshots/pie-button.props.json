@@ -1,0 +1,79 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "1:4788",
+    "availableProperties": [
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "[𝐓] Label",
+        "type": "TEXT",
+        "default": "Label"
+      },
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Trailing icon",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Replace trailing icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Primary",
+          "Primary - alternative",
+          "Primary - alternative dark",
+          "Secondary",
+          "Outline",
+          "Ghost",
+          "Ghost secondary",
+          "Ghost dark",
+          "Inverse",
+          "Inverse outline",
+          "Inverse ghost",
+          "Inverse ghost light",
+          "Destructive",
+          "Destructive ghost"
+        ],
+        "default": "Primary"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Medium",
+          "Small - Expressive",
+          "Small - Productive",
+          "XSmall"
+        ],
+        "default": "Large"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "Loading"
+        ],
+        "default": "Default"
+      }
+    ]
+  }
+]
