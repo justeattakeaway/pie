@@ -43,7 +43,7 @@ if (hasSelectableRows) {
     actionButtonsCode = bulkActionBar?.children
         .filter((child) => child.path && JSON.stringify(child.path) === actionButtonsPath)
         .map((child) => getInstanceCode(child, 'action-button'))
-        .filter(Boolean);
+        .filter(Boolean) ?? [];
 }
 
 // Pre-render header markup
