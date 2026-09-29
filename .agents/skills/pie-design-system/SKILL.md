@@ -10,7 +10,7 @@ description: Usage guidelines for the PIE design system by Just Eat Takeaway. Us
 > **Guides note:** `guides/` holds whatever docs the consumer's installed package versions ship, so its contents vary between projects. Treat a listing of `guides/` as the list of what is actually available rather than assuming a guide named in this skill is present. Where one is missing, fall back to `tokens/tokensMetadata.json` and the component docs, and do not guess at utility class names.
 
 1. Check whether `.versions` exists.
-2. **If missing** → check the core packages are installed. If any are missing, stop and ask the user to install them rather than installing anything yourself. Then run `scripts/fetch-references.mjs` with the consumer project as the working directory, since it reads their installed packages.
+2. **If missing** → ensure the core packages are installed, then run `scripts/fetch-references.mjs` with the consumer project as the working directory, since it reads their installed packages.
 3. **If present** → compare each entry in `.versions` against the installed version of that package, and re-run the script if any differ.
 
 `.versions` keys are fully scoped package names, so read the scope from the key rather than assuming it:
@@ -38,7 +38,6 @@ Use the table below to find the right section. Where the request spans multiple 
 | Review PIE usage | Review Project |
 | Fonts, typography, type scale, font loading | Typography |
 | Component API / props / slots / usage or Building UI | Looking up components |
-| Whether a component exists, or is ready/safe to use | Component status |
 | Framework setup, or which usage example to show (React, Next, Vue, Nuxt, none) | Framework and integration guides |
 | Prop types, TypeScript imports | Framework and integration guides |
 | Import or find an icon | Icons |
@@ -48,7 +47,7 @@ Use the table below to find the right section. Where the request spans multiple 
 | Hide/show elements, screen-reader-only text, CSS utility classes | Utility classes |
 | Customise or override a component's look | Customising components |
 | A component renders with the wrong/old styling, fails to upgrade, or the console reports a custom element already registered | Component registration and versions |
-| Something broken or unexpected | Looking up components → pre-flight #6 |
+| Something broken or unexpected | Looking up components → pre-flight #5 |
 
 After writing your response, run through the **pre-flight checklist** before presenting it to the user.
 
@@ -62,7 +61,7 @@ Only follow these steps if PIE has never been set up in the project (no existing
 
 ## Review Project (for evaluate/review/audit requests)
 
-If the user asks to review/evaluate/audit PIE usage, you **must** read and assess against every one of these sections: Typography, Looking up components, Component status, Component registration and versions, Events, Icons, Design tokens, Customising components.
+If the user asks to review/evaluate/audit PIE usage, you **must** read and assess against every one of these sections: Typography, Looking up components, Component registration and versions, Events, Icons, Design tokens, Customising components.
 
 Do not finalize the response until each one has an explicit pass/fail outcome.
 
@@ -84,7 +83,7 @@ When the user asks about a specific component — say `pie-button` — read `com
 
 Skip the npm badge, Table of Contents, installation section, irrelevant framework examples, and boilerplate ("Questions and Support", "Contributing").
 
-To see what components PIE offers, read `components/component-metadata.json`. It lists every component with its status, and it is the only reliable source for whether a component exists. Do not infer availability from the presence or absence of a `components/<name>.md` file.
+To see what components PIE offers, read `components/component-metadata.json`. If a component isn't listed, it either doesn't exist in PIE or is still in alpha. Let the user know and point them to #help-designsystem on Slack for timelines or to discuss a custom alternative.
 
 Entries are keyed by package name, and each one lists the custom elements that package registers. Some packages register more than one — `pie-list` registers both `pie-list` and `pie-list-item`. To look up a component element, find the entry whose `elements` array contains it.
 
@@ -100,37 +99,17 @@ Then match it to a guide in `guides/`:
 
 | Detected | Guide |
 |---|---|
-| `next` | `framework-integration-guides-nextjs-14.md` |
-| `nuxt` | `framework-integration-guides-nuxt-3.md` |
-| `react` | `framework-integration-guides-react-19.md` |
-| `vue` | `framework-integration-guides-vue-3.md` |
+| `next` | `framework-integration-guides-nextjs.md` |
+| `nuxt` | `framework-integration-guides-nuxt.md` |
+| `react` | `framework-integration-guides-react.md` |
+| `vue` | `framework-integration-guides-vue.md` |
 | none | `framework-integration-guides-no-framework.md` |
 
 **React wrappers take `className`, not `class`.** `@lit/react` treats `className` as a reserved property and coerces it to the element's `class` attribute, so it reaches the host correctly. Writing `class` in JSX is not the supported form.
 
-The guides are pinned to specific major versions and the consumer may be on a different one. Where no guide matches their installed major version, use the nearest, check its guidance against the project's own config before relying on it, and **say so in your response** — name the guide you used and the version it covers.
+Each guide states the major versions it covers at the top. Where the consumer's installed major version is not covered, use the nearest, check its guidance against the project's own config before relying on it, and **say so in your response** — name the guide you used and the versions it covers.
 
 For prop and event types, read `guides/typescript-usage.md`. It covers the type imports per framework, the `react` entry point, and where the `type` keyword is required.
-
-## Component status
-
-Before recommending any component, look up its `status` in `components/component-metadata.json`.
-
-PIE supports exactly three statuses. Anything else is not a supported component.
-
-| Status | PIE's definition | Required response |
-|---|---|---|
-| `stable` | Ready to be used. | Recommend normally. Do not mention status. |
-| `beta` | Testing a new major change of a stable component. | Recommend normally. Do not mention status. |
-| `alpha` | Preliminary usage; expect changes. | State that it is alpha and that its API may change, and tell the user to confirm with #help-designsystem before building on it. |
-
-Treat all three of these as "not a supported PIE component": a component absent from `component-metadata.json`, an entry whose `status` is not one of the three above, and an entry with no readable doc in `components/`. In each case tell the user it is not available and point them to #help-designsystem on Slack for timelines or to discuss an alternative. Do not recommend it and do not guess at its API.
-
-This applies to components only. Icons are a separate package and are never listed in `component-metadata.json` — see the **Icons** section for how to check those.
-
-Some component docs tell you to use another component — a form control pointing at a separate label component, for example. Look up the status of every component you end up using, not just the one the user asked about. A stable component's docs can tell you to use an alpha one.
-
-When the only PIE-supported way to build something is an `alpha` component, use it and caveat it. Do not hand-roll a custom alternative to avoid the alpha status — a custom version loses the accessibility, RTL and theming guarantees, which is a worse outcome than a documented API that may change.
 
 ## Component registration and versions
 
@@ -203,12 +182,10 @@ Before presenting code to the user, every item must pass:
 
 2. **API matches the docs?** — Every prop, slot, and event must exist in the component's doc. If it's undocumented, don't use it. If the API doesn't cover the use case, point the user to #help-designsystem on Slack.
 
-3. **Status checked and caveated?** — Every component in the response, including ones prescribed by another component's doc, must have its `status` looked up in `components/component-metadata.json` and handled per the **Component status** table.
+3. **Guide version mismatch disclosed?** — If you drew on a `guides/framework-integration-guides-*.md` that does not cover the project's installed major version, the response must name that guide and the versions it covers. If your response does not say it, add it before presenting.
 
-4. **Guide version mismatch disclosed?** — If you drew on a `guides/framework-integration-guides-*.md` that does not match the project's installed major version, the response must name that guide and the version it covers. If your response does not say it, add it before presenting.
+4. **Tokens are real alias tokens?** — Every `--dt-*` variable must exist in `tokens/tokensMetadata.json` under `alias`, not `global`. Don't invent token names — CSS silently ignores them.
 
-5. **Tokens are real alias tokens?** — Every `--dt-*` variable must exist in `tokens/tokensMetadata.json` under `alias`, not `global`. Don't invent token names — CSS silently ignores them.
+5. **No bug workarounds?** — If a component misbehaves, advise the user to report it rather than patching around it. Workarounds hide bugs from the team that can fix them for everyone.
 
-6. **No bug workarounds?** — If a component misbehaves, advise the user to report it rather than patching around it. Workarounds hide bugs from the team that can fix them for everyone.
-
-7. **Typography guide applied when relevant?** — If the request touches fonts/typography or is a PIE audit, `guides/typography.md` must be read and checked.
+6. **Typography guide applied when relevant?** — If the request touches fonts/typography or is a PIE audit, `guides/typography.md` must be read and checked.

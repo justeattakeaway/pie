@@ -73,10 +73,6 @@ const webc = readPkgJson('@justeattakeaway', 'pie-webc');
 // everything else is `@justeattakeaway`, so an unscoped key is not resolvable.
 versions['@justeattakeaway/pie-webc'] = webc.version;
 
-// Every component is copied regardless of status. The status is recorded in
-// component-metadata.json so the skill can caveat its advice rather than hide
-// components, which previously left stable docs referencing components with no
-// doc at all.
 const componentMetadata = {};
 
 // Custom element tag names a package registers, read from its custom elements
@@ -103,16 +99,14 @@ Object.keys(webc.dependencies).forEach((dep) => {
     const name = dep.replace('@justeattakeaway/', '');
     const pkgDir = resolvePkg('@justeattakeaway', name);
     const { pieMetadata } = readPkgJson('@justeattakeaway', name);
+    if (pieMetadata?.componentStatus === 'alpha') return;
 
     const readme = join(pkgDir, 'README.md');
     if (existsSync(readme)) {
         copyFileSync(readme, join(OUTPUT_DIRS.components, `${name}.md`));
     }
 
-    componentMetadata[name] = {
-        status: pieMetadata?.componentStatus ?? 'unknown',
-        elements: readElementNames(pkgDir),
-    };
+    componentMetadata[name] = { elements: readElementNames(pkgDir) };
 });
 
 writeFileSync(

@@ -1,6 +1,8 @@
-# React 19
+# React
 
-This guide will show you how to set up the PIE Web Components in a React 19 application.
+This guide will show you how to set up the PIE Web Components in a React application.
+
+**Supported versions:** React 19.
 
 > This guide assumes you have first followed the [Getting started](https://webc.pie.design/?path=/docs/introduction-getting-started--docs), [Typography](https://webc.pie.design/?path=/docs/introduction-typography--docs) and [CSS setup](https://webc.pie.design/?path=/docs/introduction-css-setup--docs) guides.
 > Please make sure to follow them before continuing with this guide.
