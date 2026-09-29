@@ -72,6 +72,105 @@ function snapshotPathFor (component, label) {
 }
 
 /**
+ * Lines the CLI logs to stderr before doing any work. They carry no diagnostic value,
+ * but they are all that is left on stderr when a preview fails, so strip them rather
+ * than surfacing them as the error.
+ */
+const CLI_PREAMBLE = [
+    /^Using ".*" parser\b/,
+    /^If this is incorrect, please check/,
+    /^Config file found, parsing\b/,
+    /^Using label\b/,
+    /^Using language\b/,
+    /^Found: /,
+    /^Previewing \d+ component\(s\)\.\.\.$/,
+    /^Previewing all local Code Connect files\.\.\.$/,
+];
+
+/**
+ * Reduces the CLI's stderr to the parts that say something about a failure.
+ *
+ * @param {string} stderr - Raw stderr from the preview.
+ * @returns {string} The meaningful lines, joined, or an empty string.
+ */
+function filterMeaningfulCliOutput (stderr) {
+    return (stderr || '')
+        // eslint-disable-next-line no-control-regex
+        .replace(/\u001b\[[0-9;]*m/g, '')
+        .split('\n')
+        .map((line) => line.trim())
+        .filter((line) => line && !CLI_PREAMBLE.some((pattern) => pattern.test(line)))
+        .join('; ');
+}
+
+/**
+ * Parses the CLI's JSON output, or returns `undefined` if it did not emit any.
+ *
+ * @param {string} stdout - Raw stdout from the preview.
+ * @returns {unknown|undefined} The parsed output, or `undefined`.
+ */
+function parseOutput (stdout) {
+    if (!(stdout || '').trim()) return undefined;
+
+    try {
+        return JSON.parse(stdout);
+    } catch {
+        return undefined;
+    }
+}
+
+/**
+ * Counts how many of a preview's results rendered successfully. `--inspect` output has
+ * no `success` field, so it reports zero of zero.
+ *
+ * @param {unknown} parsed - Parsed preview output.
+ * @returns {{ failed: number, total: number }} Render tally.
+ */
+function countRenderFailures (parsed) {
+    const rendered = Array.isArray(parsed)
+        ? parsed.filter((entry) => entry && typeof entry.success === 'boolean')
+        : [];
+
+    return { failed: rendered.filter((entry) => !entry.success).length, total: rendered.length };
+}
+
+/**
+ * Explains a preview in which nothing rendered at all. The CLI signals this only
+ * through its exit code, but the JSON it printed first says exactly what went wrong —
+ * so build the message from that instead of from the exit code.
+ *
+ * @param {unknown} parsed - Parsed preview output.
+ * @returns {string|undefined} A message, or `undefined` if something did render.
+ */
+function describeTotalRenderFailure (parsed) {
+    const { failed, total } = countRenderFailures(parsed);
+
+    if (total === 0 || failed < total) return undefined;
+
+    const parts = [`every render failed (${failed}/${total})`];
+    const reasons = [...new Set(parsed.map((entry) => entry.error).filter(Boolean))];
+
+    if (reasons.length > 0) {
+        parts.push(reasons.slice(0, 3).join(' | ') + (reasons.length > 3 ? ` (+${reasons.length - 3} more)` : ''));
+    }
+
+    // The reason text already names the offending property, so add only what it does
+    // not have: the set of properties the component actually exposes.
+    const details = parsed.find((entry) => entry.errorDetails && entry.errorDetails.availableProperties);
+    const available = details
+        ? details.errorDetails.availableProperties
+            .map((property) => (property && property.name) || property)
+            .filter(Boolean)
+        : [];
+
+    if (available.length > 0) {
+        parts.push(`available properties: ${available.join(', ')}`);
+    }
+
+    return parts.join(' — ');
+}
+
+/**
  * Runs `figma connect preview` against one built template file and returns its JSON
  * output, re-serialised so snapshots are formatted identically however the CLI emits it.
  *
@@ -103,19 +202,36 @@ function runPreview (templateFile, flags) {
         throw result.error;
     }
 
-    if (result.status !== 0) {
-        const message = (result.stderr || result.stdout || '').trim();
-        throw new Error(`exit ${result.status}: ${message}`);
+    // The CLI prints its JSON to stdout and its logging to stderr, then exits 1 if
+    // nothing rendered. Read stdout first: on that path the exit code says only "it
+    // failed", while the JSON says why, and stderr holds nothing but the preamble.
+    const parsed = parseOutput(result.stdout);
+    const totalFailure = parsed === undefined ? undefined : describeTotalRenderFailure(parsed);
+
+    if (totalFailure) {
+        throw new Error(totalFailure);
     }
 
-    return JSON.stringify(JSON.parse(result.stdout), null, 2);
+    const diagnostics = filterMeaningfulCliOutput(result.stderr);
+
+    if (parsed === undefined) {
+        const detail = diagnostics ? `: ${diagnostics}` : '';
+
+        throw new Error(`the Figma CLI produced no parseable JSON (exit ${result.status})${detail}`);
+    }
+
+    if (result.status !== 0) {
+        throw new Error(`exit ${result.status}: ${diagnostics || 'no diagnostic output from the Figma CLI'}`);
+    }
+
+    return JSON.stringify(parsed, null, 2);
 }
 
 module.exports = {
     CHECKS,
-    MAX_BUFFER,
     ROOT,
     SNAPSHOTS_DIR,
+    countRenderFailures,
     listTemplates,
     runPreview,
     snapshotPathFor,

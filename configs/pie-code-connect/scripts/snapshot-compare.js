@@ -4,8 +4,8 @@ const path = require('path');
 const readline = require('readline');
 const {
     CHECKS,
-    MAX_BUFFER,
     ROOT,
+    countRenderFailures,
     listTemplates,
     runPreview,
     snapshotPathFor,
@@ -13,32 +13,26 @@ const {
 
 const IS_CI = process.argv.includes('--ci');
 
+/**
+ * Compares one check's output against its baseline.
+ *
+ * @param {string} storedPath - Baseline file for this check.
+ * @param {string} newContent - Freshly generated output.
+ * @returns {{ state: string }|null} `null` when unchanged, otherwise the condition to
+ *          name on the status line — empty for an ordinary change.
+ */
 function diffSnapshot (storedPath, newContent) {
     if (!fs.existsSync(storedPath)) {
-        return `No baseline found at ${storedPath} — run snapshot:update first.`;
+        return { state: 'no baseline' };
     }
 
-    // Detect the change in process. Both sides are already in memory, so this cannot
-    // fail; `diff` is shelled out to purely for rendering. Keeping it off the
-    // correctness path matters because a large diff used to overflow its output buffer
-    // and throw an error that escaped both loops, aborting the run before any
-    // difference was printed and leaving later components unchecked.
+    // Compared in process, so detecting a change cannot fail and nothing is spawned to
+    // render one: a run reports what moved, and reading it is a separate step.
     if (fs.readFileSync(storedPath, 'utf8') === `${newContent}\n`) {
         return null; // no diff
     }
 
-    try {
-        execFileSync('diff', ['-u', storedPath, '-'], {
-            input: `${newContent}\n`,
-            encoding: 'utf8',
-            maxBuffer: MAX_BUFFER,
-        });
-        return '(snapshots differ, but diff reported no changes)';
-    } catch (err) {
-        // diff exits with 1 when differences are found; the diff output is in stdout
-        if (err.status === 1) return err.stdout;
-        return `(snapshots differ, but the diff could not be rendered: ${err.code || err.message})`;
-    }
+    return { state: '' };
 }
 
 function prompt (question) {
@@ -62,7 +56,9 @@ async function main () {
     templates.forEach(({ component, templateFile }) => {
         process.stdout.write(`  ${component} … `);
 
-        let ok = true;
+        const notes = [];
+        let failed = false;
+        let changedHere = false;
 
         CHECKS.forEach(({ label, flags }) => {
             const snapshotPath = snapshotPathFor(component, label);
@@ -72,21 +68,46 @@ async function main () {
                 newContent = runPreview(templateFile, flags);
             } catch (err) {
                 errors.push({ component, label, error: err.message });
-                ok = false;
+                failed = true;
                 return;
             }
 
-            const diff = diffSnapshot(snapshotPath, newContent);
+            const changed = diffSnapshot(snapshotPath, newContent);
+            const conditions = [];
 
-            if (diff !== null) {
+            if (changed !== null) {
                 diffs.push({
-                    component, label, diff, newContent, snapshotPath,
+                    component, label, newContent, snapshotPath, ...changed,
                 });
-                ok = false;
+                changedHere = true;
+
+                if (changed.state) conditions.push(changed.state);
+            }
+
+            // Not a property of the diff: a combination that stopped rendering is worth
+            // saying even when the baseline already recorded it as failing.
+            const { failed: failedRenders, total } = countRenderFailures(JSON.parse(newContent));
+
+            if (failedRenders > 0) {
+                conditions.push(`${failedRenders}/${total} renders failing`);
+            }
+
+            if (conditions.length > 0) {
+                notes.push(`${label}: ${conditions.join(', ')}`);
+            } else if (changed !== null) {
+                notes.push(label);
             }
         });
 
-        console.info(ok ? 'ok' : 'CHANGED');
+        let state = 'ok';
+
+        if (failed) {
+            state = 'FAILED';
+        } else if (changedHere) {
+            state = 'CHANGED';
+        }
+
+        console.info(notes.length > 0 ? `${state} (${notes.join(', ')})` : state);
     });
 
     const hasDifferences = diffs.length > 0 || errors.length > 0;
@@ -98,21 +119,23 @@ async function main () {
         });
     }
 
-    if (diffs.length > 0) {
-        console.info('\n--- Differences ---');
-        diffs.forEach(({ component, label, diff }) => {
-            console.info(`\n[${component} — ${label}]`);
-            console.info(diff);
-        });
-    }
+    // A component that failed reports as failed on its status line, so count it once,
+    // under failed, even if its other check also differed.
+    const failedComponents = new Set(errors.map(({ component }) => component));
+    const changedComponents = new Set(diffs
+        .map(({ component }) => component)
+        .filter((component) => !failedComponents.has(component)));
+    const okCount = templates.length - failedComponents.size - changedComponents.size;
+
+    console.info(`\n${templates.length} component(s): ${okCount} ok, ${changedComponents.size} changed, ${failedComponents.size} failed`);
 
     if (!hasDifferences) {
-        console.info('\nNo differences found.');
+        console.info('No differences found.');
         return;
     }
 
     if (IS_CI) {
-        console.error(`\n${diffs.length} snapshot(s) differ, ${errors.length} error(s). Failing CI.`);
+        console.error(`\n${diffs.length} snapshot(s) differ, ${errors.length} error(s).`);
         process.exit(1);
     }
 

@@ -99,11 +99,25 @@ Snapshots cover the **React** mappings only, via
 #### Typical workflow
 
 1. Change a template, a utility function, or a component's props.
-2. Run `yarn snapshot:compare`. Unaffected components report `ok`; the rest report
-   `CHANGED` and print a unified diff.
-3. Read the diff. If the change is intended, answer `y` at the prompt to rewrite the
-   affected baselines. Otherwise answer `n` and fix the template.
-4. Commit the updated `snapshots/` files alongside your change, so reviewers can see
+2. Run `yarn snapshot:compare`. Each component reports one of three states:
+
+   ```
+   pie-divider … ok
+   pie-button … CHANGED (inspect, all)
+   pie-select … CHANGED (all: 4/96 renders failing)
+   pie-data-table … FAILED
+   ```
+
+   `CHANGED` names the checks whose output moved. `FAILED` means the preview itself did
+   not complete, and the reason is listed under `--- Errors ---`. A check is also
+   flagged when a property combination stopped rendering, which is easy to miss
+   otherwise. The run ends with a tally, so nothing has to be counted by hand.
+3. Answer `y` at the prompt to rewrite the affected baselines, or `n` to leave them
+   alone.
+4. Read the change with `git diff snapshots/`, where it can be reviewed and staged
+   piece by piece like any other edit. If it was not intended, `git checkout
+   snapshots/` and fix the template instead.
+5. Commit the updated `snapshots/` files alongside your change, so reviewers can see
    what the change does to the published output.
 
 #### Things worth knowing
@@ -112,6 +126,11 @@ Snapshots cover the **React** mappings only, via
   `components.figma.batch.json` adds it to the baseline automatically. A leftover build
   artefact in `dist/` that the manifest does not list is ignored, and a manifest entry
   that has not been built is reported as a failure rather than passed over in silence.
+- **A component that renders nothing is reported as failed, not changed.** The Figma
+  CLI exits non-zero when no property combination renders, so the baseline is left
+  alone rather than recording a broken state. The message comes from the CLI's JSON
+  output (the failing property, and the properties the component does expose) rather
+  than from its exit code, and its startup logging is stripped out.
 - **Use `snapshot:compare:ci` in any non-interactive context.** The interactive variant
   ends at a prompt and will not fail a build.
 - **A diff does not always mean a code change.** Snapshots reflect live Figma state, so
