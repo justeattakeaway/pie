@@ -139,6 +139,10 @@ async function main () {
         process.exit(1);
     }
 
+    if (diffs.length === 0) {
+        return;
+    }
+
     // Interactive: offer to update baseline
     const answer = await prompt('\nUpdate all snapshots with the new output? (y/N) ');
 
@@ -146,7 +150,6 @@ async function main () {
         // A component whose preview failed only has a new snapshot for the check that
         // succeeded. Writing it would leave a mixed baseline pair (one fresh file,
         //  one stale), so skip that component entirely and leave both files alone.
-        const failedComponents = new Set(errors.map(({ component }) => component));
         const writable = diffs.filter(({ component }) => !failedComponents.has(component));
         const skipped = diffs.filter(({ component }) => failedComponents.has(component));
 
