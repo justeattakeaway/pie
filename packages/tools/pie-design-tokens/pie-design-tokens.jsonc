@@ -203,7 +203,9 @@
       "thirdparty-coop-blue-05":"#e4f8fe",
       "thirdparty-coop-blue-90": "#00485c",
       "thirdparty-morrisons-green-05": "#d1fae1",
-      "thirdparty-morrisons-green-90": "#004d1d"
+      "thirdparty-morrisons-green-90": "#004d1d",
+      "thirdparty-superdrug-pink-10": "#FFE2F2",
+      "thirdparty-superdrug-pink-100": "#670037"
     },
 
     "font": {
@@ -1209,7 +1211,8 @@
 
             "thirdparty-coop-container-primary": "thirdparty-coop-blue-05",
 
-            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-05"
+            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-05",
+            "thirdparty-superdrug-container-primary": "thirdparty-superdrug-pink-10"
           },
           "highcontrast": {
             // Elementary
@@ -1414,7 +1417,8 @@
 
             "thirdparty-coop-container-primary": "thirdparty-coop-blue-05",
 
-            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-05"
+            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-05",
+            "thirdparty-superdrug-container-primary": "thirdparty-superdrug-pink-10"
           },
           "dark": {
             // Elementary
@@ -1619,7 +1623,8 @@
 
             "thirdparty-coop-container-primary": "thirdparty-coop-blue-90",
 
-            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-90"
+            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-90",
+            "thirdparty-superdrug-container-primary": "thirdparty-superdrug-pink-100"
           },
           "highcontrast-dark": {
             // Elementary
@@ -1817,7 +1822,8 @@
 
             "thirdparty-coop-container-primary": "thirdparty-coop-blue-90",
 
-            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-90"
+            "thirdparty-morrisons-container-primary": "thirdparty-morrisons-green-90",
+            "thirdparty-superdrug-container-primary": "thirdparty-superdrug-pink-100"
           }
         }
       },
