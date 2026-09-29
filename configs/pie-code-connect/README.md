@@ -88,10 +88,13 @@ server-side.
 
 Each component produces two snapshot files:
 
-- `snapshots/<component>.inspect.json` - The component's Figma properties and variants
-  (name, type, options and default), as reported by the API
-- `snapshots/<component>.all.json` - The rendered snippet for every combination of the
+- `snapshots/<component>.props.json` - The component's Figma property surface: its
+  properties and variants (name, type, options and default), as reported by the API
+- `snapshots/<component>.code.json` - The code rendered for every combination of the
   component's boolean and variant properties, up to 500 per Figma node
+
+Each is named for what it captures rather than for the Figma CLI flag behind it
+(`--inspect` and `--all` respectively).
 
 Snapshots cover the **React** mappings only, via
 `config/figma-react-components-batch.config.json`. Icons are excluded.
@@ -103,8 +106,8 @@ Snapshots cover the **React** mappings only, via
 
    ```
    pie-divider … ok
-   pie-button … CHANGED (inspect, all)
-   pie-select … CHANGED (all: 4/96 renders failing)
+   pie-button … CHANGED (props, code)
+   pie-select … CHANGED (code: 4/96 renders failing)
    pie-data-table … FAILED
    ```
 
@@ -234,6 +237,10 @@ It's common to have multiple Figma component sets related to a single component 
 ```bash
 yarn publish-components:all
 ```
+
+### 4. Update the components snapshots (optional)
+
+If a new component template was added, run `yarn snapshot:update` and make sure to commit the new component snapshots.
 
 ## Adding New Icons
 

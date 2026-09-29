@@ -21,13 +21,18 @@ const MAX_BUFFER = 64 * 1024 * 1024;
 const MAX_COMBINATIONS = 500;
 
 /**
- * The two previews that together make up one component's baseline. `--max-combinations`
- * is only valid alongside `--all` — the CLI exits with an error if it is passed on its
- * own, and ignores it under `--inspect`.
+ * The two previews that together make up one component's baseline, named for what they
+ * capture rather than for the CLI flag that produces them:
+ *
+ * - `props` is the component's Figma property surface — its properties and variants.
+ * - `code` is the code the design system renders for every property combination.
+ *
+ * `--max-combinations` is only valid alongside `--all` — the CLI exits with an error if
+ * it is passed on its own, and ignores it under `--inspect`.
  */
 const CHECKS = [
-    { label: 'inspect', flags: ['--inspect'] },
-    { label: 'all', flags: ['--all', '--max-combinations', MAX_COMBINATIONS] },
+    { label: 'props', flags: ['--inspect'] },
+    { label: 'code', flags: ['--all', '--max-combinations', MAX_COMBINATIONS] },
 ];
 
 /**
@@ -120,8 +125,8 @@ function parseOutput (stdout) {
 }
 
 /**
- * Counts how many of a preview's results rendered successfully. `--inspect` output has
- * no `success` field, so it reports zero of zero.
+ * Counts how many of a preview's results rendered successfully. The `props` check
+ * (`--inspect`) has no `success` field, so it reports zero of zero.
  *
  * @param {unknown} parsed - Parsed preview output.
  * @returns {{ failed: number, total: number }} Render tally.
