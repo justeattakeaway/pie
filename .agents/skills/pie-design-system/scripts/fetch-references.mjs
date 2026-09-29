@@ -15,6 +15,7 @@ import {
 } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
 const SKILL_DIR = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VERSIONS_FILE = join(SKILL_DIR, '.versions');
@@ -25,23 +26,19 @@ const OUTPUT_DIRS = {
     tokens: join(SKILL_DIR, 'tokens'),
 };
 
-// Resolve a package under node_modules, walking up from the working directory so
-// that monorepos hoisting to the root resolve the same as a flat install.
+// Resolve a package's directory from the consumer project. Node's lookup paths are
+// every node_modules from the working directory up to the root, so monorepos that
+// hoist to the root resolve the same as a flat install.
+const { resolve } = createRequire(join(process.cwd(), 'noop.js'));
 const resolvePkg = (scope, name) => {
-    let dir = process.cwd();
+    const pkgDir = resolve.paths(`${scope}/${name}`)
+        .map((nodeModules) => join(nodeModules, scope, name))
+        .find((dir) => existsSync(join(dir, 'package.json')));
 
-    for (;;) {
-        const candidate = join(dir, 'node_modules', scope, name);
-        if (existsSync(join(candidate, 'package.json'))) return candidate;
-
-        const parent = dirname(dir);
-        if (parent === dir) {
-            throw new Error(`Could not resolve ${scope}/${name} from ${process.cwd()}. Is it installed?`);
-        }
-        dir = parent;
-    }
+    if (!pkgDir) throw new Error(`Could not resolve ${scope}/${name} from ${process.cwd()}.`);
+    return pkgDir;
 };
-const readPkgJson = (scope, name) => JSON.parse(readFileSync(join(resolvePkg(scope, name), 'package.json'), 'utf-8'));
+const readPkgJson = (pkgDir) => JSON.parse(readFileSync(join(pkgDir, 'package.json'), 'utf-8'));
 
 // Recursively copy all files from src dir into a flat dest dir
 const copyDirFlat = (srcDir, destDir) => {
@@ -68,57 +65,27 @@ Object.values(OUTPUT_DIRS).forEach((dir) => {
 const versions = {};
 
 // --- Components ---
-const webc = readPkgJson('@justeattakeaway', 'pie-webc');
+const webc = readPkgJson(resolvePkg('@justeattakeaway', 'pie-webc'));
 // Keys are fully scoped. Design tokens sit under the older `@justeat` scope while
 // everything else is `@justeattakeaway`, so an unscoped key is not resolvable.
 versions['@justeattakeaway/pie-webc'] = webc.version;
 
-const componentMetadata = {};
-
-// Custom element tag names a package registers, read from its custom elements
-// manifest. A package can register several (pie-list also registers
-// pie-list-item), and component docs reference the element rather than the
-// package, so without this an element name cannot be looked up at all.
-// Returns [] when the names cannot be determined. Never guess a name from the
-// package: the skill treats this array as proof an element exists, so a guess
-// would read as an assertion.
-const readElementNames = (pkgDir) => {
-    const manifest = join(pkgDir, 'custom-elements.json');
-    if (!existsSync(manifest)) return [];
-
-    const { modules = [] } = JSON.parse(readFileSync(manifest, 'utf-8'));
-    const tagNames = modules
-        .flatMap(({ declarations = [] }) => declarations)
-        .map(({ tagName }) => tagName)
-        .filter(Boolean);
-
-    return [...new Set(tagNames)].sort();
-};
-
 Object.keys(webc.dependencies).forEach((dep) => {
     const name = dep.replace('@justeattakeaway/', '');
     const pkgDir = resolvePkg('@justeattakeaway', name);
-    const { pieMetadata } = readPkgJson('@justeattakeaway', name);
+    const { pieMetadata } = readPkgJson(pkgDir);
     if (pieMetadata?.componentStatus === 'alpha') return;
 
     const readme = join(pkgDir, 'README.md');
     if (existsSync(readme)) {
         copyFileSync(readme, join(OUTPUT_DIRS.components, `${name}.md`));
     }
-
-    componentMetadata[name] = { elements: readElementNames(pkgDir) };
 });
-
-writeFileSync(
-    join(OUTPUT_DIRS.components, 'component-metadata.json'),
-    JSON.stringify(componentMetadata, null, 2),
-    'utf-8',
-);
 
 // --- Guides ---
 ['pie-webc', 'pie-css', 'pie-icons-webc'].forEach((name) => {
     const pkgDir = resolvePkg('@justeattakeaway', name);
-    const pkgJson = readPkgJson('@justeattakeaway', name);
+    const pkgJson = readPkgJson(pkgDir);
 
     copyFileSync(join(pkgDir, 'README.md'), join(OUTPUT_DIRS.guides, `${name}.md`));
 
@@ -131,8 +98,9 @@ writeFileSync(
 });
 
 // --- Design tokens metadata ---
-const tokensPkg = readPkgJson('@justeat', 'pie-design-tokens');
-const metadataDir = join(resolvePkg('@justeat', 'pie-design-tokens'), 'metadata');
+const tokensDir = resolvePkg('@justeat', 'pie-design-tokens');
+const tokensPkg = readPkgJson(tokensDir);
+const metadataDir = join(tokensDir, 'metadata');
 if (existsSync(metadataDir)) {
     copyDirFlat(metadataDir, OUTPUT_DIRS.tokens);
 }

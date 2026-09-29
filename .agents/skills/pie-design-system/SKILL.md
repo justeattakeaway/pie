@@ -83,11 +83,9 @@ When the user asks about a specific component — say `pie-button` — read `com
 
 Skip the npm badge, Table of Contents, installation section, irrelevant framework examples, and boilerplate ("Questions and Support", "Contributing").
 
-To see what components PIE offers, read `components/component-metadata.json`. If a component isn't listed, it either doesn't exist in PIE or is still in alpha. Let the user know and point them to #help-designsystem on Slack for timelines or to discuss a custom alternative.
+To see what components PIE offers, list the files in `components/`. If a component isn't listed, it either doesn't exist in PIE or is still in alpha. Let the user know and point them to #help-designsystem on Slack for timelines or to discuss a custom alternative.
 
-Entries are keyed by package name, and each one lists the custom elements that package registers. Some packages register more than one — `pie-list` registers both `pie-list` and `pie-list-item`. To look up a component element, find the entry whose `elements` array contains it.
-
-This file covers components only. Icons live in a separate package and never appear here, so never conclude an `icon-*` element is unavailable from this file — use the **Icons** section instead. An empty `elements` array means the element names could not be determined, so check the component's doc rather than assuming the element is named after the package.
+`components/` covers components only. Icons live in a separate package and never appear there, so never conclude an `icon-*` element is unavailable from it. Use the **Icons** section instead.
 
 Two files in `guides/` look like component docs and are not: `components-BUTTON.md` and `components-RADIO.md` hold CSS-only styles that make a non-interactive element look like a button or radio. Use them only when that element must not be a control itself, for example inside a card whose parent link handles the click. For any button or radio the user operates, use `components/pie-button.md` or `components/pie-radio.md`.
 
