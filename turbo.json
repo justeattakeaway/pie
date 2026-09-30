@@ -184,6 +184,69 @@
     "lint:style:fix": {
       "cache": false
     },
+    "code-connect-build:web": {
+      "cache": false,
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "code-connect-build:react": {
+      "cache": false,
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "code-connect-build:vue": {
+      "cache": false,
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "code-connect-get-icons-file-names": {
+      "cache": false
+    },
+    "code-connect-publish-components:web": {
+      "cache": false
+    },
+    "code-connect-publish-components:react": {
+      "cache": false
+    },
+    "code-connect-publish-components:vue": {
+      "cache": false
+    },
+    "code-connect-publish-components:all": {
+      "cache": false
+    },
+    "code-connect-publish-components:dev": {
+      "cache": false
+    },
+    "code-connect-unpublish-components:dev": {
+      "cache": false
+    },
+    "code-connect-publish-icons:web": {
+      "cache": false
+    },
+    "code-connect-publish-icons:react": {
+      "cache": false
+    },
+    "code-connect-publish-icons:vue": {
+      "cache": false
+    },
+    "code-connect-publish-icons:all": {
+      "cache": false
+    },
+    "code-connect-publish:all": {
+      "cache": false
+    },
+    "code-connect-snapshot:update": {
+      "cache": false
+    },
+    "code-connect-snapshot:compare": {
+      "cache": false
+    },
+    "code-connect-snapshot:compare:ci": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "dependsOn": [

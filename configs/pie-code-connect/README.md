@@ -18,12 +18,12 @@ This package automates the creation of Figma Code Connect templates that link Fi
 
 ### Build
 
-Generate production Code Connect files from source templates:
+Generate production Code Connect files from source templates, from the repository root:
 
 ```bash
-yarn build:web    # Generate web component templates
-yarn build:react  # Generate React component templates
-yarn build:vue    # Generate Vue component templates
+yarn code-connect-build:web    # Generate web component templates
+yarn code-connect-build:react  # Generate React component templates
+yarn code-connect-build:vue    # Generate Vue component templates
 ```
 
 The build process:
@@ -34,31 +34,31 @@ The build process:
 
 ### Publish
 
-Build and publish Code Connect mappings to Figma:
+Build and publish Code Connect mappings to Figma, from the repository root:
 
 ```bash
-yarn publish-components:web     # Publish web component mappings
-yarn publish-components:react   # Publish React component mappings
-yarn publish-components:vue     # Publish Vue component mappings
-yarn publish-components:all     # Publish component mappings for all frameworks
+yarn code-connect-publish-components:web     # Publish web component mappings
+yarn code-connect-publish-components:react   # Publish React component mappings
+yarn code-connect-publish-components:vue     # Publish Vue component mappings
+yarn code-connect-publish-components:all     # Publish component mappings for all frameworks
 
-yarn publish-icons:web          # Publish web icon mappings
-yarn publish-icons:react        # Publish React icon mappings
-yarn publish-icons:vue          # Publish Vue icon mappings
-yarn publish-icons:all          # Publish icon mappings for all frameworks
+yarn code-connect-publish-icons:web          # Publish web icon mappings
+yarn code-connect-publish-icons:react        # Publish React icon mappings
+yarn code-connect-publish-icons:vue          # Publish Vue icon mappings
+yarn code-connect-publish-icons:all          # Publish icon mappings for all frameworks
 
-yarn publish:all                # Publish all component and icon mappings for all frameworks
+yarn code-connect-publish:all                # Publish all component and icon mappings for all frameworks
 ```
 
 These commands build the templates, then use the Figma CLI to publish them using the corresponding configuration file.
 
 #### Development publishing
 
-Two scripts are available for publishing and unpublishing to a temporary `_dev_` label in Figma. This is useful for testing Code Connect changes without affecting the production mappings:
+Two scripts are available from the repository root for publishing and unpublishing to a temporary `_dev_` label in Figma. This is useful for testing Code Connect changes without affecting the production mappings:
 
 ```bash
-yarn publish-components:dev     # Build and publish web component mappings to the _dev_ label
-yarn unpublish-components:dev   # Unpublish web component mappings from the _dev_ label
+yarn code-connect-publish-components:dev     # Build and publish web component mappings to the _dev_ label
+yarn code-connect-unpublish-components:dev   # Unpublish web component mappings from the _dev_ label
 ```
 
 These commands use `config/figma-dev-components-batch.config.json`, which targets the same `components.figma.batch.json` metadata but publishes under the `_dev_` label. 
@@ -73,12 +73,12 @@ everyone receives from Figma. These scripts capture that output and diff it
 against a committed baseline, so unintended changes surface in review instead of Figma.
 
 ```bash
-yarn snapshot:update       # Regenerate the baseline in snapshots/
-yarn snapshot:compare      # Diff the current output against the baseline, prompting to accept changes
-yarn snapshot:compare:ci   # The same comparison, but fails instead of prompting
+yarn code-connect-snapshot:update       # Regenerate the baseline in snapshots/
+yarn code-connect-snapshot:compare      # Diff the current output against the baseline, prompting to accept changes
+yarn code-connect-snapshot:compare:ci   # The same comparison, but fails instead of prompting
 ```
 
-Both commands run `yarn build:react` first, then call `figma connect preview` for every
+Both commands run `yarn code-connect-build:react` first, then call `figma connect preview` for every
 template listed in `components.figma.batch.json` — the same manifest that
 `config/figma-react-components-batch.config.json` publishes from. 
 They need `FIGMA_ACCESS_TOKEN` to be set (see
@@ -102,7 +102,7 @@ Snapshots cover the **React** mappings only, via
 #### Typical workflow
 
 1. Change a template, a utility function, or a component's props.
-2. Run `yarn snapshot:compare`. Each component reports one of three states:
+2. Run `yarn code-connect-snapshot:compare`. Each component reports one of three states:
 
    ```
    pie-divider … ok
@@ -134,7 +134,7 @@ Snapshots cover the **React** mappings only, via
   alone rather than recording a broken state. The message comes from the CLI's JSON
   output (the failing property, and the properties the component does expose) rather
   than from its exit code, and its startup logging is stripped out.
-- **Use `snapshot:compare:ci` in any non-interactive context.** The interactive variant
+- **Use `code-connect-snapshot:compare:ci` in any non-interactive context.** The interactive variant
   ends at a prompt and will not fail a build.
 - **A diff does not always mean a code change.** Snapshots reflect live Figma state, so
   a designer renaming a variant or adding a property produces one too.
@@ -142,10 +142,10 @@ Snapshots cover the **React** mappings only, via
 #### Scheduled run and Slack alerts
 
 A scheduled workflow (`.github/workflows/code-connect-snapshot-watchdog.yml`) runs
-`snapshot:compare:ci` every day at 06:00 UTC. It can also be triggered manually
+`code-connect-snapshot:compare:ci` every day at 06:00 UTC. It can also be triggered manually
 from the Actions tab (`workflow_dispatch`).
 
-`snapshot:compare:ci` exits non-zero both when a template's output has drifted from its
+`code-connect-snapshot:compare:ci` exits non-zero both when a template's output has drifted from its
 baseline and when the Figma CLI fails to render a preview, and either condition raises an
 alert in the `#alerts-design-system` Slack channel with a link to the failed run.
 
@@ -253,12 +253,12 @@ It's common to have multiple Figma component sets related to a single component 
 ### 3. Build and publish
 
 ```bash
-yarn publish-components:all
+yarn code-connect-publish-components:all
 ```
 
 ### 4. Update the components snapshots (optional)
 
-If a new component template was added, run `yarn snapshot:update` and make sure to commit the new component snapshots.
+If a new component template was added, run `yarn code-connect-snapshot:update` and make sure to commit the new component snapshots.
 
 ## Adding New Icons
 
@@ -297,7 +297,7 @@ The only requirement is that any new icon file is added to `packages/tools/pie-i
 ## Publishing icons
 
 ```bash
-yarn publish-icons:all
+yarn code-connect-publish-icons:all
 ```
 
 ## Template File Structure
@@ -407,14 +407,14 @@ export FIGMA_ACCESS_TOKEN=...
 Ensure the FIGMA_ACCESS_TOKEN env var is readable before publishing for the first time.
 
 ```bash
-yarn publish:all
+yarn code-connect-publish:all
 ```
 
 Or publish components and icons separately:
 
 ```bash
-yarn publish-components:all
-yarn publish-icons:all
+yarn code-connect-publish-components:all
+yarn code-connect-publish-icons:all
 ```
 
 The Figma CLI will read the batch metadata, process each template, and publish the mappings to the specified Figma file and components.

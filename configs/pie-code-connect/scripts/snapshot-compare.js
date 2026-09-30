@@ -47,7 +47,7 @@ function prompt (question) {
 
 async function main () {
     console.info('Building React templates…');
-    execFileSync('yarn', ['build:react'], { cwd: ROOT, stdio: 'inherit' });
+    execFileSync('yarn', ['code-connect-build:react'], { cwd: ROOT, stdio: 'inherit' });
 
     const templates = listTemplates();
     const diffs = []; // { component, label, diff, newContent, snapshotPath }

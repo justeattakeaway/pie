@@ -266,6 +266,6 @@ Report back:
 - The entry added to `components.figma.batch.json`
 - Any assumptions made about Figma prop mappings
 - Any TODOs left for the user (e.g. exact Figma property names that need confirming)
-- Suggest reading the created file code and running `yarn publish-components:web` to test the new mapping
+- Suggest reading the created file code and running `yarn code-connect-publish-components:web` to test the new mapping
 - Suggest reviewing the new mapping the Figma app
-- Suggest publishing the mappings after reviewing the mapping behaviour on Figma with `yarn publish-components:all`
+- Suggest publishing the mappings after reviewing the mapping behaviour on Figma with `yarn code-connect-publish-components:all`
