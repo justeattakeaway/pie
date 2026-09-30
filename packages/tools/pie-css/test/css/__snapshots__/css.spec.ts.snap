@@ -1440,6 +1440,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-thirdparty-microsoft-grey-80: #2f2f2f;
     --dt-color-thirdparty-morrisons-green-05: #d1fae1;
     --dt-color-thirdparty-morrisons-green-90: #004d1d;
+    --dt-color-thirdparty-superdrug-pink-10: #FFE2F2;
+    --dt-color-thirdparty-superdrug-pink-100: #670037;
     --dt-color-tomato-100: #31160d;
     --dt-color-tomato-30: #ff966d;
     --dt-color-tomato-5: #ffd3bf;
@@ -1652,6 +1654,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-thirdparty-microsoft-border-secondary: 0%;
     --dt-color-thirdparty-coop-container-primary: var(--dt-color-thirdparty-coop-blue-05);
     --dt-color-thirdparty-morrisons-container-primary: var(--dt-color-thirdparty-morrisons-green-05);
+    --dt-color-thirdparty-superdrug-container-primary: var(--dt-color-thirdparty-superdrug-pink-10);
     /* Global tokens - Font */
     --dt-font-family-alternative: 'JETSansVF2';
     --dt-font-family-code: 'PTMono';
@@ -2198,6 +2201,7 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-microsoft-border-secondary: var(--dt-color-thirdparty-microsoft-grey-60);
     --dt-color-thirdparty-coop-container-primary: var(--dt-color-thirdparty-coop-blue-90);
     --dt-color-thirdparty-morrisons-container-primary: var(--dt-color-thirdparty-morrisons-green-90);
+    --dt-color-thirdparty-superdrug-container-primary: var(--dt-color-thirdparty-superdrug-pink-100);
 }
 @media (prefers-color-scheme: dark) {
     html[data-darkmode-system]:not([data-color-mode]) {
@@ -2376,6 +2380,7 @@ html[data-color-mode="dark"] {
         --dt-color-thirdparty-microsoft-border-secondary: var(--dt-color-thirdparty-microsoft-grey-60);
         --dt-color-thirdparty-coop-container-primary: var(--dt-color-thirdparty-coop-blue-90);
         --dt-color-thirdparty-morrisons-container-primary: var(--dt-color-thirdparty-morrisons-green-90);
+        --dt-color-thirdparty-superdrug-container-primary: var(--dt-color-thirdparty-superdrug-pink-100);
     }
 }
 /* Dark elevation theme */
@@ -2767,6 +2772,12 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-morrisons-green-90-h: 143;
     --dt-color-thirdparty-morrisons-green-90-s: 100%;
     --dt-color-thirdparty-morrisons-green-90-l: 15.1%;
+    --dt-color-thirdparty-superdrug-pink-10-h: 327;
+    --dt-color-thirdparty-superdrug-pink-10-s: 100%;
+    --dt-color-thirdparty-superdrug-pink-10-l: 94.3%;
+    --dt-color-thirdparty-superdrug-pink-100-h: 328;
+    --dt-color-thirdparty-superdrug-pink-100-s: 100%;
+    --dt-color-thirdparty-superdrug-pink-100-l: 20.2%;
     --dt-color-tomato-100-h: 15;
     --dt-color-tomato-100-s: 58.1%;
     --dt-color-tomato-100-l: 12.2%;
@@ -3274,6 +3285,9 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-morrisons-container-primary-h: var(--dt-color-thirdparty-morrisons-green-05-h);
     --dt-color-thirdparty-morrisons-container-primary-s: var(--dt-color-thirdparty-morrisons-green-05-s);
     --dt-color-thirdparty-morrisons-container-primary-l: var(--dt-color-thirdparty-morrisons-green-05-l);
+    --dt-color-thirdparty-superdrug-container-primary-h: var(--dt-color-thirdparty-superdrug-pink-10-h);
+    --dt-color-thirdparty-superdrug-container-primary-s: var(--dt-color-thirdparty-superdrug-pink-10-s);
+    --dt-color-thirdparty-superdrug-container-primary-l: var(--dt-color-thirdparty-superdrug-pink-10-l);
 }
 html[data-color-mode="dark"] {
     --dt-color-background-default-h: var(--dt-color-truffle-100-h);
@@ -3678,6 +3692,9 @@ html[data-color-mode="dark"] {
     --dt-color-thirdparty-morrisons-container-primary-h: var(--dt-color-thirdparty-morrisons-green-90-h);
     --dt-color-thirdparty-morrisons-container-primary-s: var(--dt-color-thirdparty-morrisons-green-90-s);
     --dt-color-thirdparty-morrisons-container-primary-l: var(--dt-color-thirdparty-morrisons-green-90-l);
+    --dt-color-thirdparty-superdrug-container-primary-h: var(--dt-color-thirdparty-superdrug-pink-100-h);
+    --dt-color-thirdparty-superdrug-container-primary-s: var(--dt-color-thirdparty-superdrug-pink-100-s);
+    --dt-color-thirdparty-superdrug-container-primary-l: var(--dt-color-thirdparty-superdrug-pink-100-l);
 }
 @media (prefers-color-scheme: dark) {
     html[data-darkmode-system]:not([data-color-mode]) {
@@ -4083,6 +4100,9 @@ html[data-color-mode="dark"] {
         --dt-color-thirdparty-morrisons-container-primary-h: var(--dt-color-thirdparty-morrisons-green-90-h);
         --dt-color-thirdparty-morrisons-container-primary-s: var(--dt-color-thirdparty-morrisons-green-90-s);
         --dt-color-thirdparty-morrisons-container-primary-l: var(--dt-color-thirdparty-morrisons-green-90-l);
+        --dt-color-thirdparty-superdrug-container-primary-h: var(--dt-color-thirdparty-superdrug-pink-100-h);
+        --dt-color-thirdparty-superdrug-container-primary-s: var(--dt-color-thirdparty-superdrug-pink-100-s);
+        --dt-color-thirdparty-superdrug-container-primary-l: var(--dt-color-thirdparty-superdrug-pink-100-l);
     }
 }
 :root {
