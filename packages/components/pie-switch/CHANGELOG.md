@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-switch
 
+## 2.7.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@22.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
 ## 2.7.5
 
 ### Patch Changes

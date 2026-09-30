@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-form-label
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-form-label component status from alpha to stable ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@22.0.0
+
 ## 0.18.37
 
 ### Patch Changes

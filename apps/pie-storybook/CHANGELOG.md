@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.89.13
+
+### Patch Changes
+
+- [Updated] - `dompurify` [3.4.8 > 3.4.15](https://github.com/cure53/DOMPurify/compare/3.4.8...3.4.15) ([#3204](https://github.com/justeattakeaway/pie/pull/3204)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`7b8d860`](https://github.com/justeattakeaway/pie/commit/7b8d86031062564e46029fc4c57a3f38898656c9), [`d7925e0`](https://github.com/justeattakeaway/pie/commit/d7925e0c07d18ecfe6c58c48235c174e4dc71868)]:
+  - @justeat/pie-design-tokens@7.15.0
+  - @justeattakeaway/pie-css@1.9.0
+  - @justeattakeaway/pie-webc@0.11.21
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
 ## 1.89.12
 
 ### Patch Changes

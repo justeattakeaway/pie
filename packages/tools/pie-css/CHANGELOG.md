@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-css
 
+## 1.9.0
+
+### Minor Changes
+
+- [Added] - Added third party colour tokens for superdrug ([#3217](https://github.com/justeattakeaway/pie/pull/3217)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies [[`7b8d860`](https://github.com/justeattakeaway/pie/commit/7b8d86031062564e46029fc4c57a3f38898656c9), [`d7925e0`](https://github.com/justeattakeaway/pie/commit/d7925e0c07d18ecfe6c58c48235c174e4dc71868)]:
+  - @justeat/pie-design-tokens@7.15.0
+
 ## 1.8.1
 
 ### Patch Changes
