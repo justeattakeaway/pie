@@ -1,0 +1,117 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "1575:117234",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Initials",
+        "type": "TEXT",
+        "default": "AA"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "XLarge",
+          "Large",
+          "Medium",
+          "Small"
+        ],
+        "default": "XLarge"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Authenticated",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "True"
+      },
+      {
+        "name": "Colour",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Neutral",
+          "01 Orange",
+          "02 Orange subtle",
+          "03 Cupcake",
+          "04 Berry",
+          "05 Turmeric",
+          "06 Aubergine",
+          "08 Latte",
+          "N/A"
+        ],
+        "default": "Neutral"
+      },
+      {
+        "name": "Subtle",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "8674:744",
+    "availableProperties": [
+      {
+        "name": "Outline",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "XLarge",
+          "Large",
+          "Medium",
+          "Small"
+        ],
+        "default": "XLarge"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Authenticated",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "True"
+      }
+    ]
+  }
+]

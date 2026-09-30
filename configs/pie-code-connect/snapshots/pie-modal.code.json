@@ -1,0 +1,1082 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13569",
+    "nodeId": "40227:13569",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"large\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Medium, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13801",
+    "nodeId": "40227:13801",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     size=\"small\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03-subtle\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-02\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=02 Orange subtle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-13967",
+    "nodeId": "40227:13967",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=Neutral-alternative"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-03\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=03 Cupcake"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-04\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=04 Berry"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-05\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=05 Turmeric"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-06\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=06 Aubergine"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=False, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=True, Scrolling=True, Variant=08 Latte"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40227-14122",
+    "nodeId": "40227:14122",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieModal\n    isOpen\n     heading=\"Title\"\n     backgroundColor=\"brand-08\"\n     isDismissible\n    leadingAction={{text: \"Label\"}}\n    supportingAction={{text: \"Label\"}}>\n    \n    \n    \n    \n    \n    \n</PieModal>",
+    "language": "React",
+    "propertyCombinationLabel": "Fullscreen=False, Scrolling=True, Variant=08 Latte"
+  }
+]

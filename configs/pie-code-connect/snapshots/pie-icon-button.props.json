@@ -1,0 +1,56 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "235:31131",
+    "availableProperties": [
+      {
+        "name": "Replace icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Primary",
+          "Primary - alternative",
+          "Secondary",
+          "Outline",
+          "Translucent",
+          "Ghost",
+          "Ghost secondary",
+          "Ghost secondary dark",
+          "Inverse",
+          "Inverse outline",
+          "Inverse ghost",
+          "Inverse ghost light"
+        ],
+        "default": "Primary"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Medium",
+          "Small",
+          "XSmall"
+        ],
+        "default": "Large"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "Loading"
+        ],
+        "default": "Default"
+      }
+    ]
+  }
+]
