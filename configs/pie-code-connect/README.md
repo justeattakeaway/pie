@@ -139,6 +139,24 @@ Snapshots cover the **React** mappings only, via
 - **A diff does not always mean a code change.** Snapshots reflect live Figma state, so
   a designer renaming a variant or adding a property produces one too.
 
+#### Scheduled run and Slack alerts
+
+A scheduled workflow (`.github/workflows/code-connect-snapshot-watchdog.yml`) runs
+`snapshot:compare:ci` every day at 06:00 UTC. It can also be triggered manually
+from the Actions tab (`workflow_dispatch`).
+
+`snapshot:compare:ci` exits non-zero both when a template's output has drifted from its
+baseline and when the Figma CLI fails to render a preview, and either condition raises an
+alert in the `#alerts-design-system` Slack channel with a link to the failed run.
+
+**Required repository secrets**:
+
+| Secret | Description |
+| --- | --- |
+| `FIGMA_PLAN_ACCESS_TOKEN` | A Figma Plan Access Token with the `file_content:read` permission. See [Publishing Code Connect changes](#publishing-code-connect-changes) for how to generate a token. |
+| `ALERTS_DESIGN_SYSTEM_SLACK_CHANNEL_ID` | The Slack channel ID. |
+| `SLACK_BOT_TOKEN` | The Slack bot token used to post the alert. |
+
 ## Adding New Components
 
 To add a new component to the Code Connect mappings:

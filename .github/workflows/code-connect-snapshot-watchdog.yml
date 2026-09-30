@@ -1,0 +1,65 @@
+name: Code Connect Snapshot Watchdog
+
+# Runs the Code Connect snapshot comparison on a schedule and reports failures to
+# Slack. `snapshot:compare:ci` exits non-zero both when a template's output has
+# drifted from its baseline and when the Figma CLI fails to render a preview —
+# either condition raises an alert.
+#
+# Secrets (must be configured manually in the repo settings):
+# - FIGMA_PLAN_ACCESS_TOKEN                Figma Plan Access Token with `file_content:read`
+# - ALERTS_DESIGN_SYSTEM_SLACK_CHANNEL_ID  Channel ID of #alerts-design-system
+# - SLACK_BOT_TOKEN                        Already used by other workflows
+
+on:
+  schedule:
+    # GitHub Actions cron schedules run in UTC only. 06:00 UTC is 08:00 in both
+    # CET (UTC+1) and CEST (UTC+2).
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: code-connect-snapshot-watchdog
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot-compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          os: ubuntu-latest
+
+      - name: Compare snapshots
+        shell: bash
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_PLAN_ACCESS_TOKEN }}
+        # pipefail so the run fails when the script fails, even though tee succeeds
+        run: |
+          set -o pipefail
+          yarn workspace @justeattakeaway/pie-code-connect snapshot:compare:ci 2>&1 | tee "$RUNNER_TEMP/snapshot-compare.log"
+
+      - name: Build Slack payload
+        if: failure()
+        shell: bash
+        run: |
+          jq -n \
+            --arg run_url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            '{text: "Code Connect snapshot watchdog failed — see the run for details: " + $run_url}' \
+            > "$RUNNER_TEMP/slack-payload.json"
+
+      - name: Notify Slack
+        if: failure()
+        uses: slackapi/slack-github-action@fcfb566f8b0aab22203f066d80ca1d7e4b5d05b3 # v1.27.1
+        with:
+          channel-id: ${{ secrets.ALERTS_DESIGN_SYSTEM_SLACK_CHANNEL_ID }}
+          payload-file-path: ${{ runner.temp }}/slack-payload.json
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
