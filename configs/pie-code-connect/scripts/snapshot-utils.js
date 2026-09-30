@@ -190,7 +190,7 @@ function runPreview (templateFile, flags) {
     // The manifest can name a template that the build has not produced, which the CLI
     // reports only as a generic "no files found to preview". Say what is actually wrong.
     if (!fs.existsSync(path.join(ROOT, templateFile))) {
-        throw new Error(`${templateFile} has not been built — check the manifest entry and run \`yarn code-connect-build:react\``);
+        throw new Error(`${templateFile} has not been built — check the manifest entry and run \`yarn build:react\``);
     }
 
     const result = spawnSync(

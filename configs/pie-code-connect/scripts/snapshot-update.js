@@ -11,7 +11,7 @@ const {
 
 function main () {
     console.info('Building React templates…');
-    execFileSync('yarn', ['code-connect-build:react'], { cwd: ROOT, stdio: 'inherit' });
+    execFileSync('yarn', ['build:react'], { cwd: ROOT, stdio: 'inherit' });
 
     if (!fs.existsSync(SNAPSHOTS_DIR)) {
         fs.mkdirSync(SNAPSHOTS_DIR);

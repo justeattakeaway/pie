@@ -144,6 +144,6 @@ Report back to the user which icons were added and their Figma node IDs, then su
 > **Next steps:**
 > 1. Publish the updated config to Figma Code Connect:
 >    ```bash
->    yarn code-connect-publish-icons:all
+>    yarn publish-icons:all --filter=@justeattakeaway/pie-code-connect
 >    ```
 > 2. Commit the changes.

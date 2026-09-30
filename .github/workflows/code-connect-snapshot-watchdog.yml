@@ -1,7 +1,7 @@
 name: Code Connect Snapshot Watchdog
 
 # Runs the Code Connect snapshot comparison on a schedule and reports failures to
-# Slack. `code-connect-snapshot:compare:ci` exits non-zero both when a template's output has
+# Slack. `snapshot:compare:ci` exits non-zero both when a template's output has
 # drifted from its baseline and when the Figma CLI fails to render a preview —
 # either condition raises an alert.
 #
@@ -44,7 +44,7 @@ jobs:
         # pipefail so the run fails when the script fails, even though tee succeeds
         run: |
           set -o pipefail
-          yarn code-connect-snapshot:compare:ci 2>&1 | tee "$RUNNER_TEMP/snapshot-compare.log"
+          yarn workspace @justeattakeaway/pie-code-connect snapshot:compare:ci 2>&1 | tee "$RUNNER_TEMP/snapshot-compare.log"
 
       - name: Build Slack payload
         if: failure()
