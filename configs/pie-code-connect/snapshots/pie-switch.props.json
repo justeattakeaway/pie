@@ -1,0 +1,44 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "193:33389",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Label",
+        "type": "TEXT",
+        "default": "Label"
+      },
+      {
+        "name": "Leading label",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Trailing label",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Selected",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Off",
+          "On"
+        ],
+        "default": "Off"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled"
+        ],
+        "default": "Default"
+      }
+    ]
+  }
+]

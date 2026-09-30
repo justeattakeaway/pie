@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-data-table
 
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - Promoted pie-data-table component status from alpha to beta ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@22.0.0
+
 ## 0.3.31
 
 ### Patch Changes

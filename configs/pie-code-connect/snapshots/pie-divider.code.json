@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n     label=\"Label\">\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Horizontal, Type=Default, Label=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n     orientation=\"vertical\"\n     label=\"Label\">\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Vertical, Type=Default, Label=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n     variant=\"inverse\"\n     label=\"Label\">\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Horizontal, Type=Inverse, Label=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n     variant=\"inverse\"\n     orientation=\"vertical\"\n     label=\"Label\">\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Vertical, Type=Inverse, Label=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n    >\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Horizontal, Type=Default, Label=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n     orientation=\"vertical\">\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Vertical, Type=Default, Label=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n     variant=\"inverse\">\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Horizontal, Type=Inverse, Label=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=341-24552",
+    "nodeId": "341:24552",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDivider\n     variant=\"inverse\"\n     orientation=\"vertical\">\n</PieDivider>",
+    "language": "React",
+    "propertyCombinationLabel": "Orientation=Vertical, Type=Inverse, Label=False"
+  }
+]

@@ -1,0 +1,2162 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Default, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Hover, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Active, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Focus, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     status=\"error\"\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Disabled, Error=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Default, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Hover, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Active, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n    >\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Focus, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=None, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     checked\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Selected, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=false, Selection=Partial, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=false, Selection=Partial, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=false, Selection=Partial, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled>\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=false, Selection=Partial, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=false, Leading label=true, Selection=Partial, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=false, Leading label=true, Selection=Partial, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=false, Assistive text=true, Leading label=true, Selection=Partial, State=Disabled, Error=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33673",
+    "nodeId": "198:33673",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCheckbox\n     indeterminate\n     disabled\n     labelPosition=\"leading\">\n    Label\n</PieCheckbox>",
+    "language": "React",
+    "propertyCombinationLabel": "Trailing label (Default)=true, Assistive text=true, Leading label=true, Selection=Partial, State=Disabled, Error=False"
+  }
+]

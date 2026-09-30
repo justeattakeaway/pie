@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-accordion
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-accordion component status from beta to stable ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-divider@1.5.37
+  - @justeattakeaway/pie-webc-core@22.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
 ## 0.2.11
 
 ### Patch Changes

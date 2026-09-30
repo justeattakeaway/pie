@@ -1,0 +1,87 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "2011:73130",
+    "availableProperties": [
+      {
+        "name": "Assistive text",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Form label",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "[𝐓] String",
+        "type": "TEXT",
+        "default": "String"
+      },
+      {
+        "name": "[𝐓] Placeholder",
+        "type": "TEXT",
+        "default": "Placeholder"
+      },
+      {
+        "name": "Screen size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "N/A",
+          "Wide",
+          "Narrow"
+        ],
+        "default": "N/A"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Medium",
+          "Small"
+        ],
+        "default": "Medium"
+      },
+      {
+        "name": "Resize",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Auto",
+          "Manual"
+        ],
+        "default": "Auto"
+      },
+      {
+        "name": "Content",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Placeholder",
+          "With value"
+        ],
+        "default": "Placeholder"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active / focus",
+          "Disabled",
+          "Read-Only"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Error",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

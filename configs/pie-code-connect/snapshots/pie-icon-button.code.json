@@ -1,0 +1,2594 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Large, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n    >\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Medium, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Small, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=XSmall, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Large, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n    >\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Medium, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Small, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=XSmall, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Large, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n    >\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Medium, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Small, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=XSmall, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"large\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Large, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n    >\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Medium, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"small\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Small, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"xsmall\">\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=XSmall, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"large\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Large, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Medium, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"small\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Small, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"xsmall\"\n     disabled>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=XSmall, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"large\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Large, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Medium, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"small\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=Small, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"primary-alternative\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Primary - alternative, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"secondary\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Secondary, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"outline\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"translucent\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Translucent, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-secondary-dark\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Ghost secondary dark, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"inverse-outline\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse outline, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost, Size=XSmall, State=Loading"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=235-31131",
+    "nodeId": "235:31131",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieIconButton\n     variant=\"ghost-inverse-light\"\n     size=\"xsmall\"\n     isLoading>\n    \n</PieIconButton>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse ghost light, Size=XSmall, State=Loading"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=False, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=False, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=True, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=True, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=False, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=False, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=True, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=True, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=False, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=False, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=True, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=True, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     status=\"error\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=False, State=Error"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     status=\"error\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=False, State=Error"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked\n     status=\"error\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=True, State=Error"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked\n     status=\"error\">\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=True, State=Error"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     disabled>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     disabled>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked\n     disabled>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=false, Selected=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=198-33784",
+    "nodeId": "198:33784",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieRadio\n     value=\"Label\"\n     checked\n     disabled>\n    Label\n</PieRadio>",
+    "language": "React",
+    "propertyCombinationLabel": "Label=true, Selected=True, State=Disabled"
+  }
+]

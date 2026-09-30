@@ -1,0 +1,23 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "163:43157",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Assistive text",
+        "type": "TEXT",
+        "default": "Assistive text"
+      },
+      {
+        "name": "Validation",
+        "type": "VARIANT",
+        "variantOptions": [
+          "None",
+          "Success",
+          "Error"
+        ],
+        "default": "None"
+      }
+    ]
+  }
+]

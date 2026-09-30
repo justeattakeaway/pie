@@ -1,0 +1,1154 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Wide, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=false, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=false, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=false, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=false, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=false, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1575-130231",
+    "nodeId": "1575:130231",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieDataTable columns={[{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"},{\"id\":\"string\",\"name\":\"String\",\"accessor\":\"string\"}]} data={[{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"},{\"string\":\"String\"}]}>\n    <PieDataTableHeader slot=\"table-header\"  heading=\"Title\"></PieDataTableHeader>\n</PieDataTable>",
+    "language": "React",
+    "propertyCombinationLabel": "Overflow - Left=true, Overflow - Right=true, Scrollbar=true, Footer=true, Bulk-action bar=true, Screen size=Narrow, Selectable rows=True"
+  }
+]
