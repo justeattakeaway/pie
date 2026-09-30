@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.3.0
+
+### Minor Changes
+
+- [Added] - `isStacked` prop which displays up to 3 toasts simultaneously in a stacked layout. Defaults to `false`, so a single toast is displayed at a time and the rest wait in the queue ([#3156](https://github.com/justeattakeaway/pie/pull/3156)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+  [Fixed] - Every toast message is now announced to screen readers. Previously, when several toasts became visible in the same render, only the last message was announced
+  [Fixed] - Error toasts are announced in a dedicated assertive live region, so a later non-error toast can no longer downgrade the announcement
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.2.4
+  - @justeattakeaway/pie-webc-core@22.0.0
+
 ## 1.2.3
 
 ### Patch Changes

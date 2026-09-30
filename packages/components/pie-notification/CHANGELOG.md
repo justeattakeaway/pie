@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-notification
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-notification component status from beta to stable ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.35
+  - @justeattakeaway/pie-webc-core@22.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
 ## 0.24.20
 
 ### Patch Changes
