@@ -6,9 +6,9 @@ name: Code Connect Snapshot Watchdog
 # either condition raises an alert.
 #
 # Secrets (must be configured manually in the repo settings):
-# - FIGMA_PLAN_ACCESS_TOKEN                Figma Plan Access Token with `file_content:read`
-# - ALERTS_DESIGN_SYSTEM_SLACK_CHANNEL_ID  Channel ID of #alerts-design-system
-# - SLACK_BOT_TOKEN                        Already used by other workflows
+# - FIGMA_PLAN_ACCESS_TOKEN  Figma Plan Access Token with `file_content:read`
+# - ALERTS_SLACK_CHANNEL_ID  Channel ID of #alerts-design-system
+# - SLACK_BOT_TOKEN          Already used by other workflows
 
 on:
   schedule:
@@ -59,7 +59,7 @@ jobs:
         if: failure()
         uses: slackapi/slack-github-action@fcfb566f8b0aab22203f066d80ca1d7e4b5d05b3 # v1.27.1
         with:
-          channel-id: ${{ secrets.ALERTS_DESIGN_SYSTEM_SLACK_CHANNEL_ID }}
+          channel-id: ${{ secrets.ALERTS_SLACK_CHANNEL_ID }}
           payload-file-path: ${{ runner.temp }}/slack-payload.json
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
