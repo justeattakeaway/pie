@@ -45,6 +45,6 @@
     "slugify": "1.6.9",
     "svgo": "4.1.0",
     "webpack": "5.107.1",
-    "webpack-cli": "7.0.2"
+    "webpack-cli": "7.2.3"
   }
 }
