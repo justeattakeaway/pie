@@ -22,6 +22,12 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--icon-placement-grid', name: 'PieTooltip - Icon placement grid' },
     { id: 'tooltip--in-clipping-scroll-container', name: 'PieTooltip - In clipping scroll container' },
     { id: 'tooltip--clipper-inside-containing-block', name: 'PieTooltip - Clipper inside containing block' },
+    { id: 'tooltip--collision-top-edge', name: 'PieTooltip - Collision top edge' },
+    { id: 'tooltip--collision-bottom-edge', name: 'PieTooltip - Collision bottom edge' },
+    { id: 'tooltip--collision-left-edge', name: 'PieTooltip - Collision left edge' },
+    { id: 'tooltip--collision-right-edge', name: 'PieTooltip - Collision right edge' },
+    { id: 'tooltip--collision-corner', name: 'PieTooltip - Collision corner' },
+    { id: 'tooltip--collision-in-clipping-container', name: 'PieTooltip - Collision in clipping container' },
 ];
 
 // Tooltip position is calculated in the browser, so Percy must run the component code too.
