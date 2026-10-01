@@ -61,7 +61,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/46d9YJsbVPA9fEuC5C2EuT/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=314-23908&p=f&m=dev',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=314-23908',
         },
     },
 };

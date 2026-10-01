@@ -73,7 +73,7 @@ const accordionStoryMeta: AccordionStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/-Core--Web-Component-Documentation--PIE-3-?node-id=21880-4486',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=4-21447',
         },
     },
 };

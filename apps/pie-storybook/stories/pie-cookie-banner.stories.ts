@@ -64,7 +64,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=41960-2971',
         },
         componentStatusPosition: 'top',
     },

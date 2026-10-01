@@ -47,7 +47,7 @@ const dividerStoryMeta: DividerStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?node-id=876-1227&node-type=CANVAS&t=v6qypWzZqWE6lPxm-0',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=341-24442',
         },
     },
 };

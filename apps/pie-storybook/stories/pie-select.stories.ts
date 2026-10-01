@@ -120,7 +120,7 @@ const selectStoryMeta: SelectStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/7dcPx40PggJCudTmgHwlk6/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=1573-114525&p=f&m=dev',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114525',
         },
     },
 };
