@@ -10,7 +10,7 @@ description: Usage guidelines for the PIE design system by Just Eat Takeaway. Us
 > **Guides note:** `guides/` holds whatever docs the consumer's installed package versions ship, so its contents vary between projects. Treat a listing of `guides/` as the list of what is actually available rather than assuming a guide named in this skill is present. Where one is missing, fall back to `tokens/tokensMetadata.json` and the component docs, and do not guess at utility class names.
 
 1. Check whether `.versions` exists.
-2. **If missing** → ensure the core packages are installed, then run `scripts/fetch-references.mjs` with the consumer project as the working directory, since it reads their installed packages.
+2. **If missing** → ensure the three core packages are installed (`@justeattakeaway/pie-webc`, `@justeattakeaway/pie-css`, `@justeattakeaway/pie-icons-webc`), then run `scripts/fetch-references.mjs` with the consumer project as the working directory, since it reads their installed packages.
 3. **If present** → compare each entry in `.versions` against the installed version of that package, and re-run the script if any differ.
 
 `.versions` keys are fully scoped package names, so read the scope from the key rather than assuming it:

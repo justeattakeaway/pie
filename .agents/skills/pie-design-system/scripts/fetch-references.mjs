@@ -26,9 +26,7 @@ const OUTPUT_DIRS = {
     tokens: join(SKILL_DIR, 'tokens'),
 };
 
-// Resolve a package's directory from the consumer project. Node's lookup paths are
-// every node_modules from the working directory up to the root, so monorepos that
-// hoist to the root resolve the same as a flat install.
+// Resolve from the consumer's cwd, not the skill's location, so hoisted and global installs both work.
 const { resolve } = createRequire(join(process.cwd(), 'noop.js'));
 const resolvePkg = (scope, name) => {
     const pkgDir = resolve.paths(`${scope}/${name}`)
@@ -66,8 +64,6 @@ const versions = {};
 
 // --- Components ---
 const webc = readPkgJson(resolvePkg('@justeattakeaway', 'pie-webc'));
-// Keys are fully scoped. Design tokens sit under the older `@justeat` scope while
-// everything else is `@justeattakeaway`, so an unscoped key is not resolvable.
 versions['@justeattakeaway/pie-webc'] = webc.version;
 
 Object.keys(webc.dependencies).forEach((dep) => {
