@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-webc
 
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - Renamed the framework integration guides in `docs/framework-integration-guides/` to drop the version from the file name (for example `nextjs-14.md` is now `nextjs.md`). Each guide now lists the versions it supports: Next.js covers 14 and 15, and React covers 18 and 19. ([#3195](https://github.com/justeattakeaway/pie/pull/3195)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`c60374d`](https://github.com/justeattakeaway/pie/commit/c60374d109d50066331973969d3e48ed6745e4a6)]:
+  - @justeattakeaway/pie-tooltip@0.4.0
+
 ## 0.11.21
 
 ### Patch Changes
