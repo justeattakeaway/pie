@@ -1,6 +1,8 @@
-# Next.js 14
+# Next.js
 
-This guide will show you how to set up the PIE Web Components in a Next.js 14 applications.
+This guide will show you how to set up the PIE Web Components in a Next.js application.
+
+**Supported versions:** Next.js 14 and 15.
 
 > This guide assumes you have first followed the [Getting started](https://webc.pie.design/?path=/docs/introduction-getting-started--docs), [Typography](https://webc.pie.design/?path=/docs/introduction-typography--docs) and [CSS setup](https://webc.pie.design/?path=/docs/introduction-css-setup--docs) guides.
 > Please make sure to follow them before continuing with this guide.

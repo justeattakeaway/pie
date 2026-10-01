@@ -15,6 +15,7 @@ import {
 } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
 const SKILL_DIR = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VERSIONS_FILE = join(SKILL_DIR, '.versions');
@@ -25,10 +26,17 @@ const OUTPUT_DIRS = {
     tokens: join(SKILL_DIR, 'tokens'),
 };
 
-// Resolve a package path under node_modules
-const resolvePkg = (scope, name) => join(process.cwd(), 'node_modules', scope, name);
-const readPkgJson = (scope, name) =>
-    JSON.parse(readFileSync(join(resolvePkg(scope, name), 'package.json'), 'utf-8'));
+// Resolve from the consumer's cwd, not the skill's location, so hoisted and global installs both work.
+const { resolve } = createRequire(join(process.cwd(), 'noop.js'));
+const resolvePkg = (scope, name) => {
+    const pkgDir = resolve.paths(`${scope}/${name}`)
+        .map((nodeModules) => join(nodeModules, scope, name))
+        .find((dir) => existsSync(join(dir, 'package.json')));
+
+    if (!pkgDir) throw new Error(`Could not resolve ${scope}/${name} from ${process.cwd()}.`);
+    return pkgDir;
+};
+const readPkgJson = (pkgDir) => JSON.parse(readFileSync(join(pkgDir, 'package.json'), 'utf-8'));
 
 // Recursively copy all files from src dir into a flat dest dir
 const copyDirFlat = (srcDir, destDir) => {
@@ -55,25 +63,25 @@ Object.values(OUTPUT_DIRS).forEach((dir) => {
 const versions = {};
 
 // --- Components ---
-const webc = readPkgJson('@justeattakeaway', 'pie-webc');
-versions['pie-webc'] = webc.version;
+const webc = readPkgJson(resolvePkg('@justeattakeaway', 'pie-webc'));
+versions['@justeattakeaway/pie-webc'] = webc.version;
 
 Object.keys(webc.dependencies).forEach((dep) => {
     const name = dep.replace('@justeattakeaway/', '');
-    const meta = readPkgJson('@justeattakeaway', name);
-    const isAlphaComponent = meta.pieMetadata?.componentStatus === 'alpha';
-    if (!isAlphaComponent) {
-        copyFileSync(
-            join(resolvePkg('@justeattakeaway', name), 'README.md'),
-            join(OUTPUT_DIRS.components, `${name}.md`),
-        );
+    const pkgDir = resolvePkg('@justeattakeaway', name);
+    const { pieMetadata } = readPkgJson(pkgDir);
+    if (pieMetadata?.componentStatus === 'alpha') return;
+
+    const readme = join(pkgDir, 'README.md');
+    if (existsSync(readme)) {
+        copyFileSync(readme, join(OUTPUT_DIRS.components, `${name}.md`));
     }
 });
 
 // --- Guides ---
 ['pie-webc', 'pie-css', 'pie-icons-webc'].forEach((name) => {
     const pkgDir = resolvePkg('@justeattakeaway', name);
-    const pkgJson = readPkgJson('@justeattakeaway', name);
+    const pkgJson = readPkgJson(pkgDir);
 
     copyFileSync(join(pkgDir, 'README.md'), join(OUTPUT_DIRS.guides, `${name}.md`));
 
@@ -82,16 +90,17 @@ Object.keys(webc.dependencies).forEach((dep) => {
         copyDirFlat(docsDir, OUTPUT_DIRS.guides);
     }
 
-    versions[name] = pkgJson.version;
+    versions[`@justeattakeaway/${name}`] = pkgJson.version;
 });
 
 // --- Design tokens metadata ---
-const tokensPkg = readPkgJson('@justeat', 'pie-design-tokens');
-const metadataDir = join(resolvePkg('@justeat', 'pie-design-tokens'), 'metadata');
+const tokensDir = resolvePkg('@justeat', 'pie-design-tokens');
+const tokensPkg = readPkgJson(tokensDir);
+const metadataDir = join(tokensDir, 'metadata');
 if (existsSync(metadataDir)) {
     copyDirFlat(metadataDir, OUTPUT_DIRS.tokens);
 }
-versions['pie-design-tokens'] = tokensPkg.version;
+versions['@justeat/pie-design-tokens'] = tokensPkg.version;
 
 writeFileSync(VERSIONS_FILE, JSON.stringify(versions, null, 2), 'utf-8');
 console.info('✅ Done');
