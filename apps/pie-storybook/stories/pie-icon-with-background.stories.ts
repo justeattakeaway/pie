@@ -67,7 +67,7 @@ const iconWithBackgroundStoryMeta: IconWithBackgroundStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/?node-id=21149-20620',
         },
     },
 };
