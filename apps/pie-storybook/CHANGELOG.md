@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.89.14
+
+### Patch Changes
+
+- [Added] - Viewport collision detection for `pie-tooltip`. The panel now repositions itself — flipping to the opposite side and/or shifting its alignment — when its preferred `position` would collide with the viewport or a clipping scroll container. This behaviour is always on and cannot be disabled. ([#3211](https://github.com/justeattakeaway/pie/pull/3211)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`383412f`](https://github.com/justeattakeaway/pie/commit/383412f0a6a20bd2862899cbcf67d108727d9414)]:
+  - @justeattakeaway/pie-webc@0.12.0
+
 ## 1.89.13
 
 ### Patch Changes
