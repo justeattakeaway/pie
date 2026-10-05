@@ -62,7 +62,7 @@
     "@babel/eslint-parser": "7.29.9",
     "@justeattakeaway/pie-icons": "5.32.1",
     "@justeattakeaway/pie-icons-configs": "5.21.0",
-    "@rollup/plugin-commonjs": "29.0.2",
+    "@rollup/plugin-commonjs": "29.0.3",
     "@rollup/plugin-node-resolve": "16.0.3",
     "@vue/babel-preset-jsx": "1.4.0",
     "@vue/test-utils": "1.1.3",
