@@ -14,7 +14,8 @@ const textInputLabel = getInstanceProp(['Form label / Leading content / Label'],
 const selectLabel = getInstanceProp('getString', '[𝐓] Label');
 const textAreaLabel = getInstanceProp('getString', '[𝐓] Label');
 const label = textInputLabel || selectLabel || textAreaLabel || 'Label';
-const multilineLabel = getInstanceProp('getString', '[𝐓] Multiline label') || '';
+const hasMultilineLabel = getInstanceProp('getBoolean', 'Multiline label');
+const multilineLabel = hasMultilineLabel ? getInstanceProp('getString', '[𝐓] Multiline label') || '' : '';
 const trailing = hasCharacterCount ? 'X/XX' : '';
 
 const props = [
