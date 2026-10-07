@@ -332,19 +332,15 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     // A UUID rather than a counter, so uniqueness holds across module re-instantiation
     // (HMR, duplicated bundles) and not just within a single module instance. The panel's
-    // `aria-labelledby` and `aria-describedby` reference the heading and content by these ids:
-    // HTML requires an id to be unique within its tree, the panel and its heading/content live
-    // in the same shadow root so a fixed id would be repeated across instances, and WAI-ARIA
-    // treats a duplicate id as an author error and leaves the user agent to use "the first
-    // element found with the given ID" (WAI-ARIA 1.3, 8.6.1).
+    // `aria-labelledby` references the heading by this id: HTML requires an id to be unique
+    // within its tree, the panel and its heading live in the same shadow root so a fixed id
+    // would be repeated across instances, and WAI-ARIA treats a duplicate id as an author
+    // error and leaves the user agent to use "the first element found with the given ID"
+    // (WAI-ARIA 1.3, 8.6.1).
     private readonly _instanceId = crypto.randomUUID();
 
     private get _headingId (): string {
         return `pie-tooltip-heading-${this._instanceId}`;
-    }
-
-    private get _contentId (): string {
-        return `pie-tooltip-content-${this._instanceId}`;
     }
 
     static styles = unsafeCSS(styles);
@@ -423,11 +419,13 @@ export class PieTooltip extends PieElement implements TooltipProps {
      * `true` once focus has landed, or `false` if the panel is closed, is in tooltip mode, or
      * focus could not be moved.
      *
-     * VoiceOver does not announce a dialog's `aria-describedby` when focus enters the dialog
-     * (WebKit bug 282773), so the WAI-ARIA APG's guidance is to make a static element at the
-     * start of the dialog's content focusable and focus that instead of the first control:
-     * the screen reader then reads the static content, followed by the dialog's name and role.
-     * https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction
+     * The content is the announcement, deliberately: the panel carries no `aria-describedby`,
+     * because VoiceOver does not announce a dialog's description when focus enters it (WebKit
+     * bug 282773) while NVDA and JAWS announce it in addition to the focused content, so a
+     * description either does nothing or says the content twice. Focusing the static content —
+     * as the WAI-ARIA APG advises for dialogs whose description must be spoken
+     * (https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction) — announces
+     * the content exactly once on every screen reader.
      */
     public async focusPanel (): Promise<boolean> {
         if (this._mode !== 'dialog') {
@@ -1032,13 +1030,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
                         role="${ifDefined(mode)}"
                         aria-hidden="${!isOpen}"
                         aria-labelledby="${isDialog && heading ? this._headingId : nothing}"
-                        aria-label="${isDialog && !heading && aria?.label ? aria.label : nothing}"
-                        aria-describedby="${isDialog ? this._contentId : nothing}">
+                        aria-label="${isDialog && !heading && aria?.label ? aria.label : nothing}">
                         ${isIconType ? nothing : html`<div class="${componentClass}-arrow" data-test-id="${componentSelector}-arrow"></div>`}
                         <div class="${componentClass}-body">
                             ${heading ? this.renderHeading() : nothing}
                             <div
-                                id="${this._contentId}"
                                 class="${componentClass}-content"
                                 tabindex="${isDialog ? -1 : nothing}"
                                 data-test-id="${componentSelector}-content">

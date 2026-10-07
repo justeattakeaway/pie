@@ -132,37 +132,6 @@ test.describe('PieTooltip - Component tests', () => {
             await expect(panel).not.toHaveAttribute('aria-label');
         });
 
-        test('should describe the dialog panel from the content slot', async ({ page }) => {
-            // Arrange
-            await loadStory(page, 'tooltip--with-action');
-
-            // Act
-            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
-            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
-
-            // Assert
-            // The panel is described by the content wrapper, so all of the content is announced
-            // when the dialog opens and not just the accessible name.
-            const describedBy = await panel.getAttribute('aria-describedby');
-            const contentId = await content.getAttribute('id');
-
-            expect(describedBy).toBeTruthy();
-            expect(describedBy).toBe(contentId);
-            await expect(panel).toHaveAccessibleDescription('Arrives today.');
-        });
-
-        test('should describe the dialog panel from the content slot when there is no heading', async ({ page }) => {
-            // Arrange
-            await loadStory(page, 'tooltip--with-action-and-no-heading');
-
-            // Act
-            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
-            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
-
-            // Assert
-            await expect(panel).toHaveAttribute('aria-describedby', await content.getAttribute('id') ?? '');
-        });
-
         test('should not describe the panel from the content slot in tooltip mode', async ({ page }) => {
             // Arrange
             await loadDefaultStory(page);
@@ -177,11 +146,11 @@ test.describe('PieTooltip - Component tests', () => {
             await expect(panel).not.toHaveAttribute('aria-describedby');
         });
 
-        test('should point every dialog panel at its own heading and content', async ({ page }) => {
+        test('should point every dialog panel at its own heading', async ({ page }) => {
             // Arrange
             // Several dialog tooltips render at once. WAI-ARIA treats a duplicate id as an author
             // error and leaves the user agent to use the first match, so each panel must reference
-            // its own elements rather than sharing fixed ids.
+            // its own heading rather than sharing fixed ids.
             const basePage = new BasePage(page, 'tooltip--multiple-dialogs');
 
             await basePage.load();
@@ -192,27 +161,20 @@ test.describe('PieTooltip - Component tests', () => {
             // Assert
             const wiring = await panels.evaluateAll((elements) => elements.map((element) => {
                 const panel = element.shadowRoot?.querySelector<HTMLElement>('[role="dialog"]');
-                const content = element.shadowRoot?.querySelector<HTMLElement>('.c-tooltip-content');
                 const heading = element.shadowRoot?.querySelector<HTMLElement>('.c-tooltip-heading');
 
                 return {
-                    describedBy: panel?.getAttribute('aria-describedby'),
                     labelledBy: panel?.getAttribute('aria-labelledby'),
-                    contentId: content?.id,
                     headingId: heading?.id,
                 };
             }));
 
             expect(wiring).toHaveLength(3);
 
-            wiring.forEach(({
-                describedBy, labelledBy, contentId, headingId,
-            }) => {
-                expect(describedBy).toBe(contentId);
+            wiring.forEach(({ labelledBy, headingId }) => {
                 expect(labelledBy).toBe(headingId);
             });
 
-            expect(new Set(wiring.map(({ contentId }) => contentId)).size).toBe(3);
             expect(new Set(wiring.map(({ headingId }) => headingId)).size).toBe(3);
         });
     });

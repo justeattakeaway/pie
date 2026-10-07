@@ -88,8 +88,9 @@ export interface TooltipProps {
     isDismissible?: boolean;
 
     /**
-     * The text to display in the panel's heading. In dialog mode this also provides the
-     * panel's accessible name, while the `content` slot provides its accessible description.
+     * The text to display in the panel's heading. In dialog mode this provides the
+     * panel's accessible name; the `content` slot is announced by `focusPanel()` moving
+     * focus to it.
      */
     heading?: string;
 
