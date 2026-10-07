@@ -52,7 +52,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `variant` | `default`, `inverse` | The colour treatment of the panel. `default` is the dark panel, `inverse` the light one. | `default` |
 | `type` | `default`, `icon` | The presentation of the panel. `icon` is the compact treatment intended for icon triggers: it has no arrow and is always as wide as its content, so `size` and `--tooltip-width` have no effect on it. | `default` |
 | `isDismissible` | `true`, `false` | When true, a close button is rendered inside the panel. | `false` |
-| `heading` | Any string | The text to display in the panel's heading. In dialog mode this provides the panel's accessible name; the `content` slot is announced by `focusPanel()` moving focus to it. | `undefined` |
+| `heading` | Any string | The text to display in the panel's heading. In dialog mode this also provides the panel's accessible name. | `undefined` |
 | `headingLevel` | `h2`, `h3`, `h4`, `h5`, `h6` | The HTML heading tag to use for the panel's heading. | `h2` |
 | `aria` | `{ close?: string, label?: string }` | `close` names the close button. `label` names the panel in dialog mode when no `heading` is provided. | `undefined` |
 | `triggers` | Array of `hover`, `focus`, `click` | Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel's state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability. | `[]` |
@@ -86,7 +86,7 @@ Set both on the `pie-tooltip` element itself.
 
 ## Positioning
 
-Place the tooltip next to its trigger element in the DOM for the best accessibility practice. The `position` element will place the tooltip near to the trigger based on which value is provided.
+Place the tooltip next to its trigger element in the DOM for the best accessibility practice. The `position` property will place the tooltip near to the trigger based on which value is provided.
 
 `position` names a side and, optionally, an alignment along the opposite axis:
 
@@ -139,13 +139,13 @@ A close button does not make the panel a dialog. Only the `action` slot does.
 
 - Sets `role="tooltip"` or `role="dialog"` from the `action` slot, resolved on the client before the first paint.
 - Names the dialog panel from `heading`, falling back to `aria.label`.
-- Exposes `focusPanel()` for dialog mode, which moves focus to the panel's content so the content, followed by the dialog's name and role, are announced — once each, on every screen reader. The panel deliberately carries no `aria-describedby`: VoiceOver does not announce a dialog's description when focus enters it ([WebKit bug 282773](https://bugs.webkit.org/show_bug.cgi?id=282773)), while NVDA and JAWS announce it in addition to the focused content, so a description either does nothing or says the content twice.
+- Exposes `focusPanel()` for dialog mode, which moves focus to the panel's content so the content, followed by the dialog's name and role, are announced once each on every screen reader. The panel carries no `aria-describedby`; see [Managing focus](#managing-focus).
 - Removes the dialog panel from the accessibility tree while closed. In tooltip mode the content stays in the DOM so that a description referring to it still resolves.
 - Names the close button from `aria.close` and places it in the tab sequence inside the panel.
 - Keeps the panel clear of the trigger at every placement, so the panel cannot obscure a focused trigger (WCAG 2.4.11).
 - Wraps content.
 
-It does not touch the trigger, and it does not move focus. The component never writes attributes to the element named by `trigger`, and never calls `focus()` on anything. Both are yours to declare: see [Wiring the trigger](#wiring-the-trigger) and [Managing focus](#managing-focus).
+It does not touch the trigger, and it does not move focus on its own — `focusPanel()` moves it only when you call it. The component never writes attributes to the element named by `trigger`. See [Wiring the trigger](#wiring-the-trigger) and [Managing focus](#managing-focus).
 
 ### What you need to do
 
@@ -322,7 +322,7 @@ In dialog mode you own two moments:
 
 - **On open, call `focusPanel()`.** It moves focus to the content carrying the panel's descriptive text, so screen readers announce the content, followed by the dialog's name and role. It waits for the panel's opening update to commit, then retries the focus move across animation frames until it lands — Safari can silently drop a `focus()` call on a panel whose reveal is still settling — and resolves to `true` once focus is in place, or `false` if the panel is closed or in tooltip mode. No waiting on your side is needed: call it straight after setting `isOpen`.
 
-    The heading names the panel through `aria-labelledby`, and the content is announced by the focus move itself. The panel deliberately carries no `aria-describedby`: the standard dialog wiring would have the description say the same text as the focused content, so NVDA and JAWS — which announce a dialog's description when focus enters it — would say the content twice, while VoiceOver, which never announces a dialog's description on focus entry ([WebKit bug 282773](https://bugs.webkit.org/show_bug.cgi?id=282773)), would hear nothing from it at all. This is the [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction)'s static-text focus recommendation, taken one step further: the content is `tabindex="-1"`, never reached by Tab, and the panel's own controls stay next in the tab sequence. The trade-off: if you move focus somewhere other than the content — the action button, say — the content is not announced on open, though it stays readable inside the dialog.
+    The heading names the panel through `aria-labelledby`; the content is announced by the focus move itself. The panel carries no `aria-describedby`: VoiceOver never announces a dialog's description on focus entry ([WebKit bug 282773](https://bugs.webkit.org/show_bug.cgi?id=282773)), and NVDA and JAWS announce it in addition to the focused content — so a description either does nothing or says the content twice. This follows the [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction)'s static-text focus recommendation: the content is `tabindex="-1"`, never reached by Tab, and the panel's own controls stay next in the tab sequence. If you move focus anywhere else, the content is not announced on open, though it stays readable inside the dialog.
 
 - **On close, put focus back**, but only if focus was still inside the panel. Closing on a hover-away or a click elsewhere must not pull focus away from whatever the user has moved on to.
 
