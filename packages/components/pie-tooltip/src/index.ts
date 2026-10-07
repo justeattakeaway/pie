@@ -37,18 +37,13 @@ import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
 export * from './defs';
 
-// The panel's `aria-labelledby` and `aria-describedby` reference the heading and content by id.
-// A page can hold several tooltips at once (the onboarding tour renders four), and HTML requires
-// an id to be unique within its tree. The panel and its heading/content live in the same shadow
-// root, so a fixed id would be repeated across instances. WAI-ARIA treats a duplicate id as an
-// author error and leaves the user agent to use "the first element found with the given ID"
-// (WAI-ARIA 1.3, 8.6.1), so give each instance its own ids rather than rely on that fallback.
-const headingTestId = `${componentSelector}-heading`;
-
 // Frames `focusPanel()` will keep retrying the focus move across after the panel has committed
 // its opening update. Two frames cover a reveal whose positioning update commits a frame after
 // the open one; the headroom covers a slower machine's extra layout pass.
 const FOCUS_PANEL_MAX_ATTEMPTS = 5;
+
+// Resolves on the next animation frame.
+const nextFrame = (): Promise<number> => new Promise(requestAnimationFrame);
 
 // Returns true if the element establishes a containing block through a property other than
 // `position` — i.e. for both absolute and fixed descendants, not just absolute.
@@ -336,7 +331,12 @@ export class PieTooltip extends PieElement implements TooltipProps {
     private _openedByClick = false;
 
     // A UUID rather than a counter, so uniqueness holds across module re-instantiation
-    // (HMR, duplicated bundles) and not just within a single module instance.
+    // (HMR, duplicated bundles) and not just within a single module instance. The panel's
+    // `aria-labelledby` and `aria-describedby` reference the heading and content by these ids:
+    // HTML requires an id to be unique within its tree, the panel and its heading/content live
+    // in the same shadow root so a fixed id would be repeated across instances, and WAI-ARIA
+    // treats a duplicate id as an author error and leaves the user agent to use "the first
+    // element found with the given ID" (WAI-ARIA 1.3, 8.6.1).
     private readonly _instanceId = crypto.randomUUID();
 
     private get _headingId (): string {
@@ -417,11 +417,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
     }
 
     /**
-     * Moves focus to the panel's content in dialog mode, so the heading and content are announced
-     * together when the panel opens. Does nothing in tooltip mode, where the panel is a
-     * description of its trigger rather than a container of its own. Resolves to `true` once
-     * focus has landed, or `false` if the panel is closed, is in tooltip mode, or focus could
-     * not be moved.
+     * Moves focus to the panel's content in dialog mode, so the content is announced followed by
+     * the dialog's name and role when the panel opens. Does nothing in tooltip mode, where the
+     * panel is a description of its trigger rather than a container of its own. Resolves to
+     * `true` once focus has landed, or `false` if the panel is closed, is in tooltip mode, or
+     * focus could not be moved.
      *
      * VoiceOver does not announce a dialog's `aria-describedby` when focus enters the dialog
      * (WebKit bug 282773), so the WAI-ARIA APG's guidance is to make a static element at the
@@ -440,7 +440,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
         // the update to commit and one further frame for the positioning pass before the first
         // attempt, so the first `focus()` call is made against a panel that can take it.
         await this.updateComplete;
-        await new Promise(requestAnimationFrame);
+        await nextFrame();
 
         const content = this.renderRoot.querySelector<HTMLElement>(`.${componentClass}-content`);
 
@@ -448,14 +448,17 @@ export class PieTooltip extends PieElement implements TooltipProps {
             return false;
         }
 
-        const focusLanded = () => this.shadowRoot?.activeElement === content || this.ownerDocument.activeElement === content;
+        // The content sits in this component's shadow root, so focus landing on it is read
+        // from the shadow root's `activeElement`: the document's own `activeElement` retargets
+        // to the host and never names it.
+        const focusLanded = () => this.shadowRoot?.activeElement === content;
 
         // Even against a visible panel, Safari can drop a `focus()` call on an element whose
         // reveal is still settling — silently, leaving the content unfocused and the screen
         // reader narrating wherever focus last was. So: try, wait a frame, try again, and say
-        // so when focus never lands. The loop is bounded by FOCUS_PANEL_MAX_ATTEMPTS, one frame
-        // per attempt.
-        for (let attempt = 0; attempt <= FOCUS_PANEL_MAX_ATTEMPTS; attempt++) {
+        // so when focus never lands. The loop makes exactly FOCUS_PANEL_MAX_ATTEMPTS attempts,
+        // one frame apart.
+        for (let attempt = 0; attempt < FOCUS_PANEL_MAX_ATTEMPTS; attempt++) {
             content.focus({ preventScroll: true });
 
             if (focusLanded()) {
@@ -463,7 +466,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             }
 
             // eslint-disable-next-line no-await-in-loop
-            await new Promise(requestAnimationFrame);
+            await nextFrame();
         }
 
         return false;
@@ -964,7 +967,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
         return html`<${tag}
                         id="${this._headingId}"
                         class="${componentClass}-heading"
-                        data-test-id="${headingTestId}">${this.heading}</${tag}>`;
+                        data-test-id="${componentSelector}-heading">${this.heading}</${tag}>`;
     }
 
     private renderCloseButton (): TemplateResult {
@@ -1032,7 +1035,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
                         aria-label="${isDialog && !heading && aria?.label ? aria.label : nothing}"
                         aria-describedby="${isDialog ? this._contentId : nothing}">
                         ${isIconType ? nothing : html`<div class="${componentClass}-arrow" data-test-id="${componentSelector}-arrow"></div>`}
-                        <div class="${componentClass}-body" data-test-id="${componentSelector}-body">
+                        <div class="${componentClass}-body">
                             ${heading ? this.renderHeading() : nothing}
                             <div
                                 id="${this._contentId}"

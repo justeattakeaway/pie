@@ -409,16 +409,9 @@ const showTourStep = (root: HTMLElement, index: number) => {
         }
     }
 
-    // `focusPanel()` waits for the panel's opening update to commit and retries the focus
-    // move across frames until it lands, because Safari can drop the call on a panel whose
-    // reveal is still settling.
-    //
-    // Focus goes to the panel's content rather than the action button. VoiceOver does not
-    // announce a dialog's `aria-describedby` when focus enters the dialog (WebKit bug 282773),
-    // so the APG's guidance is to focus a static element at the start of the dialog's content
-    // instead of the first control: the screen reader then reads the content, followed by the
-    // dialog's name and role.
-    // https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction
+    // `focusPanel()` waits for the panel's opening update to commit, moves focus to the
+    // content, and retries across frames until it lands — see the method's docs for why
+    // that is the announcement the APG recommends for a dialog.
     //
     // Only once focus has landed in the incoming panel is it safe to close the outgoing one.
     if (targetPanel) {

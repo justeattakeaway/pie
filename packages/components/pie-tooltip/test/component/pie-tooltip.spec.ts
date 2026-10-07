@@ -31,6 +31,13 @@ const loadTriggerStory = async (page: Page, storyId: string) => {
     return basePage;
 };
 
+// Calls `focusPanel()` on the first tooltip in the document, in the page, so the method's own
+// wait-and-retry behaviour is what carries the call — no choreography on this side.
+const callFocusPanel = (page: Page) => page.evaluate(() => {
+    const tooltip = document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> });
+    return tooltip.focusPanel();
+});
+
 /**
  * Placement itself is asserted by the Percy snapshots of the placement grid stories, which render
  * all twelve positions in both writing directions. What is tested here is the behaviour behind
@@ -218,7 +225,7 @@ test.describe('PieTooltip - Component tests', () => {
             const content = page.getByTestId(tooltip.selectors.content.dataTestId);
 
             // Act
-            await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> })).focusPanel());
+            await callFocusPanel(page);
 
             // Assert
             // The content is the static text the APG's dialog guidance says to focus, so
@@ -237,7 +244,7 @@ test.describe('PieTooltip - Component tests', () => {
             // call, so the method is exercised on a panel still committing its opening
             // update — the state where a first `focus()` call can be dropped (observed in
             // Safari) and where the method's own wait and retry is what recovers it.
-            const basePage = new BasePage(page, 'tooltip--with-action', 'data-test-id');
+            const basePage = new BasePage(page, 'tooltip--with-action');
 
             await basePage.load({ isOpen: false });
             await page.evaluate(() => {
@@ -246,10 +253,7 @@ test.describe('PieTooltip - Component tests', () => {
             });
 
             // Act
-            const focused = await page.evaluate(async () => {
-                const tooltip = document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> });
-                return tooltip.focusPanel();
-            });
+            const focused = await callFocusPanel(page);
 
             // Assert
             expect(focused).toBe(true);
@@ -263,7 +267,7 @@ test.describe('PieTooltip - Component tests', () => {
             // Act
             const content = page.getByTestId(tooltip.selectors.content.dataTestId);
 
-            const focused = await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> })).focusPanel());
+            const focused = await callFocusPanel(page);
 
             // Assert
             // The panel is a description of its trigger in this mode, not a container of its

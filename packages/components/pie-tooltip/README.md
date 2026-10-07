@@ -230,12 +230,13 @@ import { IconInfoCircle } from '@justeattakeaway/pie-icons-webc/dist/react/IconI
 export function DeliveryTimes () {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef(null);
-  const actionRef = useRef(null);
+  const tooltipRef = useRef(null);
 
   const open = () => {
     setIsOpen(true);
-    // The panel is only focusable once it has rendered and been positioned.
-    requestAnimationFrame(() => actionRef.current?.focus({ preventScroll: true }));
+    // `focusPanel()` waits for the panel's opening update to commit, then moves focus to
+    // the content so screen readers announce it with the dialog's name and role.
+    tooltipRef.current?.focusPanel();
   };
 
   const close = () => {
@@ -265,6 +266,7 @@ export function DeliveryTimes () {
       </PieIconButton>
 
       <PieTooltip
+        ref={tooltipRef}
         trigger="delivery-info"
         heading="Delivery times"
         isOpen={isOpen}
@@ -274,7 +276,7 @@ export function DeliveryTimes () {
         onPieTooltipOpen={open}
         onPieTooltipClose={close}>
         <span slot="content">Orders placed before 6pm arrive today.</span>
-        <PieButton slot="action" size="xsmall" ref={actionRef} onClick={close}>
+        <PieButton slot="action" size="xsmall" onClick={close}>
           Got it
         </PieButton>
       </PieTooltip>

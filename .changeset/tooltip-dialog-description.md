@@ -9,4 +9,6 @@
 
 [Fixed] - Each tooltip now generates unique heading and content ids per instance. HTML requires an id to be unique within a tree and WAI-ARIA treats a duplicate as an author error where the user agent uses the first matching element, so the panel's `aria-labelledby` and `aria-describedby` no longer rely on that fallback when several tooltips are on one page.
 
+[Removed] - The `pie-tooltip-body` `data-test-id` from the body wrapper around the heading and content. The wrapper itself stays, but its test id was referenced by nothing in the component's own test suite; the `pie-tooltip-content` test id covers the panel's text and is the focus target in dialog mode.
+
 [Fixed] - The onboarding tour story now opens and focuses the next step before closing the previous one, so focus never lands in a panel that is already `aria-hidden`. Previously the screen reader dropped focus mid-transition and announced later steps as a bare dialog with no description.
