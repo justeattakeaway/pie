@@ -16,8 +16,12 @@ const tooltip = {
             description: 'The selector for the panel heading',
             dataTestId: 'pie-tooltip-heading',
         },
+        body: {
+            description: 'The selector for the body the heading and content sit in',
+            dataTestId: 'pie-tooltip-body',
+        },
         content: {
-            description: 'The selector for the content wrapper',
+            description: 'The selector for the content wrapper, the programmatic focus target in dialog mode',
             dataTestId: 'pie-tooltip-content',
         },
         action: {

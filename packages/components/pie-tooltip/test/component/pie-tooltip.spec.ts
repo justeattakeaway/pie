@@ -124,6 +124,154 @@ test.describe('PieTooltip - Component tests', () => {
             await expect(panel).not.toHaveAttribute('aria-labelledby');
             await expect(panel).not.toHaveAttribute('aria-label');
         });
+
+        test('should describe the dialog panel from the content slot', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--with-action');
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
+
+            // Assert
+            // The panel is described by the content wrapper, so all of the content is announced
+            // when the dialog opens and not just the accessible name.
+            const describedBy = await panel.getAttribute('aria-describedby');
+            const contentId = await content.getAttribute('id');
+
+            expect(describedBy).toBeTruthy();
+            expect(describedBy).toBe(contentId);
+            await expect(panel).toHaveAccessibleDescription('Arrives today.');
+        });
+
+        test('should describe the dialog panel from the content slot when there is no heading', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--with-action-and-no-heading');
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAttribute('aria-describedby', await content.getAttribute('id') ?? '');
+        });
+
+        test('should not describe the panel from the content slot in tooltip mode', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page);
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            // `role="tooltip"` is already a description of its trigger, so it must not also be
+            // wired as the panel's own accessible description.
+            await expect(panel).toHaveAttribute('role', 'tooltip');
+            await expect(panel).not.toHaveAttribute('aria-describedby');
+        });
+
+        test('should point every dialog panel at its own heading and content', async ({ page }) => {
+            // Arrange
+            // Several dialog tooltips render at once. WAI-ARIA treats a duplicate id as an author
+            // error and leaves the user agent to use the first match, so each panel must reference
+            // its own elements rather than sharing fixed ids.
+            const basePage = new BasePage(page, 'tooltip--multiple-dialogs');
+
+            await basePage.load();
+
+            // Act
+            const panels = page.locator('pie-tooltip');
+
+            // Assert
+            const wiring = await panels.evaluateAll((elements) => elements.map((element) => {
+                const panel = element.shadowRoot?.querySelector<HTMLElement>('[role="dialog"]');
+                const content = element.shadowRoot?.querySelector<HTMLElement>('.c-tooltip-content');
+                const heading = element.shadowRoot?.querySelector<HTMLElement>('.c-tooltip-heading');
+
+                return {
+                    describedBy: panel?.getAttribute('aria-describedby'),
+                    labelledBy: panel?.getAttribute('aria-labelledby'),
+                    contentId: content?.id,
+                    headingId: heading?.id,
+                };
+            }));
+
+            expect(wiring).toHaveLength(3);
+
+            wiring.forEach(({
+                describedBy, labelledBy, contentId, headingId,
+            }) => {
+                expect(describedBy).toBe(contentId);
+                expect(labelledBy).toBe(headingId);
+            });
+
+            expect(new Set(wiring.map(({ contentId }) => contentId)).size).toBe(3);
+            expect(new Set(wiring.map(({ headingId }) => headingId)).size).toBe(3);
+        });
+    });
+
+    test.describe('focusPanel', () => {
+        test('should move focus to the panel content in dialog mode', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--with-action');
+
+            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
+
+            // Act
+            await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> })).focusPanel());
+
+            // Assert
+            // The content is the static text the APG's dialog guidance says to focus, so
+            // screen readers announce it together with the dialog's name and role. The content
+            // is never reached by Tab: the panel's own controls stay next in the tab sequence.
+            await expect(content).toBeFocused();
+            await expect(content).toHaveAttribute('tabindex', '-1');
+
+            await page.keyboard.press('Tab');
+            await expect(page.getByRole('button', { name: 'Next' })).toBeFocused();
+        });
+
+        test('should resolve true once focus has landed on a panel that is opening', async ({ page }) => {
+            // Arrange
+            // The panel is closed at load and opened in the same turn as the `focusPanel()`
+            // call, so the method is exercised on a panel still committing its opening
+            // update — the state where a first `focus()` call can be dropped (observed in
+            // Safari) and where the method's own wait and retry is what recovers it.
+            const basePage = new BasePage(page, 'tooltip--with-action', 'data-test-id');
+
+            await basePage.load({ isOpen: false });
+            await page.evaluate(() => {
+                const tooltip = document.querySelector('pie-tooltip') as HTMLElement & { isOpen: boolean };
+                tooltip.isOpen = true;
+            });
+
+            // Act
+            const focused = await page.evaluate(async () => {
+                const tooltip = document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> });
+                return tooltip.focusPanel();
+            });
+
+            // Assert
+            expect(focused).toBe(true);
+            await expect(page.getByTestId(tooltip.selectors.content.dataTestId)).toBeFocused();
+        });
+
+        test('should resolve false in tooltip mode, where there is no content to focus', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page);
+
+            // Act
+            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
+
+            const focused = await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> })).focusPanel());
+
+            // Assert
+            // The panel is a description of its trigger in this mode, not a container of its
+            // own, so its content must not join the focusable set.
+            await expect(content).not.toHaveAttribute('tabindex');
+            expect(focused).toBe(false);
+            await expect(content).not.toBeFocused();
+        });
     });
 
     test.describe('isDismissible', () => {

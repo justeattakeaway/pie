@@ -361,18 +361,36 @@ const findPanel = (root: HTMLElement, anchor: string) => root.querySelector<PieT
 const showTourStep = (root: HTMLElement, index: number) => {
     const current = tourSteps[index];
 
-    tourSteps.forEach((step, stepIndex) => {
-        const panel = findPanel(root, step.anchor);
+    const closeOtherSteps = () => {
+        tourSteps.forEach((step, stepIndex) => {
+            if (stepIndex === index) {
+                return;
+            }
 
-        if (panel) {
-            panel.isOpen = stepIndex === index;
-        }
-    });
+            const panel = findPanel(root, step.anchor);
+
+            if (panel) {
+                panel.isOpen = false;
+            }
+        });
+    };
 
     if (!current) {
+        // Move focus out of the panel before closing it: a closed panel is `aria-hidden`, and a
+        // screen reader drops focus the moment its subtree leaves the accessibility tree.
         root.querySelector<HTMLElement>('[data-tour-heading]')?.focus();
+        closeOtherSteps();
 
         return;
+    }
+
+    // Open the incoming panel before closing the outgoing one. Closing first would set the panel
+    // that still holds focus to `aria-hidden`, and a screen reader drops focus the moment that
+    // happens — so the next step is announced as a bare dialog with no description.
+    const targetPanel = findPanel(root, current.anchor);
+
+    if (targetPanel) {
+        targetPanel.isOpen = true;
     }
 
     // The panel is a fixed overlay pinned to its trigger, so bringing the trigger into view is
@@ -391,23 +409,23 @@ const showTourStep = (root: HTMLElement, index: number) => {
         }
     }
 
-    const targetPanel = findPanel(root, current.anchor);
-
-    // Waiting for updateComplete matters: until the update has been committed the panel is
-    // still `visibility: hidden`, and a hidden element cannot take focus. The animation frame then
-    // lets the browser lay the panel out before focus moves into it.
+    // `focusPanel()` waits for the panel's opening update to commit and retries the focus
+    // move across frames until it lands, because Safari can drop the call on a panel whose
+    // reveal is still settling.
     //
-    // The action button only shows a focus ring when the step is reached by keyboard, or on load
-    // before any interaction. A browser grants :focus-visible to a programmatically focused
-    // element only when the interaction before it was a keyboard one, so a step opened by pointer
-    // moves focus without drawing a ring. That is the intended behaviour of :focus-visible, and
-    // the story leaves it to the browser rather than painting a ring of its own.
+    // Focus goes to the panel's content rather than the action button. VoiceOver does not
+    // announce a dialog's `aria-describedby` when focus enters the dialog (WebKit bug 282773),
+    // so the APG's guidance is to focus a static element at the start of the dialog's content
+    // instead of the first control: the screen reader then reads the content, followed by the
+    // dialog's name and role.
+    // https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction
+    //
+    // Only once focus has landed in the incoming panel is it safe to close the outgoing one.
     if (targetPanel) {
-        targetPanel.updateComplete.then(() => {
-            requestAnimationFrame(() => {
-                targetPanel.querySelector<HTMLElement>('[slot="action"]')?.focus({ preventScroll: true });
-            });
-        });
+        // eslint-disable-next-line no-void -- the promise is deliberately floating: the tour moves on regardless of where focus ended up
+        void targetPanel.focusPanel().then(closeOtherSteps);
+    } else {
+        closeOtherSteps();
     }
 };
 
@@ -808,3 +826,132 @@ export const OnboardingTour = {
         if (root) showTourStep(root, 0);
     },
 };
+
+// -----------------------------------------------------------------------------
+// Delayed dialog
+// -----------------------------------------------------------------------------
+
+/**
+ * A diagnostic story for screen reader announcements: one dialog panel and nothing else. The
+ * button opens the panel five seconds later, so the opening is completely detached from the
+ * click that caused it. Focus has been at rest long before the panel appears, no other panel
+ * opens or closes, and nothing else changes in the accessibility tree.
+ *
+ * When the panel's heading and content are both announced here, the announcement itself works,
+ * and a failure to do so elsewhere is down to what changes at the same time as the opening.
+ */
+const DELAYED_DIALOG_OPEN_DELAY_MS = 5000;
+
+let delayedDialogOpenTimer: ReturnType<typeof setTimeout> | undefined;
+
+/**
+ * `focusPanel()` waits for the panel's opening update to commit and retries the focus move
+ * across frames until it lands, because Safari can drop the call on a panel whose reveal is
+ * still settling. Nothing happens around it.
+ */
+const handleDelayedDialogStart = (event: Event): void => {
+    const root = (event.currentTarget as HTMLElement).closest<HTMLElement>('[data-delayed-dialog-root]');
+
+    if (!root) {
+        return;
+    }
+
+    // A second click restarts the countdown rather than stacking a second panel.
+    if (delayedDialogOpenTimer !== undefined) {
+        clearTimeout(delayedDialogOpenTimer);
+    }
+
+    delayedDialogOpenTimer = setTimeout(() => {
+        delayedDialogOpenTimer = undefined;
+
+        const panel = root.querySelector<PieTooltip>('pie-tooltip');
+
+        if (!panel) {
+            return;
+        }
+
+        panel.isOpen = true;
+
+        // eslint-disable-next-line no-void -- the promise is deliberately floating: the story does nothing with the result
+        void panel.focusPanel();
+    }, DELAYED_DIALOG_OPEN_DELAY_MS);
+};
+
+const handleDelayedDialogClose = (event: Event): void => {
+    const panel = event.currentTarget as PieTooltip;
+
+    panel.isOpen = false;
+};
+
+const DelayedDialogTemplate: TemplateFunction<TooltipProps> = () => html`
+    <div class="delayed-dialog" data-delayed-dialog-root>
+        <div class="delayed-dialog-start">
+            <h2>Delayed dialog</h2>
+            <p>Click the button, then wait five seconds. The panel opens over the order card below and focus moves into it. Nothing else on the page changes.</p>
+            <pie-button type="button" size="small-productive" @click="${handleDelayedDialogStart}">
+                Open the panel in five seconds
+            </pie-button>
+        </div>
+
+        <div class="delayed-dialog-target" id="delayed-dialog-target">
+            <h3>Yesterday's orders</h3>
+            <p>Three orders are still waiting to be accepted.</p>
+            <pie-button type="button" variant="secondary" size="small-productive">Review orders</pie-button>
+        </div>
+
+        <pie-tooltip
+            trigger="delayed-dialog-target"
+            position="bottom-start"
+            heading="New orders waiting"
+            headingLevel="h3"
+            ?isDismissible="${true}"
+            ?isOpen="${false}"
+            .triggers="${[]}"
+            .aria="${{ close: 'Close the panel' }}"
+            @pie-tooltip-close="${handleDelayedDialogClose}">
+            <span slot="content">Three orders from yesterday are still waiting to be accepted.</span>
+            <pie-button slot="action" size="small-productive" @click="${handleActionClick}">Got it</pie-button>
+        </pie-tooltip>
+    </div>
+    <style>
+        .delayed-dialog {
+            display: flex;
+            flex-direction: column;
+            gap: var(--dt-spacing-e);
+            padding: var(--dt-spacing-d);
+        }
+
+        .delayed-dialog-start {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--dt-spacing-c);
+            padding: var(--dt-spacing-c) var(--dt-spacing-d);
+            border: var(--dt-color-border-strong) dashed 1px;
+            border-radius: var(--dt-radius-rounded-b);
+        }
+
+        .delayed-dialog-start h2,
+        .delayed-dialog-start p,
+        .delayed-dialog-target h3,
+        .delayed-dialog-target p {
+            margin: 0;
+        }
+
+        .delayed-dialog-target {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--dt-spacing-c);
+            margin-block-start: var(--dt-spacing-e);
+            padding: var(--dt-spacing-d);
+            border: var(--dt-color-border-default) solid 1px;
+            border-radius: var(--dt-radius-rounded-b);
+        }
+    </style>`;
+
+export const DelayedDialog = createStory<TooltipProps>(DelayedDialogTemplate, defaultArgs)({}, {
+    controls: {
+        disable: true,
+    },
+});

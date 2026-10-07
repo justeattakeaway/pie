@@ -89,7 +89,7 @@ export interface TooltipProps {
 
     /**
      * The text to display in the panel's heading. In dialog mode this also provides the
-     * panel's accessible name.
+     * panel's accessible name, while the `content` slot provides its accessible description.
      */
     heading?: string;
 

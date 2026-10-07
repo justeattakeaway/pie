@@ -419,6 +419,38 @@ export const IconPlacementGrid = createStory<TooltipProps>(PlacementGridTemplate
     controls: { disable: true },
 });
 
+/**
+ * Several dialog panels on one page at once. ARIA IDREFs resolve across shadow boundaries against
+ * the whole document, so each panel's heading and content ids must be unique: a shared id would
+ * make every panel describe itself with whichever panel's content comes first in the document.
+ */
+const multipleDialogSteps = [
+    { id: 'multi-dialog-one', heading: 'First step', content: 'The content of the first step.' },
+    { id: 'multi-dialog-two', heading: 'Second step', content: 'The content of the second step.' },
+    { id: 'multi-dialog-three', heading: 'Third step', content: 'The content of the third step.' },
+];
+
+const MultipleDialogsTemplate: TemplateFunction<TooltipProps> = () => html`
+    <div style="display: flex; gap: var(--dt-spacing-e); padding: ${pagePadding};">
+        ${multipleDialogSteps.map(({ id, heading, content }) => html`
+            <div>
+                <pie-button id="${id}" data-test-id="${id}">${heading}</pie-button>
+                <pie-tooltip
+                    trigger="${id}"
+                    heading="${heading}"
+                    ?isDismissible="${true}"
+                    ?isOpen="${true}"
+                    .aria="${{ close: 'Close' }}">
+                    <span slot="content">${content}</span>
+                    <pie-button slot="action" size="xsmall">Next</pie-button>
+                </pie-tooltip>
+            </div>`)}
+    </div>`;
+
+export const MultipleDialogs = createStory<TooltipProps>(MultipleDialogsTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
 const EnlargedOffsetTemplate: TemplateFunction<TooltipProps> = () => {
     const anchor = renderAnchoredTooltip({
         id: 'offset-top',

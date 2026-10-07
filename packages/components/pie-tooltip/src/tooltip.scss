@@ -343,6 +343,13 @@ $tooltip-alignments: ('', '-start', '-end');
     overflow-wrap: break-word;
 }
 
+// The content is the programmatic focus target in dialog mode (see `focusPanel`). It is never
+// reached by Tab, which moves between the panel's own controls, so it draws no focus ring of
+// its own: the controls inside the panel carry their own focus indicators.
+.c-tooltip-content:focus {
+    outline: none;
+}
+
 .c-tooltip.has-action .c-tooltip-action {
     display: flex;
     justify-content: flex-end;
