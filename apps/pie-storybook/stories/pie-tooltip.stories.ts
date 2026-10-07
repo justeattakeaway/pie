@@ -39,7 +39,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconStar.js';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
-// `triggers` is intentionally replaced by three booleans for simplicity when wiring to the story template
+// `triggers` is exposed as three booleans, because array args do not round-trip through the URL.
 type TooltipProps = Omit<TooltipBaseProps, 'triggers'> & {
     content: string;
     hasAction: boolean;
@@ -60,8 +60,6 @@ const defaultArgs: TooltipProps = {
     hasAction: false,
     aria: {
         close: 'Close',
-        // Only used in dialog mode, where the panel has to be named and there is no heading to
-        // name it. Set here so that turning `hasAction` on gives a named dialog.
         label: 'Delivery information',
     },
 };
@@ -146,8 +144,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
             description: 'The ARIA labels used for various parts of the tooltip. `close` names the close button, and `label` names the panel in dialog mode when no heading is provided.',
             control: 'object',
         },
-        // The `triggers` prop is exposed as three booleans rather than one array control, because
-        // array args do not round-trip through the Storybook URL. See the `TooltipProps` comment.
+        // `triggers` is exposed as three boolean controls, because array args do not round-trip.
         triggerOnHover: {
             name: 'triggers: hover',
             description: 'Request the panel to open and close on hover. Pair with `focus` for keyboard reachability.',
@@ -175,9 +172,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
                 category: 'Triggers',
             },
         },
-        // Neither of these is a component property: they are story controls standing in for the
-        // two slots, grouped under their own heading so they are not read as part of the
-        // component's API.
+        // Story-only controls standing in for the two slots.
         content: {
             description: 'Fills the `content` slot. The descriptive content of the panel. Must not contain focusable elements.',
             control: 'text',
@@ -185,9 +180,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
                 category: 'Slots',
             },
         },
-        // `type` is declared alongside `control` because a storybook-only arg has no custom
-        // elements manifest entry to take its type from, so without it the string `"false"`
-        // would arrive as a truthy value.
+        // `type` is declared so the string `"false"` from the URL is not read as truthy.
         hasAction: {
             description: 'Fills the `action` slot with a `pie-button`. Filling it switches the panel from a tooltip to a non-modal dialog.',
             control: 'boolean',
@@ -211,12 +204,7 @@ export default tooltipStoryMeta;
 const openAction = action('pie-tooltip-open');
 const closeAction = action('pie-tooltip-close');
 
-/**
- * The consumer's side of the controlled contract: the component never opens or closes itself, so
- * a configured trigger only asks. These handlers pass the value back. Doing it here rather than
- * inside the component is what lets a consumer refuse the change, for example when an API call
- * behind the panel has failed.
- */
+// The consumer's side of the controlled contract: these handlers pass the value back.
 const handleOpen = (event: Event) => {
     openAction(event);
     (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = true;
@@ -227,11 +215,7 @@ const handleClose = (event: Event) => {
     (event.currentTarget as HTMLElement & { isOpen: boolean }).isOpen = false;
 };
 
-/**
- * The action slot is filled by the consumer, so closing the panel from it is the consumer's job
- * too. The button is slotted into the light DOM, so the panel is its nearest `pie-tooltip`
- * ancestor.
- */
+// Closing from the slotted action button is the consumer's job.
 const handleActionClick = (event: Event) => {
     const panel = (event.currentTarget as HTMLElement).closest<PieTooltip>('pie-tooltip');
 
@@ -240,9 +224,7 @@ const handleActionClick = (event: Event) => {
     }
 };
 
-// -----------------------------------------------------------------------------
 // Default
-// -----------------------------------------------------------------------------
 
 const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     aria,
@@ -306,9 +288,7 @@ export const Dismissible = createStory<TooltipProps>(DefaultTemplate, {
     isOpen: false,
 })();
 
-// -----------------------------------------------------------------------------
 // Onboarding tour
-// -----------------------------------------------------------------------------
 
 type TourStep = {
     anchor: string;
@@ -317,10 +297,7 @@ type TourStep = {
     content: string;
 };
 
-/**
- * Each step names the `id` of the element it points at. The panels are rendered next to their
- * anchors rather than collected in one block, because reading and tab order follow DOM order.
- */
+// Each step names the `id` of the element it points at.
 const tourSteps: TourStep[] = [
     {
         anchor: 'tour-anchor-search',
@@ -352,12 +329,7 @@ const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: r
 
 const findPanel = (root: HTMLElement, anchor: string) => root.querySelector<PieTooltip>(`[data-tour-step="${anchor}"]`);
 
-/**
- * Opens one step and closes the rest. An index past the last step ends the tour.
- *
- * Everything here is the consumer's side of the contract. The component never writes to `isOpen`,
- * so showing a step is only ever a matter of this story setting the value.
- */
+// Opens one step and closes the rest; an index past the last step ends the tour.
 const showTourStep = (root: HTMLElement, index: number) => {
     const current = tourSteps[index];
 
@@ -376,26 +348,21 @@ const showTourStep = (root: HTMLElement, index: number) => {
     };
 
     if (!current) {
-        // Move focus out of the panel before closing it: a closed panel is `aria-hidden`, and a
-        // screen reader drops focus the moment its subtree leaves the accessibility tree.
+        // Move focus out before closing, so it never sits in an `aria-hidden` panel.
         root.querySelector<HTMLElement>('[data-tour-heading]')?.focus();
         closeOtherSteps();
 
         return;
     }
 
-    // Open the incoming panel before closing the outgoing one. Closing first would set the panel
-    // that still holds focus to `aria-hidden`, and a screen reader drops focus the moment that
-    // happens — so the next step is announced as a bare dialog with no description.
+    // Open the incoming panel before closing the outgoing one, so focus never sits in a hidden panel.
     const targetPanel = findPanel(root, current.anchor);
 
     if (targetPanel) {
         targetPanel.isOpen = true;
     }
 
-    // The panel is a fixed overlay pinned to its trigger, so bringing the trigger into view is
-    // the consumer's job. A panel whose trigger is below the fold opens off screen, and the tour
-    // looks like it has stalled.
+    // The panel is a fixed overlay, so bringing its trigger into view is the consumer's job.
     const anchorEl = root.querySelector<HTMLElement>(`#${current.anchor}`);
     if (anchorEl) {
         const { top, bottom } = anchorEl.getBoundingClientRect();
@@ -409,21 +376,15 @@ const showTourStep = (root: HTMLElement, index: number) => {
         }
     }
 
-    // `focusPanel()` waits for the panel's opening update to commit, moves focus to the
-    // content, and retries across frames until it lands — see the method's docs for why
-    // that is the announcement the APG recommends for a dialog.
-    //
-    // Only once focus has landed in the incoming panel is it safe to close the outgoing one.
+    // `focusPanel()` waits and retries internally; close the outgoing step once focus has landed.
     if (targetPanel) {
-        // eslint-disable-next-line no-void -- the promise is deliberately floating: the tour moves on regardless of where focus ended up
+        // eslint-disable-next-line no-void -- the promise is deliberately floating
         void targetPanel.focusPanel().then(closeOtherSteps);
     } else {
         closeOtherSteps();
     }
 };
 
-// `currentTarget` is always the element the handler is bound to, so there is no shadow boundary
-// retargeting to reason about.
 const tourRootOf = (event: Event) => (event.currentTarget as HTMLElement).closest<HTMLElement>('[data-tour-root]');
 
 const handleTourStart = (event: Event) => {
@@ -562,11 +523,7 @@ const renderLegend = (): TemplateResult => html`
         </tbody>
     </table>`;
 
-/**
- * A mock dashboard, tall enough to scroll, with the four tour triggers spread through it. The
- * tour is driven entirely by this story: `triggers` is deliberately left unset, so nothing here
- * opens on hover, focus or click.
- */
+// A mock dashboard with the four tour triggers; `triggers` is unset, so nothing opens on its own.
 const OnboardingTourTemplate: TemplateFunction<TooltipProps> = () => html`
     <div class="tour" data-tour-root>
         <div class="tour-bar">
@@ -820,28 +777,14 @@ export const OnboardingTour = {
     },
 };
 
-// -----------------------------------------------------------------------------
 // Delayed dialog
-// -----------------------------------------------------------------------------
 
-/**
- * A diagnostic story for screen reader announcements: one dialog panel and nothing else. The
- * button opens the panel five seconds later, so the opening is completely detached from the
- * click that caused it. Focus has been at rest long before the panel appears, no other panel
- * opens or closes, and nothing else changes in the accessibility tree.
- *
- * When the panel's heading and content are both announced here, the announcement itself works,
- * and a failure to do so elsewhere is down to what changes at the same time as the opening.
- */
+// A diagnostic story: one panel opens five seconds after the click, with nothing else changing.
 const DELAYED_DIALOG_OPEN_DELAY_MS = 5000;
 
 let delayedDialogOpenTimer: ReturnType<typeof setTimeout> | undefined;
 
-/**
- * `focusPanel()` waits for the panel's opening update to commit and retries the focus move
- * across frames until it lands, because Safari can drop the call on a panel whose reveal is
- * still settling. Nothing happens around it.
- */
+// `focusPanel()` waits and retries internally, so it is called straight after opening.
 const handleDelayedDialogStart = (event: Event): void => {
     const root = (event.currentTarget as HTMLElement).closest<HTMLElement>('[data-delayed-dialog-root]');
 
