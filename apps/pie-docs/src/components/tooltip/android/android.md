@@ -88,11 +88,11 @@ Used on dark backgrounds or containers.
 
 ## Modifiers
 
-### Placement
+### Pointer placement
 
 A tooltip can open at the top, bottom, left or right depending on the position of the UI trigger on the screen. In addition, we can select the alignment to the associated UI element. The UI element can be aligned to the start, centre or end of the tooltip container depending on the space available.
 
-By default, the tooltip opens from the bottom position. 
+By default, the tooltip opens from the bottom, which means the pointer is positioned top-centre.
 
 {% usage {
     do: {
@@ -115,17 +115,17 @@ By default, the tooltip opens from the bottom position.
   {% contentItem %}
   <h4>Bottom-start</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-left.svg",
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-start.svg",
       width: 200,
       alt: "Tooltip positioned at the bottom-start of the trigger element."
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>Bottom</h4>
+  <h4>Bottom-centre</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-centre.svg",
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-centre.svg",
       width: 200,
-      alt: "Tooltip positioned at the bottom of the trigger element."
+      alt: "Tooltip positioned at the bottom-centre of the trigger element."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -134,7 +134,7 @@ By default, the tooltip opens from the bottom position.
   {% contentItem %}
   <h4>Bottom-end</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-right.svg",
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-end.svg",
       width: 200,
       alt: "Tooltip positioned at the bottom-end of the trigger element."
     } %}
@@ -142,7 +142,7 @@ By default, the tooltip opens from the bottom position.
   {% contentItem %}
   <h4>Top-start</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-left.svg",
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-start.svg",
       width: 200,
       alt: "Tooltip positioned at the top-start of the trigger element."
     } %}
@@ -151,17 +151,17 @@ By default, the tooltip opens from the bottom position.
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Top</h4>
+  <h4>Top-centre</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-centre.svg",
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-centre.svg",
       width: 200,
-      alt: "Tooltip positioned at the top of the trigger element."
+      alt: "Tooltip positioned at the top-centre of the trigger element."
     } %}
   {% endcontentItem %}
   {% contentItem %}
   <h4>Top-end</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-bottom-right.svg",
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-top-end.svg",
       width: 200,
       alt: "Tooltip positioned at the top-end of the trigger element."
     } %}
@@ -170,19 +170,57 @@ By default, the tooltip opens from the bottom position.
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Left</h4>
+  <h4>Left-start</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-right-centre.svg",
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-left-start.svg",
       width: 200,
-      alt: "Tooltip positioned at the left of the trigger element."
+      alt: "Tooltip positioned at the left-start of the trigger element."
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>Right</h4>
+  <h4>Left-centre</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tooltip/android/modifiers-pointer-left-centre.svg",
       width: 200,
-      alt: "Tooltip positioned at the right of the trigger element."
+      alt: "Tooltip positioned at the left-centre of the trigger element."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Left-end</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-left-end.svg",
+      width: 200,
+      alt: "Tooltip positioned at the left-end of the trigger element."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Right-start</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-right-start.svg",
+      width: 200,
+      alt: "Tooltip positioned at the right-start of the trigger element."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Right-centre</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-right-centre.svg",
+      width: 200,
+      alt: "Tooltip positioned at the right-centre of the trigger element."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Right-end</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tooltip/android/modifiers-pointer-right-end.svg",
+      width: 200,
+      alt: "Tooltip positioned at the right-end of the trigger element."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -296,9 +334,9 @@ width: 200
 
 ## Placement
 
-### Offset
+### Spacing
 
-By default the tooltip has 4px offset between the pointer and the associated UI element. User can override the offset if needed.
+Tooltip should have 4px spacing between the pointer and the associated UI element.
 
 {% contentPageImage {
 src:"../../../assets/img/components/tooltip/android/placement-spacing.svg",
@@ -306,36 +344,15 @@ alt: "Example of Android tooltip component showing 4px spacing between end of th
 width: 200
 } %}
 
-### Pointer
+### Position
 
-Always position the tooltip pointer relative to the centre of the element.
+If the trigger appears near to the edge of the interface, the tooltip will open from a different position or adjust its alignment to avoid cropping, bleeding off the page or covering important information.
 
 {% contentPageImage {
-src:"../../../assets/img/components/tooltip/android/placement-pointer.svg",
-alt: "Example of Android tooltip component showing the pointer centered relative to the element.",
-width: 200,
-variant: "secondary"
+src:"../../../assets/img/components/tooltip/android/placement-position.svg",
+alt: "Example of Android tooltip component showing the pointer positioned relative to the element.",
+width: 200
 } %}
-
-{% notification {
-  type: "information",
-  message: "The pointer remains centered to the element when the tooltip is at the edge of the screen."
-} %}
-
-{% contentLayout %}
-  {% contentItem %}
-    {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/placement-pointer-screen-1.svg",
-      alt: "Tooltip opening to the right of a trigger near the left edge of the screen, with the pointer centred on the trigger element."
-    } %}
-  {% endcontentItem %}
-  {% contentItem %}
-    {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/android/placement-pointer-screen-2.svg",
-      alt: "Tooltip repositioning away from the screen edge with the pointer remaining centred on the trigger element."
-    } %}
-  {% endcontentItem %}
-{% endcontentLayout %}
 
 ---
 
@@ -373,7 +390,7 @@ The tooltip will automatically disappear 1500ms after being triggered. Since the
 
 {% contentPageImage {
 src:"../../../assets/img/components/tooltip/android/behaviours-close-auto-dismiss.svg",
-alt: "Example of Android tooltip component showing the pointer centered relative to the element.",
+alt: "Example of Android tooltip component showing the pointer centred relative to the element.",
 width: 200
 } %}
 
@@ -463,7 +480,7 @@ A tooltip can be closed in one of three ways: by tapping on the close icon, by t
 - All content should use sentence case.
 - Tooltip messages should be brief, always using clear and concise phrasing.
 - Should not contain crucial information. Important information should always be visible, not hidden in tooltips.
-- The title should aim to be kept between 1–2 lines of text.
+- The title should aim to be kept between one to two lines of text.
 - The body copy should aim to not exceed 4 lines of text.
 - The body copy weight can be increased to highlight specific pieces of text within the content.
 
