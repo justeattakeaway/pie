@@ -244,7 +244,7 @@ const getVisibleArea = (boundary: DOMRect, rect: CandidateRect): number => {
 /**
  * @tagname pie-tooltip
  * @event {Event} pie-tooltip-open - When a configured trigger asks for the panel. Set `isOpen` to `true` in response.
- * @event {Event} pie-tooltip-close - When the close button is clicked, or a configured trigger asks to dismiss the panel. Set `isOpen` to `false` in response.
+ * @event {Event} pie-tooltip-close - When the close button is clicked, Escape is pressed, or a configured trigger asks to dismiss the panel. Set `isOpen` to `false` in response.
  * @slot content - The descriptive content of the panel. Must not contain focusable elements.
  * @slot action - An optional slot for interactive content such as a `pie-button`. Filling this slot switches the panel to a non-modal dialog.
  */
@@ -795,19 +795,20 @@ export class PieTooltip extends PieElement implements TooltipProps {
     private _rebuildInteractionListeners (): void {
         this._teardownInteractionListeners();
 
-        if (!this.triggers?.length) return;
-
         const controller = new AbortController();
         const { signal } = controller;
         this._interactionController = controller;
 
-        const triggerEl = this._getTriggerElement();
-
+        // Escape dismisses the panel whether or not a trigger is configured.
         this.ownerDocument.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'Escape' && this.isOpen) {
                 this._requestClose();
             }
         }, { signal });
+
+        if (!this.triggers?.length) return;
+
+        const triggerEl = this._getTriggerElement();
 
         if (!triggerEl) return;
 

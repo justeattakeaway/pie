@@ -480,4 +480,20 @@ test.describe('PieTooltip - Component tests', () => {
             await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
         });
     });
+
+    test.describe('Escape', () => {
+        test('should emit pie-tooltip-close when no trigger is configured', async ({ page }) => {
+            // Arrange
+            // The `inert` story has no `triggers`, so Escape is the only dismissal wired.
+            const basePage = await loadStory(page, 'tooltip--inert');
+            await basePage.listenForEvent('pie-tooltip-close');
+
+            // Act
+            await page.keyboard.press('Escape');
+            await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+            // Assert
+            expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+        });
+    });
 });

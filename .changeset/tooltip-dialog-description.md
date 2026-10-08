@@ -11,4 +11,6 @@
 
 [Removed] - The `pie-tooltip-body` `data-test-id` from the body wrapper around the heading and content. The wrapper itself stays, but its test id was referenced by nothing in the component's own test suite; the `pie-tooltip-content` test id covers the panel's text and is the focus target in dialog mode.
 
+[Fixed] - Escape now dismisses the panel even when no `triggers` are configured. Previously Escape was only watched while at least one trigger was set, so a panel driven without `triggers` — such as an onboarding tour step — needed its own key handling.
+
 [Fixed] - The onboarding tour story now opens and focuses the next step before closing the previous one, so focus never lands in a panel that is already `aria-hidden`. Previously the screen reader dropped focus mid-transition and announced later steps as a bare dialog with no description.

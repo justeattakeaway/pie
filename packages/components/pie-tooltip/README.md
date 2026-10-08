@@ -69,7 +69,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Event | Type | Description |
 |---|---|---|
 | `pie-tooltip-open` | `Event` | Emitted when a configured trigger asks for the panel. Set `isOpen` to `true` in response. Bubbles and is composed. |
-| `pie-tooltip-close` | `Event` | Emitted when the close button is clicked, or when a configured trigger asks to dismiss the panel. Set `isOpen` to `false` in response. Bubbles and is composed. |
+| `pie-tooltip-close` | `Event` | Emitted when the close button is clicked, Escape is pressed, or a configured trigger asks to dismiss the panel. Set `isOpen` to `false` in response. Bubbles and is composed. |
 
 ### CSS Variables
 
@@ -289,9 +289,7 @@ The `closest('pie-tooltip')` check works because `document.activeElement` report
 
 #### Driving the panel without `triggers`
 
-Leave `triggers` unset when the panel's timing is not an interaction with its trigger, such as a step in an onboarding tour. Nothing is watched, so `pie-tooltip-open` never fires and `expanded` has nothing to describe. The close button still emits `pie-tooltip-close`.
-
-Escape is watched only while at least one trigger is configured, so a panel driven this way needs its own key handling if you want Escape to dismiss it.
+Leave `triggers` unset when the panel's timing is not an interaction with its trigger, such as a step in an onboarding tour. Nothing is watched, so `pie-tooltip-open` never fires and `expanded` has nothing to describe. The close button and Escape still emit `pie-tooltip-close`.
 
 ```html
 <template>
