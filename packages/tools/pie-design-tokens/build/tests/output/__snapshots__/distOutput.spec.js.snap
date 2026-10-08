@@ -562,7 +562,7 @@ exports[`generated file should match jet.css 1`] = `
     --dt-font-heading-xs-italic-size--wide: var(--dt-font-size-16);
     --dt-font-heading-xs-italic-line-height--wide: var(--dt-font-line-height-20);
     --dt-font-heading-xs-italic-size--narrow: var(--dt-font-size-14);
-    --dt-font-heading-xs-italic-line-height--narrow: var(--dt-font-line-height-20);
+    --dt-font-heading-xs-italic-line-height--narrow: var(--dt-font-line-height-16);
     --dt-font-heading-xs-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-xs-italic-weight: var(--dt-font-weight-black);
     --dt-font-heading-xs-italic-font-style: var(--dt-font-style-italic);
@@ -2041,7 +2041,7 @@ $font-heading-xxl-weight: $font-weight-extrablack;
 $font-heading-xs-italic-size--wide: $font-size-16;
 $font-heading-xs-italic-line-height--wide: $font-line-height-20;
 $font-heading-xs-italic-size--narrow: $font-size-14;
-$font-heading-xs-italic-line-height--narrow: $font-line-height-20;
+$font-heading-xs-italic-line-height--narrow: $font-line-height-16;
 $font-heading-xs-italic-family: $font-family-primary;
 $font-heading-xs-italic-weight: $font-weight-black;
 $font-heading-xs-italic-font-style: $font-style-italic;
@@ -4999,7 +4999,7 @@ exports[`generated file should match tokens.json 1`] = `
             \\"size--wide\\": \\"16\\",
             \\"line-height--wide\\": \\"20\\",
             \\"size--narrow\\": \\"14\\",
-            \\"line-height--narrow\\": \\"20\\",
+            \\"line-height--narrow\\": \\"16\\",
             \\"family\\": \\"JetSansDigital\\",
             \\"weight\\": \\"Black\\",
             \\"font-style\\": \\"italic\\"
@@ -7606,6 +7606,6 @@ exports[`generated file should match tokens.json 1`] = `
       }
     }
   },
-  \\"version\\": \\"7.14.3\\"
+  \\"version\\": \\"7.15.0\\"
 }"
 `;
