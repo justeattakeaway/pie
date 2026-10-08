@@ -1740,7 +1740,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-heading-xs-italic-size--wide: var(--dt-font-size-16);
     --dt-font-heading-xs-italic-line-height--wide: var(--dt-font-line-height-20);
     --dt-font-heading-xs-italic-size--narrow: var(--dt-font-size-14);
-    --dt-font-heading-xs-italic-line-height--narrow: var(--dt-font-line-height-20);
+    --dt-font-heading-xs-italic-line-height--narrow: var(--dt-font-line-height-16);
     --dt-font-heading-xs-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-xs-italic-weight: var(--dt-font-weight-black);
     --dt-font-heading-xs-italic-font-style: var(--dt-font-style-italic);
