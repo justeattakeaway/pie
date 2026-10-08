@@ -10,6 +10,8 @@ const {
 } = require('./snapshot-utils');
 
 function main () {
+    const filter = process.argv[2];
+
     console.info('Building React templates…');
     execFileSync('yarn', ['build:react'], { cwd: ROOT, stdio: 'inherit' });
 
@@ -17,7 +19,18 @@ function main () {
         fs.mkdirSync(SNAPSHOTS_DIR);
     }
 
-    const templates = listTemplates();
+    let templates = listTemplates();
+
+    if (filter) {
+        templates = templates.filter(({ component }) => component === filter);
+
+        if (templates.length === 0) {
+            console.error(`No template found for component "${filter}".`);
+            console.error(`Available components:\n  ${listTemplates().map(({ component }) => component).join('\n  ')}`);
+            process.exit(1);
+        }
+    }
+
     const failures = [];
 
     templates.forEach(({ component, templateFile }) => {
