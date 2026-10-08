@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.89.14",
+  "version": "1.89.15",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -16,8 +16,8 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@justeat/pie-design-tokens": "7.15.0",
-    "@justeattakeaway/pie-css": "1.9.0",
+    "@justeat/pie-design-tokens": "7.15.1",
+    "@justeattakeaway/pie-css": "1.9.1",
     "@justeattakeaway/pie-icons-webc": "1.29.4",
     "@justeattakeaway/pie-webc": "0.12.0",
     "dompurify": "3.4.15"
