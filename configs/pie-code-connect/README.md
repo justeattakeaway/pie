@@ -14,6 +14,10 @@ This package automates the creation of Figma Code Connect templates that link Fi
 - **Reusable utility functions** - Helpers for reading Figma instance properties, rendering component props, and generating import statements
 - **Snapshot tests** - A regression guardrail that captures the Code Connect output for each component and diffs it against a committed baseline
 
+## Component mapping status
+
+The current mapping status for each component (done, work in progress, or upcoming) is tracked in [components-code-connect-status.md](./components-code-connect-status.md). Update this table when a new component mapping is added or an existing one changes state.
+
 ## Scripts
 
 ### Build
@@ -405,6 +409,8 @@ export FIGMA_ACCESS_TOKEN=...
 2. **Publish:**
 
 Ensure the FIGMA_ACCESS_TOKEN env var is readable before publishing for the first time.
+
+That can be done by running `echo $FIGMA_ACCESS_TOKEN`.
 
 ```bash
 yarn publish:all

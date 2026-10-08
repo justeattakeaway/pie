@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tooltip
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - Viewport collision detection for `pie-tooltip`. The panel now repositions itself — flipping to the opposite side and/or shifting its alignment — when its preferred `position` would collide with the viewport or a clipping scroll container. This behaviour is always on and cannot be disabled. ([#3211](https://github.com/justeattakeaway/pie/pull/3211)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.3.0
 
 ### Minor Changes
