@@ -47,6 +47,10 @@
     "piePackage": "@justeattakeaway/pie-text-input",
     "status": "beta"
   },
+  "List": {
+    "piePackage": "@justeattakeaway/pie-list",
+    "status": "beta"
+  },
   "Loading": {
     "piePackage": "@justeattakeaway/pie-spinner",
     "status": "stable"
