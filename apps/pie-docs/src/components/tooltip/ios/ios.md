@@ -320,7 +320,7 @@ alt: "Example of iOS tooltip component with width fluid to content.",
 width: 200
 } %}
 
-#### Fluid to container
+#### Fill container
 
 The width is 100% of the container in which the trigger and tooltip are placed, and can only be applied to top and bottom tooltips.
 
