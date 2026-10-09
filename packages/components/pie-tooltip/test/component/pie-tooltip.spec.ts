@@ -173,6 +173,28 @@ test.describe('PieTooltip - Component tests', () => {
             await expect(panel).not.toHaveAttribute('aria-describedby');
         });
 
+        test('should fall back to the default heading element when headingLevel is invalid', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { heading: 'Delivery times', headingLevel: 'script' });
+
+            // Act
+            const { headingTag, hasUnexpectedTag } = await page.evaluate(() => {
+                const tooltip = document.querySelector('pie-tooltip');
+                const heading = tooltip?.shadowRoot?.querySelector('[data-test-id="pie-tooltip-heading"]');
+                const unsafeTags = tooltip?.shadowRoot?.querySelectorAll('script,img,iframe,object,embed');
+
+                return {
+                    headingTag: heading?.tagName.toLowerCase(),
+                    hasUnexpectedTag: unsafeTags && unsafeTags.length > 0,
+                };
+            });
+
+            // Assert
+            // The `headingLevel` whitelist falls back to `h2`, so no injected element can render.
+            expect(headingTag).toBe('h2');
+            expect(hasUnexpectedTag).toBe(false);
+        });
+
         test('should point every dialog panel at its own heading', async ({ page }) => {
             // Arrange
             // Several dialog tooltips render at once. WAI-ARIA treats a duplicate id as an author
