@@ -37,12 +37,10 @@ import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
 export * from './defs';
 
-// Attempts `focusPanel()` makes, one frame apart, before giving up.
 const FOCUS_PANEL_MAX_ATTEMPTS = 5;
 
 const nextFrame = (): Promise<number> => new Promise(requestAnimationFrame);
 
-// True when the element establishes a containing block through a property other than `position`.
 const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
     const isSet = (value: string | undefined) => !!value && value !== 'none';
 
@@ -60,7 +58,6 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
         return true;
     }
 
-    // `size` and `style` containment do not establish a containing block.
     if (/\b(paint|layout|content|strict)\b/.test(styles.contain)) {
         return true;
     }
@@ -69,7 +66,6 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
         return true;
     }
 
-    // will-change pre-establishes the containing block before the property is applied.
     return /\b(transform|perspective|filter|backdrop-filter|contain|translate|rotate|scale)\b/.test(styles.willChange);
 };
 
@@ -93,7 +89,6 @@ const flattenedAncestors = (element: Element): Array<Element> => {
     return ancestors;
 };
 
-// The ancestors that clip the trigger, excluding the root element and body (the viewport clip).
 const collectClippingAncestors = (element: Element): Array<Element> => {
     const { documentElement, body } = element.ownerDocument;
 
@@ -108,7 +103,6 @@ const collectClippingAncestors = (element: Element): Array<Element> => {
     });
 };
 
-// The region an element clips its descendants to: its padding box, minus any scrollbar.
 const getClipRect = (element: Element): DOMRect => {
     const { left, top } = element.getBoundingClientRect();
     const {
@@ -322,7 +316,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     private _openedByClick = false;
 
-    // Unique per instance so each panel's `aria-labelledby` resolves to its own heading.
     private readonly _instanceId = crypto.randomUUID();
 
     private get _headingId (): string {
@@ -336,7 +329,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             return undefined;
         }
 
-        // Entering the panel is dialog interaction; only hover/follow panels are tooltips.
         return (this._hasActionContent || this.isDismissible) ? 'dialog' : 'tooltip';
     }
 
@@ -396,13 +388,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
         super.disconnectedCallback();
     }
 
-    // Moves focus to the panel's content in dialog mode; resolves `false` outside it.
     public async focusPanel (): Promise<boolean> {
         if (this._mode !== 'dialog') {
             return false;
         }
 
-        // Wait for the opening update to commit and one frame for positioning before focusing.
         await this.updateComplete;
         await nextFrame();
 
@@ -414,7 +404,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
         const focusLanded = () => this.shadowRoot?.activeElement === content;
 
-        // Safari can silently drop a `focus()` call on a panel whose reveal is still settling.
         for (let attempt = 0; attempt < FOCUS_PANEL_MAX_ATTEMPTS; attempt++) {
             content.focus({ preventScroll: true });
 
@@ -429,7 +418,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         return false;
     }
 
-    // Re-anchors the panel on scroll, resize and dir changes, coalesced to one frame each.
     private startTrackingTrigger (): void {
         if (this._triggerTrackingController) {
             return;
@@ -459,7 +447,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         window.addEventListener('scroll', handleViewportChange, { capture: true, passive: true, signal });
         window.addEventListener('resize', handleResize, { passive: true, signal });
 
-        // `scroll` is not composed, so scroll containers in other shadow roots need their own listener.
         const shadowRoots = new Set<ShadowRoot>();
 
         flattenedAncestors(this).forEach((ancestor) => {
@@ -474,7 +461,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             root.addEventListener('scroll', handleViewportChange, { capture: true, passive: true, signal });
         });
 
-        // A trigger inside a `display: none` container has no box to measure until it is shown.
         this._triggerObserver = new ResizeObserver(() => {
             this._overlayModeDirty = true;
             handleViewportChange();
@@ -515,7 +501,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._hasActionContent = this._assignedActionElements.length > 0;
     }
 
-    // Uses `fixed` only when it escapes an overflow clip that `absolute` would not.
     private resolveOverlayMode (): void {
         if (!this._overlayModeDirty) {
             return;
@@ -530,13 +515,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
         const { documentElement, body } = this.ownerDocument;
 
-        // Both answers change only when the ancestor chain does.
         this._refreshTriggerClippers();
 
         flattenedAncestors(this).forEach((element) => {
             const styles = getComputedStyle(element);
 
-            // `display: contents` generates no box, so it can neither be a containing block nor clip.
             if (styles.display === 'contents') {
                 return;
             }
@@ -566,7 +549,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             }
         });
 
-        // A fixed box's clippers are a subset of an absolute box's, so fewer always means better.
         const useFixed = fixedClippingAncestors.length < absoluteClippingAncestors.length;
 
         this.style.position = useFixed ? 'fixed' : '';
@@ -593,7 +575,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this._refreshTriggerClippers();
         }
 
-        // Anchor to the trigger's visible part, so the arrow points at what the reader can see.
         const visibleRect = this._triggerClippers.reduce<DOMRect | null>(
             (rect, clipper) => (rect ? intersectRects(rect, getClipRect(clipper)) : null),
             triggerElement.getBoundingClientRect(),
@@ -737,7 +718,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         });
     }
 
-    // Cached because `projectOverTrigger` runs on every re-anchoring frame.
     private _refreshTriggerClippers (): void {
         const triggerElement = this._getTriggerElement();
 
@@ -793,7 +773,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         const { signal } = controller;
         this._interactionController = controller;
 
-        // Escape dismisses the panel whether or not a trigger is configured.
         this.ownerDocument.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'Escape' && this.isOpen) {
                 this._requestClose();
@@ -835,7 +814,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
             triggerEl.addEventListener('focusout', (e: Event) => {
                 const related = (e as FocusEvent).relatedTarget as Node | null;
-                // relatedTarget retargets to the shadow host when focus moves into shadow DOM
                 const staysInside = related && (this.contains(related) || related === this);
                 if (!staysInside) {
                     this._requestClose();
@@ -863,7 +841,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
                 this._requestClose();
             }, { signal });
 
-            // Light-dismiss: click anywhere outside the panel and trigger
             this.ownerDocument.addEventListener('click', (e: Event) => {
                 const target = e.composedPath()[0] as Node;
                 const isInsidePanel = this.contains(target) || this.shadowRoot?.contains(target);
