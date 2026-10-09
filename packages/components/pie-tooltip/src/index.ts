@@ -950,7 +950,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             [`${componentClass}--type-${type}`]: true,
             [`${componentClass}--size-${size}`]: !isIconType,
             'is-dismissible': !!isDismissible,
-            'has-action': mode === 'dialog',
+            'has-action': this._hasActionContent === true,
             'has-heading': !!heading,
         };
 
