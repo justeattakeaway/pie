@@ -77,9 +77,10 @@ everyone receives from Figma. These scripts capture that output and diff it
 against a committed baseline, so unintended changes surface in review instead of Figma.
 
 ```bash
-yarn snapshot:update       # Regenerate the baseline in snapshots/
-yarn snapshot:compare      # Diff the current output against the baseline, prompting to accept changes
-yarn snapshot:compare:ci   # The same comparison, but fails instead of prompting
+yarn snapshot:update                    # Regenerate the baseline for all components
+yarn snapshot:update pie-button         # Regenerate the baseline for a single component
+yarn snapshot:compare                   # Diff the current output against the baseline, prompting to accept changes
+yarn snapshot:compare:ci                # The same comparison, but fails instead of prompting
 ```
 
 Both commands run `yarn build:react` first, then call `figma connect preview` for every
@@ -262,7 +263,7 @@ yarn publish-components:all
 
 ### 4. Update the components snapshots (optional)
 
-If a new component template was added, run `yarn snapshot:update` and make sure to commit the new component snapshots.
+If a new component template was added, run `yarn snapshot:update pie-{component-name}` to regenerate only that component's baseline, then commit the new snapshot files.
 
 ## Adding New Icons
 

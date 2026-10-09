@@ -148,7 +148,7 @@
     "nodeId": "1700:146167",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=false, Optional=false, Multiline label=False"
   },
@@ -157,7 +157,7 @@
     "nodeId": "1700:146167",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=true, Optional=false, Multiline label=False"
   },
@@ -166,7 +166,7 @@
     "nodeId": "1700:146167",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=false, Optional=true, Multiline label=False"
   },
@@ -175,7 +175,7 @@
     "nodeId": "1700:146167",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=true, Optional=true, Multiline label=False"
   },
@@ -220,7 +220,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=false, Optional=false, Character Count=false, Multiline label=False"
   },
@@ -229,7 +229,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=true, Optional=false, Character Count=false, Multiline label=False"
   },
@@ -238,7 +238,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=false, Optional=true, Character Count=false, Multiline label=False"
   },
@@ -247,7 +247,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=true, Optional=true, Character Count=false, Multiline label=False"
   },
@@ -256,7 +256,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  trailing=\"X/XX\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  trailing=\"X/XX\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=false, Optional=false, Character Count=true, Multiline label=False"
   },
@@ -265,7 +265,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  trailing=\"X/XX\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  trailing=\"X/XX\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=true, Optional=false, Character Count=true, Multiline label=False"
   },
@@ -274,7 +274,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\"\n     trailing=\"X/XX\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\"\n     trailing=\"X/XX\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=false, Optional=true, Character Count=true, Multiline label=False"
   },
@@ -283,7 +283,7 @@
     "nodeId": "2011:77602",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\"\n     trailing=\"X/XX\">Label Multiline label</PieFormLabel>",
+    "snippet": "<PieFormLabel id=\"the-label-id\" for=\"the-input-id\"  optional=\"Optional\"\n     trailing=\"X/XX\">Label</PieFormLabel>",
     "language": "React",
     "propertyCombinationLabel": "Help tooltip=true, Optional=true, Character Count=true, Multiline label=False"
   },

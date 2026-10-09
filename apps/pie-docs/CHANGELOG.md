@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.18.2
+
+### Patch Changes
+
+- Updated dependencies [[`7a546e4`](https://github.com/justeattakeaway/pie/commit/7a546e44942083ca9174a208278c24df0ae71bd2)]:
+  - @justeat/pie-design-tokens@7.15.1
+  - @justeattakeaway/pie-css@1.9.1
+
 ## 5.18.1
 
 ### Patch Changes
