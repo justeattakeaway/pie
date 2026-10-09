@@ -1,6 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-// All twelve position values are generated explicitly — none inferred.
+// All twelve position values are generated explicitly, none inferred.
 $tooltip-alignments: ('', '-start', '-end');
 
 // Zero-size, pinned to the containing block's origin. Trigger position is measured relative
@@ -341,6 +341,13 @@ $tooltip-alignments: ('', '-start', '-end');
 
 .c-tooltip-content {
     overflow-wrap: break-word;
+}
+
+// The content is the programmatic focus target in dialog mode (see `focusPanel`). It is never
+// reached by Tab, which moves between the panel's own controls, so it draws no focus ring of
+// its own: the controls inside the panel carry their own focus indicators.
+.c-tooltip-content:focus {
+    outline: none;
 }
 
 .c-tooltip.has-action .c-tooltip-action {

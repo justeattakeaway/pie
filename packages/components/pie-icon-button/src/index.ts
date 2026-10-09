@@ -80,6 +80,7 @@ export class PieIconButton extends DelegatesFocusMixin(PieElement) implements Ic
                 aria-label="${ifDefined(aria?.label)}"
                 aria-labelledby="${ifDefined(aria?.labelledby)}"
                 aria-describedby="${ifDefined(aria?.describedby)}"
+                aria-description="${ifDefined(aria?.description)}"
                 aria-expanded="${ifDefined(aria?.expanded)}"
                 aria-controls="${ifDefined(aria?.controls)}"
                 aria-haspopup="${ifDefined(aria?.haspopup)}">

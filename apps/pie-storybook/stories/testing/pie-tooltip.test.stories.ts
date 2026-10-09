@@ -20,7 +20,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 
 import { createStory, type TemplateFunction } from '../../utilities';
 
-// Extending the props type definition to include storybook specific properties for controls
+// Storybook-specific control props added to the component's own.
 type TooltipProps = TooltipBaseProps & {
     content: string;
     hasAction: boolean;
@@ -64,9 +64,7 @@ const defaultArgs: TooltipProps = {
 const tooltipStoryMeta: TooltipStoryMeta = {
     title: 'Tooltip',
     component: 'pie-tooltip',
-    // `type` is declared alongside `control` on every boolean so that Storybook coerces the
-    // string form used in test URLs. Without it, `hasAction=false` arrives as the truthy
-    // string "false", because storybook-only args have no custom elements manifest entry.
+    // `type` is declared so the string `"false"` from the test URL is not read as truthy.
     argTypes: {
         isOpen: { control: 'boolean', type: 'boolean' },
         position: { control: 'select', options: positions },
@@ -95,12 +93,7 @@ const tooltipStoryMeta: TooltipStoryMeta = {
 
 export default tooltipStoryMeta;
 
-/**
- * Most test stories keep their triggers well clear of the viewport edges, so the preferred
- * position is used unchanged. The edge-anchored stories below deliberately place a trigger
- * against each edge to exercise collision detection, which flips or shifts the panel regardless
- * of the `position` prop.
- */
+// Edge-anchored stories place a trigger against each edge to exercise collision detection.
 const pagePadding = 'var(--dt-spacing-j)';
 const pageInlinePadding = 'var(--dt-spacing-j)';
 
@@ -110,11 +103,7 @@ const renderContent = (content: string, hasAction: boolean): TemplateResult => h
     ? html`<pie-button slot="action" size="xsmall" data-test-id="pie-tooltip-slotted-action">Next</pie-button>`
     : nothing}`;
 
-/**
- * The `icon` type is the compact treatment intended for icon triggers, so its stories anchor to a
- * `pie-icon-button` rather than the text button the rest use. The outline variant follows the
- * story background, which is dark wherever the panel is `inverse`.
- */
+// The `icon` type anchors to a `pie-icon-button` rather than the text button the rest use.
 const renderTrigger = ({
     type,
     variant,
@@ -134,10 +123,7 @@ const renderTrigger = ({
             Delivery times
         </pie-button>`);
 
-/**
- * The workhorse story. It attaches no event listeners at all, so it also proves that the
- * component never writes to its own `isOpen`: dismissing an unwired panel changes nothing.
- */
+// The workhorse story: attaches no listeners, proving the component never writes to its own `isOpen`.
 const DefaultTemplate: TemplateFunction<TooltipProps> = ({
     aria,
     containerInlineSize,
@@ -225,6 +211,10 @@ export const DismissibleWithAction = createStory<TooltipProps>(DefaultTemplate, 
 export const DismissibleNoHeading = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     isDismissible: true,
+    aria: {
+        close: 'Close',
+        label: 'Delivery times',
+    },
 })();
 
 export const FitToContent = createStory<TooltipProps>(DefaultTemplate, {
@@ -291,9 +281,7 @@ export const FillContainer = createStory<TooltipProps>(FillContainerTemplate, {
     content: longContent,
 })();
 
-// -----------------------------------------------------------------------------
 // Grids
-// -----------------------------------------------------------------------------
 
 type AnchorProps = Partial<TooltipProps> & {
     id: string;
@@ -340,14 +328,8 @@ const placementGridAreas = `
     '.           bottom-start  bottom   bottom-end   .'
 `;
 
-/**
- * Uniform square anchors, so the only thing that varies between the twelve panels is the
- * placement itself.
- *
- * Direction is left to the `writingDirection` global, so switching the toolbar mirrors both the
- * named grid areas and the panels placed against them. The RTL rendering should be a mirror
- * image of the LTR one.
- */
+// Uniform square anchors; direction comes from the `writingDirection` global.
+// Plain HTML anchors, so each trigger points `aria-describedby` at its tooltip's `id`.
 const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }) => html`
     <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
         ${positions.map((position) => html`
@@ -357,9 +339,11 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }
                 class="tooltip-placement-anchor"
                 style="grid-area: ${position};"
                 type="button"
-                aria-label="${position}"></button>
+                aria-label="${position}"
+                aria-describedby="placement-${position}-tooltip"></button>
 
             <pie-tooltip
+                id="placement-${position}-tooltip"
                 data-test-id="placement-${position}-tooltip"
                 trigger="placement-${position}"
                 position="${position}"
@@ -419,6 +403,34 @@ export const IconPlacementGrid = createStory<TooltipProps>(PlacementGridTemplate
     controls: { disable: true },
 });
 
+// Several dialog panels at once, each needing its own unique heading id.
+const multipleDialogSteps = [
+    { id: 'multi-dialog-one', heading: 'First step', content: 'The content of the first step.' },
+    { id: 'multi-dialog-two', heading: 'Second step', content: 'The content of the second step.' },
+    { id: 'multi-dialog-three', heading: 'Third step', content: 'The content of the third step.' },
+];
+
+const MultipleDialogsTemplate: TemplateFunction<TooltipProps> = () => html`
+    <div style="display: flex; gap: var(--dt-spacing-e); padding: ${pagePadding};">
+        ${multipleDialogSteps.map(({ id, heading, content }) => html`
+            <div>
+                <pie-button id="${id}" data-test-id="${id}">${heading}</pie-button>
+                <pie-tooltip
+                    trigger="${id}"
+                    heading="${heading}"
+                    ?isDismissible="${true}"
+                    ?isOpen="${true}"
+                    .aria="${{ close: 'Close' }}">
+                    <span slot="content">${content}</span>
+                    <pie-button slot="action" size="xsmall">Next</pie-button>
+                </pie-tooltip>
+            </div>`)}
+    </div>`;
+
+export const MultipleDialogs = createStory<TooltipProps>(MultipleDialogsTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
 const EnlargedOffsetTemplate: TemplateFunction<TooltipProps> = () => {
     const anchor = renderAnchoredTooltip({
         id: 'offset-top',
@@ -440,9 +452,7 @@ export const OverriddenWidth = createStory<TooltipProps>(DefaultTemplate, {
     tooltipWidth: '400px',
 })();
 
-// -----------------------------------------------------------------------------
 // Trigger interactions
-// -----------------------------------------------------------------------------
 
 const HoverFocusTemplate: TemplateFunction<TooltipProps> = ({
     aria,
@@ -582,10 +592,7 @@ export const FocusClick = createStory<TooltipProps>(FocusClickTemplate, defaultA
     controls: { disable: true },
 });
 
-/**
- * Focus trigger with action slot. Used to verify focus staying inside the panel when
- * moving from the trigger into the action button does not close the panel.
- */
+// Focus trigger with action slot: moving into the action button must not close the panel.
 const FocusWithActionTemplate: TemplateFunction<TooltipProps> = ({
     aria,
     content,
@@ -621,10 +628,7 @@ export const FocusWithAction = createStory<TooltipProps>(FocusWithActionTemplate
     controls: { disable: true },
 });
 
-/**
- * No triggers configured. The panel is always open and demonstrates the component is inert:
- * nothing can self-close it.
- */
+// No triggers configured; the panel is always open and cannot self-close.
 export const Inert = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     isOpen: true,
@@ -632,15 +636,7 @@ export const Inert = createStory<TooltipProps>(DefaultTemplate, {
     controls: { disable: true },
 });
 
-/**
- * A panel slotted into `pie-modal`. The modal's scroll container clips absolutely positioned
- * descendants and the `<dialog>` is a containing block for fixed ones, so this is the composition
- * that exercises the whole overlay-mode resolution: the panel has to leave both to be readable.
- *
- * The trigger is the last thing in the modal's content, with the panel below it, so a clipped
- * panel is unmistakable. The panel opens on click rather than on load because a closed dialog is
- * `display: none` and nothing inside it has a box to measure.
- */
+// A panel slotted into `pie-modal`, exercising the full overlay-mode resolution.
 const InModalTemplate: TemplateFunction<TooltipProps> = ({
     content,
     heading,
@@ -669,10 +665,7 @@ const InModalTemplate: TemplateFunction<TooltipProps> = ({
         </pie-tooltip>
     </pie-modal>`;
 
-/**
- * Footer not pinned: the clipping `.c-modal-scrollContainer` wrapper sits *above* the panel's
- * absolute containing block, so `absolute` is clipped by it.
- */
+// Footer not pinned: the clipping scroll container sits above the panel's absolute containing block.
 export const InModal = createStory<TooltipProps>(InModalTemplate, {
     ...defaultArgs,
     isOpen: false,
@@ -682,10 +675,7 @@ export const InModal = createStory<TooltipProps>(InModalTemplate, {
     controls: { disable: true },
 });
 
-/**
- * Footer pinned: the content article is *both* the absolute containing block and the clipper,
- * which exercises the ordering of the containing-block and overflow checks in the ancestor walk.
- */
+// Footer pinned: the content article is both the absolute containing block and the clipper.
 export const InModalWithPinnedFooter = createStory<TooltipProps>(InModalTemplate, {
     ...defaultArgs,
     isOpen: false,
@@ -696,17 +686,7 @@ export const InModalWithPinnedFooter = createStory<TooltipProps>(InModalTemplate
     controls: { disable: true },
 });
 
-/**
- * Percy-only variants of the modal stories. `isOpen` is declared directly in the template so
- * Storybook's Lit render sets the `isopen` attribute — the only form Percy sees when it
- * re-renders the story with JavaScript enabled. No triggers are configured, so Percy never
- * clicks and never closes the panel.
- *
- * The tooltip cannot measure the trigger until `pie-modal` calls `showModal()`, so the panel
- * starts invisible. A ResizeObserver watches the trigger; once the dialog is open and the
- * trigger has a box to measure, the observer fires, `projectOverTrigger` runs, and the panel
- * becomes visible. The visual test waits for that before snapshotting.
- */
+// Percy-only variants: `isOpen` is set in the template so the panel renders open for the snapshot.
 const InModalOpenTemplate: TemplateFunction<TooltipProps> = ({
     content,
     heading,
@@ -751,12 +731,7 @@ export const InModalWithPinnedFooterOpen = createStory<TooltipProps>(InModalOpen
     controls: { disable: true },
 });
 
-/**
- * Light-DOM control case, all in one element: the scroll container is *both* the panel's absolute
- * containing block and the clipper, so it clips an `absolute` panel. Nothing above it establishes
- * a containing block for `fixed`, so promoting escapes the clip outright and the panel must
- * promote. Guards the heuristic against under-promotion.
- */
+// The scroll container is both the absolute containing block and the clipper, so the panel promotes.
 const InClippingScrollContainerTemplate: TemplateFunction<TooltipProps> = ({ content }) => html`
     <div style="padding: ${pagePadding} ${pageInlinePadding};">
         <div

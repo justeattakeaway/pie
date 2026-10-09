@@ -37,10 +37,10 @@ import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
 export * from './defs';
 
-const headingId = 'pie-tooltip-heading';
+const FOCUS_PANEL_MAX_ATTEMPTS = 5;
 
-// Returns true if the element establishes a containing block through a property other than
-// `position` — i.e. for both absolute and fixed descendants, not just absolute.
+const nextFrame = (): Promise<number> => new Promise(requestAnimationFrame);
+
 const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
     const isSet = (value: string | undefined) => !!value && value !== 'none';
 
@@ -58,7 +58,6 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
         return true;
     }
 
-    // `size` and `style` containment do not establish a containing block; everything else does.
     if (/\b(paint|layout|content|strict)\b/.test(styles.contain)) {
         return true;
     }
@@ -67,7 +66,6 @@ const createsContainingBlock = (styles: CSSStyleDeclaration): boolean => {
         return true;
     }
 
-    // will-change pre-establishes the containing block before the property is applied.
     return /\b(transform|perspective|filter|backdrop-filter|contain|translate|rotate|scale)\b/.test(styles.willChange);
 };
 
@@ -91,8 +89,6 @@ const flattenedAncestors = (element: Element): Array<Element> => {
     return ancestors;
 };
 
-// The ancestors that clip the trigger. Overflow on the root element and the body is left out:
-// that is the viewport clip, which every element is subject to and which no panel can escape.
 const collectClippingAncestors = (element: Element): Array<Element> => {
     const { documentElement, body } = element.ownerDocument;
 
@@ -107,9 +103,6 @@ const collectClippingAncestors = (element: Element): Array<Element> => {
     });
 };
 
-// The region an element clips its descendants to: its padding box, minus any scrollbar.
-// `clientLeft`/`clientTop` are the border widths and `clientWidth`/`clientHeight` the padding box,
-// so together they convert the border-box rect the browser reports into the clip region.
 const getClipRect = (element: Element): DOMRect => {
     const { left, top } = element.getBoundingClientRect();
     const {
@@ -119,7 +112,6 @@ const getClipRect = (element: Element): DOMRect => {
     return new DOMRect(left + clientLeft, top + clientTop, clientWidth, clientHeight);
 };
 
-// Intersects two rects. Returns `null` when they do not overlap.
 const intersectRects = (a: DOMRect, b: DOMRect): DOMRect | null => {
     const left = Math.max(a.left, b.left);
     const top = Math.max(a.top, b.top);
@@ -245,7 +237,7 @@ const getVisibleArea = (boundary: DOMRect, rect: CandidateRect): number => {
 /**
  * @tagname pie-tooltip
  * @event {Event} pie-tooltip-open - When a configured trigger asks for the panel. Set `isOpen` to `true` in response.
- * @event {Event} pie-tooltip-close - When the close button is clicked, or a configured trigger asks to dismiss the panel. Set `isOpen` to `false` in response.
+ * @event {Event} pie-tooltip-close - When the close button is clicked, Escape is pressed, or a configured trigger asks to dismiss the panel. Set `isOpen` to `false` in response.
  * @slot content - The descriptive content of the panel. Must not contain focusable elements.
  * @slot action - An optional slot for interactive content such as a `pie-button`. Filling this slot switches the panel to a non-modal dialog.
  */
@@ -324,6 +316,12 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
     private _openedByClick = false;
 
+    private readonly _instanceId = crypto.randomUUID();
+
+    private get _headingId (): string {
+        return `pie-tooltip-heading-${this._instanceId}`;
+    }
+
     static styles = unsafeCSS(styles);
 
     private get _mode (): TooltipMode | undefined {
@@ -331,7 +329,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             return undefined;
         }
 
-        return this._hasActionContent ? 'dialog' : 'tooltip';
+        return (this._hasActionContent || this.isDismissible) ? 'dialog' : 'tooltip';
     }
 
     protected firstUpdated (): void {
@@ -369,9 +367,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this.projectOverTrigger();
         }
 
-        // Tracking is bound to a specific trigger element and a specific ancestor chain, so a new
-        // trigger needs it rebuilt rather than left in place. `startTrackingTrigger` early-returns
-        // while a controller exists, so the stop has to come first.
         if (this.isOpen && changedProperties.has('trigger')) {
             this.stopTrackingTrigger();
         }
@@ -393,8 +388,36 @@ export class PieTooltip extends PieElement implements TooltipProps {
         super.disconnectedCallback();
     }
 
-    // Listens for scroll (capture — catches any ancestor), resize, and dir-attribute changes to
-    // re-anchor the panel. Multiple events per frame coalesce into one requestAnimationFrame call.
+    public async focusPanel (): Promise<boolean> {
+        if (this._mode !== 'dialog') {
+            return false;
+        }
+
+        await this.updateComplete;
+        await nextFrame();
+
+        const content = this.renderRoot.querySelector<HTMLElement>(`.${componentClass}-content`);
+
+        if (!content) {
+            return false;
+        }
+
+        const focusLanded = () => this.shadowRoot?.activeElement === content;
+
+        for (let attempt = 0; attempt < FOCUS_PANEL_MAX_ATTEMPTS; attempt++) {
+            content.focus({ preventScroll: true });
+
+            if (focusLanded()) {
+                return true;
+            }
+
+            // eslint-disable-next-line no-await-in-loop
+            await nextFrame();
+        }
+
+        return false;
+    }
+
     private startTrackingTrigger (): void {
         if (this._triggerTrackingController) {
             return;
@@ -416,7 +439,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             });
         };
 
-        // Flagged rather than resolved immediately so window-drag cannot walk ancestors more than once per frame.
         const handleResize = () => {
             this._overlayModeDirty = true;
             handleViewportChange();
@@ -425,10 +447,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         window.addEventListener('scroll', handleViewportChange, { capture: true, passive: true, signal });
         window.addEventListener('resize', handleResize, { passive: true, signal });
 
-        // `scroll` is not composed, so its path stops at the shadow root it happened in and a
-        // listener on `window` never sees it. A scroll container inside another component's
-        // shadow root (`pie-modal`'s, for one) therefore needs its own listener, or the panel
-        // detaches from the trigger as soon as that container scrolls.
         const shadowRoots = new Set<ShadowRoot>();
 
         flattenedAncestors(this).forEach((ancestor) => {
@@ -443,12 +461,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             root.addEventListener('scroll', handleViewportChange, { capture: true, passive: true, signal });
         });
 
-        // A trigger inside a container that was `display: none` when the panel opened has no box
-        // to measure. `pie-modal` calls `showModal()` from an async `firstUpdated`, so this is the
-        // normal case for a tooltip inside a modal that is open on load.
         this._triggerObserver = new ResizeObserver(() => {
-            // Geometry changed, so the ancestor chain may have too. Flagged rather than resolved
-            // here so the walk runs at most once per frame.
             this._overlayModeDirty = true;
             handleViewportChange();
         });
@@ -488,13 +501,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._hasActionContent = this._assignedActionElements.length > 0;
     }
 
-    // Picks between `absolute` (browser handles scrolling, but clipped by overflow ancestors) and
-    // `fixed` (escapes overflow clips, but must re-offset on every scroll). Switches to `fixed`
-    // only when it escapes a clip that `absolute` would not.
-    //
-    // An overflow ancestor clips a positioned box only if it is that box's containing block or an
-    // ancestor of it; a clipper strictly inside the containing block does not clip. So each
-    // clipper is counted against a mode only once that mode's containing block has been reached.
     private resolveOverlayMode (): void {
         if (!this._overlayModeDirty) {
             return;
@@ -509,16 +515,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
         const { documentElement, body } = this.ownerDocument;
 
-        // Resolved on the same triggers as the overlay mode, because both answers change only
-        // when the ancestor chain does.
         this._refreshTriggerClippers();
 
         flattenedAncestors(this).forEach((element) => {
             const styles = getComputedStyle(element);
 
-            // `display: contents` generates no box, so it can neither be a containing block nor
-            // clip. `display: none` is deliberately not skipped: its computed values still
-            // describe the box it will generate, so the answer holds once it is shown.
             if (styles.display === 'contents') {
                 return;
             }
@@ -535,14 +536,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
             const clips = styles.overflowX !== 'visible' || styles.overflowY !== 'visible';
 
-            // Overflow on the root element and on the body propagates to the viewport, which no
-            // positioning scheme escapes. Counting it can only make `fixed` look no better than
-            // `absolute`, which is what happens while a `pie-modal` is open, because its scroll
-            // lock sets `overflow: hidden` on the body.
             const propagatesOverflowToViewport = element === documentElement || element === body;
 
-            // Counted after the containing-block flags so an ancestor that is both the containing
-            // block and the clipper is counted correctly.
             if (clips && !propagatesOverflowToViewport) {
                 if (isAtOrAboveAbsoluteContainingBlock) {
                     absoluteClippingAncestors.push(element);
@@ -554,18 +549,12 @@ export class PieTooltip extends PieElement implements TooltipProps {
             }
         });
 
-        // The fixed containing block is always at or above the absolute one, so the clippers that
-        // apply to a fixed box are a subset of those that apply to an absolute one. A lower count
-        // therefore always means a strictly better escape, never a worse one.
         const useFixed = fixedClippingAncestors.length < absoluteClippingAncestors.length;
 
         this.style.position = useFixed ? 'fixed' : '';
         this._overlayClippers = useFixed ? fixedClippingAncestors : absoluteClippingAncestors;
     }
 
-    // Measures the trigger relative to the origin marker (which sits at the containing block's
-    // origin) and writes CSS custom properties. Self-referential: correct for any containing
-    // block. Physical values; shadow-root CSS uses logical properties for RTL mirroring.
     private projectOverTrigger (): void {
         this._isPositioned = false;
 
@@ -586,16 +575,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this._refreshTriggerClippers();
         }
 
-        // Anchoring to the trigger's full box would point the panel at a part of the trigger that
-        // has been scrolled out of sight, leaving whatever sits over it — a pinned modal footer,
-        // for one — between the two. Anchoring to the visible part instead keeps the arrow on the
-        // edge the reader can actually see.
         const visibleRect = this._triggerClippers.reduce<DOMRect | null>(
             (rect, clipper) => (rect ? intersectRects(rect, getClipRect(clipper)) : null),
             triggerElement.getBoundingClientRect(),
         );
 
-        // Nothing of the trigger is left to point at, so there is nothing to describe either.
         this._isAnchorVisible = visibleRect !== null;
 
         if (!visibleRect) {
@@ -734,9 +718,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         });
     }
 
-    // Cached because `projectOverTrigger` runs on every re-anchoring frame, and collecting these
-    // costs a computed style per ancestor. Refreshed when the trigger changes and whenever the
-    // overlay mode is resolved, which is the same cadence as an ancestor chain actually changing.
     private _refreshTriggerClippers (): void {
         const triggerElement = this._getTriggerElement();
 
@@ -788,19 +769,19 @@ export class PieTooltip extends PieElement implements TooltipProps {
     private _rebuildInteractionListeners (): void {
         this._teardownInteractionListeners();
 
-        if (!this.triggers?.length) return;
-
         const controller = new AbortController();
         const { signal } = controller;
         this._interactionController = controller;
-
-        const triggerEl = this._getTriggerElement();
 
         this.ownerDocument.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'Escape' && this.isOpen) {
                 this._requestClose();
             }
         }, { signal });
+
+        if (!this.triggers?.length) return;
+
+        const triggerEl = this._getTriggerElement();
 
         if (!triggerEl) return;
 
@@ -814,7 +795,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
                 this._startHoverCloseTimer();
             }, { signal });
 
-            // panel mouseenter/leave for the hover bridge (includes the bridge pseudo-element)
             const panel = this.renderRoot.querySelector('.c-tooltip');
             if (panel) {
                 panel.addEventListener('mouseenter', () => {
@@ -828,14 +808,12 @@ export class PieTooltip extends PieElement implements TooltipProps {
         }
 
         if (this.triggers.includes('focus')) {
-            // open on focus, close on blur unless focus moved into panel action content
             triggerEl.addEventListener('focusin', () => {
                 this._requestOpen();
             }, { signal });
 
             triggerEl.addEventListener('focusout', (e: Event) => {
                 const related = (e as FocusEvent).relatedTarget as Node | null;
-                // relatedTarget is retargeted to the shadow host when focus moves into shadow DOM
                 const staysInside = related && (this.contains(related) || related === this);
                 if (!staysInside) {
                     this._requestClose();
@@ -848,7 +826,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
                 e.stopPropagation();
 
                 if (!this.isOpen) {
-                    // Only click-opens toggle
                     this._openedByClick = true;
                     this._requestOpen();
 
@@ -864,7 +841,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
                 this._requestClose();
             }, { signal });
 
-            // Light-dismiss: click anywhere outside the panel and trigger
             this.ownerDocument.addEventListener('click', (e: Event) => {
                 const target = e.composedPath()[0] as Node;
                 const isInsidePanel = this.contains(target) || this.shadowRoot?.contains(target);
@@ -886,9 +862,9 @@ export class PieTooltip extends PieElement implements TooltipProps {
         const tag = unsafeStatic(this.headingLevel);
 
         return html`<${tag}
-                        id="${headingId}"
+                        id="${this._headingId}"
                         class="${componentClass}-heading"
-                        data-test-id="${headingId}">${this.heading}</${tag}>`;
+                        data-test-id="${componentSelector}-heading">${this.heading}</${tag}>`;
     }
 
     private renderCloseButton (): TemplateResult {
@@ -937,7 +913,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
             [`${componentClass}--type-${type}`]: true,
             [`${componentClass}--size-${size}`]: !isIconType,
             'is-dismissible': !!isDismissible,
-            'has-action': mode === 'dialog',
+            'has-action': this._hasActionContent === true,
             'has-heading': !!heading,
         };
 
@@ -952,12 +928,15 @@ export class PieTooltip extends PieElement implements TooltipProps {
                         data-test-id="${componentSelector}"
                         role="${ifDefined(mode)}"
                         aria-hidden="${!isOpen}"
-                        aria-labelledby="${isDialog && heading ? headingId : nothing}"
+                        aria-labelledby="${isDialog && heading ? this._headingId : nothing}"
                         aria-label="${isDialog && !heading && aria?.label ? aria.label : nothing}">
                         ${isIconType ? nothing : html`<div class="${componentClass}-arrow" data-test-id="${componentSelector}-arrow"></div>`}
                         <div class="${componentClass}-body">
                             ${heading ? this.renderHeading() : nothing}
-                            <div class="${componentClass}-content" data-test-id="${componentSelector}-content">
+                            <div
+                                class="${componentClass}-content"
+                                tabindex="${isDialog ? -1 : nothing}"
+                                data-test-id="${componentSelector}-content">
                                 <slot name="content"></slot>
                             </div>
                         </div>

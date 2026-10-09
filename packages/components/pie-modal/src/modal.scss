@@ -55,7 +55,7 @@
 
         &::backdrop {
             opacity: 1;
-    
+
             @starting-style {
                 opacity: 0;
             }
@@ -184,6 +184,7 @@
     & .c-modal-imageSlot {
         border-start-start-radius: var(--modal-border-radius);
         border-start-end-radius: var(--modal-border-radius);
+        overflow: hidden;
 
         &.c-modal-imageSlot--illustration {
             display: flex;

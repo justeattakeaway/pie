@@ -14,6 +14,18 @@ export type Variant = typeof variants[number];
 
 type AriaProps = {
     label?: string;
+
+    /**
+     * The accessible description for the button element. Rendered as an `aria-description`
+     * attribute, so the text travels as a string and is not bound by IDREF resolution.
+     */
+    description?: string;
+
+    /** The button's popup state, matching `aria-haspopup`. */
+    haspopup?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+
+    /** The button's expanded state, matching `aria-expanded`. */
+    expanded?: boolean;
 };
 
 export const formEncodingtypes = ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain'] as const;
