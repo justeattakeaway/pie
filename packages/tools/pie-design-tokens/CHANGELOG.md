@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.15.1
+
+### Patch Changes
+
+- [Changed] - add missing update on heading-xs italic line-height. Could cause some visual differences. ([#3226](https://github.com/justeattakeaway/pie/pull/3226)) by [@maledr5](https://github.com/maledr5)
+
 ## 7.15.0
 
 ### Minor Changes
