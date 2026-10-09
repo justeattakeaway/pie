@@ -255,6 +255,8 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 part="base"
                 aria-label="${ifDefined(aria?.label)}"
                 aria-description="${ifDefined(aria?.description)}"
+                aria-haspopup="${ifDefined(aria?.haspopup)}"
+                aria-expanded="${ifDefined(aria?.expanded)}"
                 class="${classMap(classes)}">
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                 <slot></slot>
@@ -280,7 +282,9 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 type=${type}
                 ?disabled=${disabled}
                 aria-label="${ifDefined(aria?.label)}"
-                aria-description="${ifDefined(aria?.description)}">
+                aria-description="${ifDefined(aria?.description)}"
+                aria-haspopup="${ifDefined(aria?.haspopup)}"
+                aria-expanded="${ifDefined(aria?.expanded)}">
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <span class="o-btn-text"><slot></slot></span>

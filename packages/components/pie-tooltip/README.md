@@ -362,6 +362,8 @@ In dialog mode you own two moments:
 
 ## Usage Examples
 
+> The examples below are for illustration only and are not production ready. They are kept deliberately minimal: wire up error handling, state management and focus behaviour as your application requires.
+
 **For HTML:**
 
 The trigger below is a plain HTML button, so the wiring is the trigger's own `aria-describedby` pointing at the tooltip's `id`.
