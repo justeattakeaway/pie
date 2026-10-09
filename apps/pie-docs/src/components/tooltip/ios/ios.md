@@ -310,7 +310,7 @@ alt: "Example of iOS tooltip component with the predefined width.",
 width: 200
 } %}
 
-#### Fluid to content
+#### Fit content
 
 The width of the container is dynamic to the width of the content and retains 12px left and right padding if there is no close icon, and 8px to the right if there is a close icon.
 
