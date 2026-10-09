@@ -54,7 +54,7 @@ export interface TooltipProps {
     /** The presentation of the panel. `icon` is the compact, arrow-less treatment. */
     type?: typeof types[number];
 
-    /** When true, a close button is rendered inside the panel. */
+    /** When true, a close button is rendered inside the panel and the panel presents as a non-modal dialog, so it needs `heading` or `aria.label` for its accessible name. */
     isDismissible?: boolean;
 
     /** The text to display in the panel's heading. In dialog mode this also names the panel. */

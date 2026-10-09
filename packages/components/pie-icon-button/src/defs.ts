@@ -8,6 +8,12 @@ type AriaProps = {
     label?: string;
     labelledby?: string;
     describedby?: string;
+
+    /**
+     * The accessible description for the icon button. Rendered as an `aria-description`
+     * attribute, so the text travels as a string and is not bound by IDREF resolution.
+     */
+    description?: string;
     expanded?: boolean;
     controls?: string;
     haspopup?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
@@ -15,7 +21,7 @@ type AriaProps = {
 
 export interface IconButtonProps {
     /**
-     * The ARIA attributes available to use on the icon button. Offers label, labelledby, describedby, expanded, controls and haspopup.
+     * The ARIA attributes available to use on the icon button. Offers label, labelledby, describedby, description, expanded, controls and haspopup.
      */
     aria?: AriaProps;
 

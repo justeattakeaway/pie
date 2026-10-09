@@ -64,12 +64,39 @@ test.describe('PieTooltip - Component tests', () => {
     });
 
     test.describe('roles and accessible names', () => {
-        test('should use role tooltip when the action slot is empty', async ({ page }) => {
+        test('should use role tooltip when the action slot is empty and the panel is not dismissible', async ({ page }) => {
             // Arrange
             await loadDefaultStory(page);
 
             // Act
             const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAttribute('role', 'tooltip');
+        });
+
+        test('should use role dialog when the panel is dismissible', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { isDismissible: true, heading: 'Delivery times' });
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAttribute('role', 'dialog');
+        });
+
+        test('should keep role tooltip when isDismissible is toggled back off', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { isDismissible: true, heading: 'Delivery times' });
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+            await expect(panel).toHaveAttribute('role', 'dialog');
+
+            // Act
+            await page.evaluate(() => {
+                const tooltip = document.querySelector('pie-tooltip') as HTMLElement & { isDismissible: boolean };
+                tooltip.isDismissible = false;
+            });
 
             // Assert
             await expect(panel).toHaveAttribute('role', 'tooltip');

@@ -337,7 +337,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
             return undefined;
         }
 
-        return this._hasActionContent ? 'dialog' : 'tooltip';
+        // Entering the panel is dialog interaction; only hover/follow panels are tooltips.
+        return (this._hasActionContent || this.isDismissible) ? 'dialog' : 'tooltip';
     }
 
     protected firstUpdated (): void {
@@ -357,6 +358,11 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
         if (!this.isOpen) {
             this._openedByClick = false;
+        }
+
+        // A dismissible panel is a dialog, so re-derive the role with the prop.
+        if (changedProperties.has('isDismissible')) {
+            this.resolveMode();
         }
 
         if (changedProperties.has('trigger')) {

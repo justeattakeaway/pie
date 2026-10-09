@@ -211,6 +211,10 @@ export const DismissibleWithAction = createStory<TooltipProps>(DefaultTemplate, 
 export const DismissibleNoHeading = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     isDismissible: true,
+    aria: {
+        close: 'Close',
+        label: 'Delivery times',
+    },
 })();
 
 export const FitToContent = createStory<TooltipProps>(DefaultTemplate, {
@@ -325,6 +329,7 @@ const placementGridAreas = `
 `;
 
 // Uniform square anchors; direction comes from the `writingDirection` global.
+// Plain HTML anchors, so each trigger points `aria-describedby` at its tooltip's `id`.
 const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }) => html`
     <div class="tooltip-placement-grid" style="grid-template-areas: ${placementGridAreas};">
         ${positions.map((position) => html`
@@ -334,9 +339,11 @@ const PlacementGridTemplate: TemplateFunction<TooltipProps> = ({ type, variant }
                 class="tooltip-placement-anchor"
                 style="grid-area: ${position};"
                 type="button"
-                aria-label="${position}"></button>
+                aria-label="${position}"
+                aria-describedby="placement-${position}-tooltip"></button>
 
             <pie-tooltip
+                id="placement-${position}-tooltip"
                 data-test-id="placement-${position}-tooltip"
                 trigger="placement-${position}"
                 position="${position}"

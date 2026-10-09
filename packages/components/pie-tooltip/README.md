@@ -15,6 +15,7 @@
 - [Documentation](#documentation)
   - [Controlled component](#controlled-component)
   - [Properties](#properties)
+  - [Methods](#methods)
   - [Slots](#slots)
   - [Events](#events)
   - [CSS Variables](#css-variables)
@@ -51,11 +52,17 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `size` | `default`, `fit-to-content`, `fill-container` | How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as wide as its content, and `fill-container` matches the inline size of the trigger's parent element. Not applied when `type` is `icon`. | `default` |
 | `variant` | `default`, `inverse` | The colour treatment of the panel. `default` is the dark panel, `inverse` the light one. | `default` |
 | `type` | `default`, `icon` | The presentation of the panel. `icon` is the compact treatment intended for icon triggers: it has no arrow and is always as wide as its content, so `size` and `--tooltip-width` have no effect on it. | `default` |
-| `isDismissible` | `true`, `false` | When true, a close button is rendered inside the panel. | `false` |
+| `isDismissible` | `true`, `false` | When true, a close button is rendered inside the panel, and the panel presents as a non-modal dialog, so it needs `heading` or `aria.label` for its accessible name. | `false` |
 | `heading` | Any string | The text to display in the panel's heading. In dialog mode this also provides the panel's accessible name. | `undefined` |
 | `headingLevel` | `h2`, `h3`, `h4`, `h5`, `h6` | The HTML heading tag to use for the panel's heading. | `h2` |
 | `aria` | `{ close?: string, label?: string }` | `close` names the close button. `label` names the panel in dialog mode when no `heading` is provided. | `undefined` |
 | `triggers` | Array of `hover`, `focus`, `click` | Which interactions request that the panel opens and closes. A configured interaction emits an event; it never changes the panel's state on its own. Empty by default, so no interaction is watched at all. Configure `hover` and `focus` together for keyboard reachability. | `[]` |
+
+### Methods
+
+| Method | Returns | Description |
+|---|---|---|
+| `focusPanel()` | `Promise<boolean>` | Moves focus to the panel's content in dialog mode, so screen readers announce the content, followed by the dialog's name and role, once each. Only needed when the panel contains interactive elements, such as a close button or an action button, which make it a dialog. Call it straight after setting `isOpen`: it waits for the panel's opening update to commit, then retries the focus move until it lands. Resolves `true` once focus is in place, or `false` if the panel is closed or in tooltip mode. The content is `tabindex="-1"`, so it is never reached by Tab. See [Managing focus](#managing-focus). |
 
 ### Slots
 
@@ -126,26 +133,26 @@ The available space is the viewport, narrowed by any ancestor that clips the pan
 
 The panel presents as one of two patterns, inferred from the `action` slot contents. They carry different obligations.
 
-| | `action` slot empty | `action` slot filled |
+| | `action` slot empty and not dismissible | `action` slot filled or `isDismissible` |
 |---|---|---|
 | Panel role | `tooltip` | `dialog` |
 | Contains focusable content | No | Yes |
 | Accessible name on panel | None | Required, from `heading` or `aria.label` |
 | In the accessibility tree while closed | Yes, as the trigger's description | No |
 
-A close button does not make the panel a dialog. Only the `action` slot does.
+A close button makes the panel a dialog: it invites the user inside, and a panel the user enters is announced through focus, not through a description. The same applies to any panel toggled by a click or a tap, so use the `action` slot there. Tooltip mode is for hover- and focus-followed panels only.
 
 ### What the component does
 
-- Sets `role="tooltip"` or `role="dialog"` from the `action` slot, resolved on the client before the first paint.
+- Sets `role="tooltip"` or `role="dialog"` from the `action` slot and `isDismissible`, resolved on the client before the first paint.
 - Names the dialog panel from `heading`, falling back to `aria.label`.
 - Exposes `focusPanel()` for dialog mode, which moves focus to the panel's content so the content, followed by the dialog's name and role, are announced once each on every screen reader. The panel carries no `aria-describedby`; see [Managing focus](#managing-focus).
-- Removes the dialog panel from the accessibility tree while closed. In tooltip mode the content stays in the DOM so that a description referring to it still resolves.
+- Removes the dialog panel from the accessibility tree while closed. In tooltip mode the panel stays in the DOM, so a description referring to the tooltip still resolves.
 - Names the close button from `aria.close` and places it in the tab sequence inside the panel.
 - Keeps the panel clear of the trigger at every placement, so the panel cannot obscure a focused trigger (WCAG 2.4.11).
 - Wraps content.
 
-It does not touch the trigger, and it does not move focus on its own — `focusPanel()` moves it only when you call it. The component never writes attributes to the element named by `trigger`. See [Wiring the trigger](#wiring-the-trigger) and [Managing focus](#managing-focus).
+It does not touch the trigger, and it does not move focus on its own; `focusPanel()` moves it only when you call it. The component never writes attributes to the element named by `trigger`. See [Wiring the trigger](#wiring-the-trigger) and [Managing focus](#managing-focus).
 
 ### What you need to do
 
@@ -155,8 +162,9 @@ It does not touch the trigger, and it does not move focus on its own — `focusP
 - **Use a natively interactive element as the trigger**, a button or a link, so focus and click behave correctly.
 - **Own `isOpen`.** Listen for `pie-tooltip-close` and set `isOpen` to `false` in response.
 - **Keep focusable content out of the `content` slot.** Interactive content belongs in the `action` slot, which switches the panel to a dialog.
+- **Make click-toggled or dismissible panels dialogs.** A panel opened by a click or a tap appears with no focus change, so screen readers stay silent; a close button puts the user inside the panel. Both are dialog interactions, so fill the `action` slot and follow [Managing focus](#managing-focus).
 - **Place `<pie-tooltip>` immediately after its trigger in the DOM.** The component anchors by `id` and can sit anywhere, but reading and tab order follow DOM order.
-- **In dialog mode, provide `heading` or `aria.label`** so the dialog has an accessible name.
+- **In dialog mode, provide `heading` or `aria.label`** so the dialog has an accessible name. This includes every dismissible panel, which is a dialog.
 - **Provide a translated `aria.close`** whenever `isDismissible` is set.
 - **Keep tooltip-mode content short and supplementary.** Anything essential or interactive belongs in dialog mode, or inline in the page.
 
@@ -164,25 +172,50 @@ It does not touch the trigger, and it does not move focus on its own — `focusP
 
 The trigger lives outside the tooltip and the component leaves it untouched, so you declare the relationship. What to set depends on the mode.
 
+> The [Screen readers stories](https://webc.pie.design/?path=/story/components-tooltip-screen-readers--docs) show every wiring in this section as live, runnable examples.
+
 | ARIA | Set it when | Value |
 |---|---|---|
 | `haspopup` | Dialog mode, so the trigger announces that it opens a dialog | `dialog` |
 | `expanded` | You toggle the panel from the trigger with a click or a tap | Your `isOpen` value |
-| `describedby` | Tooltip mode, and the trigger is a plain HTML element | The `id` of the element you put in the `content` slot |
+| `describedby` | Tooltip mode, and the trigger is a plain HTML element | The `id` of the `pie-tooltip` element itself |
 
 Leave `expanded` off a hover-only or focus-only panel. Nothing is being toggled, so it has nothing to describe. There is no `controls` in the table because it adds nothing here: the description already carries the relationship, and support for it is patchy.
 
+#### Point the description at the tooltip itself
+
+In tooltip mode, give the `<pie-tooltip>` element an `id` and set `aria-describedby` on the trigger to that `id`. The tooltip and a plain HTML trigger live in the same tree, so the reference resolves, and the browser reads the panel's text through the tooltip's shadow root. No `id` is needed on the element in the `content` slot.
+
+```html
+<button id="delivery-info" aria-describedby="delivery-panel">Delivery times</button>
+
+<pie-tooltip id="delivery-panel" trigger="delivery-info">
+  <span slot="content">Orders placed before 6pm arrive today.</span>
+</pie-tooltip>
+```
+
 #### A description cannot cross a shadow boundary
 
-`aria.describedby` takes an `id`, and an `id` only resolves inside the tree of the element that references it. The element you put in the `content` slot stays in your light DOM, so a plain `<button>` in the same document resolves it. The `<button>` inside `pie-icon-button` does not: it cannot see an `id` in your document, so `aria.describedby` is unusable for this purpose even though the property exists.
+`aria-describedby` takes an `id`, and an `id` only resolves inside the tree of the element that references it. The `<button>` inside `pie-icon-button` lives in the component's shadow root, so it cannot see the tooltip's `id` in your document, and `aria.describedby` is unusable for this purpose even though the property exists.
 
-There is no way around this from outside the component. When the trigger is a PIE component and the panel is a plain tooltip, put the information in the trigger's name with `aria.label` instead, as in the first example below. It is the only route that reaches a screen reader.
+There is no way around this from outside the component. When the trigger is a PIE component, pass the panel's text as the trigger's own description instead. `pie-button` and `pie-icon-button` accept an `aria.description`, which they render as an `aria-description` attribute on their internal element, and a string crosses the shadow boundary where an IDREF cannot:
+
+```js
+trigger.aria = {
+    label: 'Delivery times',
+    description: 'Orders placed before 6pm arrive today.',
+};
+```
+
+Keep the name short and let the description carry the panel's text. As with `aria-describedby`, the description must stay in step with the content in the `content` slot.
+
+Dialog mode is unaffected: the panel's content is announced when focus moves into it, so it needs no trigger-side description at all.
 
 Dialog mode is unaffected: the panel's content is announced when focus moves into it, so it needs no trigger-side description at all.
 
 #### A tooltip panel on an icon trigger
 
-`hover` and `focus` together give the panel to both pointer and keyboard users. Nothing is toggled, so there is no `expanded`, and the name carries the content because a description cannot reach the button inside the trigger.
+`hover` and `focus` together give the panel to both pointer and keyboard users. Nothing is toggled, so there is no `expanded`. The trigger is a PIE component, so a description cannot cross the shadow boundary by `id`, so the panel's text travels in the trigger's `aria.description` instead (see [A description cannot cross a shadow boundary](#a-description-cannot-cross-a-shadow-boundary)).
 
 ```js
 // main.js
@@ -193,7 +226,10 @@ import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 const trigger = document.querySelector('#delivery-info');
 const panel = document.querySelector('#delivery-panel');
 
-trigger.aria = { label: 'Delivery times: orders placed before 6pm arrive today' };
+trigger.aria = {
+    label: 'Delivery times',
+    description: 'Orders placed before 6pm arrive today.',
+};
 panel.triggers = ['hover', 'focus'];
 
 panel.addEventListener('pie-tooltip-open', () => { panel.isOpen = true; });
@@ -314,13 +350,13 @@ Leave `triggers` unset when the panel's timing is not an interaction with its tr
 
 ### Managing focus
 
-In tooltip mode there is nothing to do. A tooltip must not take focus, and the close button that `isDismissible` renders is reachable by tabbing.
+In tooltip mode there is nothing to do. A tooltip must not take focus, and a panel that is dismissible or click-toggled is not a tooltip, so it is a dialog and the focus contract below applies to it.
 
 In dialog mode you own two moments:
 
-- **On open, call `focusPanel()`.** It moves focus to the content carrying the panel's descriptive text, so screen readers announce the content, followed by the dialog's name and role. It waits for the panel's opening update to commit, then retries the focus move across animation frames until it lands — Safari can silently drop a `focus()` call on a panel whose reveal is still settling — and resolves to `true` once focus is in place, or `false` if the panel is closed or in tooltip mode. No waiting on your side is needed: call it straight after setting `isOpen`.
+- **On open, call `focusPanel()`.** It moves focus to the content carrying the panel's descriptive text, so screen readers announce the content, followed by the dialog's name and role. It waits for the panel's opening update to commit, then retries the focus move until it lands, and resolves to `true` once focus is in place, or `false` if the panel is closed or in tooltip mode. No waiting on your side is needed: call it straight after setting `isOpen`. Only needed when the panel contains interactive elements, such as a close button or an action button, which make it a dialog.
 
-    The heading names the panel through `aria-labelledby`; the content is announced by the focus move itself. The panel carries no `aria-describedby`: VoiceOver never announces a dialog's description on focus entry ([WebKit bug 282773](https://bugs.webkit.org/show_bug.cgi?id=282773)), and NVDA and JAWS announce it in addition to the focused content — so a description either does nothing or says the content twice. This follows the [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction)'s static-text focus recommendation: the content is `tabindex="-1"`, never reached by Tab, and the panel's own controls stay next in the tab sequence. If you move focus anywhere else, the content is not announced on open, though it stays readable inside the dialog.
+    The heading names the panel through `aria-labelledby`; the content is announced by the focus move itself. The panel carries no `aria-describedby`: VoiceOver never announces a dialog's description on focus entry ([WebKit bug 282773](https://bugs.webkit.org/show_bug.cgi?id=282773)), and NVDA and JAWS announce it in addition to the focused content, so a description either does nothing or says the content twice. This follows the [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboard-interaction)'s static-text focus recommendation: the content is `tabindex="-1"`, never reached by Tab, and the panel's own controls stay next in the tab sequence. If you move focus anywhere else, the content is not announced on open, though it stays readable inside the dialog.
 
 - **On close, put focus back**, but only if focus was still inside the panel. Closing on a hover-away or a click elsewhere must not pull focus away from whatever the user has moved on to.
 
@@ -328,13 +364,11 @@ In dialog mode you own two moments:
 
 **For HTML:**
 
+The trigger below is a plain HTML button, so the wiring is the trigger's own `aria-describedby` pointing at the tooltip's `id`.
+
 ```js
 // import as module into a js file e.g. main.js
 import '@justeattakeaway/pie-webc/components/tooltip.js'
-import '@justeattakeaway/pie-webc/components/button.js'
-
-// `aria` takes an object, so it is set as a property rather than an attribute.
-document.querySelector('#delivery-panel').aria = { close: 'Close' };
 ```
 
 ```html
@@ -344,12 +378,14 @@ document.querySelector('#delivery-panel').aria = { close: 'Close' };
 ```
 
 ```html
-<pie-button id="delivery-info">Delivery times</pie-button>
+<button id="delivery-info" aria-describedby="delivery-panel">Delivery times</button>
 
 <pie-tooltip id="delivery-panel" trigger="delivery-info" isOpen isDismissible>
   <span slot="content">Orders placed before 6pm arrive today.</span>
 </pie-tooltip>
 ```
+
+When the trigger is a PIE component such as `pie-button`, an IDREF cannot cross its shadow boundary, so pass the text through the trigger's `aria` property with `description` instead.
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
 
@@ -360,9 +396,14 @@ import '@justeattakeaway/pie-webc/components/tooltip.js'
 
 ```html
 <template>
-  <pie-button id="delivery-info">Delivery times</pie-button>
+  <pie-button
+    id="delivery-info"
+    :aria="{ label: 'Delivery times', description: 'Orders placed before 6pm arrive today.' }">
+    Delivery times
+  </pie-button>
 
   <pie-tooltip
+    id="delivery-panel"
     trigger="delivery-info"
     :isOpen="isOpen"
     isDismissible
@@ -372,6 +413,8 @@ import '@justeattakeaway/pie-webc/components/tooltip.js'
   </pie-tooltip>
 </template>
 ```
+
+The trigger is a PIE component, so the text travels in its `aria.description` rather than `aria-describedby` (see [A description cannot cross a shadow boundary](#a-description-cannot-cross-a-shadow-boundary)).
 
 **For React Applications:**
 
@@ -385,9 +428,15 @@ export function DeliveryTimes () {
 
   return (
     <>
-      <PieButton id="delivery-info">Delivery times</PieButton>
+      {/* A PIE component trigger carries the text in its description, not `aria-describedby`. */}
+      <PieButton
+        id="delivery-info"
+        aria={{ label: 'Delivery times', description: 'Orders placed before 6pm arrive today.' }}>
+        Delivery times
+      </PieButton>
 
       <PieTooltip
+        id="delivery-panel"
         trigger="delivery-info"
         isOpen={isOpen}
         isDismissible
@@ -417,7 +466,7 @@ document.querySelector('#delivery-info').aria = {
   <icon-info-circle></icon-info-circle>
 </pie-icon-button>
 
-<pie-tooltip trigger="delivery-info" isOpen heading="Delivery times">
+<pie-tooltip id="delivery-panel" trigger="delivery-info" isOpen heading="Delivery times">
   <span slot="content">Orders placed before 6pm arrive today.</span>
   <pie-button slot="action" size="xsmall">Next</pie-button>
 </pie-tooltip>

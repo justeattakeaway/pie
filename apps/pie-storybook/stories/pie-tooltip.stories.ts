@@ -250,10 +250,11 @@ const DefaultTemplate: TemplateFunction<TooltipProps> = ({
 
     return html`
     <div style="padding: var(--dt-spacing-j); display: flex; justify-content: center;">
+        <!-- An IDREF cannot cross this shadow boundary, so the text travels in aria.description. -->
         <pie-icon-button
             id="default-tooltip-trigger"
             variant="outline"
-            .aria="${{ label: 'Delivery information' }}">
+            .aria="${{ label: 'Delivery information', description: 'Orders placed before 6pm arrive today.' }}">
             <icon-info-circle></icon-info-circle>
         </pie-icon-button>
 
