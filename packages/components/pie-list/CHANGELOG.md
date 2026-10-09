@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-list
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Bump from Alpha to Beta ([#3229](https://github.com/justeattakeaway/pie/pull/3229)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.7.5
 
 ### Patch Changes
