@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.18.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.1
+  - @justeattakeaway/pie-icons@5.32.2
+
 ## 5.18.2
 
 ### Patch Changes
