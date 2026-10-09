@@ -118,7 +118,6 @@ const getClipRect = (element: Element): DOMRect => {
     return new DOMRect(left + clientLeft, top + clientTop, clientWidth, clientHeight);
 };
 
-// Intersects two rects; returns `null` when they do not overlap.
 const intersectRects = (a: DOMRect, b: DOMRect): DOMRect | null => {
     const left = Math.max(a.left, b.left);
     const top = Math.max(a.top, b.top);
@@ -360,11 +359,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this._openedByClick = false;
         }
 
-        // A dismissible panel is a dialog, so re-derive the role with the prop.
-        if (changedProperties.has('isDismissible')) {
-            this.resolveMode();
-        }
-
         if (changedProperties.has('trigger')) {
             this._overlayModeDirty = true;
         }
@@ -381,7 +375,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             this.projectOverTrigger();
         }
 
-        // A new trigger needs tracking rebuilt, so stop before the start below.
         if (this.isOpen && changedProperties.has('trigger')) {
             this.stopTrackingTrigger();
         }
@@ -458,7 +451,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             });
         };
 
-        // Flagged rather than resolved immediately so window-drag cannot walk ancestors more than once per frame.
         const handleResize = () => {
             this._overlayModeDirty = true;
             handleViewportChange();
@@ -561,10 +553,8 @@ export class PieTooltip extends PieElement implements TooltipProps {
 
             const clips = styles.overflowX !== 'visible' || styles.overflowY !== 'visible';
 
-            // Root/body overflow propagates to the viewport, which no positioning scheme escapes.
             const propagatesOverflowToViewport = element === documentElement || element === body;
 
-            // Counted after the containing-block flags so an ancestor that is both is counted correctly.
             if (clips && !propagatesOverflowToViewport) {
                 if (isAtOrAboveAbsoluteContainingBlock) {
                     absoluteClippingAncestors.push(element);
@@ -583,7 +573,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         this._overlayClippers = useFixed ? fixedClippingAncestors : absoluteClippingAncestors;
     }
 
-    // Writes the trigger's position, relative to the containing block's origin, as CSS variables.
     private projectOverTrigger (): void {
         this._isPositioned = false;
 
@@ -610,7 +599,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
             triggerElement.getBoundingClientRect(),
         );
 
-        // Nothing of the trigger is left to point at.
         this._isAnchorVisible = visibleRect !== null;
 
         if (!visibleRect) {
@@ -828,7 +816,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
                 this._startHoverCloseTimer();
             }, { signal });
 
-            // panel mouseenter/leave for the hover bridge
             const panel = this.renderRoot.querySelector('.c-tooltip');
             if (panel) {
                 panel.addEventListener('mouseenter', () => {
@@ -842,7 +829,6 @@ export class PieTooltip extends PieElement implements TooltipProps {
         }
 
         if (this.triggers.includes('focus')) {
-            // open on focus, close on blur unless focus moved into the panel
             triggerEl.addEventListener('focusin', () => {
                 this._requestOpen();
             }, { signal });

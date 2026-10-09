@@ -1,6 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-// All twelve position values are generated explicitly — none inferred.
+// All twelve position values are generated explicitly, none inferred.
 $tooltip-alignments: ('', '-start', '-end');
 
 // Zero-size, pinned to the containing block's origin. Trigger position is measured relative
