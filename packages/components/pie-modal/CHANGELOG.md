@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-modal
 
+## 1.27.14
+
+### Patch Changes
+
+- [Fixed] - Correct image overflows in modal header ([#3225](https://github.com/justeattakeaway/pie/pull/3225)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`bd3669f`](https://github.com/justeattakeaway/pie/commit/bd3669f25cc69120c1430cfc6ae48638a2512bb2)]:
+  - @justeattakeaway/pie-button@1.15.0
+  - @justeattakeaway/pie-icon-button@2.8.0
+
 ## 1.27.13
 
 ### Patch Changes
