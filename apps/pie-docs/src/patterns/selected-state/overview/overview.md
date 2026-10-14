@@ -37,9 +37,7 @@ Selecting a UI element is a fundamental and common interaction in many user inte
 
 ## Visual indicators
 
-We've put together a list of items and visual cues which you should or could use to highlight selected boxes and cards.
-
-Make sure you use the ones in 'Must do' for all your selections and consider using the ones in 'Can do' to make the selection stand out more explicitly.
+We’ve put together a list of items and visual cues which you should or could use to highlight selected boxes and cards.
 
 ### Border
 
@@ -75,7 +73,9 @@ alt: "Example of list components unselected and selected using iconography a com
 width: 200
 } %}
 
-### Component variant
+---
+
+## Component variant
 
 - Use UI controls like radio buttons or checkboxes to indicate selections.
 
@@ -87,7 +87,9 @@ alt: "Example of different components in the selected variant.",
 width: 200
 } %}
 
-### Aim for consistency
+---
+
+## Aim for consistency
 
 If selected state is presented across several steps of the journey use the same border for all components.
 
@@ -96,7 +98,7 @@ If selected state is presented across several steps of the journey use the same 
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/patterns/selected-state/consistency-do.svg",
-            width: "200px",
+            width: "200",
             alt: "Example of a mobile screen with several list item components with consistent selected state."
         }]
   },
@@ -104,7 +106,7 @@ If selected state is presented across several steps of the journey use the same 
     type: usageTypes.image,
     items: [{
             src: "../../../assets/img/patterns/selected-state/consistency-dont.svg",
-            width: "200px",
+            width: "200",
             alt: "Example of a mobile screen with several list item components with inconsistent selected state."
         }]
   }
