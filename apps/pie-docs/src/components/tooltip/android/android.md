@@ -334,9 +334,9 @@ width: 200
 
 ## Placement
 
-### Spacing
+### Offset
 
-Tooltip should have 4px spacing between the pointer and the associated UI element.
+By default the tooltip has 4px offset between the pointer and the associated UI element. User can override the offset if needed.
 
 {% contentPageImage {
 src:"../../../assets/img/components/tooltip/android/placement-spacing.svg",
