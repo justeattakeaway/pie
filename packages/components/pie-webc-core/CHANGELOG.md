@@ -1,5 +1,13 @@
 # Changelog
 
+## 22.0.1
+
+### Patch Changes
+
+- [Added] - TypeScript declarations (`dist/index.d.ts`) are now built and published with the package, so TypeScript consumers get first-class types via the new `types` entry point ([#3235](https://github.com/justeattakeaway/pie/pull/3235)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Fixed] - A `typesVersions` mapping now resolves the `@justeattakeaway/pie-webc-core/src/internals/PieElement` type import used by published components' declaration files (via the new `dist/internals.d.ts`), fixing unresolvable module errors for TypeScript consumers
+
 ## 22.0.0
 
 ### Patch Changes
