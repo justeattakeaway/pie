@@ -3791,7 +3791,7 @@ __metadata:
     eleventy-plugin-toc: "npm:1.1.5"
     eleventy-sass: "npm:3.0.0-beta.0"
     markdown-it: "npm:14.1.1"
-    markdown-it-anchor: "npm:9.2.0"
+    markdown-it-anchor: "npm:9.2.1"
     markdown-it-attrs: "npm:4.3.1"
     node-html-parser: "npm:7.1.0"
     postcss: "npm:8.5.15"
@@ -17389,13 +17389,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it-anchor@npm:9.2.0":
-  version: 9.2.0
-  resolution: "markdown-it-anchor@npm:9.2.0"
+"markdown-it-anchor@npm:9.2.1":
+  version: 9.2.1
+  resolution: "markdown-it-anchor@npm:9.2.1"
   peerDependencies:
     "@types/markdown-it": "*"
     markdown-it: "*"
-  checksum: 10/ececb857a621946be9da08a9abdec98b954fa2f14493261293bf1868146f840d419042be7028317851940ecb7f6d2db318916d13bd38c9d398507c7802d6f70f
+  checksum: 10/eb3f5667e66702c2be5403d79606e9f4575150d814df8d5f88c4c6a9253e3fc6641dce9159d22929dde980231b0e20a324e8055f15d37f42d0435963fb3af470
   languageName: node
   linkType: hard
 
