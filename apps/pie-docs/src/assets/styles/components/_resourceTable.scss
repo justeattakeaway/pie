@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use './table';
 @use '@justeattakeaway/pie-css/scss' as p;
 
@@ -12,7 +12,7 @@
         font-weight: var(--dt-font-heading-m-weight);
     }
 
-    @include f.media('>narrowMid') {
+    @include media('>sm') {
         td {
             &:not(:first-child) {
                 min-width: 23ch;
@@ -24,7 +24,7 @@
         }
     }
 
-    @include f.media('<narrowMid') {
+    @include media('<sm') {
         td {
             &:not(:first-child) {
                 text-align: right;

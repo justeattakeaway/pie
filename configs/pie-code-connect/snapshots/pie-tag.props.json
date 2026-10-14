@@ -1,0 +1,127 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "266:36902",
+    "availableProperties": [
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "[𝐓] Label",
+        "type": "TEXT",
+        "default": "Label"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Small"
+        ],
+        "default": "Large"
+      },
+      {
+        "name": "Type",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Neutral",
+          "Neutral - alternative",
+          "Ghost",
+          "Outline",
+          "Translucent",
+          "Error",
+          "Information",
+          "Success",
+          "Warning",
+          "02 Orange subtle",
+          "03 Cupcake",
+          "04 Berry",
+          "05 Turmeric",
+          "06 Aubergine",
+          "08 Latte"
+        ],
+        "default": "Neutral"
+      },
+      {
+        "name": "Strong",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "True"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Disabled"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Leading icon",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "16350:3659",
+    "availableProperties": [
+      {
+        "name": "Icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "Type",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Neutral",
+          "Neutral - alternative",
+          "Outline",
+          "Translucent",
+          "Ghost",
+          "Information",
+          "Success",
+          "Warning",
+          "Error",
+          "02 Orange subtle",
+          "03 Cupcake",
+          "04 Berry",
+          "06 Aubergine",
+          "05 Turmeric",
+          "08 Latte"
+        ],
+        "default": "Neutral"
+      },
+      {
+        "name": "Strong",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "True"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Disabled"
+        ],
+        "default": "Default"
+      }
+    ]
+  }
+]

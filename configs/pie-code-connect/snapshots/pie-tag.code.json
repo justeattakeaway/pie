@@ -1,0 +1,2702 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=True, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n    >\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=False, State=Default, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=True, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isDimmed>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isDimmed\n     size=\"small\">\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=False, State=Disabled, Leading icon=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=True, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=False, State=Default, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=True, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Neutral - alternative, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Neutral - alternative, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Ghost, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Ghost, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Outline, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Outline, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Translucent, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Translucent, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Error, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Error, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Information, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Information, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Success, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Success, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=Warning, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=Warning, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=02 Orange subtle, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=02 Orange subtle, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=03 Cupcake, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=03 Cupcake, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=04 Berry, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=04 Berry, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=05 Turmeric, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=05 Turmeric, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=06 Aubergine, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=06 Aubergine, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isDimmed\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Large, Type=08 Latte, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=266-36902",
+    "nodeId": "266:36902",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isDimmed\n     size=\"small\"\n     hasLeadingIcon>\n    \n    Label\n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Size=Small, Type=08 Latte, Strong=False, State=Disabled, Leading icon=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Outline, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Translucent, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Ghost, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Information, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Success, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Warning, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Error, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=04 Berry, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=08 Latte, Strong=True, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Outline, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Translucent, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Ghost, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Information, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Success, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Warning, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Error, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=04 Berry, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=08 Latte, Strong=False, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Outline, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Translucent, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Ghost, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Information, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Success, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Warning, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Error, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=04 Berry, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=08 Latte, Strong=True, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Outline, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Translucent, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Ghost, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"information\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Information, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"success\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Success, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Warning, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"error\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=Error, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=04 Berry, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=False, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
+    "nodeId": "16350:3659",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "language": "React",
+    "propertyCombinationLabel": "Type=08 Latte, Strong=False, State=Disabled"
+  }
+]

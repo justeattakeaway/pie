@@ -1,5 +1,84 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.3.2
+
+### Patch Changes
+
+- Updated dependencies [[`ed9fd36`](https://github.com/justeattakeaway/pie/commit/ed9fd3620fd4d43c672f8f8202bf3835683fb88e)]:
+  - @justeattakeaway/pie-webc-core@22.0.1
+  - @justeattakeaway/pie-toast@1.2.6
+
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.2.5
+
+## 1.3.0
+
+### Minor Changes
+
+- [Added] - `isStacked` prop which displays up to 3 toasts simultaneously in a stacked layout. Defaults to `false`, so a single toast is displayed at a time and the rest wait in the queue ([#3156](https://github.com/justeattakeaway/pie/pull/3156)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+  [Fixed] - Every toast message is now announced to screen readers. Previously, when several toasts became visible in the same render, only the last message was announced
+  [Fixed] - Error toasts are announced in a dedicated assertive live region, so a later non-error toast can no longer downgrade the announcement
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.2.4
+  - @justeattakeaway/pie-webc-core@22.0.0
+
+## 1.2.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.2.3
+  - @justeattakeaway/pie-webc-core@21.0.0
+
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.2.2
+
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.2.1
+  - @justeattakeaway/pie-webc-core@20.0.0
+
+## 1.2.0
+
+### Minor Changes
+
+- [Fixed] - Toast messages are now announced by screen readers. The provider renders a single persistent ARIA live region (assertive for `error`, polite otherwise) that is always in the DOM, so status messages are announced automatically without focus moving (WCAG 4.1.3). The rendered toast's own live region is switched off (`aria.live: "off"`) to prevent double announcements. ([#3157](https://github.com/justeattakeaway/pie/pull/3157)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`6ba9c1f`](https://github.com/justeattakeaway/pie/commit/6ba9c1f2e3f6bb1943d5ad5fdc326376021a9c68)]:
+  - @justeattakeaway/pie-toast@1.2.0
+
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.1.8
+  - @justeattakeaway/pie-webc-core@19.0.0
+
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.1.7
+
 ## 1.1.6
 
 ### Patch Changes

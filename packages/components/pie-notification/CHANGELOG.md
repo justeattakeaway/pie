@@ -1,5 +1,75 @@
 # @justeattakeaway/pie-notification
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`ed9fd36`](https://github.com/justeattakeaway/pie/commit/ed9fd3620fd4d43c672f8f8202bf3835683fb88e)]:
+  - @justeattakeaway/pie-webc-core@22.0.1
+  - @justeattakeaway/pie-icon-button@2.8.1
+  - @justeattakeaway/pie-icons-webc@1.29.5
+
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`bd3669f`](https://github.com/justeattakeaway/pie/commit/bd3669f25cc69120c1430cfc6ae48638a2512bb2)]:
+  - @justeattakeaway/pie-icon-button@2.8.0
+
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-notification component status from beta to stable ([#3201](https://github.com/justeattakeaway/pie/pull/3201)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.35
+  - @justeattakeaway/pie-webc-core@22.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
+## 0.24.20
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.34
+  - @justeattakeaway/pie-webc-core@21.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+
+## 0.24.19
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.33
+  - @justeattakeaway/pie-webc-core@20.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
+## 0.24.18
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.32
+  - @justeattakeaway/pie-webc-core@19.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
+## 0.24.17
+
+### Patch Changes
+
+- [Fixed] - Corrected content width limit for dismissible notifications ([#3153](https://github.com/justeattakeaway/pie/pull/3153)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.24.16
+
+### Patch Changes
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a), [`1f18eb3`](https://github.com/justeattakeaway/pie/commit/1f18eb30a864a747249428dd2af28c3efe233577)]:
+  - @justeattakeaway/pie-icons-webc@1.29.0
+  - @justeattakeaway/pie-icon-button@2.7.31
+
 ## 0.24.15
 
 ### Patch Changes

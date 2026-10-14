@@ -1,0 +1,548 @@
+import { test, expect, type Page } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+
+import { type TooltipProps } from '../../src/defs.ts';
+import { tooltip } from '../helpers/page-object/selectors.ts';
+
+const loadDefaultStory = async (page: Page, props: Partial<TooltipProps> & Record<string, unknown> = {}) => {
+    const basePage = new BasePage(page, 'tooltip--default');
+
+    await basePage.load({ ...props });
+    await expect(page.getByTestId(tooltip.selectors.trigger.dataTestId)).toBeVisible();
+
+    return basePage;
+};
+
+const loadStory = async (page: Page, storyId: string) => {
+    const basePage = new BasePage(page, storyId);
+
+    await basePage.load();
+    await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
+
+    return basePage;
+};
+
+const loadTriggerStory = async (page: Page, storyId: string) => {
+    const basePage = new BasePage(page, storyId);
+
+    await basePage.load();
+    await expect(page.getByTestId(tooltip.selectors.trigger.dataTestId)).toBeVisible();
+
+    return basePage;
+};
+
+// Calls `focusPanel()` on the first tooltip in the document, in the page, so the method's own
+// wait-and-retry behaviour is what carries the call — no choreography on this side.
+const callFocusPanel = (page: Page) => page.evaluate(() => {
+    const tooltip = document.querySelector('pie-tooltip') as (HTMLElement & { focusPanel: () => Promise<boolean> });
+    return tooltip.focusPanel();
+});
+
+/**
+ * Placement itself is asserted by the Percy snapshots of the placement grid stories, which render
+ * all twelve positions in both writing directions. What is tested here is the behaviour behind
+ * placement that a snapshot cannot see: the panel's open state, the positions measured in
+ * JavaScript, the roles and accessible names, and the close event.
+ */
+test.describe('PieTooltip - Component tests', () => {
+    test.describe('trigger', () => {
+        test('should keep the trigger clickable while the panel is open', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { isOpen: true });
+
+            const trigger = page.getByTestId(tooltip.selectors.trigger.dataTestId);
+
+            // Act
+            // The host is projected over the trigger's box, so it must not swallow the trigger's
+            // own pointer events. Playwright hit-tests the target before clicking, so this fails
+            // outright if the host is in the way.
+            await trigger.click();
+
+            // Assert
+            await expect(trigger).toBeFocused();
+        });
+    });
+
+    test.describe('roles and accessible names', () => {
+        test('should use role tooltip when the action slot is empty and the panel is not dismissible', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page);
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAttribute('role', 'tooltip');
+        });
+
+        test('should use role dialog when the panel is dismissible', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { isDismissible: true, heading: 'Delivery times' });
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAttribute('role', 'dialog');
+        });
+
+        test('should keep role tooltip when isDismissible is toggled back off', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { isDismissible: true, heading: 'Delivery times' });
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+            await expect(panel).toHaveAttribute('role', 'dialog');
+
+            // Act
+            await page.evaluate(() => {
+                const tooltip = document.querySelector('pie-tooltip') as HTMLElement & { isDismissible: boolean };
+                tooltip.isDismissible = false;
+            });
+
+            // Assert
+            await expect(panel).toHaveAttribute('role', 'tooltip');
+        });
+
+        test('should use role dialog when the action slot is filled', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--with-action');
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAttribute('role', 'dialog');
+        });
+
+        test('should name the dialog panel from the heading', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--with-action');
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAccessibleName('Delivery times');
+        });
+
+        test('should name the dialog panel from aria.label when there is no heading', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--with-action-and-no-heading');
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            await expect(panel).toHaveAccessibleName('Delivery times');
+
+            // Proves the name came from `aria.label` and not from a heading.
+            await expect(panel).not.toHaveAttribute('aria-labelledby');
+        });
+
+        test('should not name the panel from the heading in tooltip mode', async ({ page }) => {
+            // Arrange
+            // The heading is set here rather than taken from a story, so that the test cannot
+            // pass vacuously if a story's arguments change.
+            await loadDefaultStory(page, { heading: 'Delivery times' });
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            // There is a heading to name the panel with, and the panel is in tooltip mode.
+            await expect(page.getByTestId(tooltip.selectors.heading.dataTestId)).toHaveText('Delivery times');
+            await expect(panel).toHaveAttribute('role', 'tooltip');
+
+            // A tooltip is a description, never a name, so that heading must not name the panel.
+            // `role="tooltip"` takes its name from its contents, so the assertion is on the
+            // absence of the wiring rather than on the computed name.
+            await expect(panel).not.toHaveAttribute('aria-labelledby');
+            await expect(panel).not.toHaveAttribute('aria-label');
+        });
+
+        test('should not describe the panel from the content slot in tooltip mode', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page);
+
+            // Act
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Assert
+            // `role="tooltip"` is already a description of its trigger, so it must not also be
+            // wired as the panel's own accessible description.
+            await expect(panel).toHaveAttribute('role', 'tooltip');
+            await expect(panel).not.toHaveAttribute('aria-describedby');
+        });
+
+        test('should fall back to the default heading element when headingLevel is invalid', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page, { heading: 'Delivery times', headingLevel: 'script' });
+
+            // Act
+            const { headingTag, hasUnexpectedTag } = await page.evaluate(() => {
+                const tooltip = document.querySelector('pie-tooltip');
+                const heading = tooltip?.shadowRoot?.querySelector('[data-test-id="pie-tooltip-heading"]');
+                const unsafeTags = tooltip?.shadowRoot?.querySelectorAll('script,img,iframe,object,embed');
+
+                return {
+                    headingTag: heading?.tagName.toLowerCase(),
+                    hasUnexpectedTag: unsafeTags && unsafeTags.length > 0,
+                };
+            });
+
+            // Assert
+            // The `headingLevel` whitelist falls back to `h2`, so no injected element can render.
+            expect(headingTag).toBe('h2');
+            expect(hasUnexpectedTag).toBe(false);
+        });
+
+        test('should point every dialog panel at its own heading', async ({ page }) => {
+            // Arrange
+            // Several dialog tooltips render at once. WAI-ARIA treats a duplicate id as an author
+            // error and leaves the user agent to use the first match, so each panel must reference
+            // its own heading rather than sharing fixed ids.
+            const basePage = new BasePage(page, 'tooltip--multiple-dialogs');
+
+            await basePage.load();
+
+            // Act
+            const panels = page.locator('pie-tooltip');
+
+            // Assert
+            const wiring = await panels.evaluateAll((elements) => elements.map((element) => {
+                const panel = element.shadowRoot?.querySelector<HTMLElement>('[role="dialog"]');
+                const heading = element.shadowRoot?.querySelector<HTMLElement>('.c-tooltip-heading');
+
+                return {
+                    labelledBy: panel?.getAttribute('aria-labelledby'),
+                    headingId: heading?.id,
+                };
+            }));
+
+            expect(wiring).toHaveLength(3);
+
+            wiring.forEach(({ labelledBy, headingId }) => {
+                expect(labelledBy).toBe(headingId);
+            });
+
+            expect(new Set(wiring.map(({ headingId }) => headingId)).size).toBe(3);
+        });
+    });
+
+    test.describe('focusPanel', () => {
+        test('should move focus to the panel content in dialog mode', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--with-action');
+
+            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
+
+            // Act
+            await callFocusPanel(page);
+
+            // Assert
+            // The content is the static text the APG's dialog guidance says to focus, so
+            // screen readers announce it together with the dialog's name and role. The content
+            // is never reached by Tab: the panel's own controls stay next in the tab sequence.
+            await expect(content).toBeFocused();
+            await expect(content).toHaveAttribute('tabindex', '-1');
+
+            await page.keyboard.press('Tab');
+            await expect(page.getByRole('button', { name: 'Next' })).toBeFocused();
+        });
+
+        test('should resolve true once focus has landed on a panel that is opening', async ({ page }) => {
+            // Arrange
+            // The panel is closed at load and opened in the same turn as the `focusPanel()`
+            // call, so the method is exercised on a panel still committing its opening
+            // update — the state where a first `focus()` call can be dropped (observed in
+            // Safari) and where the method's own wait and retry is what recovers it.
+            const basePage = new BasePage(page, 'tooltip--with-action');
+
+            await basePage.load({ isOpen: false });
+            await page.evaluate(() => {
+                const tooltip = document.querySelector('pie-tooltip') as HTMLElement & { isOpen: boolean };
+                tooltip.isOpen = true;
+            });
+
+            // Act
+            const focused = await callFocusPanel(page);
+
+            // Assert
+            expect(focused).toBe(true);
+            await expect(page.getByTestId(tooltip.selectors.content.dataTestId)).toBeFocused();
+        });
+
+        test('should resolve false in tooltip mode, where there is no content to focus', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page);
+
+            // Act
+            const content = page.getByTestId(tooltip.selectors.content.dataTestId);
+
+            const focused = await callFocusPanel(page);
+
+            // Assert
+            // The panel is a description of its trigger in this mode, not a container of its
+            // own, so its content must not join the focusable set.
+            await expect(content).not.toHaveAttribute('tabindex');
+            expect(focused).toBe(false);
+            await expect(content).not.toBeFocused();
+        });
+    });
+
+    test.describe('isDismissible', () => {
+        test('should name the close button from aria.close', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--dismissible');
+
+            // Act
+            const closeButton = page.getByRole('button', { name: 'Close' });
+
+            // Assert
+            await expect(closeButton).toBeVisible();
+        });
+
+        test('should place the close button in the tab sequence inside the panel', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--dismissible');
+
+            // Act
+            await page.getByTestId(tooltip.selectors.trigger.dataTestId).focus();
+            await page.keyboard.press('Tab');
+
+            // Assert
+            await expect(page.getByTestId(tooltip.selectors.close.dataTestId)).toBeFocused();
+        });
+
+        test('should emit exactly one close event when the close button is clicked', async ({ page }) => {
+            // Arrange
+            const basePage = await loadStory(page, 'tooltip--dismissible');
+
+            await basePage.listenForEvent('pie-tooltip-close');
+
+            // Act
+            await page.getByTestId(tooltip.selectors.close.dataTestId).click();
+            await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+            // Assert
+            expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+        });
+
+        test('should not close itself when nothing is listening for the close event', async ({ page }) => {
+            // Arrange
+            await loadStory(page, 'tooltip--dismissible');
+
+            const panel = page.getByTestId(tooltip.selectors.panel.dataTestId);
+
+            // Act
+            // The test stories wire no listeners at all, so the close button has no effect: the
+            // consumer owns `isOpen` and the component never writes to it.
+            await page.getByTestId(tooltip.selectors.close.dataTestId).click();
+
+            // Assert
+            await expect(panel).toBeVisible();
+
+            const isOpen = await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null)?.isOpen);
+
+            expect(isOpen).toBe(true);
+        });
+    });
+
+    test.describe('triggers', () => {
+        test.describe('hover', () => {
+            test('should emit pie-tooltip-open when the trigger is hovered', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+                await basePage.listenForEvent('pie-tooltip-open');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).hover();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+            });
+
+            test('should emit pie-tooltip-close when the cursor leaves the tooltip', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).hover();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act - move the cursor far away from both the trigger and the panel
+                await page.mouse.move(0, 0);
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+        });
+
+        test.describe('focus', () => {
+            test('should emit pie-tooltip-open when the trigger receives focus', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+                await basePage.listenForEvent('pie-tooltip-open');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).focus();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+            });
+
+            test('should emit pie-tooltip-close when focus leaves the trigger', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--hover-focus');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).focus();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.keyboard.press('Tab');
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+        });
+
+        test.describe('click', () => {
+            test('should emit pie-tooltip-open when the trigger is clicked while the panel is closed', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--click-toggle');
+                await basePage.listenForEvent('pie-tooltip-open');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+            });
+
+            test('should emit pie-tooltip-close when the trigger is clicked while the panel is open', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--click-toggle');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+
+            test('should emit pie-tooltip-close when clicking outside the panel', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--click-toggle');
+
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act - click somewhere outside the panel and trigger
+                await page.mouse.click(0, 0);
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+
+            test('should not close the panel when a click follows focus opening it', async ({ page }) => {
+                // Arrange
+                // With `focus` and `click` both configured, a pointer click fires `focusin` (which
+                // opens the panel) before `click`. The click must not then toggle it straight back
+                // closed, or the panel flashes open and shut.
+                const basePage = await loadTriggerStory(page, 'tooltip--focus-click');
+
+                await basePage.listenForEvent('pie-tooltip-open');
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-open']);
+
+                const isOpen = await page.evaluate(() => (document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null)?.isOpen);
+
+                expect(isOpen).toBe(true);
+            });
+
+            test('should close the panel on the next click after a focus-open click', async ({ page }) => {
+                // Arrange
+                const basePage = await loadTriggerStory(page, 'tooltip--focus-click');
+
+                // The first click "sticks" the panel open rather than toggling it.
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => {
+                    const el = document.querySelector('pie-tooltip') as (HTMLElement & { isOpen: boolean }) | null;
+                    return el?.isOpen === true;
+                });
+
+                await basePage.listenForEvent('pie-tooltip-close');
+
+                // Act
+                await page.getByTestId(tooltip.selectors.trigger.dataTestId).click();
+                await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+                // Assert
+                expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+            });
+        });
+    });
+
+    test.describe('trigger anchoring', () => {
+        test('should render the panel when there is no trigger id', async ({ page }) => {
+            // Arrange
+            await loadDefaultStory(page);
+
+            // Act
+            await page.evaluate(() => document.querySelector('pie-tooltip')?.removeAttribute('trigger'));
+
+            // Assert
+            await expect(page.getByTestId(tooltip.selectors.panel.dataTestId)).toBeVisible();
+        });
+    });
+
+    test.describe('Escape', () => {
+        test('should emit pie-tooltip-close when no trigger is configured', async ({ page }) => {
+            // Arrange
+            // The `inert` story has no `triggers`, so Escape is the only dismissal wired.
+            const basePage = await loadStory(page, 'tooltip--inert');
+            await basePage.listenForEvent('pie-tooltip-close');
+
+            // Act
+            await page.keyboard.press('Escape');
+            await page.waitForFunction(() => window.__eventsArray.length > 0);
+
+            // Assert
+            expect(await basePage.getCapturedEvents()).toEqual(['pie-tooltip-close']);
+        });
+    });
+});

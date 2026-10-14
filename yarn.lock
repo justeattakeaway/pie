@@ -454,9 +454,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.29.7":
-  version: 7.29.7
-  resolution: "@babel/eslint-parser@npm:7.29.7"
+"@babel/eslint-parser@npm:7.29.9":
+  version: 7.29.9
+  resolution: "@babel/eslint-parser@npm:7.29.9"
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals": "npm:5.1.1-v1"
     eslint-visitor-keys: "npm:^2.1.0"
@@ -464,7 +464,7 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.11.0
     eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
-  checksum: 10/fb12b127ba7231b07eb4a809fd7cf07f9df6f1abe5f9a0ce8be5edfce07c5a9f6f5745cd608af19b037961e4e8d5e30f844c7fa5f7b3d6d24f017f2194156a50
+  checksum: 10/a3bf296a1fa57211ea3f291a014849e09db2b0119a0b13e329d559d891d5d15af6ec3ee2fb6f94b6c3e9626c3a7752ea16bfa8dd2f319893f996f9b7c46d007d
   languageName: node
   linkType: hard
 
@@ -1921,9 +1921,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:2.31.0":
-  version: 2.31.0
-  resolution: "@changesets/cli@npm:2.31.0"
+"@changesets/cli@npm:2.31.1":
+  version: 2.31.1
+  resolution: "@changesets/cli@npm:2.31.1"
   dependencies:
     "@changesets/apply-release-plan": "npm:^7.1.1"
     "@changesets/assemble-release-plan": "npm:^6.0.10"
@@ -1953,7 +1953,7 @@ __metadata:
     term-size: "npm:^2.1.0"
   bin:
     changeset: bin.js
-  checksum: 10/7e64feb46375b56fe97e4eb41d0a38594275b5f0a5d9a8dc7fc2ded09194abbdc1386e9fcd6316da634b76aab07bf364005a331d3092a3cbbebf9ea84b61e488
+  checksum: 10/cdd707e821cd1b589eb2301b9c2f4219c118a6f4bdf20ec9f0a0ad43e99a8a4ef5883f90ab926723cee904217f7aabe14ee43346eda873495254f40e28672585
   languageName: node
   linkType: hard
 
@@ -2139,30 +2139,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:20.5.0":
-  version: 20.5.0
-  resolution: "@commitlint/cli@npm:20.5.0"
+"@commitlint/cli@npm:20.5.3":
+  version: 20.5.3
+  resolution: "@commitlint/cli@npm:20.5.3"
   dependencies:
     "@commitlint/format": "npm:^20.5.0"
-    "@commitlint/lint": "npm:^20.5.0"
-    "@commitlint/load": "npm:^20.5.0"
+    "@commitlint/lint": "npm:^20.5.3"
+    "@commitlint/load": "npm:^20.5.3"
     "@commitlint/read": "npm:^20.5.0"
     "@commitlint/types": "npm:^20.5.0"
     tinyexec: "npm:^1.0.0"
     yargs: "npm:^17.0.0"
   bin:
     commitlint: ./cli.js
-  checksum: 10/2f66498d119eb017d0590a0f4886962e82bc3eaf146733b6d8f87f021a0f45f4819590876f1168b7bb31d37e191cd8d5b2c93e9b725bf28add71f11741302e4b
+  checksum: 10/a849f47638e42c3a5f1e46f924bad76041396d4b43f21ef00242710592e488461b845b5e993cb892482a21b76d2770e7a4ee0deae4758a6cbc3980034bf43d2b
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:20.5.0":
-  version: 20.5.0
-  resolution: "@commitlint/config-conventional@npm:20.5.0"
+"@commitlint/config-conventional@npm:20.5.3":
+  version: 20.5.3
+  resolution: "@commitlint/config-conventional@npm:20.5.3"
   dependencies:
     "@commitlint/types": "npm:^20.5.0"
     conventional-changelog-conventionalcommits: "npm:^9.2.0"
-  checksum: 10/1088e1cd39dee173999bcda49417533e0c7f649faa1835e0309eddf3b21e9d2238757d7774f17e69572e894ff1c02efd2880a2e2da734c343ec2c68155af12f8
+  checksum: 10/77b27d1d0c47d1f7f3bd947c471249cea4e286a8094f5d62740b6a163374d997a26098cfacb5f0fa4478f50450a10968f5ef5fec2dea06f34a9412bc7935fb46
   languageName: node
   linkType: hard
 
@@ -2230,7 +2230,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^20.5.0":
+"@commitlint/lint@npm:^20.5.3":
   version: 20.5.3
   resolution: "@commitlint/lint@npm:20.5.3"
   dependencies:
@@ -2259,7 +2259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^20.5.0":
+"@commitlint/load@npm:^20.5.3":
   version: 20.5.3
   resolution: "@commitlint/load@npm:20.5.3"
   dependencies:
@@ -2509,7 +2509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discoveryjs/json-ext@npm:^1.0.0":
+"@discoveryjs/json-ext@npm:^1.1.0":
   version: 1.1.0
   resolution: "@discoveryjs/json-ext@npm:1.1.0"
   checksum: 10/c941e41fcfa0d40bfd0b12e5cd5995b609328adb5fa881b1e8bebcae57784d505ccb92ae5d470055336802197a664d3856decccfd09a59c8feef2bf214591ff5
@@ -3047,9 +3047,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma/code-connect@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@figma/code-connect@npm:2.0.0"
+"@figma/code-connect@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@figma/code-connect@npm:2.0.1"
   dependencies:
     boxen: "npm:5.1.1"
     chalk: "npm:^4.1.2"
@@ -3057,7 +3057,7 @@ __metadata:
     compare-versions: "npm:^6.1.0"
     cross-spawn: "npm:^7.0.3"
     dotenv: "npm:^16.3.1"
-    esbuild-wasm: "npm:0.27.3"
+    esbuild-wasm: "npm:0.27.5"
     fast-fuzzy: "npm:^1.12.0"
     find-up: "npm:^5.0.0"
     glob: "npm:^11.0.4"
@@ -3076,7 +3076,7 @@ __metadata:
     zod-validation-error: "npm:^3.2.0"
   bin:
     figma: bin/figma
-  checksum: 10/89971f53969dc2ab3aef39a3651707293248bb29ea3731bae18814fe3d6f205266772cac8f37148d0bfe7fe0a7a03605642f4e69015ce373082d94fac1b768ab
+  checksum: 10/a25a0f336809cd258f098dc8eb1b7d942d93673e5ca81402b9859473ad4a2a5341d9627f987f9d6007d0a1036f31683479f6be1993450dd585ecfbfdf4dadb5b
   languageName: node
   linkType: hard
 
@@ -3517,32 +3517,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:11.2.2":
-  version: 11.2.2
-  resolution: "@justeat/fozzie@npm:11.2.2"
-  dependencies:
-    "@justeat/pie-design-tokens": "npm:6.2.1"
-    include-media: "npm:2.0.0"
-  checksum: 10/6703b5edd79b40dc4f437c569c4874061b302b5888305a541c39c213a003fdf6bd26cfaeda79ee3caee4a3020415aa3c98baf91d6d7538f8adeb2fa7fb325323
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:6.2.1":
-  version: 6.2.1
-  resolution: "@justeat/pie-design-tokens@npm:6.2.1"
-  dependencies:
-    jsonc-parser: "npm:3.2.0"
-    lodash.merge: "npm:4.6.2"
-    mkdirp: "npm:1.0.4"
-  checksum: 10/bb6d5a22e2c5a2f1ab124641940eac75fcb59800f79f8e3510df4cd088c686bca85e86d719ae7e0d96b6b069c40f0724606484e6fa6459893dafdccc7f590f48
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:7.14.3, @justeat/pie-design-tokens@workspace:*, @justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens":
+"@justeat/pie-design-tokens@npm:7.15.1, @justeat/pie-design-tokens@workspace:*, @justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens":
   version: 0.0.0-use.local
   resolution: "@justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens"
   dependencies:
-    eslint-plugin-jest: "npm:29.0.1"
+    eslint-plugin-jest: "npm:29.16.6"
     jest: "npm:26.3.0"
     jsonc-parser: "npm:3.2.0"
     lodash.merge: "npm:4.6.2"
@@ -3561,7 +3540,7 @@ __metadata:
   resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
   dependencies:
     eslint-config-airbnb-base: "npm:15.0.0"
-    eslint-find-rules: "npm:4.1.0"
+    eslint-find-rules: "npm:4.2.0"
   peerDependencies:
     eslint: 7.x || 8.x
     eslint-plugin-import: ^2.26.0
@@ -3569,13 +3548,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/eslint-plugin-snacks-pie-migration@npm:0.12.0, @justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration":
+"@justeattakeaway/eslint-plugin-snacks-pie-migration@npm:0.14.0, @justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration"
   dependencies:
     "@typescript-eslint/parser": "npm:8.46.3"
     eslint: "npm:8.57.0"
-    eslint-plugin-eslint-plugin: "npm:6.0.0"
+    eslint-plugin-eslint-plugin: "npm:6.5.0"
     glob: "npm:13.0.6"
   peerDependencies:
     "@typescript-eslint/parser": 8.46.3
@@ -3597,119 +3576,119 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-accordion@npm:0.2.7, @justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion":
+"@justeattakeaway/pie-accordion@npm:1.0.1, @justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-accordion@workspace:packages/components/pie-accordion"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-divider": "npm:1.5.33"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-divider": "npm:1.5.38"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-assistive-text@npm:1.0.10, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
+"@justeattakeaway/pie-assistive-text@npm:1.0.16, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-avatar@npm:0.4.48, @justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar":
+"@justeattakeaway/pie-avatar@npm:0.4.54, @justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-breadcrumb@npm:1.0.11, @justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb":
+"@justeattakeaway/pie-breadcrumb@npm:1.0.18, @justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-link": "npm:1.5.2"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-link": "npm:1.5.9"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@npm:1.14.13, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@npm:1.15.1, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-spinner": "npm:1.5.6"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-spinner": "npm:1.5.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     element-internals-polyfill: "npm:1.3.11"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-card@npm:0.27.11, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
+"@justeattakeaway/pie-card@npm:1.0.1, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-card@workspace:packages/components/pie-card"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox-group@npm:1.2.6, @justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group":
+"@justeattakeaway/pie-checkbox-group@npm:1.2.12, @justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group"
   dependencies:
-    "@justeattakeaway/pie-assistive-text": "npm:1.0.10"
-    "@justeattakeaway/pie-checkbox": "npm:1.4.4"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
+    "@justeattakeaway/pie-checkbox": "npm:1.4.10"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox@npm:1.4.4, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
+"@justeattakeaway/pie-checkbox@npm:1.4.10, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox"
   dependencies:
-    "@justeattakeaway/pie-assistive-text": "npm:1.0.10"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-chip@npm:1.0.11, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
+"@justeattakeaway/pie-chip@npm:1.0.17, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-chip@workspace:packages/components/pie-chip"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-spinner": "npm:1.5.6"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-spinner": "npm:1.5.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
@@ -3717,11 +3696,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-code-connect@workspace:configs/pie-code-connect"
   dependencies:
-    "@figma/code-connect": "npm:2.0.0"
+    "@figma/code-connect": "npm:2.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-components-config@npm:*, @justeattakeaway/pie-components-config@npm:0.21.3, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+"@justeattakeaway/pie-components-config@npm:*, @justeattakeaway/pie-components-config@npm:0.21.5, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   dependencies:
@@ -3730,30 +3709,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@npm:1.10.14, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@npm:1.10.22, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
-    "@justeattakeaway/pie-button": "npm:1.14.13"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-divider": "npm:1.5.33"
-    "@justeattakeaway/pie-icon-button": "npm:2.7.30"
-    "@justeattakeaway/pie-link": "npm:1.5.2"
-    "@justeattakeaway/pie-modal": "npm:1.27.7"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-switch": "npm:2.7.1"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-button": "npm:1.15.1"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-divider": "npm:1.5.38"
+    "@justeattakeaway/pie-icon-button": "npm:2.8.1"
+    "@justeattakeaway/pie-link": "npm:1.5.9"
+    "@justeattakeaway/pie-modal": "npm:1.27.15"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-switch": "npm:2.7.7"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     dompurify: "npm:3.4.8"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-css@npm:1.5.0, @justeattakeaway/pie-css@workspace:packages/tools/pie-css":
+"@justeattakeaway/pie-css@npm:1.9.1, @justeattakeaway/pie-css@workspace:packages/tools/pie-css":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.14.3"
+    "@justeat/pie-design-tokens": "npm:7.15.1"
     "@types/postcss-import": "npm:14.0.3"
     include-media: "npm:2.0.0"
     modern-normalize: "npm:3.0.1"
@@ -3763,25 +3742,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-data-table@npm:0.3.28, @justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table":
+"@justeattakeaway/pie-data-table@npm:0.4.1, @justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-data-table@workspace:packages/components/pie-data-table"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-divider@npm:1.5.33, @justeattakeaway/pie-divider@workspace:packages/components/pie-divider":
+"@justeattakeaway/pie-divider@npm:1.5.38, @justeattakeaway/pie-divider@workspace:packages/components/pie-divider":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-divider@workspace:packages/components/pie-divider"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
@@ -3794,26 +3773,25 @@ __metadata:
     "@11ty/eleventy-navigation": "npm:1.0.5"
     "@docsearch/css": "npm:3.9.0"
     "@docsearch/js": "npm:3.9.0"
-    "@justeat/fozzie": "npm:11.2.2"
-    "@justeat/pie-design-tokens": "npm:7.14.3"
+    "@justeat/pie-design-tokens": "npm:7.15.1"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons": "npm:5.31.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.12"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons": "npm:5.32.2"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc": "npm:0.12.2"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
     "@webcomponents/template-shadowroot": "npm:0.2.1"
-    autoprefixer: "npm:10.5.0"
+    autoprefixer: "npm:10.6.1"
     cssnano: "npm:7.1.7"
     dree: "npm:5.1.5"
     eleventy-plugin-rev: "npm:2.0.0"
     eleventy-plugin-toc: "npm:1.1.5"
     eleventy-sass: "npm:3.0.0-beta.0"
     markdown-it: "npm:14.1.1"
-    markdown-it-anchor: "npm:9.2.0"
+    markdown-it-anchor: "npm:9.2.1"
     markdown-it-attrs: "npm:4.3.1"
     node-html-parser: "npm:7.1.0"
     postcss: "npm:8.5.15"
@@ -3822,42 +3800,42 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-form-label@npm:0.18.34, @justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label":
+"@justeattakeaway/pie-form-label@npm:1.0.1, @justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-switch": "npm:2.7.1"
-    "@justeattakeaway/pie-text-input": "npm:0.30.10"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-switch": "npm:2.7.7"
+    "@justeattakeaway/pie-text-input": "npm:0.30.16"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icon-button@npm:2.7.30, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
+"@justeattakeaway/pie-icon-button@npm:2.8.1, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-spinner": "npm:1.5.6"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-spinner": "npm:1.5.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icon-with-background@npm:0.4.1, @justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background":
+"@justeattakeaway/pie-icon-with-background@npm:0.4.6, @justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-with-background@workspace:packages/components/pie-icon-with-background"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
@@ -3874,7 +3852,7 @@ __metadata:
     "@babel/core": "npm:7.29.7"
     "@babel/node": "npm:7.29.7"
     "@babel/preset-react": "npm:7.29.7"
-    "@justeattakeaway/pie-icons": "npm:5.31.0"
+    "@justeattakeaway/pie-icons": "npm:5.32.2"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@rollup/plugin-node-resolve": "npm:15.1.0"
     "@rollup/plugin-typescript": "npm:12.1.2"
@@ -3883,7 +3861,7 @@ __metadata:
     react: "npm:18.3.1"
     react-test-renderer: "npm:18.3.1"
     rollup: "npm:4.60.4"
-    typescript: "npm:5.8.3"
+    typescript: "npm:5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -3893,10 +3871,10 @@ __metadata:
   dependencies:
     "@babel/cli": "npm:7.29.7"
     "@babel/core": "npm:7.29.7"
-    "@babel/eslint-parser": "npm:7.29.7"
-    "@justeattakeaway/pie-icons": "npm:5.31.0"
+    "@babel/eslint-parser": "npm:7.29.9"
+    "@justeattakeaway/pie-icons": "npm:5.32.2"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
-    "@rollup/plugin-commonjs": "npm:29.0.2"
+    "@rollup/plugin-commonjs": "npm:29.0.3"
     "@rollup/plugin-node-resolve": "npm:16.0.3"
     "@vue/babel-helper-vue-jsx-merge-props": "npm:1.4.0"
     "@vue/babel-preset-jsx": "npm:1.4.0"
@@ -3914,14 +3892,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-webc@npm:1.28.1, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
+"@justeattakeaway/pie-icons-webc@npm:1.29.5, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-icons": "npm:5.31.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-icons": "npm:5.32.2"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@rollup/plugin-typescript": "npm:12.3.0"
     just-kebab-case: "npm:4.2.0"
     just-pascal-case: "npm:3.2.0"
@@ -3929,82 +3907,82 @@ __metadata:
     react-dom: "npm:18.3.1"
     rollup: "npm:4.60.4"
     rollup-plugin-multi-input: "npm:1.9.0"
-    typescript: "npm:5.8.3"
+    typescript: "npm:5.9.3"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@npm:5.31.0, @justeattakeaway/pie-icons@workspace:*, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@npm:5.32.2, @justeattakeaway/pie-icons@workspace:*, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
     "@babel/node": "npm:7.29.7"
     "@changesets/write": "npm:0.4.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
     babel-loader: "npm:8.4.1"
     cheerio: "npm:1.2.0"
     classnames: "npm:2.5.1"
     fs-extra: "npm:11.3.4"
     html-minifier-terser: "npm:7.2.0"
     is-svg: "npm:6.1.0"
-    prettier: "npm:2.8.7"
+    prettier: "npm:2.8.8"
     slugify: "npm:1.6.9"
-    svgo: "npm:4.0.1"
+    svgo: "npm:4.1.0"
     webpack: "npm:5.107.1"
-    webpack-cli: "npm:7.0.2"
+    webpack-cli: "npm:7.2.3"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-link@npm:1.5.2, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
+"@justeattakeaway/pie-link@npm:1.5.9, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-link@workspace:packages/components/pie-link"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-list@npm:0.7.1, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
+"@justeattakeaway/pie-list@npm:0.8.1, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-list@workspace:packages/components/pie-list"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-lottie-player@npm:0.4.13, @justeattakeaway/pie-lottie-player@workspace:packages/components/pie-lottie-player":
+"@justeattakeaway/pie-lottie-player@npm:1.0.1, @justeattakeaway/pie-lottie-player@workspace:packages/components/pie-lottie-player":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-lottie-player@workspace:packages/components/pie-lottie-player"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     lottie-web: "npm:5.13.0"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-modal@npm:1.27.7, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
+"@justeattakeaway/pie-modal@npm:1.27.15, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.14.3"
-    "@justeattakeaway/pie-button": "npm:1.14.13"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icon-button": "npm:2.7.30"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-spinner": "npm:1.5.6"
-    "@justeattakeaway/pie-text-input": "npm:0.30.10"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeat/pie-design-tokens": "npm:7.15.1"
+    "@justeattakeaway/pie-button": "npm:1.15.1"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icon-button": "npm:2.8.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-spinner": "npm:1.5.11"
+    "@justeattakeaway/pie-text-input": "npm:0.30.16"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     "@types/body-scroll-lock": "npm:3.1.2"
     body-scroll-lock: "npm:3.1.5"
@@ -4012,77 +3990,77 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-monorepo-utils@npm:0.9.9, @justeattakeaway/pie-monorepo-utils@workspace:packages/tools/pie-monorepo-utils":
+"@justeattakeaway/pie-monorepo-utils@npm:0.9.11, @justeattakeaway/pie-monorepo-utils@workspace:packages/tools/pie-monorepo-utils":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-monorepo-utils@workspace:packages/tools/pie-monorepo-utils"
   dependencies:
     "@changesets/parse": "npm:0.4.3"
-    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "npm:0.12.0"
+    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "npm:0.14.0"
     chalk: "npm:4.1.2"
     execa: "npm:9.6.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-notification@npm:0.24.15, @justeattakeaway/pie-notification@workspace:packages/components/pie-notification":
+"@justeattakeaway/pie-notification@npm:1.0.2, @justeattakeaway/pie-notification@workspace:packages/components/pie-notification":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-notification@workspace:packages/components/pie-notification"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icon-button": "npm:2.7.30"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icon-button": "npm:2.8.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-radio-group@npm:1.2.7, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
+"@justeattakeaway/pie-radio-group@npm:1.2.13, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group"
   dependencies:
-    "@justeattakeaway/pie-assistive-text": "npm:1.0.10"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-radio": "npm:1.2.4"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-radio": "npm:1.2.9"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-radio@npm:1.2.4, @justeattakeaway/pie-radio@workspace:packages/components/pie-radio":
+"@justeattakeaway/pie-radio@npm:1.2.9, @justeattakeaway/pie-radio@workspace:packages/components/pie-radio":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-radio@workspace:packages/components/pie-radio"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-select@npm:0.9.10, @justeattakeaway/pie-select@workspace:packages/components/pie-select":
+"@justeattakeaway/pie-select@npm:0.9.16, @justeattakeaway/pie-select@workspace:packages/components/pie-select":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-select@workspace:packages/components/pie-select"
   dependencies:
-    "@justeattakeaway/pie-assistive-text": "npm:1.0.10"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-spinner@npm:1.5.6, @justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner":
+"@justeattakeaway/pie-spinner@npm:1.5.11, @justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
@@ -4091,133 +4069,133 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-storybook@workspace:apps/pie-storybook"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.14.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
+    "@justeat/pie-design-tokens": "npm:7.15.1"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc": "npm:0.11.12"
-    "@storybook/addon-a11y": "npm:10.5.0"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc": "npm:0.12.2"
+    "@storybook/addon-a11y": "npm:10.6.1"
     "@storybook/addon-designs": "npm:11.1.4"
-    "@storybook/addon-docs": "npm:10.5.0"
-    "@storybook/addon-links": "npm:10.5.0"
-    "@storybook/html": "npm:10.5.0"
-    "@storybook/web-components": "npm:10.5.0"
-    "@storybook/web-components-vite": "npm:10.5.0"
+    "@storybook/addon-docs": "npm:10.6.1"
+    "@storybook/addon-links": "npm:10.6.1"
+    "@storybook/html": "npm:10.6.1"
+    "@storybook/web-components": "npm:10.6.1"
+    "@storybook/web-components-vite": "npm:10.6.1"
     "@types/dompurify": "npm:3.2.0"
-    dompurify: "npm:3.4.8"
+    dompurify: "npm:3.4.15"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-syntax-highlighter: "npm:16.1.1"
     remark-gfm: "npm:4.0.1"
-    storybook: "npm:10.5.0"
+    storybook: "npm:10.6.1"
     storybook-dark-mode: "npm:5.0.0"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-switch@npm:2.7.1, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
+"@justeattakeaway/pie-switch@npm:2.7.7, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-switch@workspace:packages/components/pie-switch"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     element-internals-polyfill: "npm:1.3.11"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tabs@npm:0.1.33, @justeattakeaway/pie-tabs@workspace:packages/components/pie-tabs":
+"@justeattakeaway/pie-tabs@npm:0.1.38, @justeattakeaway/pie-tabs@workspace:packages/components/pie-tabs":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tabs@workspace:packages/components/pie-tabs"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tag@npm:1.1.1, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
+"@justeattakeaway/pie-tag@npm:1.1.6, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tag@workspace:packages/components/pie-tag"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-text-input@npm:0.30.10, @justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input":
+"@justeattakeaway/pie-text-input@npm:0.30.16, @justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input"
   dependencies:
-    "@justeattakeaway/pie-assistive-text": "npm:1.0.10"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     element-internals-polyfill: "npm:1.3.11"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-textarea@npm:0.23.5, @justeattakeaway/pie-textarea@workspace:packages/components/pie-textarea":
+"@justeattakeaway/pie-textarea@npm:0.23.11, @justeattakeaway/pie-textarea@workspace:packages/components/pie-textarea":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-textarea@workspace:packages/components/pie-textarea"
   dependencies:
-    "@justeattakeaway/pie-assistive-text": "npm:1.0.10"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@types/lodash.throttle": "npm:4.1.9"
     lodash.throttle: "npm:4.1.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-thumbnail@npm:0.9.1, @justeattakeaway/pie-thumbnail@workspace:packages/components/pie-thumbnail":
+"@justeattakeaway/pie-thumbnail@npm:1.0.1, @justeattakeaway/pie-thumbnail@workspace:packages/components/pie-thumbnail":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-thumbnail@workspace:packages/components/pie-thumbnail"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-toast-provider@npm:1.1.6, @justeattakeaway/pie-toast-provider@workspace:packages/components/pie-toast-provider":
+"@justeattakeaway/pie-toast-provider@npm:1.3.2, @justeattakeaway/pie-toast-provider@workspace:packages/components/pie-toast-provider":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-toast-provider@workspace:packages/components/pie-toast-provider"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-toast": "npm:1.1.6"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-toast": "npm:1.2.6"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-toast@npm:1.1.6, @justeattakeaway/pie-toast@workspace:packages/components/pie-toast":
+"@justeattakeaway/pie-toast@npm:1.2.6, @justeattakeaway/pie-toast@workspace:packages/components/pie-toast":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-toast@workspace:packages/components/pie-toast"
   dependencies:
-    "@justeattakeaway/pie-button": "npm:1.14.13"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-css": "npm:1.5.0"
-    "@justeattakeaway/pie-icon-button": "npm:2.7.30"
-    "@justeattakeaway/pie-icons-webc": "npm:1.28.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.9"
-    "@justeattakeaway/pie-webc-core": "npm:18.1.0"
+    "@justeattakeaway/pie-button": "npm:1.15.1"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icon-button": "npm:2.8.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
 
@@ -4225,16 +4203,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-token-map@workspace:packages/tools/pie-token-map"
   dependencies:
-    "@justeat/pie-design-tokens": "npm:7.14.3"
+    "@justeat/pie-design-tokens": "npm:7.15.1"
     "@justeattakeaway/pie-components-config": "npm:*"
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc-core@npm:18.1.0, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
+"@justeattakeaway/pie-tooltip@npm:0.5.1, @justeattakeaway/pie-tooltip@workspace:packages/components/pie-tooltip":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-tooltip@workspace:packages/components/pie-tooltip"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icon-button": "npm:2.8.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-webc-core@npm:22.0.1, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
     "@lit/context": "npm:1.1.6"
     lit: "npm:3.3.3"
   peerDependencies:
@@ -4246,50 +4238,51 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing"
   dependencies:
-    "@justeattakeaway/pie-css": "npm:1.5.0"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
   peerDependencies:
     "@axe-core/playwright": ^4.11.3
     "@playwright/test": ^1.57.0
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.11.12, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.12.2, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
-    "@justeattakeaway/pie-accordion": "npm:0.2.7"
-    "@justeattakeaway/pie-assistive-text": "npm:1.0.10"
-    "@justeattakeaway/pie-avatar": "npm:0.4.48"
-    "@justeattakeaway/pie-breadcrumb": "npm:1.0.11"
-    "@justeattakeaway/pie-button": "npm:1.14.13"
-    "@justeattakeaway/pie-card": "npm:0.27.11"
-    "@justeattakeaway/pie-checkbox": "npm:1.4.4"
-    "@justeattakeaway/pie-checkbox-group": "npm:1.2.6"
-    "@justeattakeaway/pie-chip": "npm:1.0.11"
-    "@justeattakeaway/pie-components-config": "npm:0.21.3"
-    "@justeattakeaway/pie-cookie-banner": "npm:1.10.14"
-    "@justeattakeaway/pie-data-table": "npm:0.3.28"
-    "@justeattakeaway/pie-divider": "npm:1.5.33"
-    "@justeattakeaway/pie-form-label": "npm:0.18.34"
-    "@justeattakeaway/pie-icon-button": "npm:2.7.30"
-    "@justeattakeaway/pie-icon-with-background": "npm:0.4.1"
-    "@justeattakeaway/pie-link": "npm:1.5.2"
-    "@justeattakeaway/pie-list": "npm:0.7.1"
-    "@justeattakeaway/pie-lottie-player": "npm:0.4.13"
-    "@justeattakeaway/pie-modal": "npm:1.27.7"
-    "@justeattakeaway/pie-notification": "npm:0.24.15"
-    "@justeattakeaway/pie-radio": "npm:1.2.4"
-    "@justeattakeaway/pie-radio-group": "npm:1.2.7"
-    "@justeattakeaway/pie-select": "npm:0.9.10"
-    "@justeattakeaway/pie-spinner": "npm:1.5.6"
-    "@justeattakeaway/pie-switch": "npm:2.7.1"
-    "@justeattakeaway/pie-tabs": "npm:0.1.33"
-    "@justeattakeaway/pie-tag": "npm:1.1.1"
-    "@justeattakeaway/pie-text-input": "npm:0.30.10"
-    "@justeattakeaway/pie-textarea": "npm:0.23.5"
-    "@justeattakeaway/pie-thumbnail": "npm:0.9.1"
-    "@justeattakeaway/pie-toast": "npm:1.1.6"
-    "@justeattakeaway/pie-toast-provider": "npm:1.1.6"
+    "@justeattakeaway/pie-accordion": "npm:1.0.1"
+    "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
+    "@justeattakeaway/pie-avatar": "npm:0.4.54"
+    "@justeattakeaway/pie-breadcrumb": "npm:1.0.18"
+    "@justeattakeaway/pie-button": "npm:1.15.1"
+    "@justeattakeaway/pie-card": "npm:1.0.1"
+    "@justeattakeaway/pie-checkbox": "npm:1.4.10"
+    "@justeattakeaway/pie-checkbox-group": "npm:1.2.12"
+    "@justeattakeaway/pie-chip": "npm:1.0.17"
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-cookie-banner": "npm:1.10.22"
+    "@justeattakeaway/pie-data-table": "npm:0.4.1"
+    "@justeattakeaway/pie-divider": "npm:1.5.38"
+    "@justeattakeaway/pie-form-label": "npm:1.0.1"
+    "@justeattakeaway/pie-icon-button": "npm:2.8.1"
+    "@justeattakeaway/pie-icon-with-background": "npm:0.4.6"
+    "@justeattakeaway/pie-link": "npm:1.5.9"
+    "@justeattakeaway/pie-list": "npm:0.8.1"
+    "@justeattakeaway/pie-lottie-player": "npm:1.0.1"
+    "@justeattakeaway/pie-modal": "npm:1.27.15"
+    "@justeattakeaway/pie-notification": "npm:1.0.2"
+    "@justeattakeaway/pie-radio": "npm:1.2.9"
+    "@justeattakeaway/pie-radio-group": "npm:1.2.13"
+    "@justeattakeaway/pie-select": "npm:0.9.16"
+    "@justeattakeaway/pie-spinner": "npm:1.5.11"
+    "@justeattakeaway/pie-switch": "npm:2.7.7"
+    "@justeattakeaway/pie-tabs": "npm:0.1.38"
+    "@justeattakeaway/pie-tag": "npm:1.1.6"
+    "@justeattakeaway/pie-text-input": "npm:0.30.16"
+    "@justeattakeaway/pie-textarea": "npm:0.23.11"
+    "@justeattakeaway/pie-thumbnail": "npm:1.0.1"
+    "@justeattakeaway/pie-toast": "npm:1.2.6"
+    "@justeattakeaway/pie-toast-provider": "npm:1.3.2"
+    "@justeattakeaway/pie-tooltip": "npm:0.5.1"
     chalk: "npm:5.6.2"
   languageName: unknown
   linkType: soft
@@ -5033,9 +5026,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-android-arm-eabi@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-android-arm-eabi@npm:11.21.3"
+"@oxc-resolver/binding-android-arm-eabi@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-android-arm-eabi@npm:11.21.2"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
@@ -5047,9 +5040,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-android-arm64@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-android-arm64@npm:11.21.3"
+"@oxc-resolver/binding-android-arm64@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-android-arm64@npm:11.21.2"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -5061,9 +5054,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-darwin-arm64@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-darwin-arm64@npm:11.21.3"
+"@oxc-resolver/binding-darwin-arm64@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-darwin-arm64@npm:11.21.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
@@ -5075,9 +5068,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-darwin-x64@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-darwin-x64@npm:11.21.3"
+"@oxc-resolver/binding-darwin-x64@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-darwin-x64@npm:11.21.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -5089,9 +5082,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-freebsd-x64@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-freebsd-x64@npm:11.21.3"
+"@oxc-resolver/binding-freebsd-x64@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-freebsd-x64@npm:11.21.2"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
@@ -5103,9 +5096,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-arm-gnueabihf@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-arm-gnueabihf@npm:11.21.3"
+"@oxc-resolver/binding-linux-arm-gnueabihf@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-arm-gnueabihf@npm:11.21.2"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
@@ -5117,9 +5110,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-arm-musleabihf@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-arm-musleabihf@npm:11.21.3"
+"@oxc-resolver/binding-linux-arm-musleabihf@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-arm-musleabihf@npm:11.21.2"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
@@ -5131,9 +5124,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-arm64-gnu@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-arm64-gnu@npm:11.21.3"
+"@oxc-resolver/binding-linux-arm64-gnu@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-arm64-gnu@npm:11.21.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
@@ -5145,9 +5138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-arm64-musl@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-arm64-musl@npm:11.21.3"
+"@oxc-resolver/binding-linux-arm64-musl@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-arm64-musl@npm:11.21.2"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
@@ -5159,9 +5152,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-ppc64-gnu@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-ppc64-gnu@npm:11.21.3"
+"@oxc-resolver/binding-linux-ppc64-gnu@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-ppc64-gnu@npm:11.21.2"
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
@@ -5173,9 +5166,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-riscv64-gnu@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-riscv64-gnu@npm:11.21.3"
+"@oxc-resolver/binding-linux-riscv64-gnu@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-riscv64-gnu@npm:11.21.2"
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
@@ -5187,9 +5180,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-riscv64-musl@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-riscv64-musl@npm:11.21.3"
+"@oxc-resolver/binding-linux-riscv64-musl@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-riscv64-musl@npm:11.21.2"
   conditions: os=linux & cpu=riscv64 & libc=musl
   languageName: node
   linkType: hard
@@ -5201,9 +5194,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-s390x-gnu@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-s390x-gnu@npm:11.21.3"
+"@oxc-resolver/binding-linux-s390x-gnu@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-s390x-gnu@npm:11.21.2"
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
@@ -5215,9 +5208,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-x64-gnu@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-x64-gnu@npm:11.21.3"
+"@oxc-resolver/binding-linux-x64-gnu@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-x64-gnu@npm:11.21.2"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -5229,9 +5222,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-linux-x64-musl@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-linux-x64-musl@npm:11.21.3"
+"@oxc-resolver/binding-linux-x64-musl@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-linux-x64-musl@npm:11.21.2"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
@@ -5243,9 +5236,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-openharmony-arm64@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-openharmony-arm64@npm:11.21.3"
+"@oxc-resolver/binding-openharmony-arm64@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-openharmony-arm64@npm:11.21.2"
   conditions: os=openharmony & cpu=arm64
   languageName: node
   linkType: hard
@@ -5261,9 +5254,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-wasm32-wasi@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-wasm32-wasi@npm:11.21.3"
+"@oxc-resolver/binding-wasm32-wasi@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-wasm32-wasi@npm:11.21.2"
   dependencies:
     "@emnapi/core": "npm:1.11.0"
     "@emnapi/runtime": "npm:1.11.0"
@@ -5279,9 +5272,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-win32-arm64-msvc@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-win32-arm64-msvc@npm:11.21.3"
+"@oxc-resolver/binding-win32-arm64-msvc@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-win32-arm64-msvc@npm:11.21.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -5293,9 +5286,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-resolver/binding-win32-x64-msvc@npm:11.21.3":
-  version: 11.21.3
-  resolution: "@oxc-resolver/binding-win32-x64-msvc@npm:11.21.3"
+"@oxc-resolver/binding-win32-x64-msvc@npm:11.21.2":
+  version: 11.21.2
+  resolution: "@oxc-resolver/binding-win32-x64-msvc@npm:11.21.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -5980,9 +5973,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:29.0.2":
-  version: 29.0.2
-  resolution: "@rollup/plugin-commonjs@npm:29.0.2"
+"@rollup/plugin-commonjs@npm:29.0.3":
+  version: 29.0.3
+  resolution: "@rollup/plugin-commonjs@npm:29.0.3"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     commondir: "npm:^1.0.1"
@@ -5996,7 +5989,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10/17b78d23222bfe77b28be106ce1b968983f7cfe3b84ef2f9eb6a0bebce4bf0ab67276b3a01bfaaa57791dbc403ba1b71854ebe7235b2f97aad8dc16aaf6e924b
+  checksum: 10/2331da36b60350f2c99e6deb175d8112e5986e8c48571d29b8f4c9aa20a228abf11142b6bd5facf708e5ee0f1284d01ac869283ebffe25e5e9b834caf985fb11
   languageName: node
   linkType: hard
 
@@ -6441,6 +6434,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rtsao/scc@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@rtsao/scc@npm:1.1.0"
+  checksum: 10/17d04adf404e04c1e61391ed97bca5117d4c2767a76ae3e879390d6dec7b317fcae68afbf9e98badee075d0b64fa60f287729c4942021b4d19cd01db77385c01
+  languageName: node
+  linkType: hard
+
 "@rushstack/node-core-library@npm:5.23.1":
   version: 5.23.1
   resolution: "@rushstack/node-core-library@npm:5.23.1"
@@ -6669,15 +6669,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/addon-a11y@npm:10.5.0"
+"@storybook/addon-a11y@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/addon-a11y@npm:10.6.1"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     axe-core: "npm:^4.2.0"
   peerDependencies:
-    storybook: ^10.5.0
-  checksum: 10/85b020821738daf0ab47003c2c5da6dbacf6c89d28f656b16f22242a53cbd0312a16cb6654deaa2b5af743143f7356a4475fe97e3bbaef034519438eac69d9c8
+    storybook: ^10.6.1
+  checksum: 10/906663f4885fa6976fcf54328a4cf0685503cf04a7acf1fb5dd02a3074f734ec1dbf613b00ea451d0d9ab0e58c80844af711565368ad75b75adce800cbc4f705
   languageName: node
   linkType: hard
 
@@ -6702,79 +6702,54 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/addon-docs@npm:10.5.0"
+"@storybook/addon-docs@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/addon-docs@npm:10.6.1"
   dependencies:
     "@mdx-js/react": "npm:^3.0.0"
-    "@storybook/csf-plugin": "npm:10.5.0"
     "@storybook/icons": "npm:^2.0.2"
-    "@storybook/react-dom-shim": "npm:10.5.0"
+    "@storybook/react-dom-shim": "npm:10.6.1"
     react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent: "npm:^2.0.0"
+    unplugin: "npm:^2.3.5"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.6.1
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/130bd11658ce215eff2568da42d5f3448a147a5a1c3cd8698943fb8c4942aa59b49134a75fa69726c0ebf1453ff789e20e406af1a739c96aa5839eb43c30295e
+  checksum: 10/8017a6d95dcc01491b6005c3213112032f72ecd75e8ea998dfe661e724326cc97a2fe3d79733604fe79890bbb1dc929c98cbdb9b2b55d098cd287149d19431a1
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/addon-links@npm:10.5.0"
+"@storybook/addon-links@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/addon-links@npm:10.6.1"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.6.1
   peerDependenciesMeta:
     "@types/react":
       optional: true
     react:
       optional: true
-  checksum: 10/808ccba56b1cdd47afd9761e9fc7ea8bd9ba68c0ac47046741f61ebde5d04beff7f7bfba740c81254dfa96eb5f5f7d4be8160c5991d671bdb9170bb97e2079bc
+  checksum: 10/086c083ffb3d571487bf6f35ea0e8d8ce0d5684b5574d83dc57aab922e87565211c8cc794e939d15b8d815f1c07eac4f6c854f880cc09338715464f3893dc551
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/builder-vite@npm:10.5.0"
+"@storybook/builder-vite@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/builder-vite@npm:10.6.1"
   dependencies:
-    "@storybook/csf-plugin": "npm:10.5.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^10.5.0
+    storybook: ^10.6.1
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10/195d239f293b447a7dfeec49b1965c7d6256591d9db9c6c7251fe49a4fc5bcd3e233395c77dd6efec779e9fc9b50a4ef6d8d75035c9e6122547a9e0975271baa
-  languageName: node
-  linkType: hard
-
-"@storybook/csf-plugin@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/csf-plugin@npm:10.5.0"
-  dependencies:
-    unplugin: "npm:^2.3.5"
-  peerDependencies:
-    esbuild: "*"
-    rollup: "*"
-    storybook: ^10.5.0
-    vite: "*"
-    webpack: "*"
-  peerDependenciesMeta:
-    esbuild:
-      optional: true
-    rollup:
-      optional: true
-    vite:
-      optional: true
-    webpack:
-      optional: true
-  checksum: 10/3b28a1c5aabb90a786b3022310cd575ec9fb596afe1ab2d9f6eced06e6336837a40410ac5f892635c0056aabf7c35125bc92bc22bcf9f38fc5aaadae9996b5a9
+  checksum: 10/ac77471110fdaae829c7a5d5615e8dbbb09a2a7c964a813f3376df018a012c68dd19ef22d55af38e1678fed8a496c68166f9f7a315ebac753b841758a75d4483
   languageName: node
   linkType: hard
 
@@ -6785,15 +6760,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/html@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/html@npm:10.5.0"
+"@storybook/html@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/html@npm:10.6.1"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^10.5.0
-  checksum: 10/a65188bc159aa415f032366d4b220b327d3f11ee9467a682733f43480326eaea23d2120f9916bcf88efdf176bd2c1b5d3e071327ed65a85ec465aa5e25c7f318
+    storybook: ^10.6.1
+  checksum: 10/3e848cf9f8ce3501628715672a149c2ec0c8e067d5818ecd3ab69bd6e25d0a14093548b3bbb9134b0e3eeaf41338051bb48166d9b90f5def8e7daa04a905cbfa
   languageName: node
   linkType: hard
 
@@ -6807,48 +6782,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-dom-shim@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/react-dom-shim@npm:10.5.0"
+"@storybook/react-dom-shim@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/react-dom-shim@npm:10.6.1"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     "@types/react-dom": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.6.1
   peerDependenciesMeta:
     "@types/react":
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 10/5cbe2652ae51c082a778731efcc66634a0bc794df13527a6c8cf7d6729edb31c6306cc454d40eaea8758a8f545da9249e2f1d7d4ee175e05be3b0be8689e6d07
+  checksum: 10/e8cea7f0c2c9c0320a7123997248496532e998bf62453c8fd532d5138e17a83cb1782bbf3808213c42a23218568ead3cae2fa662c9d44709db9f04f2046a1d6b
   languageName: node
   linkType: hard
 
-"@storybook/web-components-vite@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/web-components-vite@npm:10.5.0"
+"@storybook/web-components-vite@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/web-components-vite@npm:10.6.1"
   dependencies:
-    "@storybook/builder-vite": "npm:10.5.0"
-    "@storybook/web-components": "npm:10.5.0"
+    "@storybook/builder-vite": "npm:10.6.1"
+    "@storybook/web-components": "npm:10.6.1"
   peerDependencies:
-    storybook: ^10.5.0
+    storybook: ^10.6.1
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10/4e9d4ab05e232c2c1ade8bdf58e15df67c8fc4562329c7fb5f2bbcd17a26fcddd47d82f295a491c4add0444eaeffe178b787eeebb685f803d4eb965562f57f27
+  checksum: 10/4e6f9f2d48beb7f1139eba4c9f968e1dd33bcd63d0e66259a38cd5ae0399053a4ccd326402fe050324947a71179dc0a6abdbd9c5df80b7ee310526930ae0b619
   languageName: node
   linkType: hard
 
-"@storybook/web-components@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/web-components@npm:10.5.0"
+"@storybook/web-components@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@storybook/web-components@npm:10.6.1"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     tiny-invariant: "npm:^1.3.1"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
     lit: ^2.0.0 || ^3.0.0
-    storybook: ^10.5.0
-  checksum: 10/e138f9f745ddd8640c4380b5034992395a509b8e5f43f776c762291af21d606a21325ca1fdf7fec8f4ad2ac2f6e185f8b7bf40463a9a93487641caf18329dd68
+    storybook: ^10.6.1
+  checksum: 10/97588d83ee9b2eb8965ba28f0e222f6653864f2f8ec65470116cdb08bd687ba89bdda930b6ea0a1440ccf045047b131ba5fb3bf425b4fd5173bead89a7168549
   languageName: node
   linkType: hard
 
@@ -7020,7 +6995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.9.1":
+"@testing-library/jest-dom@npm:6.9.1":
   version: 6.9.1
   resolution: "@testing-library/jest-dom@npm:6.9.1"
   dependencies:
@@ -7034,12 +7009,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.6.1":
-  version: 14.6.1
-  resolution: "@testing-library/user-event@npm:14.6.1"
+"@testing-library/user-event@npm:^14.6.3":
+  version: 14.6.7
+  resolution: "@testing-library/user-event@npm:14.6.7"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 10/34b74fff56a0447731a94b40d4cf246deb8dbc1c1e3aec93acd1c3377a760bb062e979f1572bb34ec164ad28ee2a391744b42d0d6d6cc16c4ce527e5e09610e1
+  checksum: 10/afeb8ecb496c35c51a5cac0c94266808cfff748022c868a7682712d58cce6a93b649d1a667bb0b134ab93d9ce5bc9d113bfb28436b7f1b89203e589120b087d2
   languageName: node
   linkType: hard
 
@@ -7450,12 +7425,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.10.1":
-  version: 24.10.1
-  resolution: "@types/node@npm:24.10.1"
+"@types/node@npm:24.13.6":
+  version: 24.13.6
+  resolution: "@types/node@npm:24.13.6"
   dependencies:
-    undici-types: "npm:~7.16.0"
-  checksum: 10/ddac8c97be5f7401e31ea0e9316c6e864993c6cd06689b7f9874ecfb576ef8349f2d14298248a08b94a6dd029570a46a285cddc4d50e524817f1a3730b29a86e
+    undici-types: "npm:~7.18.0"
+  checksum: 10/855324e2042ea683a6cbf23ae24458033188f276560b0aa4e36ccc5953f378552c7c1140386067b2c17ea24f2b430c7246f3bc81d74dd04fcfcfb3c6304c5dcb
   languageName: node
   linkType: hard
 
@@ -9041,13 +9016,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-regex@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "ansi-regex@npm:2.1.1"
-  checksum: 10/190abd03e4ff86794f338a31795d262c1dfe8c91f7e01d04f13f646f1dcb16c5800818f886047876f1272f065570ab86b24b99089f8b68a0e11ff19aed4ca8f1
-  languageName: node
-  linkType: hard
-
 "ansi-regex@npm:^3.0.0":
   version: 3.0.1
   resolution: "ansi-regex@npm:3.0.1"
@@ -9219,7 +9187,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array-includes@npm:^3.1.6":
+"array-includes@npm:^3.1.9":
   version: 3.1.9
   resolution: "array-includes@npm:3.1.9"
   dependencies:
@@ -9256,7 +9224,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array.prototype.flat@npm:^1.3.1":
+"array.prototype.findlastindex@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "array.prototype.findlastindex@npm:1.2.6"
+  dependencies:
+    call-bind: "npm:^1.0.8"
+    call-bound: "npm:^1.0.4"
+    define-properties: "npm:^1.2.1"
+    es-abstract: "npm:^1.23.9"
+    es-errors: "npm:^1.3.0"
+    es-object-atoms: "npm:^1.1.1"
+    es-shim-unscopables: "npm:^1.1.0"
+  checksum: 10/5ddb6420e820bef6ddfdcc08ce780d0fd5e627e97457919c27e32359916de5a11ce12f7c55073555e503856618eaaa70845d6ca11dcba724766f38eb1c22f7a2
+  languageName: node
+  linkType: hard
+
+"array.prototype.flat@npm:^1.3.3":
   version: 1.3.3
   resolution: "array.prototype.flat@npm:1.3.3"
   dependencies:
@@ -9268,7 +9251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array.prototype.flatmap@npm:^1.3.1, array.prototype.flatmap@npm:^1.3.3":
+"array.prototype.flatmap@npm:^1.3.3":
   version: 1.3.3
   resolution: "array.prototype.flatmap@npm:1.3.3"
   dependencies:
@@ -9421,12 +9404,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.5.0":
-  version: 10.5.0
-  resolution: "autoprefixer@npm:10.5.0"
+"autoprefixer@npm:10.6.1":
+  version: 10.6.1
+  resolution: "autoprefixer@npm:10.6.1"
   dependencies:
-    browserslist: "npm:^4.28.2"
-    caniuse-lite: "npm:^1.0.30001787"
+    browserslist: "npm:^4.28.9"
+    caniuse-lite: "npm:^1.0.30001810"
     fraction.js: "npm:^5.3.4"
     picocolors: "npm:^1.1.1"
     postcss-value-parser: "npm:^4.2.0"
@@ -9434,7 +9417,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 10/3398a70ad57dfeb4fc1dd6b344c99ab996002780cd777af853de0bcc442c0f31d8c3fc9ab3ba018a2f0d34f0c102ce7b75ad35bb5d7b50f2792a3b62899189b2
+  checksum: 10/186b2e62c6fd6a5b25787f944e24951a914b4fbc96374b89a51243b7d2241365ce33e4c5698b40973749432f39ad18aa3f4ffa446ac3745166ca9149b0b5e957
   languageName: node
   linkType: hard
 
@@ -9461,14 +9444,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.32.0":
-  version: 0.32.0
-  resolution: "axios@npm:0.32.0"
+"axios@npm:0.33.0":
+  version: 0.33.0
+  resolution: "axios@npm:0.33.0"
   dependencies:
     follow-redirects: "npm:^1.15.4"
     form-data: "npm:^4.0.4"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10/1e35bb0778507851d32587176f72e9dbd9b091e4e7d59b8b60ce77c78fe1663f2b2e949478db1f71998ce68b3eb94df3031fcce110ce4e1c637474c50119e0a1
+  checksum: 10/36c468997b94f71cda99c8b575fe3fbb75d6dc19242c43546e3a72e703f398df98bff8294c418bccfbc88da67da88cfb94f37c49cb89468c648fe83ec6f3e955
   languageName: node
   linkType: hard
 
@@ -9686,6 +9669,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"baseline-browser-mapping@npm:^2.11.26":
+  version: 2.11.28
+  resolution: "baseline-browser-mapping@npm:2.11.28"
+  bin:
+    baseline-browser-mapping: dist/cli.cjs
+  checksum: 10/8561ad5d30b36e17d1c2b7c6e492eb4a6792d3441335669f7e95806149d759b6af3fc9f151586a65044636e65cf848b15c83fdd34c86d22d0da970c905fc7ac8
+  languageName: node
+  linkType: hard
+
 "basic-ftp@npm:5.3.0":
   version: 5.3.0
   resolution: "basic-ftp@npm:5.3.0"
@@ -9891,6 +9883,21 @@ __metadata:
   bin:
     browserslist: cli.js
   checksum: 10/cff88386e5b5ba5614c9063bd32ef94865bba22b6a381844c7d09ea1eea62a2247e7106e516abdbfda6b75b9986044c991dfe45f92f10add5ad63dccc07589ec
+  languageName: node
+  linkType: hard
+
+"browserslist@npm:^4.28.9":
+  version: 4.29.3
+  resolution: "browserslist@npm:4.29.3"
+  dependencies:
+    baseline-browser-mapping: "npm:^2.11.26"
+    caniuse-lite: "npm:^1.0.30001813"
+    electron-to-chromium: "npm:^1.5.439"
+    node-releases: "npm:^2.0.57"
+    update-browserslist-db: "npm:^1.3.3"
+  bin:
+    browserslist: cli.js
+  checksum: 10/9649d4d73fff11f7c0b19948f08f9f287c184feb0965ac0b489cee7e1a9f430e747809db0d6014a30fdbcc42755e7a4dd047dfd7e28f62982072dcd0f8291eb0
   languageName: node
   linkType: hard
 
@@ -10113,10 +10120,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001782, caniuse-lite@npm:^1.0.30001787":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001782":
   version: 1.0.30001793
   resolution: "caniuse-lite@npm:1.0.30001793"
   checksum: 10/5a1ac39f2f174e86d8320f394a5dfbeab98041722b13d02a21fe47afc2723bc754ea3716a1f276f8462bcbbc3016e82e6f155ebde0881e537af463b5eac1816b
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001810, caniuse-lite@npm:^1.0.30001813":
+  version: 1.0.30001815
+  resolution: "caniuse-lite@npm:1.0.30001815"
+  checksum: 10/975bc77d07201295d56ce25c0f796bede1b7c2447c46c4a4b1819cc67de3a505897a3e22926bb5195cf5cd4c31c32aed90fa2d8533a10e379c0a6a16916a8380
   languageName: node
   linkType: hard
 
@@ -10456,17 +10470,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cliui@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "cliui@npm:3.2.0"
-  dependencies:
-    string-width: "npm:^1.0.1"
-    strip-ansi: "npm:^3.0.1"
-    wrap-ansi: "npm:^2.0.0"
-  checksum: 10/a8acc1a2e5f6307bb3200738a55b353ae5ca13d7a9a8001e40bdf2449c228104daf245e29cdfe60652ffafc3e70096fc1624cd9cf8651bb322903dbbb22a4ac3
-  languageName: node
-  linkType: hard
-
 "cliui@npm:^6.0.0":
   version: 6.0.0
   resolution: "cliui@npm:6.0.0"
@@ -10478,7 +10481,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cliui@npm:^7.0.2":
+"cliui@npm:^7.0.2, cliui@npm:^7.0.4":
   version: 7.0.4
   resolution: "cliui@npm:7.0.4"
   dependencies:
@@ -10545,13 +10548,6 @@ __metadata:
   version: 13.0.3
   resolution: "code-block-writer@npm:13.0.3"
   checksum: 10/771546224f38610eecee0598e83c9e0f86dcd600ea316dbf27c2cfebaab4fed51b042325aa460b8e0f131fac5c1de208f6610a1ddbffe4b22e76f9b5256707cb
-  languageName: node
-  linkType: hard
-
-"code-point-at@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "code-point-at@npm:1.1.0"
-  checksum: 10/17d5666611f9b16d64fdf48176d9b7fb1c7d1c1607a189f7e600040a11a6616982876af148230336adb7d8fe728a559f743a4e29db3747e3b1a32fa7f4529681
   languageName: node
   linkType: hard
 
@@ -11030,6 +11026,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-select@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "css-select@npm:6.0.0"
+  dependencies:
+    boolbase: "npm:^1.0.0"
+    css-what: "npm:^7.0.0"
+    domhandler: "npm:^5.0.3"
+    domutils: "npm:^3.2.2"
+    nth-check: "npm:^2.1.1"
+  checksum: 10/361b07f67bdf2a30771a58adf3a7b1e8d4ba52a9e2a020c9fd0cd846e9a6b9149dc9a043b6fc02a6c07e47d58a3a606b97051ecddabddeadafc06a9e88c96e70
+  languageName: node
+  linkType: hard
+
 "css-tree@npm:^3.0.1, css-tree@npm:^3.1.0":
   version: 3.2.1
   resolution: "css-tree@npm:3.2.1"
@@ -11054,6 +11063,13 @@ __metadata:
   version: 6.2.2
   resolution: "css-what@npm:6.2.2"
   checksum: 10/3c5a53be94728089bd1716f915f7f96adde5dd8bf374610eb03982266f3d860bf1ebaf108cda30509d02ef748fe33eaa59aa75911e2c49ee05a85ef1f9fb5223
+  languageName: node
+  linkType: hard
+
+"css-what@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "css-what@npm:7.0.0"
+  checksum: 10/253c3013f8aee74b60d7d5c60bc62f3151a32f59ec6a9cc74527bb514d3aa746466f81fc10d57d85c58ee777d6e82eced7c5733a2181a884458dfc134518afab
   languageName: node
   linkType: hard
 
@@ -11835,6 +11851,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dompurify@npm:3.4.15":
+  version: 3.4.15
+  resolution: "dompurify@npm:3.4.15"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.7"
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 10/159f592307578405c5217ba40ab467d4ac35f23eb20abc7f32b85698b8c1aff92f71b00c80779f891a8e463edafab05d9a4db53052d5c67005240ac4fff7fc72
+  languageName: node
+  linkType: hard
+
 "domutils@npm:^2.8.0":
   version: 2.8.0
   resolution: "domutils@npm:2.8.0"
@@ -11986,6 +12014,13 @@ __metadata:
   version: 1.5.367
   resolution: "electron-to-chromium@npm:1.5.367"
   checksum: 10/7041090564a1be7616fe003280a03b5e4fd2a668707863e699635b71ce0fa79640f76d82fc0736c667a99c28962e33f10d29222f659160343f35c7b045482d37
+  languageName: node
+  linkType: hard
+
+"electron-to-chromium@npm:^1.5.439":
+  version: 1.5.452
+  resolution: "electron-to-chromium@npm:1.5.452"
+  checksum: 10/0c256b0f0a48afe69f57f8074319a0777599a429d0b71e895e6bcd6ca5ff979a2f6afa2b3bc57921126dd4e2af1a7fa4c999f5c652a22e5ac54080dcdd31ac4d
   languageName: node
   linkType: hard
 
@@ -12181,7 +12216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"envinfo@npm:^7.14.0":
+"envinfo@npm:^7.21.0":
   version: 7.21.0
   resolution: "envinfo@npm:7.21.0"
   bin:
@@ -12210,7 +12245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-abstract@npm:^1.23.5, es-abstract@npm:^1.23.9, es-abstract@npm:^1.24.0":
+"es-abstract@npm:^1.23.2, es-abstract@npm:^1.23.5, es-abstract@npm:^1.23.9, es-abstract@npm:^1.24.0":
   version: 1.24.2
   resolution: "es-abstract@npm:1.24.2"
   dependencies:
@@ -12321,7 +12356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-shim-unscopables@npm:^1.0.2":
+"es-shim-unscopables@npm:^1.0.2, es-shim-unscopables@npm:^1.1.0":
   version: 1.1.0
   resolution: "es-shim-unscopables@npm:1.1.0"
   dependencies:
@@ -12369,12 +12404,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-wasm@npm:0.27.3":
-  version: 0.27.3
-  resolution: "esbuild-wasm@npm:0.27.3"
+"esbuild-wasm@npm:0.27.5":
+  version: 0.27.5
+  resolution: "esbuild-wasm@npm:0.27.5"
   bin:
     esbuild: bin/esbuild
-  checksum: 10/2e6a178ad5b61d782b2540cabbb8191008ae21fdba647b8ff3a98e1932f3769df42f3ae245c16268be85bfa8ae49d64c6d980f85a49deccc48fc4bd1d2dedf2f
+  checksum: 10/48ccda4aa2463ffa11dc983d176091db9e7c1e0a85bfb02b278737422816122a972b202209c33522b55643ed7d35f105c08be6289e28eefb1887ad9cd70f29e5
   languageName: node
   linkType: hard
 
@@ -12631,14 +12666,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-find-rules@npm:4.1.0":
-  version: 4.1.0
-  resolution: "eslint-find-rules@npm:4.1.0"
+"eslint-find-rules@npm:4.2.0":
+  version: 4.2.0
+  resolution: "eslint-find-rules@npm:4.2.0"
   dependencies:
-    cliui: "npm:^3.2.0"
+    cliui: "npm:^7.0.4"
     eslint-rule-documentation: "npm:^1.0.23"
-    glob: "npm:^7.2.0"
-    which: "npm:^1.3.1"
+    glob: "npm:^7.2.3"
     window-size: "npm:^0.3.0"
     yargs: "npm:^16.2.0"
   peerDependencies:
@@ -12646,11 +12680,11 @@ __metadata:
   bin:
     eslint-diff-rules: dist/bin/diff.js
     eslint-find-rules: dist/bin/find.js
-  checksum: 10/921b286b71beff8f19f87f73d5b9fa02acd704ca409aabb268ab9bbf35aa4bb18d851ee27cb56d457a6e6915b3fad99830d271e97477e73bf2496b01c24ee60a
+  checksum: 10/8057d0c0de8d0bfad3fe4f600f2a37f47d103632c3809ad2c6a110d68aa4d636ee3a65fba153146d9142d1a72b743733d1949ee376d0994f2ebac0de2bad9238
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-node@npm:^0.3.7":
+"eslint-import-resolver-node@npm:^0.3.9":
   version: 0.3.10
   resolution: "eslint-import-resolver-node@npm:0.3.10"
   dependencies:
@@ -12661,70 +12695,77 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-module-utils@npm:^2.7.4":
-  version: 2.13.0
-  resolution: "eslint-module-utils@npm:2.13.0"
+"eslint-module-utils@npm:^2.12.1":
+  version: 2.14.0
+  resolution: "eslint-module-utils@npm:2.14.0"
   dependencies:
     debug: "npm:^3.2.7"
   peerDependenciesMeta:
     eslint:
       optional: true
-  checksum: 10/cecb2c341bddc85314b3cf3cf9354e894b9af3047c28db248ad498166847029c710caf605dc43f903086edb0ce9bd83a61b21ed217eb2237807c742d33ccf7fb
+  checksum: 10/78e508bc522717e756bcd1d84956ce43a5326cbb454c69b8fc1b4006c70b3d8bf93de61b389c32d76cf1e2fe1dcf035261445ed5b3f22b14338c73685de11c80
   languageName: node
   linkType: hard
 
-"eslint-plugin-eslint-plugin@npm:6.0.0":
-  version: 6.0.0
-  resolution: "eslint-plugin-eslint-plugin@npm:6.0.0"
+"eslint-plugin-eslint-plugin@npm:6.5.0":
+  version: 6.5.0
+  resolution: "eslint-plugin-eslint-plugin@npm:6.5.0"
   dependencies:
-    eslint-utils: "npm:^3.0.0"
+    "@eslint-community/eslint-utils": "npm:^4.4.0"
     estraverse: "npm:^5.3.0"
   peerDependencies:
     eslint: ">=8.23.0"
-  checksum: 10/cdf419c57379fcfa7d539727af702571201d97639162d3e735367220ad6f7d171c58e5566431c5a7a9e6a1d9b8aef32483f04d3c557f05f09963182723a30490
+  checksum: 10/4e1c946647ac669af87967c62b8817bca362c398b156bf921bb7aa6413d8d82857454dbbe04aceb04d9a8d03afdd746a5deaaa446c51ecc02b71733947dec66b
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:2.27.5":
-  version: 2.27.5
-  resolution: "eslint-plugin-import@npm:2.27.5"
+"eslint-plugin-import@npm:2.32.0":
+  version: 2.32.0
+  resolution: "eslint-plugin-import@npm:2.32.0"
   dependencies:
-    array-includes: "npm:^3.1.6"
-    array.prototype.flat: "npm:^1.3.1"
-    array.prototype.flatmap: "npm:^1.3.1"
+    "@rtsao/scc": "npm:^1.1.0"
+    array-includes: "npm:^3.1.9"
+    array.prototype.findlastindex: "npm:^1.2.6"
+    array.prototype.flat: "npm:^1.3.3"
+    array.prototype.flatmap: "npm:^1.3.3"
     debug: "npm:^3.2.7"
     doctrine: "npm:^2.1.0"
-    eslint-import-resolver-node: "npm:^0.3.7"
-    eslint-module-utils: "npm:^2.7.4"
-    has: "npm:^1.0.3"
-    is-core-module: "npm:^2.11.0"
+    eslint-import-resolver-node: "npm:^0.3.9"
+    eslint-module-utils: "npm:^2.12.1"
+    hasown: "npm:^2.0.2"
+    is-core-module: "npm:^2.16.1"
     is-glob: "npm:^4.0.3"
     minimatch: "npm:^3.1.2"
-    object.values: "npm:^1.1.6"
-    resolve: "npm:^1.22.1"
-    semver: "npm:^6.3.0"
-    tsconfig-paths: "npm:^3.14.1"
+    object.fromentries: "npm:^2.0.8"
+    object.groupby: "npm:^1.0.3"
+    object.values: "npm:^1.2.1"
+    semver: "npm:^6.3.1"
+    string.prototype.trimend: "npm:^1.0.9"
+    tsconfig-paths: "npm:^3.15.0"
   peerDependencies:
-    eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
-  checksum: 10/b8ab9521bd47acdad959309cbb5635069cebd0f1dfd14b5f6ad24f609dfda82c604b029c7366cafce1d359845300957ec246587cd5e4b237a0378118a9d3dfa7
+    eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8 || ^9
+  checksum: 10/1bacf4967e9ebf99e12176a795f0d6d3a87d1c9a030c2207f27b267e10d96a1220be2647504c7fc13ab543cdf13ffef4b8f5620e0447032dba4ff0d3922f7c9e
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:29.0.1":
-  version: 29.0.1
-  resolution: "eslint-plugin-jest@npm:29.0.1"
+"eslint-plugin-jest@npm:29.16.6":
+  version: 29.16.6
+  resolution: "eslint-plugin-jest@npm:29.16.6"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.0.0"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^8.0.0
-    eslint: ^8.57.0 || ^9.0.0
+    eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
     jest: "*"
+    typescript: ">=4.8.4 <8.0.0"
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
     jest:
       optional: true
-  checksum: 10/d7b0a3fbdbf795225fbbff2c69c7711bb6502a3d4444d857c95a9d6578a65c80fd8a9fcd3ebc3d0634fe1cc70b4b77e887943945fadab6a974a736d2ffc5babf
+    typescript:
+      optional: true
+  checksum: 10/080eb1b22e583c06ac881963f7cf8aa52448ef015d743fd7fe519853ff7a6ebac05d55001f64e4d7298af006d5d7e636186e83a6850695b3f901d7e62acfe77b
   languageName: node
   linkType: hard
 
@@ -12808,18 +12849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-utils@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "eslint-utils@npm:3.0.0"
-  dependencies:
-    eslint-visitor-keys: "npm:^2.0.0"
-  peerDependencies:
-    eslint: ">=5"
-  checksum: 10/7675260a6b220c70f13e4cdbf077e93cad0dfb388429a27d6c0b584b2b20dca24594508e8bdb00a460a5764bd364a5018e20c2b8b1d70f82bcc3fdc30692a4d2
-  languageName: node
-  linkType: hard
-
-"eslint-visitor-keys@npm:^2.0.0, eslint-visitor-keys@npm:^2.1.0":
+"eslint-visitor-keys@npm:^2.1.0":
   version: 2.1.0
   resolution: "eslint-visitor-keys@npm:2.1.0"
   checksum: 10/db4547eef5039122d518fa307e938ceb8589da5f6e8f5222efaf14dd62f748ce82e2d2becd3ff9412a50350b726bda95dbea8515a471074547daefa58aee8735
@@ -13279,7 +13309,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastest-levenshtein@npm:^1.0.12, fastest-levenshtein@npm:^1.0.16":
+"fastest-levenshtein@npm:^1.0.16":
   version: 1.0.16
   resolution: "fastest-levenshtein@npm:1.0.16"
   checksum: 10/ee85d33b5cef592033f70e1c13ae8624055950b4eb832435099cd56aa313d7f251b873bedbc06a517adfaff7b31756d139535991e2406967438e03a1bf1b008e
@@ -13997,7 +14027,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:7.2.3, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.2.0":
+"glob@npm:7.2.3, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.2.0, glob@npm:^7.2.3":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -14391,13 +14421,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"has@npm:^1.0.3":
-  version: 1.0.4
-  resolution: "has@npm:1.0.4"
-  checksum: 10/c245f332fe78c7b6b8753857240ac12b3286f995f656a33c77e0f5baab7d0157e6ddb1c34940ffd2bffc51f75ede50cd8b29ff65c13e336376aca8cf3df58043
-  languageName: node
-  linkType: hard
-
 "hashery@npm:^1.4.0, hashery@npm:^1.5.1":
   version: 1.5.1
   resolution: "hashery@npm:1.5.1"
@@ -14776,7 +14799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"import-local@npm:^3.0.2":
+"import-local@npm:^3.0.2, import-local@npm:^3.2.0":
   version: 3.2.0
   resolution: "import-local@npm:3.2.0"
   dependencies:
@@ -15058,7 +15081,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.11.0, is-core-module@npm:^2.16.1, is-core-module@npm:^2.16.2":
+"is-core-module@npm:^2.16.1, is-core-module@npm:^2.16.2":
   version: 2.16.2
   resolution: "is-core-module@npm:2.16.2"
   dependencies:
@@ -15171,15 +15194,6 @@ __metadata:
   dependencies:
     call-bound: "npm:^1.0.3"
   checksum: 10/0bfb145e9a1ba852ddde423b0926d2169ae5fe9e37882cde9e8f69031281a986308df4d982283e152396e88b86562ed2256cbaa5e6390fb840a4c25ab54b8a80
-  languageName: node
-  linkType: hard
-
-"is-fullwidth-code-point@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "is-fullwidth-code-point@npm:1.0.0"
-  dependencies:
-    number-is-nan: "npm:^1.0.0"
-  checksum: 10/4d46a7465a66a8aebcc5340d3b63a56602133874af576a9ca42c6f0f4bd787a743605771c5f246db77da96605fefeffb65fc1dbe862dcc7328f4b4d03edf5a57
   languageName: node
   linkType: hard
 
@@ -17375,13 +17389,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it-anchor@npm:9.2.0":
-  version: 9.2.0
-  resolution: "markdown-it-anchor@npm:9.2.0"
+"markdown-it-anchor@npm:9.2.1":
+  version: 9.2.1
+  resolution: "markdown-it-anchor@npm:9.2.1"
   peerDependencies:
     "@types/markdown-it": "*"
     markdown-it: "*"
-  checksum: 10/ececb857a621946be9da08a9abdec98b954fa2f14493261293bf1868146f840d419042be7028317851940ecb7f6d2db318916d13bd38c9d398507c7802d6f70f
+  checksum: 10/eb3f5667e66702c2be5403d79606e9f4575150d814df8d5f88c4c6a9253e3fc6641dce9159d22929dde980231b0e20a324e8055f15d37f42d0435963fb3af470
   languageName: node
   linkType: hard
 
@@ -18573,6 +18587,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-releases@npm:^2.0.57":
+  version: 2.0.58
+  resolution: "node-releases@npm:2.0.58"
+  checksum: 10/06039e07aef63b25e2f2597c4d68e147139977edbe1f147159d2d0379eb16a179709ab91ac25b294309cca0ff980266a7c4cffd079b6c5ac3dd9769204628051
+  languageName: node
+  linkType: hard
+
 "node-retrieve-globals@npm:^6.0.1":
   version: 6.0.1
   resolution: "node-retrieve-globals@npm:6.0.1"
@@ -18699,13 +18720,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"number-is-nan@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "number-is-nan@npm:1.0.1"
-  checksum: 10/13656bc9aa771b96cef209ffca31c31a03b507ca6862ba7c3f638a283560620d723d52e626d57892c7fff475f4c36ac07f0600f14544692ff595abff214b9ffb
-  languageName: node
-  linkType: hard
-
 "nunjucks@npm:^3.2.4":
   version: 3.2.4
   resolution: "nunjucks@npm:3.2.4"
@@ -18812,6 +18826,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object.fromentries@npm:^2.0.8":
+  version: 2.0.8
+  resolution: "object.fromentries@npm:2.0.8"
+  dependencies:
+    call-bind: "npm:^1.0.7"
+    define-properties: "npm:^1.2.1"
+    es-abstract: "npm:^1.23.2"
+    es-object-atoms: "npm:^1.0.0"
+  checksum: 10/5b2e80f7af1778b885e3d06aeb335dcc86965e39464671adb7167ab06ac3b0f5dd2e637a90d8ebd7426d69c6f135a4753ba3dd7d0fe2a7030cf718dcb910fd92
+  languageName: node
+  linkType: hard
+
 "object.getownpropertydescriptors@npm:^2.0.3":
   version: 2.1.9
   resolution: "object.getownpropertydescriptors@npm:2.1.9"
@@ -18827,6 +18853,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object.groupby@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "object.groupby@npm:1.0.3"
+  dependencies:
+    call-bind: "npm:^1.0.7"
+    define-properties: "npm:^1.2.1"
+    es-abstract: "npm:^1.23.2"
+  checksum: 10/44cb86dd2c660434be65f7585c54b62f0425b0c96b5c948d2756be253ef06737da7e68d7106e35506ce4a44d16aa85a413d11c5034eb7ce5579ec28752eb42d0
+  languageName: node
+  linkType: hard
+
 "object.pick@npm:^1.3.0":
   version: 1.3.0
   resolution: "object.pick@npm:1.3.0"
@@ -18836,7 +18873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.values@npm:^1.1.6":
+"object.values@npm:^1.2.1":
   version: 1.2.1
   resolution: "object.values@npm:1.2.1"
   dependencies:
@@ -19047,29 +19084,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oxc-resolver@npm:^11.19.1":
-  version: 11.21.3
-  resolution: "oxc-resolver@npm:11.21.3"
+"oxc-resolver@npm:11.21.2":
+  version: 11.21.2
+  resolution: "oxc-resolver@npm:11.21.2"
   dependencies:
-    "@oxc-resolver/binding-android-arm-eabi": "npm:11.21.3"
-    "@oxc-resolver/binding-android-arm64": "npm:11.21.3"
-    "@oxc-resolver/binding-darwin-arm64": "npm:11.21.3"
-    "@oxc-resolver/binding-darwin-x64": "npm:11.21.3"
-    "@oxc-resolver/binding-freebsd-x64": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-arm-gnueabihf": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-arm-musleabihf": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-arm64-gnu": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-arm64-musl": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-ppc64-gnu": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-riscv64-gnu": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-riscv64-musl": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-s390x-gnu": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-x64-gnu": "npm:11.21.3"
-    "@oxc-resolver/binding-linux-x64-musl": "npm:11.21.3"
-    "@oxc-resolver/binding-openharmony-arm64": "npm:11.21.3"
-    "@oxc-resolver/binding-wasm32-wasi": "npm:11.21.3"
-    "@oxc-resolver/binding-win32-arm64-msvc": "npm:11.21.3"
-    "@oxc-resolver/binding-win32-x64-msvc": "npm:11.21.3"
+    "@oxc-resolver/binding-android-arm-eabi": "npm:11.21.2"
+    "@oxc-resolver/binding-android-arm64": "npm:11.21.2"
+    "@oxc-resolver/binding-darwin-arm64": "npm:11.21.2"
+    "@oxc-resolver/binding-darwin-x64": "npm:11.21.2"
+    "@oxc-resolver/binding-freebsd-x64": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-arm-gnueabihf": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-arm-musleabihf": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-arm64-gnu": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-arm64-musl": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-ppc64-gnu": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-riscv64-gnu": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-riscv64-musl": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-s390x-gnu": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-x64-gnu": "npm:11.21.2"
+    "@oxc-resolver/binding-linux-x64-musl": "npm:11.21.2"
+    "@oxc-resolver/binding-openharmony-arm64": "npm:11.21.2"
+    "@oxc-resolver/binding-wasm32-wasi": "npm:11.21.2"
+    "@oxc-resolver/binding-win32-arm64-msvc": "npm:11.21.2"
+    "@oxc-resolver/binding-win32-x64-msvc": "npm:11.21.2"
   dependenciesMeta:
     "@oxc-resolver/binding-android-arm-eabi":
       optional: true
@@ -19109,7 +19146,7 @@ __metadata:
       optional: true
     "@oxc-resolver/binding-win32-x64-msvc":
       optional: true
-  checksum: 10/e890dcca9bcb130c393493dffd763e9ed4b1bf8d32b5990cd094a7a5402bdb6dbd04e64893166e4531369552c37ae811a24206d663d6cf8fd65baf13437903ea
+  checksum: 10/44abfb2aeec290f78f13d554aafddbd643efa600b94c05168fabb1264dc2d59663eb8130854a10c18393956d30e6638d1915cbeec52f99fa451afd138a8e402a
   languageName: node
   linkType: hard
 
@@ -19671,9 +19708,9 @@ __metadata:
     "@axe-core/playwright": "npm:4.12.1"
     "@babel/preset-env": "npm:7.29.7"
     "@changesets/changelog-github": "npm:0.6.0"
-    "@changesets/cli": "npm:2.31.0"
-    "@commitlint/cli": "npm:20.5.0"
-    "@commitlint/config-conventional": "npm:20.5.0"
+    "@changesets/cli": "npm:2.31.1"
+    "@commitlint/cli": "npm:20.5.3"
+    "@commitlint/config-conventional": "npm:20.5.3"
     "@custom-elements-manifest/analyzer": "npm:0.11.0"
     "@justeat/pie-design-tokens": "workspace:*"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
@@ -19687,7 +19724,7 @@ __metadata:
     "@playwright/experimental-ct-react": "npm:1.57.0"
     "@playwright/test": "npm:1.57.0"
     "@stylistic/stylelint-plugin": "npm:4.0.1"
-    "@types/node": "npm:24.10.1"
+    "@types/node": "npm:24.13.6"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
     "@typescript-eslint/parser": "npm:5.62.0"
     "@vitest/coverage-v8": "npm:4.1.11"
@@ -19697,7 +19734,7 @@ __metadata:
     cz-customizable: "npm:7.5.4"
     danger: "npm:13.0.7"
     eslint: "npm:8.57.0"
-    eslint-plugin-import: "npm:2.27.5"
+    eslint-plugin-import: "npm:2.32.0"
     eslint-plugin-json-format: "npm:2.0.1"
     eslint-plugin-vitest: "npm:0.5.4"
     glob: "npm:13.0.6"
@@ -19707,7 +19744,7 @@ __metadata:
     pinst: "npm:3.0.0"
     rimraf: "npm:6.1.3"
     rollup-plugin-visualizer: "npm:5.12.0"
-    sass: "npm:1.100.0"
+    sass: "npm:1.104.1"
     stylelint: "npm:16.26.1"
     stylelint-config-standard-scss: "npm:13.0.0"
     stylelint-order: "npm:6.0.4"
@@ -20357,16 +20394,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.7":
-  version: 2.8.7
-  resolution: "prettier@npm:2.8.7"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 10/5d5acc2015dcd9ae4033c0ea3189820920149137100750c897d384bc9058c79c78af94ca892f3bc7c5b6da0661a50357e8eb9eb455c4c1da156b1d0757f54a8a
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.7.1, prettier@npm:^2.8.8":
+"prettier@npm:2.8.8, prettier@npm:^2.7.1, prettier@npm:^2.8.8":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
@@ -21763,7 +21791,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.100.0, sass@npm:^1.49.7":
+"sass@npm:1.104.1":
+  version: 1.104.1
+  resolution: "sass@npm:1.104.1"
+  dependencies:
+    "@parcel/watcher": "npm:^2.4.1"
+    chokidar: "npm:^5.0.0"
+    immutable: "npm:^5.1.5"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  dependenciesMeta:
+    "@parcel/watcher":
+      optional: true
+  bin:
+    sass: sass.js
+  checksum: 10/e237f0ab079bf3dce05c25b3445cf3e940d0efa1ef4b7f143b728eb86f0256d9c1315f0b29b64a073f443a98c4c6e2f67fc9b4d92eb5079ddd55a324eebd901e
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.49.7":
   version: 1.100.0
   resolution: "sass@npm:1.100.0"
   dependencies:
@@ -21780,7 +21825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sax@npm:^1.2.4":
+"sax@npm:1.6.1, sax@npm:^1.2.4":
   version: 1.6.1
   resolution: "sax@npm:1.6.1"
   checksum: 10/bf7e7f8293903548bd663d71e9300b20ee04df178399b8f54029b6559225de422235c8fb0a63ba088fcb90c1dbaf9b475f57c7f32c901bfb78d0196dceb3cc7f
@@ -22514,15 +22559,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:10.5.0":
-  version: 10.5.0
-  resolution: "storybook@npm:10.5.0"
+"storybook@npm:10.6.1":
+  version: 10.6.1
+  resolution: "storybook@npm:10.6.1"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@storybook/icons": "npm:^2.0.2"
     "@testing-library/dom": "npm:^10.4.1"
-    "@testing-library/jest-dom": "npm:^6.9.1"
-    "@testing-library/user-event": "npm:^14.6.1"
+    "@testing-library/jest-dom": "npm:6.9.1"
+    "@testing-library/user-event": "npm:^14.6.3"
     "@vitest/expect": "npm:3.2.4"
     "@vitest/spy": "npm:3.2.4"
     "@webcontainer/env": "npm:^1.1.1"
@@ -22530,11 +22575,11 @@ __metadata:
     jsonc-parser: "npm:^3.3.1"
     open: "npm:^10.2.0"
     oxc-parser: "npm:^0.127.0"
-    oxc-resolver: "npm:^11.19.1"
+    oxc-resolver: "npm:11.21.2"
     recast: "npm:^0.23.5"
     semver: "npm:^7.7.3"
     use-sync-external-store: "npm:^1.5.0"
-    ws: "npm:^8.18.0"
+    ws: "npm:^8.21.1"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     prettier: ^2 || ^3
@@ -22548,7 +22593,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./dist/bin/dispatcher.js
-  checksum: 10/d90749965e9f46c938a9b1e4892ad6b7f521bab45902e19fca6eb9b2659f7427ac7bd78a5ae88fc1484d1b5d45ae60917fa6e9a99114092555d51c04119ea06d
+  checksum: 10/166d5da2e8004bdde166bc49d3572f6a8e1495eb86b628ffc078049f5494f9b6a9d45fef93500758e8102c132add81ab1875f7afc608491b037734394e219f29
   languageName: node
   linkType: hard
 
@@ -22604,17 +22649,6 @@ __metadata:
     is-fullwidth-code-point: "npm:^3.0.0"
     strip-ansi: "npm:^6.0.1"
   checksum: 10/e52c10dc3fbfcd6c3a15f159f54a90024241d0f149cf8aed2982a2d801d2e64df0bf1dc351cf8e95c3319323f9f220c16e740b06faecd53e2462df1d2b5443fb
-  languageName: node
-  linkType: hard
-
-"string-width@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "string-width@npm:1.0.2"
-  dependencies:
-    code-point-at: "npm:^1.0.0"
-    is-fullwidth-code-point: "npm:^1.0.0"
-    strip-ansi: "npm:^3.0.0"
-  checksum: 10/5c79439e95bc3bd7233a332c5f5926ab2ee90b23816ed4faa380ce3b2576d7800b0a5bb15ae88ed28737acc7ea06a518c2eef39142dd727adad0e45c776cd37e
   languageName: node
   linkType: hard
 
@@ -22692,15 +22726,6 @@ __metadata:
   dependencies:
     ansi-regex: "npm:^5.0.1"
   checksum: 10/ae3b5436d34fadeb6096367626ce987057713c566e1e7768818797e00ac5d62023d0f198c4e681eae9e20701721980b26a64a8f5b91238869592a9c6800719a2
-  languageName: node
-  linkType: hard
-
-"strip-ansi@npm:^3.0.0, strip-ansi@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "strip-ansi@npm:3.0.1"
-  dependencies:
-    ansi-regex: "npm:^2.0.0"
-  checksum: 10/9b974de611ce5075c70629c00fa98c46144043db92ae17748fb780f706f7a789e9989fd10597b7c2053ae8d1513fd707816a91f1879b2f71e6ac0b6a863db465
   languageName: node
   linkType: hard
 
@@ -23067,7 +23092,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:4.0.1, svgo@npm:^4.0.1":
+"svgo@npm:4.1.0":
+  version: 4.1.0
+  resolution: "svgo@npm:4.1.0"
+  dependencies:
+    commander: "npm:^11.1.0"
+    css-select: "npm:^6.0.0"
+    css-tree: "npm:^3.0.1"
+    css-what: "npm:^7.0.0"
+    csso: "npm:^5.0.5"
+    picocolors: "npm:^1.1.1"
+    sax: "npm:1.6.1"
+  bin:
+    svgo: bin/svgo.js
+  checksum: 10/72a501b49a9ceed175e1e1a66208516641a9f4a1c1908bb6bf4cf2e9678ce68e827af68a569a532dfdbbf7929abf044bbb8b47aa6a0fc9aedc127791ad1df650
+  languageName: node
+  linkType: hard
+
+"svgo@npm:^4.0.1":
   version: 4.0.1
   resolution: "svgo@npm:4.0.1"
   dependencies:
@@ -23127,16 +23169,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar@npm:7.5.16":
-  version: 7.5.16
-  resolution: "tar@npm:7.5.16"
+"tar@npm:7.5.19":
+  version: 7.5.19
+  resolution: "tar@npm:7.5.19"
   dependencies:
     "@isaacs/fs-minipass": "npm:^4.0.0"
     chownr: "npm:^3.0.0"
     minipass: "npm:^7.1.2"
     minizlib: "npm:^3.1.0"
     yallist: "npm:^5.0.0"
-  checksum: 10/fafa22efceb9f056bf29ddc47d9bd90bb82fe3ce57b8d1242fc45771251741964cebba69d4e14a24fd1643f3c7f68478e945a19def534703cf370c2d9dca2e09
+  checksum: 10/0b06a0917fe68a4dff361e147db30fd67ae2ee85ab2863d62046a6ccef46f0d1906eed20f92277a436300eaaa0e3cd31d8763d7f02fa389f41d7966e58388db8
   languageName: node
   linkType: hard
 
@@ -23499,7 +23541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig-paths@npm:^3.14.1":
+"tsconfig-paths@npm:^3.15.0":
   version: 3.15.0
   resolution: "tsconfig-paths@npm:3.15.0"
   dependencies:
@@ -23710,23 +23752,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.8.3":
-  version: 5.8.3
-  resolution: "typescript@npm:5.8.3"
+"typescript@npm:5.9.3":
+  version: 5.9.3
+  resolution: "typescript@npm:5.9.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/65c40944c51b513b0172c6710ee62e951b70af6f75d5a5da745cb7fab132c09ae27ffdf7838996e3ed603bb015dadd099006658046941bd0ba30340cc563ae92
+  checksum: 10/c089d9d3da2729fd4ac517f9b0e0485914c4b3c26f80dc0cffcb5de1719a17951e92425d55db59515c1a7ddab65808466debb864d0d56dcf43f27007d0709594
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>":
-  version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
+"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>":
+  version: 5.9.3
+  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/b9b1e73dabac5dc730c041325dbd9c99467c1b0d239f1b74ec3b90d831384af3e2ba973946232df670519147eb51a2c20f6f96163cea2b359f03de1e2091cc4f
+  checksum: 10/696e1b017bc2635f4e0c94eb4435357701008e2f272f553d06e35b494b8ddc60aa221145e286c28ace0c89ee32827a28c2040e3a69bdc108b1a5dc8fb40b72e3
   languageName: node
   linkType: hard
 
@@ -23770,10 +23812,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~7.16.0":
-  version: 7.16.0
-  resolution: "undici-types@npm:7.16.0"
-  checksum: 10/db43439f69c2d94cc29f75cbfe9de86df87061d6b0c577ebe9bb3255f49b22c50162a7d7eb413b0458b6510b8ca299ac7cff38c3a29fbd31af9f504bcf7fbc0d
+"undici-types@npm:~7.18.0":
+  version: 7.18.2
+  resolution: "undici-types@npm:7.18.2"
+  checksum: 10/e61a5918f624d68420c3ca9d301e9f15b61cba6e97be39fe2ce266dd6151e4afe424d679372638826cb506be33952774e0424141200111a9857e464216c009af
   languageName: node
   linkType: hard
 
@@ -23784,10 +23826,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:7.24.0":
-  version: 7.24.0
-  resolution: "undici@npm:7.24.0"
-  checksum: 10/663f08fe940e6cea3633748c82a77e975ab61d7e1d3fd9951a13213c4ddbc5c8196f741b57b52d0df9d08a34092b6aa31eeaff8cd545a0a23cacd0523c21a398
+"undici@npm:7.28.0":
+  version: 7.28.0
+  resolution: "undici@npm:7.28.0"
+  checksum: 10/154423b280d623278a61decb437f8a7e581fb18b8c95556ef956b32a58cd668eadbb812d28e20678cb2dc545a566f35a3afc0962307ca801da30f4741117986d
   languageName: node
   linkType: hard
 
@@ -23994,6 +24036,20 @@ __metadata:
   bin:
     update-browserslist-db: cli.js
   checksum: 10/059f774300efb4b084a49293143c511f3ae946d40397b5c30914e900cd5691a12b8e61b41dd54ed73d3b56c8204165a0333107dd784ccf8f8c81790bcc423175
+  languageName: node
+  linkType: hard
+
+"update-browserslist-db@npm:^1.3.3":
+  version: 1.3.4
+  resolution: "update-browserslist-db@npm:1.3.4"
+  dependencies:
+    escalade: "npm:^3.2.0"
+    picocolors: "npm:^1.1.1"
+  peerDependencies:
+    browserslist: ">= 4.21.0"
+  bin:
+    update-browserslist-db: cli.js
+  checksum: 10/b572dffa5e87f5b31e2934fa72d91f537dc219fec97ee9d13d744ed2ded8d540118d3cd8fb10236b984106b27ac8a074a32d606ebe18b55b0377aad8854a7a86
   languageName: node
   linkType: hard
 
@@ -24560,31 +24616,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:7.0.2":
-  version: 7.0.2
-  resolution: "webpack-cli@npm:7.0.2"
+"webpack-cli@npm:7.2.3":
+  version: 7.2.3
+  resolution: "webpack-cli@npm:7.2.3"
   dependencies:
-    "@discoveryjs/json-ext": "npm:^1.0.0"
+    "@discoveryjs/json-ext": "npm:^1.1.0"
     commander: "npm:^14.0.3"
     cross-spawn: "npm:^7.0.6"
-    envinfo: "npm:^7.14.0"
-    fastest-levenshtein: "npm:^1.0.12"
-    import-local: "npm:^3.0.2"
+    envinfo: "npm:^7.21.0"
+    import-local: "npm:^3.2.0"
     interpret: "npm:^3.1.1"
     rechoir: "npm:^0.8.0"
     webpack-merge: "npm:^6.0.1"
   peerDependencies:
+    js-yaml: ^4.0.0 || ^5.0.0
+    json5: ^2.2.3
+    toml: ^3.0.0 || ^4.0.0 || ^5.0.0
     webpack: ^5.101.0
     webpack-bundle-analyzer: ^4.0.0 || ^5.0.0
-    webpack-dev-server: ^5.0.0
+    webpack-dev-server: ^5.0.0 || ^6.0.0
   peerDependenciesMeta:
+    js-yaml:
+      optional: true
+    json5:
+      optional: true
+    toml:
+      optional: true
     webpack-bundle-analyzer:
       optional: true
     webpack-dev-server:
       optional: true
   bin:
     webpack-cli: bin/cli.js
-  checksum: 10/44ccbdccd1684d9e340e932680db62c237caa7b11f90799ae9a73aed5cf9033db32b8fae00a127ebe37ec5adafb4be5e5a3096b1ab52ae8ee51c2a445895695d
+  checksum: 10/3a6dbe625757567523a0ee0c8c9d225adf79c2482c13c295893aef8b59a5a1d3721353e0ca2305e30a862d41681bf15db8df94394fd0a73962b20c902afd268f
   languageName: node
   linkType: hard
 
@@ -24868,16 +24932,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrap-ansi@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "wrap-ansi@npm:2.1.0"
-  dependencies:
-    string-width: "npm:^1.0.1"
-    strip-ansi: "npm:^3.0.1"
-  checksum: 10/cf66d33f62f2edf0aac52685da98194e47ddf4ceb81d9f98f294b46ffbbf8662caa72a905b343aeab8d6a16cade982be5fc45df99235b07f781ebf68f051ca98
-  languageName: node
-  linkType: hard
-
 "wrap-ansi@npm:^6.2.0":
   version: 6.2.0
   resolution: "wrap-ansi@npm:6.2.0"
@@ -24956,6 +25010,21 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: 10/088411956432c8f876158409d5a285cb9ad1382f593391f51d3a599bd0a5b277f876609ebd00fc3596321c4a4c9064d6fffe1ebad960e8ea7fd9ae25324f35c2
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.21.1":
+  version: 8.21.3
+  resolution: "ws@npm:8.21.3"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ">=5.0.2"
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 10/8856922c26fd2d106931c16310d9a0bc2d6d37ed8771352bfa0d2a36df0ab5cb1f6528c6db8213f3333cf4ce93925e56f13604df0454cb0d4289fef922bebcdd
   languageName: node
   linkType: hard
 

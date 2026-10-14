@@ -1,0 +1,53 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "193:32321",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Message",
+        "type": "TEXT",
+        "default": "Message"
+      },
+      {
+        "name": "Button",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Close",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Type",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Neutral",
+          "Info",
+          "Warning",
+          "Error",
+          "Success"
+        ],
+        "default": "Neutral"
+      },
+      {
+        "name": "Strong",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Multi-line",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

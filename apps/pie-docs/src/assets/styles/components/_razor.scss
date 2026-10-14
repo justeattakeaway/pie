@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-razor {
     grid-row: 2 / span 3;
@@ -10,7 +10,7 @@
     // percentages so razor fits grid rows above
     clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0% 100%);
     }
 }

@@ -1,5 +1,52 @@
 # @justeattakeaway/pie-assistive-text
 
+## 1.0.16
+
+### Patch Changes
+
+- Updated dependencies [[`ed9fd36`](https://github.com/justeattakeaway/pie/commit/ed9fd3620fd4d43c672f8f8202bf3835683fb88e)]:
+  - @justeattakeaway/pie-webc-core@22.0.1
+  - @justeattakeaway/pie-icons-webc@1.29.5
+
+## 1.0.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@22.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
+## 1.0.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@21.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+
+## 1.0.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@20.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
+## 1.0.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@19.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
+## 1.0.11
+
+### Patch Changes
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a)]:
+  - @justeattakeaway/pie-icons-webc@1.29.0
+
 ## 1.0.10
 
 ### Patch Changes

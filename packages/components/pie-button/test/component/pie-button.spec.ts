@@ -417,5 +417,104 @@ test.describe('props', () => {
                 await expect(button).not.toHaveAttribute('aria-label');
             });
         });
+
+        test.describe('description', () => {
+            test('should apply aria-description to the underlying button element', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    aria: { description: 'Opens the delivery times panel' },
+                };
+
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load({ ...props });
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).toHaveAttribute('aria-description', 'Opens the delivery times panel');
+            });
+
+            test('should apply aria-description to the underlying anchor element when tag is "a"', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    aria: { description: 'Links to the delivery times page' },
+                };
+
+                const buttonAnchorPage = new ButtonAnchorPage(page);
+                await buttonAnchorPage.load({ ...props });
+
+                const anchor = buttonAnchorPage.buttonComponent.componentLocator.locator('a');
+
+                // Assert
+                await expect(anchor).toHaveAttribute('aria-description', 'Links to the delivery times page');
+            });
+
+            test('should not set aria-description when the description is not provided', async ({ page }) => {
+                // Arrange
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load({ aria: { label: 'Close dialog' } });
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).not.toHaveAttribute('aria-description');
+            });
+        });
+
+        test.describe('haspopup', () => {
+            test('should apply aria-haspopup to the underlying button element', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    aria: { haspopup: 'dialog' },
+                };
+
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load({ ...props });
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).toHaveAttribute('aria-haspopup', 'dialog');
+            });
+
+            test('should not set aria-haspopup when haspopup is not provided', async ({ page }) => {
+                // Arrange
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load({ aria: { label: 'Close dialog' } });
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).not.toHaveAttribute('aria-haspopup');
+            });
+        });
+
+        test.describe('expanded', () => {
+            test('should apply aria-expanded to the underlying button element', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    aria: { expanded: true },
+                };
+
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load({ ...props });
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).toHaveAttribute('aria-expanded', 'true');
+            });
+
+            test('should not set aria-expanded when expanded is not provided', async ({ page }) => {
+                // Arrange
+                const buttonDefaultPage = new ButtonDefaultPage(page);
+                await buttonDefaultPage.load({ aria: { label: 'Close dialog' } });
+
+                const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+                // Assert
+                await expect(button).not.toHaveAttribute('aria-expanded');
+            });
+        });
     });
 });

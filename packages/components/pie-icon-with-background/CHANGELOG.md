@@ -1,5 +1,42 @@
 # @justeattakeaway/pie-icon-with-background
 
+## 0.4.6
+
+### Patch Changes
+
+- Updated dependencies [[`ed9fd36`](https://github.com/justeattakeaway/pie/commit/ed9fd3620fd4d43c672f8f8202bf3835683fb88e)]:
+  - @justeattakeaway/pie-webc-core@22.0.1
+
+## 0.4.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@22.0.0
+
+## 0.4.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@21.0.0
+
+## 0.4.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@20.0.0
+
+## 0.4.2
+
+### Patch Changes
+
+- [Changed] - Component status from alpha to beta ([#3145](https://github.com/justeattakeaway/pie/pull/3145)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@19.0.0
+
 ## 0.4.1
 
 ### Patch Changes

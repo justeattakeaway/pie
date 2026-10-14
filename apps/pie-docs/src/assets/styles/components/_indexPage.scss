@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '@justeattakeaway/pie-css/scss' as p;
 
@@ -8,12 +8,12 @@
     justify-content: center;
     gap: var(--dt-spacing-g) var(--dt-spacing-e);
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         justify-content: flex-start;
     }
 
     // reduce image size for smaller screens - we support 320px min
-    @include f.media('<tiny') {
+    @include media('<xs') {
         img {
             width: 280px;
         }

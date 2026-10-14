@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Modal'
     parent: Components
-    order: 27
+    order: 28
     url: /components/modal/
 permalink: false
 ---

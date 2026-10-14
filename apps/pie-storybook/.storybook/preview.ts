@@ -85,7 +85,6 @@ export default {
                         'Getting started',
                         'Typography',
                         'CSS setup',
-                        'Typography Utility Classes',
                         'Events',
                         'Design tokens cookbook',
                         'CSS variables',
@@ -93,6 +92,15 @@ export default {
                         'TypeScript usage',
                         'Component versions',
                         'Browser support',
+                        'Agentic AI Resources',
+                        'PIE CSS',
+                        [
+                            'Overview',
+                            'Typography Utility Classes',
+                            'Spacing Utility Classes',
+                            'Responsive Utility Classes',
+                            'General Utility Classes'
+                        ],
                     ],
                     'Integration guides',
                     [
@@ -120,7 +128,6 @@ export default {
                     ],
                     'Additional libraries',
                     [
-                        'PIE CSS',
                         'Icons'
                     ],
                     'Contribution',

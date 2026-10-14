@@ -1,0 +1,86 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "1575:121967",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Breadcrumb 2",
+        "type": "TEXT",
+        "default": "Breadcrumb 2"
+      },
+      {
+        "name": "[𝐓] Breadcrumb 1",
+        "type": "TEXT",
+        "default": "Breadcrumb 1"
+      },
+      {
+        "name": "[𝐓] Current page",
+        "type": "TEXT",
+        "default": "Current page"
+      },
+      {
+        "name": "[𝐓] Breadcrumb 4",
+        "type": "TEXT",
+        "default": "Breadcrumb 4"
+      },
+      {
+        "name": "Breadcrumb 3",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Breadcrumb 4",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Current page",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "[𝐓] Breadcrumb 3",
+        "type": "TEXT",
+        "default": "Breadcrumb 3"
+      },
+      {
+        "name": "Scrim",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Overflow",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "314:28746",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Destination page",
+        "type": "TEXT",
+        "default": "Destination page"
+      },
+      {
+        "name": "Scrim",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

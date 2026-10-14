@@ -1,0 +1,42 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "40114:73346",
+    "availableProperties": [
+      {
+        "name": "Card content",
+        "type": "SLOT",
+        "default": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        }
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Outline",
+          "Inverse",
+          "Inverse Outline"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Drag",
+          "Disabled"
+        ],
+        "default": "Default"
+      }
+    ]
+  }
+]

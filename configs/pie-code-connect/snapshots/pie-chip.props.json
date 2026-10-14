@@ -1,0 +1,204 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "4086:22374",
+    "availableProperties": [
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "[𝐓] String",
+        "type": "TEXT",
+        "default": "String"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Outline",
+          "Ghost",
+          "Translucent",
+          "N/A"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "Loading"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Selected",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Selected tick",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Removable",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "30364:120195",
+    "availableProperties": [
+      {
+        "name": "[𝐓] String",
+        "type": "TEXT",
+        "default": "String"
+      },
+      {
+        "name": "Trailing icon",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Replace trailing icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:19755"
+      },
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Outline",
+          "Ghost",
+          "Translucent",
+          "N/A"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "Loading"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Selected",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Selected tick",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "30364:135441",
+    "availableProperties": [
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "[𝐓] String",
+        "type": "TEXT",
+        "default": "String"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Outline",
+          "Ghost",
+          "Translucent",
+          "N/A"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "Loading"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Selected",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

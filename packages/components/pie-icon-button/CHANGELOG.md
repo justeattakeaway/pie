@@ -1,5 +1,67 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.8.1
+
+### Patch Changes
+
+- Updated dependencies [[`ed9fd36`](https://github.com/justeattakeaway/pie/commit/ed9fd3620fd4d43c672f8f8202bf3835683fb88e)]:
+  - @justeattakeaway/pie-webc-core@22.0.1
+  - @justeattakeaway/pie-spinner@1.5.11
+  - @justeattakeaway/pie-icons-webc@1.29.5
+
+## 2.8.0
+
+### Minor Changes
+
+- [Added] - New `description` field on the `aria` property of `pie-button` and `pie-icon-button`, rendered as an `aria-description` attribute on the internal button or anchor element. The text travels as a string, so it reaches assistive technologies even when an `aria-describedby` IDREF cannot cross the component's shadow boundary, the intended route for describing a PIE component trigger from a `pie-tooltip` panel in tooltip mode. ([#3225](https://github.com/justeattakeaway/pie/pull/3225)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Added] - New `haspopup` and `expanded` fields on the `aria` property of `pie-button`, rendered as `aria-haspopup` and `aria-expanded` attributes on the internal button or anchor element, so the button can announce that it opens a popup such as a dialog, and track whether that popup is open.
+
+## 2.7.35
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.5.10
+  - @justeattakeaway/pie-webc-core@22.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
+## 2.7.34
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.5.9
+  - @justeattakeaway/pie-webc-core@21.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+
+## 2.7.33
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.5.8
+  - @justeattakeaway/pie-webc-core@20.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
+## 2.7.32
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.5.7
+  - @justeattakeaway/pie-webc-core@19.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
+## 2.7.31
+
+### Patch Changes
+
+- [Fixed] - Rogue back tick broke readme formatting in storybook ([#3138](https://github.com/justeattakeaway/pie/pull/3138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a)]:
+  - @justeattakeaway/pie-icons-webc@1.29.0
+
 ## 2.7.30
 
 ### Patch Changes

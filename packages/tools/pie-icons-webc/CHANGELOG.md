@@ -1,5 +1,62 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.29.5
+
+### Patch Changes
+
+- Updated dependencies [[`ed9fd36`](https://github.com/justeattakeaway/pie/commit/ed9fd3620fd4d43c672f8f8202bf3835683fb88e)]:
+  - @justeattakeaway/pie-webc-core@22.0.1
+
+## 1.29.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@22.0.0
+
+## 1.29.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@21.0.0
+
+## 1.29.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@20.0.0
+
+## 1.29.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@19.0.0
+
+## 1.29.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3149](https://github.com/justeattakeaway/pie/pull/3149)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Location
+
+  - binoculars-large
+  - binoculars
+  - compass-large
+  - compass
+  - map-search-large
+  - map-search
+
+  ## People
+
+  - face-hate-filled-large
+  - face-hate-filled
+  - face-hate-large
+  - face-hate
+
 ## 1.28.1
 
 ### Patch Changes

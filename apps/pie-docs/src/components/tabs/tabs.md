@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Tabs'
     parent: Components
-    order: 48
+    order: 49
     url: /components/tabs/
 permalink: false
 ---

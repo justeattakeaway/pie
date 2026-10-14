@@ -3,7 +3,7 @@ eleventyNavigation:
     key: list-item
     title: 'List Item'
     parent: Components
-    order: 25
+    order: 26
     subPageDropdown: true
 title: 'List Item'
 ---

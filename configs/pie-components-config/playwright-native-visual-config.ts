@@ -5,8 +5,10 @@ import { devices } from '@playwright/test';
  */
 export function getPlaywrightNativeVisualConfig() {
     return {
-        /* Maximum time one test can run for. */
-        timeout: 10 * 1000,
+        /* The maximum time for one test. This value is sufficient for `BasePage.open` to show
+         * which components did not load. A smaller value stops the test before `BasePage.open`
+         * shows their names. A test gets to this limit only if it fails. */
+        timeout: 30 * 1000,
         /* Run tests in files in parallel */
         fullyParallel: true,
         /* Fail the build on CI if you accidentally left test.only in the source code. */

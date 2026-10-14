@@ -75,7 +75,7 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'number',
         },
         aria: {
-            description: 'The ARIA labels used for various parts of the toast.',
+            description: 'The ARIA labels used for various parts of the toast, and an optional `live` override for the live region politeness.',
             control: 'object',
         },
     },

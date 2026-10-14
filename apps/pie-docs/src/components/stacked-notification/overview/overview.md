@@ -16,3 +16,11 @@ Stacked notifications are non-interactive elements that provide additional infor
 } %}
 
 ---
+
+## Resources
+
+{% resourceTable {
+    componentName: 'Stacked notification'
+} %}
+
+---

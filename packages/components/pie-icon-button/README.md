@@ -33,7 +33,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Properties
 | Prop | Options | Description | Default |
 |------|---------|-------------|---------|
-| `aria` | `{ label?: string }`, `{ labelledby?: string }`, `{ describedby?: string }`, `{ expanded?: boolean }`, `{ controls?: string }`, `{ haspopup?: string }` | The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `expanded`, `controls`, and `haspopup`. | `undefined` |
+| `aria` | `{ label?: string }`, `{ labelledby?: string }`, `{ describedby?: string }`, `{ description?: string }`, `{ expanded?: boolean }`, `{ controls?: string }`, `{ haspopup?: string }` | The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `description`, `expanded`, `controls`, and `haspopup`. `description` is applied as an `aria-description` attribute, so the text travels as a string and is not bound by IDREF resolution. | `undefined` |
 | `size` | `"xsmall"`, `"small"`, `"medium"`, `"large"` | Set the size of the icon button. | `"medium"` |
 | `variant` | `"primary"`, `"primary-alternative"`, `"primary-alternative-dark"`, `"secondary"`, `"outline"`, `"ghost"`, `"ghost-secondary"`, `"ghost-secondary-dark"`, `"inverse"`, `"inverse-outline"`, `"ghost-inverse"`, `"ghost-inverse-light"`, `"translucent"` | Set the variant of the icon button. | `"primary"` |
 | `disabled` | `true`, `false` | If true, disables the icon button. | `false` |

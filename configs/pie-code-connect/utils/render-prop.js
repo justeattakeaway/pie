@@ -1,13 +1,26 @@
+function toVueLiteral (value) {
+    if (Array.isArray(value)) return `[${value.map(toVueLiteral).join(', ')}]`;
+    if (value !== null && typeof value === 'object') {
+        const entries = Object.entries(value);
+        return `{ ${entries.map(([k, v]) => `${k}: ${toVueLiteral(v)}`).join(', ')} }`;
+    }
+    if (typeof value === 'string') return `'${value}'`;
+    return String(value);
+}
+
 function renderProp (propName, value, defaultValue) {
     const framework = process.env.FRAMEWORK;
 
     // No need to return the prop if the current value is the same as the default one
     if (value === defaultValue) return '';
 
-    const isObject = typeof value === 'object' && value !== null;
+    const isArray = Array.isArray(value);
+    const isObject = !isArray && typeof value === 'object' && value !== null;
 
     // React only formatting
     if (framework === 'react') {
+        if (isArray) return `${propName}={${JSON.stringify(value)}}`;
+
         if (isObject) {
             const entries = Object.entries(value);
             return `${propName}={{${entries.map(([key, val]) => {
@@ -31,6 +44,8 @@ function renderProp (propName, value, defaultValue) {
 
     // Vue formatting
     if (framework === 'vue') {
+        if (isArray) return `:${propName}="${toVueLiteral(value)}"`;
+
         if (isObject) {
             const entries = Object.entries(value);
             return `:${propName}="{ ${entries.map(([key, val]) => `${key}: '${val}'`).join(', ')} }"`;
@@ -47,7 +62,7 @@ function renderProp (propName, value, defaultValue) {
     }
 
     // Web formatting
-    if (isObject) return `${propName}='${JSON.stringify(value)}'`;
+    if (isArray || isObject) return `${propName}='${JSON.stringify(value)}'`;
 
     if (typeof value === 'boolean') {
         if (value === true) return propName;

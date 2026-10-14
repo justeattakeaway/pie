@@ -1,0 +1,40 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "341:24552",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Label",
+        "type": "TEXT",
+        "default": "Label"
+      },
+      {
+        "name": "Orientation",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Horizontal",
+          "Vertical"
+        ],
+        "default": "Horizontal"
+      },
+      {
+        "name": "Type",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Inverse"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Label",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

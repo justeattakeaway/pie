@@ -151,7 +151,6 @@ The default most common ratio is 1:1. Ideal for logos and item previews.
     width: "120px"
 } %}
 
-
 #### 16:9
 
 16:9 is also ideal for in card placement and reserved for high quality on brand photos.
@@ -170,7 +169,7 @@ The default most common ratio is 1:1. Ideal for logos and item previews.
 
 Use always logos, product pictures or on brand photos.
 
-{% contentLayout { columns: 3 } %}
+{% contentLayout %}
   {% contentItem %}
     <h3>XSmall</h3>
     <p>Use for logos in information dense cases</p>

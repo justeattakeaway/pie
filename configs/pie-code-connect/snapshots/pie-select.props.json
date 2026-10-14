@@ -1,0 +1,56 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "1607:134090",
+    "availableProperties": [
+      {
+        "name": "Leading icon",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Replace leading icon",
+        "type": "INSTANCE_SWAP",
+        "default": "43188:14037"
+      },
+      {
+        "name": "[𝐓] String",
+        "type": "TEXT",
+        "default": "Select..."
+      },
+      {
+        "name": "Assistive text",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Form label",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "State",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Active - open",
+          "Focus",
+          "Disabled",
+          "Error"
+        ],
+        "default": "Default"
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Medium",
+          "Small"
+        ],
+        "default": "Medium"
+      }
+    ]
+  }
+]

@@ -12,6 +12,11 @@ This package automates the creation of Figma Code Connect templates that link Fi
 - **Configuration files** - Metadata and publish configurations for different component families
 - **Build scripts** - Node.js tooling that processes template files and generates production-ready Code Connect files
 - **Reusable utility functions** - Helpers for reading Figma instance properties, rendering component props, and generating import statements
+- **Snapshot tests** - A regression guardrail that captures the Code Connect output for each component and diffs it against a committed baseline
+
+## Component mapping status
+
+The current mapping status for each component (done, work in progress, or upcoming) is tracked in [components-code-connect-status.md](./components-code-connect-status.md). Update this table when a new component mapping is added or an existing one changes state.
 
 ## Scripts
 
@@ -51,6 +56,112 @@ yarn publish:all                # Publish all component and icon mappings for al
 
 These commands build the templates, then use the Figma CLI to publish them using the corresponding configuration file.
 
+#### Development publishing
+
+Two scripts are available for publishing and unpublishing to a temporary `_dev_` label in Figma. This is useful for testing Code Connect changes without affecting the production mappings:
+
+```bash
+yarn publish-components:dev     # Build and publish web component mappings to the _dev_ label
+yarn unpublish-components:dev   # Unpublish web component mappings from the _dev_ label
+```
+
+These commands use `config/figma-dev-components-batch.config.json`, which targets the same `components.figma.batch.json` metadata but publishes under the `_dev_` label. 
+
+Please remember to unpublish when done.
+
+### Snapshot testing
+
+Code Connect output is easy to change by accident: a component structure changes,
+an edit to a template, or a utility function, can silently alter the snippet that 
+everyone receives from Figma. These scripts capture that output and diff it
+against a committed baseline, so unintended changes surface in review instead of Figma.
+
+```bash
+yarn snapshot:update                    # Regenerate the baseline for all components
+yarn snapshot:update pie-button         # Regenerate the baseline for a single component
+yarn snapshot:compare                   # Diff the current output against the baseline, prompting to accept changes
+yarn snapshot:compare:ci                # The same comparison, but fails instead of prompting
+```
+
+Both commands run `yarn build:react` first, then call `figma connect preview` for every
+template listed in `components.figma.batch.json` — the same manifest that
+`config/figma-react-components-batch.config.json` publishes from. 
+They need `FIGMA_ACCESS_TOKEN` to be set (see
+[Publishing Code Connect changes](#publishing-code-connect-changes)): preview reads
+component metadata from the Figma API, and the snippets themselves are rendered
+server-side.
+
+Each component produces two snapshot files:
+
+- `snapshots/<component>.props.json` - The component's Figma property surface: its
+  properties and variants (name, type, options and default), as reported by the API
+- `snapshots/<component>.code.json` - The code rendered for every combination of the
+  component's boolean and variant properties, up to 500 per Figma node
+
+Each is named for what it captures rather than for the Figma CLI flag behind it
+(`--inspect` and `--all` respectively).
+
+Snapshots cover the **React** mappings only, via
+`config/figma-react-components-batch.config.json`. Icons are excluded.
+
+#### Typical workflow
+
+1. Change a template, a utility function, or a component's props.
+2. Run `yarn snapshot:compare`. Each component reports one of three states:
+
+   ```
+   pie-divider … ok
+   pie-button … CHANGED (props, code)
+   pie-select … CHANGED (code: 4/96 renders failing)
+   pie-data-table … FAILED
+   ```
+
+   `CHANGED` names the checks whose output moved. `FAILED` means the preview itself did
+   not complete, and the reason is listed under `--- Errors ---`. A check is also
+   flagged when a property combination stopped rendering, which is easy to miss
+   otherwise. The run ends with a tally, so nothing has to be counted by hand.
+3. Answer `y` at the prompt to rewrite the affected baselines, or `n` to leave them
+   alone.
+4. Read the change with `git diff snapshots/`, where it can be reviewed and staged
+   piece by piece like any other edit. If it was not intended, `git checkout
+   snapshots/` and fix the template instead.
+5. Commit the updated `snapshots/` files alongside your change, so reviewers can see
+   what the change does to the published output.
+
+#### Things worth knowing
+
+- **The manifest decides what is covered, not `dist/`.** Adding a component to
+  `components.figma.batch.json` adds it to the baseline automatically. A leftover build
+  artefact in `dist/` that the manifest does not list is ignored, and a manifest entry
+  that has not been built is reported as a failure rather than passed over in silence.
+- **A component that renders nothing is reported as failed, not changed.** The Figma
+  CLI exits non-zero when no property combination renders, so the baseline is left
+  alone rather than recording a broken state. The message comes from the CLI's JSON
+  output (the failing property, and the properties the component does expose) rather
+  than from its exit code, and its startup logging is stripped out.
+- **Use `snapshot:compare:ci` in any non-interactive context.** The interactive variant
+  ends at a prompt and will not fail a build.
+- **A diff does not always mean a code change.** Snapshots reflect live Figma state, so
+  a designer renaming a variant or adding a property produces one too.
+
+#### Scheduled run and Slack alerts
+
+A scheduled workflow (`.github/workflows/code-connect-snapshot-watchdog.yml`) runs
+`snapshot:compare:ci` every day at 06:00 UTC. It can also be triggered manually
+from the Actions tab (`workflow_dispatch`).
+
+`snapshot:compare:ci` exits non-zero both when a template's output has drifted from its
+baseline and when the Figma CLI fails to render a preview, and either condition raises an
+alert in the `#alerts-design-system` Slack channel with a link to the failed run.
+
+**Required repository secrets**:
+
+| Secret | Description |
+| --- | --- |
+| `FIGMA_PLAN_ACCESS_TOKEN` | A Figma Plan Access Token with the `file_content:read` permission. See [Publishing Code Connect changes](#publishing-code-connect-changes) for how to generate a token. |
+| `ALERTS_DESIGN_SYSTEM_SLACK_CHANNEL_ID` | The Slack channel ID. |
+| `SLACK_BOT_TOKEN` | The Slack bot token used to post the alert. |
+
 ## Adding New Components
 
 To add a new component to the Code Connect mappings:
@@ -72,11 +183,10 @@ const figma = require('figma');
 const createGetInstanceProp = require('./utils/get-instance-prop.js');
 const renderProp = require('./utils/render-prop.js');
 const getImportStatement = require('./utils/get-import-statement.js');
-const trimEmptyLines = require('./utils/trim-empty-lines.js');
 
+const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
-const getInstanceProp = createGetInstanceProp(figma);
 
 // PROP MAPPING
 const size = getInstanceProp('getEnum', 'Size', {
@@ -87,16 +197,23 @@ const size = getInstanceProp('getEnum', 'Size', {
 const isDisabled = getInstanceProp('getBoolean', 'Disabled');
 const buttonText = getInstanceProp(['Button'], 'getString', 'Label') || 'Click';
 
+// PROP RENDERING
+// `renderProp` returns an empty string when a value matches its default, so falsy
+// entries are filtered out to keep blank lines out of the generated snippet. The
+// join indent matches the four-space offset of `${props}` in the template below.
+const props = [
+    renderProp('size', size, 'medium'),
+    renderProp('disabled', isDisabled, false),
+].filter(Boolean).join('\n    ');
+
 // TEMPLATE RENDERING
-const template = `<${selectedComponentName}
-    ${renderProp('size', size, 'medium')}
-    ${renderProp('disabled', isDisabled, false)}
->
+const template = figma.code`<${selectedComponentName}
+    ${props}>
     ${buttonText}
 </${selectedComponentName}>`;
 
 export default {
-    example: figma.code`${trimEmptyLines(template)}`,
+    example: template,
     imports: [getImportStatement(componentName, componentNameReact)],
     id: componentName,
 };
@@ -143,6 +260,10 @@ It's common to have multiple Figma component sets related to a single component 
 ```bash
 yarn publish-components:all
 ```
+
+### 4. Update the components snapshots (optional)
+
+If a new component template was added, run `yarn snapshot:update pie-{component-name}` to regenerate only that component's baseline, then commit the new snapshot files.
 
 ## Adding New Icons
 
@@ -192,7 +313,9 @@ A template file (`*.figma.batch.js`) is a Node.js CommonJS module that defines h
 
 - `process.env.FRAMEWORK` - The target framework (`'web'`, `'react'`, or `'vue'`), this is determined by env var set on each of the build scripts
 - `figma.selectedInstance` - The Figma component instance currently being processed
-- `figma.batch.baseName` - Kebab-case component name from the batch configuration (e.g. `'pie-modal'`)
+- `figma.batch.componentName` - Kebab-case custom element name from the batch configuration (e.g. `'pie-modal'`)
+- `figma.batch.componentNameReact` - PascalCase React wrapper name from the batch configuration (e.g. `'PieModal'`)
+- `figma.batch.baseName` - Kebab-case icon name (e.g. `'icon-over-16'`). Used by the icon templates in place of the two properties above
 
 Any additional custom properties defined on a component in the batch configuration (e.g. `isSubtle` on PieModal) are also available under `figma.batch`.
 
@@ -219,6 +342,31 @@ The main difference between the returned value from the original API and this, i
 
 This approach aims to bring convenience, rather than requiring to figure out each time if the returned value is an error or actual value.
 
+#### `getInstanceCode(instance, transform)`
+
+Renders a Figma instance node - obtained via `getInstanceProp('getInstanceSwap', propName)` or from `figma.selectedInstance` children - as a code snippet, optionally transforming the output.
+
+##### Parameters:
+- `instance` - The Figma instance node to render
+- `transform` (optional) - Either the name of the slot to assign the instance to (e.g. `'icon'`, `'leadingIcon'`), or a function `(code) => string` for cases the slot shorthand cannot express
+
+##### Returns:
+The rendered code array, or an empty string when the instance is missing or has no Code Connect mapping.
+
+Always prefer this over calling `executeTemplate()` directly on the instance, so that a missing instance yields an empty string rather than `undefined` leaking into the published snippet.
+
+##### Examples:
+
+```js
+// Instance that needs no slot attribute (e.g. pie-icon-button)
+const iconInstance = getInstanceProp('getInstanceSwap', 'Replace icon');
+const iconCode = getInstanceCode(iconInstance);
+
+// Instance assigned to a named slot - use the component's `@slot` name from `src/index.ts`
+const leadingIconInstance = getInstanceProp('getInstanceSwap', 'Replace leading icon');
+const leadingIconCode = getInstanceCode(leadingIconInstance, 'leadingIcon');
+```
+
 #### `getSlotContent(slotName)`
 
 Retrieves the connected instances for a named slot on the selected Figma instance and returns their rendered template examples as an array.
@@ -231,9 +379,12 @@ An array of rendered template examples from each connected instance. Pass the re
 
 #### `renderProp(propName, value, defaultValue)`
 
-Renders a component prop in web or React syntax.
+Renders a component prop in web, React or Vue syntax, based on `process.env.FRAMEWORK`.
 
-It automatically omits the prop if its value matches the default.
+It automatically omits the prop if its value matches the default, returning an empty
+string in that case. This is why rendered props are collected into an array and passed
+through `.filter(Boolean)` before being joined — it keeps omitted props from leaving
+blank lines in the generated snippet.
 
 ## Publishing Code Connect changes
 
@@ -259,6 +410,8 @@ export FIGMA_ACCESS_TOKEN=...
 2. **Publish:**
 
 Ensure the FIGMA_ACCESS_TOKEN env var is readable before publishing for the first time.
+
+That can be done by running `echo $FIGMA_ACCESS_TOKEN`.
 
 ```bash
 yarn publish:all

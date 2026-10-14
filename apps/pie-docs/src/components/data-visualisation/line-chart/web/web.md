@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: 'Line Chart'
     order: 2
-draft: true
 ---
 
 {% notification {

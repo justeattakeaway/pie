@@ -20,11 +20,6 @@ Sliders consist of a draggable handle that users can slide horizontally along a 
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Slider documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Slider'
 } %}

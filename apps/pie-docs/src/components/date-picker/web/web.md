@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: Date Picker
     order: 2
-draft: true
 ---
 
 {% notification {

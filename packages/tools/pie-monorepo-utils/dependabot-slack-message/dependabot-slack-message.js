@@ -15,7 +15,7 @@ function isCiGreen (checkRuns) {
     const runs = checkRuns
         .filter((run) => run.name === CHECK_NAME)
         .sort((a, b) => new Date(b.started_at) - new Date(a.started_at));
-    const latest = runs[0];
+    const [latest] = runs;
     return Boolean(latest && latest.status === 'completed' && latest.conclusion === 'success');
 }
 

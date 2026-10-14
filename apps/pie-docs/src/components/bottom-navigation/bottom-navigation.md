@@ -1,9 +1,8 @@
 ---
 eleventyNavigation:
-  key: 'Bottom Navigation'
-  parent: Components
-  order: 7
-  # url: /components/bottom-navigation/
-draft: true
+    key: 'Bottom Navigation'
+    parent: Components
+    order: 7
+    url: /components/bottom-navigation/
 permalink: false
 ---

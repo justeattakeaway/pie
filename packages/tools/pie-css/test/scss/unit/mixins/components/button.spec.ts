@@ -402,6 +402,7 @@ describe('mixins.button', () => {
             expect(css).toContain('.c-button--primary.c-button--xsmall,.c-button--primary.c-button--small-productive');
             expect(css).toContain('--int-states-mixin-bg-color:var(--dt-color-interactive-primary)');
             expect(css).toContain('--btn-text-color:var(--dt-color-content-interactive-primary-solid)');
+            expect(css).toContain('@media(min-width:769px){.c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive,.c-button--primary.c-button--small-productive.c-button--responsive{--int-states-mixin-bg-color:var(--dt-color-interactive-brand);--btn-text-color:var(--dt-color-content-interactive-light-solid);}}');
         });
 
         it('should output primary-alternative variant', () => {

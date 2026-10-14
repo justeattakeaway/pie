@@ -31,13 +31,6 @@ updates:
         patterns:
           - "@justeat/*"
           - "@justeattakeaway/*"
-      playwright:
-        patterns:
-          - "@axe-core/playwright"
-          - "@playwright/*"
-      percy:
-        patterns:
-          - "@percy/*"
       vitest:
         patterns:
           - "vitest"

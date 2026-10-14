@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-scrollTop {
     position: fixed;
@@ -9,7 +9,7 @@
     box-shadow: var(--dt-elevation-below-20);
     border-radius: var(--dt-radius-rounded-e);
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         inset-block-end: var(--dt-spacing-f);
         inset-inline-end: var(--dt-spacing-e);
     }

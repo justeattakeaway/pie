@@ -1401,6 +1401,14 @@
             "displayName": "Location",
             "icons": [
                 {
+                    "name": "binoculars",
+                    "displayName": "Binoculars"
+                },
+                {
+                    "name": "compass",
+                    "displayName": "Compass"
+                },
+                {
                     "name": "geolocation",
                     "displayName": "Geolocation"
                 },
@@ -1455,6 +1463,10 @@
                 {
                     "name": "map-legend",
                     "displayName": "Map Legend"
+                },
+                {
+                    "name": "map-search",
+                    "displayName": "Map Search"
                 },
                 {
                     "name": "route-pin",
@@ -2021,6 +2033,14 @@
                 {
                     "name": "face-happy-filled",
                     "displayName": "Face Happy Filled"
+                },
+                {
+                    "name": "face-hate",
+                    "displayName": "Face Hate"
+                },
+                {
+                    "name": "face-hate-filled",
+                    "displayName": "Face Hate Filled"
                 },
                 {
                     "name": "face-neutral",

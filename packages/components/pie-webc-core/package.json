@@ -1,9 +1,21 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
-  "version": "18.1.0",
+  "version": "22.0.1",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "src/internals/PieElement": [
+        "dist/internals.d.ts"
+      ],
+      "src/internals/PieElement.js": [
+        "dist/internals.d.ts"
+      ]
+    }
+  },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "files": [
@@ -13,12 +25,16 @@
     "src/interfaces",
     "src/mixins",
     "src/types",
-    "index.ts"
+    "src/index.ts",
+    "index.ts",
+    "dist",
+    "**/*.d.ts"
   ],
   "scripts": {
     "build": "run -T vite build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
+    "watch": "run -T vite build --watch",
     "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
     "test:browsers": "run -T playwright test -c ./playwright-lit.config.ts",
@@ -33,6 +49,7 @@
     "@justeattakeaway/pie-css": "1.x"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.21.3"
+    "@justeattakeaway/pie-components-config": "0.21.5",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.11"
   }
 }

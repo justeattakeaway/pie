@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 $nav-category-gap: var(--dt-spacing-a);
@@ -11,11 +11,11 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
     background: var(--dt-color-container-default);
     padding-top: var(--dt-spacing-d);
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         border-right: 1px solid var(--dt-color-border-default);
     }
 
-    @include f.media('<wide') {
+    @include media('<lg') {
         position: absolute;
         top: var(--header-height);
         height: calc(100% - var(--header-height)); // fallback rule for browsers that don't support dvh (used below)
@@ -54,7 +54,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
       margin: 2px;
     }
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         max-height: 100vh;
     }
 }

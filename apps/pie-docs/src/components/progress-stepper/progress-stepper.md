@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Progress Stepper'
     parent: Components
-    order: 35
+    order: 36
     url: /components/progress-stepper/
 permalink: false
 ---

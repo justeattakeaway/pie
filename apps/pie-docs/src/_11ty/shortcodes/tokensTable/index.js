@@ -67,7 +67,7 @@ const buildGlobalTokenUsedElement = (globalToken) => {
 
     return `
         <span class="c-tokensTable-tokenDescription">
-            <span class="c-tokensTable-label u-showAboveWide">${tokenDescription}</span>
+            <span class="c-tokensTable-label u-showAboveLarge">${tokenDescription}</span>
             ${tokenMarkup}
         </span>`;
 };
@@ -79,7 +79,7 @@ const buildGlobalTokenUsedElement = (globalToken) => {
  */
 const buildTokenDescriptionElement = (tokenMetadata) => {
     let description = tokenMetadata.description
-        ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">
+        ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-margin-blockEnd--b' : ''}">
             ${tokenMetadata.description}
            </span>`
         : '';
@@ -143,7 +143,7 @@ const buildTokenListElements = ({
  * @returns {string} - the tokens list HTML elements
  */
 const buildTokensList = (listElements, tokenType) => deindentHTML(`
-    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="${getExampleColumnSize(tokenType)}">
+    <div class="c-tokensTable-row u-margin-blockStart--e u-showAboveLarge c-tokensTable-heading" style="${getExampleColumnSize(tokenType)}">
         <span>Example</span>
         <span>Description</span>
         <span>Token name</span>

@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '../utilities' as u;
 
@@ -9,14 +9,14 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(min-content, 0) 100px 450px;
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         grid-template-rows:
             repeat(2, calc(v.$hero-banner-header-mid-height * 0.5))
             150px
             minmax(0, max-content);
     }
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         grid-template-rows:
             calc(v.$hero-banner-header-wide-height * 0.6)
             calc(v.$hero-banner-header-wide-height * 0.4)
@@ -29,12 +29,12 @@
     padding-inline-start: var(--dt-spacing-d);
     padding-inline-end: var(--dt-spacing-d);
 
-    @include f.media('>=narrowMid') {
+    @include media('>=sm') {
         padding-inline-start: var(--dt-spacing-e);
         padding-inline-end: var(--dt-spacing-e);
     }
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         padding-inline-start: var(--dt-spacing-i);
         padding-inline-end: var(--dt-spacing-i);
     }

@@ -17,7 +17,7 @@
   },
   "Card": {
     "piePackage": "@justeattakeaway/pie-card",
-    "status": "beta"
+    "status": "stable"
   },
   "Checkbox": {
     "piePackage": "@justeattakeaway/pie-checkbox",
@@ -47,6 +47,10 @@
     "piePackage": "@justeattakeaway/pie-text-input",
     "status": "beta"
   },
+  "List": {
+    "piePackage": "@justeattakeaway/pie-list",
+    "status": "beta"
+  },
   "Loading": {
     "piePackage": "@justeattakeaway/pie-spinner",
     "status": "stable"
@@ -69,7 +73,7 @@
   },
   "Notification": {
     "piePackage": "@justeattakeaway/pie-notification",
-    "status": "beta"
+    "status": "stable"
   },
   "Radio": {
     "piePackage": "@justeattakeaway/pie-radio",
@@ -105,6 +109,6 @@
   },
   "Toggler": {
     "piePackage": "@justeattakeaway/pie-accordion",
-    "status": "beta"
+    "status": "stable"
   }
 }

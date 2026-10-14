@@ -1,0 +1,362 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n    >\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=Off, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=Off, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=Off, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=Off, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked>\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=On, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=On, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=On, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=On, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n    >\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=Off, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=Off, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=Off, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=Off, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked>\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=On, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=On, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=On, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=On, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n    >\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=Off, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=Off, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=Off, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=Off, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked>\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=On, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=On, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=On, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=On, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n    >\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=Off, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=Off, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=Off, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=Off, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked>\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=On, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=On, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=On, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=On, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     disabled>\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=Off, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     disabled\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=Off, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     disabled\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=Off, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     disabled\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=Off, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     disabled>\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=false, Selected=On, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     disabled\n     label=\"Label\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=false, Selected=On, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     disabled\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=false, Trailing label=true, Selected=On, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-33389",
+    "nodeId": "193:33389",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieSwitch\n     checked\n     disabled\n     label=\"Label\"\n     labelPlacement=\"trailing\">\n</PieSwitch>",
+    "language": "React",
+    "propertyCombinationLabel": "Leading label=true, Trailing label=true, Selected=On, State=Disabled"
+  }
+]

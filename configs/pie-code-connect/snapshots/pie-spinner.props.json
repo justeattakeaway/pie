@@ -1,0 +1,20 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "132:15960",
+    "availableProperties": [
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Brand",
+          "Secondary",
+          "Secondary dark",
+          "Inverse",
+          "Inverse light"
+        ],
+        "default": "Brand"
+      }
+    ]
+  }
+]

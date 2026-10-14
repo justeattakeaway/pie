@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '../utilities' as u;
 @use '@justeattakeaway/pie-css/scss' as p;
@@ -13,7 +13,7 @@
         'footer';
 
     // wider screen grid layout
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         grid-template: var(--header-height) 1fr max-content / var(--sidenav-width-wide) 1fr;
         grid-template-areas:
             'header header'
@@ -29,7 +29,7 @@
 .c-nav {
     grid-area: nav;
 
-    @include f.media('<wide') {
+    @include media('<lg') {
         grid-area: main;
         grid-row-end: 5;
     }
@@ -56,7 +56,7 @@
 
 .c-main,
 .c-footer {
-    @include f.media('<wide') {
+    @include media('<lg') {
         z-index: var(--dt-z-index-base);
     }
 }
@@ -91,7 +91,7 @@
         padding-block-start: var(--dt-spacing-f);
         padding-block-end: var(--dt-spacing-j);
 
-        @include f.media('>=wide') {
+        @include media('>=lg') {
             padding-block-start: var(--dt-spacing-h);
             padding-block-end: calc(var(--dt-spacing-j) + var(--dt-spacing-d));
         }
@@ -117,7 +117,7 @@
             font-weight: var(--dt-font-heading-s-weight);
         }
 
-        @include f.media('>=wide') {
+        @include media('>=lg') {
             h2 {
                 @include p.font-size(--dt-font-heading-xl-size--wide);
                 @include p.line-height(--dt-font-heading-xl-line-height--wide);
@@ -188,7 +188,7 @@
         margin-block-start: var(--dt-spacing-h);
         margin-block-end: var(--dt-spacing-h);
 
-        @include f.media('>=wide') {
+        @include media('>=lg') {
             margin-block-start: var(--dt-spacing-i);
             margin-block-end: var(--dt-spacing-i);
         }

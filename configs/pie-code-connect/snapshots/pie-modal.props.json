@@ -1,0 +1,192 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "40227:13569",
+    "availableProperties": [
+      {
+        "name": "Modal content",
+        "type": "SLOT",
+        "default": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        }
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Medium",
+          "Small"
+        ],
+        "default": "Medium"
+      },
+      {
+        "name": "Scrolling",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Neutral-alternative",
+          "02 Orange subtle",
+          "03 Cupcake",
+          "04 Berry",
+          "05 Turmeric",
+          "06 Aubergine",
+          "08 Latte"
+        ],
+        "default": "Neutral-alternative"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "40227:13801",
+    "availableProperties": [
+      {
+        "name": "Modal content",
+        "type": "SLOT",
+        "default": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        }
+      },
+      {
+        "name": "Size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Large",
+          "Medium",
+          "Small"
+        ],
+        "default": "Medium"
+      },
+      {
+        "name": "Scrolling",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "03 Cupcake",
+          "04 Berry",
+          "05 Turmeric",
+          "06 Aubergine",
+          "08 Latte"
+        ],
+        "default": "03 Cupcake"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "40227:13967",
+    "availableProperties": [
+      {
+        "name": "Modal content",
+        "type": "SLOT",
+        "default": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        }
+      },
+      {
+        "name": "Fullscreen",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "True"
+      },
+      {
+        "name": "Scrolling",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "08 Latte",
+          "06 Aubergine",
+          "05 Turmeric",
+          "04 Berry",
+          "03 Cupcake",
+          "02 Orange subtle",
+          "Neutral-alternative"
+        ],
+        "default": "Neutral-alternative"
+      }
+    ]
+  },
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "40227:14122",
+    "availableProperties": [
+      {
+        "name": "Modal content",
+        "type": "SLOT",
+        "default": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        }
+      },
+      {
+        "name": "Fullscreen",
+        "type": "VARIANT",
+        "variantOptions": [
+          "True",
+          "False"
+        ],
+        "default": "True"
+      },
+      {
+        "name": "Scrolling",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      },
+      {
+        "name": "Variant",
+        "type": "VARIANT",
+        "variantOptions": [
+          "03 Cupcake",
+          "04 Berry",
+          "05 Turmeric",
+          "06 Aubergine",
+          "08 Latte"
+        ],
+        "default": "03 Cupcake"
+      }
+    ]
+  }
+]

@@ -157,8 +157,8 @@ Body link utilities combine body text styling with link-specific properties like
 
 | Class | Use Case |
 | --- | --- |
-| `.u-font-body-s-link` | Small body text link |
 | `.u-font-body-l-link` | Large body text link |
+| `.u-font-body-s-link` | Small body text link |
 
 ### Body Strong
 
@@ -175,8 +175,8 @@ Body strong link utilities combine bold body text styling with link properties.
 
 | Class | Use Case |
 | --- | --- |
-| `.u-font-body-strong-s-link` | Small body text bold/strong link |
 | `.u-font-body-strong-l-link` | Large body text bold/strong link |
+| `.u-font-body-strong-s-link` | Small body text bold/strong link |
 
 ### Captions
 

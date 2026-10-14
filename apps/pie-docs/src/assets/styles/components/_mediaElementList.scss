@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 
 .c-mediaElementList {
@@ -17,7 +17,7 @@
         display: flex;
         flex-direction: row;
 
-        @include f.media('<narrowMid') {
+        @include media('<sm') {
             flex-direction: column;
         }
 
@@ -28,7 +28,7 @@
                 display: block;
             }
 
-            @include f.media('<narrowMid') {
+            @include media('<sm') {
                 margin-inline-end: 0;
                 margin-block-end: var(--dt-spacing-e);
 

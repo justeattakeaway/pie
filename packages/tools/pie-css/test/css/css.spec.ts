@@ -15,6 +15,8 @@ const builtCssTypographyFilePath = path.join(__dirname, '../../dist/helpers/typo
 const builtCssAppTypographyFilePath = path.join(__dirname, '../../dist/app/base/typography.css');
 const builtCssRadioFilePath = path.join(__dirname, '../../dist/components/radio.css');
 const builtCssButtonFilePath = path.join(__dirname, '../../dist/components/button.css');
+const builtCssSpacingFilePath = path.join(__dirname, '../../dist/utilities/spacing.css');
+const builtCssRwdFilePath = path.join(__dirname, '../../dist/utilities/rwd.css');
 
 describe('index.css', () => {
     it('should not throw any unexpected W3C CSS validation errors', async () => {
@@ -166,6 +168,54 @@ describe('components/button.css', () => {
     it.for([...buttonSizes])('should contain a .c-button--%s CSS class for the size defined in pie-button', async (size) => {
         const css = await fs.readFile(builtCssButtonFilePath, 'utf8');
         expect(css).toContain(`.c-button--${size}`);
+    });
+});
+
+describe('utilities/spacing.css', () => {
+    it('should not throw any unexpected W3C CSS validation errors', async () => {
+        // Arrange
+        const css = await fs.readFile(builtCssSpacingFilePath, 'utf8');
+
+        const acceptedErrors: string[] = [];
+
+        // Act
+        const result = await cssValidator.validateText(css);
+        const validationErrors = result.errors.filter((error) => !acceptedErrors.includes(error.message));
+
+        // Assert
+        expect(validationErrors).toHaveLength(0);
+    });
+
+    it('should render the expected CSS content', async () => {
+        // Arrange
+        const css = await fs.readFile(builtCssSpacingFilePath, 'utf8');
+
+        // Act & Assert
+        expect(css).toMatchSnapshot();
+    });
+});
+
+describe('utilities/rwd.css', () => {
+    it('should not throw any unexpected W3C CSS validation errors', async () => {
+        // Arrange
+        const css = await fs.readFile(builtCssRwdFilePath, 'utf8');
+
+        const acceptedErrors: string[] = [];
+
+        // Act
+        const result = await cssValidator.validateText(css);
+        const validationErrors = result.errors.filter((error) => !acceptedErrors.includes(error.message));
+
+        // Assert
+        expect(validationErrors).toHaveLength(0);
+    });
+
+    it('should render the expected CSS content', async () => {
+        // Arrange
+        const css = await fs.readFile(builtCssRwdFilePath, 'utf8');
+
+        // Act & Assert
+        expect(css).toMatchSnapshot();
     });
 });
 

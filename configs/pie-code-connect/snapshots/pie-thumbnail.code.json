@@ -1,0 +1,146 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\"\n     disabled\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=True, Placeholder=True, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     disabled\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=True, Placeholder=True, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\"\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=False, Placeholder=True, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=False, Placeholder=True, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\"\n     disabled\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=True, Placeholder=False, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     disabled\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=True, Placeholder=False, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\"\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=False, Placeholder=False, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     hasPadding>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=False, Placeholder=False, Padding=True"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\"\n     disabled>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=True, Placeholder=True, Padding=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     disabled>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=True, Placeholder=True, Padding=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\">\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=False, Placeholder=True, Padding=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n    >\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=False, Placeholder=True, Padding=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\"\n     disabled>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=True, Placeholder=False, Padding=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     disabled>\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=True, Placeholder=False, Padding=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n     variant=\"outline\">\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=True, Disabled=False, Placeholder=False, Padding=False"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=315-28457",
+    "nodeId": "315:28457",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieThumbnail src=\"the-thumbnail-image-url.jpg\"\n    >\n</PieThumbnail>",
+    "language": "React",
+    "propertyCombinationLabel": "Outline=False, Disabled=False, Placeholder=False, Padding=False"
+  }
+]

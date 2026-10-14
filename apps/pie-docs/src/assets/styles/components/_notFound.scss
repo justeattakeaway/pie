@@ -1,10 +1,10 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-notFound-image {
     height: auto;
     max-width: 160px;
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         max-width: 200px;
     }
 

@@ -1,0 +1,16 @@
+@use '../../mixins' as m;
+
+/**
+ * General Utility Classes
+ * =======================
+ * General-purpose display and visibility helpers.
+ * These are opt-in utilities — not included in dist/index.css.
+ */
+
+.is-hidden {
+    display: none !important;
+}
+
+.is-visuallyHidden {
+    @include m.visually-hidden;
+}

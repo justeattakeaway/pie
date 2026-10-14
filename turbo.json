@@ -53,6 +53,7 @@
       ]
     },
     "generate:component-statuses": {},
+    "generate:token-names": {},
     "generate:typography-docs": {},
     "watch": {
       "cache": false,

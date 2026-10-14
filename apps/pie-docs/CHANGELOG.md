@@ -1,5 +1,160 @@
 # Changelog
 
+## 5.18.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.2
+  - @justeattakeaway/pie-icons-webc@1.29.5
+
+## 5.18.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.1
+  - @justeattakeaway/pie-icons@5.32.2
+
+## 5.18.2
+
+### Patch Changes
+
+- Updated dependencies [[`7a546e4`](https://github.com/justeattakeaway/pie/commit/7a546e44942083ca9174a208278c24df0ae71bd2)]:
+  - @justeat/pie-design-tokens@7.15.1
+  - @justeattakeaway/pie-css@1.9.1
+
+## 5.18.1
+
+### Patch Changes
+
+- Updated dependencies [[`383412f`](https://github.com/justeattakeaway/pie/commit/383412f0a6a20bd2862899cbcf67d108727d9414)]:
+  - @justeattakeaway/pie-webc@0.12.0
+
+## 5.18.0
+
+### Minor Changes
+
+- [Added] - Bottom Navigation documentation pages for iOS and Android. ([#3200](https://github.com/justeattakeaway/pie/pull/3200)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Removed] - "We're currently working on updating docs..." warning notification from overview pages: Assistive Text, Avatar, Badge, Bottom Sheet, Carousel Indicator, Dropdown, FAB, List Item, List Item Interactive, Map Pin, Pagination, Popover, Progress Bar, Rating, Segmented Controls, Show More, Slider, Tabs, Tooltip, Uploader
+
+### Patch Changes
+
+- [CHANGED] Replaced index image for Payment Method component. ([#3209](https://github.com/justeattakeaway/pie/pull/3209)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+- Updated dependencies [[`7b8d860`](https://github.com/justeattakeaway/pie/commit/7b8d86031062564e46029fc4c57a3f38898656c9), [`d7925e0`](https://github.com/justeattakeaway/pie/commit/d7925e0c07d18ecfe6c58c48235c174e4dc71868)]:
+  - @justeat/pie-design-tokens@7.15.0
+  - @justeattakeaway/pie-css@1.9.0
+  - @justeattakeaway/pie-webc@0.11.21
+  - @justeattakeaway/pie-icons-webc@1.29.4
+  - @justeattakeaway/pie-icons@5.32.1
+
+## 5.17.0
+
+### Minor Changes
+
+- [Added] Full documentation content for: carousel-indicator (apps + web), data-table (web), date-picker (ios), map-pin (apps + web), pagination (apps + web), payment-method-card (apps), popover (ios + web), progress-bar (apps), rating (apps + web), segmented-controls (apps), switch (android + ios), tabs (apps + web), uploader (apps + web). ([#3158](https://github.com/justeattakeaway/pie/pull/3158)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  [Added] Resources table to overview pages for: app-bar and stacked-notification.
+
+  [Added] App bar and stacked notification entries to componentStatusData.js.
+
+  [Removed] Removed draft: true from: data-visualisation bar-chart (web), data-visualisation line-chart (web), date-picker (web), numeric-stepper-form (apps + web), numeric-stepper-input (apps + web), numeric-stepper-simple (apps + web), numeric-stepper (apps + web), progress-bar (apps + web), progress-stepper (apps + web), segmented-controls (apps + web), skeleton (apps + web).
+
+  [Removed] Deleted all links to Figma docs for web and apps from componentStatusData.js.
+
+### Patch Changes
+
+- Updated dependencies [[`9438d1b`](https://github.com/justeattakeaway/pie/commit/9438d1b0e395439c6a451b4fd0ef1fe313676bcd)]:
+  - @justeattakeaway/pie-css@1.8.1
+
+## 5.16.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.20
+
+## 5.16.2
+
+### Patch Changes
+
+- Updated dependencies [[`efb9e72`](https://github.com/justeattakeaway/pie/commit/efb9e722981bbe2304b5a1a448fb6dace56e9f42)]:
+  - @justeattakeaway/pie-css@1.8.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+  - @justeattakeaway/pie-webc@0.11.19
+
+## 5.16.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.18
+
+## 5.16.0
+
+### Minor Changes
+
+- [Removed] - fozzie references ([#3169](https://github.com/justeattakeaway/pie/pull/3169)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - fozzie calls to pie-css ([#3159](https://github.com/justeattakeaway/pie/pull/3159)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`e21b220`](https://github.com/justeattakeaway/pie/commit/e21b2205b06a2d524686414dd35f6025333539ad)]:
+  - @justeattakeaway/pie-css@1.7.0
+  - @justeattakeaway/pie-webc@0.11.17
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
+## 5.15.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.16
+
+## 5.15.0
+
+### Minor Changes
+
+- [Added] - Added web docs for Icon with background ([#3145](https://github.com/justeattakeaway/pie/pull/3145)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`3d7d0f2`](https://github.com/justeattakeaway/pie/commit/3d7d0f2610d9cf95b628ce1e6045157e63857cf0)]:
+  - @justeattakeaway/pie-css@1.6.0
+  - @justeattakeaway/pie-webc@0.11.15
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
+## 5.14.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.14
+
+## 5.14.0
+
+### Minor Changes
+
+- [Added] - Chip Android and iOS documentation pages. ([#3133](https://github.com/justeattakeaway/pie/pull/3133)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] - Dropdown Android, iOS, and web documentation pages.
+  [Changed] - Updated the Agents resources page to reflect the new PIE Figma Make Kit.
+  [Changed] - Added an information notification to the Icon Button Android page about the translucent variant's blur limitation.
+
+### Patch Changes
+
+- [Updated] Body content section in Modal documentation to guide designer on how to find the text content within the modal slot. ([#3140](https://github.com/justeattakeaway/pie/pull/3140)) by [@tingting-lau](https://github.com/tingting-lau)
+
+- [Changed] - updated snapshots after icons update ([#3149](https://github.com/justeattakeaway/pie/pull/3149)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a)]:
+  - @justeattakeaway/pie-icons@5.32.0
+  - @justeattakeaway/pie-icons-webc@1.29.0
+  - @justeattakeaway/pie-webc@0.11.13
+
 ## 5.13.2
 
 ### Patch Changes

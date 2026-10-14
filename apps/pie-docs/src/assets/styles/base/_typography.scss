@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .alpha--standout {
@@ -6,7 +6,7 @@
     @include p.line-height(--dt-font-heading-xxl-line-height--narrow);
     font-weight: var(--dt-font-heading-xxl-weight);
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         @include p.font-size(--dt-font-heading-xxl-size--wide);
         @include p.line-height(--dt-font-heading-xxl-line-height--wide);
     }

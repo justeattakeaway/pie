@@ -1,0 +1,110 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner  hasPrimaryActionsOnly>\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Wide, Legal Compliance=True, Scrolled=None"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner  hasPrimaryActionsOnly>\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Narrow, Legal Compliance=True, Scrolled=None"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner >\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Wide, Legal Compliance=False, Scrolled=None"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner >\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Narrow, Legal Compliance=False, Scrolled=None"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner  hasPrimaryActionsOnly>\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Wide, Legal Compliance=True, Scrolled=Top"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner  hasPrimaryActionsOnly>\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Narrow, Legal Compliance=True, Scrolled=Top"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner >\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Wide, Legal Compliance=False, Scrolled=Top"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner >\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Narrow, Legal Compliance=False, Scrolled=Top"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner  hasPrimaryActionsOnly>\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Wide, Legal Compliance=True, Scrolled=Bottom"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner  hasPrimaryActionsOnly>\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Narrow, Legal Compliance=True, Scrolled=Bottom"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner >\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Wide, Legal Compliance=False, Scrolled=Bottom"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=41960-20085",
+    "nodeId": "41960:20085",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCookieBanner >\n</PieCookieBanner>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen Size=Narrow, Legal Compliance=False, Scrolled=Bottom"
+  }
+]

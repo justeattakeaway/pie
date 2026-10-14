@@ -1,5 +1,143 @@
 # Changelog
 
+## 1.89.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.2
+  - @justeattakeaway/pie-icons-webc@1.29.5
+
+## 1.89.16
+
+### Patch Changes
+
+- [Added] - New `focusPanel()` method for dialog mode, which moves focus to the panel's content so screen readers announce the content, followed by the dialog's name and role, once each, on every screen reader. The content is `tabindex="-1"` in dialog mode, never reached by Tab, and the panel's own controls stay next in the tab sequence. The method waits for the panel's opening update to commit, then retries the focus move until it lands, and resolves to `true` once focus is in place, or `false` if the panel is closed or in tooltip mode. No waiting is needed on the consumer's side: call it straight after setting `isOpen`. ([#3225](https://github.com/justeattakeaway/pie/pull/3225)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - In dialog mode the panel no longer carries `aria-describedby`. With `focusPanel()` moving focus to the content, the content is announced as the focused element, so a description would either do nothing, as VoiceOver does not announce a dialog's description when focus enters it ([WebKit bug 282773](https://bugs.webkit.org/show_bug.cgi?id=282773)), or say the content a second time, as NVDA and JAWS announce the description in addition to the focused content.
+
+  [Fixed] - Each tooltip now generates a unique heading id per instance. HTML requires an id to be unique within a tree and WAI-ARIA treats a duplicate as an author error where the user agent uses the first matching element, so the panel's `aria-labelledby` no longer relies on that fallback when several tooltips are on one page.
+
+  [Removed] - The `pie-tooltip-body` `data-test-id` from the body wrapper around the heading and content. The wrapper itself stays, but its test id was referenced by nothing in the component's own test suite; the `pie-tooltip-content` test id covers the panel's text and is the focus target in dialog mode.
+
+  [Fixed] - Escape now dismisses the panel even when no `triggers` are configured. Previously Escape was only watched while at least one trigger was set, so a panel driven without `triggers`, such as an onboarding tour step, needed its own key handling.
+
+  [Fixed] - The onboarding tour story now opens and focuses the next step before closing the previous one, so focus never lands in a panel that is already `aria-hidden`. Previously the screen reader dropped focus mid-transition and announced later steps as a bare dialog with no description.
+
+- [Changed] - A dismissible panel now presents as a non-modal dialog, not a tooltip. A close button invites the user inside the panel, and content a user enters is announced through focus, and a `role="tooltip"` panel must not contain focusable elements. Dismissible panels therefore need `heading` or `aria.label` for their accessible name, and the trigger should set `haspopup="dialog"` and track `expanded`. Tooltip mode is now strictly for hover- and focus-followed, non-dismissible panels. ([#3225](https://github.com/justeattakeaway/pie/pull/3225)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Fixed] - The panel's action-row layout class is now applied only when the `action` slot has content, rather than whenever the panel presents as a dialog. Dismissible panels without an action button no longer reserve the action row's height.
+
+  [Changed] - The tooltip-mode trigger guidance now recommends giving the `pie-tooltip` element itself an `id` and pointing a plain HTML trigger's `aria-describedby` at it, rather than adding an `id` to the element in the `content` slot. A PIE component trigger still cannot carry an IDREF across its shadow boundary, so it passes the panel's text through the new `aria.description` property instead of `aria.label`.
+
+  [Added] - New "Screen readers" stories under Components/Tooltip showing every trigger wiring, tooltip and dialog mode, with and without headings, close buttons, and a system-opened dialog with actions, as live, runnable examples alongside the README guidance.
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.1
+
+## 1.89.15
+
+### Patch Changes
+
+- Updated dependencies [[`7a546e4`](https://github.com/justeattakeaway/pie/commit/7a546e44942083ca9174a208278c24df0ae71bd2)]:
+  - @justeat/pie-design-tokens@7.15.1
+  - @justeattakeaway/pie-css@1.9.1
+
+## 1.89.14
+
+### Patch Changes
+
+- [Added] - Viewport collision detection for `pie-tooltip`. The panel now repositions itself — flipping to the opposite side and/or shifting its alignment — when its preferred `position` would collide with the viewport or a clipping scroll container. This behaviour is always on and cannot be disabled. ([#3211](https://github.com/justeattakeaway/pie/pull/3211)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`383412f`](https://github.com/justeattakeaway/pie/commit/383412f0a6a20bd2862899cbcf67d108727d9414)]:
+  - @justeattakeaway/pie-webc@0.12.0
+
+## 1.89.13
+
+### Patch Changes
+
+- [Updated] - `dompurify` [3.4.8 > 3.4.15](https://github.com/cure53/DOMPurify/compare/3.4.8...3.4.15) ([#3204](https://github.com/justeattakeaway/pie/pull/3204)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`7b8d860`](https://github.com/justeattakeaway/pie/commit/7b8d86031062564e46029fc4c57a3f38898656c9), [`d7925e0`](https://github.com/justeattakeaway/pie/commit/d7925e0c07d18ecfe6c58c48235c174e4dc71868)]:
+  - @justeat/pie-design-tokens@7.15.0
+  - @justeattakeaway/pie-css@1.9.0
+  - @justeattakeaway/pie-webc@0.11.21
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
+## 1.89.12
+
+### Patch Changes
+
+- Updated dependencies [[`9438d1b`](https://github.com/justeattakeaway/pie/commit/9438d1b0e395439c6a451b4fd0ef1fe313676bcd)]:
+  - @justeattakeaway/pie-css@1.8.1
+
+## 1.89.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.20
+
+## 1.89.10
+
+### Patch Changes
+
+- Updated dependencies [[`efb9e72`](https://github.com/justeattakeaway/pie/commit/efb9e722981bbe2304b5a1a448fb6dace56e9f42)]:
+  - @justeattakeaway/pie-css@1.8.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+  - @justeattakeaway/pie-webc@0.11.19
+
+## 1.89.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.18
+
+## 1.89.8
+
+### Patch Changes
+
+- Updated dependencies [[`e21b220`](https://github.com/justeattakeaway/pie/commit/e21b2205b06a2d524686414dd35f6025333539ad)]:
+  - @justeattakeaway/pie-css@1.7.0
+  - @justeattakeaway/pie-webc@0.11.17
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
+## 1.89.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.16
+
+## 1.89.6
+
+### Patch Changes
+
+- Updated dependencies [[`3d7d0f2`](https://github.com/justeattakeaway/pie/commit/3d7d0f2610d9cf95b628ce1e6045157e63857cf0)]:
+  - @justeattakeaway/pie-css@1.6.0
+  - @justeattakeaway/pie-webc@0.11.15
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
+## 1.89.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.11.14
+
+## 1.89.4
+
+### Patch Changes
+
+- [Changed] - set the tag variant for alpha status to neutral ([#3141](https://github.com/justeattakeaway/pie/pull/3141)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Documentation and code example of wrapping pie-radio components in custom markup inside the radio-group ([#3144](https://github.com/justeattakeaway/pie/pull/3144)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a)]:
+  - @justeattakeaway/pie-icons-webc@1.29.0
+  - @justeattakeaway/pie-webc@0.11.13
+
 ## 1.89.3
 
 ### Patch Changes

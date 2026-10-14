@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Web
     parent: Progress Bar
     order: 2
-draft: true
 ---
 
 {% notification {

@@ -1,0 +1,218 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n    >\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Default, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline-inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse Outline, State=Default"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n    >\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Default, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline-inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse Outline, State=Hover"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n    >\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Default, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline-inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse Outline, State=Active"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n    >\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Default, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline-inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse Outline, State=Focus"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n    >\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Default, State=Drag"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, State=Drag"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, State=Drag"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline-inverse\">\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse Outline, State=Drag"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     disabled>\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Default, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline\"\n     disabled>\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Outline, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"inverse\"\n     disabled>\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse, State=Disabled"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=40114-73346",
+    "nodeId": "40114:73346",
+    "filePath": "components.figma.batch.json",
+    "success": true,
+    "snippet": "<PieCard\n     variant=\"outline-inverse\"\n     disabled>\n    \n</PieCard>",
+    "language": "React",
+    "propertyCombinationLabel": "Variant=Inverse Outline, State=Disabled"
+  }
+]

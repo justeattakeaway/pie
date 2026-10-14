@@ -1,5 +1,87 @@
 # @justeattakeaway/pie-modal
 
+## 1.27.15
+
+### Patch Changes
+
+- Updated dependencies [[`ed9fd36`](https://github.com/justeattakeaway/pie/commit/ed9fd3620fd4d43c672f8f8202bf3835683fb88e)]:
+  - @justeattakeaway/pie-webc-core@22.0.1
+  - @justeattakeaway/pie-button@1.15.1
+  - @justeattakeaway/pie-icon-button@2.8.1
+  - @justeattakeaway/pie-spinner@1.5.11
+  - @justeattakeaway/pie-icons-webc@1.29.5
+
+## 1.27.14
+
+### Patch Changes
+
+- [Fixed] - Correct image overflows in modal header ([#3225](https://github.com/justeattakeaway/pie/pull/3225)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`bd3669f`](https://github.com/justeattakeaway/pie/commit/bd3669f25cc69120c1430cfc6ae48638a2512bb2)]:
+  - @justeattakeaway/pie-button@1.15.0
+  - @justeattakeaway/pie-icon-button@2.8.0
+
+## 1.27.13
+
+### Patch Changes
+
+- [Fixed] - The dialog no longer clips its own contents, so an overlay slotted into the modal, such as `pie-tooltip`, can render outside it. The image slot and the scroll container now round their own corners to match the modal's radius. ([#3194](https://github.com/justeattakeaway/pie/pull/3194)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.14.18
+  - @justeattakeaway/pie-icon-button@2.7.35
+  - @justeattakeaway/pie-spinner@1.5.10
+  - @justeattakeaway/pie-webc-core@22.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.4
+
+## 1.27.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.14.17
+  - @justeattakeaway/pie-icon-button@2.7.34
+  - @justeattakeaway/pie-spinner@1.5.9
+  - @justeattakeaway/pie-webc-core@21.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.3
+
+## 1.27.11
+
+### Patch Changes
+
+- Updated dependencies [[`8dab2b0`](https://github.com/justeattakeaway/pie/commit/8dab2b06506aab34091f69bea5204f278f302947), [`8d876f1`](https://github.com/justeattakeaway/pie/commit/8d876f1fed5ca82f9349056ebcf8251218365107)]:
+  - @justeattakeaway/pie-button@1.14.16
+
+## 1.27.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.14.15
+  - @justeattakeaway/pie-icon-button@2.7.33
+  - @justeattakeaway/pie-spinner@1.5.8
+  - @justeattakeaway/pie-webc-core@20.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.2
+
+## 1.27.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.14.14
+  - @justeattakeaway/pie-icon-button@2.7.32
+  - @justeattakeaway/pie-spinner@1.5.7
+  - @justeattakeaway/pie-webc-core@19.0.0
+  - @justeattakeaway/pie-icons-webc@1.29.1
+
+## 1.27.8
+
+### Patch Changes
+
+- Updated dependencies [[`69ed425`](https://github.com/justeattakeaway/pie/commit/69ed4254b81db47e7dec69e6312b46af93e2325a), [`1f18eb3`](https://github.com/justeattakeaway/pie/commit/1f18eb30a864a747249428dd2af28c3efe233577)]:
+  - @justeattakeaway/pie-icons-webc@1.29.0
+  - @justeattakeaway/pie-icon-button@2.7.31
+
 ## 1.27.7
 
 ### Patch Changes

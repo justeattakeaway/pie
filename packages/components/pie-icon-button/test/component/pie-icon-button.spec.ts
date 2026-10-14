@@ -33,6 +33,7 @@ test('should apply all aria attributes to the underlying button element', async 
             label: 'foo',
             labelledby: 'bar',
             describedby: 'baz',
+            description: 'qux',
             expanded: true,
             controls: 'test-controls',
             haspopup: true,
@@ -47,6 +48,7 @@ test('should apply all aria attributes to the underlying button element', async 
     await expect(iconButtonComponent).toHaveAttribute('aria-label', 'foo');
     await expect(iconButtonComponent).toHaveAttribute('aria-labelledby', 'bar');
     await expect(iconButtonComponent).toHaveAttribute('aria-describedby', 'baz');
+    await expect(iconButtonComponent).toHaveAttribute('aria-description', 'qux');
     await expect(iconButtonComponent).toHaveAttribute('aria-expanded', 'true');
     await expect(iconButtonComponent).toHaveAttribute('aria-controls', 'test-controls');
     await expect(iconButtonComponent).toHaveAttribute('aria-haspopup', 'true');

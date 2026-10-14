@@ -15,6 +15,12 @@ The app bar is a fixed surface anchored to the top of the screen. It provides a 
     alt: "An app bar."
 } %}
 
+---
 
+## Resources
+
+{% resourceTable {
+    componentName: 'App bar'
+} %}
 
 ---

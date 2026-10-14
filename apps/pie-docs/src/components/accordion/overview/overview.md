@@ -21,11 +21,6 @@ Accordions are useful for presenting categorised information like FAQs, product 
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Accordion documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Accordion'
 } %}

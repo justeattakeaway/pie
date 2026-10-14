@@ -20,11 +20,6 @@ Map pins include additional information such as icons, and often use labels and/
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Map Pin documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Map Pin'
 } %}

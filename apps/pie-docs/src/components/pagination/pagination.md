@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Pagination'
     parent: Components
-    order: 31
+    order: 32
     url: /components/pagination/
 permalink: false
 ---

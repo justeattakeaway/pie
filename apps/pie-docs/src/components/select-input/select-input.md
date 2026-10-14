@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Select Input
     parent: Components
-    order: 40
+    order: 41
     url: /components/select-input/
 permalink: false
 ---

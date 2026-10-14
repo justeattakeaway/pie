@@ -23,8 +23,17 @@ function readChangesetFile (filePath) {
     return sections[1];
 }
 
+function hasAddedOrRemovedIcons (changes) {
+    return /^\[Added\]/m.test(changes) || /^\[Removed\]/m.test(changes);
+}
+
 function getPrBody (changes) {
-    return `## Changes
+    const authorChecklist = hasAddedOrRemovedIcons(changes) ? `
+## Author Checklist (complete before requesting a review)
+- [ ] I ran the sync-code-connect-icons skill and published the new Figma Code Connect templates for the new icons
+` : '';
+
+    return `${authorChecklist}## Changes
 
 This PR updates icons.
 

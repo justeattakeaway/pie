@@ -20,11 +20,6 @@ Dropdowns enhance user experience by conserving screen space and organising choi
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Dropdown documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Dropdown'
 } %}

@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 $contentList-maxWidth: 604px;
@@ -18,7 +18,7 @@ $tooltip-border-radius: 100px;
         column-fill: auto;
         column-count: 1;
 
-        @include f.media('>=mid') {
+        @include media('>=md') {
             max-height: $contentList-maxHeight;
             column-count: 3;
         }

@@ -1,0 +1,51 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "1575:130231",
+    "availableProperties": [
+      {
+        "name": "Overflow - Left",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Overflow - Right",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Scrollbar",
+        "type": "BOOLEAN",
+        "default": false
+      },
+      {
+        "name": "Footer",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Bulk-action bar",
+        "type": "BOOLEAN",
+        "default": true
+      },
+      {
+        "name": "Screen size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Wide",
+          "Narrow"
+        ],
+        "default": "Wide"
+      },
+      {
+        "name": "Selectable rows",
+        "type": "VARIANT",
+        "variantOptions": [
+          "False",
+          "True"
+        ],
+        "default": "False"
+      }
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use '../variables' as v;
 @use '../utilities' as u;
 @use '@justeattakeaway/pie-css/scss' as p;
@@ -12,12 +12,12 @@
     display: grid;
     height: auto;
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         height: v.$hero-banner-header-mid-height;
         grid-template-columns: 50% 50%;
     }
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         height: v.$hero-banner-header-wide-height;
         grid-template-columns: 40% 60%;
         gap: var(--dt-spacing-e);
@@ -34,7 +34,7 @@
     align-self: start;
     grid-column: 1 / span 2;
 
-    @include f.media('>=mid') {
+    @include media('>=md') {
         grid-column: 1;
         max-width: 500px;
         padding-block-start: calc(var(--dt-spacing-e) + var(--dt-spacing-i)); // 88px
@@ -47,7 +47,7 @@
     margin-block-start: var(--dt-spacing-d);
     max-width: 50ch;
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         @include p.font-size(--dt-font-heading-s-size--wide);
         @include p.line-height(--dt-font-heading-s-line-height--wide);
     }
@@ -60,7 +60,7 @@
     z-index: var(--dt-z-index-base);
     height: v.$hero-banner-header-mid-height;
 
-    @include f.media('>=wide') {
+    @include media('>=lg') {
         height: v.$hero-banner-header-wide-height;
     }
 

@@ -1,5 +1,47 @@
 # @justeattakeaway/pie-css
 
+## 1.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`7a546e4`](https://github.com/justeattakeaway/pie/commit/7a546e44942083ca9174a208278c24df0ae71bd2)]:
+  - @justeat/pie-design-tokens@7.15.1
+
+## 1.9.0
+
+### Minor Changes
+
+- [Added] - Added third party colour tokens for superdrug ([#3217](https://github.com/justeattakeaway/pie/pull/3217)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies [[`7b8d860`](https://github.com/justeattakeaway/pie/commit/7b8d86031062564e46029fc4c57a3f38898656c9), [`d7925e0`](https://github.com/justeattakeaway/pie/commit/d7925e0c07d18ecfe6c58c48235c174e4dc71868)]:
+  - @justeat/pie-design-tokens@7.15.0
+
+## 1.8.1
+
+### Patch Changes
+
+- [Fixed] - isResponsive doesn't set the correct text color for small to medium buttons ([#3190](https://github.com/justeattakeaway/pie/pull/3190)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.8.0
+
+### Minor Changes
+
+- [Changed] - Ordering of rules to allow sub level utilities ([#3182](https://github.com/justeattakeaway/pie/pull/3182)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 1.7.0
+
+### Minor Changes
+
+- [Added] - is-hidden utility class ([#3169](https://github.com/justeattakeaway/pie/pull/3169)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 1.6.0
+
+### Minor Changes
+
+- [Added] - spacing and rwd utility classes ([#3132](https://github.com/justeattakeaway/pie/pull/3132)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.5.0
 
 ### Minor Changes
