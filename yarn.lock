@@ -4226,6 +4226,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.4"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
     "@lit/context": "npm:1.1.6"
     lit: "npm:3.3.3"
   peerDependencies:
