@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.21.5
+
+### Patch Changes
+
+- [Changed] - The shared Vite config only includes the `react` lib entry when `src/react.ts` exists, so packages without a React wrapper (such as `pie-webc-core`) can reuse the shared config and its TypeScript declaration generation ([#3235](https://github.com/justeattakeaway/pie/pull/3235)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.21.4
 
 ### Patch Changes
