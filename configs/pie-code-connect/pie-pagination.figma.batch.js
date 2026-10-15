@@ -15,18 +15,16 @@ const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameR
 
 // Map Figma properties to component props. These are examples - replace them
 // with the actual properties exposed by the pie-pagination Figma component.
-const size = getInstanceProp('getEnum', 'Size', {
-    Large: 'large',
-    Medium: 'medium',
-    Small: 'small',
-}) || 'medium';
+const currentPage = getInstanceProp('getText', 'Page') || '1';
+const totalPages = getInstanceProp('getText', 'Total') || '1';
 const isDisabled = getInstanceProp('getBoolean', 'Disabled');
 
 // `renderProp` returns an empty string when a value matches its default, so falsy
 // entries are filtered out to keep blank lines out of the generated snippet. The
 // join indent matches the four-space offset of `${props}` in the template below.
 const props = [
-    renderProp('size', size, 'medium'),
+    renderProp('currentPage', currentPage, '1'),
+    renderProp('totalPages', totalPages, '1'),
     renderProp('disabled', isDisabled, false),
 ].filter(Boolean).join('\n    ');
 
