@@ -4019,10 +4019,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination"
   dependencies:
+    "@justeattakeaway/pie-button": "npm:1.15.1"
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-icon-button": "npm:2.8.1"
+    "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
+    "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
 

@@ -121,6 +121,14 @@
       "maxSize": "0.62 KB"
     },
     {
+      "path": "./packages/components/pie-pagination/dist/index.js",
+      "maxSize": "4 KB"
+    },
+    {
+      "path": "./packages/components/pie-pagination/dist/react.js",
+      "maxSize": "1 KB"
+    },
+    {
       "path": "./packages/components/pie-radio/dist/index.js",
       "maxSize": "4 KB"
     },
@@ -227,10 +235,6 @@
     {
       "path": "./packages/components/pie-tooltip/dist/*.js",
       "maxSize": "9 KB"
-    },
-    {
-      "path": "./packages/components/pie-pagination/dist/*.js",
-      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
