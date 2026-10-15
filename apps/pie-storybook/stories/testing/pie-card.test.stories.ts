@@ -13,6 +13,7 @@ import '@justeattakeaway/pie-webc/components/link';
 import '@justeattakeaway/pie-webc/components/modal';
 import { type PieModal } from '@justeattakeaway/pie-webc/components/modal';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeart.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
@@ -169,9 +170,29 @@ export const CardWithImage = createCardStory({
 });
 
 const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) => {
-    const openFavouritesModal = () => {
-        const modal = document.querySelector('#favourites-modal') as PieModal | null;
+    const openRestaurantModal = () => {
+        const modal = document.querySelector('#restaurant-modal') as PieModal | null;
         if (modal) modal.isOpen = true;
+    };
+
+    const toggleFavourited = (event: Event) => {
+        const iconButton = event.currentTarget as HTMLElement & { aria?: { label?: string } };
+        const outlineIcon = iconButton.querySelector('icon-heart');
+        const filledIcon = iconButton.querySelector('icon-heart-filled');
+        const isFavourited = iconButton.hasAttribute('data-is-favourited');
+
+        if (outlineIcon && filledIcon) {
+            outlineIcon.style.display = isFavourited ? '' : 'none';
+            filledIcon.style.display = isFavourited ? 'none' : '';
+        }
+
+        iconButton.aria = { label: isFavourited ? 'Add to favourites' : 'Remove from favourites' };
+
+        if (isFavourited) {
+            iconButton.removeAttribute('data-is-favourited');
+        } else {
+            iconButton.setAttribute('data-is-favourited', 'true');
+        }
     };
 
     return html`
@@ -184,7 +205,7 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
         description: 'Opens the restaurant details',
         haspopup: 'dialog',
     } as CardPropsBase['aria']}"
-            @click="${clickAction}">
+            @click="${openRestaurantModal}">
             <div data-test-id="slot-content" style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
                 <h2 style="margin-top: 0"> Card title </h2>
                 <p style="margin-bottom: 8px"> Card content with an action </p>
@@ -194,8 +215,9 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
                         variant="ghost-secondary"
                         .aria="${{ label: 'Add to favourites' }}"
                         style="position: relative; z-index: calc(var(--pie-card-overlay-z-index) + 1);"
-                        @click="${openFavouritesModal}">
-                        <icon-heart></icon-heart>
+                        @click="${toggleFavourited}">
+                        <icon-heart data-test-id="icon-heart-outline"></icon-heart>
+                        <icon-heart-filled data-test-id="icon-heart-filled" style="color: var(--dt-color-content-error); display: none;"></icon-heart-filled>
                     </pie-icon-button>
                     <pie-link
                         href="https://pie.design"
@@ -207,9 +229,10 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
             </div>
         </pie-card>
         <pie-modal
-            id="favourites-modal"
-            heading="Add to favourites">
-            <p>This modal was opened by the slotted icon button, showing that the slotted control and the card's own click interaction remain independent.</p>
+            id="restaurant-modal"
+            heading="Restaurant details"
+            ?isDismissible="${true}">
+            <p>This modal was opened by clicking the card, showing that the card's own click interaction remains independent of the slotted controls.</p>
         </pie-modal>`;
 };
 

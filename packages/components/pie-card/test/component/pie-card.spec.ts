@@ -419,6 +419,7 @@ test.describe('PieCard - Card click behaviour with slotted interactive controls'
             (count) => (window.__cardClicks ?? 0) > count,
             countBefore,
         );
+        await expect.poll(() => page.evaluate(() => (document.querySelector('#restaurant-modal') as HTMLDialogElement & { isOpen: boolean })?.isOpen ?? false)).toBe(true);
     });
 
     test('should not emit a click event on the host when a slotted interactive control is clicked', async ({ page }) => {
@@ -432,10 +433,25 @@ test.describe('PieCard - Card click behaviour with slotted interactive controls'
         // Act
         await cardPage.cardComponent.componentLocator.getByTestId('card-action').click();
 
-        // Assert - the slotted control's own handler runs (opening its modal), but the host listener does not.
+        // Assert - the slotted control's own handler runs (favouriting), but the host listener and modal do not.
         await page.waitForFunction(() => (window.__slottedClicks ?? 0) > 0);
         await expect.poll(() => page.evaluate(() => window.__cardClicks ?? 0)).toBe(countBefore);
-        await expect.poll(() => page.evaluate(() => (document.querySelector('#favourites-modal') as HTMLDialogElement & { isOpen: boolean })?.isOpen ?? false)).toBe(true);
+        await expect.poll(() => page.evaluate(() => (document.querySelector('#restaurant-modal') as HTMLDialogElement & { isOpen: boolean })?.isOpen ?? false)).toBe(false);
+        await expect.poll(() => page.evaluate(() => ({
+            outline: getComputedStyle(document.querySelector('[data-test-id="icon-heart-outline"]')!).display,
+            filled: getComputedStyle(document.querySelector('[data-test-id="icon-heart-filled"]')!).display,
+        }))).toEqual({ outline: 'none', filled: 'block' });
+
+        // Act - clicking the control again unfavourites it, and still never triggers the card's click.
+        await cardPage.cardComponent.componentLocator.getByTestId('card-action').click();
+
+        // Assert
+        await page.waitForFunction(() => (window.__slottedClicks ?? 0) > 1);
+        await expect.poll(() => page.evaluate(() => window.__cardClicks ?? 0)).toBe(countBefore);
+        await expect.poll(() => page.evaluate(() => ({
+            outline: getComputedStyle(document.querySelector('[data-test-id="icon-heart-outline"]')!).display,
+            filled: getComputedStyle(document.querySelector('[data-test-id="icon-heart-filled"]')!).display,
+        }))).toEqual({ outline: 'block', filled: 'none' });
     });
 
     test('should emit a click event on the host when the overlay button is activated with the Enter key', async ({ page }) => {
@@ -496,5 +512,6 @@ test.describe('PieCard - Card click behaviour with slotted interactive controls'
         // Assert
         await page.waitForFunction(() => (window.__slottedClicks ?? 0) > 0);
         await expect.poll(() => page.evaluate(() => window.__cardClicks ?? 0)).toBe(countBefore);
+        await expect.poll(() => page.evaluate(() => (document.querySelector('#restaurant-modal') as HTMLDialogElement & { isOpen: boolean })?.isOpen ?? false)).toBe(false);
     });
 });
