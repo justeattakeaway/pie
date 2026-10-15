@@ -1,7 +1,13 @@
 {
   "name": "@justeattakeaway/pie-pagination",
-  "description": "PIE Design System Pagination built using Web Components",
   "version": "0.0.0",
+  "description": "PIE design system pagination built using web components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-pagination"
+  },
+  "homepage": "https://webc.pie.design/?path=/docs/components-pagination--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,13 +43,17 @@
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.5",
     "@justeattakeaway/pie-css": "1.9.1",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.11"
-  },
-  "dependencies": {
-    "@justeattakeaway/pie-webc-core": "22.0.1"
+    "@justeattakeaway/pie-monorepo-utils": "0.9.11",
+    "@justeattakeaway/pie-wrapper-react": "0.14.5"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
-  ]
+  ],
+  "dependencies": {
+    "@justeattakeaway/pie-button": "1.15.1",
+    "@justeattakeaway/pie-icon-button": "2.8.1",
+    "@justeattakeaway/pie-icons-webc": "1.29.5",
+    "@justeattakeaway/pie-webc-core": "22.0.1"
+  }
 }
