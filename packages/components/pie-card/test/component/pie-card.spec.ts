@@ -1,8 +1,29 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import type { CardProps } from '../../src/index.ts';
 import { tags, paddingValues } from '../../src/defs.ts';
 import { CardDefaultPage } from '../helpers/page-object/pie-card-default.page.ts';
 import { CardWithImagePage } from '../helpers/page-object/pie-card-with-image.page.ts';
+import { CardWithSlottedControlsPage } from '../helpers/page-object/pie-card-with-slotted-controls.page.ts';
+
+declare global {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    interface Window {
+        __cardClicks?: number;
+        __slottedClicks?: number;
+    }
+}
+
+/** Installs browser-side listeners on the host element and the slotted interactive control for polling with `waitForFunction`. */
+const installClickListeners = (page: Page) => page.evaluate(() => {
+    window.__cardClicks = 0;
+    window.__slottedClicks = 0;
+    document.querySelector('pie-card')?.addEventListener('click', () => {
+        window.__cardClicks = (window.__cardClicks ?? 0) + 1;
+    });
+    document.querySelector('[data-test-id="card-action"]')?.addEventListener('click', () => {
+        window.__slottedClicks = (window.__slottedClicks ?? 0) + 1;
+    });
+});
 
 test.describe('PieCard - Component tests', () => {
     test('should render successfully', async ({ page }) => {
@@ -56,7 +77,7 @@ test.describe('PieCard - Component tests', () => {
         await expect(cardDefaultPage.cardComponent.componentLocator).not.toHaveAttribute('tabindex', '0');
     });
 
-    test('should render the card as a div that behaves like a button if tag = "button"', async ({ page }) => {
+    test('should render the card with an invisible overlay button when tag = "button"', async ({ page }) => {
     // Arrange
         const props: CardProps = {
             tag: 'button',
@@ -66,14 +87,14 @@ test.describe('PieCard - Component tests', () => {
         await cardDefaultPage.load({ ...props });
 
         // Assert
-        await expect(cardDefaultPage.cardComponent.buttonLocator).toBeVisible();
-        await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('role', 'button');
-        await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('tabindex', '0');
+        await expect(cardDefaultPage.cardComponent.buttonLocator).toBeAttached();
+        await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveRole('button');
+        await expect(cardDefaultPage.cardComponent.surfaceLocator).toBeVisible();
         await expect(cardDefaultPage.cardComponent.linkLocator).not.toBeVisible();
     });
 
     [true, false].forEach((disabled) => {
-        test(`should add an aria-disabled attribute that matches the value of the disabled prop (${disabled})`, async ({ page }) => {
+        test(`should ${disabled ? '' : 'not '}render a disabled overlay button when the disabled prop is ${disabled}`, async ({ page }) => {
             // Arrange
             const props: CardProps = {
                 disabled,
@@ -83,7 +104,11 @@ test.describe('PieCard - Component tests', () => {
             await cardDefaultPage.load({ ...props });
 
             // Assert
-            await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('aria-disabled', disabled.toString());
+            if (disabled) {
+                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('disabled', '');
+            } else {
+                await expect(cardDefaultPage.cardComponent.buttonLocator).not.toHaveAttribute('disabled');
+            }
         });
     });
 
@@ -118,7 +143,7 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 // Assert
-                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveClass(/is-draggable/);
+                await expect(cardDefaultPage.cardComponent.surfaceLocator).toHaveClass(/is-draggable/);
             });
         });
 
@@ -132,7 +157,7 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 // Assert
-                await expect(cardDefaultPage.cardComponent.buttonLocator).not.toHaveClass(/is-draggable/);
+                await expect(cardDefaultPage.cardComponent.surfaceLocator).not.toHaveClass(/is-draggable/);
             });
         });
     });
@@ -149,7 +174,7 @@ test.describe('PieCard - Component tests', () => {
                 await cardDefaultPage.load({ ...props });
 
                 // Assert
-                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', 'padding: var(--dt-spacing-a)');
+                await expect(cardDefaultPage.cardComponent.surfaceLocator).toHaveAttribute('style', 'padding: var(--dt-spacing-a)');
             });
         });
     });
@@ -183,9 +208,9 @@ paddingValues.forEach((paddingValue) => {
 
         // Assert
         if (values.length > 1) {
-            await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', `padding: var(--dt-spacing-${values[0]}) var(--dt-spacing-${values[1]})`);
+            await expect(cardDefaultPage.cardComponent.surfaceLocator).toHaveAttribute('style', `padding: var(--dt-spacing-${values[0]}) var(--dt-spacing-${values[1]})`);
         } else {
-            await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', `padding: var(--dt-spacing-${values[0]})`);
+            await expect(cardDefaultPage.cardComponent.surfaceLocator).toHaveAttribute('style', `padding: var(--dt-spacing-${values[0]})`);
         }
     });
 });
@@ -203,7 +228,7 @@ test('should not allow values outside "a-g"', async ({ page }) => {
     await cardDefaultPage.load({ ...props });
 
     // Assert
-    await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', '');
+    await expect(cardDefaultPage.cardComponent.surfaceLocator).toHaveAttribute('style', '');
 });
 
 test('should not allow more than one single value i.e "ab"', async ({ page }) => {
@@ -219,7 +244,7 @@ test('should not allow more than one single value i.e "ab"', async ({ page }) =>
     await cardDefaultPage.load({ ...props });
 
     // Assert
-    await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', '');
+    await expect(cardDefaultPage.cardComponent.surfaceLocator).toHaveAttribute('style', '');
 });
 
 test.describe('when `padding` is set as a comma separated string value', () => {
@@ -234,7 +259,7 @@ test.describe('when `padding` is set as a comma separated string value', () => {
         const cardDefaultPage = new CardDefaultPage(page);
         await cardDefaultPage.load({ ...props });
 
-        await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', '');
+        await expect(cardDefaultPage.cardComponent.surfaceLocator).toHaveAttribute('style', '');
     });
 });
 
@@ -278,7 +303,7 @@ test.describe('Prop: disabled', () => {
     });
 
     test.describe('when the prop `tag` is set to `button`', () => {
-        test('should set `aria-disabled` to `true` when disabled', async ({ page }) => {
+        test('should disable the overlay button when disabled', async ({ page }) => {
             // Arrange
             const props: CardProps = {
                 tag: 'button',
@@ -289,21 +314,8 @@ test.describe('Prop: disabled', () => {
             await cardDefaultPage.load({ ...props });
 
             // Assert
-            await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('aria-disabled', 'true');
-        });
-
-        test('should set `tabindex` to `-1` when disabled', async ({ page }) => {
-            // Arrange
-            const props: CardProps = {
-                tag: 'button',
-                disabled: true,
-            };
-
-            const cardDefaultPage = new CardDefaultPage(page);
-            await cardDefaultPage.load({ ...props });
-
-            // Assert
-            await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('tabindex', '-1');
+            await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('disabled', '');
+            await expect(cardDefaultPage.cardComponent.buttonLocator).not.toHaveAttribute('tabindex');
         });
     });
 
@@ -342,5 +354,164 @@ test.describe('Prop: disabled', () => {
             // Assert
             await expect(cardDefaultPage.cardComponent.linkLocator).not.toHaveAttribute('href');
         });
+    });
+});
+
+test.describe('PieCard - Prop: `aria`', () => {
+    tags.forEach((tag) => {
+        test(`should forward description, haspopup and expanded to the interactive element when tag is ${tag}`, async ({ page }) => {
+            // Arrange
+            const props: CardProps = {
+                tag,
+                aria: {
+                    label: 'foo',
+                    description: 'bar',
+                    haspopup: 'dialog',
+                    expanded: true,
+                },
+            };
+            const cardDefaultPage = new CardDefaultPage(page);
+            await cardDefaultPage.load({ ...props });
+
+            // Act
+            const locator = tag === 'a' ? cardDefaultPage.cardComponent.linkLocator : cardDefaultPage.cardComponent.buttonLocator;
+
+            // Assert
+            await expect(locator).toHaveAttribute('aria-description', 'bar');
+            await expect(locator).toHaveAttribute('aria-haspopup', 'dialog');
+            await expect(locator).toHaveAttribute('aria-expanded', 'true');
+        });
+
+        test(`should not render description, haspopup or expanded attributes when the aria fields are omitted when tag is ${tag}`, async ({ page }) => {
+            // Arrange
+            const props: CardProps = {
+                tag,
+                aria: { label: 'foo' },
+            };
+            const cardDefaultPage = new CardDefaultPage(page);
+            await cardDefaultPage.load({ ...props });
+
+            // Act
+            const locator = tag === 'a' ? cardDefaultPage.cardComponent.linkLocator : cardDefaultPage.cardComponent.buttonLocator;
+
+            // Assert
+            await expect(locator).not.toHaveAttribute('aria-description');
+            await expect(locator).not.toHaveAttribute('aria-haspopup');
+            await expect(locator).not.toHaveAttribute('aria-expanded');
+        });
+    });
+});
+
+test.describe('PieCard - Card click behaviour with slotted interactive controls', () => {
+    test('should emit a native click event on the host when the card is clicked', async ({ page }) => {
+        // Arrange
+        const cardPage = new CardWithSlottedControlsPage(page);
+        await cardPage.load();
+        await installClickListeners(page);
+
+        const countBefore = await page.evaluate(() => window.__cardClicks ?? 0);
+
+        // Act
+        await cardPage.cardComponent.surfaceLocator.click();
+
+        // Assert
+        await page.waitForFunction(
+            (count) => (window.__cardClicks ?? 0) > count,
+            countBefore,
+        );
+        await expect.poll(() => page.evaluate(() => (document.querySelector('#restaurant-modal') as HTMLDialogElement & { isOpen: boolean })?.isOpen ?? false)).toBe(true);
+    });
+
+    test('should not emit a click event on the host when a slotted interactive control is clicked', async ({ page }) => {
+        // Arrange
+        const cardPage = new CardWithSlottedControlsPage(page);
+        await cardPage.load();
+        await installClickListeners(page);
+
+        const countBefore = await page.evaluate(() => window.__cardClicks ?? 0);
+
+        // Act
+        await cardPage.cardComponent.componentLocator.getByTestId('card-action').click();
+
+        // Assert - the slotted control's own handler runs (favouriting), but the host listener and modal do not.
+        await page.waitForFunction(() => (window.__slottedClicks ?? 0) > 0);
+        await expect.poll(() => page.evaluate(() => window.__cardClicks ?? 0)).toBe(countBefore);
+        await expect.poll(() => page.evaluate(() => (document.querySelector('#restaurant-modal') as HTMLDialogElement & { isOpen: boolean })?.isOpen ?? false)).toBe(false);
+        await expect.poll(() => page.evaluate(() => ({
+            outline: getComputedStyle(document.querySelector('[data-test-id="icon-heart-outline"]')!).display,
+            filled: getComputedStyle(document.querySelector('[data-test-id="icon-heart-filled"]')!).display,
+        }))).toEqual({ outline: 'none', filled: 'block' });
+
+        // Act - clicking the control again unfavourites it, and still never triggers the card's click.
+        await cardPage.cardComponent.componentLocator.getByTestId('card-action').click();
+
+        // Assert
+        await page.waitForFunction(() => (window.__slottedClicks ?? 0) > 1);
+        await expect.poll(() => page.evaluate(() => window.__cardClicks ?? 0)).toBe(countBefore);
+        await expect.poll(() => page.evaluate(() => ({
+            outline: getComputedStyle(document.querySelector('[data-test-id="icon-heart-outline"]')!).display,
+            filled: getComputedStyle(document.querySelector('[data-test-id="icon-heart-filled"]')!).display,
+        }))).toEqual({ outline: 'block', filled: 'none' });
+    });
+
+    test('should emit a click event on the host when the overlay button is activated with the Enter key', async ({ page }) => {
+        // Arrange
+        const cardPage = new CardWithSlottedControlsPage(page);
+        await cardPage.load();
+        await installClickListeners(page);
+
+        const countBefore = await page.evaluate(() => window.__cardClicks ?? 0);
+
+        // Act
+        await page.evaluate(() => {
+            document.querySelector('pie-card')
+                ?.shadowRoot
+                ?.querySelector<HTMLButtonElement>('.c-card-overlay')
+                ?.focus();
+        });
+        await page.keyboard.press('Enter');
+
+        // Assert
+        await page.waitForFunction(
+            (count) => (window.__cardClicks ?? 0) > count,
+            countBefore,
+        );
+    });
+
+    test('should focus the card overlay before any slotted interactive controls when tabbing', async ({ page }) => {
+        // Arrange
+        const cardPage = new CardWithSlottedControlsPage(page);
+        await cardPage.load();
+
+        // Act & Assert - tabbing should land on the card's overlay button first, then the slotted controls in slot order.
+        await page.keyboard.press('Tab');
+        await expect.poll(() => page.evaluate(() => {
+            const root = document.querySelector('pie-card')?.shadowRoot;
+            return root?.activeElement?.classList.contains('c-card-overlay') ?? false;
+        })).toBe(true);
+
+        await page.keyboard.press('Tab');
+        await expect.poll(() => page.evaluate(() => document.activeElement?.tagName ?? '')).toBe('PIE-ICON-BUTTON');
+
+        await page.keyboard.press('Tab');
+        await expect.poll(() => page.evaluate(() => document.activeElement?.tagName ?? '')).toBe('PIE-LINK');
+    });
+
+    test('should not emit a click event on the host when the card is disabled', async ({ page }) => {
+        // Arrange
+        const cardPage = new CardWithSlottedControlsPage(page);
+        await cardPage.load({ disabled: true });
+        await installClickListeners(page);
+
+        const countBefore = await page.evaluate(() => window.__cardClicks ?? 0);
+
+        // Act - clicking the card hits the disabled overlay; clicking the slotted control proves clicks are dispatched at all.
+        await cardPage.cardComponent.surfaceLocator.click();
+        await cardPage.cardComponent.componentLocator.getByTestId('card-action').click();
+
+        // Assert
+        await page.waitForFunction(() => (window.__slottedClicks ?? 0) > 0);
+        await expect.poll(() => page.evaluate(() => window.__cardClicks ?? 0)).toBe(countBefore);
+        await expect.poll(() => page.evaluate(() => (document.querySelector('#restaurant-modal') as HTMLDialogElement & { isOpen: boolean })?.isOpen ?? false)).toBe(false);
     });
 });
