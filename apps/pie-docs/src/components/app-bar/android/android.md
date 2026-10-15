@@ -212,6 +212,12 @@ Use icon buttons when the icon clearly communicates the action, such as search o
     {% endcontentItem %}
 {% endcontentLayout %}
 
+{% contentPageImage {
+    src:"../../../assets/img/components/app-bar/android/modifier-trailing-control-custom-button.svg",
+    alt: "An app bar with a trailing button.",
+    width: 360
+} %}
+
 ---
 
 ## Placement
