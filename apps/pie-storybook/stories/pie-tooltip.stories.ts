@@ -498,32 +498,6 @@ const renderDashboardOrders = (): TemplateResult => html`
             </div>
         </pie-card>`)}`;
 
-const legendRows: Array<[string, string]> = [
-    ['Places each panel over its trigger and keeps it there while the page scrolls', 'Owns `isOpen` for all four steps, and keeps only one open'],
-    ['Exposes each panel as a named `dialog`, and removes it from the accessibility tree when closed', 'Supplies each `heading` and `position`'],
-    ['Emits a close event when the close button is used', 'Decides what a close event means: end the tour'],
-    ['Does nothing on hover, focus or click, because no triggers are configured', 'Starts the tour, and advances it from the action buttons'],
-    ['Leaves focus and scrolling alone', 'Scrolls the next trigger into view, then moves focus to its action'],
-];
-
-const renderLegend = (): TemplateResult => html`
-    <table class="tour-legend">
-        <caption>Who does what</caption>
-        <thead>
-            <tr>
-                <th scope="col">The component does</th>
-                <th scope="col">This story does</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${legendRows.map(([component, story]) => html`
-                <tr>
-                    <td>${component}</td>
-                    <td>${story}</td>
-                </tr>`)}
-        </tbody>
-    </table>`;
-
 // A mock dashboard with the four tour triggers; `triggers` is unset, so nothing opens on its own.
 const OnboardingTourTemplate: TemplateFunction<TooltipProps> = () => html`
     <div class="tour" data-tour-root>
@@ -616,8 +590,6 @@ const OnboardingTourTemplate: TemplateFunction<TooltipProps> = () => html`
                 </div>
             </div>
         </div>
-
-        ${renderLegend()}
     </div>
     <style>
         .tour {
@@ -746,24 +718,6 @@ const OnboardingTourTemplate: TemplateFunction<TooltipProps> = () => html`
         .dash-reports p {
             margin: 0;
         }
-
-        .tour-legend {
-            border-collapse: collapse;
-            max-inline-size: 720px;
-        }
-
-        .tour-legend caption {
-            text-align: start;
-            padding-block-end: var(--dt-spacing-b);
-            font-weight: 700;
-        }
-
-        .tour-legend th,
-        .tour-legend td {
-            text-align: start;
-            border: var(--dt-color-border-strong) solid 1px;
-            padding: var(--dt-spacing-b);
-        }
     </style>`;
 
 export const OnboardingTour = {
@@ -777,118 +731,3 @@ export const OnboardingTour = {
         if (root) showTourStep(root, 0);
     },
 };
-
-// Delayed dialog
-
-// A diagnostic story: one panel opens five seconds after the click, with nothing else changing.
-const DELAYED_DIALOG_OPEN_DELAY_MS = 5000;
-
-let delayedDialogOpenTimer: ReturnType<typeof setTimeout> | undefined;
-
-// `focusPanel()` waits and retries internally, so it is called straight after opening.
-const handleDelayedDialogStart = (event: Event): void => {
-    const root = (event.currentTarget as HTMLElement).closest<HTMLElement>('[data-delayed-dialog-root]');
-
-    if (!root) {
-        return;
-    }
-
-    // A second click restarts the countdown rather than stacking a second panel.
-    if (delayedDialogOpenTimer !== undefined) {
-        clearTimeout(delayedDialogOpenTimer);
-    }
-
-    delayedDialogOpenTimer = setTimeout(() => {
-        delayedDialogOpenTimer = undefined;
-
-        const panel = root.querySelector<PieTooltip>('pie-tooltip');
-
-        if (!panel) {
-            return;
-        }
-
-        panel.isOpen = true;
-
-        // eslint-disable-next-line no-void -- the promise is deliberately floating: the story does nothing with the result
-        void panel.focusPanel();
-    }, DELAYED_DIALOG_OPEN_DELAY_MS);
-};
-
-const handleDelayedDialogClose = (event: Event): void => {
-    const panel = event.currentTarget as PieTooltip;
-
-    panel.isOpen = false;
-};
-
-const DelayedDialogTemplate: TemplateFunction<TooltipProps> = () => html`
-    <div class="delayed-dialog" data-delayed-dialog-root>
-        <div class="delayed-dialog-start">
-            <h2>Delayed dialog</h2>
-            <p>Click the button, then wait five seconds. The panel opens over the order card below and focus moves into it. Nothing else on the page changes.</p>
-            <pie-button type="button" size="small-productive" @click="${handleDelayedDialogStart}">
-                Open the panel in five seconds
-            </pie-button>
-        </div>
-
-        <div class="delayed-dialog-target" id="delayed-dialog-target">
-            <h3>Yesterday's orders</h3>
-            <p>Three orders are still waiting to be accepted.</p>
-            <pie-button type="button" variant="secondary" size="small-productive">Review orders</pie-button>
-        </div>
-
-        <pie-tooltip
-            trigger="delayed-dialog-target"
-            position="bottom-start"
-            heading="New orders waiting"
-            headingLevel="h3"
-            ?isDismissible="${true}"
-            ?isOpen="${false}"
-            .triggers="${[]}"
-            .aria="${{ close: 'Close the panel' }}"
-            @pie-tooltip-close="${handleDelayedDialogClose}">
-            <span slot="content">Three orders from yesterday are still waiting to be accepted.</span>
-            <pie-button slot="action" size="small-productive" @click="${handleActionClick}">Got it</pie-button>
-        </pie-tooltip>
-    </div>
-    <style>
-        .delayed-dialog {
-            display: flex;
-            flex-direction: column;
-            gap: var(--dt-spacing-e);
-            padding: var(--dt-spacing-d);
-        }
-
-        .delayed-dialog-start {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--dt-spacing-c);
-            padding: var(--dt-spacing-c) var(--dt-spacing-d);
-            border: var(--dt-color-border-strong) dashed 1px;
-            border-radius: var(--dt-radius-rounded-b);
-        }
-
-        .delayed-dialog-start h2,
-        .delayed-dialog-start p,
-        .delayed-dialog-target h3,
-        .delayed-dialog-target p {
-            margin: 0;
-        }
-
-        .delayed-dialog-target {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--dt-spacing-c);
-            margin-block-start: var(--dt-spacing-e);
-            padding: var(--dt-spacing-d);
-            border: var(--dt-color-border-default) solid 1px;
-            border-radius: var(--dt-radius-rounded-b);
-        }
-    </style>`;
-
-export const DelayedDialog = createStory<TooltipProps>(DelayedDialogTemplate, defaultArgs)({}, {
-    controls: {
-        disable: true,
-    },
-});
