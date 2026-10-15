@@ -50,3 +50,12 @@ test.describe('PieCard - Disabled Prop Visual Tests', () => {
         await percySnapshot(page, 'PIE Card - Enabled State & image opacity not set');
     });
 });
+
+test.describe('PieCard - Slotted interactive controls visual tests', () => {
+    test('should render a card containing a slotted interactive control raised above the overlay', async ({ page }) => {
+        const cardPage = new BasePage(page, 'card--with-slotted-controls');
+        await cardPage.load();
+
+        await percySnapshot(page, 'PIE Card - With slotted interactive control');
+    });
+});

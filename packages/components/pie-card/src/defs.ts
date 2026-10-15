@@ -10,6 +10,15 @@ type PaddingValue = typeof spacingTokens[number];
 
 type AriaProps = {
     label?: string;
+
+    /** The accessible description for the card's interactive element, rendered as an `aria-description` attribute. */
+    description?: string;
+
+    /** The interactive element's popup state, matching `aria-haspopup`. */
+    haspopup?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+
+    /** The interactive element's expanded state, matching `aria-expanded`. */
+    expanded?: boolean;
 };
 
 export interface CardProps {

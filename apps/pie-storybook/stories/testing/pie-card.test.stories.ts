@@ -8,6 +8,11 @@ import '@justeattakeaway/pie-webc/components/card';
 import {
     type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-webc/components/card';
+import '@justeattakeaway/pie-webc/components/icon-button';
+import '@justeattakeaway/pie-webc/components/link';
+import '@justeattakeaway/pie-webc/components/modal';
+import { type PieModal } from '@justeattakeaway/pie-webc/components/modal';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeart.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
@@ -94,7 +99,7 @@ const cardStoryMeta: CardStoryMeta = {
             control: 'text',
         },
         aria: {
-            description: 'The ARIA labels used for various parts of the card.',
+            description: 'ARIA attributes applied to the card\'s interactive element (the overlay button when tag is "button", otherwise the anchor). Offers label, description, haspopup and expanded.',
             control: 'object',
         },
         isDraggable: {
@@ -162,6 +167,58 @@ export const CardWithImage = createCardStory({
         <img src="./static/images/pie-logo.svg" alt="PIE logo" />
     </div>`,
 });
+
+const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) => {
+    const openFavouritesModal = () => {
+        const modal = document.querySelector('#favourites-modal') as PieModal | null;
+        if (modal) modal.isOpen = true;
+    };
+
+    return html`
+        <pie-card
+            tag="button"
+            padding="c"
+            ?disabled="${disabled}"
+            .aria="${{
+        label: 'View restaurant',
+        description: 'Opens the restaurant details',
+        haspopup: 'dialog',
+    } as CardPropsBase['aria']}"
+            @click="${clickAction}">
+            <div data-test-id="slot-content" style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
+                <h2 style="margin-top: 0"> Card title </h2>
+                <p style="margin-bottom: 8px"> Card content with an action </p>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <pie-icon-button
+                        data-test-id="card-action"
+                        variant="ghost-secondary"
+                        .aria="${{ label: 'Add to favourites' }}"
+                        style="position: relative; z-index: calc(var(--pie-card-overlay-z-index) + 1);"
+                        @click="${openFavouritesModal}">
+                        <icon-heart></icon-heart>
+                    </pie-icon-button>
+                    <pie-link
+                        href="https://pie.design"
+                        target="_blank"
+                        style="position: relative; z-index: calc(var(--pie-card-overlay-z-index) + 1);">
+                        View menu
+                    </pie-link>
+                </div>
+            </div>
+        </pie-card>
+        <pie-modal
+            id="favourites-modal"
+            heading="Add to favourites">
+            <p>This modal was opened by the slotted icon button, showing that the slotted control and the card's own click interaction remain independent.</p>
+        </pie-modal>`;
+};
+
+export const WithSlottedControls = WithSlottedControlsTemplate.bind({});
+WithSlottedControls.parameters = {
+    controls: {
+        disable: true,
+    },
+};
 
 const variantSlotContent = '<div><h2>Card title</h2><p>Card content</p></div>';
 
