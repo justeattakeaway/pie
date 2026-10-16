@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.20.0
+
+### Minor Changes
+
+- [Added] - Added one button option in trailing control for both ios and android app bar. ([#3241](https://github.com/justeattakeaway/pie/pull/3241)) by [@tingting-lau](https://github.com/tingting-lau)
+
+### Patch Changes
+
+- [Updated] - Anatomy and Modifiers sections to support the update ([#3241](https://github.com/justeattakeaway/pie/pull/3241)) by [@tingting-lau](https://github.com/tingting-lau)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.3
+
 ## 5.19.0
 
 ### Minor Changes
