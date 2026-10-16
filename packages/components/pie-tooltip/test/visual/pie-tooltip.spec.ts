@@ -16,6 +16,7 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--placement-grid', name: 'PieTooltip - Placement grid' },
     { id: 'tooltip--enlarged-offset', name: 'PieTooltip - Enlarged offset' },
     { id: 'tooltip--overridden-width', name: 'PieTooltip - Overridden width' },
+    { id: 'tooltip--nowrap-ancestor', name: 'PieTooltip - Inherited nowrap ancestor' },
     { id: 'tooltip--inverse', name: 'PieTooltip - Inverse' },
     { id: 'tooltip--icon-default', name: 'PieTooltip - Icon default' },
     { id: 'tooltip--icon-inverse', name: 'PieTooltip - Icon inverse' },
