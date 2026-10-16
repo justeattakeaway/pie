@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tooltip
 
+## 0.5.2
+
+### Patch Changes
+
+- [Fixed] - Restored the default text layout on the tooltip panel so an inherited `white-space` or `text-wrap` of `nowrap` from a host-page ancestor (for example a header action bar) can no longer stop the slotted content from breaking lines or inflate the panel past its default 280px inline-size ([#3246](https://github.com/justeattakeaway/pie/pull/3246)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.5.1
 
 ### Patch Changes
