@@ -452,6 +452,18 @@ export const OverriddenWidth = createStory<TooltipProps>(DefaultTemplate, {
     tooltipWidth: '400px',
 })();
 
+// A host page whose ancestor sets `text-wrap: nowrap` (typical of header action bars) must not
+// leak into the panel: the slotted content still wraps and the panel holds its default size.
+const NowrapAncestorTemplate: TemplateFunction<TooltipProps> = (props) => html`
+    <div style="text-wrap: nowrap; white-space: nowrap;">
+        ${DefaultTemplate(props)}
+    </div>`;
+
+export const NowrapAncestor = createStory<TooltipProps>(NowrapAncestorTemplate, {
+    ...defaultArgs,
+    content: longContent,
+})({}, { controls: { disable: true } });
+
 // Trigger interactions
 
 const HoverFocusTemplate: TemplateFunction<TooltipProps> = ({

@@ -153,6 +153,12 @@ $tooltip-alignments: ('', '-start', '-end');
 
     position: relative;
 
+    // Reset the inherited text layout: a host page that sets `white-space` or `text-wrap` to
+    // `nowrap` (typical of header action bars) would otherwise reach the slotted content and
+    // inflate the panel's min-content size past its own inline-size.
+    white-space: normal;
+    text-wrap: wrap;
+
     inline-size: var(--tooltip-width, var(--tooltip-inline-size));
     max-inline-size: var(--tooltip-max-inline-size);
     padding-block-start: var(--tooltip-padding-block);
