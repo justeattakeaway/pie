@@ -4,7 +4,7 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property, query, queryAssignedElements } from 'lit/decorators.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card.scss?inline';
 import {
@@ -58,10 +58,19 @@ export class PieCard extends PieElement implements CardProps {
     @queryAssignedElements({ flatten: true })
     private assignedElements?: HTMLElement[];
 
+    @query('.c-card-overlay')
+    private overlayButton?: HTMLButtonElement;
+
     private onClickHandler (event: Event) {
         if (this.disabled) {
             // needed to intercept/prevent click events when the card is disabled.
             event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
+
+        // Clicks from slotted interactive controls must not trigger the card's own click event, so stop them before the host.
+        if (event.composedPath()[0] !== this.overlayButton) {
             event.stopPropagation();
         }
     }
@@ -86,6 +95,9 @@ export class PieCard extends PieElement implements CardProps {
                 rel=${rel || nothing}
                 role="link"
                 aria-label=${aria?.label || nothing}
+                aria-description=${ifDefined(aria?.description)}
+                aria-haspopup=${ifDefined(aria?.haspopup)}
+                aria-expanded=${ifDefined(aria?.expanded)}
                 aria-disabled=${disabled ? 'true' : 'false'}
                 style=${ifDefined(paddingCSS)}>
                     <slot  @slotchange=${this.handleSlotChange}></slot>
@@ -205,15 +217,18 @@ export class PieCard extends PieElement implements CardProps {
         return html`
                 <div
                     class="${classMap(classes)}"
-                    data-test-id="pie-card-button"
-                    role="button"
-                    tabindex=${disabled ? '-1' : '0'}
-                    aria-label=${aria?.label || nothing}
-                    aria-disabled=${disabled ? 'true' : 'false'}
+                    data-test-id="pie-card-container"
                     style=${paddingCSS || ''}
                     @click=${this.onClickHandler}>
+                        <button
+                            class="c-card-overlay"
+                            data-test-id="pie-card-button"
+                            aria-label=${aria?.label || nothing}
+                            aria-description=${ifDefined(aria?.description)}
+                            aria-haspopup=${ifDefined(aria?.haspopup)}
+                            aria-expanded=${ifDefined(aria?.expanded)}
+                            ?disabled=${disabled}></button>
                         <slot @slotchange=${this.handleSlotChange}></slot>
-                    </div>
                 </div>`;
     }
 

@@ -2,6 +2,9 @@
 
 :host {
     display: block;
+
+    // Exposed so consumers can raise slotted interactive controls above the overlay with calc().
+    --pie-card-overlay-z-index: 1;
 }
 
 .c-card {
@@ -24,6 +27,22 @@
 
     @include p.disable-pointer-events-in-slotted-icons;
 
+    .c-card-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: var(--pie-card-overlay-z-index);
+        border: none;
+        border-radius: inherit;
+        padding: 0;
+        background: none;
+        cursor: inherit;
+        outline: none;
+
+        &:focus-visible {
+            @include p.focus;
+        }
+    }
+
     &.is-disabled {
         --int-states-mixin-bg-color: var(--dt-color-disabled-01);
 
@@ -31,6 +50,10 @@
 
         img {
             opacity: 0.5;
+        }
+
+        .c-card-overlay {
+            cursor: not-allowed;
         }
     }
 
