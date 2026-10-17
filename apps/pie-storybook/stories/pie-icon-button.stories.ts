@@ -57,7 +57,7 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-361476&t=gIg91Y13QC8Ndhly-4',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=235-32588',
         },
     },
 };

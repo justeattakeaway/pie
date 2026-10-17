@@ -42,7 +42,7 @@ const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=2%3A65908&mode=dev',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=163-43156',
         },
     },
 };

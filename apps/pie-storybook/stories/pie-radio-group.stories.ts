@@ -88,7 +88,7 @@ const radioGroupStoryMeta: RadioGroupStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/6u3sopt3trAp9wdJi7lUfY/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=6369-3799&node-type=frame&t=pbk7ibGYRutGCO3z-0',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=198-33663',
         },
     },
 };

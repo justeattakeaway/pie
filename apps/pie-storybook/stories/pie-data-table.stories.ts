@@ -296,7 +296,7 @@ const dataTableStoryMeta: DataTableStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/ya9T2UcTNrlSjhHDME7L02/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=26064-73296',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114515',
         },
     },
 };
