@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.19.0
+
+### Minor Changes
+
+- [Changed] - Tooltip iOS and Android docs: Updated variant names and images in the variant section bottom-start, bottom-end, top-start, top-end, left-start, left-end, right-start, and right-end ([#3150](https://github.com/justeattakeaway/pie/pull/3150)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Changed] - Selected state: Updated images and documentation to match new UI for List item selected state.
+
+### Patch Changes
+
+- [Updated] Placement prop from pointer position to tooltip position ([#3150](https://github.com/justeattakeaway/pie/pull/3150)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Updated] Spacing/offset flexibility
+
 ## 5.18.4
 
 ### Patch Changes
