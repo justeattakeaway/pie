@@ -30,7 +30,7 @@
     "extends @justeattakeaway/browserslist-config-pie"
   ],
   "devDependencies": {
-    "@11ty/eleventy": "3.1.6",
+    "@11ty/eleventy": "3.1.7",
     "@11ty/eleventy-navigation": "1.0.5",
     "@justeattakeaway/pie-monorepo-utils": "0.9.11",
     "autoprefixer": "10.6.1",
