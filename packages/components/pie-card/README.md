@@ -38,7 +38,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `target`     | —                                                                       | The `target` attribute to apply when `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                                                         | `undefined` |
 | `rel`        | —                                                                       | The `rel` attribute to apply when `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                                                            | `undefined` |
 | `disabled`   | `true`, `false`                                                         | Whether or not the card should be disabled. This applies disabled styles and turns off interactivity. <br /> If the card is used as a link, the `href` attribute will be removed so the link can no longer be navigated.                                                                                                                                                                 | `false`     |
-| `aria`       | `{ label?: string }`                                                    | Aria properties for the card to help with making it accessible.                                                                                                                                                                                                                                                                                                                          | `undefined` |
+| `aria`       | `{ label?: string }`, `{ description?: string }`, `{ haspopup?: boolean \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" }`, `{ expanded?: boolean }` | ARIA attributes applied to the card's interactive element (the overlay button when `tag` is `"button"`, otherwise the anchor). `label` should be provided when `tag` is `"button"` because the overlay button has no text content of its own. `description` is applied as an `aria-description` attribute, so the text travels as a string and is not bound by IDREF resolution. `haspopup` announces that the card opens a popup, such as a dialog. `expanded` announces the toggle state for cards that open and close a panel. | `undefined` |
 | `isDraggable`| `true`, `false`                                                         | Whether the card is draggable or not. Styling and pointer changes only. Implementation is left to the consuming application.                                                                                                                                                                                                                                                              | `false`     |
 | `padding`    | `a-g`                                                                   | Which spacing token(s) to use for the card's padding. Pass two (comma-separated) values for different vertical and horizontal padding, or one value to pad all sides evenly, e.g., `"a"` or `"a,b"`.                                                                                                                                                                                       | `undefined` |
 
@@ -48,11 +48,25 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `default`| The default slot is used to pass content into the card component. |
 
 ### CSS Variables
-This component does not expose any CSS variables for style overrides.
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `--pie-card-overlay-z-index` | The `z-index` of the invisible overlay button used when `tag` is `"button"`. Slotted interactive controls can sit above it by setting `z-index: calc(var(--pie-card-overlay-z-index) + 1)` (plus `position: relative`), without needing to know the underlying value. Overriding the variable also adjusts the overlay itself. | `1` |
 
 ### Events
 
 This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+When `tag` is `"button"`, the card renders an invisible `<button>` overlay that covers its full surface, so a native `click` event is emitted on the `<pie-card>` element when the card is activated (by pointer or keyboard). You can listen for it on the host element:
+
+```html
+<pie-card tag="button" .aria="${ { label: 'View restaurant' } }">…</pie-card>
+```
+
+```js
+document.querySelector('pie-card').addEventListener('click', () => { /* … */ });
+```
+
+Clicks on slotted interactive controls (e.g. a button inside the card that has been raised above the overlay) do **not** trigger the card's `click` event, so the card action and the slotted controls remain independent.
 
 ## Usage Examples
 
@@ -94,6 +108,25 @@ import { PieCard } from '@justeattakeaway/pie-webc/react/card.js';
     Take me to example.com!
 </PieCard>
 ```
+
+**Card with slotted interactive controls (`tag="button"`):**
+
+When the card is clickable but also contains its own controls (a button, a link, a switch…), keep `tag` as `"button"` and raise the slotted controls above the card's invisible overlay using the exposed CSS variable. Clicks on the card surface trigger the card's `click` event, while clicks on the raised controls do not:
+
+```html
+<pie-card
+    tag="button"
+    padding="d"
+    .aria="${ { label: 'View restaurant', description: 'Opens the restaurant details', haspopup: 'dialog' } }">
+    <h2>Restaurant name</h2>
+    <p>Rating, cuisine and distance.</p>
+    <button style="position: relative; z-index: calc(var(--pie-card-overlay-z-index) + 1);">
+        Add to order
+    </button>
+</pie-card>
+```
+
+Note: slotted controls need a `position` (e.g. `relative`) for their `z-index` to apply.
 
 ## Questions and Support
 
