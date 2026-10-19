@@ -32,15 +32,9 @@ const componentSelector = 'pie-pagination';
 
 /**
  * @tagname pie-pagination
- * @event {CustomEvent} pie-pagination-page-change - when the user interacts with a pagination control.
- * The event detail contains the requested `currentPage`. This component is controlled, so it never
- * updates `currentPage` itself; the consumer is responsible for updating it in response to this event.
- * @event {CustomEvent} pie-pagination-prev - when the user clicks the "previous" control.
- * The event detail contains the requested `currentPage`. This event fires in addition to
- * `pie-pagination-page-change`.
- * @event {CustomEvent} pie-pagination-next - when the user clicks the "next" control.
- * The event detail contains the requested `currentPage`. This event fires in addition to
- * `pie-pagination-page-change`.
+ * @event {CustomEvent} pie-pagination-page-change.
+ * @event {CustomEvent} pie-pagination-prev.
+ * @event {CustomEvent} pie-pagination-next.
  */
 @safeCustomElement('pie-pagination')
 export class PiePagination extends RtlMixin(PieElement) implements PaginationProps {
