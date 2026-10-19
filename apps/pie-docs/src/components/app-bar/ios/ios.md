@@ -47,7 +47,7 @@ shouldShowContents: true
     "**Title (optional):** Provides an optional heading for the page content.",
     "**Secondary text (optional):** Provides optional supplementary information.",
     "**Divider (only on solid and blur variants):** Separates the app bar from content.",
-    "**Trailing controls (only in title variants):** Provides optional overflow menu icon or choice of up to two custom icons to aid user navigation.",
+    "**Trailing controls (only in title variants):** Optionally include an overflow menu, up to two custom icon buttons, or one text button to support user navigation.",
     "**Search input (only on search variant):** Allows users to search product content; option of placeholder or search text."
     ]
 } %}
@@ -113,7 +113,7 @@ If using the transparent variant above a page background colour, you may need to
     }
 } %}
 
-----
+---
 
 ## Modifiers
 
@@ -235,9 +235,11 @@ Aligns with native behaviour, allowing users to open a native overflow menu that
     width: 360
 } %}
 
-#### Custom icons
+#### Custom icon button and button
 
-We allow up to two custom icons within our trailing controls; these are available only to provide additional functionality to the app bar component.
+We allow up to two custom icon buttons and one standard button within our trailing controls, these are available only to provide additional functionality to the app header component.
+
+Use icon buttons when the icon clearly communicates the action, such as search or notifications. Use a button for high-priority actions or when a text label is needed to clearly convey the action.
 
 {% contentLayout %}
   {% contentItem %}
@@ -255,6 +257,12 @@ We allow up to two custom icons within our trailing controls; these are availabl
     } %}
     {% endcontentItem %}
 {% endcontentLayout %}
+
+{% contentPageImage {
+    src:"../../../assets/img/components/app-bar/ios/modifier-trailing-control-custom-button.svg",
+    alt: "An app bar with a trailing button.",
+    width: 360
+} %}
 
 #### Dual icons
 

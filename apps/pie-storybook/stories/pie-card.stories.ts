@@ -93,7 +93,7 @@ const cardStoryMeta: CardStoryMeta = {
             control: 'text',
         },
         aria: {
-            description: 'The ARIA labels used for various parts of the card.',
+            description: 'ARIA attributes applied to the card\'s interactive element (the overlay button when tag is "button", otherwise the anchor). Offers label, description, haspopup and expanded.',
             control: 'object',
         },
         isDraggable: {
@@ -194,6 +194,7 @@ const EqualHeightCardsTemplate: TemplateFunction<CardProps> = () => {
                     tag="button"
                     variant="outline"
                     padding="c"
+                    .aria="${{ label: card.title }}"
                     style="height: 100%;">
                     <div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
                         <h2 style="margin-top: 0">${card.title}</h2>
