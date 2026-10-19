@@ -204,6 +204,12 @@ Available to use within all Data Table variants, but only to be used within the 
     width: "200"
 } %}
 
+
+### Table content
+
+The data table content includes a slot that allows you to customise the number of rows and columns in the table. However, only column headers, data cells, overflow indicators and scrollbars are allowed within the slot.
+
+
 ---
 
 ## Overrides
