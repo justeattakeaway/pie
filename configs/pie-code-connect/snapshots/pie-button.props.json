@@ -6,7 +6,7 @@
       {
         "name": "Replace leading icon",
         "type": "INSTANCE_SWAP",
-        "default": "43188:14037"
+        "default": "48228:24622"
       },
       {
         "name": "[𝐓] Label",
@@ -26,7 +26,7 @@
       {
         "name": "Replace trailing icon",
         "type": "INSTANCE_SWAP",
-        "default": "43188:14037"
+        "default": "48228:24622"
       },
       {
         "name": "Variant",
