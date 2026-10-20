@@ -112,7 +112,7 @@ import { PiePagination } from '@justeattakeaway/pie-webc/react/pagination.js';
 
 <PiePagination
   currentPage={currentPage}
-  totalPages={10}
+  totalPages={totalPages}
   onPiePaginationPageChange={(event) => setCurrentPage(event.detail.currentPage)}
 />
 ```
@@ -122,7 +122,7 @@ The `pie-pagination-prev` and `pie-pagination-next` events are exposed as `onPie
 ```jsx
 <PiePagination
   currentPage={currentPage}
-  totalPages={10}
+  totalPages={totalPages}
   onPiePaginationPrev={(event) => setCurrentPage(event.detail.currentPage)}
   onPiePaginationNext={(event) => setCurrentPage(event.detail.currentPage)}
 />
