@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.89.19
+
+### Patch Changes
+
+- [Changed] - Removed the viewport collision detection from `pie-tooltip`. The panel now always renders at the `position` given, without flipping side, shifting alignment or otherwise repositioning to avoid the viewport or a clipping scroll container. ([#3254](https://github.com/justeattakeaway/pie/pull/3254)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.4
+
 ## 1.89.18
 
 ### Patch Changes
