@@ -1,6 +1,6 @@
 ---
 name: sync-code-connect-icons
-description: Use when new icons have been added to pie-icons and need to be connected to their Figma counterparts in the Code Connect config (configs/pie-code-connect/icons-standard.figma.batch.json).
+description: Use when new icons have been added to pie-icons and need connecting to their Figma counterparts in the Code Connect config (configs/pie-code-connect/icons-standard.figma.batch.json), or when checking that the existing icon mappings are still in sync.
 ---
 
 You are helping the user sync newly added PIE icons into the Figma Code Connect batch config.
@@ -14,110 +14,126 @@ You are helping the user sync newly added PIE icons into the Figma Code Connect 
 
 ## Prerequisites
 
-You must have access to the **Figma MCP server** — Step 2 relies on the `mcp__plugin_figma_figma__get_metadata` tool to look up icon node IDs. If the Figma MCP tools are not available, stop and ask the user to connect the Figma MCP server before continuing.
-
-The following tools must also be available on your `PATH`. Verify before starting:
+Verify the CLI tools are on your `PATH`:
 
 ```bash
-git --version && python3 --version && jq --version
+git --version && node --version
 ```
 
-## Step 1 — Find the commit and extract new icons
+The bundled scripts are plain Node with no dependencies, so nothing needs installing.
 
-Run a **single command** that resolves the SHA, shows the commit details, and lists the new standard icons all at once.
+You also need the **Figma MCP server**. Two flavours exist with different capabilities - work out which one you have before Step 2, since it changes how you look up node IDs.
 
-**If the user passed a SHA** as an argument (e.g. `/sync-code-connect-icons 69ed425`):
+This skill covers the **icon** configs only. For component Code Connect templates, use the `add-code-connect-template` skill instead.
+
+Run every command below from the repository root. The bundled scripts work out the repository location themselves, so they behave the same from anywhere.
+
+## Step 1 - Find the new icons and check what is already mapped
+
+Run the bundled script:
 
 ```bash
-SHA=<SHA>
-echo "=== Commit ===" && git show $SHA --no-patch --format="%H %ai %s" && echo && echo "=== New standard icons ===" && git show $SHA --name-only --diff-filter=A | grep 'packages/tools/pie-icons/src/assets/.*\.svg' | grep -v '\-large\|filled' | sed 's|.*/assets/||; s|\.svg||; s|^|icon-|'
+node .agents/skills/sync-code-connect-icons/scripts/check-icons-sync.mjs
 ```
 
-**If no SHA was provided**, auto-detect from main in the same single command:
+It finds the most recent `feat(pie-icons): Update icons from pie-iconography` commit on `origin/main`, lists the standard icons it adds, and reports which of them are still missing from the config.
 
-```bash
-SHA=$(git log origin/main --format="%H" --grep="^feat(pie-icons): Update icons from pie-iconography" -1) && echo "=== Commit ===" && git show $SHA --no-patch --format="%H %ai %s" && echo && echo "=== New standard icons ===" && git show $SHA --name-only --diff-filter=A | grep 'packages/tools/pie-icons/src/assets/.*\.svg' | grep -v '\-large\|filled' | sed 's|.*/assets/||; s|\.svg||; s|^|icon-|'
-```
+- `--sha 69ed425` inspects one specific commit instead
+- `--all-commits` audits every icon-update commit in the history
 
-If no matching commit is found (empty output), ask the user to provide the SHA manually.
+If it cannot find a matching commit it exits non-zero with an error - ask the user for the SHA and pass it with `--sha`.
 
-If there are no new standard icons in the output, stop and inform the user.
+It already accounts for two things that are easy to get wrong by hand:
 
-Present the results to the user as a bullet list and ask them to confirm before proceeding. Example:
+- **Punctuation in names.** The config drops the hyphen before digits, so the asset `cc-2.svg` is `icon-cc2`. Comparing raw strings reports gaps that do not exist.
+- **Icon families with their own configs.** SVGs under `assets/payment/`, `flag/`, `social/` and `logo/` are mapped by the `icons-payment`, `icons-flags` and `icons-social` configs respectively. They are not missing from the standard config, and adding them to it would be wrong.
 
-> Found commit `69ed4254b` — _feat(pie-icons): Update icons from pie-iconography_ (2026-08-24)
+### If nothing is missing, stop here
+
+This is a common and perfectly good outcome. A separate Code Connect PR usually syncs the icons shortly after the icons PR lands, so by the time you are asked, the work may already be done. Tell the user which commit you checked and which icons were already mapped, then stop.
+
+Never add an entry whose `baseName` already exists - the config is a plain JSON array and a duplicate is silent corruption.
+
+Otherwise, show the missing icons and confirm before continuing:
+
+> Found commit `69ed4254b` - _feat(pie-icons): Update icons from pie-iconography_ (2026-08-24)
 >
-> The following icons will be added to the Code Connect config:
+> These icons still need Code Connect entries:
 > - `icon-binoculars`
 > - `icon-compass`
-> - `icon-face-hate`
-> - `icon-map-search`
 >
 > Shall I proceed?
 
-## Step 2 — Get Figma metadata
+## Step 2 - Locate the node ID for each icon
 
-Call `mcp__plugin_figma_figma__get_metadata` with:
-- `fileKey`: `k7gPJ4MZRUj4nlZK2hL0Op`
-- `nodeId`: `1:52`
+### Which Figma MCP server do you have?
 
-The result will be large and saved to a file. Use `jq` or Python to search it.
+| | Remote / hosted | Local / desktop |
+|---|---|---|
+| Tool names look like | `mcp__plugin_figma_figma__get_metadata` | `Figma_Desktop.get_metadata`, `mcp__figma-desktop__get_metadata` |
+| Identifies the file by | an explicit `fileKey` argument | whatever the desktop app currently has open |
+| Needs Figma running | no | yes - desktop app, correct document, **that tab active** |
+| Can walk a whole page | yes | no - responses are truncated to a few KB |
 
-## Step 3 — Find node IDs for each new icon
+**If you have the remote server**, ask for the page and walk the tree:
 
-Parse the metadata XML to find the inner `"Category / Icon Name"` frame node IDs. The pattern in the XML is:
+```
+get_metadata({ fileKey: "k7gPJ4MZRUj4nlZK2hL0Op", nodeId: "1:52" })
+```
+
+The result is large and usually saved to a file. To pull node IDs out of it:
+
+```bash
+node .agents/skills/sync-code-connect-icons/scripts/find-icon-nodes.mjs <metadata-file> binoculars compass "map search"
+```
+
+It handles both plain XML and XML wrapped in a JSON payload, and matches only the inner frames.
+
+**If you have the local desktop server**, the `All` page is far too big to enumerate - it holds roughly 420 icons and a single response carries only the first few category frames. Node IDs outside that window will not resolve at all, including perfectly valid ones, so a failed lookup here proves nothing. Do not try to dump the page; narrow the scope instead, in this order:
+
+1. **Ask the user to paste the Figma links** for the new icons (right-click the frame → Copy link). Fastest and most reliable.
+2. **Ask the user to select the frames** on the canvas, then call `get_metadata` with no `nodeId` - it falls back to the current selection.
+3. **Ask the user to scroll the canvas** so the relevant category is on screen, then query the page again.
+
+### Which node ID to use
+
+Whichever route you took, take the **inner** frame named `"Category / Icon Name"` - not the outer wrapper frame, and not the `Size=...` symbol instances inside it:
 
 ```xml
-<frame id="28746:964" name="Location / Binoculars" ...>
-  <symbol id="..." name="Size=Large" .../>
-  <symbol id="..." name="Size=Small" .../>
+<frame id="28746:964" name="Location / Binoculars">
+  <symbol id="28746:965" name="Size=Large, Fill=False" />
+  <symbol id="28746:966" name="Size=Small, Fill=False" />
 </frame>
 ```
 
-The node ID to use in the config URL is the **inner frame** (the one named `"Category / Icon Name"`), NOT the outer wrapper frame or the symbol instances.
+The category in that name also tells you where the entry belongs in Step 4.
 
-Use this Python snippet on the saved metadata file:
+## Step 3 - Verify each node ID before writing it
 
-```python
-import json, re, sys
+Resolve every node ID you collected and check the frame name that comes back:
 
-result_file = sys.argv[1]
-targets = sys.argv[2:]  # e.g. ['binoculars', 'compass']
-
-with open(result_file) as f:
-    data = json.load(f)
-
-# The XML is usually in data[1]['text']
-text = next((item['text'] for item in data if len(item.get('text','')) > 1000), '')
-
-for target in targets:
-    idx = text.lower().find(target)
-    if idx != -1:
-        context = text[max(0, idx-500):idx+500]
-        print(f'=== {target} ===')
-        print(context)
-        print()
+```
+get_metadata({ nodeId: "28746:964" })   →   <frame id="28746:964" name="Location / Binoculars">
 ```
 
-Then locate the inner frame IDs by looking for `name="... / {Icon Name}"` patterns near each target.
+The name is your proof, not the ID. A wrong ID that happens to exist in the file looks entirely plausible in the config, and only surfaces much later as a broken mapping, so the extra call is worth it. If a name does not match the icon, re-check the link the user gave you.
 
-## Step 4 — Determine insertion position
+On the local desktop server a lookup can also fail simply because the node is not loaded - that is inconclusive rather than wrong, so ask the user to confirm the link rather than assuming the ID is bad.
 
-Look at the config to find where similar category icons are grouped. The config is ordered by category (arrows, location, face/people, etc.), not alphabetically.
+## Step 4 - Determine insertion position
 
-- Check which category each new icon belongs to (the Figma frame name `"Category / Icon Name"` tells you).
-- Find the existing icons in that category in the config.
-- Insert the new entry at a logical position within that group.
+The config is ordered by category (arrows, location, faces/people, ...), not alphabetically. Find the existing icons in the new icon's category and insert among them.
 
-Common categories and their representative existing entries:
+Representative existing entries per category:
+
 - **Location**: `icon-geolocation`, `icon-map`, `icon-map-legend`, `icon-route-pin`
 - **People/Faces**: `icon-face-excited`, `icon-face-happy`, `icon-face-neutral`, `icon-face-unhappy`
 - **Arrows**: `icon-arrow-*`, `icon-curved-arrow-*`
 - **Benefits**: `icon-gift`, `icon-offer`, `icon-voucher`
 
-## Step 5 — Add entries to the config
+## Step 5 - Add the entries
 
-For each new icon, add an entry in this format:
+For each new icon, add:
 
 ```json
 {
@@ -127,16 +143,22 @@ For each new icon, add an entry in this format:
 }
 ```
 
-Where `{X}-{Y}` is the inner frame node ID with `:` replaced by `-` (e.g. `28746:964` → `28746-964`).
+`{X}-{Y}` is the inner frame node ID with `:` replaced by `-` (`28746:964` → `28746-964`).
 
-## Step 6 — Verify
+## Step 6 - Verify
 
-Run the following to confirm the JSON is valid and all new icons are present:
+Confirm the JSON still parses and nothing was duplicated:
 
-```js
-const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('configs/pie-code-connect/icons-standard.figma.batch.json', 'utf8'));
-console.log('Total:', config.components.length);
+```bash
+node -e "const {components}=JSON.parse(require('fs').readFileSync('configs/pie-code-connect/icons-standard.figma.batch.json','utf8')); const names=components.map((c)=>c.baseName); const dupes=[...new Set(names.filter((n,i)=>names.indexOf(n)!==i))]; console.log('entries:', names.length); console.log(dupes.length ? 'DUPLICATES: '+dupes.join(', ') : 'no duplicates');"
+```
+
+It prints the entry count, then either the duplicated `baseName`s or `no duplicates`.
+
+Then re-run the sync check - it should now report nothing missing, which confirms the entries you added are exactly the ones it expected:
+
+```bash
+node .agents/skills/sync-code-connect-icons/scripts/check-icons-sync.mjs
 ```
 
 Report back to the user which icons were added and their Figma node IDs, then suggest the next steps:
