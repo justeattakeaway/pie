@@ -42,7 +42,7 @@ export interface TooltipProps {
     /** When true, the panel is visible. The component never writes to this property. */
     isOpen?: boolean;
 
-    /** The preferred side and alignment; the panel repositions itself to avoid collisions. */
+    /** The side of the trigger the panel sits on, and its alignment along the cross axis. */
     position?: typeof positions[number];
 
     /** How the panel sizes itself. Not applied when `type` is `icon`. */
