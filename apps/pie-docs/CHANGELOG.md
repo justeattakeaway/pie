@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.20.3
+
+### Patch Changes
+
+- [Added] - Up to date statuses and web resources for List, Accordion, Avatar, Tooltip and Datatable ([#3260](https://github.com/justeattakeaway/pie/pull/3260)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons@5.32.3
+
 ## 5.20.2
 
 ### Patch Changes
