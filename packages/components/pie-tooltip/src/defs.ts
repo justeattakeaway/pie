@@ -1,16 +1,16 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const positions = [
-    'top',
+    'top-centre',
     'top-start',
     'top-end',
-    'bottom',
+    'bottom-centre',
     'bottom-start',
     'bottom-end',
-    'left',
+    'left-centre',
     'left-start',
     'left-end',
-    'right',
+    'right-centre',
     'right-start',
     'right-end',
 ] as const;
@@ -80,7 +80,7 @@ export type DefaultProps = ComponentDefaultProps<TooltipProps, keyof Omit<Toolti
 
 export const defaultProps: DefaultProps = {
     isOpen: false,
-    position: 'top',
+    position: 'top-centre',
     size: 'default',
     variant: 'default',
     type: 'default',

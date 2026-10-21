@@ -126,7 +126,7 @@ const intersectRects = (a: DOMRect, b: DOMRect): DOMRect | null => {
 };
 
 type TooltipSide = 'top' | 'bottom' | 'left' | 'right';
-type TooltipAlignment = '' | '-start' | '-end';
+type TooltipAlignment = '-centre' | '-start' | '-end';
 
 interface CandidateRect {
     left: number;
@@ -150,13 +150,13 @@ const crossSides: Record<TooltipSide, Array<TooltipSide>> = {
 };
 
 const parsePosition = (position: TooltipProps['position']): { side: TooltipSide; alignment: TooltipAlignment } => {
-    const match = /^(top|bottom|left|right)(-start|-end)?$/.exec(position ?? '');
+    const match = /^(top|bottom|left|right)(-centre|-start|-end)?$/.exec(position ?? '');
 
     if (!match) {
-        return { side: 'top', alignment: '' };
+        return { side: 'top', alignment: '-centre' };
     }
 
-    return { side: match[1] as TooltipSide, alignment: (match[2] ?? '') as TooltipAlignment };
+    return { side: match[1] as TooltipSide, alignment: (match[2] ?? '-centre') as TooltipAlignment };
 };
 
 const toPhysicalSide = (side: TooltipSide, isRtl: boolean): TooltipSide => {
@@ -201,14 +201,14 @@ const getCandidateRect = (
     }
 
     if (isVerticalSide) {
-        if (alignment === '') {
+        if (alignment === '-centre') {
             left = anchor.left + (anchor.width / 2) - (panelWidth / 2);
         } else if (alignment === '-start') {
             left = isRtl ? anchor.right - panelWidth : anchor.left;
         } else {
             left = isRtl ? anchor.left : anchor.right - panelWidth;
         }
-    } else if (alignment === '') {
+    } else if (alignment === '-centre') {
         top = anchor.top + (anchor.height / 2) - (panelHeight / 2);
     } else {
         top = alignment === '-start' ? anchor.top : anchor.bottom - panelHeight;
@@ -709,7 +709,7 @@ export class PieTooltip extends PieElement implements TooltipProps {
         preferredAlignment: TooltipAlignment,
     ): Array<{ side: TooltipSide; alignment: TooltipAlignment }> {
         const sideOrder: Array<TooltipSide> = [preferredSide, oppositeSide[preferredSide], ...crossSides[preferredSide]];
-        const allAlignments: Array<TooltipAlignment> = ['', '-start', '-end'];
+        const allAlignments: Array<TooltipAlignment> = ['-centre', '-start', '-end'];
 
         return sideOrder.flatMap((side) => {
             const alignments = [preferredAlignment, ...allAlignments.filter((alignment) => alignment !== preferredAlignment)];

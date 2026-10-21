@@ -310,7 +310,7 @@ const renderSizingVariant = ({
 
             <pie-tooltip
                 trigger="audit-${id}"
-                position="right"
+                position="right-centre"
                 heading="${heading || nothing}"
                 ?isDismissible="${isDismissible}"
                 ?isOpen="${true}"
@@ -408,7 +408,7 @@ const renderAnchoredTooltip = ({
     hasAction = false,
     heading = '',
     isDismissible = false,
-    position = 'top',
+    position = 'top-centre',
     size = 'default',
     tooltipOffset = '',
     type = 'default',
@@ -434,11 +434,11 @@ const renderAnchoredTooltip = ({
     </div>`;
 
 const placementGridAreas = `
-    '.           top-start     top      top-end      .'
-    'left-start  .             .        .            right-start'
-    'left        .             .        .            right'
-    'left-end    .             .        .            right-end'
-    '.           bottom-start  bottom   bottom-end   .'
+    '.             top-start     top-centre    top-end      .'
+    'left-start    .             .             .            right-start'
+    'left-centre   .             .             .            right-centre'
+    'left-end      .             .             .            right-end'
+    '.             bottom-start  bottom-centre bottom-end   .'
 `;
 
 // Uniform square anchors; direction comes from the `writingDirection` global.
@@ -547,9 +547,9 @@ export const MultipleDialogs = createStory<TooltipProps>(MultipleDialogsTemplate
 const EnlargedOffsetTemplate: TemplateFunction<TooltipProps> = () => {
     const anchor = renderAnchoredTooltip({
         id: 'offset-top',
-        label: 'top',
-        content: 'top',
-        position: 'top',
+        label: 'top-centre',
+        content: 'top-centre',
+        position: 'top-centre',
         tooltipOffset: '32px',
     });
 
@@ -780,7 +780,7 @@ const InModalTemplate: TemplateFunction<TooltipProps> = ({
         <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
         <pie-tooltip
             trigger="tooltip-trigger"
-            position="bottom"
+            position="bottom-centre"
             heading="${heading || nothing}"
             ?isOpen="${false}"
             .triggers="${['click']}"
@@ -830,7 +830,7 @@ const InModalOpenTemplate: TemplateFunction<TooltipProps> = ({
         <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
         <pie-tooltip
             trigger="tooltip-trigger"
-            position="bottom"
+            position="bottom-centre"
             heading="${heading || nothing}"
             ?isOpen="${true}">
             ${renderContent(content, false)}
@@ -866,7 +866,7 @@ const InClippingScrollContainerTemplate: TemplateFunction<TooltipProps> = ({ con
                 <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
                 <pie-tooltip
                     trigger="tooltip-trigger"
-                    position="bottom"
+                    position="bottom-centre"
                     ?isOpen="${true}">
                     ${renderContent(content, false)}
                 </pie-tooltip>
@@ -902,19 +902,19 @@ const EdgeTemplate = (edge: 'top' | 'right' | 'bottom' | 'left', position: Toolt
     </pie-tooltip>`;
 };
 
-export const CollisionTopEdge = createStory<TooltipProps>(() => EdgeTemplate('top', 'top'), defaultArgs)({}, {
+export const CollisionTopEdge = createStory<TooltipProps>(() => EdgeTemplate('top', 'top-centre'), defaultArgs)({}, {
     controls: { disable: true },
 });
 
-export const CollisionBottomEdge = createStory<TooltipProps>(() => EdgeTemplate('bottom', 'bottom'), defaultArgs)({}, {
+export const CollisionBottomEdge = createStory<TooltipProps>(() => EdgeTemplate('bottom', 'bottom-centre'), defaultArgs)({}, {
     controls: { disable: true },
 });
 
-export const CollisionLeftEdge = createStory<TooltipProps>(() => EdgeTemplate('left', 'left'), defaultArgs)({}, {
+export const CollisionLeftEdge = createStory<TooltipProps>(() => EdgeTemplate('left', 'left-centre'), defaultArgs)({}, {
     controls: { disable: true },
 });
 
-export const CollisionRightEdge = createStory<TooltipProps>(() => EdgeTemplate('right', 'right'), defaultArgs)({}, {
+export const CollisionRightEdge = createStory<TooltipProps>(() => EdgeTemplate('right', 'right-centre'), defaultArgs)({}, {
     controls: { disable: true },
 });
 
@@ -945,7 +945,7 @@ const CollisionInClippingContainerTemplate: TemplateFunction<TooltipProps> = ({ 
                 <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
                 <pie-tooltip
                     trigger="tooltip-trigger"
-                    position="bottom"
+                    position="bottom-centre"
                     size="fit-to-content"
                     ?isOpen="${true}">
                     ${renderContent(content, false)}
@@ -968,7 +968,7 @@ const ClipperInsideContainingBlockTemplate: TemplateFunction<TooltipProps> = ({ 
                 <pie-button id="tooltip-trigger" data-test-id="tooltip-trigger">Delivery times</pie-button>
                 <pie-tooltip
                     trigger="tooltip-trigger"
-                    position="bottom"
+                    position="bottom-centre"
                     ?isOpen="${true}">
                     ${renderContent(content, false)}
                 </pie-tooltip>

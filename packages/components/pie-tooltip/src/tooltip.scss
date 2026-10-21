@@ -1,7 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 // All twelve position values are generated explicitly, none inferred.
-$tooltip-alignments: ('', '-start', '-end');
+$tooltip-alignments: ('-centre', '-start', '-end');
 
 // Zero-size, pinned to the containing block's origin. Trigger position is measured relative
 // to this point so the panel resolves against the document rather than the viewport.
@@ -112,7 +112,7 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $side in (top, bottom, left, right) {
-    .c-tooltip-layer--#{$side} {
+    .c-tooltip-layer--#{$side}-centre {
         place-items: center;
     }
 
@@ -283,7 +283,7 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $side in (top, bottom, left, right) {
-    .c-tooltip--#{$side} {
+    .c-tooltip--#{$side}-centre {
         --tooltip-arrow-cross-position: 50%;
     }
 
