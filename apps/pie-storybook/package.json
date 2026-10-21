@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "5.21.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.11",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.12",
     "@storybook/addon-a11y": "10.6.2",
     "@storybook/addon-designs": "11.1.4",
     "@storybook/addon-docs": "10.6.2",

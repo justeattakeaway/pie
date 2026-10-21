@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.15.0
+
+### Minor Changes
+
+- Add deprecation guidance for Snacks components replaced with PIE CSS, native HTML or Consumer Web components. ([#3258](https://github.com/justeattakeaway/pie/pull/3258)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.14.0
 
 ### Minor Changes
