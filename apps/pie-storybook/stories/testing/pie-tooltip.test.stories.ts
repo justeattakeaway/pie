@@ -217,6 +217,119 @@ export const DismissibleNoHeading = createStory<TooltipProps>(DefaultTemplate, {
     },
 })();
 
+type StructuralSizingVariant = {
+    id: string;
+    heading: string;
+    isDismissible: boolean;
+    hasAction: boolean;
+    panelBlockSize: number;
+    contentSlot: TemplateResult;
+};
+
+const multilineBodyContent = html`<span slot="content">Body first line<br>Body second line</span>`;
+
+const structuralSizingVariants: StructuralSizingVariant[] = [
+    {
+        id: 'title-body',
+        heading: 'Title',
+        isDismissible: false,
+        hasAction: false,
+        panelBlockSize: 56,
+        contentSlot: html`<span slot="content">Body</span>`,
+    },
+    {
+        id: 'title-body-close',
+        heading: 'Title',
+        isDismissible: true,
+        hasAction: false,
+        panelBlockSize: 56,
+        contentSlot: html`<span slot="content">Body</span>`,
+    },
+    {
+        id: 'title-body-close-action',
+        heading: 'Title',
+        isDismissible: true,
+        hasAction: true,
+        panelBlockSize: 96,
+        contentSlot: html`<span slot="content">Body</span>`,
+    },
+    {
+        id: 'body-close',
+        heading: '',
+        isDismissible: true,
+        hasAction: false,
+        panelBlockSize: 36,
+        contentSlot: html`<span slot="content">Body</span>`,
+    },
+    {
+        id: 'body-close-action',
+        heading: '',
+        isDismissible: true,
+        hasAction: true,
+        panelBlockSize: 76,
+        contentSlot: html`<span slot="content">Body</span>`,
+    },
+    {
+        id: 'body-multiline',
+        heading: '',
+        isDismissible: false,
+        hasAction: false,
+        panelBlockSize: 56,
+        contentSlot: multilineBodyContent,
+    },
+    {
+        id: 'body-multiline-close',
+        heading: '',
+        isDismissible: true,
+        hasAction: false,
+        panelBlockSize: 56,
+        contentSlot: multilineBodyContent,
+    },
+];
+
+const renderSizingVariant = ({
+    id,
+    heading,
+    isDismissible,
+    hasAction,
+    panelBlockSize,
+    contentSlot,
+}: StructuralSizingVariant): TemplateResult => {
+    const actionSlot = hasAction
+        ? html`<pie-button slot="action" size="xsmall">Action</pie-button>`
+        : nothing;
+
+    return html`
+        <div style="block-size: ${panelBlockSize}px; display: grid; place-items: center start;">
+            <button
+                id="audit-${id}"
+                data-test-id="audit-${id}"
+                type="button"
+                style="inline-size: 24px; block-size: 24px; border: var(--dt-color-border-strong) solid 1px; border-radius: var(--dt-radius-rounded-b); background-color: var(--dt-color-container-default); cursor: pointer;"
+                aria-label="${id} trigger"></button>
+
+            <pie-tooltip
+                trigger="audit-${id}"
+                position="right"
+                heading="${heading || nothing}"
+                ?isDismissible="${isDismissible}"
+                ?isOpen="${true}"
+                .aria="${{ close: 'Close', label: heading ? '' : 'Body' }}">
+                ${contentSlot}
+                ${actionSlot}
+            </pie-tooltip>
+        </div>`;
+};
+
+const StructuralSizingTemplate: TemplateFunction<TooltipProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: var(--dt-spacing-e); padding: var(--dt-spacing-j);">
+        ${structuralSizingVariants.map(renderSizingVariant)}
+    </div>`;
+
+export const StructuralSizing = createStory<TooltipProps>(StructuralSizingTemplate, defaultArgs)({}, {
+    controls: { disable: true },
+});
+
 export const FitToContent = createStory<TooltipProps>(DefaultTemplate, {
     ...defaultArgs,
     size: 'fit-to-content',

@@ -11,6 +11,7 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--dismissible', name: 'PieTooltip - Dismissible' },
     { id: 'tooltip--dismissible-with-action', name: 'PieTooltip - Dismissible with action' },
     { id: 'tooltip--dismissible-no-heading', name: 'PieTooltip - Dismissible no heading' },
+    { id: 'tooltip--structural-sizing', name: 'PieTooltip - Structural sizing' },
     { id: 'tooltip--fit-to-content', name: 'PieTooltip - Fit to content' },
     { id: 'tooltip--fill-container', name: 'PieTooltip - Fill container' },
     { id: 'tooltip--placement-grid', name: 'PieTooltip - Placement grid' },
