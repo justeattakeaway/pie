@@ -304,7 +304,7 @@ const renderSizingVariant = ({
                 id="audit-${id}"
                 data-test-id="audit-${id}"
                 type="button"
-                style="inline-size: 24px; block-size: 24px; border: var(--dt-color-border-strong) solid 1px; border-radius: var(--dt-radius-rounded-b); background-color: var(--dt-color-container-default); cursor: pointer;"
+                style="inline-size: var(--dt-spacing-e); block-size: var(--dt-spacing-e); border: var(--dt-color-border-strong) solid 1px; border-radius: var(--dt-radius-rounded-b); background-color: var(--dt-color-container-default); cursor: pointer;"
                 aria-label="${id} trigger"></button>
 
             <pie-tooltip
