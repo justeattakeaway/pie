@@ -125,7 +125,7 @@ Used for situations where vertical space needs to be condensed.
   {% endcontentItem %}
   {% contentItem %}
   <h4>Icon</h4>
-  <p>Any decorative [icon](/foundations/iconography/library/) can be inserted into the placeholder.</p>
+  <p>Any decorative <a href="/foundations/iconography/library/">icon</a> can be inserted into the placeholder.</p>
     {% contentPageImage {
       src: "../../../../assets/img/components/list-item/list-item/web/modifiers-leading-icon.svg",
       width: "360px",
@@ -169,7 +169,7 @@ Used for situations where vertical space needs to be condensed.
   {% endcontentItem %}
   {% contentItem %}
   <h4>Icon</h4>
-  <p>Any interactive [icon](/foundations/iconography/library/) can be inserted into the placeholder.</p>
+  <p>Any interactive <a href="/foundations/iconography/library/">icon</a> can be inserted into the placeholder.</p>
     {% contentPageImage {
       src: "../../../../assets/img/components/list-item/list-item/web/modifiers-trailing-icon.svg",
       width: "360px",
@@ -256,7 +256,7 @@ All variants are available with and without dividers, and the divider is left al
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Avatar:** The Avatar's variants can be overridden.",
+        "**Avatar:** The [Avatar's](/components/avatar) variants can be overridden.",
         "**Leading / trailing content:** The vertical alignment of both leading and trailing content can be adjusted to centre alignment. However, both must maintain the same alignment."
     ]
 } %}
