@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.20.2
+
+### Patch Changes
+
+- [Added]- Content section with slot information to support the update. ([#3251](https://github.com/justeattakeaway/pie/pull/3251)) by [@tingting-lau](https://github.com/tingting-lau)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.5
+
 ## 5.20.1
 
 ### Patch Changes
