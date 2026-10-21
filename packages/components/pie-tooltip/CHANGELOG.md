@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-tooltip
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - Renamed the centre `position` values (`top`, `bottom`, `left`, `right`) to `top-centre`, `bottom-centre`, `left-centre`, `right-centre`, matching the Figma placement naming. The `-start` and `-end` alignments are unchanged, and `top-centre` remains the default. ([#3257](https://github.com/justeattakeaway/pie/pull/3257)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Structural styling tweaks to align with the designs. ([#3257](https://github.com/justeattakeaway/pie/pull/3257)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Replaced hard-coded spacing values with design tokens (`--dt-spacing-a-small` for the close button inset). ([#3259](https://github.com/justeattakeaway/pie/pull/3259)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.6.0
 
 ### Minor Changes
