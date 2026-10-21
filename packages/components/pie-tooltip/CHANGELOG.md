@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tooltip
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - Removed the viewport collision detection from `pie-tooltip`. The panel now always renders at the `position` given, without flipping side, shifting alignment or otherwise repositioning to avoid the viewport or a clipping scroll container. ([#3254](https://github.com/justeattakeaway/pie/pull/3254)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.5.2
 
 ### Patch Changes
