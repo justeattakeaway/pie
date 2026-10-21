@@ -61,7 +61,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.BETA,
+            link: 'https://webc.pie.design/?path=/docs/components-accordion--overview',
+            status: webComponentStatuses['pie-accordion'],
         },
         {
             resource: resourceTypes.VUE,
@@ -173,7 +174,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/docs/components-avatar--overview',
+            status: webComponentStatuses['pie-avatar'],
         },
         {
             resource: resourceTypes.VUE,
@@ -633,7 +635,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.TBC,
+            link: 'https://webc.pie.design/?path=/docs/components-data-table--overview',
+            status: webComponentStatuses['pie-data-table'],
         },
         {
             resource: resourceTypes.VUE,
@@ -1050,7 +1053,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/docs/components-list--overview',
+            status: webComponentStatuses['pie-list'],
         },
         {
             resource: resourceTypes.VUE,
@@ -1088,7 +1092,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/docs/components-list--overview',
+            status: webComponentStatuses['pie-list'],
         },
         {
             resource: resourceTypes.VUE,
@@ -2277,7 +2282,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/docs/components-tooltip--overview',
+            status: webComponentStatuses['pie-tooltip'],
         },
         {
             resource: resourceTypes.VUE,
