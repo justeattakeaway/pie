@@ -48,7 +48,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |---|---|---|---|
 | `trigger` | Any string | The `id` of the element the panel is anchored to. The trigger lives elsewhere in the DOM and is never slotted into the tooltip. | `undefined` |
 | `isOpen` | `true`, `false` | When true, the panel is visible. The component never writes to this property. | `false` |
-| `position` | `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, `bottom-end`, `left`, `left-start`, `left-end`, `right`, `right-start`, `right-end` | The side of the trigger the panel sits on, and its alignment along the cross axis. | `top` |
+| `position` | `top-centre`, `top-start`, `top-end`, `bottom-centre`, `bottom-start`, `bottom-end`, `left-centre`, `left-start`, `left-end`, `right-centre`, `right-start`, `right-end` | The side of the trigger the panel sits on, and its alignment along the cross axis. | `top-centre` |
 | `size` | `default`, `fit-to-content`, `fill-container` | How the panel sizes itself. `default` is a fixed 280px and wraps, `fit-to-content` is as wide as its content, and `fill-container` matches the inline size of the trigger's parent element. Not applied when `type` is `icon`. | `default` |
 | `variant` | `default`, `inverse` | The colour treatment of the panel. `default` is the dark panel, `inverse` the light one. | `default` |
 | `type` | `default`, `icon` | The presentation of the panel. `icon` is the compact treatment intended for icon triggers: it has no arrow and is always as wide as its content, so `size` and `--tooltip-width` have no effect on it. | `default` |
@@ -98,13 +98,13 @@ Place the tooltip next to its trigger element in the DOM for the best accessibil
 `position` names a side and, optionally, an alignment along the opposite axis:
 
 ```
-top      top-start      top-end
-bottom   bottom-start   bottom-end
-left     left-start     left-end
-right    right-start    right-end
+top-centre    top-start      top-end
+bottom-centre bottom-start   bottom-end
+left-centre   left-start     left-end
+right-centre  right-start    right-end
 ```
 
-In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and `left` and `right` swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of `left` and `right` are on the block axis, which has no direction to mirror, so only the side moves.
+In right-to-left languages, everything on the inline axis mirrors. The alignments follow the reading direction, so `top-start` aligns against the right-hand edge, and the `left` and `right` sides swap: a panel asked for on the left appears on the right. The `-start` and `-end` alignments of the `left` and `right` sides are on the block axis, which has no direction to mirror, so only the side moves.
 
 ## Sizing
 
