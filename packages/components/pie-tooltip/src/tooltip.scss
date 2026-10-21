@@ -1,7 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 // All twelve position values are generated explicitly, none inferred.
-$tooltip-alignments: ('', '-start', '-end');
+$tooltip-alignments: ('-centre', '-start', '-end');
 
 // Zero-size, pinned to the containing block's origin. Trigger position is measured relative
 // to this point so the panel resolves against the document rather than the viewport.
@@ -112,7 +112,7 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $side in (top, bottom, left, right) {
-    .c-tooltip-layer--#{$side} {
+    .c-tooltip-layer--#{$side}-centre {
         place-items: center;
     }
 
@@ -134,6 +134,11 @@ $tooltip-alignments: ('', '-start', '-end');
     --tooltip-padding-block: var(--dt-spacing-b);
     --tooltip-padding-inline: var(--dt-spacing-c);
     --tooltip-close-size: 32px;
+
+    // The close button's 32px box is centred on the first line of text: 2px below the panel's
+    // top edge its centre meets the first line's centre (8px padding + 10px half line-height).
+    // No 2px spacing token exists, hence the literal.
+    --tooltip-close-block-inset: 2px;
     --tooltip-motion-duration: 150ms;
     --tooltip-motion-easing: cubic-bezier(0.45, 0, 0.55, 1);
     --tooltip-motion-translate-x: 0;
@@ -245,15 +250,14 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 .c-tooltip.is-dismissible {
-    // The close button is taller than one content line; reserve its block size.
-    min-block-size: calc(var(--tooltip-close-size) + var(--dt-spacing-b) * 2);
-    padding-inline-end: calc(var(--tooltip-padding-inline) + var(--tooltip-close-size));
-}
+    // Reserves the close button's box (32px + 2px insets = 36px) so even a short or empty
+    // panel keeps room for it. A single line of content (8px + 20px + 8px) is exactly this
+    // tall, so the close button never inflates the panel.
+    min-block-size: calc(var(--tooltip-close-size) + var(--tooltip-close-block-inset) * 2);
 
-.c-tooltip.is-dismissible:not(.has-heading) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // The 32px button sits flush against the panel's inline-end edge; --dt-spacing-b is the
+    // 8px gap left between the text and the button.
+    padding-inline-end: calc(var(--tooltip-close-size) + var(--dt-spacing-b));
 }
 
 // Arrow: clip-path triangle, 16px wide × 8px tall. Both insets are logical so the arrow
@@ -279,7 +283,7 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $side in (top, bottom, left, right) {
-    .c-tooltip--#{$side} {
+    .c-tooltip--#{$side}-centre {
         --tooltip-arrow-cross-position: 50%;
     }
 
@@ -356,31 +360,25 @@ $tooltip-alignments: ('', '-start', '-end');
     outline: none;
 }
 
+// The action button ends 8px from the panel's inline-end edge (the audit's Action frame
+// padding), 8px below the body text (the audit's Text frame block-end padding).
 .c-tooltip.has-action .c-tooltip-action {
     display: flex;
     justify-content: flex-end;
-    margin-block-start: var(--dt-spacing-a);
+    margin-block-start: var(--dt-spacing-b);
+    margin-inline-end: calc((var(--tooltip-padding-inline) - var(--dt-spacing-b)) * -1);
 }
 
 .c-tooltip.is-dismissible.has-action .c-tooltip-action {
     margin-inline-end: calc(var(--tooltip-close-size) * -1);
 }
 
-// Close button is out of flow; reserving its block size on the body aligns the action row with it.
-.c-tooltip.is-dismissible.has-action .c-tooltip-body {
-    min-block-size: var(--tooltip-close-size);
-}
-
-// No heading means one content line; keep it centred against the close button.
-.c-tooltip.is-dismissible.has-action:not(.has-heading) .c-tooltip-body {
-    display: grid;
-    align-content: center;
-}
-
+// Top-aligned within the first line of text: 2px below the panel's top edge the button's
+// centre meets that line's centre, and it sits flush against the panel's inline-end edge.
 .c-tooltip-close {
     position: absolute;
-    inset-block-start: var(--dt-spacing-b);
-    inset-inline-end: var(--dt-spacing-b);
+    inset-block-start: var(--tooltip-close-block-inset);
+    inset-inline-end: 0;
 }
 
 // Hover bridge: a transparent pseudo-element extending from each panel edge toward its
