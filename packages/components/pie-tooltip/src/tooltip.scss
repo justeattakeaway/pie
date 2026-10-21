@@ -120,8 +120,7 @@ $tooltip-alignments: ('-centre', '-start', '-end');
     --tooltip-padding-inline: var(--dt-spacing-c);
     --tooltip-close-size: 32px;
 
-    // No 2px spacing token exists; this centres the close button on the first line of text.
-    --tooltip-close-block-inset: 2px;
+    --tooltip-close-block-inset: var(--dt-spacing-a-small);
     --tooltip-motion-duration: 150ms;
     --tooltip-motion-easing: cubic-bezier(0.45, 0, 0.55, 1);
     --tooltip-motion-translate-x: 0;
