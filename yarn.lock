@@ -4025,6 +4025,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-pagination@npm:0.0.0, @justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-radio-group@npm:1.2.13, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group"
@@ -4280,6 +4291,7 @@ __metadata:
     "@justeattakeaway/pie-lottie-player": "npm:1.0.1"
     "@justeattakeaway/pie-modal": "npm:1.27.15"
     "@justeattakeaway/pie-notification": "npm:1.0.2"
+    "@justeattakeaway/pie-pagination": "npm:0.0.0"
     "@justeattakeaway/pie-radio": "npm:1.2.9"
     "@justeattakeaway/pie-radio-group": "npm:1.2.13"
     "@justeattakeaway/pie-select": "npm:0.9.16"
