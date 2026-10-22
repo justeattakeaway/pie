@@ -227,6 +227,10 @@
     {
       "path": "./packages/components/pie-tooltip/dist/*.js",
       "maxSize": "9 KB"
+    },
+    {
+      "path": "./packages/components/pie-pagination/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
