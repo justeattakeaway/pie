@@ -596,6 +596,26 @@
       "require": "./react/notification.js",
       "types": "./react/notification.d.ts"
     },
+    "./components/pagination": {
+      "import": "./components/pagination.js",
+      "require": "./components/pagination.js",
+      "types": "./components/pagination.d.ts"
+    },
+    "./components/pagination.js": {
+      "import": "./components/pagination.js",
+      "require": "./components/pagination.js",
+      "types": "./components/pagination.d.ts"
+    },
+    "./react/pagination": {
+      "import": "./react/pagination.js",
+      "require": "./react/pagination.js",
+      "types": "./react/pagination.d.ts"
+    },
+    "./react/pagination.js": {
+      "import": "./react/pagination.js",
+      "require": "./react/pagination.js",
+      "types": "./react/pagination.d.ts"
+    },
     "./components/radio.js": {
       "import": "./components/radio.js",
       "require": "./components/radio.js",
@@ -890,6 +910,7 @@
     "@justeattakeaway/pie-lottie-player": "1.0.1",
     "@justeattakeaway/pie-modal": "1.27.15",
     "@justeattakeaway/pie-notification": "1.0.2",
+    "@justeattakeaway/pie-pagination": "0.0.0",
     "@justeattakeaway/pie-radio": "1.2.9",
     "@justeattakeaway/pie-radio-group": "1.2.13",
     "@justeattakeaway/pie-select": "0.9.16",

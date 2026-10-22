@@ -102,6 +102,7 @@
     "components/list-item/list-item",
     "components/list-item/list-item/android",
     "components/list-item/list-item/ios",
+    "components/list-item/list-item/web",
     "components/list-item/list-item-interactive",
     "components/map-pin",
     "components/map-pin/apps",

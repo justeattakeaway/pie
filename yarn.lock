@@ -3057,9 +3057,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma/code-connect@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@figma/code-connect@npm:2.0.1"
+"@figma/code-connect@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@figma/code-connect@npm:2.0.2"
   dependencies:
     boxen: "npm:5.1.1"
     chalk: "npm:^4.1.2"
@@ -3082,11 +3082,11 @@ __metadata:
     ts-morph: "npm:^27.0.0"
     typescript: "npm:6.0.3"
     undici: "npm:^7.19.1"
-    zod: "npm:3.25.58"
+    zod: "npm:3.25.76"
     zod-validation-error: "npm:^3.2.0"
   bin:
     figma: bin/figma
-  checksum: 10/a25a0f336809cd258f098dc8eb1b7d942d93673e5ca81402b9859473ad4a2a5341d9627f987f9d6007d0a1036f31683479f6be1993450dd585ecfbfdf4dadb5b
+  checksum: 10/a3dda342f678cac1106457e5b2fe15ce934f849efdb241656f072472ca3b983a68b70d40c2a2597be12bfaa5b432a4a729b854cb673ae1e287a439dec9a1fe64
   languageName: node
   linkType: hard
 
@@ -3706,7 +3706,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-code-connect@workspace:configs/pie-code-connect"
   dependencies:
-    "@figma/code-connect": "npm:2.0.1"
+    "@figma/code-connect": "npm:2.0.2"
   languageName: unknown
   linkType: soft
 
@@ -4025,6 +4025,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-pagination@npm:0.0.0, @justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-radio-group@npm:1.2.13, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group"
@@ -4280,6 +4291,7 @@ __metadata:
     "@justeattakeaway/pie-lottie-player": "npm:1.0.1"
     "@justeattakeaway/pie-modal": "npm:1.27.15"
     "@justeattakeaway/pie-notification": "npm:1.0.2"
+    "@justeattakeaway/pie-pagination": "npm:0.0.0"
     "@justeattakeaway/pie-radio": "npm:1.2.9"
     "@justeattakeaway/pie-radio-group": "npm:1.2.13"
     "@justeattakeaway/pie-select": "npm:0.9.16"
@@ -25283,10 +25295,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.25.58":
-  version: 3.25.58
-  resolution: "zod@npm:3.25.58"
-  checksum: 10/82a06f7a3212cb7d8aa67f273dc48dc4662fba96054707221b02f0ed854c17f0153a7abcbf09292da910007f970612aeda156fc2ffec80c8ae6e5b046aaadd1e
+"zod@npm:3.25.76":
+  version: 3.25.76
+  resolution: "zod@npm:3.25.76"
+  checksum: 10/f0c963ec40cd96858451d1690404d603d36507c1fc9682f2dae59ab38b578687d542708a7fdbf645f77926f78c9ed558f57c3d3aa226c285f798df0c4da16995
   languageName: node
   linkType: hard
 
