@@ -12,7 +12,10 @@ const selectedComponentName = isReact ? componentNameReact : componentName;
 
 const cellInstanceName = 'Row Cell';
 const headerCellInstanceName = 'Column Header Cell';
-const headerRowCellsPath = JSON.stringify(['Cells', 'Cells', 'Column Header']);
+// Header cells are the ones sitting directly inside the "Column Header" row. Matching the
+// parent layer name instead of the full layer path keeps this working when the slot that
+// wraps the table content is renamed, as it was from "Cells" to "Table content - read description".
+const headerRowName = 'Column Header';
 const actionButtonsPath = JSON.stringify(['Bulk-action bar', 'Buttons']);
 
 // Header section
@@ -34,10 +37,9 @@ const headerProps = [
 // Get header action buttons
 const hasSelectableRows = getInstanceProp('getBoolean', 'Selectable rows');
 let actionButtonsCode = '';
-let bulkActionBar;
 
 if (hasSelectableRows) {
-    [bulkActionBar] = figma.selectedInstance
+    const [bulkActionBar] = figma.selectedInstance
         .findLayers((instance) => instance.name && instance.name === 'Bulk-action bar');
 
     actionButtonsCode = bulkActionBar?.children
@@ -53,8 +55,8 @@ const header = figma.code`<${headerComponentName} slot="table-header" ${headerPr
 const columns = figma.selectedInstance
     .findLayers((instance) => {
         const nameMatches = instance.name && instance.name === headerCellInstanceName;
-        const pathMatches = instance.path && JSON.stringify(instance.path) === headerRowCellsPath;
-        return nameMatches && pathMatches;
+        const parentMatches = instance.path && instance.path[instance.path.length - 1] === headerRowName;
+        return nameMatches && parentMatches;
     })
     .map((instance) => {
         const text = instance.getString('[𝐓] String').trim();

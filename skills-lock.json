@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "figma-code-connect": {
+      "source": "figma/mcp-server-guide",
+      "sourceType": "github",
+      "skillPath": "skills/figma-code-connect/SKILL.md",
+      "computedHash": "230d2c784ea48fc63415aa6769cd398a7f0a8cd9b25e6da0d128e8b1fb5a2b90"
+    },
+    "figma-design-to-code": {
+      "source": "figma/mcp-server-guide",
+      "sourceType": "github",
+      "skillPath": "skills/figma-design-to-code/SKILL.md",
+      "computedHash": "6676accbe84e37deee2910458c5fa5908e1809d0adc3d3e19a74ba40da4c3efa"
+    }
+  }
+}
