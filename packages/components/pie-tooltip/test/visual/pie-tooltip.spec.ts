@@ -11,28 +11,27 @@ const stories: Array<{ id: string; name: string }> = [
     { id: 'tooltip--dismissible', name: 'PieTooltip - Dismissible' },
     { id: 'tooltip--dismissible-with-action', name: 'PieTooltip - Dismissible with action' },
     { id: 'tooltip--dismissible-no-heading', name: 'PieTooltip - Dismissible no heading' },
+    { id: 'tooltip--structural-sizing', name: 'PieTooltip - Structural sizing' },
     { id: 'tooltip--fit-to-content', name: 'PieTooltip - Fit to content' },
     { id: 'tooltip--fill-container', name: 'PieTooltip - Fill container' },
-    { id: 'tooltip--placement-grid', name: 'PieTooltip - Placement grid' },
     { id: 'tooltip--enlarged-offset', name: 'PieTooltip - Enlarged offset' },
     { id: 'tooltip--overridden-width', name: 'PieTooltip - Overridden width' },
     { id: 'tooltip--nowrap-ancestor', name: 'PieTooltip - Inherited nowrap ancestor' },
     { id: 'tooltip--inverse', name: 'PieTooltip - Inverse' },
     { id: 'tooltip--icon-default', name: 'PieTooltip - Icon default' },
     { id: 'tooltip--icon-inverse', name: 'PieTooltip - Icon inverse' },
-    { id: 'tooltip--icon-placement-grid', name: 'PieTooltip - Icon placement grid' },
     { id: 'tooltip--in-clipping-scroll-container', name: 'PieTooltip - In clipping scroll container' },
     { id: 'tooltip--clipper-inside-containing-block', name: 'PieTooltip - Clipper inside containing block' },
-    { id: 'tooltip--collision-top-edge', name: 'PieTooltip - Collision top edge' },
-    { id: 'tooltip--collision-bottom-edge', name: 'PieTooltip - Collision bottom edge' },
-    { id: 'tooltip--collision-left-edge', name: 'PieTooltip - Collision left edge' },
-    { id: 'tooltip--collision-right-edge', name: 'PieTooltip - Collision right edge' },
-    { id: 'tooltip--collision-corner', name: 'PieTooltip - Collision corner' },
-    { id: 'tooltip--collision-in-clipping-container', name: 'PieTooltip - Collision in clipping container' },
 ];
 
 // Tooltip position is calculated in the browser, so Percy must run the component code too.
 const percySnapshotOptions = { enableJavaScript: true };
+
+// The placement grids do not fit a mobile viewport, so they are only snapshotted at desktop width.
+const desktopOnlyStories: Array<{ id: string; name: string }> = [
+    { id: 'tooltip--placement-grid', name: 'PieTooltip - Placement grid' },
+    { id: 'tooltip--icon-placement-grid', name: 'PieTooltip - Icon placement grid' },
+];
 
 test.describe('PieTooltip - Visual tests', () => {
     stories.forEach(({ id, name }) => {
@@ -45,6 +44,19 @@ test.describe('PieTooltip - Visual tests', () => {
 
             // Act & Assert
             await percySnapshot(page, name, percySnapshotOptions);
+        });
+    });
+
+    desktopOnlyStories.forEach(({ id, name }) => {
+        test(`should display the ${name} story successfully`, async ({ page }) => {
+            // Arrange
+            const basePage = new BasePage(page, id);
+
+            await basePage.load();
+            await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
+
+            // Act & Assert
+            await percySnapshot(page, name, { ...percySnapshotOptions, widths: [1280] });
         });
     });
 
@@ -90,7 +102,7 @@ test.describe('PieTooltip - Visual tests', () => {
         await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
 
         // Act & Assert
-        await percySnapshot(page, 'PieTooltip - Placement grid RTL', percySnapshotOptions);
+        await percySnapshot(page, 'PieTooltip - Placement grid RTL', { ...percySnapshotOptions, widths: [1280] });
     });
 
     test('should display the Icon placement grid story successfully in RTL', async ({ page }) => {
@@ -101,7 +113,7 @@ test.describe('PieTooltip - Visual tests', () => {
         await expect(page.getByTestId(tooltip.selectors.panel.dataTestId).first()).toBeVisible();
 
         // Act & Assert
-        await percySnapshot(page, 'PieTooltip - Icon placement grid RTL', percySnapshotOptions);
+        await percySnapshot(page, 'PieTooltip - Icon placement grid RTL', { ...percySnapshotOptions, widths: [1280] });
     });
 
     test('should display the panel successfully at a 320px viewport', async ({ page }) => {

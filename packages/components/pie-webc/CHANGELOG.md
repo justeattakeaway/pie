@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-webc
 
+## 0.12.5
+
+### Patch Changes
+
+- Updated dependencies [[`0f6c1c3`](https://github.com/justeattakeaway/pie/commit/0f6c1c3253c282ebe5e28e7060ae0249d9e72e2b), [`0f6c1c3`](https://github.com/justeattakeaway/pie/commit/0f6c1c3253c282ebe5e28e7060ae0249d9e72e2b), [`1da01f0`](https://github.com/justeattakeaway/pie/commit/1da01f0171c31fab29dc71b0a03b5bd36d5cfbfc)]:
+  - @justeattakeaway/pie-tooltip@0.7.0
+
+## 0.12.4
+
+### Patch Changes
+
+- Updated dependencies [[`eeac09c`](https://github.com/justeattakeaway/pie/commit/eeac09cd0eec80b3c6bed001ea28248e2910fc41)]:
+  - @justeattakeaway/pie-tooltip@0.6.0
+
+## 0.12.3
+
+### Patch Changes
+
+- Updated dependencies [[`48b06f1`](https://github.com/justeattakeaway/pie/commit/48b06f18c93db75db35e2034a6bbc978a8178e6f), [`56e4a1c`](https://github.com/justeattakeaway/pie/commit/56e4a1cc6425aa27cf7de8c0a0711ca05228c9a0)]:
+  - @justeattakeaway/pie-card@1.1.0
+  - @justeattakeaway/pie-tooltip@0.5.2
+
 ## 0.12.2
 
 ### Patch Changes

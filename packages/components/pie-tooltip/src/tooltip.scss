@@ -1,10 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-// All twelve position values are generated explicitly, none inferred.
-$tooltip-alignments: ('', '-start', '-end');
-
-// Zero-size, pinned to the containing block's origin. Trigger position is measured relative
-// to this point so the panel resolves against the document rather than the viewport.
+$tooltip-alignments: ('-centre', '-start', '-end');
 
 :host {
     --tooltip-anchor-top: 0;
@@ -13,12 +9,7 @@ $tooltip-alignments: ('', '-start', '-end');
     --tooltip-anchor-height: 0;
     --tooltip-container-inline-size: 0;
     --tooltip-offset: var(--dt-spacing-a);
-
-    // Arrow protrusion depth; base is size × 2 (16px wide × 8px tall).
-    // Declared on the host so the placement layer can account for it.
     --tooltip-arrow-size: 8px;
-
-    // Layer must clear both the offset and the arrow so the arrow tip doesn't touch the trigger.
     --tooltip-layer-offset: calc(var(--tooltip-offset) + var(--tooltip-arrow-size));
 
     position: absolute;
@@ -31,7 +22,7 @@ $tooltip-alignments: ('', '-start', '-end');
     inline-size: 0;
     block-size: 0;
 
-    // Inherits to the anchor; the panel opts back in with `pointer-events: auto`.
+    // The host overlays the trigger; only the panel opts back into pointer events.
     pointer-events: none;
 }
 
@@ -44,7 +35,6 @@ $tooltip-alignments: ('', '-start', '-end');
     block-size: 0;
 }
 
-// Sized and positioned to match the trigger; the placement layer resolves against this box.
 .c-tooltip-anchor {
     position: absolute;
     top: var(--tooltip-anchor-top);
@@ -54,8 +44,6 @@ $tooltip-alignments: ('', '-start', '-end');
     block-size: var(--tooltip-anchor-height);
 }
 
-// Grid so panel alignment uses logical start/center/end. A panel wider than its track overflows
-// evenly from center, keeping it centred on the trigger.
 .c-tooltip-layer {
     position: absolute;
 
@@ -65,8 +53,6 @@ $tooltip-alignments: ('', '-start', '-end');
     visibility: hidden;
     transition: visibility 0s linear 150ms;
 
-    // `is-anchorVisible` is false when the trigger has been scrolled entirely out of a clipping
-    // ancestor: there is nothing left to point at, so the panel hides rather than float free.
     &.is-open.is-positioned.is-anchorVisible {
         visibility: visible;
         transition-delay: 0s;
@@ -100,8 +86,7 @@ $tooltip-alignments: ('', '-start', '-end');
         inset-block-start: calc(100% + var(--tooltip-layer-offset));
     }
 
-    // `left`/`right` resolve on the inline axis and swap in RTL. Their -start/-end alignments
-    // are on the block axis, which has no direction to mirror.
+    // left/right resolve on the inline axis and swap in RTL; their -start/-end alignments do not.
     .c-tooltip-layer--left#{$alignment} {
         inset-inline-end: calc(100% + var(--tooltip-layer-offset));
     }
@@ -112,7 +97,7 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $side in (top, bottom, left, right) {
-    .c-tooltip-layer--#{$side} {
+    .c-tooltip-layer--#{$side}-centre {
         place-items: center;
     }
 
@@ -134,15 +119,12 @@ $tooltip-alignments: ('', '-start', '-end');
     --tooltip-padding-block: var(--dt-spacing-b);
     --tooltip-padding-inline: var(--dt-spacing-c);
     --tooltip-close-size: 32px;
+    --tooltip-close-block-inset: var(--dt-spacing-a-small);
     --tooltip-motion-duration: 150ms;
     --tooltip-motion-easing: cubic-bezier(0.45, 0, 0.55, 1);
     --tooltip-motion-translate-x: 0;
     --tooltip-motion-translate-y: 0;
-
-    // Arrow centre offset from the aligned edge for -start/-end. Clear of the corner radius.
     --tooltip-arrow-inset: calc(var(--tooltip-border-radius) + var(--tooltip-arrow-size));
-
-    // Centre position → box inset. Percentages resolve per axis, so one declaration covers both.
     --tooltip-arrow-cross-inset: calc(var(--tooltip-arrow-cross-position, 50%) - var(--tooltip-arrow-size));
 
     // 2px overlap into the panel prevents subpixel gaps between arrow and edge.
@@ -153,9 +135,7 @@ $tooltip-alignments: ('', '-start', '-end');
 
     position: relative;
 
-    // Reset the inherited text layout: a host page that sets `white-space` or `text-wrap` to
-    // `nowrap` (typical of header action bars) would otherwise reach the slotted content and
-    // inflate the panel's min-content size past its own inline-size.
+    // Resets an inherited `nowrap` from the host page that would inflate the panel's min-content size.
     white-space: normal;
     text-wrap: wrap;
 
@@ -235,7 +215,7 @@ $tooltip-alignments: ('', '-start', '-end');
     --tooltip-max-inline-size: none;
 }
 
-// Also declares inline-size to prevent `--tooltip-width` from overriding it.
+// Also declares inline-size so `--tooltip-width` cannot override it.
 .c-tooltip--type-icon {
     --tooltip-border-radius: var(--dt-radius-rounded-e);
     --tooltip-padding-block: var(--dt-spacing-a);
@@ -245,19 +225,12 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 .c-tooltip.is-dismissible {
-    // The close button is taller than one content line; reserve its block size.
-    min-block-size: calc(var(--tooltip-close-size) + var(--dt-spacing-b) * 2);
-    padding-inline-end: calc(var(--tooltip-padding-inline) + var(--tooltip-close-size));
+    // Reserves the close button's box so an empty or one-line panel still fits it.
+    min-block-size: calc(var(--tooltip-close-size) + var(--tooltip-close-block-inset) * 2);
+
+    padding-inline-end: calc(var(--tooltip-close-size) + var(--dt-spacing-b));
 }
 
-.c-tooltip.is-dismissible:not(.has-heading) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-// Arrow: clip-path triangle, 16px wide × 8px tall. Both insets are logical so the arrow
-// follows the panel when left/right swap in RTL.
 @mixin tooltip-arrow-clip($direction) {
     @if $direction == up {
         inline-size: calc(var(--tooltip-arrow-size) * 2);
@@ -279,7 +252,7 @@ $tooltip-alignments: ('', '-start', '-end');
 }
 
 @each $side in (top, bottom, left, right) {
-    .c-tooltip--#{$side} {
+    .c-tooltip--#{$side}-centre {
         --tooltip-arrow-cross-position: 50%;
     }
 
@@ -349,9 +322,7 @@ $tooltip-alignments: ('', '-start', '-end');
     overflow-wrap: break-word;
 }
 
-// The content is the programmatic focus target in dialog mode (see `focusPanel`). It is never
-// reached by Tab, which moves between the panel's own controls, so it draws no focus ring of
-// its own: the controls inside the panel carry their own focus indicators.
+// Programmatic focus target in dialog mode, never reached by Tab, so it draws no focus ring.
 .c-tooltip-content:focus {
     outline: none;
 }
@@ -359,34 +330,21 @@ $tooltip-alignments: ('', '-start', '-end');
 .c-tooltip.has-action .c-tooltip-action {
     display: flex;
     justify-content: flex-end;
-    margin-block-start: var(--dt-spacing-a);
+    margin-block-start: var(--dt-spacing-b);
+    margin-inline-end: calc((var(--tooltip-padding-inline) - var(--dt-spacing-b)) * -1);
 }
 
 .c-tooltip.is-dismissible.has-action .c-tooltip-action {
     margin-inline-end: calc(var(--tooltip-close-size) * -1);
 }
 
-// Close button is out of flow; reserving its block size on the body aligns the action row with it.
-.c-tooltip.is-dismissible.has-action .c-tooltip-body {
-    min-block-size: var(--tooltip-close-size);
-}
-
-// No heading means one content line; keep it centred against the close button.
-.c-tooltip.is-dismissible.has-action:not(.has-heading) .c-tooltip-body {
-    display: grid;
-    align-content: center;
-}
-
 .c-tooltip-close {
     position: absolute;
-    inset-block-start: var(--dt-spacing-b);
-    inset-inline-end: var(--dt-spacing-b);
+    inset-block-start: var(--tooltip-close-block-inset);
+    inset-inline-end: 0;
 }
 
-// Hover bridge: a transparent pseudo-element extending from each panel edge toward its
-// trigger, covering the --tooltip-layer-offset gap. Keeps the hover region intact so
-// the pointer can travel from the trigger into the panel without the close timer firing.
-// Sized from --tooltip-layer-offset so widening --tooltip-offset cannot open a hole.
+// Hover bridge over the --tooltip-layer-offset gap so the pointer can reach the panel without the close timer firing.
 @each $alignment in $tooltip-alignments {
     .c-tooltip--top#{$alignment}::before {
         content: '';
