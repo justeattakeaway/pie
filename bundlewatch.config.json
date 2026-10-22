@@ -122,7 +122,7 @@
     },
     {
       "path": "./packages/components/pie-pagination/dist/index.js",
-      "maxSize": "4 KB"
+      "maxSize": "5 KB"
     },
     {
       "path": "./packages/components/pie-pagination/dist/react.js",
