@@ -3,7 +3,6 @@ const getInstanceCode = require('../get-instance-code');
 function makeInstance (code) {
     return {
         type: 'INSTANCE',
-        hasCodeConnect: () => true,
         executeTemplate: () => ({ example: [{ code }] }),
     };
 }
@@ -15,13 +14,36 @@ describe('getInstanceCode', () => {
         });
 
         it('should return an empty string when instance type is not INSTANCE', () => {
-            const instance = { type: 'FRAME', hasCodeConnect: () => true, executeTemplate: () => ({ example: [] }) };
+            const instance = { type: 'FRAME', executeTemplate: () => ({ example: [] }) };
             expect(getInstanceCode(instance)).toBe('');
         });
 
         it('should return an empty string for an ERROR handle', () => {
             // `findInstance`/`findLayers` return an ERROR handle rather than null when nothing matches
             expect(getInstanceCode({ type: 'ERROR' })).toBe('');
+        });
+    });
+
+    describe('when rendering fails', () => {
+        it('should return an empty string when rendering the instance throws', () => {
+            const instance = {
+                type: 'INSTANCE',
+                executeTemplate: () => {
+                    throw new Error('boom');
+                },
+            };
+
+            expect(getInstanceCode(instance)).toBe('');
+        });
+
+        it('should return an empty string when the transform throws', () => {
+            // A throwing transform discards the rendered code rather than falling back to it
+            const instance = makeInstance('<pie-button>Click</pie-button>');
+            const transform = () => {
+                throw new Error('boom');
+            };
+
+            expect(getInstanceCode(instance, transform)).toBe('');
         });
     });
 
@@ -33,8 +55,10 @@ describe('getInstanceCode', () => {
                 hasCodeConnect: () => false,
                 executeTemplate: () => ({ example: [{ code: '<pie-button>Click</pie-button>' }] }),
             };
+
             expect(getInstanceCode(instance)[0].code).toBe('<pie-button>Click</pie-button>');
         });
+
         it('should return the code array unchanged when no transform is provided', () => {
             const instance = makeInstance('<pie-button>Click</pie-button>');
             const result = getInstanceCode(instance);

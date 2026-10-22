@@ -5,7 +5,8 @@
  * @param {string|function} [transform] - Either the name of the slot to assign the
  *   rendered instance to (e.g. `'leadingIcon'`), or a function to transform
  *   `code[0].code` directly for cases the slot shorthand does not cover.
- * @returns {Array|string} The code array, or an empty string if the instance is not an instance node.
+ * @returns {Array|string} The code array, or an empty string if the instance is not an
+ *   instance node, or if rendering it throws.
  */
 function getInstanceCode (instance, transform) {
     // `findInstance`/`findLayers` hand back an ERROR handle (truthy, but not a node) when
