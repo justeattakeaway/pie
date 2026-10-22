@@ -23,13 +23,14 @@ test.describe('PieCookieBanner - Component tests', () => {
         await expect(page.getByTestId('pie-cookie-banner')).toBeVisible();
     });
 
-    test('should render the banner as a dialog labelled by its title', async ({ page }) => {
+    test('should render the banner as a dialog labelled by its title and described by its body text', async ({ page }) => {
         // Arrange
         await pieCookieBannerComponent.load();
 
         // Assert
         const dialog = page.getByRole('dialog', { name: 'Cookies' });
         await expect(dialog).toBeVisible();
+        await expect(dialog).toHaveAccessibleDescription(/We use our own and third party cookies/);
     });
 
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {

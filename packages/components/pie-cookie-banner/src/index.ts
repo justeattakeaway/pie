@@ -347,10 +347,11 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
             class="c-cookieBanner"
             role="dialog"
             aria-labelledby="cookie-banner-title"
+            aria-describedby="cookie-banner-text"
             ?isCookieBannerHidden=${this._isCookieBannerHidden}>
             <h2 id="cookie-banner-title" class="c-cookieBanner-title">${this._localiseText('banner.title')}</h2>
             <div class="c-cookieBanner-body" data-test-id="banner-description">
-                <p>${this._localiseRichText('banner.description')}</p>
+                <p id="cookie-banner-text">${this._localiseRichText('banner.description')}</p>
             </div>
 
             <div class="c-cookieBanner-actions">
