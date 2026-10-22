@@ -3558,7 +3558,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/eslint-plugin-snacks-pie-migration@npm:0.14.0, @justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration":
+"@justeattakeaway/eslint-plugin-snacks-pie-migration@npm:0.15.0, @justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-plugin-snacks-pie-migration@workspace:packages/tools/eslint-plugin-snacks-pie-migration"
   dependencies:
@@ -3594,7 +3594,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-divider": "npm:1.5.38"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -3606,7 +3606,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -3618,7 +3618,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -3631,7 +3631,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
     "@justeattakeaway/pie-link": "npm:1.5.9"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -3642,7 +3642,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-spinner": "npm:1.5.11"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
@@ -3656,7 +3656,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
@@ -3670,7 +3670,7 @@ __metadata:
     "@justeattakeaway/pie-checkbox": "npm:1.4.10"
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
@@ -3683,7 +3683,7 @@ __metadata:
     "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
@@ -3696,7 +3696,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-spinner": "npm:1.5.11"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
@@ -3730,7 +3730,7 @@ __metadata:
     "@justeattakeaway/pie-icon-button": "npm:2.8.1"
     "@justeattakeaway/pie-link": "npm:1.5.9"
     "@justeattakeaway/pie-modal": "npm:1.27.15"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-switch": "npm:2.7.7"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
@@ -3758,7 +3758,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -3769,7 +3769,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
@@ -3786,9 +3786,9 @@ __metadata:
     "@justeat/pie-design-tokens": "npm:7.15.1"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-icons": "npm:5.32.2"
+    "@justeattakeaway/pie-icons": "npm:5.32.3"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc": "npm:0.12.5"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
@@ -3816,7 +3816,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-switch": "npm:2.7.7"
     "@justeattakeaway/pie-text-input": "npm:0.30.16"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
@@ -3831,7 +3831,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-spinner": "npm:1.5.11"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
@@ -3844,7 +3844,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -3862,7 +3862,7 @@ __metadata:
     "@babel/core": "npm:7.29.7"
     "@babel/node": "npm:7.29.7"
     "@babel/preset-react": "npm:7.29.7"
-    "@justeattakeaway/pie-icons": "npm:5.32.2"
+    "@justeattakeaway/pie-icons": "npm:5.32.3"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@rollup/plugin-node-resolve": "npm:15.1.0"
     "@rollup/plugin-typescript": "npm:12.1.2"
@@ -3882,7 +3882,7 @@ __metadata:
     "@babel/cli": "npm:7.29.7"
     "@babel/core": "npm:7.29.7"
     "@babel/eslint-parser": "npm:7.29.9"
-    "@justeattakeaway/pie-icons": "npm:5.32.2"
+    "@justeattakeaway/pie-icons": "npm:5.32.3"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@rollup/plugin-commonjs": "npm:29.0.3"
     "@rollup/plugin-node-resolve": "npm:16.0.3"
@@ -3907,7 +3907,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
-    "@justeattakeaway/pie-icons": "npm:5.32.2"
+    "@justeattakeaway/pie-icons": "npm:5.32.3"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@rollup/plugin-typescript": "npm:12.3.0"
@@ -3921,13 +3921,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@npm:5.32.2, @justeattakeaway/pie-icons@workspace:*, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@npm:5.32.3, @justeattakeaway/pie-icons@workspace:*, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
     "@babel/node": "npm:7.29.7"
     "@changesets/write": "npm:0.4.0"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     babel-loader: "npm:8.4.1"
     cheerio: "npm:1.2.0"
     classnames: "npm:2.5.1"
@@ -3949,7 +3949,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
@@ -3961,7 +3961,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
@@ -3973,7 +3973,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     lottie-web: "npm:5.13.0"
   languageName: unknown
@@ -3989,7 +3989,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icon-button": "npm:2.8.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-spinner": "npm:1.5.11"
     "@justeattakeaway/pie-text-input": "npm:0.30.16"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
@@ -4000,12 +4000,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-monorepo-utils@npm:0.9.11, @justeattakeaway/pie-monorepo-utils@workspace:packages/tools/pie-monorepo-utils":
+"@justeattakeaway/pie-monorepo-utils@npm:0.9.12, @justeattakeaway/pie-monorepo-utils@workspace:packages/tools/pie-monorepo-utils":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-monorepo-utils@workspace:packages/tools/pie-monorepo-utils"
   dependencies:
     "@changesets/parse": "npm:0.4.3"
-    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "npm:0.14.0"
+    "@justeattakeaway/eslint-plugin-snacks-pie-migration": "npm:0.15.0"
     chalk: "npm:4.1.2"
     execa: "npm:9.6.1"
   languageName: unknown
@@ -4019,7 +4019,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icon-button": "npm:2.8.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
@@ -4032,7 +4032,7 @@ __metadata:
     "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-radio": "npm:1.2.9"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
@@ -4045,7 +4045,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
@@ -4058,7 +4058,7 @@ __metadata:
     "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -4069,7 +4069,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
@@ -4083,7 +4083,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc": "npm:0.12.5"
     "@storybook/addon-a11y": "npm:10.6.2"
     "@storybook/addon-designs": "npm:11.1.4"
@@ -4110,7 +4110,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     element-internals-polyfill: "npm:1.3.11"
@@ -4123,7 +4123,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -4135,7 +4135,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     "@lit/context": "npm:1.1.6"
@@ -4150,7 +4150,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
     element-internals-polyfill: "npm:1.3.11"
@@ -4164,7 +4164,7 @@ __metadata:
     "@justeattakeaway/pie-assistive-text": "npm:1.0.16"
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@types/lodash.throttle": "npm:4.1.9"
     lodash.throttle: "npm:4.1.1"
@@ -4177,7 +4177,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@lit/context": "npm:1.1.6"
   languageName: unknown
@@ -4189,7 +4189,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.1"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-toast": "npm:1.2.6"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
@@ -4204,7 +4204,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icon-button": "npm:2.8.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -4226,7 +4226,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.1"
     "@justeattakeaway/pie-icon-button": "npm:2.8.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
   languageName: unknown
   linkType: soft
@@ -4236,7 +4236,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
-    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.11"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
     "@lit/context": "npm:1.1.6"
     lit: "npm:3.3.3"
   peerDependencies:
