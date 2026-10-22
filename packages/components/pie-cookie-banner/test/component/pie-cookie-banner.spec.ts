@@ -33,6 +33,22 @@ test.describe('PieCookieBanner - Component tests', () => {
         await expect(dialog).toHaveAccessibleDescription(/We use our own and third party cookies/);
     });
 
+    test('should not move focus to the banner dialog when it is displayed on initial page load', async ({ page }) => {
+        // Arrange
+        await pieCookieBannerComponent.load();
+
+        // Assert
+        await expect(page.getByRole('dialog', { name: 'Cookies' })).not.toBeFocused();
+    });
+
+    test('should move focus to the banner dialog when `shouldFocusOnOpen` is set', async ({ page }) => {
+        // Arrange
+        await pieCookieBannerComponent.load({ shouldFocusOnOpen: true });
+
+        // Assert
+        await expect(page.getByRole('dialog', { name: 'Cookies' })).toBeFocused();
+    });
+
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
         const level = elementLevel.name as Level;
         test(`should emit the correct event and close the cookie banner when "Accept all" is clicked via element ${elementLevel.name}`, async () => {
@@ -92,7 +108,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    test('should close the modal and re-display the cookie banner when the back button in "Manage preferences" is clicked', async () => {
+    test('should close the modal and re-display the cookie banner when the back button in "Manage preferences" is clicked', async ({ page }) => {
         // Arrange
         await pieCookieBannerComponent.load();
 
@@ -106,6 +122,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         // Assert
         expect.soft(isModalVisible).toBe(false);
         expect(isCookieBannerVisible).toBe(true);
+        await expect(page.getByRole('dialog', { name: 'Cookies' })).toBeFocused();
     });
 
     test('should close the modal and cookie banner and emit the save event when the save button in "Manage preferences" is clicked', async () => {
