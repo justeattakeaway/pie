@@ -124,7 +124,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
         }
 
         // Move focus to the banner whenever it reappears, so screen readers announce the dialog
-        if (changedProperties.get('_isCookieBannerHidden') === true && !this._isCookieBannerHidden) {
+        if (changedProperties.get('_isCookieBannerHidden' as keyof PieCookieBanner) === true && !this._isCookieBannerHidden) {
             this._focusBanner();
         }
     }
