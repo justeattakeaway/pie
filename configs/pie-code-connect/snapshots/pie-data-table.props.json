@@ -29,6 +29,16 @@
         "default": true
       },
       {
+        "name": "Table content - read description",
+        "type": "SLOT",
+        "default": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        }
+      },
+      {
         "name": "Screen size",
         "type": "VARIANT",
         "variantOptions": [
