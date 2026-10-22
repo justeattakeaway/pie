@@ -19,13 +19,22 @@ describe('getInstanceCode', () => {
             expect(getInstanceCode(instance)).toBe('');
         });
 
-        it('should return an empty string when instance has no Code Connect', () => {
-            const instance = { type: 'INSTANCE', hasCodeConnect: () => false };
-            expect(getInstanceCode(instance)).toBe('');
+        it('should return an empty string for an ERROR handle', () => {
+            // `findInstance`/`findLayers` return an ERROR handle rather than null when nothing matches
+            expect(getInstanceCode({ type: 'ERROR' })).toBe('');
         });
     });
 
     describe('when the instance is valid', () => {
+        it('should render the instance even when it has no Code Connect mapping', () => {
+            // The runtime resolves instances without a mapping itself, so they must not be dropped
+            const instance = {
+                type: 'INSTANCE',
+                hasCodeConnect: () => false,
+                executeTemplate: () => ({ example: [{ code: '<pie-button>Click</pie-button>' }] }),
+            };
+            expect(getInstanceCode(instance)[0].code).toBe('<pie-button>Click</pie-button>');
+        });
         it('should return the code array unchanged when no transform is provided', () => {
             const instance = makeInstance('<pie-button>Click</pie-button>');
             const result = getInstanceCode(instance);
