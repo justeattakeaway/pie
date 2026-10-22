@@ -21,6 +21,7 @@
 | List Item Interactive | Soon           |                                                                                                                                                              |
 | Modal                 | ✅ Done        |                                                                                                                                                              |
 | Notification          | ✅ Done        |                                                                                                                                                              |
+| Pagination            | Soon           |                                                                                                                                                              |
 | Radio                 | ✅ Done        |                                                                                                                                                              |
 | RadioGroup            | ✅ Done        |                                                                                                                                                              |
 | SelectInput           | ✅ Done        | Label is not working, instance needs to be renamed.                                                                                                          |
