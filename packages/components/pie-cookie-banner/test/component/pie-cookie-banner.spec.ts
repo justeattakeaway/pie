@@ -23,6 +23,15 @@ test.describe('PieCookieBanner - Component tests', () => {
         await expect(page.getByTestId('pie-cookie-banner')).toBeVisible();
     });
 
+    test('should render the banner as a dialog labelled by its title', async ({ page }) => {
+        // Arrange
+        await pieCookieBannerComponent.load();
+
+        // Assert
+        const dialog = page.getByRole('dialog', { name: 'Cookies' });
+        await expect(dialog).toBeVisible();
+    });
+
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
         const level = elementLevel.name as Level;
         test(`should emit the correct event and close the cookie banner when "Accept all" is clicked via element ${elementLevel.name}`, async () => {
