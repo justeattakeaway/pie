@@ -2164,539 +2164,959 @@
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Neutral, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Outline, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Outline, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Translucent, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Translucent, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Ghost, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Ghost, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Information, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Information, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Success, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Success, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Warning, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Warning, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Error, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=Error, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=03 Cupcake, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=04 Berry, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=04 Berry, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=06 Aubergine, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=05 Turmeric, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=08 Latte, Strong=True, State=Default"
+    "propertyCombinationLabel": "Type=08 Latte, Strong=True, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Neutral, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"outline\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Outline, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Outline, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"translucent\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Translucent, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Translucent, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"ghost\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Ghost, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Ghost, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"information\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"information\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Information, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Information, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"success\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"success\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Success, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Success, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"warning\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Warning, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Warning, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"error\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"error\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Error, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=Error, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=03 Cupcake, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=04 Berry, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=04 Berry, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=06 Aubergine, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=05 Turmeric, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=08 Latte, Strong=False, State=Default"
+    "propertyCombinationLabel": "Type=08 Latte, Strong=False, State=Default",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Neutral, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Outline, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Outline, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Translucent, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Translucent, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Ghost, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Ghost, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"information\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Information, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Information, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"success\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Success, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Success, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Warning, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Warning, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"error\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Error, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=Error, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=03 Cupcake, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=04 Berry, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=04 Berry, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=06 Aubergine, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=05 Turmeric, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isStrong\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=08 Latte, Strong=True, State=Disabled"
+    "propertyCombinationLabel": "Type=08 Latte, Strong=True, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Neutral, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"neutral-alternative\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Neutral - alternative, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"outline\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"outline\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Outline, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Outline, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"translucent\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"translucent\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Translucent, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Translucent, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"ghost\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"ghost\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Ghost, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Ghost, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"information\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"information\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Information, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Information, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"success\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"success\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Success, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Success, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"warning\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"warning\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Warning, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Warning, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"error\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"error\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=Error, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=Error, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-02\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=02 Orange subtle, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-03\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=03 Cupcake, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=03 Cupcake, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-04\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=04 Berry, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=04 Berry, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-06\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=06 Aubergine, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=06 Aubergine, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-05\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=05 Turmeric, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=05 Turmeric, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=16350-3659",
     "nodeId": "16350:3659",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isDimmed\n     isIconOnly>\n    \n    \n</PieTag>",
+    "snippet": "<PieTag\n     variant=\"brand-08\"\n     isDimmed\n     isIconOnly>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieTag>",
     "language": "React",
-    "propertyCombinationLabel": "Type=08 Latte, Strong=False, State=Disabled"
+    "propertyCombinationLabel": "Type=08 Latte, Strong=False, State=Disabled",
+    "unresolvedInstances": [
+      {
+        "guid": "16350:3975",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   }
 ]

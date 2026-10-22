@@ -13,9 +13,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -31,9 +38,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -49,9 +63,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -67,9 +88,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -85,9 +113,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -103,9 +138,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -121,9 +163,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -139,9 +188,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -157,9 +213,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -175,9 +238,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -193,9 +263,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -211,9 +288,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -229,9 +313,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -247,9 +338,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -265,9 +363,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -283,9 +388,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -301,9 +413,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -319,9 +438,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -337,9 +463,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -355,9 +488,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -373,9 +513,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -391,9 +538,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -409,9 +563,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -427,9 +588,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -445,9 +613,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -463,9 +638,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -481,9 +663,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -499,9 +688,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -517,9 +713,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -535,9 +738,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -553,9 +763,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -571,9 +788,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\">\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -589,9 +813,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -607,9 +838,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -625,9 +863,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -643,9 +888,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -661,9 +913,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -679,9 +938,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -697,9 +963,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -715,9 +988,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -733,9 +1013,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -751,9 +1038,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -769,9 +1063,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -787,9 +1088,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -805,9 +1113,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -823,9 +1138,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -841,9 +1163,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -859,9 +1188,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -877,9 +1213,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -895,9 +1238,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -913,9 +1263,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -931,9 +1288,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -949,9 +1313,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -967,9 +1338,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -985,9 +1363,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1003,9 +1388,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1021,9 +1413,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1039,9 +1438,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1057,9 +1463,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1075,9 +1488,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1093,9 +1513,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1111,9 +1538,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1129,9 +1563,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1147,9 +1588,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=False",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1165,9 +1613,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1183,9 +1638,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1201,9 +1663,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1219,9 +1688,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1237,9 +1713,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1255,9 +1738,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1273,9 +1763,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1291,9 +1788,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1309,9 +1813,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1327,9 +1838,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1345,9 +1863,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1363,9 +1888,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1381,9 +1913,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1399,9 +1938,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1417,9 +1963,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1435,9 +1988,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1453,9 +2013,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1471,9 +2038,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1489,9 +2063,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1507,9 +2088,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1525,9 +2113,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1543,9 +2138,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1561,9 +2163,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1579,9 +2188,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1597,9 +2213,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1615,9 +2238,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1633,9 +2263,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1651,9 +2288,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1669,9 +2313,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1687,9 +2338,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1705,9 +2363,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1723,9 +2388,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=False, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1741,9 +2413,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1759,9 +2438,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1777,9 +2463,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1795,9 +2488,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1813,9 +2513,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1831,9 +2538,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1849,9 +2563,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1867,9 +2588,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Default, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1885,9 +2613,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1903,9 +2638,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1921,9 +2663,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1939,9 +2688,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1957,9 +2713,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1975,9 +2738,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -1993,9 +2763,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2011,9 +2788,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Hover, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2029,9 +2813,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2047,9 +2838,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2065,9 +2863,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2083,9 +2888,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2101,9 +2913,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2119,9 +2938,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2137,9 +2963,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2155,9 +2988,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Active, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2173,9 +3013,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2191,9 +3038,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2209,9 +3063,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2227,9 +3088,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Wide, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2245,9 +3113,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2263,9 +3138,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced\n     isDividerHidden>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=false, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2281,9 +3163,16 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=false, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=4-23842",
@@ -2299,8 +3188,15 @@
     "nodeId": "4:23842",
     "filePath": "components.figma.batch.json",
     "success": true,
-    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    \n    \n</PieAccordion>",
+    "snippet": "<PieAccordion\n     headingLabel=\"Primary text\"\n     secondaryLabel=\"Secondary text\"\n     isOpen\n     isEmphasisReduced>\n    {/* Placeholder / Icon only — no Code Connect template found */}\n    \n</PieAccordion>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True"
+    "propertyCombinationLabel": "Leading icon=true, Secondary text=true, Divider=true, Screen size=Narrow, State=Focus, Low emphasis=True, Expanded=True",
+    "unresolvedInstances": [
+      {
+        "guid": "4:23792",
+        "name": "Placeholder / Icon only",
+        "kind": "instance"
+      }
+    ]
   }
 ]
