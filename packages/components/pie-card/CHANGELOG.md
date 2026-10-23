@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-card
 
+## 1.2.0
+
+### Minor Changes
+
+- [Added] - `--card-border-width`, `--card-border-color` and `--card-box-shadow` CSS custom properties ([#3268](https://github.com/justeattakeaway/pie/pull/3268)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Renamed the `--pie-card-overlay-z-index` CSS custom property to `--card-overlay-z-index` for consistency with other components
+
 ## 1.1.0
 
 ### Minor Changes
