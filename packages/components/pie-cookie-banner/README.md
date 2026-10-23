@@ -50,7 +50,10 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 This component does not have any slots. All content is controlled through properties.
 
 ### CSS Variables
-This component does not expose any CSS variables for style overrides.
+
+| Name                                          | Description                                          | Default |
+| --------------------------------------------- | ---------------------------------------------------- | ------- |
+| `--cb-max-inline-size`                        | Controls the `max-inline-size` of the cookie banner. | `100%`  |
 
 ### Events
 

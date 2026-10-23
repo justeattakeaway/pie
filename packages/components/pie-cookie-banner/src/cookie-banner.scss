@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    --cb-max-inline-size: 100%;
+}
+
 * {
     margin: 0;
 }
@@ -25,6 +29,8 @@ $breakpoint-wide: 700px;
     padding-block-start: var(--cb-padding-block);
     padding-block-end: var(--cb-padding-block);
     max-height: 432px;
+    max-inline-size: var(--cb-max-inline-size);
+    margin: auto;
     position: fixed;
     bottom: var(--cb-offset);
     left: var(--cb-offset);
