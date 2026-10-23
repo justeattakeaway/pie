@@ -243,43 +243,22 @@ WithSlottedControls.parameters = {
     },
 };
 
-const renderOverrideCard = (
-    variant: CardPropsBase['variant'],
-    styleOverrides: string,
-    description: string,
-) => {
-    const isInverse = variant.endsWith('inverse');
-    const background = isInverse ? 'var(--dt-color-container-inverse)' : 'var(--dt-color-container-default)';
-
-    return html`
-        <div style="padding: var(--dt-spacing-d); border-radius: var(--dt-radius-rounded-c); background-color: ${background};">
+const cssVariableStory = (variantList: ReadonlyArray<CardPropsBase['variant']>, styleOverrides: string) => html`
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--dt-spacing-d);">
+        ${variantList.map((variant) => html`
             <pie-card
                 tag="button"
                 variant="${ifDefined(variant)}"
                 padding="c"
-                .aria="${{ label: `Card with ${description} (${variant})` } as CardPropsBase['aria']}"
+                .aria="${{ label: variant } as CardPropsBase['aria']}"
                 style="${styleOverrides}">
-                <div data-test-id="slot-content" style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
-                    <h2 style="margin-top: 0"> ${variant} </h2>
-                    <p style="margin-bottom: 0"> ${description} </p>
-                </div>
-            </pie-card>
-        </div>`;
-};
-
-const renderOverrideGrid = (
-    variantList: ReadonlyArray<CardPropsBase['variant']>,
-    styleOverrides: string,
-    description: string,
-) => html`
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--dt-spacing-d);">
-        ${variantList.map((variant) => renderOverrideCard(variant, styleOverrides, description))}
+                <h2>${variant}</h2>
+            </pie-card>`)}
     </div>`;
 
-const BorderColorOverrideTemplate: TemplateFunction<CardProps> = () => renderOverrideGrid(
+const BorderColorOverrideTemplate: TemplateFunction<CardProps> = () => cssVariableStory(
     ['outline', 'outline-inverse'],
     '--card-border-color: red;',
-    'Border colour overridden with the --card-border-color CSS variable.',
 );
 
 export const BorderColorOverride = BorderColorOverrideTemplate.bind({});
@@ -289,10 +268,9 @@ BorderColorOverride.parameters = {
     },
 };
 
-const BoxShadowDisabledTemplate: TemplateFunction<CardProps> = () => renderOverrideGrid(
+const BoxShadowDisabledTemplate: TemplateFunction<CardProps> = () => cssVariableStory(
     ['default', 'inverse'],
     '--card-box-shadow: none;',
-    'Box shadow removed with the --card-box-shadow CSS variable.',
 );
 
 export const BoxShadowDisabled = BoxShadowDisabledTemplate.bind({});
