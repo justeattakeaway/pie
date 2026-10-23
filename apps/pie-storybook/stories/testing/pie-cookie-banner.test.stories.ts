@@ -121,4 +121,14 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             @pie-cookie-banner-prefs-saved="${prefsSavedAction}"></pie-cookie-banner>`;
 };
 
+const CustomMaxInlineSizeTemplate = (props: CookieBannerProps) => html`
+    <style>
+        pie-cookie-banner {
+            --cb-max-inline-size: 800px;
+        }
+    </style>
+    ${BaseStoryTemplate(props)}`;
+
 export const Default = createStory<CookieBannerProps>(BaseStoryTemplate, defaultArgs)();
+
+export const CustomMaxInlineSize = createStory<CookieBannerProps>(CustomMaxInlineSizeTemplate, defaultArgs)();
