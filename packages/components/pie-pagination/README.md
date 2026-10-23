@@ -30,24 +30,25 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ## Documentation
 
 ### Properties
-| Prop             | Options                                                                                                                                                                  | Description                                                                                                                                                                                                         | Default        |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| | | | |
+| Prop          | Options | Description                                                                                                                                                                                                    | Default |
+|---------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `currentPage` | `number`| The currently active page (1-based). This component is fully controlled, so it never updates this value itself; the consumer is responsible for updating it in response to the `pie-pagination-page-change` event. | `1`     |
+| `totalPages`  | `number`| The total number of pages to render.                                                                                                                                                                            | `1`     |
+| `disabled`    | `boolean`| When true, all pagination controls are disabled.                                                                                                                                                               | `false` |
+| `aria`        | `object`| The ARIA attributes for the pagination landmark. Offers a `label` used for the `aria-label` of the wrapping `<nav>` element.                                                                                      | `undefined` |
 
 ### Slots
-| Slot     | Description                                                                                                                                                                                                                                                                         |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  | |
+This component does not use any slots.
 
 ### CSS Variables
-| Variable | Description                                                                                                                                                                                                                 | Default |
-|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| | | |
+This component does not expose any CSS variables.
 
 ### Events
-| Event | Type                                                                                                                                                                                                                 | Description |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| | | |
+| Event                         | Type          | Description                                                                                                                                                            |
+|-------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pie-pagination-page-change`  | `CustomEvent` | Fired when the user interacts with any pagination control. The event detail contains `{ currentPage }`, the page the user wants to navigate to. |
+| `pie-pagination-prev`         | `CustomEvent` | Fired when the user clicks the "previous" control. The event detail contains `{ currentPage }`. This event fires **in addition to** `pie-pagination-page-change`. |
+| `pie-pagination-next`         | `CustomEvent` | Fired when the user clicks the "next" control. The event detail contains `{ currentPage }`. This event fires **in addition to** `pie-pagination-page-change`. |
 
 ## Usage Examples
 
@@ -64,12 +65,44 @@ import '@justeattakeaway/pie-webc/components/pagination.js'
 <script type="module" src="/main.js"></script>
 ```
 
+```html
+<pie-pagination currentPage="2" totalPages="10"></pie-pagination>
+
+<script>
+  const pagination = document.querySelector('pie-pagination');
+
+  pagination.addEventListener('pie-pagination-page-change', (event) => {
+    // The component is controlled — update the prop yourself
+    pagination.currentPage = event.detail.currentPage;
+  });
+</script>
+```
+
+The `pie-pagination-prev` and `pie-pagination-next` events let you hook into the previous/next controls specifically. They fire in addition to `pie-pagination-page-change`, so you can use either one:
+
+```html
+<pie-pagination currentPage="2" totalPages="10"></pie-pagination>
+
+<script>
+  const pagination = document.querySelector('pie-pagination');
+
+  pagination.addEventListener('pie-pagination-prev', (event) => {
+    console.log('previous clicked, requested page:', event.detail.currentPage);
+    pagination.currentPage = event.detail.currentPage;
+  });
+
+  pagination.addEventListener('pie-pagination-next', (event) => {
+    console.log('next clicked, requested page:', event.detail.currentPage);
+    pagination.currentPage = event.detail.currentPage;
+  });
+</script>
+```
+
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
 
 ```js
 // Vue templates (using Nuxt 3)
 import '@justeattakeaway/pie-webc/components/pagination.js'
-
 ```
 
 **For React Applications:**
@@ -77,6 +110,22 @@ import '@justeattakeaway/pie-webc/components/pagination.js'
 ```jsx
 import { PiePagination } from '@justeattakeaway/pie-webc/react/pagination.js';
 
+<PiePagination
+  currentPage={currentPage}
+  totalPages={totalPages}
+  onPiePaginationPageChange={(event) => setCurrentPage(event.detail.currentPage)}
+/>
+```
+
+The `pie-pagination-prev` and `pie-pagination-next` events are exposed as `onPiePaginationPrev` and `onPiePaginationNext`:
+
+```jsx
+<PiePagination
+  currentPage={currentPage}
+  totalPages={totalPages}
+  onPiePaginationPrev={(event) => setCurrentPage(event.detail.currentPage)}
+  onPiePaginationNext={(event) => setCurrentPage(event.detail.currentPage)}
+/>
 ```
 
 ## Questions and Support
