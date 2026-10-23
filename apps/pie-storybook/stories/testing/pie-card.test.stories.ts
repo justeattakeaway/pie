@@ -214,7 +214,7 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
                         data-test-id="card-action"
                         variant="ghost-secondary"
                         .aria="${{ label: 'Add to favourites' }}"
-                        style="position: relative; z-index: calc(var(--pie-card-overlay-z-index) + 1);"
+                        style="position: relative; z-index: calc(var(--card-overlay-z-index) + 1);"
                         @click="${toggleFavourited}">
                         <icon-heart data-test-id="icon-heart-outline"></icon-heart>
                         <icon-heart-filled data-test-id="icon-heart-filled" style="color: var(--dt-color-content-error); display: none;"></icon-heart-filled>
@@ -222,7 +222,7 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
                     <pie-link
                         href="https://pie.design"
                         target="_blank"
-                        style="position: relative; z-index: calc(var(--pie-card-overlay-z-index) + 1);">
+                        style="position: relative; z-index: calc(var(--card-overlay-z-index) + 1);">
                         View menu
                     </pie-link>
                 </div>
@@ -238,6 +238,65 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
 
 export const WithSlottedControls = WithSlottedControlsTemplate.bind({});
 WithSlottedControls.parameters = {
+    controls: {
+        disable: true,
+    },
+};
+
+const renderOverrideCard = (
+    variant: CardPropsBase['variant'],
+    styleOverrides: string,
+    description: string,
+) => {
+    const isInverse = variant.endsWith('inverse');
+    const background = isInverse ? 'var(--dt-color-container-inverse)' : 'var(--dt-color-container-default)';
+
+    return html`
+        <div style="padding: var(--dt-spacing-d); border-radius: var(--dt-radius-rounded-c); background-color: ${background};">
+            <pie-card
+                tag="button"
+                variant="${ifDefined(variant)}"
+                padding="c"
+                .aria="${{ label: `Card with ${description} (${variant})` } as CardPropsBase['aria']}"
+                style="${styleOverrides}">
+                <div data-test-id="slot-content" style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
+                    <h2 style="margin-top: 0"> ${variant} </h2>
+                    <p style="margin-bottom: 0"> ${description} </p>
+                </div>
+            </pie-card>
+        </div>`;
+};
+
+const renderOverrideGrid = (
+    variantList: ReadonlyArray<CardPropsBase['variant']>,
+    styleOverrides: string,
+    description: string,
+) => html`
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--dt-spacing-d);">
+        ${variantList.map((variant) => renderOverrideCard(variant, styleOverrides, description))}
+    </div>`;
+
+const BorderColorOverrideTemplate: TemplateFunction<CardProps> = () => renderOverrideGrid(
+    ['outline', 'outline-inverse'],
+    '--card-border-color: red;',
+    'Border colour overridden with the --card-border-color CSS variable.',
+);
+
+export const BorderColorOverride = BorderColorOverrideTemplate.bind({});
+BorderColorOverride.parameters = {
+    controls: {
+        disable: true,
+    },
+};
+
+const BoxShadowDisabledTemplate: TemplateFunction<CardProps> = () => renderOverrideGrid(
+    ['default', 'inverse'],
+    '--card-box-shadow: none;',
+    'Box shadow removed with the --card-box-shadow CSS variable.',
+);
+
+export const BoxShadowDisabled = BoxShadowDisabledTemplate.bind({});
+BoxShadowDisabled.parameters = {
     controls: {
         disable: true,
     },

@@ -59,3 +59,19 @@ test.describe('PieCard - Slotted interactive controls visual tests', () => {
         await percySnapshot(page, 'PIE Card - With slotted interactive control');
     });
 });
+
+test.describe('PieCard - CSS Variables visual tests', () => {
+    test('should render outline variants with the border colour overridden', async ({ page }) => {
+        const borderColorOverridePage = new BasePage(page, 'card--border-color-override');
+        await borderColorOverridePage.load();
+
+        await percySnapshot(page, 'PIE Card - Border colour override');
+    });
+
+    test('should render variants with the box shadow disabled', async ({ page }) => {
+        const boxShadowDisabledPage = new BasePage(page, 'card--box-shadow-disabled');
+        await boxShadowDisabledPage.load();
+
+        await percySnapshot(page, 'PIE Card - Box shadow disabled');
+    });
+});
