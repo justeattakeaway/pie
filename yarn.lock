@@ -3650,7 +3650,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-card@npm:1.1.0, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
+"@justeattakeaway/pie-card@npm:1.2.0, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-card@workspace:packages/components/pie-card"
   dependencies:
@@ -3789,7 +3789,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.32.3"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
-    "@justeattakeaway/pie-webc": "npm:0.12.5"
+    "@justeattakeaway/pie-webc": "npm:0.12.6"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -4025,7 +4025,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-pagination@npm:0.0.0, @justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination":
+"@justeattakeaway/pie-pagination@npm:0.1.0, @justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-pagination@workspace:packages/components/pie-pagination"
   dependencies:
@@ -4099,7 +4099,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
-    "@justeattakeaway/pie-webc": "npm:0.12.5"
+    "@justeattakeaway/pie-webc": "npm:0.12.6"
     "@storybook/addon-a11y": "npm:10.6.2"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.6.2"
@@ -4270,7 +4270,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.12.5, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:0.12.6, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4279,7 +4279,7 @@ __metadata:
     "@justeattakeaway/pie-avatar": "npm:0.4.54"
     "@justeattakeaway/pie-breadcrumb": "npm:1.0.18"
     "@justeattakeaway/pie-button": "npm:1.15.1"
-    "@justeattakeaway/pie-card": "npm:1.1.0"
+    "@justeattakeaway/pie-card": "npm:1.2.0"
     "@justeattakeaway/pie-checkbox": "npm:1.4.10"
     "@justeattakeaway/pie-checkbox-group": "npm:1.2.12"
     "@justeattakeaway/pie-chip": "npm:1.0.17"
@@ -4295,7 +4295,7 @@ __metadata:
     "@justeattakeaway/pie-lottie-player": "npm:1.0.1"
     "@justeattakeaway/pie-modal": "npm:1.27.15"
     "@justeattakeaway/pie-notification": "npm:1.0.2"
-    "@justeattakeaway/pie-pagination": "npm:0.0.0"
+    "@justeattakeaway/pie-pagination": "npm:0.1.0"
     "@justeattakeaway/pie-radio": "npm:1.2.9"
     "@justeattakeaway/pie-radio-group": "npm:1.2.13"
     "@justeattakeaway/pie-select": "npm:0.9.16"
