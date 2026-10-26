@@ -3531,7 +3531,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeat/pie-design-tokens@workspace:packages/tools/pie-design-tokens"
   dependencies:
-    eslint-plugin-jest: "npm:29.16.6"
+    eslint-plugin-jest: "npm:29.17.0"
     jest: "npm:26.3.0"
     jsonc-parser: "npm:3.2.0"
     lodash.merge: "npm:4.6.2"
@@ -12783,9 +12783,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:29.16.6":
-  version: 29.16.6
-  resolution: "eslint-plugin-jest@npm:29.16.6"
+"eslint-plugin-jest@npm:29.17.0":
+  version: 29.17.0
+  resolution: "eslint-plugin-jest@npm:29.17.0"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.0.0"
   peerDependencies:
@@ -12800,7 +12800,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10/080eb1b22e583c06ac881963f7cf8aa52448ef015d743fd7fe519853ff7a6ebac05d55001f64e4d7298af006d5d7e636186e83a6850695b3f901d7e62acfe77b
+  checksum: 10/535c4af64b04042714887ab361ea1efb40806a8ef52db0ed26b1916b2059c11bc7dd9140d517ad617e15826b2a254e4c55e013467674c53c47277eef6ad096a2
   languageName: node
   linkType: hard
 
