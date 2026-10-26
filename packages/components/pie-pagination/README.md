@@ -17,6 +17,7 @@
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
   - [Events](#events)
+- [Page range and ellipsis](#page-range-and-ellipsis)
 - [Usage Examples](#usage-examples)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
@@ -49,6 +50,19 @@ This component does not expose any CSS variables.
 | `pie-pagination-page-change`  | `CustomEvent` | Fired when the user interacts with any pagination control. The event detail contains `{ currentPage }`, the page the user wants to navigate to. |
 | `pie-pagination-prev`         | `CustomEvent` | Fired when the user clicks the "previous" control. The event detail contains `{ currentPage }`. This event fires **in addition to** `pie-pagination-page-change`. |
 | `pie-pagination-next`         | `CustomEvent` | Fired when the user clicks the "next" control. The event detail contains `{ currentPage }`. This event fires **in addition to** `pie-pagination-page-change`. |
+
+### Page range and ellipsis
+
+When `totalPages` is large, the component automatically collapses the pages outside the current page's window behind a non-interactive ellipsis (`…`) separator. The first and last page are always visible. When the current page is near an edge, the window grows to five page buttons anchored to that edge; in the middle of the range only the current page and its immediate neighbours are shown:
+
+| Scenario                      | Rendered items      |
+|-------------------------------|---------------------|
+| Up to 7 pages                 | `1 2 3 4 5 6 7`     |
+| Near the start (page 2 of 50) | `1 2 3 4 5 … 50`    |
+| Middle (page 25 of 50)        | `1 … 24 25 26 … 50` |
+| Near the end (page 49 of 50)  | `1 … 46 47 48 49 50`|
+
+The visible range is derived entirely from the `currentPage` and `totalPages` props — the number of visible page controls is not configurable. Ellipsis items are rendered as `<span>` elements with `aria-hidden="true"`, so they are skipped by keyboard focus and hidden from screen readers.
 
 ## Usage Examples
 
