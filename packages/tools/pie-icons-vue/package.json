@@ -73,7 +73,7 @@
     "marked": "4.3.0",
     "pascal-case": "3.1.2",
     "prismjs": "1.30.0",
-    "rollup": "4.60.4",
+    "rollup": "4.64.10",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14"
   }
