@@ -59,6 +59,13 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
                 summary: defaultProps.openLinksInSameTab,
             },
         },
+        shouldFocusOnOpen: {
+            description: 'When true, focus moves to the banner dialog when it is displayed on mount. Only use when the banner is opened in response to a user action.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.shouldFocusOnOpen,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -88,6 +95,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
         personalizedDescription,
         defaultPreferences,
         openLinksInSameTab,
+        shouldFocusOnOpen,
     } = props;
 
     return html`
@@ -101,6 +109,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             .openLinksInSameTab="${openLinksInSameTab}"
             .defaultPreferences="${defaultPreferences}"
+            ?shouldFocusOnOpen="${shouldFocusOnOpen}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"
             @pie-cookie-banner-manage-prefs="${managePrefsAction}"
