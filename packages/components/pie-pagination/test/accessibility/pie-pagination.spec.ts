@@ -27,4 +27,17 @@ test.describe('PiePagination - Accessibility tests', () => {
         // Assert
         expect(results.violations).toEqual([]);
     });
+
+    test('a11y - should test the PiePagination component WCAG compliance with a large page range and ellipsis', async ({ page, makeAxeBuilder }) => {
+        // Arrange
+        const paginationPage = new PaginationDefaultPage(page);
+
+        await paginationPage.load({ currentPage: 25, totalPages: 50 });
+
+        // Act
+        const results = await makeAxeBuilder().analyze();
+
+        // Assert
+        expect(results.violations).toEqual([]);
+    });
 });
