@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.20.4
+
+### Patch Changes
+
+- [Added] - Web documentation for the List Item component ([#3262](https://github.com/justeattakeaway/pie/pull/3262)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.12.6
+
 ## 5.20.3
 
 ### Patch Changes

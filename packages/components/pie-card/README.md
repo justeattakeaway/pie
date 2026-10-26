@@ -50,7 +50,10 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### CSS Variables
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `--pie-card-overlay-z-index` | The `z-index` of the invisible overlay button used when `tag` is `"button"`. Slotted interactive controls can sit above it by setting `z-index: calc(var(--pie-card-overlay-z-index) + 1)` (plus `position: relative`), without needing to know the underlying value. Overriding the variable also adjusts the overlay itself. | `1` |
+| `--card-overlay-z-index` | The `z-index` of the invisible overlay button used when `tag` is `"button"`. Slotted interactive controls can sit above it by setting `z-index: calc(var(--card-overlay-z-index) + 1)` (plus `position: relative`), without needing to know the underlying value. Overriding the variable also adjusts the overlay itself. | `1` |
+| `--card-border-width` | Controls the width of the card's border. | `1px` |
+| `--card-border-color` | Controls the colour of the card's border. | `var(--dt-color-border-strong)` (`outline`), `var(--dt-color-border-inverse)` (`outline-inverse`) |
+| `--card-box-shadow` | Controls the box shadow of the card. | `var(--dt-elevation-below-10)` (`default`), `var(--dt-elevation-inverse-below-10)` (`inverse`) |
 
 ### Events
 
@@ -120,7 +123,7 @@ When the card is clickable but also contains its own controls (a button, a link,
     .aria="${ { label: 'View restaurant', description: 'Opens the restaurant details', haspopup: 'dialog' } }">
     <h2>Restaurant name</h2>
     <p>Rating, cuisine and distance.</p>
-    <button style="position: relative; z-index: calc(var(--pie-card-overlay-z-index) + 1);">
+    <button style="position: relative; z-index: calc(var(--card-overlay-z-index) + 1);">
         Add to order
     </button>
 </pie-card>
