@@ -146,6 +146,14 @@ export interface CookieBannerProps {
      * When false (default), links open in a new browser tab (`target="_blank"`).
      */
     openLinksInSameTab?: boolean;
+
+    /**
+     * When true, focus moves to the banner dialog when it is displayed on mount,
+     * so screen readers announce it. Only set this when the banner is opened
+     * in response to a user action; on initial page load focus must remain untouched.
+     * When false (default), the banner does not take focus on mount.
+     */
+    shouldFocusOnOpen?: boolean;
 }
 
 /**
@@ -228,6 +236,7 @@ export const defaultProps: DefaultProps = {
     personalizedDescription: '',
     cookieTechnologiesLink: '',
     openLinksInSameTab: false,
+    shouldFocusOnOpen: false,
 };
 
 // Available locale files

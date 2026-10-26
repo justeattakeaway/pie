@@ -6,7 +6,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, state, queryAll,
+    property, state, query, queryAll,
 } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
@@ -92,8 +92,14 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     @property({ type: Boolean })
     public openLinksInSameTab = defaultProps.openLinksInSameTab;
 
+    @property({ type: Boolean })
+    public shouldFocusOnOpen = defaultProps.shouldFocusOnOpen;
+
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
+
+    @query('[data-test-id="pie-cookie-banner"]')
+    private _bannerContainer!: HTMLElement;
 
     /**
      * Returns the target attribute value for external links based on the openLinksInSameTab prop.
@@ -104,11 +110,31 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
         return this.openLinksInSameTab ? '_self' : '_blank';
     }
 
+    firstUpdated () {
+        // Only take focus on mount when the banner was opened by a user action
+        if (this.shouldFocusOnOpen && !this._isCookieBannerHidden) {
+            this._focusBanner();
+        }
+    }
+
     async updated (changedProperties: PropertyValues<this>) {
         // Re-fetch locale when country or language changes
         if (changedProperties.has('language') || changedProperties.has('country')) {
             await this._setLocaleBasedOnCountryAndLanguage(this.language, this.country);
         }
+
+        // Move focus to the banner whenever it reappears, so screen readers announce the dialog
+        if (changedProperties.get('_isCookieBannerHidden' as keyof PieCookieBanner) === true && !this._isCookieBannerHidden) {
+            this._focusBanner();
+        }
+    }
+
+    /**
+     * Moves focus to the banner dialog container.
+     * The container uses tabindex="-1", so it is only focusable programmatically.
+     */
+    private _focusBanner () : void {
+        this._bannerContainer?.focus();
     }
 
     // Dynamically import locale JSON based on country and language
@@ -342,10 +368,17 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
             @pie-modal-back="${this._displayCookieBanner}">
                 ${this.renderModalContent()}
         </pie-modal>
-        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
-            <h2 class="c-cookieBanner-title">${this._localiseText('banner.title')}</h2>
+        <div
+            data-test-id="pie-cookie-banner"
+            class="c-cookieBanner"
+            role="dialog"
+            aria-labelledby="cookie-banner-title"
+            aria-describedby="cookie-banner-text"
+            tabindex="-1"
+            ?isCookieBannerHidden=${this._isCookieBannerHidden}>
+            <h2 id="cookie-banner-title" class="c-cookieBanner-title">${this._localiseText('banner.title')}</h2>
             <div class="c-cookieBanner-body" data-test-id="banner-description">
-                <p>${this._localiseRichText('banner.description')}</p>
+                <p id="cookie-banner-text">${this._localiseRichText('banner.description')}</p>
             </div>
 
             <div class="c-cookieBanner-actions">
@@ -374,7 +407,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
                     ${this._localiseText('banner.cta.managePreferences')}
                 </pie-link>
             </div>
-        </aside>`;
+        </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
