@@ -133,7 +133,7 @@ When the card is clickable but also contains its own controls (a button, a link,
 
 Note: slotted controls need a `position` (e.g. `relative`) for their `z-index` to apply.
 
-In React, the same applies — calling `event.stopPropagation()` in the slotted control's `onClick` prevents the card's `onClick` from also running:
+This applies in every framework, not just React — call `event.stopPropagation()` in the slotted control's click handler. For example, in React:
 
 ```jsx
 <PieCard tag="button" onClick={openRestaurant}>
