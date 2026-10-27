@@ -72,4 +72,11 @@ test.describe('PieCookieBanner - Visual tests`', () => {
 
         await percySnapshot(page, 'PieCookieBanner personalizedDescription override - Visual Test');
     });
+
+    test('should limit the width of the banner when `--cb-max-inline-size` is overridden', async ({ page }) => {
+        pieCookieBannerComponent.componentName = 'cookie-banner--custom-max-inline-size';
+        await pieCookieBannerComponent.load();
+
+        await percySnapshot(page, 'PieCookieBanner --cb-max-inline-size override - Visual Test');
+    });
 });
