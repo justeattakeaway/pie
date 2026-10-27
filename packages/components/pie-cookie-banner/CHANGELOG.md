@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.12.0
+
+### Minor Changes
+
+- [Added] - new `--cb-max-inline-size` custom property ([#3267](https://github.com/justeattakeaway/pie/pull/3267)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 1.11.0
 
 ### Minor Changes
