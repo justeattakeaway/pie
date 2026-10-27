@@ -3810,6 +3810,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-dropdown@npm:0.0.0, @justeattakeaway/pie-dropdown@workspace:packages/components/pie-dropdown":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-dropdown@workspace:packages/components/pie-dropdown"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "npm:0.21.5"
+    "@justeattakeaway/pie-css": "npm:1.9.1"
+    "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
+    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-form-label@npm:1.0.1, @justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label"
@@ -4287,6 +4298,7 @@ __metadata:
     "@justeattakeaway/pie-cookie-banner": "npm:1.11.0"
     "@justeattakeaway/pie-data-table": "npm:0.4.1"
     "@justeattakeaway/pie-divider": "npm:1.5.38"
+    "@justeattakeaway/pie-dropdown": "npm:0.0.0"
     "@justeattakeaway/pie-form-label": "npm:1.0.1"
     "@justeattakeaway/pie-icon-button": "npm:2.8.1"
     "@justeattakeaway/pie-icon-with-background": "npm:0.4.6"
