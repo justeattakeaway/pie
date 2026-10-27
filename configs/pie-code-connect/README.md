@@ -225,6 +225,28 @@ The code provided in the template files will literally run inside Figma UI, ther
 
 We go around this limitation by inlining code. It means that we can import code, so far it is limited to one level deep and external dependencies should not be used.
 
+#### Templates with multiple root elements
+
+A snippet that renders more than one top-level element (for example a nested `Form label` rendered next to the control) is invalid JSX, and the Figma CLI marks every render of it as failed (`Snippet has syntax errors and may not be valid code`). When this can happen, wrap the snippet in a React fragment, **conditionally**:
+
+- Only when `process.env.FRAMEWORK === 'react'`. Web components and Vue accept sibling roots.
+- Only when the extra root actually rendered. A nested instance without a Code Connect template produces a placeholder comment, and a single element needs no wrapper.
+
+```javascript
+const isReact = process.env.FRAMEWORK === 'react';
+const formLabelSnippet = getInstanceTemplate(['Form label']);
+
+const needsFragment = isReact && Boolean(formLabelSnippet);
+const fragmentOpen = needsFragment ? '<>\n' : '';
+const fragmentClose = needsFragment ? '\n</>' : '';
+
+const template = figma.code`${fragmentOpen}${formLabelSnippet || ''}
+<${selectedComponentName}>
+</${selectedComponentName}>${fragmentClose}`;
+```
+
+See `pie-select.figma.batch.js`, `pie-text-input.figma.batch.js` and `pie-textarea.figma.batch.js` for working examples.
+
 ### 2. Update component metadata
 
 Add an entry to `components.figma.batch.json` with:
