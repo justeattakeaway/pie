@@ -71,6 +71,8 @@ document.querySelector('pie-card').addEventListener('click', () => { /* … */ }
 
 Clicks on slotted content bubble to the `<pie-card>` host, like any nested element. If a slotted interactive control (e.g. a button inside the card that has been raised above the overlay) should not also activate the card, call `event.stopPropagation()` in that control's click handler, so the card action and the slotted controls remain independent.
 
+Note: because the overlay covers the card surface, text inside the card cannot be selected.
+
 ## Usage Examples
 
 **For HTML:**
