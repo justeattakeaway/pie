@@ -69,7 +69,9 @@ When `tag` is `"button"`, the card renders an invisible `<button>` overlay that 
 document.querySelector('pie-card').addEventListener('click', () => { /* … */ });
 ```
 
-Clicks on slotted interactive controls (e.g. a button inside the card that has been raised above the overlay) do **not** trigger the card's `click` event, so the card action and the slotted controls remain independent.
+Clicks on slotted content bubble to the `<pie-card>` host, like any nested element. If a slotted interactive control (e.g. a button inside the card that has been raised above the overlay) should not also activate the card, call `event.stopPropagation()` in that control's click handler, so the card action and the slotted controls remain independent.
+
+Note: because the overlay covers the card surface, text inside the card cannot be selected.
 
 ## Usage Examples
 
@@ -114,7 +116,7 @@ import { PieCard } from '@justeattakeaway/pie-webc/react/card.js';
 
 **Card with slotted interactive controls (`tag="button"`):**
 
-When the card is clickable but also contains its own controls (a button, a link, a switch…), keep `tag` as `"button"` and raise the slotted controls above the card's invisible overlay using the exposed CSS variable. Clicks on the card surface trigger the card's `click` event, while clicks on the raised controls do not:
+When the card is clickable but also contains its own controls (a button, a link, a switch…), keep `tag` as `"button"` and raise the slotted controls above the card's invisible overlay using the exposed CSS variable. Clicks on the card surface trigger the card's `click` event. Clicks on the raised controls also bubble to the card, so call `event.stopPropagation()` in the control's handler when it should not activate the card too:
 
 ```html
 <pie-card
@@ -123,7 +125,9 @@ When the card is clickable but also contains its own controls (a button, a link,
     .aria="${ { label: 'View restaurant', description: 'Opens the restaurant details', haspopup: 'dialog' } }">
     <h2>Restaurant name</h2>
     <p>Rating, cuisine and distance.</p>
-    <button style="position: relative; z-index: calc(var(--card-overlay-z-index) + 1);">
+    <button
+        style="position: relative; z-index: calc(var(--card-overlay-z-index) + 1);"
+        onclick="event.stopPropagation()">
         Add to order
     </button>
 </pie-card>
