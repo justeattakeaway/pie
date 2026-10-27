@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-webc
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Clicks on slotted content now bubble to the `pie-card` host, matching native DOM behaviour. Slotted interactive controls that should not activate the card must call `event.stopPropagation()` in their click handler. ([#3279](https://github.com/justeattakeaway/pie/pull/3279)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `--card-overlay-z-index` CSS custom property. Consumers should add `z-index: calc(var(--card-overlay-z-index) + 1)` (plus `position: relative`) to interactive slotted children so they sit above the card overlay
+
+  [Fixed] - `onClick` handlers on slotted interactive controls inside a `tag="button"` card did not fire in React, because the card stopped click propagation before React's delegated root listener
+
+### Patch Changes
+
+- Updated dependencies [[`9ce3d25`](https://github.com/justeattakeaway/pie/commit/9ce3d2572994a0bca92f9f6a8d1ab7671b55dc8e)]:
+  - @justeattakeaway/pie-card@2.0.0
+
 ## 0.12.8
 
 ### Patch Changes

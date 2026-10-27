@@ -3650,7 +3650,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-card@npm:1.2.0, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
+"@justeattakeaway/pie-card@npm:2.0.0, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-card@workspace:packages/components/pie-card"
   dependencies:
@@ -3789,7 +3789,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.32.3"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
-    "@justeattakeaway/pie-webc": "npm:0.12.8"
+    "@justeattakeaway/pie-webc": "npm:1.0.0"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -4110,7 +4110,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.29.5"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.12"
-    "@justeattakeaway/pie-webc": "npm:0.12.8"
+    "@justeattakeaway/pie-webc": "npm:1.0.0"
     "@storybook/addon-a11y": "npm:10.6.3"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.6.3"
@@ -4281,7 +4281,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:0.12.8, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:1.0.0, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4290,7 +4290,7 @@ __metadata:
     "@justeattakeaway/pie-avatar": "npm:0.4.54"
     "@justeattakeaway/pie-breadcrumb": "npm:1.0.18"
     "@justeattakeaway/pie-button": "npm:1.15.1"
-    "@justeattakeaway/pie-card": "npm:1.2.0"
+    "@justeattakeaway/pie-card": "npm:2.0.0"
     "@justeattakeaway/pie-checkbox": "npm:1.4.10"
     "@justeattakeaway/pie-checkbox-group": "npm:1.2.12"
     "@justeattakeaway/pie-chip": "npm:1.0.17"
