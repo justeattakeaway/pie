@@ -51,16 +51,26 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
     public disabled = defaultProps.disabled;
 
     protected updated (changedProperties: PropertyValues<this>): void {
-        if (changedProperties.has('totalPages') && this.totalPages < 1) {
-            console.warn(`pie-pagination: "totalPages" must be at least 1, received "${this.totalPages}".`);
+        if (changedProperties.has('totalPages')) {
+            if (!Number.isFinite(this.totalPages)) {
+                console.warn(`pie-pagination: "totalPages" must be a finite number, received "${this.totalPages}".`);
+            } else if (!Number.isInteger(this.totalPages)) {
+                console.warn(`pie-pagination: "totalPages" must be a positive integer, received "${this.totalPages}".`);
+            } else if (this.totalPages < 1) {
+                console.warn(`pie-pagination: "totalPages" must be at least 1, received "${this.totalPages}".`);
+            }
         }
 
-        if (changedProperties.has('currentPage') && this.currentPage < 1) {
-            console.warn(`pie-pagination: "currentPage" must be at least 1, received "${this.currentPage}".`);
-        }
-
-        if (changedProperties.has('currentPage') && this.currentPage > this.totalPages) {
-            console.warn(`pie-pagination: "currentPage" (${this.currentPage}) cannot be greater than "totalPages" (${this.totalPages}).`);
+        if (changedProperties.has('currentPage')) {
+            if (!Number.isFinite(this.currentPage)) {
+                console.warn(`pie-pagination: "currentPage" must be a finite number, received "${this.currentPage}".`);
+            } else if (!Number.isInteger(this.currentPage)) {
+                console.warn(`pie-pagination: "currentPage" must be a positive integer, received "${this.currentPage}".`);
+            } else if (this.currentPage < 1) {
+                console.warn(`pie-pagination: "currentPage" must be at least 1, received "${this.currentPage}".`);
+            } else if (this.currentPage > this.totalPages) {
+                console.warn(`pie-pagination: "currentPage" (${this.currentPage}) cannot be greater than "totalPages" (${this.totalPages}).`);
+            }
         }
     }
 

@@ -548,4 +548,104 @@ test.describe('PiePagination - Component tests', () => {
         expect(snapshots).toHaveLength(1);
         expect(snapshots[0]).toEqual({ currentPage: 2 });
     });
+
+    test.describe('Prop validation warnings', () => {
+        /**
+         * Sets a pagination property imperatively on the rendered element. Storybook
+         * args cannot express NaN, Infinity or undefined, so invalid values are applied
+         * as real property assignments from the browser instead. Values are passed as
+         * serialisable tokens and converted browser-side.
+         */
+        async function setPaginationProp (page: Page, prop: 'currentPage' | 'totalPages', token: 'NaN' | 'Infinity' | 'undefined' | number) {
+            await page.evaluate(({ name, token: raw }) => {
+                const element = document.querySelector('pie-pagination') as HTMLElement & Record<string, unknown>;
+
+                let value: unknown = raw;
+                if (raw === 'NaN') value = NaN;
+                else if (raw === 'Infinity') value = Infinity;
+                else if (raw === 'undefined') value = undefined;
+
+                element[name] = value;
+            }, { name: prop, token });
+        }
+
+        test('should warn when totalPages is not a finite number', async ({ page }) => {
+            // Arrange
+            const paginationPage = new PaginationDefaultPage(page);
+            await paginationPage.load({ currentPage: 1, totalPages: 20 });
+
+            // Act / Assert — the listener is installed before each mutation so the
+            // asynchronous CDP console message cannot be missed (see components AGENTS.md).
+            const invalidTokens: Array<'NaN' | 'Infinity' | 'undefined'> = ['NaN', 'Infinity', 'undefined'];
+            for (let index = 0; index < invalidTokens.length; index += 1) {
+                const token = invalidTokens[index];
+                // eslint-disable-next-line no-await-in-loop
+                const received = page.waitForEvent('console', (msg) => msg.type() === 'warning' && msg.text() === `pie-pagination: "totalPages" must be a finite number, received "${token}".`);
+                // eslint-disable-next-line no-await-in-loop
+                await setPaginationProp(page, 'totalPages', token);
+                // eslint-disable-next-line no-await-in-loop
+                await received;
+            }
+
+            // Assert — the component still renders (garbage in, garbage out, but diagnosed).
+            await expect(page.locator(componentSelector)).toBeVisible();
+        });
+
+        test('should warn when currentPage is not a finite number', async ({ page }) => {
+            // Arrange
+            const paginationPage = new PaginationDefaultPage(page);
+            await paginationPage.load({ currentPage: 1, totalPages: 20 });
+
+            // Act / Assert
+            const invalidTokens: Array<'NaN' | 'Infinity' | 'undefined'> = ['NaN', 'Infinity', 'undefined'];
+            for (let index = 0; index < invalidTokens.length; index += 1) {
+                const token = invalidTokens[index];
+                // eslint-disable-next-line no-await-in-loop
+                const received = page.waitForEvent('console', (msg) => msg.type() === 'warning' && msg.text() === `pie-pagination: "currentPage" must be a finite number, received "${token}".`);
+                // eslint-disable-next-line no-await-in-loop
+                await setPaginationProp(page, 'currentPage', token);
+                // eslint-disable-next-line no-await-in-loop
+                await received;
+            }
+
+            // Assert — the component still renders.
+            await expect(page.locator(componentSelector)).toBeVisible();
+        });
+
+        test('should warn when a prop is not an integer', async ({ page }) => {
+            // Arrange
+            const paginationPage = new PaginationDefaultPage(page);
+            await paginationPage.load({ currentPage: 1, totalPages: 20 });
+
+            // Act / Assert
+            const totalPagesReceived = page.waitForEvent('console', (msg) => msg.type() === 'warning' && msg.text() === 'pie-pagination: "totalPages" must be a positive integer, received "8.5".');
+            await setPaginationProp(page, 'totalPages', 8.5);
+            await totalPagesReceived;
+
+            const currentPageReceived = page.waitForEvent('console', (msg) => msg.type() === 'warning' && msg.text() === 'pie-pagination: "currentPage" must be a positive integer, received "4.5".');
+            await setPaginationProp(page, 'currentPage', 4.5);
+            await currentPageReceived;
+
+            // Assert — the component still renders.
+            await expect(page.locator(componentSelector)).toBeVisible();
+        });
+
+        test('should keep warning when a prop is out of range', async ({ page }) => {
+            // Arrange — locks the pre-existing warning messages alongside the new predicates.
+            const paginationPage = new PaginationDefaultPage(page);
+            await paginationPage.load({ currentPage: 1, totalPages: 5 });
+
+            // Act / Assert — the second warning compares against the mutated totalPages (0).
+            const totalPagesReceived = page.waitForEvent('console', (msg) => msg.type() === 'warning' && msg.text() === 'pie-pagination: "totalPages" must be at least 1, received "0".');
+            await setPaginationProp(page, 'totalPages', 0);
+            await totalPagesReceived;
+
+            const currentPageReceived = page.waitForEvent('console', (msg) => msg.type() === 'warning' && msg.text() === 'pie-pagination: "currentPage" (10) cannot be greater than "totalPages" (0).');
+            await setPaginationProp(page, 'currentPage', 10);
+            await currentPageReceived;
+
+            // Assert — the component still renders.
+            await expect(page.locator(componentSelector)).toBeVisible();
+        });
+    });
 });
