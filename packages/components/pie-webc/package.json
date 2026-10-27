@@ -406,6 +406,11 @@
       "require": "./components/divider.js",
       "types": "./components/divider.d.ts"
     },
+    "./components/dropdown": {
+      "import": "./components/dropdown.js",
+      "require": "./components/dropdown.js",
+      "types": "./components/dropdown.d.ts"
+    },
     "./react/divider.js": {
       "import": "./react/divider.js",
       "require": "./react/divider.js",
@@ -902,6 +907,7 @@
     "@justeattakeaway/pie-cookie-banner": "1.11.0",
     "@justeattakeaway/pie-data-table": "0.4.1",
     "@justeattakeaway/pie-divider": "1.5.38",
+    "@justeattakeaway/pie-dropdown": "0.0.0",
     "@justeattakeaway/pie-form-label": "1.0.1",
     "@justeattakeaway/pie-icon-button": "2.8.1",
     "@justeattakeaway/pie-icon-with-background": "0.4.6",
