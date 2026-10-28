@@ -70,6 +70,16 @@ export interface RovingTabindexOptions {
     isTabbable?: () => boolean;
 
     /**
+     * Returns whether type-ahead is enabled: typing printable characters
+     * moves focus to the first item whose text starts with the accumulated
+     * string. Disable it when the host provides its own destination for
+     * printable characters (e.g. a filtering combobox, where typing goes to
+     * the textbox instead).
+     * @default () => true
+     */
+    isTypeaheadEnabled?: () => boolean;
+
+    /**
      * Called whenever the active item changes (via keyboard navigation, focus,
      * or {@link RovingTabindexController.setActiveItem}). Not called for the
      * initial {@link RovingTabindexController.sync} assignment.
@@ -138,6 +148,9 @@ export class RovingTabindexController implements ReactiveController {
     /** Returns whether the active item is part of the page tab sequence. */
     private isTabbable: () => boolean;
 
+    /** Returns whether typing printable characters navigates the group. */
+    private isTypeaheadEnabled: () => boolean;
+
     /** The item that currently owns `tabindex="0"`, tracked by reference so it survives reordering. */
     private _activeItem: HTMLElement | null = null;
 
@@ -161,6 +174,7 @@ export class RovingTabindexController implements ReactiveController {
         this.isRtl = options.isRtl ?? (() => false);
         this.getItemText = options.getItemText;
         this.isTabbable = options.isTabbable ?? (() => true);
+        this.isTypeaheadEnabled = options.isTypeaheadEnabled ?? (() => true);
         this.onActiveChange = options.onActiveChange;
 
         host.addController(this);
@@ -267,7 +281,7 @@ export class RovingTabindexController implements ReactiveController {
         const focusedIndex = path.findIndex((node) => node instanceof HTMLElement && this.getItems().includes(node));
         if (focusedIndex === -1) return;
 
-        if (this._handleTypeahead(event)) return;
+        if (this.isTypeaheadEnabled() && this._handleTypeahead(event)) return;
 
         const { key } = event;
 
@@ -310,14 +324,26 @@ export class RovingTabindexController implements ReactiveController {
         const items = this.getItems();
         if (items.length === 0) return false;
 
-        this._typeaheadBuffer += event.key.toLowerCase();
+        const key = event.key.toLowerCase();
+        const candidate = this._typeaheadBuffer + key;
+
+        let buffer = candidate;
+        let match = items.find((item) => this.getItemText?.(item)?.toLowerCase().startsWith(candidate));
+
+        if (!match && this._typeaheadBuffer !== '') {
+            // A non-match restarts the buffer from the new character, so a
+            // keystroke after a missed guess is never swallowed by a stale
+            // prefix (standard type-ahead restart behaviour).
+            buffer = key;
+            match = items.find((item) => this.getItemText?.(item)?.toLowerCase().startsWith(key));
+        }
+
+        this._typeaheadBuffer = buffer;
         window.clearTimeout(this._typeaheadTimeout);
         this._typeaheadTimeout = window.setTimeout(
             () => this._clearTypeahead(),
             TYPEAHEAD_BUFFER_MS,
         );
-
-        const match = items.find((item) => this.getItemText?.(item)?.toLowerCase().startsWith(this._typeaheadBuffer));
 
         event.preventDefault();
 

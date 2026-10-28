@@ -142,6 +142,35 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(firstOption).toHaveAttribute('tabindex', '-1');
         });
 
+        test('should move focus to the first matching option when typing (type-ahead)', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(option).filter({ hasText: 'Pizza' })).toBeFocused();
+
+            await page.keyboard.type('cu');
+
+            // Type-ahead jumps to the first option whose text starts with the
+            // typed string, without selecting it (the select-only pattern).
+            await expect(page.getByTestId(option).filter({ hasText: 'Curry' })).toBeFocused();
+            await expect(page.getByTestId(valueText)).toHaveCount(0);
+        });
+
+        test('should restart type-ahead from a new character when nothing matches', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(option).filter({ hasText: 'Pizza' })).toBeFocused();
+
+            // 'z' matches nothing; the next character must restart the buffer
+            // rather than being swallowed by the stale 'z' prefix.
+            await page.keyboard.type('zb');
+
+            await expect(page.getByTestId(option).filter({ hasText: 'Burger' })).toBeFocused();
+        });
+
         test('should skip the option list when tabbing from the field while the popover is open', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select');
             await dropdownPage.load();
@@ -383,6 +412,61 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(popover)).toBeVisible();
             await expect(input).toBeFocused();
             await expect(page.getByTestId(popover).locator('pie-checkbox')).toHaveCount(6);
+        });
+
+        test('should return to the search field and filter when typing while an option is focused', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+            await page.keyboard.press('ArrowDown');
+            await expect(page.getByTestId(option).filter({ hasText: 'Pizza' })).toBeFocused();
+
+            // The first character is intercepted: it appends to the search
+            // text, focus returns to the field and the list filters; the
+            // remaining characters land in the input naturally.
+            await page.keyboard.type('pas');
+
+            await expect(input).toBeFocused();
+            await expect(input).toHaveValue('pas');
+            await expect(page.getByTestId(option)).toHaveCount(1);
+            await expect(page.getByTestId(option)).toHaveText('Pasta');
+        });
+
+        test('should append to the existing search text when typing while an option is focused', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.fill('Pas');
+            await page.keyboard.press('ArrowDown');
+            await expect(page.getByTestId(option).filter({ hasText: 'Pasta' })).toBeFocused();
+
+            // The search context is preserved while navigating the filtered
+            // list, so typing appends rather than starting fresh.
+            await page.keyboard.type('t');
+
+            await expect(input).toBeFocused();
+            await expect(input).toHaveValue('Past');
+            await expect(page.getByTestId(option)).toHaveCount(1);
+            await expect(page.getByTestId(option)).toHaveText('Pasta');
+        });
+
+        test('should return to the search field when typing while a checkbox is focused (multi select)', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+            await page.keyboard.press('Tab');
+            await expect(page.getByTestId(popover).locator('pie-checkbox').first()).toBeFocused();
+
+            await page.keyboard.type('bur');
+
+            await expect(input).toBeFocused();
+            await expect(input).toHaveValue('bur');
+            await expect(page.getByTestId(popover).locator('pie-checkbox')).toHaveCount(1);
         });
 
         test('should open the popover on focus and filter options as the user types', async ({ page }) => {

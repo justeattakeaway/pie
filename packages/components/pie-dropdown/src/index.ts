@@ -223,6 +223,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      * The options are never part of the page tab sequence: the field is the
      * single tab stop and the list is navigated with arrow keys (the combobox
      * pattern), so Tab moves past the popover entirely.
+     *
+     * Type-ahead only applies to non-searchable variants (the select-only
+     * combobox pattern). In searchable variants, printable characters belong
+     * in the search field instead — see `_onKeydown`.
      */
     private readonly _roving = new RovingTabindexController(this, {
         getItems: () => this._optionEls
@@ -230,6 +234,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         orientation: 'vertical',
         wrap: false,
         isTabbable: () => false,
+        isTypeaheadEnabled: () => !this.isSearchable,
         isRtl: () => this.isRTL,
         getItemText: (item) => item.getAttribute('aria-label') ?? item.textContent ?? '',
     });
@@ -536,6 +541,23 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             event.preventDefault();
             this._closePopover('keyboard');
             this._refocusField();
+            return;
+        }
+
+        // Searchable variants: printable characters belong in the search
+        // field (the combobox pattern), never in the option list. The first
+        // keystroke on a focused option row returns to the field and filters
+        // (appending to any search text already typed); every later keystroke
+        // lands in the input naturally. Space is excluded — on an option row
+        // it toggles the row's control (Enter/Space select, checkboxes
+        // toggle).
+        if (this.isSearchable && event.key.length === 1 && event.key !== ' ' &&
+            !event.altKey && !event.ctrlKey && !event.metaKey &&
+            event.composedPath().includes(this._popover)) {
+            event.preventDefault();
+            this._searchText = `${this._searchText ?? ''}${event.key}`;
+            dispatchCustomEvent(this, 'pie-dropdown-search', { searchText: this._searchText });
+            this._field?.focus();
             return;
         }
 

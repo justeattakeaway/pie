@@ -81,6 +81,8 @@ Focus that is a side effect of another interaction (such as the focus returning 
 #### Keyboard navigation
 The option list is never part of the page tab sequence: the field is the single tab stop, `Tab` moves past the popover entirely, and the options are navigated with the arrow keys (with `Home`, `End` and type-ahead). Pressing `Tab` or clicking outside the dropdown closes the popover. In multi-select variants the options are checkboxes, which are tab stops (the field's single-tab-stop rule applies to the single-select listbox).
 
+In **searchable** variants, typing always searches: if focus is in the option list, the first character typed returns focus to the search field and filters the options (appending to any search text already typed — `Space` still toggles the focused row's control). In **non-searchable** single select, typing jumps focus to the first option whose text starts with the typed characters (type-ahead, like a native `<select>`).
+
 #### Popover positioning
 The popover always renders below the field — it never flips above the dropdown. When there is not enough room left in the viewport below, the popover is clipped by the viewport edge (consumers should avoid placing the dropdown where this can happen).
 
