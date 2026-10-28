@@ -104,6 +104,28 @@ function filterMeaningfulCliOutput (stderr) {
 }
 
 /**
+ * Detects the CLI warning that it could not read a node's property definitions.
+ *
+ * The CLI treats this as non-fatal: it carries on and emits a degraded preview (empty
+ * `availableProperties`, only the default property combination rendered) and exits
+ * with success. Left alone, that surfaces as every component "changed" — or, worse,
+ * gets written into the baseline by `snapshot:update`. It is almost always a Figma
+ * token that is missing a scope or has lost access to the file, so name that.
+ *
+ * @param {string} stderr - Raw stderr from the preview.
+ * @returns {string|undefined} A message, or `undefined` if the warning is absent.
+ */
+function describeUnreadableProperties (stderr) {
+    // eslint-disable-next-line no-control-regex
+    const clean = (stderr || '').replace(/\u001b\[[0-9;]*m/g, '');
+    const nodes = [...clean.matchAll(/Couldn't fetch property definitions for node ([\w:-]+)/g)].map(([, id]) => id);
+
+    if (nodes.length === 0) return undefined;
+
+    return `the Figma CLI could not fetch property definitions for node ${[...new Set(nodes)].join(', ')} — check that FIGMA_ACCESS_TOKEN has the "File content: Read" and "Code Connect: Write" scopes and that its owner can access the Figma file`;
+}
+
+/**
  * Parses the CLI's JSON output, or returns `undefined` if it did not emit any.
  *
  * @param {string} stdout - Raw stdout from the preview.
@@ -216,6 +238,14 @@ function runPreview (templateFile, flags) {
 
     if (result.error) {
         throw result.error;
+    }
+
+    // Checked before the output is read: a preview that could not read property
+    // definitions still prints valid JSON, but it is incomplete and must not be compared.
+    const unreadableProperties = describeUnreadableProperties(result.stderr);
+
+    if (unreadableProperties) {
+        throw new Error(unreadableProperties);
     }
 
     // The CLI prints its JSON to stdout and its logging to stderr, then exits 1 if
