@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { DropdownFormPage } from '../helpers/page-object/pie-dropdown-form.page.ts';
 import { dropdown } from '../helpers/page-object/selectors.ts';
 
 const trigger = dropdown.selectors.trigger.dataTestId;
@@ -1086,5 +1087,96 @@ test.describe('PieDropdown - Component tests', () => {
 
             await page.waitForFunction(() => window.__eventsArray?.includes('change'));
         });
+    });
+});
+
+test.describe('PieDropdown - Form integration', () => {
+    test('should submit the selected value as a form entry', async ({ page }) => {
+        const formPage = new DropdownFormPage(page);
+        await formPage.load();
+
+        await page.getByTestId(trigger).click();
+        await page.getByTestId(option).filter({ hasText: 'Curry' }).click();
+
+        await formPage.submitButton.click();
+
+        await expect(formPage.formData).toHaveText(JSON.stringify([['meals', 'curry']]));
+    });
+
+    test('should submit one entry per selected option in multi-select variants', async ({ page }) => {
+        const formPage = new DropdownFormPage(page, 'dropdown--example-multi-form');
+        await formPage.load();
+
+        await page.getByTestId(dropdown.selectors.field.dataTestId).click();
+        await page.getByTestId(option).filter({ hasText: 'Burger' }).locator('pie-checkbox').click();
+        await page.getByTestId(option).filter({ hasText: 'Curry' }).locator('pie-checkbox').click();
+
+        // Multi-select keeps the popover open while selecting, and it
+        // overlays the form's submit button, so close it first.
+        await page.keyboard.press('Escape');
+
+        await formPage.submitButton.click();
+
+        await expect(formPage.formData).toHaveText(JSON.stringify([['meals', 'burger'], ['meals', 'curry']]));
+    });
+
+    test('should not submit an entry when there is no selection', async ({ page }) => {
+        const formPage = new DropdownFormPage(page);
+        await formPage.load();
+
+        await formPage.submitButton.click();
+
+        await expect(formPage.formData).toHaveText('[]');
+    });
+
+    test('should block submission when required and empty', async ({ page }) => {
+        const formPage = new DropdownFormPage(page);
+        await formPage.load();
+
+        await page.evaluate(() => {
+            const dropdownEl = document.querySelector('pie-dropdown');
+            dropdownEl.required = true;
+            return dropdownEl.updateComplete;
+        });
+
+        await formPage.submitButton.click();
+
+        // Constraint validation blocks the submit handler from running, so
+        // no form data is serialised.
+        await expect(formPage.formData).toHaveText('');
+
+        const isInvalid = await page.evaluate(() => document.querySelector('pie-dropdown')?.checkValidity());
+        expect(isInvalid).toBe(false);
+    });
+
+    test('should restore the default value and dispatch a change event when the form is reset', async ({ page }) => {
+        const formPage = new DropdownFormPage(page);
+        await formPage.load();
+
+        // Select something (the form's default value is empty).
+        await page.getByTestId(trigger).click();
+        await page.getByTestId(option).filter({ hasText: 'Curry' }).click();
+        await expect(page.getByTestId(valueText)).toHaveText('Curry');
+
+        // The change event the reset dispatches (custom behaviour, mirroring
+        // the other PIE form controls). The listener is set up before the
+        // action so it can never be missed.
+        const changeReceived = page.waitForEvent(
+            'console',
+            (msg) => msg.type() === 'info' && msg.text().includes('"change"'),
+        );
+        await formPage.resetButton.click();
+        await changeReceived;
+
+        // The field shows the placeholder again.
+        await expect(page.getByTestId(valueText)).toHaveCount(0);
+        await expect(page.getByTestId(dropdown.selectors.placeholder.dataTestId)).toBeVisible();
+    });
+
+    test('should be disabled inside a disabled fieldset', async ({ page }) => {
+        const formPage = new DropdownFormPage(page, 'dropdown--example-fieldset-form');
+        await formPage.load();
+
+        await expect(page.getByTestId(trigger)).toBeDisabled();
     });
 });

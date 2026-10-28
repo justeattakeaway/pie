@@ -163,10 +163,25 @@ The component defines these CSS variables, which can be overridden:
 ### Events
 | Event                  | Description                                                                                                                      |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| `change`               | Fired when the selection is changed by the user. Like a native form control, it bubbles and crosses the shadow boundary.          |
+| `change`               | Fired when the selection is changed by the user, and when the owning form is reset (custom behaviour — native controls do not fire `change` on reset). Like a native form control, it bubbles and crosses the shadow boundary; read the new value from `event.target.value`. |
 | `pie-dropdown-open`    | Fired when the popover is opened. `detail: { source: "keyboard" \| "pointer" }`                                                   |
 | `pie-dropdown-close`   | Fired when the popover is closed. `detail: { source: "keyboard" \| "pointer" \| "outside" \| "selection" }`                       |
 | `pie-dropdown-search`  | Fired when the user types in a searchable dropdown. Use it to load options asynchronously: `detail: { searchText: string }`       |
+
+#### Controlled and uncontrolled usage
+The component works in both modes. **Uncontrolled** (the default): the component owns its value and participates in its owning form's submission, reset and validation. **Controlled** (e.g. React state as the source of truth): pass the `value` prop and listen for `change` — in React the generated wrapper exposes it as `onChange`, which receives the native event (not React's synthetic `ChangeEvent`), so the new value is read from `event.target.value`:
+
+```jsx
+const [meal, setMeal] = useState('');
+
+<PieDropdown
+    label="Meal"
+    options={options}
+    value={meal}
+    onChange={(event) => setMeal(event.target.value)} />
+```
+
+Because a `change` event also fires when the owning form is reset, controlled state stays in sync after resets.
 
 ## Usage Examples
 

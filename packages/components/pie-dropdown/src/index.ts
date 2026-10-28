@@ -313,6 +313,13 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     public formResetCallback (): void {
         this.value = this._defaultValue;
         this._searchText = null;
+
+        // A change event is dispatched when the form is reset, mirroring the
+        // other PIE form controls: it lets consumers (and controlled React
+        // usage) keep their state in sync with the restored value. This is
+        // custom behaviour — native controls do not fire `change` on reset —
+        // and is documented as such.
+        this._dispatchChange();
     }
 
     protected updated (changedProperties: PropertyValues<this>): void {

@@ -120,3 +120,78 @@ export const ErrorState = createStory<DropdownStoryProps>(DropdownTemplate, defa
 });
 
 export const DisabledState = createStory<DropdownStoryProps>(DropdownTemplate, defaultArgs)({ value: 'burger', disabled: true });
+
+const FormTemplate: TemplateFunction<DropdownStoryProps> = ({
+    name,
+    label,
+    placeholder,
+    isMultiselect,
+    isSearchable,
+    required,
+}) => html`
+    <form id="testForm">
+        <pie-dropdown
+            data-test-id="dropdown"
+            name="${ifDefined(name)}"
+            label="${ifDefined(label)}"
+            placeholder="${ifDefined(placeholder)}"
+            .options="${options}"
+            ?isMultiselect="${isMultiselect}"
+            ?isSearchable="${isSearchable}"
+            ?required="${required}"
+            @change="${(event: Event) => console.info(JSON.stringify({ type: 'change', value: (event.target as HTMLElement & { value?: string | string[] }).value }))}">
+        </pie-dropdown>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+        <script>
+            var form = document.querySelector('#testForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent the actual submission
+
+                const formData = new FormData(form);
+
+                // Serialise as [key, value] pairs: multi-select variants
+                // submit more than one entry under the same name.
+                document.querySelector('#output').innerText = JSON.stringify([...formData.entries()]);
+            });
+        </script>
+    </form>
+    <div id="output"></div>
+`;
+
+const FieldsetFormTemplate: TemplateFunction<DropdownStoryProps> = ({
+    name,
+    label,
+    placeholder,
+    value,
+}) => html`
+    <form id="testForm">
+        <fieldset disabled>
+            <pie-dropdown
+                data-test-id="dropdown"
+                name="${ifDefined(name)}"
+                label="${ifDefined(label)}"
+                placeholder="${ifDefined(placeholder)}"
+                .value="${ifDefined(value)}"
+                .options="${options}">
+            </pie-dropdown>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+        <script>
+            var form = document.querySelector('#testForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                document.querySelector('#output').innerText = JSON.stringify([...formData.entries()]);
+            });
+        </script>
+    </form>
+    <div id="output"></div>
+`;
+
+export const ExampleForm = createStory<DropdownStoryProps>(FormTemplate, defaultArgs)();
+
+export const ExampleMultiForm = createStory<DropdownStoryProps>(FormTemplate, defaultArgs)({ isMultiselect: true });
+
+export const ExampleFieldsetForm = createStory<DropdownStoryProps>(FieldsetFormTemplate, defaultArgs)({ value: 'curry' });
