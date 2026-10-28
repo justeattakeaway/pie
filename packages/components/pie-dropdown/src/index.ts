@@ -142,6 +142,15 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @property({ type: String })
     public noResultsText: DropdownProps['noResultsText'];
 
+    @property({ type: String })
+    public selectedCountText: DropdownProps['selectedCountText'];
+
+    @property({ type: String })
+    public optionsAvailableText: DropdownProps['optionsAvailableText'];
+
+    @property({ type: String })
+    public noSelectionText: DropdownProps['noSelectionText'];
+
     @property({ type: Object })
     public aria: DropdownProps['aria'];
 
@@ -311,6 +320,12 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this._closePopover('outside');
         }
 
+        // The validity state depends on `required`, so it is refreshed when
+        // the prop changes at runtime (not only when the value does).
+        if (changedProperties.has('required')) {
+            this._updateValidity();
+        }
+
         if (this._isOpen) {
             this._positionPopover();
         }
@@ -423,7 +438,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         const valueMissing = this.required && this._selectedValues.length === 0;
 
         if (valueMissing) {
-            this._internals.setValidity({ valueMissing: true }, this.assistiveText || 'Please select an option', this._field);
+            this._internals.setValidity({ valueMissing: true }, this.noSelectionText || 'Please select an option', this._field);
         } else {
             this._internals.setValidity({ valueMissing: false });
         }
@@ -920,6 +935,9 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (this.isSearchable && this._searchText) {
             const count = this._visibleOptions.length;
             if (count === 0) return this.noResultsText || defaultNoResultsText;
+            if (this.optionsAvailableText) {
+                return this.optionsAvailableText.replace('{count}', String(count));
+            }
             return `${count} option${count === 1 ? '' : 's'} available`;
         }
 
@@ -944,9 +962,17 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     }
 
     private _renderAssistiveText (): TemplateResult {
+        // The field's accessible description is a plain text element: screen
+        // readers reliably announce a plain description when the field is
+        // focused, but skip live regions as descriptions (their content is
+        // only announced when it changes — which is the pie-assistive-text's
+        // job below, for the visible helper text and assertive error
+        // announcements).
         return html`
+            ${this.assistiveText
+            ? html`<span class="c-dropdown-visuallyHidden" id="${this._assistiveTextId}">${this.assistiveText}</span>`
+            : nothing}
             <pie-assistive-text
-                id="${this._assistiveTextId}"
                 variant="${ifDefined(this.status)}"
                 message="${this.assistiveText || ''}"
                 ?isVisuallyHidden="${!this.assistiveText}"
@@ -985,7 +1011,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }}
                 @focusin=${this._onChipFocusIn}
                 @close=${this._onChipClose}>
-                ${count} selected
+                ${(this.selectedCountText ?? '{count} selected').replace('{count}', String(count))}
             </pie-chip>
         `;
     }

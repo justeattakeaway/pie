@@ -113,7 +113,10 @@ export interface DropdownProps {
 
     /**
      * Helper text rendered below the field, also used to convey error or
-     * success messages.
+     * success messages (with the `error` status it is announced assertively).
+     * It is announced as part of the field's accessible description when the
+     * field is focused. The validation message is separate: see
+     * `noSelectionText`.
      */
     assistiveText?: string,
 
@@ -150,13 +153,37 @@ export interface DropdownProps {
     noResultsText?: string,
 
     /**
+     * The text shown in the count chip in multi-select variants when options
+     * are selected. Use a `{count}` placeholder where the number of selected
+     * options should appear, e.g. `"{count} picked"` renders as "3 picked".
+     */
+    selectedCountText?: string,
+
+    /**
+     * The message announced to assistive technology when a search returns
+     * matching options. Use a `{count}` placeholder where the number of
+     * matching options should appear, e.g. `"Options available: {count}"`
+     * renders as "Options available: 6" (phrasing that avoids plurals keeps
+     * the message correct for any count).
+     */
+    optionsAvailableText?: string,
+
+    /**
+     * The validation message used when the dropdown is `required` and
+     * submitted without a selection (the `valueMissing` validity state). This
+     * is separate from `assistiveText`, which is the helper text rendered
+     * below the field.
+     */
+    noSelectionText?: string,
+
+    /**
      * Additional ARIA properties for parts of the component that cannot be
      * derived from its other props.
      */
     aria?: AriaProps,
 }
 
-export type DefaultProps = ComponentDefaultProps<DropdownProps, keyof Omit<DropdownProps, 'options' | 'value' | 'label' | 'assistiveText' | 'placeholder' | 'loadingText' | 'noResultsText' | 'name' | 'aria'>>;
+export type DefaultProps = ComponentDefaultProps<DropdownProps, keyof Omit<DropdownProps, 'options' | 'value' | 'label' | 'assistiveText' | 'placeholder' | 'loadingText' | 'noResultsText' | 'selectedCountText' | 'optionsAvailableText' | 'noSelectionText' | 'name' | 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     isMultiselect: false,

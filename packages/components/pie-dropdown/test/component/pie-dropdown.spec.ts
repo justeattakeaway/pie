@@ -848,6 +848,112 @@ test.describe('PieDropdown - Component tests', () => {
         });
     });
 
+    test.describe('Copy props', () => {
+        test('should render a custom selection count text with the count substituted', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.selectedCountText = '{count} picked';
+                return dropdown.updateComplete;
+            });
+
+            // The story has one selection ('pizza').
+            await expect(page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip')).toHaveText('1 picked');
+        });
+
+        test('should announce a custom options available message with the count substituted', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.optionsAvailableText = 'Options available: {count}';
+                return dropdown.updateComplete;
+            });
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.click();
+            await input.fill('Pas');
+
+            await expect(page.getByTestId(dropdown.selectors.status.dataTestId)).toHaveText('Options available: 1');
+        });
+
+        test('should use the default validation message when required and empty', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            const message = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.required = true;
+                return dropdown.updateComplete.then(() => dropdown._internals.validationMessage);
+            });
+
+            expect(message).toBe('Please select an option');
+        });
+
+        test('should use a custom validation message when required and empty', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            const message = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.required = true;
+                dropdown.noSelectionText = 'Choose something to eat';
+                return dropdown.updateComplete.then(() => dropdown._internals.validationMessage);
+            });
+
+            expect(message).toBe('Choose something to eat');
+        });
+
+        test('should not use the assistive text as the validation message', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            const message = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.required = true;
+                dropdown.assistiveText = 'Pick a meal for your order';
+                return dropdown.updateComplete.then(() => dropdown._internals.validationMessage);
+            });
+
+            // The assistive text is the helper text below the field, never
+            // the validation message.
+            expect(message).toBe('Please select an option');
+        });
+
+        test('should announce the assistive text as the field description', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.assistiveText = 'Pick a meal for your order';
+                return dropdown.updateComplete;
+            });
+
+            // The description the field points at must be a plain text
+            // element containing the assistive text: screen readers skip live
+            // regions as descriptions, so the pie-assistive-text (role=status)
+            // cannot carry it.
+            const description = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                const describedBy = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-trigger"]')?.getAttribute('aria-describedby');
+                const target = describedBy ? dropdown.shadowRoot.getElementById(describedBy) : null;
+                return {
+                    tag: target?.tagName?.toLowerCase(),
+                    role: target?.getAttribute('role'),
+                    text: target?.textContent,
+                };
+            });
+
+            expect(description.tag).toBe('span');
+            expect(description.role).toBeNull();
+            expect(description.text).toBe('Pick a meal for your order');
+        });
+    });
+
     test.describe('Loading', () => {
         test('should show a loading state in place of the options list', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--loading-state');
