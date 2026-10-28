@@ -70,13 +70,18 @@ const props = [
 ].filter(Boolean).join('\n    ');
 
 // Define template
-const template = figma.code`${formLabelSnippet || ''}
+// In JSX the label and the control would be two adjacent roots, so wrap them in a fragment.
+const needsFragment = isReact && Boolean(formLabelSnippet);
+const fragmentOpen = needsFragment ? '<>\n' : '';
+const fragmentClose = needsFragment ? '\n</>' : '';
+
+const template = figma.code`${fragmentOpen}${formLabelSnippet || ''}
 <${selectedComponentName}
     ${formLabelSnippet ? 'id="the-input-id" aria-labelledby="the-label-id"' : ''}
     ${props}>
     ${leadingContentSnippet}
     ${trailingContentSnippet}
-</${selectedComponentName}>`;
+</${selectedComponentName}>${fragmentClose}`;
 
 export default {
     example: template,
