@@ -59,13 +59,6 @@ const defaultLoadingText = 'Loading results...';
 const defaultNoResultsText = 'No results';
 
 /**
- * Returns a unique id fragment for a component instance, so several dropdowns
- * on one page never wire their internal ARIA relationships together.
- */
-let instanceCount = 0;
-const nextInstanceId = (): string => `pie-dropdown-${++instanceCount}`;
-
-/**
  * Whether `target` lives anywhere inside `container`'s composed tree,
  * crossing any shadow-root boundaries between them.
  */
@@ -196,9 +189,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      */
     @state()
     private _hasEverOpened = false;
-
-    /** Unique id fragment for this instance, used for internal ARIA wiring. */
-    private readonly _instanceId = nextInstanceId();
 
     private _value: DropdownProps['value'] = '';
 
@@ -864,20 +854,30 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      * Helpers
      * ------------------------------------------------------------------ */
 
+    // The internal wiring ids are static: ids are scoped to the component's
+    // shadow root, so two dropdowns on a page can never wire their ARIA
+    // relationships together. Static ids also keep server-side rendering
+    // deterministic (a per-instance counter would be shared module state on
+    // the server, and would disagree with the server-rendered ids on
+    // hydration).
     private _optionId (option: DropdownOption): string {
-        return `${this._instanceId}-option-${option.value}`;
+        return `pie-dropdown-option-${option.value}`;
     }
 
     private get _labelId (): string {
-        return `${this._instanceId}-label`;
+        return 'pie-dropdown-label';
     }
 
     private get _popoverId (): string {
-        return `${this._instanceId}-popover`;
+        return 'pie-dropdown-popover';
     }
 
     private get _assistiveTextId (): string {
-        return `${this._instanceId}-assistive-text`;
+        return 'pie-dropdown-assistive-text';
+    }
+
+    private get _fieldId (): string {
+        return 'pie-dropdown-field';
     }
 
     /** The text the field shows for the current selection. */
@@ -961,7 +961,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         return html`
             <pie-form-label
                 id="${this._labelId}"
-                for="${this._instanceId}"
+                for="${this._fieldId}"
                 ?optional=${!this.required}>
                 ${this.label}
             </pie-form-label>
@@ -1111,7 +1111,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             }
             <button
                 type="button"
-                id="${this._instanceId}"
+                id="${this._fieldId}"
                 class="c-dropdown-trigger"
                 tabindex=${this.isMultiselect && this._hasSelection ? '-1' : nothing}
                 ?disabled=${this.disabled}
@@ -1146,7 +1146,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             ${this.isMultiselect && this._hasSelection ? this._renderCountChip() : nothing}
             <input
                 type="text"
-                id="${this._instanceId}"
+                id="${this._fieldId}"
                 class="c-dropdown-trigger c-dropdown-input"
                 ?disabled=${this.disabled}
                 .value=${live(displayValue)}
