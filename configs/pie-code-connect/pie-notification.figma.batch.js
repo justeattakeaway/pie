@@ -36,10 +36,14 @@ const isCompact = getInstanceProp('getPropertyValue', 'Compact') === 'True';
 const isDismissible = isCompact === false && getInstanceProp('getBoolean', 'Close');
 const hideIcon = getInstanceProp('getBoolean', 'Leading icon') === false;
 const hasActions = getInstanceProp('getPropertyValue', 'Actions') === 'True';
+const isNarrow = getInstanceProp('getEnum', 'Screen size', {
+    Narrow: true,
+    Wide: false,
+});
 
 // Read action button labels from the Actions nested component
 const hasDualActions = hasActions && getInstanceProp(['Actions'], 'getBoolean', 'Dual actions');
-const hasStackedActions = hasActions && !isCompact && getInstanceProp(['Actions'], 'getBoolean', 'Stacked');
+const hasStackedActions = hasActions && isNarrow && !isCompact && getInstanceProp(['Actions'], 'getBoolean', 'Stacked');
 const leadingActionText = getInstanceProp(['Actions', 'Button 1'], 'getString', '[𝐓] Label');
 const supportingActionText = getInstanceProp(['Actions', 'Button 2'], 'getString', '[𝐓] Label');
 

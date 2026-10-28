@@ -176,6 +176,9 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
     };
 
     const toggleFavourited = (event: Event) => {
+        // Slotted controls own their propagation so the click does not also activate the card.
+        event.stopPropagation();
+
         const iconButton = event.currentTarget as HTMLElement & { aria?: { label?: string } };
         const outlineIcon = iconButton.querySelector('icon-heart');
         const filledIcon = iconButton.querySelector('icon-heart-filled');
@@ -222,7 +225,8 @@ const WithSlottedControlsTemplate: TemplateFunction<CardProps> = ({ disabled }) 
                     <pie-link
                         href="https://pie.design"
                         target="_blank"
-                        style="position: relative; z-index: calc(var(--card-overlay-z-index) + 1);">
+                        style="position: relative; z-index: calc(var(--card-overlay-z-index) + 1);"
+                        @click="${(event: Event) => event.stopPropagation()}">
                         View menu
                     </pie-link>
                 </div>

@@ -656,7 +656,8 @@ The interactive variation includes all interactive states, while the non-interac
     {% contentPageImage {
       src: "../../../../assets/img/components/list-item/list-item/web/interactive-states-hover.svg",
       width: "360px",
-      alt: "List item components in the hover state, with a subtle background tint on the container."
+      alt: "List item components in the hover state, with a subtle background tint on the container.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
