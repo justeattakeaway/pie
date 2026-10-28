@@ -1,5 +1,6 @@
 const { spawnSync } = require('child_process');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -8,12 +9,6 @@ const CONFIG = './config/figma-react-components-batch.config.json';
 
 // The batch manifest with the list of what actually gets published.
 const MANIFEST = path.join(ROOT, 'components.figma.batch.json');
-
-// `spawnSync`/`execFileSync` default to a 1MB buffer, which `--all` can exceed: it
-// renders up to MAX_COMBINATIONS property combinations per Figma node, and a batch
-// file maps several nodes. Overflowing it kills the child process, so set a ceiling
-// high enough that the limit is never the thing that fails a run.
-const MAX_BUFFER = 64 * 1024 * 1024;
 
 // 500 is both the CLI's default and its hard maximum (a higher value is rejected).
 // Pinning it keeps snapshot sizes predictable and the baseline stable if that
@@ -183,8 +178,8 @@ function describeTotalRenderFailure (parsed) {
  *                                in the manifest by `listTemplates`.
  * @param {string[]} flags - Preview flags for this check, as found in `CHECKS`.
  * @returns {string} Pretty-printed JSON output.
- * @throws {Error} If the template has not been built, the preview fails, or its output
- *                 exceeds `MAX_BUFFER`.
+ * @throws {Error} If the template has not been built, the preview fails, or it
+ *                 produces no parseable output.
  */
 function runPreview (templateFile, flags) {
     // The manifest can name a template that the build has not produced, which the CLI
@@ -193,24 +188,40 @@ function runPreview (templateFile, flags) {
         throw new Error(`${templateFile} has not been built — check the manifest entry and run \`yarn build:react\``);
     }
 
-    const result = spawnSync(
-        'yarn',
-        ['figma', 'connect', 'preview', templateFile, '-c', CONFIG, ...flags, '--output', 'json'],
-        { cwd: ROOT, encoding: 'utf8', maxBuffer: MAX_BUFFER },
-    );
+    // The CLI calls `process.exit(1)` right after printing its JSON when nothing
+    // rendered. Through a pipe that write is asynchronous, so the exit cuts the output
+    // off at the 64KB pipe buffer and leaves unparseable JSON. Writes to a file are
+    // synchronous, so capture stdout in a temp file instead of a pipe.
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'pie-snapshot-'));
+    const stdoutPath = path.join(tempDir, 'stdout.json');
+    const stdoutFd = fs.openSync(stdoutPath, 'w');
+    let result;
+    let stdout;
+
+    try {
+        result = spawnSync(
+            'yarn',
+            ['figma', 'connect', 'preview', templateFile, '-c', CONFIG, ...flags, '--output', 'json'],
+            {
+                cwd: ROOT,
+                encoding: 'utf8',
+                stdio: ['ignore', stdoutFd, 'pipe'],
+            },
+        );
+    } finally {
+        fs.closeSync(stdoutFd);
+        stdout = fs.readFileSync(stdoutPath, 'utf8');
+        fs.rmSync(tempDir, { recursive: true, force: true });
+    }
 
     if (result.error) {
-        if (result.error.code === 'ENOBUFS') {
-            throw new Error(`preview output exceeded the ${MAX_BUFFER / 1024 / 1024}MB buffer — raise MAX_BUFFER, or lower MAX_COMBINATIONS`);
-        }
-
         throw result.error;
     }
 
     // The CLI prints its JSON to stdout and its logging to stderr, then exits 1 if
     // nothing rendered. Read stdout first: on that path the exit code says only "it
     // failed", while the JSON says why, and stderr holds nothing but the preamble.
-    const parsed = parseOutput(result.stdout);
+    const parsed = parseOutput(stdout);
     const totalFailure = parsed === undefined ? undefined : describeTotalRenderFailure(parsed);
 
     if (totalFailure) {
