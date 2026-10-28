@@ -87,6 +87,8 @@ test.describe('PieDropdown - Component tests', () => {
             await page.getByTestId(trigger).click();
             await page.keyboard.press('Escape');
 
+            // The focus that returns to the field must not reopen the
+            // popover (the refocus is suppressed), so it stays closed.
             await expect(page.getByTestId(popover)).toHaveCount(0);
             await expect(page.getByTestId(trigger)).toBeFocused();
         });
@@ -103,18 +105,60 @@ test.describe('PieDropdown - Component tests', () => {
     });
 
     test.describe('Keyboard (single select)', () => {
+        test('should open the popover when the field receives keyboard focus and focus the first option', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            await page.getByTestId(trigger).focus();
+
+            // The popover opens and focus moves into it, exactly as an
+            // ArrowDown open does: the first option is focused and becomes
+            // the roving tab stop.
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(trigger)).toHaveAttribute('aria-expanded', 'true');
+            const firstOption = page.getByTestId(option).filter({ hasText: 'Pizza' });
+            await expect(firstOption).toBeFocused();
+            await expect(firstOption).toHaveAttribute('tabindex', '0');
+        });
+
         test('should open the popover with ArrowDown and focus the first option', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select');
             await dropdownPage.load();
 
+            // Focus is on the closed field without the popover being open
+            // (the focus that returns after an Escape close is suppressed),
+            // so ArrowDown is the surface that opens the popover here.
             const triggerEl = page.getByTestId(trigger);
-            await triggerEl.focus();
+            await triggerEl.click();
+            await page.keyboard.press('Escape');
+            await expect(page.getByTestId(popover)).toHaveCount(0);
+
             await page.keyboard.press('ArrowDown');
 
             await expect(page.getByTestId(popover)).toBeVisible();
             const firstOption = page.getByTestId(option).filter({ hasText: 'Pizza' });
             await expect(firstOption).toBeFocused();
             await expect(firstOption).toHaveAttribute('tabindex', '0');
+        });
+
+        test('should show a focus ring on the closed field after a keyboard close', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            const triggerEl = page.getByTestId(trigger);
+            await triggerEl.focus();
+            await page.keyboard.press('Escape');
+
+            // The focus that returns to the field must not reopen the
+            // popover, but the field is still the keyboard focus, so the
+            // container shows the focus ring.
+            await expect(page.getByTestId(popover)).toHaveCount(0);
+            await expect(triggerEl).toBeFocused();
+
+            const boxShadow = await page.getByTestId(dropdown.selectors.field.dataTestId)
+                .evaluate((el) => getComputedStyle(el).boxShadow);
+
+            expect(boxShadow).not.toBe('none');
         });
 
         test('should move focus between options with arrow keys without selecting', async ({ page }) => {
@@ -178,6 +222,17 @@ test.describe('PieDropdown - Component tests', () => {
             // The popover stays open and the field's count chip updates.
             await expect(popoverEl).toBeVisible();
             await expect(page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip')).toHaveText(/2 selected/);
+        });
+
+        test('should open the popover when the field receives keyboard focus and focus the first checkbox', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            await page.getByTestId(trigger).focus();
+
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(trigger)).toHaveAttribute('aria-expanded', 'true');
+            await expect(page.getByTestId(popover).locator('pie-checkbox').first()).toBeFocused();
         });
 
         test('should deselect all options when the count chip is dismissed', async ({ page }) => {

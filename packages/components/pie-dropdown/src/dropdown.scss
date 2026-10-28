@@ -52,6 +52,13 @@
         @include p.focus;
     }
 
+    // Keyboard focus on a closed field (e.g. the focus returned to it after a
+    // keyboard-triggered close): the trigger is the tab target in
+    // non-searchable variants, so the container shows the ring on its behalf.
+    &:has(.c-dropdown-trigger:focus-visible) {
+        @include p.focus;
+    }
+
     &.c-dropdown--small {
         --dropdown-height: 40px;
         --dropdown-padding-block: var(--dt-spacing-b);

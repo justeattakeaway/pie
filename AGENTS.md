@@ -354,3 +354,4 @@ This means you generally only need to run the top-level command (e.g. `yarn test
 - Don't write a README without all required sections - Danger JS will fail the PR
 - Don't leave unchecked PR checklist items outside the "Not-applicable" section - Danger JS will fail the PR
 - Don't run browser tests without first running `test:browsers-setup`
+- Don't delete `.turbo/config.json` - it is required by Turborepo and is not a disposable build artifact

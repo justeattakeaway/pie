@@ -161,6 +161,14 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @state()
     private _searchText: string | null = null;
 
+    /**
+     * Suppresses the open-on-focus behaviour for the next focus event on the
+     * field. Set when focus is a side effect of another interaction (pointer
+     * input, or the field being refocused as a popover closes) so those paths
+     * never (re)open the popover.
+     */
+    private _suppressFocusOpen = false;
+
     /** Unique id fragment for this instance, used for internal ARIA wiring. */
     private readonly _instanceId = nextInstanceId();
 
@@ -319,7 +327,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
 
         this._closePopover('selection');
-        this._field?.focus();
+        this._refocusField();
 
         if (changed) this._dispatchChange();
     }
@@ -337,6 +345,16 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     private _clearSelection (): void {
         this.value = this.isMultiselect ? [] : '';
         this._dispatchChange();
+        this._refocusField();
+    }
+
+    /**
+     * Returns focus to the field as a popover closes (or after a control in
+     * the field acted). The focus this moves must never re-trigger the
+     * open-on-focus behaviour, so it is suppressed for the next focus event.
+     */
+    private _refocusField (): void {
+        this._suppressFocusOpen = true;
         this._field?.focus();
     }
 
@@ -488,7 +506,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (event.key === 'Escape') {
             event.preventDefault();
             this._closePopover('keyboard');
-            this._field?.focus();
+            this._refocusField();
             return;
         }
 
@@ -514,9 +532,16 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      * checkbox, into a control's own shadow DOM — keeps it open.
      */
     private _onFocusout = (event: FocusEvent): void => {
-        if (!this._isOpen) return;
+        if (deepContains(this, event.relatedTarget as Node | null)) return;
 
-        if (!deepContains(this, event.relatedTarget as Node | null)) {
+        // Focus left the component entirely (e.g. Tab out): any pending
+        // open-on-focus suppression is stale now, so clear it. This must not
+        // run for focus moving within the component — the focusout that
+        // precedes a refocused field would clear the suppression the field's
+        // focus event is about to consume, reopening the popover.
+        this._suppressFocusOpen = false;
+
+        if (this._isOpen) {
             this._closePopover('outside');
         }
     };
@@ -590,6 +615,34 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
     private _onSearchFocus = (): void => {
         if (!this._isOpen && !this.disabled) {
+            this._openPopover('keyboard');
+        }
+    };
+
+    /**
+     * Pointer input over the field: the focus it is about to give the field
+     * must not open the popover — the click that follows toggles it instead.
+     * (Without this, a click would open the popover on focus and then close
+     * it again on the click, breaking click-to-toggle.)
+     */
+    private _onFieldPointerDown = (): void => {
+        this._suppressFocusOpen = true;
+    };
+
+    /**
+     * The field opens the popover when it receives keyboard focus (matching
+     * the searchable variants, which open when their textbox is focused).
+     * Focus then moves into the popover, exactly as an ArrowDown open does.
+     * Focus that is a side effect of pointer input or a closing popover is
+     * suppressed via `_suppressFocusOpen` and ignored.
+     */
+    private _onTriggerFocus = (): void => {
+        if (this._suppressFocusOpen) {
+            this._suppressFocusOpen = false;
+            return;
+        }
+
+        if (!this._isOpen && !this.disabled && !this.isSearchable) {
             this._openPopover('keyboard');
         }
     };
@@ -830,6 +883,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             <div
                 class="${classMap(classes)}"
                 @focusout=${this._onFocusout}
+                @pointerdown=${this._onFieldPointerDown}
                 @click=${this._fieldClickListener}
                 data-test-id="pie-dropdown-field">
                 <span class="c-dropdown-leadingIcon"><slot name="leadingIcon"></slot></span>
@@ -860,6 +914,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 aria-describedby="${ifDefined(this.assistiveText ? this._assistiveTextId : undefined)}"
                 aria-invalid="${this.status === 'error' ? 'true' : 'false'}"
                 @keydown=${this._onTriggerKeyDown}
+                @focus=${this._onTriggerFocus}
                 data-test-id="pie-dropdown-trigger">
                 <span class="c-dropdown-fieldText">${this._renderFieldText()}</span>
             </button>

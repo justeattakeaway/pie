@@ -69,6 +69,9 @@ const options = [
 
 In multi-select variants, the selected options are sorted to the top of the list (in alphanumeric order) whenever the popover is opened.
 
+#### Opening the dropdown
+The popover opens when the field is clicked, or when it receives keyboard focus — focus then moves into the option list (single select: the selected option, or the first one if nothing is selected; multi select: the first checkbox), exactly as an `ArrowDown` open does. Focus that is a side effect of another interaction (such as the focus returning to the field when the popover closes) never reopens it.
+
 #### Using the aria prop
 The `aria` prop accepts an object used to provide accessible names for the parts of the component that cannot be derived from its other props:
 
