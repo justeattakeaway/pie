@@ -263,8 +263,10 @@
 
     box-sizing: border-box;
 
-    // Room for the scrollbar to overlap the inline-end edge.
-    padding: var(--dt-spacing-b) var(--dt-spacing-a) var(--dt-spacing-b) var(--dt-spacing-b);
+    // Symmetric padding keeps the popover's whitespace even and leaves room
+    // for the options' focus ring (which extends 4px beyond each row) inside
+    // the popover's overflow boundary, so it is never clipped.
+    padding: var(--dt-spacing-b);
 
     border-radius: var(--dt-radius-rounded-c);
     background-color: var(--dt-color-container-default);
