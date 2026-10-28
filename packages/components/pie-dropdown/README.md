@@ -92,8 +92,8 @@ The `aria` prop accepts an object used to provide accessible names for the parts
 | Prop                  | Options   | Description                                                                                        | Default     |
 |-----------------------|-----------|----------------------------------------------------------------------------------------------------|-------------|
 | `label`               | `string`  | The accessible name for the field when no visible `label` is provided.                             | `undefined` |
-| `clearSelection`      | `string`  | The accessible name for the field's clear button in single-select variants without search, which removes the current selection. | `"Clear selection"` |
-| `clearAllSelections`  | `string`  | The accessible name for the "N selected" chip's close button (multi select), which removes every selection at once, e.g. `"Clear all 2 selections"`. | `"Clear all N selections"` |
+| `clearSelection`      | `string`  | The accessible name for the field's clear button in single-select variants without search, which removes the current selection. The field's accessible name (`label`, `aria.label` or `placeholder`) is always appended for screen reader context, e.g. `"Clear selection, Meal"`. | `"Clear selection"` |
+| `clearAllSelections`  | `string`  | The accessible name for the "N selected" chip's close button (multi select), which removes every selection at once, e.g. `"Clear all 2 selections"`. The field's accessible name (`label`, `aria.label` or `placeholder`) is always appended for screen reader context, e.g. `"Clear all 2 selections, Meal"`. | `"Clear all N selections"` |
 
 #### The clear button
 Which clear affordance is shown depends on the variant:

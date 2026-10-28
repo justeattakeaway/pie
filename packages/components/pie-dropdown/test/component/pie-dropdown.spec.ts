@@ -325,6 +325,51 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(trigger)).toBeFocused();
         });
 
+        test('should announce the field name with the chip close button for screen reader context', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            // The chip close button is the field's first tab stop: its name
+            // includes the field's accessible name so it is never announced
+            // without the context of the dropdown it belongs to.
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selection, Meal');
+        });
+
+        test('should append the field name to a consumer-provided chip close name', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selection, Meal');
+
+            // A consumer-provided name still gets the field context appended,
+            // so the context guarantee is unconditional.
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.aria = { clearAllSelections: 'Deselect all meals' };
+                return dropdown.updateComplete;
+            });
+
+            await expect(chipClose).toHaveAttribute('aria-label', 'Deselect all meals, Meal');
+        });
+
+        test('should not append a field name to the chip close button when the field has none', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.label = '';
+                dropdown.placeholder = '';
+                dropdown.aria = {};
+                return dropdown.updateComplete;
+            });
+
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selection');
+        });
+
         test('should deselect all options when the count chip is dismissed', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--multi-select');
             await dropdownPage.load();
@@ -546,6 +591,14 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(valueText)).toHaveCount(0);
             await expect(page.getByTestId(dropdown.selectors.placeholder.dataTestId)).toBeVisible();
             await expect(page.getByTestId(trigger)).toBeFocused();
+        });
+
+        test('should announce the field name with the clear button for screen reader context', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
+            await dropdownPage.load();
+
+            await expect(page.getByTestId(dropdown.selectors.clear.dataTestId))
+                .toHaveAttribute('aria-label', 'Clear selection, Meal');
         });
 
         test('should never show a clear button in searchable variants, even once something has been typed', async ({ page }) => {

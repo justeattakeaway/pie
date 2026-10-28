@@ -41,13 +41,17 @@ type AriaProps = {
 
     /**
      * The accessible name for the field's clear button in single-select
-     * variants without search, which removes the current selection.
+     * variants without search, which removes the current selection. The
+     * field's accessible name (from `label`, `aria.label` or `placeholder`)
+     * is always appended for screen reader context, e.g. `"Clear selection, Meal"`.
      */
     clearSelection?: string;
 
     /**
      * The accessible name for the "N selected" chip's close button (multi
-     * select), which removes every selection at once.
+     * select), which removes every selection at once. The field's accessible
+     * name (from `label`, `aria.label` or `placeholder`) is always appended
+     * for screen reader context, e.g. `"Clear all 2 selections, Meal"`.
      */
     clearAllSelections?: string;
 };

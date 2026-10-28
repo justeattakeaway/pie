@@ -819,6 +819,29 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     }
 
     /**
+     * The field's accessible name — the same chain the field itself uses:
+     * the visible `label`, else `aria.label`, else the placeholder. Used to
+     * give the field's clear affordances screen reader context, so they are
+     * announced as belonging to this dropdown.
+     */
+    private get _fieldAriaName (): string {
+        return this.label || this.aria?.label || this.placeholder || '';
+    }
+
+    /**
+     * Appends the field's accessible name to a clear affordance's name for
+     * screen reader context, e.g. "Clear all 1 selection, Meal". The context
+     * is always appended — including over a consumer-provided name — so the
+     * clear controls are never announced without the field they belong to.
+     * Nothing is appended when the field has no accessible name at all.
+     */
+    private _withFieldContext (name: string): string {
+        const field = this._fieldAriaName;
+
+        return field ? `${name}, ${field}` : name;
+    }
+
+    /**
      * Whether the field's clear affordance is shown:
      * - single select without search: while a selection exists (it removes
      *   the selection);
@@ -907,7 +930,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 ?isSelected=${true}
                 ?isDismissible=${true}
                 .aria=${{
-            close: this.aria?.clearAllSelections || `Clear all ${count} selection${count === 1 ? '' : 's'}`,
+            close: this._withFieldContext(this.aria?.clearAllSelections || `Clear all ${count} selection${count === 1 ? '' : 's'}`),
         }}
                 @focusin=${this._onChipFocusIn}
                 @close=${this._onChipClose}>
@@ -923,7 +946,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             <button
                 type="button"
                 class="c-dropdown-clear"
-                aria-label="${this.aria?.clearSelection || 'Clear selection'}"
+                aria-label="${this._withFieldContext(this.aria?.clearSelection || 'Clear selection')}"
                 ?disabled=${this.disabled}
                 @click=${this._onClearClick}
                 data-test-id="pie-dropdown-clear">
