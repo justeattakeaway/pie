@@ -279,6 +279,12 @@
     display: block;
 }
 
+// The selected option's tick uses the brand colour (the icon only renders on
+// selected rows, so the selector is inherently scoped to the selected state).
+.c-dropdown-option icon-check {
+    color: var(--dt-color-content-brand-solid);
+}
+
 // The loading and no-results states.
 .c-dropdown-popoverMessage {
     display: flex;

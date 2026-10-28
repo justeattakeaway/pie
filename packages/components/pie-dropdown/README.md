@@ -70,18 +70,53 @@ const options = [
 In multi-select variants, the selected options are sorted to the top of the list (in alphanumeric order) whenever the popover is opened.
 
 #### Opening the dropdown
-The popover opens when the field is clicked, or when it receives keyboard focus. Where focus lands next depends on the variant:
+The popover opens when the field is clicked; non-searchable fields also open on keyboard focus. **Focus-open never moves focus** — it stays on the field in every variant; the arrow keys are what move focus into the option list. `Tab` reaches the field's other controls (the count chip's close button first in multi-select variants with a selection, then the single-select clear button) and then moves past the dropdown.
 
-- **Non-searchable single select** — focus moves into the option list (the selected option, or the first one if nothing is selected), exactly as an `ArrowDown` open does.
-- **Non-searchable multi select** — with a selection, the first tab stop is the count chip's close button: the popover opens while focus stays on the chip, so keyboard users can clear every selection with `Enter`. Tabbing from the chip moves straight to the first option — the trigger is not a tab stop while the chip is shown. Without a selection, focus moves to the first checkbox.
-- **Searchable** — focus stays in the search field so typing filters immediately (the combobox pattern); `ArrowDown` moves focus into the option list on demand.
+- **Non-searchable single select** — focus stays on the field; `ArrowDown`/`ArrowUp` move focus into the option list (the selected option, or the first one if nothing is selected), from both a closed and an open field.
+- **Non-searchable multi select** — with a selection, the first tab stop is the count chip's close button: the popover opens while focus stays on the chip, so keyboard users can clear every selection with `Enter`. Tabbing from the chip moves straight to the first option — the trigger is not a tab stop while the chip is shown. Without a selection, focus stays on the trigger.
+- **Searchable** — the popover does not open on focus (the `aria-expanded` state change would chase the field's focus announcement and interrupt screen readers mid-announcement); it opens on the first keystroke, the arrow keys or a click, with the caret staying in the search field so typing filters immediately. Selecting from filtered results shows the selection in the field and clears the search: the popover's filtering is never committed, so the next open starts from the full list.
 
 Focus that is a side effect of another interaction (such as the focus returning to the field when the popover closes) never reopens it.
 
-#### Keyboard navigation
-The option list is never part of the page tab sequence: the field is the single tab stop, `Tab` moves past the popover entirely, and the options are navigated with the arrow keys (with `Home`, `End` and type-ahead). Pressing `Tab` or clicking outside the dropdown closes the popover. In multi-select variants the options are checkboxes, which are tab stops (the field's single-tab-stop rule applies to the single-select listbox).
+#### Keyboard interaction
+The option list is never part of the page tab sequence in single-select variants: the field is the single tab stop, `Tab` moves past the popover entirely, and the options are navigated with the arrow keys. Pressing `Tab` or clicking outside the dropdown closes the popover. In multi-select variants the options are checkboxes, which are genuine tab stops (the checkbox-group pattern).
 
-In **searchable** variants, typing always searches: if focus is in the option list, the first character typed returns focus to the search field and filters the options (appending to any search text already typed — `Space` still toggles the focused row's control). In **non-searchable** single select, typing jumps focus to the first option whose text starts with the typed characters (type-ahead, like a native `<select>`).
+**Single select (non-searchable)**
+
+| Key | Popover closed | Popover open |
+|---|---|---|
+| `Tab` | Focuses the field and opens the popover; focus stays on the field | — |
+| `Tab` (from the field) | — | The clear button (when a selection exists), then out of the dropdown |
+| `ArrowDown` / `ArrowUp` | Opens the popover and moves focus into the option list (the selected option, or the first one if nothing is selected) | Moves focus into the option list from the field; moves between options within the list (skipping disabled options) |
+| `Home` / `End` (in the list) | — | Jump to the first / last option |
+| Printable characters | — | Type-ahead: jump to the first option whose text starts with the typed characters (like a native `<select>`) |
+| `Enter` / `Space` (on an option) | — | Selects the option and closes the popover; focus returns to the field |
+| `Escape` | — | Closes the popover; focus returns to the field |
+
+**Single select (searchable)**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` | Focuses the search field (the popover does not open on focus) |
+| Click | Opens the popover |
+| Printable characters | Open the popover when closed and filter the options as you type; typing while an option is focused returns focus to the search field first and appends to any search text already typed (`Space` still toggles the focused row's control) |
+| `ArrowDown` / `ArrowUp` | Closed: open the popover and move focus into the option list. Field-focused with the popover open: move focus into the list. Within the list: move between options (skipping disabled options) |
+| `Enter` (on an option) | Selects the option and closes the popover; the field shows the selection (already present when focus returns, so screen readers announce it) |
+| `Escape` | Closes the popover; any typed search is discarded and the field shows the selection again |
+
+**Multi select (non-searchable)**
+
+| Key | With a selection (chip shown) | Without a selection |
+|---|---|---|
+| `Tab` | Focuses the chip's close button and opens the popover; focus stays on the chip | Focuses the trigger and opens the popover; focus stays on the trigger |
+| `Tab` again | The first checkbox (the trigger is not a tab stop while the chip is shown) | The first checkbox |
+| `Tab` / `Shift+Tab` (in the list) | Move between the checkboxes, then out of the dropdown | Same |
+| `Space` (on a checkbox) | Toggles the option; the popover stays open | Same |
+| `ArrowDown` / `ArrowUp` (on the field) | Move focus into the option list (the first checkbox) | Same |
+| `Enter` (on the chip's close button) | Clears every selection | — |
+| `Escape` | Closes the popover; focus returns to the field | Same |
+
+**Multi select (searchable)** follows the same model as non-searchable multi select, with the filtering input sitting between the chip and the list: typing always searches (and returns to the field from the list first), and `ArrowDown` from the input moves focus into the option list.
 
 #### Popover positioning
 The popover always renders below the field — it never flips above the dropdown. When there is not enough room left in the viewport below, the popover is clipped by the viewport edge (consumers should avoid placing the dropdown where this can happen).
