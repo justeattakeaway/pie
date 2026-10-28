@@ -180,9 +180,10 @@
 
 // The clear button sits between the field's text and the chevron, as a
 // sibling of the trigger so no interactive element nests inside another. It
-// clears the typed search text (searchable variants) or the single selection
-// (single select without search); multi select never shows it — the count
-// chip's close icon clears every selection instead.
+// is only shown in single-select variants without search, where it removes
+// the selection; searchable variants and multi select never show it — typed
+// search text is cleared by backspacing, and multi select clears every
+// selection via the count chip's close icon instead.
 .c-dropdown-clear {
     position: absolute;
     inset-block-start: 50%;

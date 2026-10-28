@@ -76,7 +76,6 @@ The `aria` prop accepts an object used to provide accessible names for the parts
 |-----------------------|-----------|----------------------------------------------------------------------------------------------------|-------------|
 | `label`               | `string`  | The accessible name for the field when no visible `label` is provided.                             | `undefined` |
 | `clearSelection`      | `string`  | The accessible name for the field's clear button in single-select variants without search, which removes the current selection. | `"Clear selection"` |
-| `clearSearch`         | `string`  | The accessible name for the field's clear button in searchable variants, which removes the typed search text. | `"Clear search"` |
 | `clearAllSelections`  | `string`  | The accessible name for the "N selected" chip's close button (multi select), which removes every selection at once, e.g. `"Clear all 2 selections"`. | `"Clear all N selections"` |
 
 #### The clear button
@@ -85,9 +84,9 @@ Which clear affordance is shown depends on the variant:
 | Variant                    | Clear button                                          | What it clears                    |
 |----------------------------|-------------------------------------------------------|-----------------------------------|
 | Single select              | Shown while a selection exists                        | The selection                     |
-| Single select (searchable) | Shown only while search text has been typed           | The typed search text only        |
+| Single select (searchable) | Never shown                                           | — (typed search text is cleared by backspacing) |
 | Multi select               | Never shown                                           | — (the chip's close icon clears every selection) |
-| Multi select (searchable)  | Shown only while search text has been typed           | The typed search text only        |
+| Multi select (searchable)  | Never shown                                           | — (the chip's close icon clears every selection) |
 
 ### Slots
 | Slot                  | Description                                                                                                                                       |

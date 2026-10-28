@@ -46,12 +46,6 @@ type AriaProps = {
     clearSelection?: string;
 
     /**
-     * The accessible name for the field's clear button in searchable
-     * variants, which removes the text typed into the search field.
-     */
-    clearSearch?: string;
-
-    /**
      * The accessible name for the "N selected" chip's close button (multi
      * select), which removes every selection at once.
      */

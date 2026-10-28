@@ -340,16 +340,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         this._field?.focus();
     }
 
-    /**
-     * Clears the text typed into the search field, restoring the full options
-     * list. The current selection is untouched and the popover stays open.
-     */
-    private _clearSearchText (): void {
-        this._searchText = null;
-        dispatchCustomEvent(this, 'pie-dropdown-search', { searchText: '' });
-        this._field?.focus();
-    }
-
     private _dispatchChange (): void {
         // A native-named event so consumers can treat the component like any
         // other form control. Bubbles and is composed so it crosses the
@@ -618,17 +608,11 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     };
 
     /**
-     * The clear button does a different job per variant: in searchable
-     * variants it clears the typed search text; in single select without
-     * search it removes the selection. (Multi select without search never
-     * shows a clear button — the count chip's close icon clears everything.)
+     * The clear button removes the current selection. It is only shown in
+     * single-select variants without search (multi select never shows one —
+     * the count chip's close icon clears everything).
      */
     private _onClearClick = (): void => {
-        if (this.isSearchable) {
-            this._clearSearchText();
-            return;
-        }
-
         this._clearSelection();
     };
 
@@ -695,20 +679,18 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         return this._selectedValues.length > 0;
     }
 
-    /** Whether the field's clear affordance is shown. */
     /**
      * Whether the field's clear affordance is shown:
-     * - searchable variants: only while the user has typed search text (it
-     *   clears that text);
      * - single select without search: while a selection exists (it removes
      *   the selection);
-     * - multi select without search: never — the count chip's close icon is
-     *   the single clear-all control.
+     * - searchable variants and multi select: never — the user clears typed
+     *   search text by backspacing, and multi select clears everything via
+     *   the count chip's close icon.
      */
     private get _isClearable (): boolean {
-        if (this.isSearchable) return Boolean(this._searchText);
-
         if (this.isMultiselect) return false;
+
+        if (this.isSearchable) return false;
 
         return this._hasSelection;
     }
@@ -798,9 +780,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             <button
                 type="button"
                 class="c-dropdown-clear"
-                aria-label="${this.isSearchable
-            ? this.aria?.clearSearch || 'Clear search'
-            : this.aria?.clearSelection || 'Clear selection'}"
+                aria-label="${this.aria?.clearSelection || 'Clear selection'}"
                 ?disabled=${this.disabled}
                 @click=${this._onClearClick}
                 data-test-id="pie-dropdown-clear">

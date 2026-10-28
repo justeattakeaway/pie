@@ -284,7 +284,7 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(trigger)).toBeFocused();
         });
 
-        test('should only show the clear button in searchable variants once something has been typed', async ({ page }) => {
+        test('should never show a clear button in searchable variants, even once something has been typed', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();
 
@@ -296,33 +296,11 @@ test.describe('PieDropdown - Component tests', () => {
             await page.getByTestId(option).filter({ hasText: 'Burger' }).click();
             await expect(clear).toHaveCount(0);
 
-            // Once the user types, it appears.
+            // Once the user types, it still never appears — typed search
+            // text is cleared by backspacing.
             await input.click();
             await input.fill('Cur');
-            await expect(clear).toHaveCount(1);
-        });
-
-        test('should clear only the typed text in searchable variants, keeping the selection', async ({ page }) => {
-            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
-            await dropdownPage.load();
-
-            // Make a selection, then type a search.
-            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
-            await input.click();
-            await page.getByTestId(option).filter({ hasText: 'Burger' }).click();
-
-            await input.click();
-            await input.fill('Cur');
-
-            await page.getByTestId(dropdown.selectors.clear.dataTestId).click();
-
-            // The search text is cleared and the field shows the selection
-            // again, the full list is back, the popover stays open and focus
-            // returns to the input.
-            await expect(input).toHaveValue('Burger');
-            await expect(page.getByTestId(popover)).toBeVisible();
-            await expect(page.getByTestId(option)).toHaveCount(6);
-            await expect(input).toBeFocused();
+            await expect(clear).toHaveCount(0);
         });
     });
 
