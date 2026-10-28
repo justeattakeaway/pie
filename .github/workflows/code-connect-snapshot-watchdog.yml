@@ -7,7 +7,11 @@ name: Code Connect Snapshot Watchdog
 # alert, so they can be used for debugging without notifying the channel.
 #
 # Secrets (must be configured manually in the repo settings):
-# - FIGMA_PLAN_ACCESS_TOKEN  Figma Plan Access Token with `file_content:read`
+# - FIGMA_PLAN_ACCESS_TOKEN  Figma Plan Access Token with the `file_content:read` and
+#   `file_code_connect:write` scopes, owned by someone who can open the
+#   Figma file. Without both, the CLI cannot read property definitions or
+#   resolve nested Code Connect instances, and every component reports as
+#   changed or failed.
 # - ALERTS_SLACK_CHANNEL_ID  Channel ID of #alerts-design-system
 # - SLACK_BOT_TOKEN          Already used by other workflows
 
