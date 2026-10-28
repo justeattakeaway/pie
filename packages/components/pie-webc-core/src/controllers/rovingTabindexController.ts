@@ -59,6 +59,17 @@ export interface RovingTabindexOptions {
     getItemText?: (item: HTMLElement) => string;
 
     /**
+     * Returns whether the active item participates in the page tab sequence
+     * (roving tabindex: exactly one item with `tabindex="0"`). When it returns
+     * `false`, every item is removed from the tab sequence (`tabindex="-1"`)
+     * and focus is only moved programmatically — the combobox-with-listbox
+     * pattern, where the field is the only tab stop and arrow keys navigate
+     * the list.
+     * @default () => true
+     */
+    isTabbable?: () => boolean;
+
+    /**
      * Called whenever the active item changes (via keyboard navigation, focus,
      * or {@link RovingTabindexController.setActiveItem}). Not called for the
      * initial {@link RovingTabindexController.sync} assignment.
@@ -84,6 +95,11 @@ const TYPEAHEAD_BUFFER_MS = 500;
  * characters moves focus to the first matching item. Tabbing or clicking
  * directly onto an item makes it the active item so subsequent arrow keys
  * continue from there.
+ *
+ * When `isTabbable` returns `false`, no item is part of the tab sequence —
+ * every item keeps `tabindex="-1"` and focus is only moved programmatically
+ * (the combobox-with-listbox pattern, where the field is the single tab stop
+ * and arrow keys navigate the list).
  *
  * The controller is concerned *only* with the roving tabindex mechanics. It
  * assigns no roles or ARIA attributes, makes no assumptions about the host's
@@ -119,6 +135,9 @@ export class RovingTabindexController implements ReactiveController {
 
     private onActiveChange?: (item: HTMLElement) => void;
 
+    /** Returns whether the active item is part of the page tab sequence. */
+    private isTabbable: () => boolean;
+
     /** The item that currently owns `tabindex="0"`, tracked by reference so it survives reordering. */
     private _activeItem: HTMLElement | null = null;
 
@@ -141,6 +160,7 @@ export class RovingTabindexController implements ReactiveController {
         this.homeEndKeys = options.homeEndKeys ?? true;
         this.isRtl = options.isRtl ?? (() => false);
         this.getItemText = options.getItemText;
+        this.isTabbable = options.isTabbable ?? (() => true);
         this.onActiveChange = options.onActiveChange;
 
         host.addController(this);
@@ -216,8 +236,14 @@ export class RovingTabindexController implements ReactiveController {
     }
 
     private _applyTabindex (items: HTMLElement[]): void {
+        const inTabSequence = this.isTabbable();
+
         items.forEach((item) => {
-            item.tabIndex = item === this._activeItem ? 0 : -1;
+            if (!inTabSequence) {
+                item.tabIndex = -1;
+            } else {
+                item.tabIndex = item === this._activeItem ? 0 : -1;
+            }
         });
     }
 

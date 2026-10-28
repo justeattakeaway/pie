@@ -90,13 +90,15 @@
         --dropdown-cursor: auto;
     }
 
-    // In searchable multi-select variants the count chip sits directly in the
-    // field row, next to the search input. It truncates rather than squeezing
-    // out the input (which keeps a minimum share of the field, as the designs
-    // require).
+    // In multi-select variants the count chip sits directly in the field
+    // row, next to the trigger (or the search input). It truncates rather
+    // than squeezing out the interactive element (which keeps a minimum
+    // share of the field, as the designs require), and aligns with the
+    // field's content padding.
     > pie-chip {
         min-inline-size: 0;
         max-inline-size: 60%;
+        margin-inline-start: var(--dropdown-padding-inline);
     }
 }
 
@@ -161,12 +163,6 @@
     // Long selections truncate with an ellipsis rather than growing the field.
     overflow: hidden;
     white-space: nowrap;
-
-    pie-chip {
-        // The count chip truncates within the field (its close icon keeps
-        // priority over its label) instead of dictating the field's width.
-        max-inline-size: 100%;
-    }
 }
 
 .c-dropdown-fieldValue {

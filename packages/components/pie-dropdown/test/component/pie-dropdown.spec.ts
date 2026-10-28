@@ -112,13 +112,14 @@ test.describe('PieDropdown - Component tests', () => {
             await page.getByTestId(trigger).focus();
 
             // The popover opens and focus moves into it, exactly as an
-            // ArrowDown open does: the first option is focused and becomes
-            // the roving tab stop.
+            // ArrowDown open does: the first option is focused. The options
+            // are never tab stops (the combobox pattern) — the field is the
+            // single tab stop and the list is navigated with arrow keys.
             await expect(page.getByTestId(popover)).toBeVisible();
             await expect(page.getByTestId(trigger)).toHaveAttribute('aria-expanded', 'true');
             const firstOption = page.getByTestId(option).filter({ hasText: 'Pizza' });
             await expect(firstOption).toBeFocused();
-            await expect(firstOption).toHaveAttribute('tabindex', '0');
+            await expect(firstOption).toHaveAttribute('tabindex', '-1');
         });
 
         test('should open the popover with ArrowDown and focus the first option', async ({ page }) => {
@@ -138,7 +139,21 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(popover)).toBeVisible();
             const firstOption = page.getByTestId(option).filter({ hasText: 'Pizza' });
             await expect(firstOption).toBeFocused();
-            await expect(firstOption).toHaveAttribute('tabindex', '0');
+            await expect(firstOption).toHaveAttribute('tabindex', '-1');
+        });
+
+        test('should skip the option list when tabbing from the field while the popover is open', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            await page.getByTestId(trigger).focus();
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            await page.keyboard.press('Tab');
+
+            // Tab moves past the popover entirely (options are not tab
+            // stops), which closes it as focus leaves the component.
+            await expect(page.getByTestId(popover)).toHaveCount(0);
         });
 
         test('should show a focus ring on the closed field after a keyboard close', async ({ page }) => {
@@ -235,6 +250,52 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(popover).locator('pie-checkbox').first()).toBeFocused();
         });
 
+        test('should focus the count chip close button on first tab and still open the popover', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            // The chip renders as a sibling of the trigger, never nested
+            // inside the trigger button, and the trigger is removed from the
+            // tab sequence while the chip is shown.
+            await expect(page.getByTestId(trigger).locator('pie-chip')).toHaveCount(0);
+            await expect(page.getByTestId(trigger)).toHaveAttribute('tabindex', '-1');
+
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await chipClose.focus();
+
+            // The popover opens but focus stays on the chip close button.
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(chipClose).toBeFocused();
+        });
+
+        test('should focus the first option when tabbing from the chip close button', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await chipClose.focus();
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            await page.keyboard.press('Tab');
+
+            // The trigger is not a tab stop while the chip is shown, so Tab
+            // moves from the chip close button straight to the first option.
+            await expect(page.getByTestId(popover).locator('pie-checkbox').first()).toBeFocused();
+            await expect(page.getByTestId(popover)).toBeVisible();
+        });
+
+        test('should clear every selection when the chip close button is activated with the keyboard', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await chipClose.focus();
+            await page.keyboard.press('Enter');
+
+            await expect(page.locator('pie-chip')).toHaveCount(0);
+            await expect(page.getByTestId(trigger)).toBeFocused();
+        });
+
         test('should deselect all options when the count chip is dismissed', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--multi-select');
             await dropdownPage.load();
@@ -260,6 +321,70 @@ test.describe('PieDropdown - Component tests', () => {
     });
 
     test.describe('Search', () => {
+        test('should keep focus in the search field when the popover opens on focus, so typing filters immediately', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(input).toBeFocused();
+
+            // Real keystrokes: these only land if the caret stayed in the
+            // field when the popover opened.
+            await page.keyboard.type('Pas');
+            await expect(page.getByTestId(option)).toHaveCount(1);
+            await expect(page.getByTestId(option)).toHaveText('Pasta');
+        });
+
+        test('should move focus into the option list with ArrowDown, and Escape should not reopen the popover', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+            await page.keyboard.press('ArrowDown');
+
+            const firstOption = page.getByTestId(option).filter({ hasText: 'Pizza' });
+            await expect(firstOption).toBeFocused();
+
+            // Focus is in the list, so closing with Escape genuinely moves
+            // focus back to the field — which must not re-trigger the open.
+            await page.keyboard.press('Escape');
+
+            await expect(page.getByTestId(popover)).toHaveCount(0);
+            await expect(input).toBeFocused();
+        });
+
+        test('should skip the option list when tabbing from the search field while the popover is open', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            await page.keyboard.press('Tab');
+
+            // The popover is never tabbable: Tab moves past it entirely
+            // (arrow keys navigate the list), which closes it as focus
+            // leaves the component.
+            await expect(page.getByTestId(popover)).toHaveCount(0);
+        });
+
+        test('should open the popover on focus in multi-select searchable variants and keep the caret in the field', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(input).toBeFocused();
+            await expect(page.getByTestId(popover).locator('pie-checkbox')).toHaveCount(6);
+        });
+
         test('should open the popover on focus and filter options as the user types', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();
@@ -401,6 +526,26 @@ test.describe('PieDropdown - Component tests', () => {
             const popoverWidth = (await page.getByTestId(popover).boundingBox())?.width;
 
             expect(popoverWidth).toBe(fieldWidth);
+        });
+
+        test('should position the popover below the field even when there is no room left below', async ({ page }) => {
+            // A viewport too short to fit the popover below the field: the
+            // popover must still open below it — it never flips above the
+            // dropdown, even if that means being clipped by the viewport.
+            await page.setViewportSize({ width: 1280, height: 220 });
+
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            const field = page.getByTestId(dropdown.selectors.field.dataTestId);
+            await page.getByTestId(trigger).click();
+
+            const fieldBox = await field.boundingBox();
+            const popoverY = (await page.getByTestId(popover).boundingBox())?.y;
+            const fieldBottom = (fieldBox?.y ?? 0) + (fieldBox?.height ?? 0);
+
+            expect(popoverY).toBeGreaterThanOrEqual(fieldBottom);
+            expect(popoverY).toBeLessThan(fieldBottom + 20);
         });
     });
 

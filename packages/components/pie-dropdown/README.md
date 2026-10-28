@@ -70,7 +70,19 @@ const options = [
 In multi-select variants, the selected options are sorted to the top of the list (in alphanumeric order) whenever the popover is opened.
 
 #### Opening the dropdown
-The popover opens when the field is clicked, or when it receives keyboard focus — focus then moves into the option list (single select: the selected option, or the first one if nothing is selected; multi select: the first checkbox), exactly as an `ArrowDown` open does. Focus that is a side effect of another interaction (such as the focus returning to the field when the popover closes) never reopens it.
+The popover opens when the field is clicked, or when it receives keyboard focus. Where focus lands next depends on the variant:
+
+- **Non-searchable single select** — focus moves into the option list (the selected option, or the first one if nothing is selected), exactly as an `ArrowDown` open does.
+- **Non-searchable multi select** — with a selection, the first tab stop is the count chip's close button: the popover opens while focus stays on the chip, so keyboard users can clear every selection with `Enter`. Tabbing from the chip moves straight to the first option — the trigger is not a tab stop while the chip is shown. Without a selection, focus moves to the first checkbox.
+- **Searchable** — focus stays in the search field so typing filters immediately (the combobox pattern); `ArrowDown` moves focus into the option list on demand.
+
+Focus that is a side effect of another interaction (such as the focus returning to the field when the popover closes) never reopens it.
+
+#### Keyboard navigation
+The option list is never part of the page tab sequence: the field is the single tab stop, `Tab` moves past the popover entirely, and the options are navigated with the arrow keys (with `Home`, `End` and type-ahead). Pressing `Tab` or clicking outside the dropdown closes the popover. In multi-select variants the options are checkboxes, which are tab stops (the field's single-tab-stop rule applies to the single-select listbox).
+
+#### Popover positioning
+The popover always renders below the field — it never flips above the dropdown. When there is not enough room left in the viewport below, the popover is clipped by the viewport edge (consumers should avoid placing the dropdown where this can happen).
 
 #### Using the aria prop
 The `aria` prop accepts an object used to provide accessible names for the parts of the component that cannot be derived from its other props:
