@@ -91,3 +91,8 @@ const Template: TemplateFunction<PaginationProps> = ({
 const createPaginationStory = createStory<PaginationProps>(Template, defaultArgs);
 
 export const Default = createPaginationStory();
+
+export const LargePageRange = createPaginationStory({
+    currentPage: 25,
+    totalPages: 50,
+});

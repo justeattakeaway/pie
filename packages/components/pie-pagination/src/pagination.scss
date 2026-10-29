@@ -51,3 +51,20 @@
         cursor: not-allowed;
     }
 }
+
+// Ellipsis separator for collapsed page ranges.
+.c-pagination-ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: 32px;
+    block-size: 32px;
+
+    font-size: calc(var(--dt-font-body-s-size) * 1px);
+    font-weight: var(--dt-font-body-s-weight);
+    color: var(--dt-color-content-default);
+
+    cursor: default;
+    user-select: none;
+}

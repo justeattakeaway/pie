@@ -35,8 +35,8 @@
     "watch": "run -T vite build --watch",
     "test:browsers": "run -T playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_PAGINATION} percy exec --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts",
-    "test:visual:ci": "yarn test:visual"
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_PAGINATION} percy exec --dry-run --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual:ci": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_PAGINATION} percy exec --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
