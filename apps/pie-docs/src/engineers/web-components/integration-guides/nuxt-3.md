@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Nuxt 3 Integration
     parent: engineers-web-components
     order: 2
+llmsTxtDescription: How to install and set up PIE Web Components with SSR in a Nuxt 3 app, including pie-css, nuxt-ssr-lit and the required nuxt.config settings, with a usage example.
 ---
 
 ## Installation
