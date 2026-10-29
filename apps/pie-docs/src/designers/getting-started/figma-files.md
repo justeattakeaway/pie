@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Figma files
     parent: designers-getting-started
     order: 3
+llmsTxtDescription: Links to the PIE Figma libraries for foundations, web and app components, patterns, motion, accessibility, icons and illustrations, plus business area libraries.
 ---
 ## Foundation libraries
 
