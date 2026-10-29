@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 1
 shouldShowContents: true
 permalink: patterns/messaging-and-chatbots/
+llmsTxtDescription: Introduction to messaging and chatbots, and how to work with third party platforms, including customisation levels and Figma UI kits.
 ---
 
 ## Overview

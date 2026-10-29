@@ -5,6 +5,7 @@ eleventyNavigation:
   order: 1
 shouldShowContents: true
 permalink: patterns/just-eat-plus/
+llmsTxtDescription: Just Eat+ visual identity guide covering logos, JET+ gradients and colours for light and dark mode, typography, imagery, components such as offer tags and cards, and motion.
 ---
 
 ## Overview

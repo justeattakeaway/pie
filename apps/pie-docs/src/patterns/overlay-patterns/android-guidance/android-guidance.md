@@ -6,6 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 eleventyComputed:
     zIndexes: "{% include './z-indexes.json' %}"
+llmsTxtDescription: A decision tree for choosing Android overlays, such as dialog modal, bottom sheet, screen, popover menu, toast and tooltip, guidance for each, and a z-index table.
 ---
 
 ## Decision tree

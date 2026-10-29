@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 2
 shouldShowContents: true
 permalink: patterns/onboarding-and-guided-tour/apps-guidance/
+llmsTxtDescription: iOS and Android onboarding options, such as alerts, dialogs and full screen sheets for overview onboarding, and tooltips, spotlights and bottom sheets for contextual onboarding.
 ---
 
 ## Overview

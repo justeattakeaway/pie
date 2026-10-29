@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Code
     parent: 'Cookie Banner'
     order: 3
+llmsTxtDescription: Link to the cookie banner code documentation in the PIE Web Components Storybook.
 ---
 
 ## Web

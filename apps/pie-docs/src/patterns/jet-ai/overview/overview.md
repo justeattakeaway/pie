@@ -5,6 +5,7 @@ eleventyNavigation:
   order: 1
 shouldShowContents: true
 permalink: patterns/jet-ai/
+llmsTxtDescription: JET AI visual identity guide covering brand principles, icons, AI gradients and colours for light and dark mode, motion, AI component styles and the language and tone to use.
 ---
 
 ## Overview
