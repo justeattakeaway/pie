@@ -9,7 +9,7 @@
     --dropdown-height: 48px;
     --dropdown-padding-block: var(--dt-spacing-c);
     --dropdown-padding-inline: var(--dt-spacing-c);
-    --dropdown-chevron-size: 48px;
+    --dropdown-chevron-size: 52px;
     --dropdown-clear-size: 44px;
     --dropdown-border-color: var(--dt-color-border-form);
     --dropdown-background-color: var(--dt-color-container-default);
@@ -131,7 +131,11 @@
     }
 
     .is-clearable & {
-        padding-inline-end: calc(var(--dropdown-chevron-size) + var(--dropdown-clear-size));
+        // The end zone with a clear button is the clear cell, the 1px divider
+        // and the chevron cell, overlapping by the shared 8px gaps (per the
+        // designs: text → 16px → clear icon → 8px → divider → 8px → chevron
+        // icon → 16px → surface edge).
+        padding-inline-end: calc(var(--dropdown-chevron-size) + var(--dropdown-clear-size) - var(--dt-spacing-b));
     }
 
     .is-disabled & {
@@ -160,9 +164,35 @@
     display: flex;
     align-items: center;
 
+    // The selected option's leading icon and its text sit a step apart.
+    gap: var(--dt-spacing-b);
+
     // Long selections truncate with an ellipsis rather than growing the field.
     overflow: hidden;
     white-space: nowrap;
+}
+
+// The selected option's leading icon, projected into the field while the
+// option is selected (see the `icon-{value}` slot). `display: contents` means
+// an option without an icon contributes no box at all — no gap, no footprint.
+.c-dropdown-selectionIcon {
+    display: contents;
+}
+
+// Both the static and the selected-option's icon sit 16px in from the surface
+// edge (per the designs): inside the trigger (12px padding + 4px margin) for
+// non-searchable variants, and at the field start (16px margin) for
+// searchable ones. Icons render at 20px regardless of their `size` attribute.
+.c-dropdown-fieldText .c-dropdown-selectionIcon ::slotted(*) {
+    --icon-size-override: 20px;
+
+    margin-inline-start: var(--dt-spacing-a);
+}
+
+.c-dropdown-field > .c-dropdown-selectionIcon ::slotted(*) {
+    --icon-size-override: 20px;
+
+    margin-inline-start: var(--dt-spacing-d);
 }
 
 .c-dropdown-fieldValue {
@@ -216,6 +246,22 @@
     }
 }
 
+// A thin divider between the clear button and the chevron (shown only while
+// the clear button is), 8px either side of it per the designs.
+.c-dropdown-fieldDivider {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+
+    // At the boundary of the chevron area, 8px before the chevron icon.
+    inset-inline-end: calc(var(--dropdown-chevron-size) - var(--dt-spacing-b));
+
+    inline-size: 1px;
+    block-size: 20px;
+
+    background-color: var(--dt-color-divider-default);
+}
+
 // The chevron is decorative (the field's own semantics describe the
 // expanded state), so it is hidden from assistive technology. In searchable
 // variants it is also the surface that closes the popover again.
@@ -239,14 +285,20 @@
     }
 }
 
+// The static leading icon (the `leadingIcon` slot). `display: contents` means
+// an empty slot leaves no box at all — the field's text keeps its designed
+// inset — while a slotted icon becomes a direct flex child of the field row.
+// The 16px inset (per the designs: 16px from the surface edge to the icon)
+// lives on the projected icon as a margin, so it collapses when nothing is
+// slotted. Icons render at 20px regardless of the `size` attribute they
+// carry (the designs specify Size=Small).
 .c-dropdown-leadingIcon {
-    display: flex;
-    align-items: center;
-    padding-inline-start: var(--dt-spacing-c);
+    display: contents;
 
     ::slotted([slot="leadingIcon"]) {
-        --icon-size-override: 24px;
+        --icon-size-override: 20px;
 
+        margin-inline-start: var(--dt-spacing-d);
         color: var(--dt-color-content-subdued);
     }
 }
@@ -285,6 +337,20 @@
 // selected rows, so the selector is inherently scoped to the selected state).
 .c-dropdown-option icon-check {
     color: var(--dt-color-content-brand-solid);
+}
+
+// The option rows sit one step tighter vertically than the list component's
+// default: the dropdown's designs specify 12px block padding (16px inline is
+// the default and matches). The variable is defined by pie-list-item for
+// exactly this kind of consumer override.
+.c-dropdown-option {
+    --list-item-block-padding: var(--dt-spacing-c);
+}
+
+// Consumer-slotted option icons render at 20px regardless of the `size`
+// attribute they carry (the designs specify Size=Small).
+.c-dropdown-option [slot^="icon-"] {
+    --icon-size-override: 20px;
 }
 
 // The loading and no-results states.

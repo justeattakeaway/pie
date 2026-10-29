@@ -146,8 +146,8 @@ Which clear affordance is shown depends on the variant:
 ### Slots
 | Slot                  | Description                                                                                                                                       |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `leadingIcon`         | An icon shown at the start of the field, visually supporting it. Slot a `pie-icons-webc` icon, e.g. `<icon-placeholder slot="leadingIcon">`.      |
-| `icon-{value}`        | An icon shown at the start of a single-select option row. The slot name includes the option's `value`, e.g. `<icon-flag-gb slot="icon-gb">`. A missing slot simply renders no icon. Option icons are decorative: the option's accessible name comes from its `primaryText`. |
+| `leadingIcon`         | An icon shown at the start of the field, visually supporting it. Slot a `pie-icons-webc` icon, e.g. `<icon-placeholder slot="leadingIcon">`. Slotted icons render at 20px regardless of their `size` attribute.      |
+| `icon-{value}`        | An icon shown at the start of a single-select option row. The slot name includes the option's `value`, e.g. `<icon-flag-gb slot="icon-gb">`. A missing slot simply renders no icon. While such an option is selected, its icon is shown in the field alongside the selection text (in non-searchable variants it returns to the option row while the popover is open; searchable variants keep it in the field, including while searching). Option icons are decorative: the option's accessible name comes from its `primaryText`. Slotted icons render at 20px regardless of their `size` attribute. |
 
 ### CSS Variables
 The component defines these CSS variables, which can be overridden:

@@ -5,6 +5,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@justeattakeaway/pie-webc/components/dropdown';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFood.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconStar.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeart.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconClock.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCamera.js';
 import {
     defaultProps,
     sizes,
@@ -101,7 +106,7 @@ const dropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
             @pie-dropdown-close=${action('pie-dropdown-close')}
             @pie-dropdown-search=${action('pie-dropdown-search')}>
             ${showLeadingIcon
-    ? html`<icon-placeholder slot="leadingIcon" size="m"></icon-placeholder>`
+    ? html`<icon-placeholder slot="leadingIcon" size="s"></icon-placeholder>`
     : html``}
         </pie-dropdown>
     `;
@@ -196,3 +201,43 @@ export const Error = createStory<DropdownStoryProps>(dropdownTemplate, defaultAr
     status: 'error',
     assistiveText: 'Please select a meal to continue',
 });
+
+// ---------------------------------------------------------------------------
+// TEMPORARY stories for design review of complex option rows (secondary text
+// and leading icons), including the selected option's icon shown in the
+// field. Remove once the review is complete.
+// ---------------------------------------------------------------------------
+const optionsWithIcons: DropdownOption[] = [
+    { value: 'pizza', primaryText: 'Pizza', secondaryText: 'Wood-fired, with a crisp base' },
+    { value: 'burger', primaryText: 'Burger', secondaryText: 'Flame-grilled, with pickles' },
+    { value: 'pasta', primaryText: 'Pasta', secondaryText: 'Made to a traditional recipe' },
+    { value: 'curry', primaryText: 'Curry', secondaryText: 'Slow-cooked with aromatic spices' },
+    { value: 'ramen', primaryText: 'Ramen', secondaryText: 'Rich broth and springy noodles' },
+];
+
+const optionsWithIconsTemplate: TemplateFunction<DropdownStoryProps> = ({
+    name,
+    label,
+    placeholder,
+    value,
+    isSearchable,
+}) => html`
+        <style>pie-dropdown { width: min(360px, 100%); }</style>
+        <pie-dropdown
+            name="${ifDefined(name)}"
+            label="${ifDefined(label)}"
+            placeholder="${ifDefined(placeholder)}"
+            .value="${ifDefined(value)}"
+            .options=${optionsWithIcons}
+            ?isSearchable="${isSearchable}">
+            <icon-food slot="icon-pizza" size="s"></icon-food>
+            <icon-star slot="icon-burger" size="s"></icon-star>
+            <icon-heart slot="icon-pasta" size="s"></icon-heart>
+            <icon-clock slot="icon-curry" size="s"></icon-clock>
+            <icon-camera slot="icon-ramen" size="s"></icon-camera>
+        </pie-dropdown>
+    `;
+
+export const WithSecondaryText = createStory<DropdownStoryProps>(dropdownTemplate, defaultArgs)({ hasSecondaryText: true });
+
+export const WithLeadingIcons = createStory<DropdownStoryProps>(optionsWithIconsTemplate, defaultArgs)({ value: 'pizza' });

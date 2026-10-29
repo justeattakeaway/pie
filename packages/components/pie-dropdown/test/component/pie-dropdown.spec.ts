@@ -61,6 +61,41 @@ test.describe('PieDropdown - Component tests', () => {
 
             await expect(page.getByTestId(trigger)).toBeDisabled();
         });
+
+        test('should inset the leading icon 16px from the field edge, leaving no footprint when empty', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            // Without a leading icon the field's text keeps its designed
+            // inset: the empty leading-icon span contributes no box.
+            const textInset = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                const field = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-field"]');
+                const placeholder = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-placeholder"]');
+                return placeholder.getBoundingClientRect().x - field.getBoundingClientRect().x;
+            });
+            expect(textInset).toBeGreaterThanOrEqual(12);
+            expect(textInset).toBeLessThanOrEqual(14);
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                const icon = document.createElement('icon-check');
+                icon.setAttribute('slot', 'leadingIcon');
+                dropdown.appendChild(icon);
+                return dropdown.updateComplete;
+            });
+
+            // The slotted icon sits 16px in from the surface edge (plus the
+            // 1px border) per the designs.
+            const iconInset = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                const field = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-field"]');
+                const icon = dropdown.querySelector('[slot="leadingIcon"]');
+                return icon.getBoundingClientRect().x - field.getBoundingClientRect().x;
+            });
+            expect(iconInset).toBeGreaterThanOrEqual(16);
+            expect(iconInset).toBeLessThanOrEqual(18);
+        });
     });
 
     test.describe('Popover', () => {
@@ -846,6 +881,125 @@ test.describe('PieDropdown - Component tests', () => {
 
             await expect(page.getByTestId(popover)).toBeHidden();
             await expect(input).toHaveValue('Burger');
+        });
+    });
+
+    test.describe('Selection icon', () => {
+        const slotIconFor = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.evaluate((optionValue) => {
+            const dropdown = document.querySelector('pie-dropdown');
+            const icon = document.createElement('icon-check');
+            icon.setAttribute('slot', `icon-${optionValue}`);
+            dropdown.appendChild(icon);
+            return dropdown.updateComplete;
+        }, value);
+
+        // Locators cannot follow slot projection (the icon stays a light-DOM
+        // child of the host), so the icon's whereabouts are asserted through
+        // the slot it is assigned to.
+        const iconState = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.evaluate((optionValue) => {
+            const dropdown = document.querySelector('pie-dropdown');
+            const slot = dropdown?.shadowRoot?.querySelector(`slot[name="icon-${optionValue}"]`);
+
+            if (!slot) return { location: 'none', assigned: 0 };
+
+            let location = 'other';
+            if (slot.closest('.c-dropdown-selectionIcon')) {
+                location = 'field';
+            } else if (slot.closest('.c-dropdown-popover')) {
+                location = 'row';
+            }
+
+            return { location, assigned: slot.assignedElements().length };
+        }, value);
+
+        test('should show the selected option\'s leading icon in the field', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
+            await dropdownPage.load();
+
+            await slotIconFor(page, 'burger');
+
+            // The icon projects into the field: the field's slot comes first
+            // in the shadow tree, so it wins the projection over the row.
+            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+        });
+
+        test('should return the selected option\'s icon to its row while the popover is open', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
+            await dropdownPage.load();
+
+            await slotIconFor(page, 'burger');
+
+            // Click near the start of the field: the clear button sits
+            // between the text and the chevron with a selection present.
+            await page.getByTestId(trigger).click({ position: { x: 10, y: 24 } });
+
+            // The field slot is not rendered while the popover is open, so
+            // the icon projects back into the selected option's row.
+            expect(await iconState(page, 'burger')).toEqual({ location: 'row', assigned: 1 });
+        });
+
+        test('should keep the selected option\'s icon in the search field while searching', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.value = 'burger';
+                return dropdown.updateComplete;
+            });
+            await slotIconFor(page, 'burger');
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.fill('Pas');
+
+            // The icon stays in the field while searching (the designs show
+            // it alongside the search text).
+            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+        });
+
+        test('should render no icon in the field when the selected option has none', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            // Only Burger's option has a slotted icon; Pizza does not.
+            await slotIconFor(page, 'burger');
+
+            await page.getByTestId(trigger).click();
+            await page.getByTestId(option).filter({ hasText: 'Pizza' }).click();
+
+            // Pizza's field slot exists but nothing projects into it.
+            expect(await iconState(page, 'pizza')).toEqual({ location: 'field', assigned: 0 });
+        });
+
+        test('should remove the field icon when the selection is cleared', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
+            await dropdownPage.load();
+
+            await slotIconFor(page, 'burger');
+            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+
+            await page.getByTestId(dropdown.selectors.clear.dataTestId).click();
+
+            expect(await iconState(page, 'burger')).toEqual({ location: 'none', assigned: 0 });
+        });
+        test('should inset the selected option\'s icon 16px from the field edge', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
+            await dropdownPage.load();
+
+            await slotIconFor(page, 'burger');
+
+            // The icon sits 16px in from the surface edge (plus the 1px
+            // border) per the designs. It is a light-DOM child of the host,
+            // so its box is measured directly.
+            const inset = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                const field = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-field"]');
+                const icon = dropdown.querySelector('icon-check');
+                return icon.getBoundingClientRect().x - field.getBoundingClientRect().x;
+            });
+
+            expect(inset).toBeGreaterThanOrEqual(16);
+            expect(inset).toBeLessThanOrEqual(18);
         });
     });
 

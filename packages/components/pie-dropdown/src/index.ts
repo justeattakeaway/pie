@@ -999,10 +999,35 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
 
         if (this._selectionText) {
-            return html`<span class="c-dropdown-fieldValue" data-test-id="pie-dropdown-value">${this._selectionText}</span>`;
+            return html`
+                ${this._renderSelectionIcon()}
+                <span class="c-dropdown-fieldValue" data-test-id="pie-dropdown-value">${this._selectionText}</span>`;
         }
 
         return html`<span class="c-dropdown-fieldPlaceholder" data-test-id="pie-dropdown-placeholder">${this.placeholder || ''}</span>`;
+    }
+
+    /**
+     * The selected option's leading icon, shown in the field. The slot name
+     * matches the option's `icon-{value}` slot: a node can only project into
+     * one slot, and this one comes first in the shadow tree, so the icon
+     * projects into the field rather than its option row — the icon "moves"
+     * into the field while the option is selected.
+     *
+     * In non-searchable variants the slot only renders while the popover is
+     * closed: per the designs the icon returns to the selected row while the
+     * list is open (this slot disappears, so the row's own slot becomes the
+     * only match again). In searchable variants it is always shown, including
+     * while searching.
+     */
+    private _renderSelectionIcon (): TemplateResult | typeof nothing {
+        if (this.isMultiselect || !this._hasSelection) return nothing;
+
+        if (!this.isSearchable && this._isOpen) return nothing;
+
+        return html`<span class="c-dropdown-selectionIcon">
+            <slot name="icon-${this._selectedValues[0]}"></slot>
+        </span>`;
     }
 
     private _renderCountChip (): TemplateResult {
@@ -1034,7 +1059,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 ?disabled=${this.disabled}
                 @click=${this._onClearClick}
                 data-test-id="pie-dropdown-clear">
-                <icon-close-circle size="m"></icon-close-circle>
+                <icon-close-circle size="s"></icon-close-circle>
             </button>
         `;
     }
@@ -1053,8 +1078,8 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 ?data-interactive-chevron=${interactive}
                 @click=${interactive ? this._onChevronClick : nothing}>
                 ${this._isOpen
-            ? html`<icon-chevron-up size="m"></icon-chevron-up>`
-            : html`<icon-chevron-down size="m"></icon-chevron-down>`}
+            ? html`<icon-chevron-up size="s"></icon-chevron-up>`
+            : html`<icon-chevron-down size="s"></icon-chevron-down>`}
             </span>
         `;
     }
@@ -1127,6 +1152,9 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 <span class="c-dropdown-fieldText">${this._renderFieldText()}</span>
             </button>
             ${this._renderClearButton()}
+            ${this._isClearable
+                ? html`<span class="c-dropdown-fieldDivider" aria-hidden="true"></span>`
+                : nothing}
             ${this._renderChevron()}
         `;
     }
@@ -1144,6 +1172,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
         return html`
             ${this.isMultiselect && this._hasSelection ? this._renderCountChip() : nothing}
+            ${this._renderSelectionIcon()}
             <input
                 type="text"
                 id="${this._fieldId}"
@@ -1187,7 +1216,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 @click=${() => !option.disabled && this._selectSingle(option)}
                 data-test-id="pie-dropdown-option">
                 ${selected
-            ? html`<icon-check slot="trailing" size="m" aria-hidden="true"></icon-check>`
+            ? html`<icon-check slot="trailing" size="s" aria-hidden="true"></icon-check>`
             : nothing}
                 <slot name="icon-${option.value}" slot="leading"></slot>
             </pie-list-item>
