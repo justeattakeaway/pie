@@ -7,6 +7,7 @@ shouldShowContents: true
 permalink: patterns/nested-overrides/
 eleventyComputed:
     overrideSummaryTableData: "{% include './override-summary-table.json' %}"
+llmsTxtDescription: When designers can override nested elements within components, covering variant, size, alignment and typography overrides, restricted overrides and a summary table.
 ---
 
 ## Overview

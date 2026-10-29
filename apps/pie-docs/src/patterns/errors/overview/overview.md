@@ -5,6 +5,7 @@ eleventyNavigation:
   order: 1
 shouldShowContents: true
 permalink: patterns/errors/
+llmsTxtDescription: The error types (global, page level, field and feedback) and which components to use for each, such as notifications, modals, assistive text, error summaries and toasts.
 ---
 
 ## Overview

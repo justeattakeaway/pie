@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Global tokens
     parent: Elevation
     order: 3
+includeInLlmsTxt: false
 ---
 
 ## Global elevation tokens

@@ -5,6 +5,7 @@ eleventyNavigation:
   order: 1
 shouldShowContents: true
 permalink: patterns/selected-state/
+llmsTxtDescription: How to show selected states, with do's and don'ts, border tokens such as $color-border-selected, iconography and the selected variant of components.
 ---
 
 ## Overview

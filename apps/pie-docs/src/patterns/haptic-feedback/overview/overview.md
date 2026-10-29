@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 1
 shouldShowContents: true
 permalink: patterns/haptic-feedback/
+llmsTxtDescription: Best practices for haptic feedback, such as using system patterns and not overusing it, and how designers and developers work together to add haptic interactions.
 ---
 
 

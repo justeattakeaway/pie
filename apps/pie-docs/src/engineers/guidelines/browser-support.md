@@ -4,6 +4,7 @@ eleventyNavigation:
     title: Browser support
     parent: engineers-guidelines
     order: 2
+llmsTxtDescription: Browser support levels and their testing requirements, the level of each desktop and mobile browser, and recommended devices to test on.
 eleventyComputed:
     desktopTableData: "{% include './browser-support-desktop.json' %}"
     mobileTableData: "{% include './browser-support-mobile.json' %}"

@@ -6,6 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 eleventyComputed:
     zIndexes: "{% include './z-indexes.json' %}"
+llmsTxtDescription: A decision tree for choosing iOS overlays, such as alert modal, bottom sheet, sheet, popover menu, toast and tooltip, guidance for each, and a z-index table.
 ---
 
 ## Decision tree

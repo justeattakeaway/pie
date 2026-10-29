@@ -6,6 +6,7 @@ eleventyNavigation:
 eleventyComputed:
     zIndexes: "{% include './z-indexes.json' %}"
 shouldShowContents: true
+llmsTxtDescription: A decision tree for choosing between modal, popover, toast and tooltip on web, guidance for each, and a z-index table showing how components stack.
 ---
 
 ## Decision tree

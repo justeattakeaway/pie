@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Best practices
     parent: designers-getting-started
     order: 2
+llmsTxtDescription: Best practices for designing with PIE in Figma, such as following PIE comms, using Foundation styles, keeping libraries up to date, Auto Layout, and using and creating Figma slots.
 ---
 
 ## Stay informed with PIE comms

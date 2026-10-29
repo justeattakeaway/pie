@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 4
 eleventyComputed:
     tableData: "{% include './android.json' %}"
+llmsTxtDescription: How elevation works on Android using Material Design elevation values, with a table mapping each PIE elevation token to its Material equivalent.
 ---
 
 ## Elevation on Android

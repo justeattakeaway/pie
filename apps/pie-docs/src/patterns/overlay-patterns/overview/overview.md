@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 1
 shouldShowContents: true
 permalink: patterns/overlay-patterns/
+llmsTxtDescription: Best practices for overlay patterns, covering purposeful use, clarity and visibility, user control, responsive design and consistency.
 ---
 
 

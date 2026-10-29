@@ -8,6 +8,7 @@ This guide covers how to create and structure pages on the PIE (Principles for I
 - [Creating tabbed pages](#creating-tabbed-pages)
 - [Adding index pages](#adding-index-pages)
 - [Drafts](#drafts)
+- [llms.txt](#llmstxt)
 - [Conventions and quality rules](#conventions-and-quality-rules)
 
 ---
@@ -203,6 +204,33 @@ To put an entire section in draft mode, add a JSON file to the section folder:
 ```
 
 This applies `draft: true` to every page in the section.
+
+---
+
+## llms.txt
+
+The site publishes an [llms.txt](https://llmstxt.org) file at `/llms.txt` to help AI agents find relevant content. It is generated from page frontmatter and section `.json` files by `scripts/generate-llms-txt.js`, which runs as part of `yarn build`. You can also run it on its own with `yarn generate:llms-txt`. The file is written to `dist/` and is not tracked by version control, so never edit it by hand.
+
+Each page appears as a link labelled with its navigation path (for example, `Colour - Alias tokens - Light theme`), followed by its `description`. Top-level section pages (for example, `/foundations/`) only index their child pages, so they are used for the section headings and are not listed as links. Navigation groups with `subPageDropdown: true` (for example, Numeric Stepper) are skipped too, as they have no content of their own.
+
+Component pages that share the same structure (Overview, Web, Apps, Android, iOS, Code and Motion) get a standard description built from the component title, for example `Web design guidance for the Button component, …`. These are set by `PAGE_TYPE_DESCRIPTIONS` in the generator script.
+
+Two optional frontmatter fields control how a page appears:
+
+- `includeInLlmsTxt: false` excludes the page from llms.txt. Use it for content agents should not prioritise, such as global token pages. Setting it in a section `.json` file excludes every page in that folder.
+- `llmsTxtDescription` replaces the description used in llms.txt, including the standard component page descriptions. Use it when a page inherits a generic description from its section `.json` file and needs a more specific one for agents.
+
+```yaml
+---
+eleventyNavigation:
+    key: Code
+    parent: Button
+    order: 4
+llmsTxtDescription: Links to the web, iOS and Android code implementations of the Button component.
+---
+```
+
+The order of the sections in llms.txt is set by `SECTION_ORDER` in the generator script and can differ from the site navigation. When you add a new top-level section, add its folder name to `SECTION_ORDER` too. Sections missing from the list are still included, but they are appended at the end and the script prints a warning.
 
 ---
 
