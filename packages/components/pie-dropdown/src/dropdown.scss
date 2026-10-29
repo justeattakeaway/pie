@@ -1,7 +1,369 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    // Note: For consistency sake, the recommended display should be either
-    // "block" or "inline-block", otherwise it can be ommited for floating elements
     display: block;
+}
+
+.c-dropdown {
+    // The field's height, padding and text tokens, following the size scale.
+    --dropdown-height: 48px;
+    --dropdown-padding-block: var(--dt-spacing-c);
+    --dropdown-padding-inline: var(--dt-spacing-c);
+    --dropdown-chevron-size: 52px;
+    --dropdown-clear-size: 44px;
+    --dropdown-border-color: var(--dt-color-border-form);
+    --dropdown-background-color: var(--dt-color-container-default);
+    --dropdown-text-color: var(--dt-color-content-default);
+    --dropdown-placeholder-color: var(--dt-color-content-subdued);
+    --dropdown-font-family: var(--dt-font-body-l-family);
+    --dropdown-font-size: #{p.font-size(--dt-font-body-l-size)};
+    --dropdown-line-height: #{p.font-size(--dt-font-body-l-line-height)};
+    --dropdown-cursor: pointer;
+}
+
+.c-dropdown-field {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: var(--dropdown-height);
+
+    // The field's contents (selection text, chip, search text) never dictate
+    // its width: long values truncate inside it instead of growing it, so
+    // making a selection or typing cannot change the component's size. The
+    // minimum matches the default width in the designs, and consumers can
+    // size the component however they like.
+    min-inline-size: 256px;
+    contain: inline-size;
+
+    border: 1px solid var(--dropdown-border-color);
+    border-radius: var(--dt-radius-rounded-c);
+    background-color: var(--dropdown-background-color);
+
+    color: var(--dropdown-text-color);
+    font-family: var(--dropdown-font-family);
+    font-size: var(--dropdown-font-size);
+    line-height: var(--dropdown-line-height);
+
+    // The open field keeps its focus ring (the focus has moved into the
+    // popover, but the field is still the component's anchor).
+    &.is-open {
+        @include p.focus;
+    }
+
+    // Keyboard focus on a closed field (e.g. the focus returned to it after a
+    // keyboard-triggered close): the trigger is the tab target in
+    // non-searchable variants, so the container shows the ring on its behalf.
+    &:has(.c-dropdown-trigger:focus-visible) {
+        @include p.focus;
+    }
+
+    &.c-dropdown--small {
+        --dropdown-height: 40px;
+        --dropdown-padding-block: var(--dt-spacing-b);
+    }
+
+    &.c-dropdown--large {
+        --dropdown-height: 56px;
+        --dropdown-padding-block: var(--dt-spacing-d);
+    }
+
+    &.c-dropdown--error {
+        --dropdown-border-color: var(--dt-color-support-error);
+    }
+
+    @media (hover: hover) {
+        &:not(.is-disabled):hover {
+            --dropdown-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --dropdown-background-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-container-default));
+            }
+        }
+    }
+
+    &.is-disabled {
+        --dropdown-background-color: var(--dt-color-disabled-01);
+        --dropdown-border-color: var(--dt-color-disabled-01);
+        --dropdown-text-color: var(--dt-color-content-disabled);
+        --dropdown-cursor: auto;
+    }
+
+    // In multi-select variants the count chip sits directly in the field
+    // row, next to the trigger (or the search input). It truncates rather
+    // than squeezing out the interactive element (which keeps a minimum
+    // share of the field, as the designs require), and aligns with the
+    // field's content padding.
+    > pie-chip {
+        min-inline-size: 0;
+        max-inline-size: 60%;
+        margin-inline-start: var(--dropdown-padding-inline);
+    }
+}
+
+// The field's interactive element: a disclosure button (non-searchable
+// variants) or a filtering textbox (searchable variants). It fills the field
+// so the whole surface — including the chevron area — is its click target;
+// the clear button and chevron icon are siblings laid over it.
+.c-dropdown-trigger {
+    flex: 1;
+    min-inline-size: 0;
+
+    display: flex;
+    align-items: center;
+
+    padding-block-start: var(--dropdown-padding-block);padding-block-end: var(--dropdown-padding-block);
+
+    // Room for the chevron (and the clear button when one is shown).
+    padding-inline-start: var(--dropdown-padding-inline);padding-inline-end: var(--dropdown-chevron-size);
+
+    border: none;
+    background: transparent;
+
+    font: inherit;
+    color: inherit;
+    text-align: start;
+    cursor: var(--dropdown-cursor);
+
+    &:focus {
+        outline: none;
+    }
+
+    .is-clearable & {
+        // The end zone with a clear button is the clear cell, the 1px divider
+        // and the chevron cell, overlapping by the shared 8px gaps (per the
+        // designs: text → 16px → clear icon → 8px → divider → 8px → chevron
+        // icon → 16px → surface edge).
+        padding-inline-end: calc(var(--dropdown-chevron-size) + var(--dropdown-clear-size) - var(--dt-spacing-b));
+    }
+
+    .is-disabled & {
+        cursor: auto;
+    }
+}
+
+.c-dropdown-input {
+    // The input is its own value display, so it inherits the field's text
+    // styling rather than the browser default. It never grows the field: long
+    // search text scrolls within it.
+    appearance: none;
+    min-inline-size: 0;
+    width: 100%;
+
+    &::placeholder {
+        color: var(--dropdown-placeholder-color);
+        opacity: 1;
+    }
+}
+
+.c-dropdown-fieldText {
+    flex: 1;
+    min-inline-size: 0;
+
+    display: flex;
+    align-items: center;
+
+    // The selected option's leading icon and its text sit a step apart.
+    gap: var(--dt-spacing-b);
+
+    // Long selections truncate with an ellipsis rather than growing the field.
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// The selected option's leading icon, projected into the field while the
+// option is selected (see the `icon-{value}` slot). `display: contents` means
+// an option without an icon contributes no box at all — no gap, no footprint.
+.c-dropdown-selectionIcon {
+    display: contents;
+}
+
+// Both the static and the selected-option's icon sit 16px in from the surface
+// edge (per the designs): inside the trigger (12px padding + 4px margin) for
+// non-searchable variants, and at the field start (16px margin) for
+// searchable ones. Icons render at 20px regardless of their `size` attribute.
+.c-dropdown-fieldText .c-dropdown-selectionIcon ::slotted(*) {
+    --icon-size-override: 20px;
+
+    margin-inline-start: var(--dt-spacing-a);
+}
+
+.c-dropdown-field > .c-dropdown-selectionIcon ::slotted(*) {
+    --icon-size-override: 20px;
+
+    margin-inline-start: var(--dt-spacing-d);
+}
+
+.c-dropdown-fieldValue {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.c-dropdown-fieldPlaceholder {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--dropdown-placeholder-color);
+}
+
+// The clear button sits between the field's text and the chevron, as a
+// sibling of the trigger so no interactive element nests inside another. It
+// is only shown in single-select variants without search, where it removes
+// the selection; searchable variants and multi select never show it — typed
+// search text is cleared by backspacing, and multi select clears every
+// selection via the count chip's close icon instead.
+.c-dropdown-clear {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+
+    // Just inside the chevron area at the end of the field.
+    inset-inline-end: calc(var(--dropdown-chevron-size) - var(--dt-spacing-b));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--dropdown-clear-size);
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    color: var(--dt-color-content-subdued);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--dt-color-content-default);
+    }
+
+    &:focus-visible {
+        @include p.focus;
+    }
+}
+
+// A thin divider between the clear button and the chevron (shown only while
+// the clear button is), 8px either side of it per the designs.
+.c-dropdown-fieldDivider {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+
+    // At the boundary of the chevron area, 8px before the chevron icon.
+    inset-inline-end: calc(var(--dropdown-chevron-size) - var(--dt-spacing-b));
+
+    inline-size: 1px;
+    block-size: 20px;
+
+    background-color: var(--dt-color-divider-default);
+}
+
+// The chevron is decorative (the field's own semantics describe the
+// expanded state), so it is hidden from assistive technology. In searchable
+// variants it is also the surface that closes the popover again.
+.c-dropdown-chevron {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    inset-inline-end: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--dropdown-chevron-size);
+
+    pointer-events: none;
+    color: var(--dt-color-content-subdued);
+
+    &[data-interactive-chevron] {
+        pointer-events: auto;
+        cursor: pointer;
+    }
+}
+
+// The static leading icon (the `leadingIcon` slot). `display: contents` means
+// an empty slot leaves no box at all — the field's text keeps its designed
+// inset — while a slotted icon becomes a direct flex child of the field row.
+// The 16px inset (per the designs: 16px from the surface edge to the icon)
+// lives on the projected icon as a margin, so it collapses when nothing is
+// slotted. Icons render at 20px regardless of the `size` attribute they
+// carry (the designs specify Size=Small).
+.c-dropdown-leadingIcon {
+    display: contents;
+
+    ::slotted([slot="leadingIcon"]) {
+        --icon-size-override: 20px;
+
+        margin-inline-start: var(--dt-spacing-d);
+        color: var(--dt-color-content-subdued);
+    }
+}
+
+/* ------------------------------------------------------------------ *
+ * Popover
+ * ------------------------------------------------------------------ */
+
+// Position (left/top/width) is set from JS: the support target includes
+// Safari 16, which lacks the native Popover API and CSS anchor positioning.
+.c-dropdown-popover {
+    position: fixed;
+    z-index: var(--dt-z-index-dropdown);
+
+    box-sizing: border-box;
+
+    // Symmetric padding keeps the popover's whitespace even and leaves room
+    // for the options' focus ring (which extends 4px beyond each row) inside
+    // the popover's overflow boundary, so it is never clipped.
+    padding: var(--dt-spacing-b);
+
+    border-radius: var(--dt-radius-rounded-c);
+    background-color: var(--dt-color-container-default);
+    box-shadow: var(--dt-elevation-below-10);
+
+    // Shows the first five-and-a-half options; further options scroll.
+    max-height: 272px;
+    overflow-y: auto;
+}
+
+.c-dropdown-checkboxGroup {
+    display: block;
+}
+
+// The selected option's tick uses the brand colour (the icon only renders on
+// selected rows, so the selector is inherently scoped to the selected state).
+.c-dropdown-option icon-check {
+    color: var(--dt-color-content-brand-solid);
+}
+
+// The option rows sit one step tighter vertically than the list component's
+// default: the dropdown's designs specify 12px block padding (16px inline is
+// the default and matches). The variable is defined by pie-list-item for
+// exactly this kind of consumer override.
+.c-dropdown-option {
+    --list-item-block-padding: var(--dt-spacing-c);
+}
+
+// Consumer-slotted option icons render at 20px regardless of the `size`
+// attribute they carry (the designs specify Size=Small).
+.c-dropdown-option [slot^="icon-"] {
+    --icon-size-override: 20px;
+}
+
+// The loading and no-results states.
+.c-dropdown-popoverMessage {
+    display: flex;
+    align-items: center;
+    gap: var(--dt-spacing-c);
+    padding: var(--dt-spacing-c);
+
+    color: var(--dt-color-content-default);
+}
+
+// Kept available for screen readers but hidden from view.
+.c-dropdown-visuallyHidden {
+    @include p.visually-hidden;
 }

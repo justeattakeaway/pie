@@ -145,6 +145,12 @@ slot[name="link"]::slotted(a:focus-visible),
     @include p.focus;
 }
 
+// An option row (`interactionType="option"`) is focused directly on its host — the owning
+// container manages a roving tabindex — so keyboard focus rings the host, which wraps the row.
+:host(:focus-visible) {
+    @include p.focus;
+}
+
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
 // when the primary text stands alone (`:only-child` == no secondary text). With
 // secondary text the default padding is kept so two lines of text sit correctly.
