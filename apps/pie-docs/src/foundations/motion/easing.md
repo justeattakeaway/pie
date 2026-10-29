@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Easing
     parent: Motion
     order: 3
+llmsTxtDescription: Easing types for motion (entrance, exit and persistent functional or expressive easing), when to use each, and why linear motion should be avoided.
 ---
 ## Overview
 

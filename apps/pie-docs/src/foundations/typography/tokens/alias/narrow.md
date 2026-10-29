@@ -13,4 +13,5 @@ eleventyComputed:
   # This is set in alias.json
   shownContentSlug: "{{toggleContent.b.slug}}"
   hiddenContentSlug: "{{toggleContent.a.slug}}"
+llmsTxtDescription: Typography alias tokens for narrow screens covering headings, subheadings, body, caption and interactive text styles, with the global font tokens each combines.
 ---

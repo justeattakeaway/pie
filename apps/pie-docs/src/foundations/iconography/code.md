@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Code
     parent: Iconography
     order: 3
+llmsTxtDescription: How to use PIE icons in code on web (React, Vue and vanilla JS via pie-icons-webc), iOS (JustUI) and Android (PIE BOM), with naming conventions and colour tinting.
 ---
 
 ## Overview

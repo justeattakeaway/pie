@@ -18,4 +18,4 @@ eleventyComputed:
   # This is set in alias.json
   shownContentSlug: "{{toggleContent.a.slug}}"
   hiddenContentSlug: "{{toggleContent.b.slug}}"
-  
+llmsTxtDescription: Light theme elevation alias tokens for default and inverse surfaces, with the elements each depth is used for and the global box-shadow token it maps to.
