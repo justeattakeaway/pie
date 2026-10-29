@@ -3,7 +3,7 @@ eleventyNavigation:
     key: Timing
     parent: Motion
     order: 2
-llmsTxtDescription: Motion timing tokens from 100ms to 350ms, when to use short, medium and long timings based on element size and distance, and how to time entrances, exits and delays.
+llmsTxtDescription: Motion durations, when to use short, medium and long timings based on element size and travel distance, why exits are faster than entrances, and how to use delays.
 ---
 ## Overview
 
@@ -46,5 +46,3 @@ With elements that have enter and exit states such as message type components li
 ## Delay Timings
 
 Timings can be used to delay an element from starting a transition, we do this so that we can choreograph multiple elements that animate within the same component or page view. In a component like the Accordion a delay is used so that we that the user can comprehend the container opening before the information is revealed instead of all at once.
-
-
