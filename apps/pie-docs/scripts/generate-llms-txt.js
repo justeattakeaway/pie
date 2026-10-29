@@ -57,7 +57,14 @@ const IGNORED_DIRECTORIES = ['assets', '__tests__'];
 
 const getOutputPath = () => {
     const outputFlagIndex = process.argv.indexOf('--output');
-    return outputFlagIndex > -1 ? path.resolve(process.argv[outputFlagIndex + 1]) : DEFAULT_OUTPUT;
+    if (outputFlagIndex === -1) return DEFAULT_OUTPUT;
+
+    const outputPath = process.argv[outputFlagIndex + 1];
+    if (!outputPath || outputPath.startsWith('--')) {
+        throw new Error('[generate-llms-txt] --output requires a file path, e.g. --output dist/llms.txt');
+    }
+
+    return path.resolve(outputPath);
 };
 
 const parseFrontmatter = (filePath) => {
