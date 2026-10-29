@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Timing
     parent: Motion
     order: 2
+llmsTxtDescription: Motion timing tokens from 100ms to 350ms, when to use short, medium and long timings based on element size and distance, and how to time entrances, exits and delays.
 ---
 ## Overview
 

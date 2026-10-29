@@ -18,4 +18,5 @@ eleventyComputed:
   # This is set in alias-tokens.json
   shownContentSlug: "{{toggleContent.a.slug}}"
   hiddenContentSlug: "{{toggleContent.b.slug}}"
+llmsTxtDescription: Light theme gradient alias tokens for AI, container, border, JET+, brand and support use, each made of global colour tokens set at stops between 0 and 100%.
 ---
