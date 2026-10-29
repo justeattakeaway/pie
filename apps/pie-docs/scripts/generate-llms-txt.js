@@ -183,8 +183,13 @@ const buildSections = (pages) => {
         }
 
         const sectionEntry = sections.get(section);
-        const isSectionPage = isSectionNode(page, section);
-        if (isSectionPage && page.data.eleventyNavigation) sectionEntry.title = getNavLabel(page);
+
+        // Section pages (e.g. /foundations/) are only indexes of their child pages and don't provide useful context,
+        // so they are used for the section heading but not listed as links
+        if (isSectionNode(page, section)) {
+            if (page.data.eleventyNavigation) sectionEntry.title = getNavLabel(page);
+            return;
+        }
 
         // Drafts are always excluded, as llms.txt only describes published content
         const url = getUrl(page);
@@ -209,10 +214,10 @@ const buildSections = (pages) => {
         if (toggleLabel) labels.push(toggleLabel);
 
         sectionEntry.links.push({
-            label: labels.length ? labels.join(' - ') : sectionEntry.title || page.data.title,
+            label: labels.join(' - '),
             url: new URL(url, metadata.url).href,
             description: page.data.llmsTxtDescription || page.data.description,
-            sortKey: isSectionPage ? [[-Infinity, '']] : sortKey,
+            sortKey,
         });
     });
 
