@@ -36,6 +36,23 @@ const SECTION_ORDER = [
     'support',
 ];
 
+// Pages that share the same structure across a section (e.g. every component has Web and Code pages)
+// get a description based on their navigation key, using the page title (e.g. "Button").
+// An `llmsTxtDescription` in the page frontmatter still takes precedence.
+const DESIGN_GUIDANCE_TOPICS = 'such as anatomy, variants, modifiers, sizes, states, content, behaviour, dos and don\'ts, and examples';
+
+const PAGE_TYPE_DESCRIPTIONS = {
+    components: {
+        Overview: (title) => `Overview of the ${title} component, with its purpose and a table of its resources and availability in Figma and the web, iOS and Android libraries.`,
+        Web: (title) => `Web design guidance for the ${title} component, ${DESIGN_GUIDANCE_TOPICS}.`,
+        Apps: (title) => `iOS and Android design guidance for the ${title} component, ${DESIGN_GUIDANCE_TOPICS}.`,
+        Android: (title) => `Android design guidance for the ${title} component, ${DESIGN_GUIDANCE_TOPICS}.`,
+        iOS: (title) => `iOS design guidance for the ${title} component, ${DESIGN_GUIDANCE_TOPICS}.`,
+        Code: (title) => `Where to find the code resources for the ${title} component, with a link to its PIE Web Components Storybook docs and who to contact for iOS and Android.`,
+        Motion: (title) => `Motion specifications for the ${title} component, showing how it animates between states and transitions.`,
+    },
+};
+
 const IGNORED_DIRECTORIES = ['assets', '__tests__'];
 
 const getOutputPath = () => {
@@ -163,6 +180,16 @@ const compareSortKeys = (a, b) => {
     return 0;
 };
 
+const getDescription = (page, section) => {
+    if (page.data.llmsTxtDescription) return page.data.llmsTxtDescription;
+
+    const navKey = page.data.eleventyNavigation && page.data.eleventyNavigation.key;
+    const getPageTypeDescription = PAGE_TYPE_DESCRIPTIONS[section] && PAGE_TYPE_DESCRIPTIONS[section][navKey];
+    if (getPageTypeDescription && page.data.title) return getPageTypeDescription(page.data.title);
+
+    return page.data.description;
+};
+
 const isSectionNode = (node, section) => node.dir === path.join(SRC_DIR, section) &&
     path.basename(node.filePath, '.md') === section;
 
@@ -195,6 +222,9 @@ const buildSections = (pages) => {
         const url = getUrl(page);
         if (!url || page.data.draft || page.data.includeInLlmsTxt === false) return;
 
+        // Navigation groups (e.g. Numeric Stepper) have no content of their own and render a 404 page
+        if (page.data.eleventyNavigation && page.data.eleventyNavigation.subPageDropdown) return;
+
         const navNode = getNavNode(page, navNodes);
         let labels;
         let sortKey;
@@ -216,7 +246,7 @@ const buildSections = (pages) => {
         sectionEntry.links.push({
             label: labels.join(' - '),
             url: new URL(url, metadata.url).href,
-            description: page.data.llmsTxtDescription || page.data.description,
+            description: getDescription(page, section),
             sortKey,
         });
     });

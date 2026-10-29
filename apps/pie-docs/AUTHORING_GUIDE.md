@@ -211,10 +211,14 @@ This applies `draft: true` to every page in the section.
 
 The site publishes an [llms.txt](https://llmstxt.org) file at `/llms.txt` to help AI agents find relevant content. It is generated from page frontmatter and section `.json` files by `scripts/generate-llms-txt.js`, which runs as part of `yarn build`. You can also run it on its own with `yarn generate:llms-txt`. The file is written to `dist/` and is not tracked by version control, so never edit it by hand.
 
-Each page appears as a link labelled with its navigation path (for example, `Colour - Alias tokens - Light theme`), followed by its `description`. Top-level section pages (for example, `/foundations/`) only index their child pages, so they are used for the section headings and are not listed as links. Two optional frontmatter fields control how a page appears:
+Each page appears as a link labelled with its navigation path (for example, `Colour - Alias tokens - Light theme`), followed by its `description`. Top-level section pages (for example, `/foundations/`) only index their child pages, so they are used for the section headings and are not listed as links. Navigation groups with `subPageDropdown: true` (for example, Numeric Stepper) are skipped too, as they have no content of their own.
+
+Component pages that share the same structure (Overview, Web, Apps, Android, iOS, Code and Motion) get a standard description built from the component title, for example `Web design guidance for the Button component, …`. These are set by `PAGE_TYPE_DESCRIPTIONS` in the generator script.
+
+Two optional frontmatter fields control how a page appears:
 
 - `includeInLlmsTxt: false` excludes the page from llms.txt. Use it for content agents should not prioritise, such as global token pages. Setting it in a section `.json` file excludes every page in that folder.
-- `llmsTxtDescription` replaces the description used in llms.txt. Use it when a page inherits a generic description from its section `.json` file and needs a more specific one for agents.
+- `llmsTxtDescription` replaces the description used in llms.txt, including the standard component page descriptions. Use it when a page inherits a generic description from its section `.json` file and needs a more specific one for agents.
 
 ```yaml
 ---
