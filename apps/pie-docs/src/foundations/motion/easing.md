@@ -3,7 +3,7 @@ eleventyNavigation:
     key: Easing
     parent: Motion
     order: 3
-llmsTxtDescription: Easing types for motion (entrance, exit and persistent functional or expressive easing), when to use each, and why linear motion should be avoided.
+llmsTxtDescription: Entrance, exit and functional easing, when to use each to mimic real-world physics, and why motion without easing feels unnatural.
 ---
 ## Overview
 
@@ -50,4 +50,3 @@ src:"../../../../assets/img/foundations/motion/easing/easing-functional.svg",
 alt: "Graph showing the acceleration and deceleration of motion with an ease-in-and-out curve.",
 width: "250px"
 } %}
-
