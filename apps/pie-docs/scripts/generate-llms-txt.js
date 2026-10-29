@@ -247,12 +247,19 @@ const generateLlmsTxt = () => {
     return { content: lines.join('\n'), warnings };
 };
 
-const outputPath = getOutputPath();
-const { content, warnings } = generateLlmsTxt();
+const writeLlmsTxt = () => {
+    const outputPath = getOutputPath();
+    const { content, warnings } = generateLlmsTxt();
 
-warnings.forEach((warning) => console.warn(`[generate-llms-txt] ${warning}`));
+    warnings.forEach((warning) => console.warn(`[generate-llms-txt] ${warning}`));
 
-fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-fs.writeFileSync(outputPath, content);
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, content);
 
-console.info(`[generate-llms-txt] Written to ${path.relative(process.cwd(), outputPath)}`);
+    console.info(`[generate-llms-txt] Written to ${path.relative(process.cwd(), outputPath)}`);
+};
+
+// Only write the file when run directly, so the generator can be imported by tests
+if (require.main === module) writeLlmsTxt();
+
+module.exports = { generateLlmsTxt };
