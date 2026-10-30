@@ -12,6 +12,7 @@ shouldShowContents: true
     do: {
         type: usageTypes.list,
         items: [
+            "Use a card when the entire container is clickable.",
             "Use a card to display content and actions on a single topic.",
             "Card contents should be easy to scan for relevant and actionable information."
         ]
@@ -19,7 +20,8 @@ shouldShowContents: true
     dont: {
         type: usageTypes.list,
         items: [
-            "Don't use a card if the container doesn't need to be clickable, find an alternative component."
+            "Don’t use a card if the container doesn’t need to be clickable, find an alternative component.",
+            "Don't use a card for selection control, use radio groups, checkboxes or list items instead."
         ]
     }
 } %}
@@ -105,6 +107,24 @@ The card container comes with a slot, so you can add any content you like to the
 
 ---
 
+## Overrides
+
+{% contentPageImage {
+    src:"../../../assets/img/components/card/anatomy.svg",
+    alt: "Anatomy of a card.",
+    width: 291
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Elevation:** Can be removed or replaced with another elevation token as needed.",
+        "**Border colour:** Can be replaced with another border colour token as needed. Ensure the chosen token provides sufficient contrast against the card's background for clear visibility."
+    ]
+} %}
+
+---
+
 ## Behaviour
 
 Cards can be used as draggable items. When the card is grabbed, the pointer changes and the drag state is activated.
@@ -122,6 +142,16 @@ Cards can be used as draggable items. When the card is grabbed, the pointer chan
 ### Drag on mobile
 
 Mobile devices don't have a hover cursor, so dragging actions might not be the most intuitive choice on mobile screens. If you're using a draggable card in your mobile designs, make sure to provide clear context and guidance to the user.
+
+### Use when the entire card is clickable 
+
+Use cards only when the entire container is clickable and triggers an action, such as opening details or navigating to another page. If no interaction is required, use a standard container or another suitable component.
+If only elements within the card (such as buttons, icon buttons, or avatars) are interactive, use a standard container or another suitable component instead.
+
+### Do not use cards for selection
+
+Cards are designed to present content and actions, while selection components are designed to capture a user's choice. Using cards for selection can make the interaction less clear and introduce unnecessary complexity.
+For selections, use dedicated components such as radio groups, checkboxes or list items instead.
 
 ---
 
