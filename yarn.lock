@@ -3730,7 +3730,7 @@ __metadata:
     "@justeattakeaway/pie-switch": "npm:2.7.7"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
-    dompurify: "npm:3.4.8"
+    dompurify: "npm:3.4.17"
   languageName: unknown
   linkType: soft
 
@@ -4115,7 +4115,7 @@ __metadata:
     "@storybook/web-components": "npm:10.6.3"
     "@storybook/web-components-vite": "npm:10.6.3"
     "@types/dompurify": "npm:3.2.0"
-    dompurify: "npm:3.4.15"
+    dompurify: "npm:3.4.17"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-syntax-highlighter: "npm:16.1.1"
@@ -11850,7 +11850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:*, dompurify@npm:3.4.8":
+"dompurify@npm:*":
   version: 3.4.8
   resolution: "dompurify@npm:3.4.8"
   dependencies:
@@ -11862,15 +11862,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:3.4.15":
-  version: 3.4.15
-  resolution: "dompurify@npm:3.4.15"
+"dompurify@npm:3.4.17":
+  version: 3.4.17
+  resolution: "dompurify@npm:3.4.17"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10/159f592307578405c5217ba40ab467d4ac35f23eb20abc7f32b85698b8c1aff92f71b00c80779f891a8e463edafab05d9a4db53052d5c67005240ac4fff7fc72
+  checksum: 10/ae03c068bd351d1201a24a9667cb302c65939f45a0c357edec8b84133108e19ac74f355c2d8b0f30baadadd7f0be2db300d269aa80d3ee15872712ca9ff4e1a8
   languageName: node
   linkType: hard
 
