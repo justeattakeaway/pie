@@ -132,8 +132,9 @@ The card container comes with a slot, so you can add any content you like to the
 
 ### Use when the entire card is clickable 
 
-Use cards only when the entire container is clickable and triggers an action, such as opening details or navigating to another page. If no interaction is required, use a standard container or another suitable component.
+Use cards only when the entire container is clickable and triggers an action, such as opening details or navigating to another page. 
 If only elements within the card (such as buttons, icon buttons, or avatars) are interactive, use a standard container or another suitable component instead.
+Do not use a card if no interaction is required.
 
 ### Do not use cards for selection
 
