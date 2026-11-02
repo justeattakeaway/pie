@@ -213,7 +213,7 @@ The site publishes an [llms.txt](https://llmstxt.org) file at `/llms.txt` to hel
 
 Each page appears as a link labelled with its navigation path (for example, `Colour - Alias tokens - Light theme`), followed by its `description`. Top-level section pages (for example, `/foundations/`) only index their child pages, so they are used for the section headings and are not listed as links. Navigation groups with `subPageDropdown: true` (for example, Numeric Stepper) are skipped too, as they have no content of their own.
 
-Component pages that share the same structure (Overview, Web, Apps, Android, iOS, Code and Motion) get a standard description built from the component title, for example `Web design guidance for the Button component, …`. These are set by `PAGE_TYPE_DESCRIPTIONS` in the generator script.
+Component pages that share the same structure (Overview, Web, Apps, Android, iOS, Code and Motion) get a standard description built from the component title, for example `Web design guidance for the Button component, …`. These are set by `PAGE_TYPE_DESCRIPTIONS` in `scripts/generate-llms-txt.config.js`.
 
 Two optional frontmatter fields control how a page appears:
 
@@ -230,7 +230,7 @@ llmsTxtDescription: Links to the web, iOS and Android code implementations of th
 ---
 ```
 
-The order of the sections in llms.txt is set by `SECTION_ORDER` in the generator script and can differ from the site navigation. When you add a new top-level section, add its folder name to `SECTION_ORDER` too. Sections missing from the list are still included, but they are appended at the end and the script prints a warning.
+The order of the sections in llms.txt is set by `SECTION_ORDER` in `scripts/generate-llms-txt.config.js` and can differ from the site navigation. When you add a new top-level section, add its folder name to `SECTION_ORDER` too. Sections missing from the list are still included, but they are appended at the end and the script prints a warning.
 
 ---
 
