@@ -172,6 +172,13 @@ const getNavChain = (navNode, navNodes) => {
     return chain;
 };
 
+// Nested navigation keys often repeat their parent (e.g. "Numeric Stepper - Form" under "Numeric Stepper"),
+// so a label is dropped when the next one repeats it, avoiding "Numeric Stepper - Numeric Stepper - Form"
+const removeRepeatedLabels = (labels) => labels.filter((label, index) => {
+    const nextLabel = labels[index + 1];
+    return !nextLabel || (nextLabel !== label && !nextLabel.startsWith(`${label} - `));
+});
+
 // Sort keys are lists of [order, label] pairs, one per navigation level, so siblings sharing
 // the same order are still grouped with their own children.
 const compareSortKeys = (a, b) => {
@@ -239,7 +246,7 @@ const buildSections = (pages) => {
         if (navNode) {
             // Drop the section node itself so labels start below the section, e.g. "Colour - Overview"
             const chain = getNavChain(navNode, navNodes).filter((node) => !isSectionNode(node, section));
-            labels = chain.map(getNavLabel);
+            labels = removeRepeatedLabels(chain.map(getNavLabel));
             sortKey = chain.map((node) => [node.data.eleventyNavigation.order ?? Infinity, getNavLabel(node)]);
         } else {
             warnings.push(`No eleventyNavigation found for ${path.relative(SRC_DIR, page.filePath)}, falling back to its title.`);
