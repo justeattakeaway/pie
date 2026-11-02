@@ -422,7 +422,7 @@ test.describe('PiePagination - Component tests', () => {
         await expect(paginationPage.paginationComponent.getPageButton(4)).toHaveCount(0);
     });
 
-    test('should render ellipsis items as non-interactive spans hidden from screen readers', async ({ page }) => {
+    test('should render ellipsis items as non-interactive list items hidden from screen readers', async ({ page }) => {
         // Arrange
         const paginationPage = new PaginationDefaultPage(page);
         await paginationPage.load({ currentPage: 25, totalPages: 50 });
@@ -434,7 +434,7 @@ test.describe('PiePagination - Component tests', () => {
 
             return Array.from(ellipsisItems).map((item) => ({
                 tag: item.tagName.toLowerCase(),
-                ariaHidden: item.getAttribute('aria-hidden'),
+                listItemAriaHidden: item.closest('li')?.getAttribute('aria-hidden'),
                 tabindex: item.getAttribute('tabindex'),
             }));
         });
@@ -442,7 +442,7 @@ test.describe('PiePagination - Component tests', () => {
         // Assert
         expect(ellipsisDetails).toHaveLength(2);
         ellipsisDetails.forEach((detail) => {
-            expect(detail).toEqual({ tag: 'span', ariaHidden: 'true', tabindex: null });
+            expect(detail).toEqual({ tag: 'span', listItemAriaHidden: 'true', tabindex: null });
         });
     });
 

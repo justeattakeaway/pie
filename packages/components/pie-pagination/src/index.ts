@@ -130,15 +130,12 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
      * @private
      */
     private _getVisiblePages (currentPage: number, totalPages: number): Array<number | 'ellipsis'> {
-        // Everything fits — render all pages without truncation.
         if (totalPages <= 7) {
             return Array.from({ length: Math.max(totalPages, 0) }, (_, index) => index + 1);
         }
 
-        // Number of page buttons shown when the window is anchored to an edge.
         const edgeWindowSize = 5;
 
-        // Near the start: window anchored to the first page.
         if (currentPage <= edgeWindowSize - 1) {
             return [
                 ...Array.from({ length: edgeWindowSize }, (_, index) => index + 1),
@@ -147,7 +144,6 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
             ];
         }
 
-        // Near the end: window anchored to the last page.
         if (currentPage >= totalPages - (edgeWindowSize - 2)) {
             return [
                 1,
@@ -156,7 +152,6 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
             ];
         }
 
-        // Middle of the range.
         return [
             1,
             'ellipsis',
@@ -209,14 +204,12 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
                     </li>
 
                     ${visiblePages.map((pageItem) => {
-            // Non-interactive separator: a span is not focusable.
             if (pageItem === 'ellipsis') {
                 return html`
-                            <li class="c-pagination-item">
+                            <li class="c-pagination-item" aria-hidden="true">
                                 <span
                                     class="c-pagination-ellipsis"
-                                    data-test-id="pie-pagination-ellipsis"
-                                    aria-hidden="true">
+                                    data-test-id="pie-pagination-ellipsis">
                                     …
                                 </span>
                             </li>`;
@@ -259,7 +252,6 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
             </nav>`;
     }
 
-    // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
 

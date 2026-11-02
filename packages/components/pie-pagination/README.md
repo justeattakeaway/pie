@@ -62,7 +62,7 @@ When `totalPages` is large, the component automatically collapses the pages outs
 | Middle (page 25 of 50)        | `1 … 24 25 26 … 50` |
 | Near the end (page 49 of 50)  | `1 … 46 47 48 49 50`|
 
-The visible range is derived entirely from the `currentPage` and `totalPages` props — the number of visible page controls is not configurable. Ellipsis items are rendered as `<span>` elements with `aria-hidden="true"`, so they are skipped by keyboard focus and hidden from screen readers.
+The visible range is derived entirely from the `currentPage` and `totalPages` props — the number of visible page controls is not configurable. The ellipsis separator is non-interactive and hidden from assistive technologies.
 
 ## Usage Examples
 
