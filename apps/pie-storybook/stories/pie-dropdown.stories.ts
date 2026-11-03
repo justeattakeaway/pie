@@ -82,7 +82,7 @@ const dropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
     noSelectionText,
     aria,
 }) => html`
-        <style>pie-dropdown { width: min(360px, 100%); }</style>
+        <style>pie-dropdown { width: min(360px, 100vw); }</style>
         <pie-dropdown
             name="${ifDefined(name)}"
             label="${ifDefined(label)}"
