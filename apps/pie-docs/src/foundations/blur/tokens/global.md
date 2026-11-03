@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Global tokens
     parent: Blur
     order: 3
+includeInLlmsTxt: false
 ---
 
 ## Global blur tokens

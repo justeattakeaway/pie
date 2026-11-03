@@ -5,6 +5,7 @@ eleventyNavigation:
   order: 1
 shouldShowContents: true
 permalink: accessibility/text-scaling/
+llmsTxtDescription: How text scaling differs from zoom on iOS and Android, the WCAG resize text requirement, and how components should handle larger text, including icons, truncation, layout and navigation.
 ---
 
 ## Overview

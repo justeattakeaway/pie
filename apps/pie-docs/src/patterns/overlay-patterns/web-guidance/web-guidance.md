@@ -6,6 +6,7 @@ eleventyNavigation:
 eleventyComputed:
     zIndexes: "{% include './z-indexes.json' %}"
 shouldShowContents: true
+llmsTxtDescription: Guidance on overlay patterns on components such as modal, popover, toast and tooltip on web, including a decision tree, z-index table and visual examples showing how components stack.
 ---
 
 ## Decision tree

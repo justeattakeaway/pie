@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Global tokens
     parent: Colour
     order: 3
+includeInLlmsTxt: false
 ---
 
 ## Global colour tokens
