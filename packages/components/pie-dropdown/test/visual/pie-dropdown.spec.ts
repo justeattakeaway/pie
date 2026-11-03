@@ -79,6 +79,20 @@ test.describe('PieDropdown - Visual tests', () => {
         await percySnapshot(page, 'PieDropdown - Loading', percyWidths);
     });
 
+    test('should render the disabled state with a selection', async ({ page }) => {
+        const basePage = new BasePage(page, 'dropdown--disabled-state');
+        await basePage.load();
+
+        await percySnapshot(page, 'PieDropdown - Disabled with selection', percyWidths);
+    });
+
+    test('should render the disabled multi-select state with selections', async ({ page }) => {
+        const basePage = new BasePage(page, 'dropdown--disabled-multiselect-state');
+        await basePage.load();
+
+        await percySnapshot(page, 'PieDropdown - Disabled multi-select with selections', percyWidths);
+    });
+
     test('should render the no-results state', async ({ page }) => {
         const basePage = new BasePage(page, 'dropdown--single-select-searchable');
         await basePage.load();

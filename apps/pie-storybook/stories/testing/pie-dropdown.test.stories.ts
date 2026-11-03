@@ -128,6 +128,8 @@ export const ErrorState = createStory<DropdownStoryProps>(DropdownTemplate, defa
 
 export const DisabledState = createStory<DropdownStoryProps>(DropdownTemplate, defaultArgs)({ value: 'burger', disabled: true });
 
+export const DisabledMultiselectState = createStory<DropdownStoryProps>(DropdownTemplate, defaultArgs)({ isMultiselect: true, value: ['pizza', 'curry'], disabled: true });
+
 const FormTemplate: TemplateFunction<DropdownStoryProps> = ({
     name,
     label,

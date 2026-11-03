@@ -235,7 +235,17 @@
     color: var(--dt-color-content-subdued);
     cursor: pointer;
 
-    &:hover {
+    // The field's disabled state fully disables the clear button: no hover
+    // affordance, no pointer cursor, and the disabled content colour (matching
+    // the field's disabled text).
+    &:disabled {
+        color: var(--dt-color-content-disabled);
+        cursor: auto;
+    }
+
+    // A disabled button still matches :hover, so the guard keeps the disabled
+    // field from offering a hover affordance that does nothing.
+    &:not(:disabled):hover {
         color: var(--dt-color-content-default);
     }
 

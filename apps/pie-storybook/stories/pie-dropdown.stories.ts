@@ -21,38 +21,33 @@ import {
 type DropdownStoryProps = DropdownProps & { hasSecondaryText: boolean, showLeadingIcon: boolean };
 type DropdownStoryMeta = Meta<DropdownStoryProps>;
 
-const makeOptions = (hasSecondaryText: boolean): DropdownOption[] => [{
-    value: 'pizza',
-    primaryText: 'Pizza',
-    secondaryText: hasSecondaryText ? 'Wood-fired, with a crisp base' : undefined,
-},
-{
-    value: 'burger',
-    primaryText: 'Burger',
-    secondaryText: hasSecondaryText ? 'Flame-grilled, with pickles' : undefined,
-},
-{
-    value: 'salad',
-    primaryText: 'Salad',
-    secondaryText: hasSecondaryText ? 'Fresh greens and seasonal vegetables' : undefined,
-    disabled: true,
-},
-{
-    value: 'pasta',
-    primaryText: 'Pasta',
-    secondaryText: hasSecondaryText ? 'Made to a traditional recipe' : undefined,
-},
-{
-    value: 'curry',
-    primaryText: 'Curry',
-    secondaryText: hasSecondaryText ? 'Slow-cooked with aromatic spices' : undefined,
-},
-{
-    value: 'ramen',
-    primaryText: 'Ramen',
-    secondaryText: hasSecondaryText ? 'Rich broth and springy noodles' : undefined,
-},
+const options: DropdownOption[] = [
+    { value: 'pizza', primaryText: 'Pizza' },
+    { value: 'burger', primaryText: 'Burger' },
+    { value: 'salad', primaryText: 'Salad', disabled: true },
+    { value: 'pasta', primaryText: 'Pasta' },
+    { value: 'curry', primaryText: 'Curry' },
+    { value: 'ramen', primaryText: 'Ramen' },
 ];
+
+/** Secondary text for the demo `hasSecondaryText` toggle, keyed by option value. */
+const secondaryTextByValue: Record<string, string> = {
+    pizza: 'Wood-fired, with a crisp base',
+    burger: 'Flame-grilled, with pickles',
+    salad: 'Fresh greens and seasonal vegetables',
+    pasta: 'Made to a traditional recipe',
+    curry: 'Slow-cooked with aromatic spices',
+    ramen: 'Rich broth and springy noodles',
+};
+
+/**
+ * Adds secondary text to every option (keeping any already provided), so the
+ * `options` control stays functional alongside the demo toggle.
+ */
+const withSecondaryText = (list: DropdownOption[]): DropdownOption[] => list.map((option) => ({
+    ...option,
+    secondaryText: option.secondaryText ?? secondaryTextByValue[option.value] ?? `More about ${option.primaryText}`,
+}));
 
 const defaultArgs: DropdownStoryProps = {
     ...defaultProps,
@@ -61,13 +56,13 @@ const defaultArgs: DropdownStoryProps = {
     placeholder: 'Select a meal',
     hasSecondaryText: false,
     showLeadingIcon: false,
-    options: makeOptions(false),
+    options,
 };
 
 const dropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
     hasSecondaryText,
     showLeadingIcon,
-    options,
+    options: optionsProp,
     name,
     label,
     placeholder,
@@ -80,6 +75,12 @@ const dropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
     status,
     assistiveText,
     size,
+    loadingText,
+    noResultsText,
+    selectedCountText,
+    optionsAvailableText,
+    noSelectionText,
+    aria,
 }) => html`
         <style>pie-dropdown { width: min(360px, 100%); }</style>
         <pie-dropdown
@@ -89,8 +90,14 @@ const dropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"
             size="${ifDefined(size)}"
+            loadingText="${ifDefined(loadingText)}"
+            noResultsText="${ifDefined(noResultsText)}"
+            selectedCountText="${ifDefined(selectedCountText)}"
+            optionsAvailableText="${ifDefined(optionsAvailableText)}"
+            noSelectionText="${ifDefined(noSelectionText)}"
             .value="${ifDefined(value)}"
-            .options=${hasSecondaryText ? makeOptions(true) : options}
+            .options="${hasSecondaryText ? withSecondaryText(optionsProp ?? []) : optionsProp}"
+            .aria="${ifDefined(aria)}"
             ?isMultiselect="${isMultiselect}"
             ?isSearchable="${isSearchable}"
             ?isLoading="${isLoading}"
@@ -119,7 +126,15 @@ const dropdownStoryMeta: DropdownStoryMeta = {
             control: 'text',
         },
         value: {
-            description: 'The current selection: a single option value, or an array in multi-select variants.',
+            description: 'The current selection: a single option value, or an array in multi-select variants. A single string is normalised in multi-select variants; use the field itself to select several options.',
+            control: 'text',
+        },
+        options: {
+            description: 'The options to choose from, in display order. Each option is `{ value, primaryText, secondaryText?, disabled? }`.',
+            control: 'object',
+        },
+        name: {
+            description: 'The name the value is submitted under in forms. No visual effect.',
             control: 'text',
         },
         isMultiselect: {
@@ -136,6 +151,26 @@ const dropdownStoryMeta: DropdownStoryMeta = {
             description: 'When true, the popover shows a loading state while options are fetched.',
             control: 'boolean',
             defaultValue: { summary: defaultProps.isLoading },
+        },
+        loadingText: {
+            description: 'The text shown in the popover while `isLoading` is true.',
+            control: 'text',
+        },
+        noResultsText: {
+            description: 'The text shown in the popover when a search returns no matching options (searchable variants only).',
+            control: 'text',
+        },
+        selectedCountText: {
+            description: 'The text for the count chip in multi-select variants. Use `{count}` where the number of selected options should appear.',
+            control: 'text',
+        },
+        optionsAvailableText: {
+            description: 'The message announced to assistive technology when a search returns matching options. No visual effect.',
+            control: 'text',
+        },
+        noSelectionText: {
+            description: 'The validation message announced when a required dropdown is submitted without a selection. No visual effect.',
+            control: 'text',
         },
         disabled: {
             description: 'When true the field cannot be interacted with.',
@@ -164,12 +199,16 @@ const dropdownStoryMeta: DropdownStoryMeta = {
             control: 'text',
         },
         hasSecondaryText: {
-            description: 'Demo-only: gives every option secondary text.',
+            description: 'Demo-only: adds secondary text to every option (the `options` control stays functional).',
             control: 'boolean',
         },
         showLeadingIcon: {
             description: 'Demo-only: slots a leading icon into the field.',
             control: 'boolean',
+        },
+        aria: {
+            description: 'Additional ARIA properties: `label` (the field\'s accessible name when no `label` is set), `clearSelection` (the single-select clear button) and `clearAllSelections` (the multi-select chip close button). No visual effect.',
+            control: 'object',
         },
     },
     args: defaultArgs,

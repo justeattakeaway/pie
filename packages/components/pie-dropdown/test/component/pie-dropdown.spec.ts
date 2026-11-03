@@ -534,6 +534,17 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.locator('pie-chip')).toHaveCount(0);
         });
 
+        test('should disable the count chip close button when the dropdown is disabled', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--disabled-multiselect-state');
+            await dropdownPage.load();
+
+            // The chip stays visible (the selection is still shown) but its
+            // close button is disabled, so a disabled field's selections
+            // cannot be cleared.
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await expect(chipClose).toBeDisabled();
+        });
+
         test('should never show a clear button (the chip close icon clears all)', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--multi-select');
             await dropdownPage.load();
@@ -1063,6 +1074,36 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(valueText)).toHaveCount(0);
             await expect(page.getByTestId(dropdown.selectors.placeholder.dataTestId)).toBeVisible();
             await expect(page.getByTestId(trigger)).toBeFocused();
+        });
+
+        test('should fully disable the clear button when the dropdown is disabled with a selection', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--disabled-state');
+            await dropdownPage.load();
+
+            const clear = page.getByTestId(dropdown.selectors.clear.dataTestId);
+
+            await expect(clear).toBeDisabled();
+
+            // Hovering offers no interactive affordance: the icon keeps the
+            // disabled content colour (rather than the hover colour) and the
+            // cursor does not suggest a click target.
+            await clear.hover();
+
+            const styles = await page.evaluate(() => {
+                const root = document.querySelector('pie-dropdown')?.shadowRoot;
+                const clearEl = root?.querySelector('.c-dropdown-clear');
+                const probe = document.createElement('span');
+                probe.style.color = 'var(--dt-color-content-disabled)';
+                root?.appendChild(probe);
+                const clearColor = clearEl ? getComputedStyle(clearEl).color : '';
+                const tokenColor = getComputedStyle(probe).color;
+                const cursor = clearEl ? getComputedStyle(clearEl).cursor : '';
+                probe.remove();
+                return { clearColor, tokenColor, cursor };
+            });
+
+            expect(styles.clearColor).toBe(styles.tokenColor);
+            expect(styles.cursor).not.toBe('pointer');
         });
 
         test('should announce the field name with the clear button for screen reader context', async ({ page }) => {

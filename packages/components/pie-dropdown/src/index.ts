@@ -665,26 +665,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
     private _onSearchKeyDown = (event: KeyboardEvent): void => {
         if (!this._isOpen) {
-            // The closed field opens with the arrow keys, matching the
-            // non-searchable trigger. This also covers reopening when focus
-            // never left the field (e.g. it was refocused after a selection):
-            // a focus event cannot fire on an already-focused element, so
-            // the focus-driven open alone would never reopen it.
-            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-                event.preventDefault();
-                this._openPopover('keyboard');
-            }
-            return;
-        }
-
-        if (event.key === 'ArrowDown') {
-            event.preventDefault();
-            this._focusInitialOption();
-        }
-    };
-
-    private _onSearchKeyDown = (event: KeyboardEvent): void => {
-        if (!this._isOpen) {
             // The closed field opens with the arrow keys (a focus event cannot
             // fire on an already-focused field, so focus alone cannot reopen it).
             if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
@@ -950,6 +930,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 variant="default"
                 ?isSelected=${true}
                 ?isDismissible=${true}
+                ?disabled=${this.disabled}
                 .aria=${{
             close: this._withFieldContext(this.aria?.clearAllSelections || `Clear all ${count} selection${count === 1 ? '' : 's'}`),
         }}
