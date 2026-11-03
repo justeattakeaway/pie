@@ -4,7 +4,6 @@ import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpo
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 const trigger = 'pie-dropdown-trigger';
-const popover = 'pie-dropdown-popover';
 const input = 'pie-dropdown-input';
 
 test.describe('PieDropdown - Visual tests', () => {

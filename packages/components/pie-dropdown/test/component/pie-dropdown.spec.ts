@@ -41,14 +41,12 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(popover)).toBeHidden();
         });
 
-                test('should be disabled when the disabled prop is set', async ({ page }) => {
+        test('should be disabled when the disabled prop is set', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--disabled-state');
             await dropdownPage.load();
 
             await expect(page.getByTestId(trigger)).toBeDisabled();
         });
-
-
     });
 
     test.describe('Popover', () => {
