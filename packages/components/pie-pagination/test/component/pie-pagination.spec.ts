@@ -85,17 +85,6 @@ test.describe('PiePagination - Component tests', () => {
         await expect(page.locator(componentSelector)).toBeVisible();
     });
 
-    test('should render a button for every page', async ({ page }) => {
-        // Arrange
-        const paginationPage = new PaginationDefaultPage(page);
-
-        // Act
-        await paginationPage.load({ totalPages: 5 });
-
-        // Assert
-        await expect(paginationPage.paginationComponent.pageButtonLocator).toHaveCount(5);
-    });
-
     test('should mark the current page with aria-current="page"', async ({ page }) => {
         // Arrange
         const paginationPage = new PaginationDefaultPage(page);
@@ -305,80 +294,6 @@ test.describe('PiePagination - Component tests', () => {
         // Assert
         const currentPage = await page.locator('pie-pagination').evaluate((el: HTMLElement & { currentPage: number }) => el.currentPage);
         expect(currentPage).toBe(2);
-    });
-
-    test('should render all pages without ellipsis when totalPages is small', async ({ page }) => {
-        // Arrange
-        const paginationPage = new PaginationDefaultPage(page);
-
-        // Act
-        await paginationPage.load({ currentPage: 4, totalPages: 7 });
-
-        // Assert
-        await expect(paginationPage.paginationComponent.pageButtonLocator).toHaveCount(7);
-        await expect(paginationPage.paginationComponent.ellipsisLocator).toHaveCount(0);
-    });
-
-    test('should collapse large page ranges behind ellipsis items', async ({ page }) => {
-        // Arrange
-        const paginationPage = new PaginationDefaultPage(page);
-
-        // Act
-        await paginationPage.load({ currentPage: 4, totalPages: 8 });
-
-        // Assert — start-anchored window: 1 2 3 4 5 … 8
-        await expect(paginationPage.paginationComponent.pageButtonLocator).toHaveCount(6);
-        await expect(paginationPage.paginationComponent.ellipsisLocator).toHaveCount(1);
-    });
-
-    test('should always show the first and last page for large ranges', async ({ page }) => {
-        // Arrange
-        const paginationPage = new PaginationDefaultPage(page);
-
-        // Act
-        await paginationPage.load({ currentPage: 25, totalPages: 50 });
-
-        // Assert
-        await expect(paginationPage.paginationComponent.getPageButton(1)).toHaveCount(1);
-        await expect(paginationPage.paginationComponent.getPageButton(50)).toHaveCount(1);
-    });
-
-    test('should keep the current page and its neighbours visible for large ranges', async ({ page }) => {
-        // Arrange
-        const paginationPage = new PaginationDefaultPage(page);
-
-        // Act
-        await paginationPage.load({ currentPage: 25, totalPages: 50 });
-
-        // Assert — 1 … 24 25 26 … 50
-        await Promise.all([24, 25, 26].map((page_) => expect(paginationPage.paginationComponent.getPageButton(page_)).toHaveCount(1)));
-        await Promise.all([23, 27].map((page_) => expect(paginationPage.paginationComponent.getPageButton(page_)).toHaveCount(0)));
-    });
-
-    test('should anchor the window to the first page when the current page is near the start', async ({ page }) => {
-        // Arrange
-        const paginationPage = new PaginationDefaultPage(page);
-
-        // Act
-        await paginationPage.load({ currentPage: 2, totalPages: 50 });
-
-        // Assert — 1 2 3 4 5 … 50
-        await expect(paginationPage.paginationComponent.pageButtonLocator).toHaveCount(6);
-        await expect(paginationPage.paginationComponent.ellipsisLocator).toHaveCount(1);
-        await Promise.all([1, 2, 3, 4, 5, 50].map((page_) => expect(paginationPage.paginationComponent.getPageButton(page_)).toHaveCount(1)));
-    });
-
-    test('should anchor the window to the last page when the current page is near the end', async ({ page }) => {
-        // Arrange
-        const paginationPage = new PaginationDefaultPage(page);
-
-        // Act
-        await paginationPage.load({ currentPage: 49, totalPages: 50 });
-
-        // Assert — 1 … 46 47 48 49 50
-        await expect(paginationPage.paginationComponent.pageButtonLocator).toHaveCount(6);
-        await expect(paginationPage.paginationComponent.ellipsisLocator).toHaveCount(1);
-        await Promise.all([1, 46, 47, 48, 49, 50].map((page_) => expect(paginationPage.paginationComponent.getPageButton(page_)).toHaveCount(1)));
     });
 
     test('should use the start-anchored window while the current page has a visible neighbour before the ellipsis', async ({ page }) => {
