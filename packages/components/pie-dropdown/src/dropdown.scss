@@ -172,9 +172,7 @@
     white-space: nowrap;
 }
 
-// The selected option's leading icon, projected into the field while the
-// option is selected (see the `icon-{value}` slot). `display: contents` means
-// an option without an icon contributes no box at all — no gap, no footprint.
+// The selected option's leading icon, projected into the field (an icon-less option contributes no box).
 .c-dropdown-selectionIcon {
     display: contents;
 }
@@ -246,8 +244,7 @@
     }
 }
 
-// A thin divider between the clear button and the chevron (shown only while
-// the clear button is), 8px either side of it per the designs.
+// A thin divider between the clear button and the chevron (shown only while the clear button is).
 .c-dropdown-fieldDivider {
     position: absolute;
     inset-block-start: 50%;
@@ -285,13 +282,8 @@
     }
 }
 
-// The static leading icon (the `leadingIcon` slot). `display: contents` means
-// an empty slot leaves no box at all — the field's text keeps its designed
-// inset — while a slotted icon becomes a direct flex child of the field row.
-// The 16px inset (per the designs: 16px from the surface edge to the icon)
-// lives on the projected icon as a margin, so it collapses when nothing is
-// slotted. Icons render at 20px regardless of the `size` attribute they
-// carry (the designs specify Size=Small).
+// The static leading icon (the `leadingIcon` slot): `display: contents` collapses when empty, and the
+// 16px margin on the projected icon matches the designs. Icons render at 20px regardless of `size`.
 .c-dropdown-leadingIcon {
     display: contents;
 
@@ -315,9 +307,7 @@
 
     box-sizing: border-box;
 
-    // Symmetric padding keeps the popover's whitespace even and leaves room
-    // for the options' focus ring (which extends 4px beyond each row) inside
-    // the popover's overflow boundary, so it is never clipped.
+    // Symmetric padding keeps the popover's whitespace even and never clips the rows' focus rings.
     padding: var(--dt-spacing-b);
 
     border-radius: var(--dt-radius-rounded-c);
@@ -339,12 +329,11 @@
     color: var(--dt-color-content-brand-solid);
 }
 
-// The option rows sit one step tighter vertically than the list component's
-// default: the dropdown's designs specify 12px block padding (16px inline is
-// the default and matches). The variable is defined by pie-list-item for
-// exactly this kind of consumer override.
+// The dropdown's rows use 12px block padding (16px inline matches the default) and an 8px
+// text-to-tick gap — per the designs.
 .c-dropdown-option {
     --list-item-block-padding: var(--dt-spacing-c);
+    --list-item-trailing-gap: var(--dt-spacing-b);
 }
 
 // Consumer-slotted option icons render at 20px regardless of the `size`

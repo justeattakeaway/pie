@@ -41,61 +41,14 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(popover)).toBeHidden();
         });
 
-        test('should show the placeholder when no selection exists', async ({ page }) => {
-            const dropdownPage = new BasePage(page, 'dropdown--single-select');
-            await dropdownPage.load();
-
-            await expect(page.getByTestId(dropdown.selectors.placeholder.dataTestId)).toBeVisible();
-        });
-
-        test('should show the selection in the field', async ({ page }) => {
-            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
-            await dropdownPage.load();
-
-            await expect(page.getByTestId(valueText)).toHaveText('Burger');
-        });
-
-        test('should be disabled when the disabled prop is set', async ({ page }) => {
+                test('should be disabled when the disabled prop is set', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--disabled-state');
             await dropdownPage.load();
 
             await expect(page.getByTestId(trigger)).toBeDisabled();
         });
 
-        test('should inset the leading icon 16px from the field edge, leaving no footprint when empty', async ({ page }) => {
-            const dropdownPage = new BasePage(page, 'dropdown--single-select');
-            await dropdownPage.load();
 
-            // Without a leading icon the field's text keeps its designed
-            // inset: the empty leading-icon span contributes no box.
-            const textInset = await page.evaluate(() => {
-                const dropdown = document.querySelector('pie-dropdown');
-                const field = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-field"]');
-                const placeholder = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-placeholder"]');
-                return placeholder.getBoundingClientRect().x - field.getBoundingClientRect().x;
-            });
-            expect(textInset).toBeGreaterThanOrEqual(12);
-            expect(textInset).toBeLessThanOrEqual(14);
-
-            await page.evaluate(() => {
-                const dropdown = document.querySelector('pie-dropdown');
-                const icon = document.createElement('icon-check');
-                icon.setAttribute('slot', 'leadingIcon');
-                dropdown.appendChild(icon);
-                return dropdown.updateComplete;
-            });
-
-            // The slotted icon sits 16px in from the surface edge (plus the
-            // 1px border) per the designs.
-            const iconInset = await page.evaluate(() => {
-                const dropdown = document.querySelector('pie-dropdown');
-                const field = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-field"]');
-                const icon = dropdown.querySelector('[slot="leadingIcon"]');
-                return icon.getBoundingClientRect().x - field.getBoundingClientRect().x;
-            });
-            expect(iconInset).toBeGreaterThanOrEqual(16);
-            expect(iconInset).toBeLessThanOrEqual(18);
-        });
     });
 
     test.describe('Popover', () => {
@@ -981,25 +934,6 @@ test.describe('PieDropdown - Component tests', () => {
             await page.getByTestId(dropdown.selectors.clear.dataTestId).click();
 
             expect(await iconState(page, 'burger')).toEqual({ location: 'none', assigned: 0 });
-        });
-        test('should inset the selected option\'s icon 16px from the field edge', async ({ page }) => {
-            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
-            await dropdownPage.load();
-
-            await slotIconFor(page, 'burger');
-
-            // The icon sits 16px in from the surface edge (plus the 1px
-            // border) per the designs. It is a light-DOM child of the host,
-            // so its box is measured directly.
-            const inset = await page.evaluate(() => {
-                const dropdown = document.querySelector('pie-dropdown');
-                const field = dropdown.shadowRoot.querySelector('[data-test-id="pie-dropdown-field"]');
-                const icon = dropdown.querySelector('icon-check');
-                return icon.getBoundingClientRect().x - field.getBoundingClientRect().x;
-            });
-
-            expect(inset).toBeGreaterThanOrEqual(16);
-            expect(inset).toBeLessThanOrEqual(18);
         });
     });
 

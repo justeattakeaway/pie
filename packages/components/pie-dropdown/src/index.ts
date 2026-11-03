@@ -163,29 +163,18 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @state()
     private _searchText: string | null = null;
 
-    /**
-     * Suppresses the open-on-focus behaviour for the next focus event on the
-     * field. Set when the field is refocused as a side effect of a popover
-     * closing, so that focus never re-triggers the open. Checked by both the
-     * trigger (non-searchable) and search input focus handlers.
-     */
+    /** Suppresses the next field focus from re-opening the popover (set when a closing popover refocuses the field). */
     private _suppressFocusOpen = false;
 
     /**
-     * Suppresses the open-on-focus behaviour for the next focus event on the
-     * non-searchable field. Set on field pointerdown: the focus a click is
-     * about to give the field must not open the popover, because the click
-     * that follows toggles it instead. Not checked by the search input focus
-     * handler — pointer focus is how a searchable field is clicked open.
+     * Suppresses the next non-searchable field focus from opening the popover: pointer focus is
+     * followed by a toggling click. The search input ignores this flag — a click is how it opens.
      */
     private _suppressPointerFocusOpen = false;
 
     /**
-     * Whether the popover has ever been opened. Once it has, the popover
-     * stays mounted (hidden while closed) instead of being unmounted, so
-     * re-opens flip the `hidden` attribute rather than inserting a new
-     * subtree — screen readers can re-announce freshly inserted regions,
-     * interrupting the field's own focus announcement when that happens.
+     * The popover stays mounted (hidden) after first open: re-inserting it makes screen readers
+     * re-announce it, interrupting the field's focus announcement.
      */
     @state()
     private _hasEverOpened = false;
@@ -224,18 +213,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     }
 
     /**
-     * Roving-tabindex navigation for the single-select listbox: arrow keys
-     * move focus between option rows without selecting, Home/End jump to the
-     * ends, and typing jumps to the first matching option. Disabled options
-     * are excluded from the item list so keyboard focus skips them.
-     *
-     * The options are never part of the page tab sequence: the field is the
-     * single tab stop and the list is navigated with arrow keys (the combobox
-     * pattern), so Tab moves past the popover entirely.
-     *
-     * Type-ahead only applies to non-searchable variants (the select-only
-     * combobox pattern). In searchable variants, printable characters belong
-     * in the search field instead — see `_onKeydown`.
+     * Roving-tabindex navigation for the single-select listbox: arrows move focus between rows
+     * (skipping disabled), Home/End jump to the ends, typing type-aheads. The options are never tab
+     * stops — the field is the single tab stop (the combobox pattern) — and type-ahead is disabled
+     * in searchable variants (typing belongs to the search field).
      */
     private readonly _roving = new RovingTabindexController(this, {
         getItems: () => this._optionEls
@@ -304,11 +285,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         this.value = this._defaultValue;
         this._searchText = null;
 
-        // A change event is dispatched when the form is reset, mirroring the
-        // other PIE form controls: it lets consumers (and controlled React
-        // usage) keep their state in sync with the restored value. This is
-        // custom behaviour — native controls do not fire `change` on reset —
-        // and is documented as such.
+        // `change` on reset (custom, like the other PIE form controls) keeps controlled consumers in sync.
         this._dispatchChange();
     }
 
@@ -396,11 +373,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         this._refocusField();
     }
 
-    /**
-     * Returns focus to the field as a popover closes (or after a control in
-     * the field acted). The focus this moves must never re-trigger the
-     * open-on-focus behaviour, so it is suppressed for the next focus event.
-     */
+    /** Refocuses the field as a popover closes, suppressing the open-on-focus it would otherwise trigger. */
     private _refocusField (): void {
         this._suppressFocusOpen = true;
         this._field?.focus();
@@ -480,16 +453,11 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         this._isOpen = false;
         this._teardownOpenListeners();
 
-        // The search text is always discarded on close: the popover's
-        // filtering is never committed, so the field goes back to showing the
-        // current selection and the next open starts from the full list.
+        // The search text is always discarded on close (the popover's filtering is never committed).
         this._searchText = null;
 
-        // Reflect the restored display value into the input synchronously:
-        // screen readers announce a field's value at focus time, and the
-        // async render would land after focus has already returned to the
-        // field. The later render's `live()` binding sees no difference, so
-        // the caret is never disturbed.
+        // The restored value is written into the input synchronously so screen readers announce it
+        // at focus time, before the async render commits it (the `live()` binding then sees no diff).
         if (this.isSearchable && this._field instanceof HTMLInputElement) {
             this._field.value = this._selectionText;
         }
@@ -629,14 +597,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
-    /**
-     * Handles clicks anywhere on the field (matching the designs, where the
-     * whole surface opens the popover), bound on the capture phase so it
-     * still runs for clicks on the count chip, whose dismissible variant
-     * stops click propagation before it can bubble. Non-searchable variants
-     * toggle; the searchable field opens when closed (its focus no longer
-     * opens it) and never toggles — the chevron is what closes it again.
-     */
+    /** Clicks anywhere on the field (capture phase, so chip clicks are caught): non-searchable toggles, searchable opens when closed. */
     private _onFieldClick = (event: Event): void => {
         if (this.disabled) return;
 
@@ -676,14 +637,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         this._togglePopover('pointer');
     };
 
-    /**
-     * Arrow keys on the non-searchable field: from the closed field (focus on
-     * the trigger) they open the popover and move focus into the option list;
-     * from the open field (focus on the field itself — the trigger or the
-     * count chip's close button — not in the list) they enter the list. The
-     * list is never part of the tab sequence, so the arrow keys are the
-     * keyboard's way in.
-     */
+    /** Arrows on the non-searchable field: open from closed; enter the list (never tabbable) when open. */
     private _onFieldKeyDown = (event: KeyboardEvent): void => {
         if (this.isSearchable || this.disabled) return;
 
@@ -729,43 +683,35 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
-    /**
-     * The search field does not open the popover on focus: the popover opens
-     * on the first keystroke, the arrow keys or a click. Opening on focus
-     * made the `aria-expanded` state change chase the field's focus
-     * announcement, which screen readers (VoiceOver especially) interrupt
-     * mid-announcement to describe the expanded list.
-     *
-     * The handler remains bound for the open-suppression flag lifecycle: a
-     * stale flag (set by a close-and-refocus, or by pointer input) must be
-     * consumed here so it never wrongly suppresses the chip's focus-open in
-     * multi-select variants later.
-     */
+    private _onSearchKeyDown = (event: KeyboardEvent): void => {
+        if (!this._isOpen) {
+            // The closed field opens with the arrow keys (a focus event cannot
+            // fire on an already-focused field, so focus alone cannot reopen it).
+            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+                event.preventDefault();
+                this._openPopover('keyboard');
+            }
+            return;
+        }
+
+        if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            this._focusInitialOption();
+        }
+    };
+
+    /** Focus no longer opens the popover (its state change interrupted SR announcements); flags are consumed so stale suppression never blocks the chip. */
     private _onSearchFocus = (): void => {
         this._suppressFocusOpen = false;
         this._suppressPointerFocusOpen = false;
     };
 
-    /**
-     * Pointer input over the field: the focus it is about to give the
-     * non-searchable field must not open the popover — the click that
-     * follows toggles it instead. (Without this, a click would open the
-     * popover on focus and then close it again on the click, breaking
-     * click-to-toggle.) The search input consumes the flag without opening
-     * (see `_onSearchFocus`), since its field opens on the click itself.
-     */
+    /** Pointer focus must not open the non-searchable field: the click that follows toggles it. */
     private _onFieldPointerDown = (): void => {
         this._suppressPointerFocusOpen = true;
     };
 
-    /**
-     * The field opens the popover when it receives keyboard focus (matching
-     * the searchable variants, which open when their textbox is focused).
-     * Focus stays on the field — focus-open never moves focus; only the
-     * arrow keys enter the option list (see `_onFieldKeyDown`). Focus that
-     * is a side effect of pointer input or a closing popover is suppressed
-     * and ignored.
-     */
+    /** Focus-open never moves focus; pointer or closing-popover focus is suppressed and ignored. */
     private _onTriggerFocus = (): void => {
         if (this._suppressFocusOpen) {
             this._suppressFocusOpen = false;
@@ -782,13 +728,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
-    /**
-     * The count chip's close button opens the popover when it receives
-     * keyboard focus — it is the first tab stop in the field in multi-select
-     * variants with a selection — and focus stays on the chip. Unlike the
-     * search input, pointer focus is suppressed here: a mouse click on the
-     * close button clears the selections and must not also open the popover.
-     */
+    /** The chip's close button opens the popover on keyboard focus (focus stays on the chip); pointer focus just clears. */
     private _onChipFocusIn = (): void => {
         if (this._suppressFocusOpen) {
             this._suppressFocusOpen = false;
@@ -854,12 +794,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      * Helpers
      * ------------------------------------------------------------------ */
 
-    // The internal wiring ids are static: ids are scoped to the component's
-    // shadow root, so two dropdowns on a page can never wire their ARIA
-    // relationships together. Static ids also keep server-side rendering
-    // deterministic (a per-instance counter would be shared module state on
-    // the server, and would disagree with the server-rendered ids on
-    // hydration).
+    // Static ids: shadow-root scoped (instances can't collide) and deterministic for SSR.
     private _optionId (option: DropdownOption): string {
         return `pie-dropdown-option-${option.value}`;
     }
@@ -891,23 +826,12 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         return this._selectedValues.length > 0;
     }
 
-    /**
-     * The field's accessible name — the same chain the field itself uses:
-     * the visible `label`, else `aria.label`, else the placeholder. Used to
-     * give the field's clear affordances screen reader context, so they are
-     * announced as belonging to this dropdown.
-     */
+    /** The field's accessible name (label → aria.label → placeholder), used to give clear affordances their field context. */
     private get _fieldAriaName (): string {
         return this.label || this.aria?.label || this.placeholder || '';
     }
 
-    /**
-     * Appends the field's accessible name to a clear affordance's name for
-     * screen reader context, e.g. "Clear all 1 selection, Meal". The context
-     * is always appended — including over a consumer-provided name — so the
-     * clear controls are never announced without the field they belong to.
-     * Nothing is appended when the field has no accessible name at all.
-     */
+    /** Appends the field's accessible name to a clear affordance's name, so it is never announced without its field context. */
     private _withFieldContext (name: string): string {
         const field = this._fieldAriaName;
 
@@ -969,12 +893,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     }
 
     private _renderAssistiveText (): TemplateResult {
-        // The field's accessible description is a plain text element: screen
-        // readers reliably announce a plain description when the field is
-        // focused, but skip live regions as descriptions (their content is
-        // only announced when it changes — which is the pie-assistive-text's
-        // job below, for the visible helper text and assertive error
-        // announcements).
+        // A plain text element as the description: screen readers skip live regions as descriptions.
         return html`
             ${this.assistiveText
             ? html`<span class="c-dropdown-visuallyHidden" id="${this._assistiveTextId}">${this.assistiveText}</span>`
@@ -1008,17 +927,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     }
 
     /**
-     * The selected option's leading icon, shown in the field. The slot name
-     * matches the option's `icon-{value}` slot: a node can only project into
-     * one slot, and this one comes first in the shadow tree, so the icon
-     * projects into the field rather than its option row — the icon "moves"
-     * into the field while the option is selected.
-     *
-     * In non-searchable variants the slot only renders while the popover is
-     * closed: per the designs the icon returns to the selected row while the
-     * list is open (this slot disappears, so the row's own slot becomes the
-     * only match again). In searchable variants it is always shown, including
-     * while searching.
+     * The selected option's leading icon, projected into the field via its `icon-{value}` slot
+     * (this slot comes first, so it wins the projection over the option row). Non-searchable
+     * variants only render it while closed — open, the icon returns to the row per the designs;
+     * searchable variants keep it in the field, including while searching.
      */
     private _renderSelectionIcon (): TemplateResult | typeof nothing {
         if (this.isMultiselect || !this._hasSelection) return nothing;
@@ -1285,20 +1197,13 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     }
 
     private _renderPopover (): TemplateResult | typeof nothing {
-        // The popover is not rendered until the dropdown has been opened once.
-        // After that it stays mounted, hidden while closed: re-opens flip the
-        // `hidden` attribute instead of inserting a new subtree, which screen
-        // readers can re-announce — interrupting the field's focus
-        // announcement ("Pasta, combobox…" cut off by "list, 6 items").
+        // Mounted (hidden) after first open: re-inserting the subtree makes screen readers re-announce it.
         if (!this._hasEverOpened) return nothing;
 
-        // In single-select variants the popover itself is the listbox (the
-        // field's `aria-controls` points here); in multi-select variants it
-        // holds the checkbox group, which carries its own semantics.
-        // tabindex="-1" keeps the scrollable popover out of the page tab
-        // sequence: Chromium includes scrollable containers in tab
-        // navigation, which would otherwise give the popover its own tab stop.
-        // The options are navigated with arrow keys, never Tab.
+        // The listbox itself is what the field's `aria-controls` points at; multi-select holds the
+        // checkbox group instead. tabindex="-1" keeps the scrollable popover out of the tab
+        // sequence (Chromium gives scrollable containers their own tab stop) — options use the
+        // arrow keys, never Tab.
         return html`
             <div
                 id="${this._popoverId}"

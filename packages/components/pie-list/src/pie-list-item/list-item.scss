@@ -5,6 +5,7 @@
     // takes precedence over these defaults). Setting them on `pie-list` does not work, since the
     // host declaration wins over a value inherited from an ancestor.
     --list-item-inline-padding: var(--dt-spacing-d);
+    --list-item-trailing-gap: var(--dt-spacing-d);
     --list-item-alignment: flex-start;
 
     // Using contents to remove the host from the box model so that the internal container element fully acts as the component shell
@@ -162,9 +163,13 @@ slot[name="link"]::slotted(a:focus-visible),
     flex: 1;
 }
 
-slot[name="trailing"]::slotted(*),
+slot[name="trailing"]::slotted(*) {
+    // The trailing spacing is the flex gap plus this margin, making up the
+    // designed 16px total. Overridable via --list-item-trailing-gap.
+    margin-inline-start: calc(var(--list-item-trailing-gap) - var(--dt-spacing-c));
+}
+
 .c-listItem-metaText {
-    // Add a tiny bit of padding to the flex gap to make up 16px total
     padding-inline-start: var(--dt-spacing-a);
 }
 

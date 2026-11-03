@@ -11,8 +11,15 @@ import {
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     createStory,
+    createVariantStory,
     type TemplateFunction,
 } from '../../utilities';
+
+import '@justeattakeaway/pie-icons-webc/dist/IconFood.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconStar.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeart.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconClock.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCamera.js';
 
 type DropdownStoryProps = DropdownProps & { hasSecondaryText?: boolean };
 type DropdownStoryMeta = Meta<DropdownStoryProps>;
@@ -195,3 +202,57 @@ export const ExampleForm = createStory<DropdownStoryProps>(FormTemplate, default
 export const ExampleMultiForm = createStory<DropdownStoryProps>(FormTemplate, defaultArgs)({ isMultiselect: true });
 
 export const ExampleFieldsetForm = createStory<DropdownStoryProps>(FieldsetFormTemplate, defaultArgs)({ value: 'curry' });
+
+// Options with secondary text and per-option leading icons, with a selection,
+// so the selected option's icon is also shown in the field.
+const complexOptions: DropdownOption[] = [
+    { value: 'pizza', primaryText: 'Pizza', secondaryText: 'Wood-fired, with a crisp base' },
+    { value: 'burger', primaryText: 'Burger', secondaryText: 'Flame-grilled, with pickles' },
+    { value: 'pasta', primaryText: 'Pasta', secondaryText: 'Made to a traditional recipe' },
+    { value: 'curry', primaryText: 'Curry', secondaryText: 'Slow-cooked with aromatic spices' },
+    { value: 'ramen', primaryText: 'Ramen', secondaryText: 'Rich broth and springy noodles' },
+];
+
+const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
+    name,
+    label,
+    placeholder,
+    value,
+    isSearchable,
+}) => html`
+        <pie-dropdown
+            name="${ifDefined(name)}"
+            label="${ifDefined(label)}"
+            placeholder="${ifDefined(placeholder)}"
+            .value="${ifDefined(value)}"
+            .options=${complexOptions}
+            ?isSearchable="${isSearchable}">
+            <icon-food slot="icon-pizza"></icon-food>
+            <icon-star slot="icon-burger"></icon-star>
+            <icon-heart slot="icon-pasta"></icon-heart>
+            <icon-clock slot="icon-curry"></icon-clock>
+            <icon-camera slot="icon-ramen"></icon-camera>
+        </pie-dropdown>
+    `;
+
+export const ComplexOptions = createStory<DropdownStoryProps>(ComplexOptionsTemplate, defaultArgs)({ value: 'pizza' });
+
+export const SelectionVariations = createVariantStory<DropdownStoryProps>(
+    DropdownTemplate,
+    { value: ['burger', ''] },
+);
+
+export const MultiselectVariations = createVariantStory<DropdownStoryProps>(
+    DropdownTemplate,
+    { isMultiselect: [true], value: [['pizza'], ['pizza', 'curry', 'ramen'], []] },
+);
+
+export const SearchableVariations = createVariantStory<DropdownStoryProps>(
+    DropdownTemplate,
+    { isSearchable: [true], value: ['burger', ''] },
+);
+
+export const SizeStatusVariations = createVariantStory<DropdownStoryProps>(
+    DropdownTemplate,
+    { size: ['small', 'medium', 'large'], status: ['default', 'error'] },
+);
