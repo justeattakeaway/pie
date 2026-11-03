@@ -1,127 +1,169 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 const trigger = 'pie-dropdown-trigger';
 const input = 'pie-dropdown-input';
+const field = 'pie-dropdown-field';
+const popover = 'pie-dropdown-popover';
+
+/**
+ * The popover is `position: fixed`, with its `left`/`top`/`width` computed
+ * from the field's position by the component's JavaScript. Percy replays the
+ * captured DOM statically (it does not re-run the component's positioning),
+ * so a snapshot of an open popover must render at the *same* width the page
+ * was captured at — otherwise the popover renders misaligned, or off-screen
+ * entirely. The open states therefore run in the `visual:desktop` project
+ * (1280px capture) and render at 1280px; the one @mobile test renders at the
+ * `visual:mobile` project's capture width (360px).
+ */
+const DESKTOP_WIDTH = { widths: [1280] };
+const MOBILE_WIDTH = { widths: [360] };
+
+/** Closed states are pure CSS (no JavaScript positioning), so they render safely at any width. */
+const RESPONSIVE_WIDTHS = { widths: [375, 1280] };
 
 test.describe('PieDropdown - Visual tests', () => {
-    test('should render the default dropdown', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--default');
-        await basePage.load();
+    test.describe('Closed states', () => {
+        test('should render the closed variant gallery', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--closed-variants');
+            await basePage.load();
 
-        await percySnapshot(page, 'PieDropdown - Default', percyWidths);
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Closed variants', RESPONSIVE_WIDTHS);
+        });
+
+        test('should render the closed rich variant gallery (icons and secondary text)', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--closed-rich-variants');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Closed rich variants', RESPONSIVE_WIDTHS);
+        });
+
+        test('should render the size variations', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--size-variations');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Size variations', DESKTOP_WIDTH);
+        });
+
+        test('should render the status variations', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--status-variations');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Status variations', DESKTOP_WIDTH);
+        });
+
+        test('should render the disabled variations', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--disabled-variations');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Disabled variations', DESKTOP_WIDTH);
+        });
     });
 
-    test('should render selection variations', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--selection-variations');
-        await basePage.load();
+    test.describe('Open states', () => {
+        test('should render the open single-select popover', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--single-select');
+            await basePage.load();
 
-        await percySnapshot(page, 'PieDropdown - Selection variations', percyWidths);
-    });
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-    test('should render multiselect variations', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--multiselect-variations');
-        await basePage.load();
+            await percySnapshot(page, 'PieDropdown - Open single select', DESKTOP_WIDTH);
+        });
 
-        await percySnapshot(page, 'PieDropdown - Multiselect variations', percyWidths);
-    });
+        test('should render the open single-select popover with icons and secondary text', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--complex-options');
+            await basePage.load();
 
-    test('should render searchable variations', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--searchable-variations');
-        await basePage.load();
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-        await percySnapshot(page, 'PieDropdown - Searchable variations', percyWidths);
-    });
+            await percySnapshot(page, 'PieDropdown - Open single select, complex options', DESKTOP_WIDTH);
+        });
 
-    test('should render size and status variations', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--size-status-variations');
-        await basePage.load();
+        test('should render the open multi-select popover', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--multi-select');
+            await basePage.load();
 
-        await percySnapshot(page, 'PieDropdown - Size and status variations', percyWidths);
-    });
+            // Click near the start of the field: the count chip (with its own
+            // close button) sits at the start of a multi-select field.
+            await page.getByTestId(field).click({ position: { x: 10, y: 24 } });
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-    test('should render complex options (secondary text, icons, selection)', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--complex-options');
-        await basePage.load();
+            await percySnapshot(page, 'PieDropdown - Open multi select', DESKTOP_WIDTH);
+        });
 
-        await percySnapshot(page, 'PieDropdown - Complex options', percyWidths);
-    });
+        test('should render the open multi-select popover with secondary text', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--multi-select-secondary-text');
+            await basePage.load();
 
-    test('should render the open single-select popover', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--single-select');
-        await basePage.load();
+            await page.getByTestId(field).click({ position: { x: 10, y: 24 } });
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-        await page.getByTestId(trigger).click();
-        await basePage.freezeAnimations();
+            await percySnapshot(page, 'PieDropdown - Open multi select, secondary text', DESKTOP_WIDTH);
+        });
 
-        await percySnapshot(page, 'PieDropdown - Open single select', percyWidths);
-    });
+        test('should render the filtered searchable popover', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--single-select-searchable');
+            await basePage.load();
 
-    test('should render the open multi-select popover', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--multi-select');
-        await basePage.load();
+            const searchField = page.getByTestId(input);
+            await searchField.fill('Pas');
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-        await page.getByTestId('pie-dropdown-field').click({ position: { x: 10, y: 24 } });
-        await basePage.freezeAnimations();
+            await percySnapshot(page, 'PieDropdown - Filtered searchable', DESKTOP_WIDTH);
+        });
 
-        await percySnapshot(page, 'PieDropdown - Open multi select', percyWidths);
-    });
+        test('should render the no-results searchable state', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--single-select-searchable');
+            await basePage.load();
 
-    test('should render the loading state', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--loading-state');
-        await basePage.load();
+            const searchField = page.getByTestId(input);
+            await searchField.fill('zzz');
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-        await page.getByTestId(trigger).click();
-        await basePage.freezeAnimations();
+            await percySnapshot(page, 'PieDropdown - No results', DESKTOP_WIDTH);
+        });
 
-        await percySnapshot(page, 'PieDropdown - Loading', percyWidths);
-    });
+        test('should render the loading state', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--loading-state');
+            await basePage.load();
 
-    test('should render the disabled state with a selection', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--disabled-state');
-        await basePage.load();
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-        await percySnapshot(page, 'PieDropdown - Disabled with selection', percyWidths);
-    });
+            await percySnapshot(page, 'PieDropdown - Loading', DESKTOP_WIDTH);
+        });
 
-    test('should render the disabled multi-select state with selections', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--disabled-multiselect-state');
-        await basePage.load();
+        // Runs only in the `visual:mobile` project (Galaxy S8, 360px capture):
+        // the popover renders at the same width the page is captured at.
+        test('should render the open popover on a mobile canvas @mobile', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--complex-options');
+            await basePage.load();
 
-        await percySnapshot(page, 'PieDropdown - Disabled multi-select with selections', percyWidths);
-    });
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await basePage.freezeAnimations();
 
-    test('should render the no-results state', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--single-select-searchable');
-        await basePage.load();
-
-        const searchField = page.getByTestId(input);
-        await searchField.fill('zzz');
-        await basePage.freezeAnimations();
-
-        await percySnapshot(page, 'PieDropdown - No results', percyWidths);
-    });
-
-    test('should render the filtered searchable state', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--single-select-searchable');
-        await basePage.load();
-
-        const searchField = page.getByTestId(input);
-        await searchField.fill('Pas');
-        await basePage.freezeAnimations();
-
-        await percySnapshot(page, 'PieDropdown - Filtered searchable', percyWidths);
-    });
-
-    test('should render the open complex options popover', async ({ page }) => {
-        const basePage = new BasePage(page, 'dropdown--complex-options');
-        await basePage.load();
-
-        await page.getByTestId(trigger).click();
-        await basePage.freezeAnimations();
-
-        await percySnapshot(page, 'PieDropdown - Open complex options', percyWidths);
+            await percySnapshot(page, 'PieDropdown - Open complex options, mobile', MOBILE_WIDTH);
+        });
     });
 });

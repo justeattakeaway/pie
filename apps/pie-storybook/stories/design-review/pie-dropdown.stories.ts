@@ -107,7 +107,7 @@ const dropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
     noSelectionText,
     aria,
 }) => html`
-        <style>pie-dropdown { width: min(420px, 100vw); }</style>
+        <style>pie-dropdown { width: min(420px, calc(100vw - 32px)); }</style>
         <pie-dropdown
             name="${ifDefined(name)}"
             label="${ifDefined(label)}"
@@ -160,7 +160,7 @@ const iconDropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
     aria,
 }) => html`
         <p><strong>Note:</strong> the <code>options</code> and <code>hasSecondaryText</code> props are fixed in this story so each option's icon stays matched to its value — editing them in the controls panel has no effect.</p>
-        <style>pie-dropdown { width: min(420px, 100vw); }</style>
+        <style>pie-dropdown { width: min(420px, calc(100vw - 32px)); }</style>
         <pie-dropdown
             name="${ifDefined(name)}"
             label="${ifDefined(label)}"
@@ -202,7 +202,7 @@ const sizesTemplate: TemplateFunction<DropdownStoryProps> = ({
         <p><strong>Note:</strong> the <code>size</code> prop is fixed in this story — small, medium and large are rendered side by side, so the size control has no effect here.</p>
         <style>
             .dr-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
-            .dr-cell { display: flex; flex-direction: column; gap: 8px; width: min(420px, 100vw); }
+            .dr-cell { display: flex; flex-direction: column; gap: 8px; width: min(420px, calc(100vw - 32px)); }
             .dr-caption { font-family: monospace; font-size: 14px; color: #3C4C4F; }
         </style>
         <div class="dr-row">
@@ -231,7 +231,7 @@ const statusesTemplate: TemplateFunction<DropdownStoryProps> = ({
         <p><strong>Note:</strong> the <code>status</code> and <code>assistiveText</code> props are fixed in this story — default, error and success are rendered side by side, so those controls have no effect here.</p>
         <style>
             .dr-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
-            .dr-cell { display: flex; flex-direction: column; gap: 8px; width: min(420px, 100vw); }
+            .dr-cell { display: flex; flex-direction: column; gap: 8px; width: min(420px, calc(100vw - 32px)); }
             .dr-caption { font-family: monospace; font-size: 14px; color: #3C4C4F; }
         </style>
         <div class="dr-row">
