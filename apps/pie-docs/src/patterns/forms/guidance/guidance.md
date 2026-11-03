@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: 'Forms'
     order: 2
 shouldShowContents: true
+llmsTxtDescription: Detailed form guidance on which inputs to use, input widths, column layouts, labels and assistive text, autofill and spellcheck, and live or submission validation.
 ---
 
 ## Anatomy

@@ -1,0 +1,11 @@
+# Custom HTTP headers for the AWS Amplify deployment.
+# Manual Amplify deployments read this file from the root of the uploaded artifacts,
+# so it is copied into dist/ by .eleventy.js.
+# https://docs.aws.amazon.com/amplify/latest/userguide/setting-custom-headers.html
+customHeaders:
+  # Plain text files (e.g. llms.txt) have no way to declare their own encoding, so without a charset
+  # browsers and HTTP clients may decode their UTF-8 content as Windows-1252 (e.g. ’ shown as â€™)
+  - pattern: '**/*.txt'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/plain; charset=utf-8'

@@ -5,6 +5,7 @@ eleventyNavigation:
   order: 1
 shouldShowContents: true
 permalink: patterns/focus-state/
+llmsTxtDescription: How PIE shows focus with a two-colour 2px outline built into components, and guidelines for using it consistently and sparingly and testing the focus order.
 ---
 
 ## What is a focus state?
