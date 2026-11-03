@@ -1,6 +1,6 @@
 ---
 name: figma-engineering-audit
-description: Performs an engineering audit of a component design in Figma using the Figma MCP tools, then produces a JET-branded PDF report (via the jet-report skill). Use when the user shares a Figma link (or file key / node ID) and asks for an engineering review, audit, or assessment of a component design — for example 'audit this Figma component', 'engineering review of this design', 'is this design ready to build', 'review this component before implementation'. Covers interactivity and behaviour, accessibility, SSR compatibility, performance, ambiguity, edge cases, structure, prop surface, tokens and implementability findings.
+description: Performs an engineering audit of a component design in Figma using the Figma MCP tools, then produces a JET-branded PDF report (via the jet-report skill). Use when the user shares a Figma link (or file key / node ID) and asks for an engineering review, audit, or assessment of a component design — for example 'audit this Figma component', 'engineering review of this design', 'is this design ready to build', 'review this component before implementation'. Covers interactivity and behaviour, accessibility, SSR compatibility, performance, ambiguity, edge cases, consistency and reuse, change impact, prop surface, tokens and implementability findings.
 ---
 
 # Figma Engineering Audit
@@ -15,23 +15,27 @@ Trigger this skill when the user provides a Figma link and wants an engineering-
 
 ### Step 1: Parse the Figma URL
 
-Extract the `fileKey` and `nodeId` from the link. If the user supplied a bare file key or node ID instead, use it directly.
+Extract the `fileKey` and `nodeId` from the link. If the user supplied a bare file key or node ID instead, use it directly. Keep the `file-name` segment too where present, as it is used to build deep links.
 
 | URL form | Extraction |
 |---|---|
-| `figma.com/design/<fileKey>/<file-name>?node-id=1234-5678` | `fileKey` from the path; `nodeId` is `1234:5678` (URL hyphen becomes colon) |
-| `figma.com/design/<fileKey>/<file-name>` | `fileKey` only; audit the file root or ask which component |
+| `figma.com/design/<fileKey>/<file-name>?node-id=1234-5678` | `fileKey` from the path; `nodeId` is `1234:5678` (URL hyphen becomes colon); `file-name` from the path |
+| `figma.com/design/<fileKey>/<file-name>` | `fileKey` and `file-name`; audit the file root or ask which component |
 | `figma.com/file/<fileKey>/...` (legacy) | same as above |
 
 If no `nodeId` is given and the file root is not the component, ask the user which component to audit rather than guessing.
 
-### Step 2: Fetch the design data
+**Deep links.** Every finding cites a node, and that citation must be a clickable link a designer can open directly. Build the link as `https://www.figma.com/design/<fileKey>/<file-name>?node-id=<nodeId>`, replacing `:` in the node ID with `-` (for example `1234:5678` → `1234-5678`). Omit the `<file-name>` segment if it is unknown. For instance-path node IDs (`I…;…`), use the trailing node ID after the last `;`. Keep the raw `nodeId` alongside the link for tracking.
+
+### Step 2: Fetch the design data and check the codebase
 
 This skill depends on the Figma MCP tools (`figma_get_figma_data`, `figma_download_figma_images`). If they are not available in the session, stop and tell the user to connect the Figma MCP server — do not audit from the URL or screenshot alone, as that produces invented findings.
 
 Call the `figma_get_figma_data` MCP tool with the `fileKey` and `nodeId`. Only pass `depth` if the first response is too large to reason about; otherwise take the full node tree. For component sets, correlate the top-level component with its variants — a variant-level view is required for the prop-surface audit.
 
 If a response is flagged as sparse, fetch the flagged child nodes in one parallel batch of `figma_get_figma_data` calls.
+
+Also inspect the repo for an existing implementation before auditing: check `packages/components/` for an equivalent PIE component and `configs/pie-code-connect/` for a Code Connect mapping. Record what already exists so the audit can judge reuse and change impact in Step 4.
 
 ### Step 3: Collect visual evidence
 
@@ -42,9 +46,15 @@ Call `figma_download_figma_images` to download a PNG of the component (and of ea
 Assess every area below. For each area, record findings with:
 
 - `severity`: `high` (blocks implementation or breaks correctness/accessibility), `medium` (rework or inconsistency likely), `low` (polish or preference)
-- `area`: one of the ten below
-- `evidence`: the Figma node ID and, where useful, a downloaded image
+- `area`: one of the areas below
+- `nodeId`: the Figma node the finding pertains to (for an absent specification, the component root or relevant parent)
+- `url`: the clickable deep link to that node (see Deep links in Step 1)
 - `recommendation`: the concrete change for the designer to make, in plain design language (see Report writing style in Step 5)
+- `question`: where the finding is an unknown rather than a defect, the question for the designer (see Report writing style in Step 5)
+
+**Readiness verdict.** Derive a single verdict from the severity counts and show it on the cover: any `high` finding → **Not ready to build**; no `high` but at least one `medium` → **Ready with caveats**; only `low` findings or none → **Ready to build**.
+
+A finding records, for example: `{ id: "H1", severity: "high", area: "Interactivity and behaviour", nodeId: "1234:5678", url: "https://www.figma.com/design/<fileKey>/<file-name>?node-id=1234-5678", finding: "The dropdown specifies no keyboard behaviour and no open/close focus management.", recommendation: "Show what happens on Enter, Space, Escape and the arrow keys, and where focus moves when the dropdown opens and closes.", question: null }`.
 
 The first four areas are where designs most often fall short of engineering needs — give them the most attention. "Not specified in the design" is a finding in itself, not a pass: if the design does not answer a question the implementation must ask, the audit says so.
 
@@ -56,7 +66,7 @@ Ambiguity and clarity and Edge cases and boundaries are cross-cutting lenses —
 - Keyboard behaviour: tab order, enter/space activation, escape behaviour for dismissible content, focus trap and release for overlays.
 - Focus management: where focus moves on open/close or transition, whether focus is always visible, whether it can be lost.
 - State behaviour: is a disabled component still focusable? What triggers transitions between loading, error and empty states?
-- Async behaviour: optimistic updates vs waiting states, and protection against double-submit.
+- Async behaviour: optimistic updates vs waiting states, protection against double-submit, and the designed states for network failure, retry and offline.
 
 #### Accessibility
 
@@ -67,6 +77,8 @@ Ambiguity and clarity and Edge cases and boundaries are cross-cutting lenses —
 - Do animated designs offer a reduced-motion alternative?
 - For input-like components: are labels, hint text and error messages positioned to map onto label and described-by associations in code?
 - Is content order meaningful when navigated linearly?
+- Is a dark-mode variant designed, and do colours, borders and shadows hold up against a dark background rather than simply being inverted?
+- Are colour, border and elevation values drawn from theme-aware tokens so they switch with the theme, rather than fixed values?
 
 #### SSR compatibility
 
@@ -83,8 +95,10 @@ PIE components ship into Nuxt and Next.js apps, so designs must survive server r
 Rare, but real. Flag these only where the design hints at them — do not force findings onto every audit.
 
 - Asset weight: oversized raster images where SVG would do, unoptimised images, Lottie or video, oversized blurs and shadows.
-- Deeply nested instances and redrawn-copy sprawl, which bloat the coded DOM.
+- Repeated bespoke elements where a single reusable component would do, which bloat the coded DOM.
 - Designs implying heavy runtime work: complex sticky or scroll-driven behaviour, very large lists with no pagination or virtualisation note.
+
+Severity: medium where the design implies materially heavy assets or runtime work; low for minor optimisation opportunities. If nothing in the design hints at a performance cost, record an explicit pass.
 
 #### Ambiguity and clarity
 
@@ -92,9 +106,9 @@ A cross-cutting lens: could two engineers read this design and build different t
 
 - Contradictions: values or behaviour that disagree between variants, between light and dark sections, or between in-file annotations (changelog, spec or structure notes) and the component they describe.
 - Magic numbers: values with no visible rationale and no token mapping (arbitrary heights, paddings or radii). An engineer cannot tell whether they are tokens, derived values or arbitrary choices.
-- Same concept, different values: elements playing the same role styled or sized differently across variants (inconsistent radii, paddings or nested component generations), which force the implementer to pick one.
+- Same concept, different values: elements playing the same role styled or sized differently across variants (inconsistent radii, paddings or sizes), which force the implementer to pick one.
 - Undocumented intent: elements whose purpose is not discoverable from the design (spacers with no explanation, states with no trigger). Phrase the unknown as a question for the designer (see Report writing style in Step 5) — never guess an interpretation.
-- Misleading names and markers: names or grouping that contradict the content's status (for example a deprecated marker on live masters, or variant names that do not match consumer-facing concepts).
+- Misleading labels: annotations or labels that contradict the content's status (for example a component labelled deprecated while still in active use).
 - Unresolvable references: annotations linking to resources an implementer cannot open or that have moved.
 - Open interpretations: specs permitting more than one defensible implementation where the choice materially affects behaviour (trigger thresholds, dismissibility rules, boundary conditions).
 - Implicit platform knowledge: behaviour carried only by designer convention (safe-area insets, platform gestures) that different engineers will implement differently.
@@ -105,21 +119,28 @@ Severity: high when the ambiguity risks building the wrong thing (a contradictio
 
 A cross-cutting stress lens: what happens when content, sizing or state is at its extremes? Every question the design cannot answer is a finding — probe for each of these rather than assuming a default.
 
-- Text extremes: long titles, labels and CTAs (truncation, wrapping, minimum/maximum lines, ellipsis behaviour), very short strings, and multi-line text inside fixed-height rows.
+- Text extremes: long titles, labels and CTAs (truncation, wrapping, minimum/maximum lines, ellipsis behaviour), very short strings, multi-line text inside fixed-height rows, and documented maximum or recommended character counts for text fields and labels.
 - Empty and zero states: empty content slot, zero items, missing images or icons.
 - Content extremes: very long lists (scroll, pagination or virtualisation), and content that grows or shrinks after render.
 - Sizing boundaries: smallest and largest supported viewports, minimum/maximum component height, content shorter than the container, and content taller than any cap — does it scroll or overflow? Fixed-height areas holding variable content (for example a fixed image area with wide images).
+- Breakpoint behaviour: is the component's behaviour documented at each supported breakpoint (stacking, reflow, visibility), or only at the default?
 - Threshold boundaries: the exact boundary of any threshold (a scrolled-state trigger at the threshold, a height cap on short viewports).
 - State-boundary interactions: opening while another overlay is open, rapid open/close, and open → scroll → close sequences.
 - Localisation: longer strings in other locales, RTL mirroring, and date or number formats.
 
 Severity: high where the edge case is common or breaks layout or correctness (an unhandled overflow that breaks the layout); medium where it forces guesswork likely to cause rework; low where the case is rare.
 
-#### Structure and reuse
+#### Consistency and reuse
 
-- Is the design built as a component with variants, or one-off layers? One-off layers cannot express a real component API.
-- Are nested elements instances of existing components (including PIE components such as icons and buttons) or redrawn copies? Redrawn copies drift.
-- Is auto-layout used correctly (sizing, padding, gaps) so the layout survives real content?
+- Does the design define a coherent, complete set of variants and states that map to a component API, rather than each instance being bespoke?
+- Does the design reuse existing design-system components (PIE icons, buttons and so on) rather than recreating them, so the build stays consistent?
+- Are sizing, spacing and gap rules consistent across variants, so the design holds up with real content?
+
+#### Reuse and change impact
+
+- Does an equivalent component already exist in `packages/components/`? If so, is the design reusing it, or proposing a duplicate that will drift?
+- Is there a Code Connect mapping for the component in `configs/pie-code-connect/`? If the design changes the mapped props or visuals, the mapping needs updating.
+- For an update to an existing component: which public API, visual or behavioural changes are breaking (removed or renamed props, changed defaults, changed markup) and need a major version or a migration note?
 
 #### Prop surface
 
@@ -129,7 +150,7 @@ Severity: high where the edge case is common or breaks layout or correctness (an
 
 #### Tokens
 
-- Are colours, spacing, radii and type styles applied via Figma variables/styles, or hardcoded values? Hardcoded hex and px values break theming.
+- Are colours, spacing, radii and type styles drawn from design tokens, or hardcoded? Hardcoded hex and px values break theming and dark mode.
 - For every token or variable the design references, verify the name exists in `packages/tools/pie-design-tokens/metadata/tokensMetadata.json`. Invented token names cause silent failures in code.
 
 #### Implementability
@@ -142,14 +163,16 @@ Severity: high where the edge case is common or breaks layout or correctness (an
 
 The deliverable is a **JET-branded PDF** — there is no markdown report. **Load the `jet-report` skill before writing any PDF code**; if it is not available in the session, stop and tell the user to install it rather than writing bespoke, unbranded PDF code. Follow the jet-report conventions: A4 portrait `ReportPDF`, Inter fonts, JET Orange cover and closing bookends, warm Mozzarella content pages, no logo, and the 5-30-300 structure.
 
-Per the jet-report "Script & PDF Reuse" workflow, first check `reports/` for an existing `figma_engineering_audit.py` and adapt it if present; otherwise create it. Save the reusable generation script to `reports/figma_engineering_audit.py` and write the PDF to `reports/figma_engineering_audit_<YYYY-MM-DD>.pdf`, printing the absolute path.
+Build the findings as a structured list (id, severity, area, nodeId, url, finding, recommendation, question) before rendering the PDF, and write it to `reports/figma_engineering_audit_<YYYY-MM-DD>.json` alongside the PDF for tracking and export. The PDF remains the deliverable; the JSON is a sidecar.
+
+Per the jet-report "Script & PDF Reuse" workflow, first check `reports/` for an existing `figma_engineering_audit.py` and adapt it if present; otherwise create it. If `reports/` also holds a previous audit of the same component, compare the findings and note the resolved and newly-introduced ones in the executive summary. Save the reusable generation script to `reports/figma_engineering_audit.py` and write the PDF to `reports/figma_engineering_audit_<YYYY-MM-DD>.pdf`, printing the absolute path.
 
 **Page budget.** The report targets **around 5 pages** (hard cap 6), laid out as:
 
 1. **Cover page** (`COVER_PAGE`, JET Orange bookend) — component name, file, version, audit date, and the readiness verdict plus severity counts as hero stats
-2. **Executive summary + coverage + recommendations** — key takeaway, a short summary, the compact coverage table, then the compact numbered recommendations
-3. **Findings table** (`DATA_TABLE`) — every finding, one line each, sorted high → medium → low, with ID, severity, finding, area and node ID
-4. **High-severity detail + questions** — detail sections for **high-severity findings only** (1–2 sentence description + recommendation), at most **two small evidence images** (high findings, side by side), then the "Questions for the designer" block
+2. **Executive summary + coverage + recommendations** — key takeaway, a short summary, a one-line scope and limitations statement (component node, variants audited, date, and what was out of scope) with a clickable "Open in Figma" link to the component root node, the compact coverage table, then the compact numbered recommendations
+3. **Findings table** (`DATA_TABLE`) — every finding, one line each, sorted high → medium → low, with ID, severity, finding, area and the node rendered as a clickable link (visible text is the node ID, drawn with jet-report's `draw_hyperlink`)
+4. **High-severity detail + questions** — detail sections for **high-severity findings only** (1–2 sentence description + recommendation), at most **two small evidence images** (high findings, side by side), then the "Questions for the designer" block; the node reference for every high finding and every question is a clickable link
 5. **Closing page** (`CLOSING_PAGE`, JET Orange bookend)
 
 Hold the budget: medium and low findings appear in the table only — no per-finding detail sections. Descriptions are 1–2 sentences, high findings only. Share pages where content fits; if the high findings still overflow, compress descriptions further — never exceed 6 pages.
@@ -157,9 +180,10 @@ Hold the budget: medium and low findings appear in the table only — no per-fin
 **Report writing style.** Apply to every summary, finding, question and recommendation:
 
 - **Direct and succinct.** State the fact, the evidence (node ID) and the action. No preamble, hedging or filler.
+- **Evidence is linked.** Cite the node as a clickable deep link, with the node ID as its visible text, drawn with jet-report's `draw_hyperlink` so a designer can jump straight to it. The same URL is carried in the JSON sidecar.
 - **No speculation or assumptions.** Every statement must be verifiable from the Figma data, the file's own annotations, or a cited source (for example pie.design). Never guess an interpretation.
 - **Unknowns become questions.** Where the design does not answer something the implementation needs, raise it as a question for the designer in the "Questions for the designer" block, tagged with its finding ID (for example: "Q (L1): Is the 16px spacer in the empty footer a safe-area inset or just spacing?"). Because medium and low findings are table-only, the consolidated block — not an inline note — is where their questions live.
-- **Recommendations are written for designers.** Describe what to change, draw or annotate in Figma — states, variants, layers, colours — in plain language. Do not use engineering jargon in recommendations (ARIA roles, focus traps, hydration, WCAG clause numbers, prop names). Where the underlying need is technical, describe the user-facing behaviour instead ("show what happens when the user presses Escape") and leave the implementation to engineering. Findings may name a standard briefly; recommendations stay clean.
+- **Recommendations are written for designers.** Describe what to change, draw or annotate in Figma — states, variants, colours — in plain language. Do not use engineering jargon in recommendations (ARIA roles, focus traps, hydration, WCAG clause numbers, prop names). Where the underlying need is technical, describe the user-facing behaviour instead ("show what happens when the user presses Escape") and leave the implementation to engineering. Findings may name a standard briefly; recommendations stay clean.
 
 Evidence images downloaded in Step 3 are embedded in the PDF (at most two, high-severity findings only); skip any that cannot be read and warn on stdout. The PNGs in `reports/figma-assets/` remain the full evidence record.
 
@@ -167,9 +191,9 @@ Evidence images downloaded in Step 3 are embedded in the PDF (at most two, high-
 
 Before presenting the report, every item must pass:
 
-1. **Every finding cites a node ID.** A finding without a node ID cannot be verified or acted on.
+1. **Every finding cites a node.** Each finding references the node it pertains to; a finding about an absent specification cites the component root or relevant parent and is explicitly marked as unspecified. A finding with no node reference cannot be verified or acted on.
 2. **Token names verified.** Any token name mentioned in the report appears in `packages/tools/pie-design-tokens/metadata/tokensMetadata.json`.
-3. **All ten audit areas covered** — Interactivity and behaviour, Accessibility, SSR compatibility, Performance, Ambiguity and clarity, Edge cases and boundaries, Structure and reuse, Prop surface, Tokens, Implementability — each with an explicit pass or at least one finding. Do not silently skip an area.
+3. **All eleven audit areas covered** — Interactivity and behaviour, Accessibility, SSR compatibility, Performance, Ambiguity and clarity, Edge cases and boundaries, Consistency and reuse, Reuse and change impact, Prop surface, Tokens, Implementability — each with an explicit pass or at least one finding. Do not silently skip an area.
 4. **Evidence images** — all downloaded to `reports/figma-assets/`; at most two small ones embedded in the PDF, high-severity findings only.
 5. **Report delivered** — the PDF written to `reports/figma_engineering_audit_<date>.pdf` with the absolute path reported to the user.
 6. **Interactive components got the engineering lens** — keyboard, focus and state behaviour were checked even where the design says nothing about them, and unspecified behaviour is reported as a finding rather than assumed.
@@ -178,3 +202,8 @@ Before presenting the report, every item must pass:
 9. **Edge cases interrogated** — the auditor stressed the design with extreme content, sizing and state boundaries, and recorded every question the design could not answer.
 10. **Page budget respected** — the PDF is around 5 pages (6 maximum), with medium and low findings appearing in the table only.
 11. **Writing style applied** — findings are succinct, contain no speculation, unknowns are raised as questions for the designer, and every recommendation is written in plain design language.
+12. **Reuse and change impact assessed** — the existing `packages/components/` implementation and any Code Connect mapping were checked, and breaking API or visual changes were flagged.
+13. **Dark mode checked** — a dark-mode variant was looked for and theme-aware values were verified.
+14. **Scope stated** — the report states what was audited (node, variants, date) and what was out of scope.
+15. **Findings captured as structured data** — the findings list was built before rendering and written to the JSON sidecar.
+16. **Evidence is linked** — every finding's node is rendered as a clickable deep link (node ID as visible text) and the JSON sidecar carries the same URL.
