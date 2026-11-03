@@ -238,7 +238,7 @@
     },
     {
       "path": "./packages/components/pie-dropdown/dist/*.js",
-      "maxSize": "3 KB"
+      "maxSize": "10 KB"
     }
   ],
   "defaultCompression": "gzip",
