@@ -50,21 +50,10 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
 
-    /**
-     * Emits the page change event with the page the user wants to navigate to.
-     * The component never updates `currentPage` itself.
-     *
-     * @private
-     */
     private _emitPageChange (currentPage: number) {
         dispatchCustomEvent(this, ON_PAGE_CHANGE_EVENT, { currentPage });
     }
 
-    /**
-     * Handles a click on the "previous" control.
-     *
-     * @private
-     */
     private _handlePreviousClick () {
         if (this.disabled || this.currentPage <= 1) return;
 
@@ -74,11 +63,6 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
         this._emitPageChange(requestedPage);
     }
 
-    /**
-     * Handles a click on the "next" control.
-     *
-     * @private
-     */
     private _handleNextClick () {
         if (this.disabled || this.currentPage >= this.totalPages) return;
 
@@ -88,22 +72,15 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
         this._emitPageChange(requestedPage);
     }
 
-    /**
-     * Handles a click on a page number control.
-     *
-     * @private
-     */
     private _handlePageClick (page: number) {
         if (this.disabled || page === this.currentPage) return;
         this._emitPageChange(page);
     }
 
     /**
-     * Computes the visible page items, collapsing pages outside the current
-     * page's window behind an ellipsis marker. The current page never sits
-     * directly against an ellipsis. See the README for the rendered sequences.
-     *
-     * @private
+     * The current page never sits directly against an ellipsis — the window
+     * sizes and anchors below guarantee that. See the README for the rendered
+     * sequences.
      */
     private _getVisiblePages (currentPage: number, totalPages: number): Array<number | 'ellipsis'> {
         if (totalPages <= 7) {
@@ -139,11 +116,6 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
         ];
     }
 
-    /**
-     * Renders the chevron icon for the previous/next controls, mirroring it for RTL.
-     *
-     * @private
-     */
     private _renderChevronIcon (direction: 'previous' | 'next') {
         const pointsLeft = direction === 'previous' ? !this.isRTL : this.isRTL;
 
