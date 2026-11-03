@@ -3,7 +3,7 @@ eleventyNavigation:
     key: Alias tokens
     parent: Blur
     order: 2
-llmsTxtDescription: Blur alias tokens (base, neutral and prominent) with usage guidance, the global token each maps to and the container fill token it should be paired with.
+llmsTxtDescription: Blur alias tokens (base, neutral and prominent) are available for ios and web and should always be paired with the equivalent container fill token.
 ---
 
 ## Alias blur tokens

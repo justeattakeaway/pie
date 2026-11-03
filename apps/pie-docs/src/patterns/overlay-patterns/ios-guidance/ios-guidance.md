@@ -6,7 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 eleventyComputed:
     zIndexes: "{% include './z-indexes.json' %}"
-llmsTxtDescription: A decision tree for choosing iOS overlays, such as alert modal, bottom sheet, sheet, popover menu, toast and tooltip, guidance for each, and a z-index table.
+llmsTxtDescription: Guidance on overlay patterns on components such as bottom sheet, modal, popover, toast and tooltip on android, including a decision tree, z-index table and visual examples showing how components stack.
 ---
 
 ## Decision tree
