@@ -169,14 +169,24 @@ When the Figma component has a nested `Form label` instance:
 const createGetInstanceTemplate = require('./utils/get-instance-template.js');
 const getInstanceTemplate = createGetInstanceTemplate(figma);
 
+const isReact = process.env.FRAMEWORK === 'react';
 const formLabelSnippet = getInstanceTemplate(['Form label']);
 
-const template = figma.code`${formLabelSnippet || ''}
+// The label and the control are siblings, which is two root elements. JSX allows only
+// one root, so in React wrap them in a fragment - and only when the label actually
+// rendered, otherwise the snippet is a single element and needs no wrapper.
+const needsFragment = isReact && Boolean(formLabelSnippet);
+const fragmentOpen = needsFragment ? '<>\n' : '';
+const fragmentClose = needsFragment ? '\n</>' : '';
+
+const template = figma.code`${fragmentOpen}${formLabelSnippet || ''}
 <${selectedComponentName}
     ${formLabelSnippet ? 'id="the-input-id" aria-labelledby="the-label-id"' : ''}
     ${props}>
-</${selectedComponentName}>`;
+</${selectedComponentName}>${fragmentClose}`;
 ```
+
+**Multiple root elements:** this applies to any template whose snippet can render more than one top-level element, not just form labels. In React, wrap them in a fragment conditionally, as above. Do not wrap unconditionally: web components and Vue accept sibling roots, and a single-element snippet should stay unwrapped. Code Connect validates every React snippet with Prettier, so unwrapped sibling roots fail the render with `Snippet has syntax errors and may not be valid code` (this surfaces in `snapshot:compare` as a failed component).
 
 ### Content type (value vs placeholder)
 

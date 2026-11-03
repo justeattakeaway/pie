@@ -4,7 +4,7 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { property, query, queryAssignedElements } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card.scss?inline';
 import {
@@ -57,23 +57,6 @@ export class PieCard extends PieElement implements CardProps {
 
     @queryAssignedElements({ flatten: true })
     private assignedElements?: HTMLElement[];
-
-    @query('.c-card-overlay')
-    private overlayButton?: HTMLButtonElement;
-
-    private onClickHandler (event: Event) {
-        if (this.disabled) {
-            // needed to intercept/prevent click events when the card is disabled.
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-        }
-
-        // Clicks from slotted interactive controls must not trigger the card's own click event, so stop them before the host.
-        if (event.composedPath()[0] !== this.overlayButton) {
-            event.stopPropagation();
-        }
-    }
 
     /**
      * Renders the card as an anchor element.
@@ -218,8 +201,7 @@ export class PieCard extends PieElement implements CardProps {
                 <div
                     class="${classMap(classes)}"
                     data-test-id="pie-card-container"
-                    style=${paddingCSS || ''}
-                    @click=${this.onClickHandler}>
+                    style=${paddingCSS || ''}>
                         <button
                             class="c-card-overlay"
                             data-test-id="pie-card-button"

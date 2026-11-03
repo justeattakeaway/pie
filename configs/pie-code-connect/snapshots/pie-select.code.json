@@ -5,16 +5,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -22,16 +15,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -39,16 +25,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -56,16 +35,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -73,16 +45,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -90,16 +55,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -107,16 +65,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -124,16 +75,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Default, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Default, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -141,16 +85,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -158,16 +95,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -175,16 +105,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -192,16 +115,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -209,16 +125,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -226,16 +135,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -243,16 +145,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -260,16 +155,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Hover, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Hover, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -277,16 +165,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -294,16 +175,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -311,16 +185,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -328,16 +195,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -345,16 +205,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -362,16 +215,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -379,16 +225,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -396,16 +235,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Active - open, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Active - open, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -413,16 +245,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -430,16 +255,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -447,16 +265,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -464,16 +275,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -481,16 +285,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -498,16 +295,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -515,16 +305,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -532,16 +315,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Focus, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Focus, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -549,16 +325,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -566,16 +335,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -583,16 +345,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -600,16 +355,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -617,16 +365,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -634,16 +375,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -651,16 +385,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -668,16 +395,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Disabled, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Disabled, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -685,16 +405,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -702,16 +415,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -719,16 +425,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -736,16 +435,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -753,16 +445,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -770,16 +455,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -787,16 +465,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -804,16 +475,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"large\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Error, Size=Large",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Error, Size=Large"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -821,16 +485,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -838,16 +495,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -855,16 +505,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -872,16 +515,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -889,16 +525,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -906,16 +535,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -923,16 +545,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -940,16 +555,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Default, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Default, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -957,16 +565,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -974,16 +575,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -991,16 +585,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1008,16 +595,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1025,16 +605,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1042,16 +615,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1059,16 +625,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1076,16 +635,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Hover, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Hover, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1093,16 +645,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1110,16 +655,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1127,16 +665,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1144,16 +675,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1161,16 +685,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1178,16 +695,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1195,16 +705,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1212,16 +715,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Active - open, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Active - open, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1229,16 +725,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1246,16 +735,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1263,16 +745,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1280,16 +755,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1297,16 +765,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1314,16 +775,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1331,16 +785,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1348,16 +795,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Focus, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Focus, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1365,16 +805,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1382,16 +815,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1399,16 +825,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1416,16 +835,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1433,16 +845,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1450,16 +855,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1467,16 +865,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1484,16 +875,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Disabled, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Disabled, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1501,16 +885,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1518,16 +895,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1535,16 +905,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1552,16 +915,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1569,16 +925,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1586,16 +935,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1603,16 +945,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1620,16 +955,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Error, Size=Medium",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Error, Size=Medium"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1637,16 +965,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1654,16 +975,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1671,16 +985,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1688,16 +995,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1705,16 +1005,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1722,16 +1015,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1739,16 +1025,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1756,16 +1035,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Default, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Default, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1773,16 +1045,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1790,16 +1055,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1807,16 +1065,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1824,16 +1075,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1841,16 +1085,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1858,16 +1095,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1875,16 +1105,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1892,16 +1115,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Hover, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Hover, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1909,16 +1125,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1926,16 +1135,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1943,16 +1145,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1960,16 +1155,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1977,16 +1165,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -1994,16 +1175,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2011,16 +1185,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2028,16 +1195,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Active - open, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Active - open, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2045,16 +1205,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2062,16 +1215,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2079,16 +1225,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2096,16 +1235,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2113,16 +1245,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2130,16 +1255,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2147,16 +1265,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2164,16 +1275,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Focus, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Focus, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2181,16 +1285,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2198,16 +1295,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2215,16 +1305,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2232,16 +1315,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2249,16 +1325,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2266,16 +1335,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2283,16 +1345,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2300,16 +1355,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     assistiveText=\"Assistive text\"\n     disabled>\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Disabled, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Disabled, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2317,16 +1365,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=false, State=Error, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2334,16 +1375,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=false, State=Error, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2351,16 +1385,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=false, State=Error, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2368,16 +1395,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=false, State=Error, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2385,16 +1405,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=false, Form label=true, State=Error, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2402,16 +1415,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=false, Form label=true, State=Error, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2419,16 +1425,9 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=false, Assistive text=true, Form label=true, State=Error, Size=Small"
   },
   {
     "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-134090",
@@ -2436,15 +1435,8 @@
     "filePath": "components.figma.batch.json",
     "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-select/src/index.ts",
     "success": true,
-    "snippet": "{/* Form label — no Code Connect template found */}\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>",
+    "snippet": "<>\n<PieFormLabel id=\"the-label-id\" for=\"the-input-id\" >Label</PieFormLabel>\n<PieSelect id=\"the-input-id\" aria-labelledby=\"the-label-id\"\n     size=\"small\"\n     status=\"error\"\n     assistiveText=\"Assistive text\">\n    \n</PieSelect>\n</>",
     "language": "React",
-    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Error, Size=Small",
-    "unresolvedInstances": [
-      {
-        "guid": "1761:10133",
-        "name": "Form label",
-        "kind": "instance"
-      }
-    ]
+    "propertyCombinationLabel": "Leading icon=true, Assistive text=true, Form label=true, State=Error, Size=Small"
   }
 ]

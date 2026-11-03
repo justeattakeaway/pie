@@ -3,10 +3,15 @@ name: Code Connect Snapshot Watchdog
 # Runs the Code Connect snapshot comparison on a schedule and reports failures to
 # Slack. `snapshot:compare:ci` exits non-zero both when a template's output has
 # drifted from its baseline and when the Figma CLI fails to render a preview —
-# either condition raises an alert.
+# either condition raises an alert. Manual (`workflow_dispatch`) runs skip the Slack
+# alert, so they can be used for debugging without notifying the channel.
 #
 # Secrets (must be configured manually in the repo settings):
-# - FIGMA_PLAN_ACCESS_TOKEN  Figma Plan Access Token with `file_content:read`
+# - FIGMA_PLAN_ACCESS_TOKEN  Figma Plan Access Token with the `file_content:read` and
+#   `file_code_connect:write` scopes, owned by someone who can open the
+#   Figma file. Without both, the CLI cannot read property definitions or
+#   resolve nested Code Connect instances, and every component reports as
+#   changed or failed.
 # - ALERTS_SLACK_CHANNEL_ID  Channel ID of #alerts-design-system
 # - SLACK_BOT_TOKEN          Already used by other workflows
 
@@ -47,7 +52,7 @@ jobs:
           yarn workspace @justeattakeaway/pie-code-connect snapshot:compare:ci 2>&1 | tee "$RUNNER_TEMP/snapshot-compare.log"
 
       - name: Build Slack payload
-        if: failure()
+        if: failure() && github.event_name != 'workflow_dispatch'
         shell: bash
         run: |
           jq -n \
@@ -56,7 +61,7 @@ jobs:
             > "$RUNNER_TEMP/slack-payload.json"
 
       - name: Notify Slack
-        if: failure()
+        if: failure() && github.event_name != 'workflow_dispatch'
         uses: slackapi/slack-github-action@fcfb566f8b0aab22203f066d80ca1d7e4b5d05b3 # v1.27.1
         with:
           channel-id: ${{ secrets.ALERTS_SLACK_CHANNEL_ID }}

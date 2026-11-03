@@ -7,7 +7,8 @@ const getImportStatement = require('./utils/get-import-statement.js');
 const getInstanceProp = createGetInstanceProp(figma);
 const getInstanceTemplate = createGetInstanceTemplate(figma);
 const { componentName, componentNameReact } = figma.batch;
-const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
+const isReact = process.env.FRAMEWORK === 'react';
+const selectedComponentName = isReact ? componentNameReact : componentName;
 
 // Map figma props
 const state = getInstanceProp('getPropertyValue', 'State');
@@ -47,11 +48,16 @@ const props = [
 ].filter(Boolean).join('\n    ');
 
 // Define template
-const template = figma.code`${formLabelSnippet || ''}
+// In JSX the label and the control would be two adjacent roots, so wrap them in a fragment.
+const needsFragment = isReact && Boolean(formLabelSnippet);
+const fragmentOpen = needsFragment ? '<>\n' : '';
+const fragmentClose = needsFragment ? '\n</>' : '';
+
+const template = figma.code`${fragmentOpen}${formLabelSnippet || ''}
 <${selectedComponentName}
     ${formLabelSnippet ? 'id="the-textarea-id" aria-labelledby="the-label-id"' : ''}
     ${props}>
-</${selectedComponentName}>`;
+</${selectedComponentName}>${fragmentClose}`;
 
 export default {
     example: template,
