@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 1
 shouldShowContents: true
 permalink: patterns/onboarding-and-guided-tour/web-guidance/
+llmsTxtDescription: Web onboarding options, such as modals and carousels for overview onboarding, and tooltips and spotlights for contextual onboarding, with LTR and RTL examples.
 ---
 
 ## Overview

@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: 'Haptic Feedback'
     order: 2
 shouldShowContents: true
+llmsTxtDescription: The PIE haptic feedback types (soft, medium, success, warning and error) and where to use each one.
 ---
 
 ## About our haptic feedback types

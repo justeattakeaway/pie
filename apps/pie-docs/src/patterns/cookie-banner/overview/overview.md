@@ -8,6 +8,7 @@ permalink: patterns/cookie-banner/
 eleventyComputed:
     enterTransition: "{% include './enter-transition.json' %}"
     exitTransition: "{% include './exit-transition.json' %}"
+llmsTxtDescription: Cookie banner anatomy, banner and modal variants, content, behaviour, sizing, positioning and motion, with LTR and RTL examples.
 ---
 
 

@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Global tokens
     parent: Typography
     order: 3
+includeInLlmsTxt: false
 ---
 
 ## Global typography tokens

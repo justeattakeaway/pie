@@ -9,10 +9,11 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:external-deps": "run -T vite build",
-    "build": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='production' eleventy",
-    "build:dev": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='development' eleventy",
+    "build": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='production' eleventy && yarn run generate:llms-txt",
+    "build:dev": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='development' eleventy && yarn run generate:llms-txt",
     "clean": "run -T rimraf dist",
     "dev": "yarn eleventy --serve --port=8080",
+    "generate:llms-txt": "node scripts/generate-llms-txt.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
@@ -36,6 +37,7 @@
     "autoprefixer": "10.6.1",
     "eleventy-plugin-rev": "2.0.0",
     "eleventy-sass": "3.0.0-beta.0",
+    "js-yaml": "4.2.0",
     "markdown-it-attrs": "4.3.1"
   },
   "dependencies": {

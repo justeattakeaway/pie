@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 1
 shouldShowContents: true
 permalink: patterns/forms/
+llmsTxtDescription: Best practices for forms, covering relevant data, surfaces, optional fields, calls to action, character limits and user feedback.
 ---
 
 

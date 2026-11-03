@@ -13,4 +13,5 @@ eleventyComputed:
   # This is set in alias.json
   shownContentSlug: "{{toggleContent.b.slug}}"
   hiddenContentSlug: "{{toggleContent.a.slug}}"
+llmsTxtDescription: Dark theme colour alias tokens grouped by role, such as backgrounds, borders, content, feedback, brand, interactive and states, with usage guidance and their global tokens.
 ---
