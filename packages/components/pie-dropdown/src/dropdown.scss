@@ -21,6 +21,13 @@
     --dropdown-cursor: pointer;
 }
 
+// The popover's containing block: it wraps the field (the label sits above
+// it and the assistive text below it, so the component itself cannot anchor
+// the popover) and the popover hangs directly from its bottom edge.
+.c-dropdown-anchor {
+    position: relative;
+}
+
 .c-dropdown-field {
     position: relative;
 
@@ -309,10 +316,18 @@
  * Popover
  * ------------------------------------------------------------------ */
 
-// Position (left/top/width) is set from JS: the support target includes
-// Safari 16, which lacks the native Popover API and CSS anchor positioning.
+// The popover hangs from the anchor directly below the field, matching the
+// field's full width. Pure CSS positioning (no JavaScript): unlike a
+// viewport-fixed popover it cannot be mispositioned by a transformed
+// ancestor (e.g. an open pie-modal) or by a static DOM replay (visual
+// regression testing). Trade-off: a clipping ancestor (overflow: hidden,
+// auto, scroll or clip) clips the popover, so the field needs room below it
+// inside such containers.
 .c-dropdown-popover {
-    position: fixed;
+    position: absolute;
+    inset-block-start: calc(100% + var(--dt-spacing-b));
+    inset-inline-start: 0;
+    inline-size: 100%;
     z-index: var(--dt-z-index-dropdown);
 
     box-sizing: border-box;

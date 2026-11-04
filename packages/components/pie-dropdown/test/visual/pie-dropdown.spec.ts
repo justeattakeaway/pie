@@ -8,14 +8,11 @@ const field = 'pie-dropdown-field';
 const popover = 'pie-dropdown-popover';
 
 /**
- * The popover is `position: fixed`, with its `left`/`top`/`width` computed
- * from the field's position by the component's JavaScript. Percy replays the
- * captured DOM statically (it does not re-run the component's positioning),
- * so a snapshot of an open popover must render at the *same* width the page
- * was captured at — otherwise the popover renders misaligned, or off-screen
- * entirely. The open states therefore run in the `visual:desktop` project
- * (1280px capture) and render at 1280px; the one @mobile test renders at the
- * `visual:mobile` project's capture width (360px).
+ * The popover hangs from the field with pure CSS (absolute positioning),
+ * so every state — open or closed — renders correctly at any capture
+ * width. The open states keep their pinned widths (1280px desktop, 360px
+ * for the @mobile test) purely for stable baselines; closed states are
+ * captured responsively.
  */
 const DESKTOP_WIDTH = { widths: [1280] };
 const MOBILE_WIDTH = { widths: [360] };
@@ -151,6 +148,25 @@ test.describe('PieDropdown - Visual tests', () => {
             await basePage.freezeAnimations();
 
             await percySnapshot(page, 'PieDropdown - Loading', DESKTOP_WIDTH);
+        });
+
+        // The popover hangs from the field inside the modal's scrollable
+        // body, which clips anything that overflows it — the story's content
+        // below the field leaves the popover room. The open dialog
+        // autofocuses the field, which opens the popover by itself; the
+        // click only runs if that autofocus behaviour ever changes.
+        test('should render the open popover inside a modal', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--dropdown-in-modal');
+            await basePage.load();
+
+            const popoverEl = page.getByTestId(popover);
+            if (!(await popoverEl.isVisible())) {
+                await page.getByTestId(trigger).click();
+            }
+            await expect(popoverEl).toBeVisible();
+            await basePage.freezeAnimations();
+
+            await percySnapshot(page, 'PieDropdown - Open single select, in modal', DESKTOP_WIDTH);
         });
 
         // Runs only in the `visual:mobile` project (Galaxy S8, 360px capture):

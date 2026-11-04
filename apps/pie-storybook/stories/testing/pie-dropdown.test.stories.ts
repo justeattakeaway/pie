@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/dropdown';
+import '@justeattakeaway/pie-webc/components/modal';
 import {
     defaultProps,
     type DropdownOption,
@@ -70,9 +71,9 @@ const defaultArgs: DropdownStoryProps = {
 /**
  * Sizing for the stories whose popover is opened in the visual tests: the
  * field is wide enough for the popover's content, and the wrapper is tall
- * enough that an open popover (position: fixed, up to ~280px tall) never
- * clips past the document height that Percy renders. The width uses the
- * viewport (not a percentage) so it stays definite inside Storybook's
+ * enough that an open popover (up to ~280px tall, hanging below the field)
+ * never clips past the document height that Percy renders. The width uses
+ * the viewport (not a percentage) so it stays definite inside Storybook's
  * shrink-to-fit centered layout, and subtracts the 80px of horizontal
  * padding around the field (the wrapper's 24px plus Storybook's 16px root
  * padding, both sides) so nothing overflows the narrow Percy widths.
@@ -389,3 +390,39 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
     `;
 
 export const ComplexOptions = createStory<DropdownStoryProps>(ComplexOptionsTemplate, defaultArgs)({ value: 'pizza' });
+
+/* ------------------------------------------------------------------ *
+ * Dropdown inside a modal: the popover hangs from the field inside the
+ * modal's scrollable body, which clips anything that overflows it, so
+ * the content below the field leaves the popover room.
+ * ------------------------------------------------------------------ */
+
+const DropdownInModalTemplate: TemplateFunction<DropdownStoryProps> = ({
+    name,
+    label,
+    placeholder,
+    options: optionsProp,
+}) => html`
+        <style>
+            pie-dropdown { width: 100%; margin-block-end: var(--dt-spacing-e); }
+            .modal-text { margin: 0 0 var(--dt-spacing-d); }
+        </style>
+        <pie-modal
+            heading="Meal preferences"
+            size="medium"
+            ?isOpen=${true}>
+            <pie-dropdown
+                data-test-id="dropdown"
+                name="${ifDefined(name)}"
+                label="${ifDefined(label)}"
+                placeholder="${ifDefined(placeholder)}"
+                .options="${optionsProp ?? options}">
+            </pie-dropdown>
+            <p class="modal-text">Tell us which meals you enjoy most so we can tailor your recommendations. You can change these preferences at any time from your account settings.</p>
+            <p class="modal-text">We use your preferences to sort restaurants and dishes in your search results, and to highlight options you are likely to enjoy. The more you tell us, the better your recommendations become over time.</p>
+            <p class="modal-text">Your preferences only affect the order things appear in — they never hide options from you, and you can always find everything by searching as usual.</p>
+            <p class="modal-text">If you have any dietary requirements, you can also add them from your account settings page and we will make them easier to spot while you browse.</p>
+        </pie-modal>
+    `;
+
+export const DropdownInModal = createStory<DropdownStoryProps>(DropdownInModalTemplate, defaultArgs)();

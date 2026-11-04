@@ -122,7 +122,7 @@ The option list is never part of the page tab sequence in single-select variants
 **Multi select (searchable)** follows the same model as non-searchable multi select, with the filtering input sitting between the chip and the list: typing always searches (and returns to the field from the list first), and `ArrowDown` from the input moves focus into the option list.
 
 #### Popover positioning
-The popover always renders below the field — it never flips above the dropdown. When there is not enough room left in the viewport below, the popover is clipped by the viewport edge (consumers should avoid placing the dropdown where this can happen).
+The popover is positioned with CSS directly below the field — it never flips above the dropdown. It is clipped by an ancestor with `overflow: hidden`, `auto`, `scroll` or `clip` (e.g. a modal's scrollable body), so consumers should give the field enough room below it inside such containers.
 
 #### Using the aria prop
 The `aria` prop accepts an object used to provide accessible names for the parts of the component that cannot be derived from its other props:

@@ -49,9 +49,6 @@ export * from './defs';
 
 const componentSelector = 'pie-dropdown';
 
-/** Vertical gap between the field and the popover. */
-const POPOVER_OFFSET = 8;
-
 /** Message shown in the live region and popover while options load. */
 const defaultLoadingText = 'Loading results...';
 
@@ -191,10 +188,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @query('.c-dropdown-trigger')
     private _field!: HTMLButtonElement | HTMLInputElement;
 
-    /** The field's visual box, which the popover is sized and positioned against. */
-    @query('.c-dropdown-field')
-    private _fieldBox!: HTMLElement;
-
     /** The popover element. */
     @query('.c-dropdown-popover')
     private _popover!: HTMLElement;
@@ -298,10 +291,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         // the prop changes at runtime (not only when the value does).
         if (changedProperties.has('required')) {
             this._updateValidity();
-        }
-
-        if (this._isOpen) {
-            this._positionPopover();
         }
     }
 
@@ -512,10 +501,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
         // Escape closes the popover and returns focus to the field.
         this.addEventListener('keydown', this._onKeydown, { signal });
-
-        // Keep the popover anchored to the field.
-        window.addEventListener('resize', this._onViewportChange, { signal });
-        window.addEventListener('scroll', this._onViewportChange, { signal, capture: true });
     }
 
     private _teardownOpenListeners (): void {
@@ -527,10 +512,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (!event.composedPath().includes(this)) {
             this._closePopover('outside');
         }
-    };
-
-    private _onViewportChange = (): void => {
-        this._positionPopover();
     };
 
     private _onKeydown = (event: KeyboardEvent): void => {
@@ -746,29 +727,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     private _onClearClick = (): void => {
         this._clearSelection();
     };
-
-    /* ------------------------------------------------------------------ *
-     * Positioning (JS-based: the support target includes Safari 16, which
-     * lacks the native Popover API and CSS anchor positioning)
-     * ------------------------------------------------------------------ */
-
-    private _positionPopover (): void {
-        if (!this._popover || !this._fieldBox) return;
-
-        // Measured against the field's visual box (which includes the leading
-        // icon area and the border) so the popover matches the field's full
-        // width in every variant, rather than the trigger element inside it.
-        const fieldRect = this._fieldBox.getBoundingClientRect();
-
-        this._popover.style.width = `${fieldRect.width}px`;
-
-        // The popover always renders below the field — it never flips above
-        // it, even when there is not enough room left in the viewport (the
-        // popover may be clipped by the viewport edge in that case, which the
-        // designs accept).
-        this._popover.style.left = `${fieldRect.left}px`;
-        this._popover.style.top = `${fieldRect.bottom + POPOVER_OFFSET}px`;
-    }
 
     /* ------------------------------------------------------------------ *
      * Helpers
@@ -1216,8 +1174,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         return html`
             <div class="c-dropdown">
                 ${this._renderLabel()}
-                ${this._renderField()}
-                ${this._renderPopover()}
+                <div class="c-dropdown-anchor">
+                    ${this._renderField()}
+                    ${this._renderPopover()}
+                </div>
                 ${this._renderAssistiveText()}
                 ${this._renderStatusRegion()}
             </div>
