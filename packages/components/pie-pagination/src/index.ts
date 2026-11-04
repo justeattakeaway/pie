@@ -83,6 +83,7 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
      * sequences.
      */
     private _getVisiblePages (currentPage: number, totalPages: number): Array<number | 'ellipsis'> {
+        // Ellipses only save space when there are more than 7 pages, so below that we just show them all.
         if (totalPages <= 7) {
             return Array.from({ length: Math.max(totalPages, 0) }, (_, index) => index + 1);
         }
