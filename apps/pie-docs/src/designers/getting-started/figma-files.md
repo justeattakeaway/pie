@@ -13,11 +13,6 @@ llmsTxtDescription: Links to the PIE Figma libraries for foundations, web and ap
       linkText: "Core Foundations",
       href: "https://www.figma.com/design/64d6BFbEaP9tjrDmOCJpQh/%E2%9C%A8--Core--Foundations--PIE-3-?m=auto",
       src: "../../../assets/img/designers/getting-started/figma-files/core-foundations.svg"
-    },
-    {
-      linkText: "AI Foundations",
-      href: "https://www.figma.com/design/tGv7rwthRgAOQP0Xx86Bm0/-AI--Foundations--PIE-3-?m=auto",
-      src: "../../../assets/img/designers/getting-started/figma-files/ai-foundations.svg"
     }
   ]
 } %}
