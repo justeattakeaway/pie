@@ -18,6 +18,9 @@ export const dropdown = {
         clear: {
             dataTestId: 'pie-dropdown-clear',
         },
+        chevron: {
+            dataTestId: 'pie-dropdown-chevron',
+        },
         popover: {
             dataTestId: 'pie-dropdown-popover',
         },

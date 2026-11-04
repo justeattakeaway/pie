@@ -362,8 +362,16 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         this._refocusField();
     }
 
-    /** Refocuses the field as a popover closes, suppressing the open-on-focus it would otherwise trigger. */
+    /**
+     * Refocuses the field as a popover closes, suppressing the open-on-focus it
+     * would otherwise trigger. A no-op focus (the field is already focused, e.g.
+     * Escape from a searchable field) fires no focus event to consume the flag,
+     * so the flag is only armed when focus will actually move — otherwise it
+     * goes stale and blocks the next chip focus-in.
+     */
     private _refocusField (): void {
+        if (this.shadowRoot?.activeElement === this._field) return;
+
         this._suppressFocusOpen = true;
         this._field?.focus();
     }
@@ -582,13 +590,26 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     private _onFieldClick = (event: Event): void => {
         if (this.disabled) return;
 
-        // The clear button and the count chip's close button handle their own
-        // clicks; every other part of the field opens the popover. The check
-        // walks the composed path rather than using `closest()`, which cannot
-        // cross shadow boundaries (a click on an icon's SVG, for example).
+        // The pointerdown that armed the pointer-focus suppression has been
+        // followed by its click, and every focus event it existed to suppress
+        // (focus from a press precedes its click) has already fired. Clearing
+        // it here stops a stale flag from blocking a later chip focus-in (e.g.
+        // Shift+Tab onto the count chip after an Escape or pointer close). A
+        // press that never completes as a click leaves the flag armed until
+        // the next focus event or focusout — accepted as vanishingly narrow.
+        this._suppressPointerFocusOpen = false;
+
+        // The clear button, the count chip's close button and (in searchable
+        // variants) the chevron handle their own clicks; every other part of
+        // the field opens the popover. In non-searchable variants the chevron
+        // is decorative — the whole field toggles, chevron area included. The
+        // check walks the composed path rather than using `closest()`, which
+        // cannot cross shadow boundaries (a click on an icon's SVG, for
+        // example).
         const path = event.composedPath();
         const isOwnControl = path.some((node): node is Element => node instanceof Element &&
-                (node.classList.contains('c-dropdown-clear') || node.classList.contains('c-chip-closeBtn')));
+                (node.classList.contains('c-dropdown-clear') || node.classList.contains('c-chip-closeBtn') ||
+                (this.isSearchable && node.classList.contains('c-dropdown-chevron'))));
 
         if (isOwnControl) return;
 
@@ -610,12 +631,23 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     };
 
     /**
-     * In searchable variants the field is a textbox that opens on focus, so
-     * the chevron is the surface that closes the popover again.
+     * In searchable variants the chevron toggles the popover: the textbox opens
+     * it on typing, so the chevron is both the pointer way in (the full list,
+     * with the caret kept in the search field) and the way out.
      */
     private _onChevronClick = (): void => {
         if (this.disabled) return;
-        this._togglePopover('pointer');
+
+        if (this._isOpen) {
+            this._closePopover('pointer');
+            return;
+        }
+
+        this._openPopover('pointer', false);
+        // The chevron span is not focusable, so focus may sit on the page
+        // (not the field) after the click: put the caret in the search field
+        // so typing filters and the combobox contract holds.
+        this._field?.focus();
     };
 
     /** Arrows on the non-searchable field: open from closed; enter the list (never tabbable) when open. */
@@ -927,7 +959,8 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 class="c-dropdown-chevron"
                 aria-hidden="true"
                 ?data-interactive-chevron=${interactive}
-                @click=${interactive ? this._onChevronClick : nothing}>
+                @click=${interactive ? this._onChevronClick : nothing}
+                data-test-id="pie-dropdown-chevron">
                 ${this._isOpen
             ? html`<icon-chevron-up size="s"></icon-chevron-up>`
             : html`<icon-chevron-down size="s"></icon-chevron-down>`}

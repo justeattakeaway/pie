@@ -63,6 +63,27 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(option)).toHaveCount(6);
         });
 
+        test('should toggle the popover when the chevron area of a non-searchable field is clicked', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            // The chevron is decorative in non-searchable variants: it never
+            // receives the click itself (pointer-events: none), so the field
+            // beneath it — chevron zone included — toggles the popover.
+            const fieldEl = page.getByTestId(dropdown.selectors.field.dataTestId);
+            const fieldWidth = (await fieldEl.boundingBox())?.width ?? 256;
+            const chevronZone = { x: fieldWidth - 26, y: 24 };
+
+            await fieldEl.click({ position: chevronZone });
+
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(option).filter({ hasText: 'Pizza' })).toBeFocused();
+
+            await fieldEl.click({ position: chevronZone });
+
+            await expect(page.getByTestId(popover)).toBeHidden();
+        });
+
         test('should focus the selected option when opened', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
             await dropdownPage.load();
@@ -592,6 +613,47 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(input).toBeFocused();
         });
 
+        test('should open the popover when the chevron is clicked on a closed searchable dropdown', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            // Focus alone does not open a searchable field (typing does), so
+            // the chevron is the pointer user's way to see the full list.
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+            await expect(page.getByTestId(popover)).toBeHidden();
+
+            await page.getByTestId(dropdown.selectors.chevron.dataTestId).click();
+
+            // The full, unfiltered list is shown...
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(option)).toHaveCount(6);
+            // ...and the caret stays in the search field (the combobox
+            // contract: opening never steals the caret).
+            await expect(input).toBeFocused();
+        });
+
+        test('should close and reopen the popover when the chevron is clicked while open', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            // Open by typing, so the list is filtered down to one option.
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.fill('Pas');
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(option)).toHaveCount(1);
+
+            await page.getByTestId(dropdown.selectors.chevron.dataTestId).click();
+            await expect(page.getByTestId(popover)).toBeHidden();
+
+            // Reopening starts from the full list: the discarded search text
+            // is never committed, and the caret stays in the field.
+            await page.getByTestId(dropdown.selectors.chevron.dataTestId).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(option)).toHaveCount(6);
+            await expect(input).toBeFocused();
+        });
+
         test('should move focus into the option list with ArrowDown, and Escape should not reopen the popover', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();
@@ -694,6 +756,66 @@ test.describe('PieDropdown - Component tests', () => {
 
             await expect(page.getByTestId(popover)).toBeVisible();
             await expect(page.getByTestId(popover).locator('pie-checkbox').first()).toBeFocused();
+        });
+
+        test('should open the popover when the chevron is clicked on a closed multi-select searchable dropdown', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.focus();
+            await expect(page.getByTestId(popover)).toBeHidden();
+
+            await page.getByTestId(dropdown.selectors.chevron.dataTestId).click();
+
+            // The full list is shown (the count chip keeps its selection) and
+            // the caret stays in the search field.
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(popover).locator('pie-checkbox')).toHaveCount(6);
+            await expect(input).toBeFocused();
+        });
+
+        test('should open the popover when the chip receives keyboard focus after an Escape close (multi select)', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select-searchable');
+            await dropdownPage.load();
+
+            // Open by typing so focus stays in the field, then Escape: the
+            // field is still focused, so the close's refocus is a no-op — no
+            // focus event may arm the focus-open suppression that would
+            // otherwise block the chip from opening on its next focus.
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.fill('Pas');
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await page.keyboard.press('Escape');
+            await expect(page.getByTestId(popover)).toBeHidden();
+
+            await page.keyboard.press('Shift+Tab');
+
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await expect(chipClose).toBeFocused();
+            await expect(page.getByTestId(popover)).toBeVisible();
+        });
+
+        test('should open the popover when the chip receives keyboard focus after a pointer close (multi select)', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select-searchable');
+            await dropdownPage.load();
+
+            // Clicking the field while open arms the pointer-focus
+            // suppression but (focus already being in the field) no focus
+            // event consumes it; the click itself must consume it, so the
+            // chip's keyboard focus is never blocked.
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.fill('Pas');
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await input.click();
+            await page.keyboard.press('Escape');
+            await expect(page.getByTestId(popover)).toBeHidden();
+
+            await page.keyboard.press('Shift+Tab');
+
+            const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
+            await expect(chipClose).toBeFocused();
+            await expect(page.getByTestId(popover)).toBeVisible();
         });
 
         test('should return to the search field and filter when typing while an option is focused', async ({ page }) => {
