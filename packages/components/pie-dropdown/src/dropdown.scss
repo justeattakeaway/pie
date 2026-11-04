@@ -361,6 +361,16 @@
     --list-item-trailing-gap: var(--dt-spacing-b);
 }
 
+// The popover opens with DOM focus placed on the initial option (matching a
+// native <select>). That focus is programmatic after a pointer open, which
+// :focus-visible does not match, so the row would carry focus with no visible
+// indicator and the first arrow key press looks like it skips the initial
+// option. The ring is therefore painted for plain :focus: keyboard entry
+// produces the same ring, keeping both entry points visually consistent.
+.c-dropdown-option:focus {
+    @include p.focus;
+}
+
 // Consumer-slotted option icons render at 20px regardless of the `size`
 // attribute they carry (the designs specify Size=Small).
 .c-dropdown-option [slot^="icon-"] {
