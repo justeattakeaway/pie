@@ -70,7 +70,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
         value: {
             control: 'text',
             defaultValue: {
-                summary: defaultProps.value,
+                summary: '',
             },
         },
         defaultValue: {
@@ -231,7 +231,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
         const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
         const descriptionField = form.querySelector('#description') as (TextareaProps & HTMLElement) | null;
         const isDescriptionDisabled = Boolean(descriptionField?.disabled);
-        const descriptionValue = descriptionField?.value?.trim();
+        const descriptionValue = (descriptionField?.value ?? descriptionField?.defaultValue ?? '').trim();
 
         if (!isDescriptionDisabled && !descriptionValue) {
             setDescriptionValidationState(form, 'error', 'Please enter a description before submitting.');

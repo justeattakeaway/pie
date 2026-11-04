@@ -38,7 +38,7 @@ export interface TextareaProps {
     /**
      * The value of the textarea (used as a key/value pair in HTML forms with `name`).
      */
-    value: string;
+    value?: string;
 
     /**
      * An optional default value to use when the textarea is reset.
@@ -105,7 +105,7 @@ export interface TextareaProps {
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue' | 'maxlength' | 'rows' | 'aria'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'value' | 'defaultValue' | 'maxlength' | 'rows' | 'aria'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -114,7 +114,6 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     size: 'medium',
     resize: 'auto',
-    value: '',
     placeholder: '',
     status: 'default',
     autoFocus: false,
