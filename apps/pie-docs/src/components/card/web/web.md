@@ -83,6 +83,8 @@ shouldShowContents: true
 
 ## Content
 
+## Slot available
+
 The card container comes with a slot, so you can add any content you like to the card. For the internal spacing of the card container, make sure to use PIE spacing tokens. You can find more information about these tokens in the spacing documentation.
 
 {% notification { type: "information", message: "Find out more about using the slot in the [Figma slot guide](/designers/getting-started/best-practices/#use-figma-slots)." } %}
@@ -147,7 +149,11 @@ Mobile devices don't have a hover cursor, so dragging actions might not be the m
 
 Use cards only when the entire container is clickable and triggers an action, such as opening details or navigating to another page. 
 If only elements within the card (such as buttons, icon buttons, or avatars) are interactive, use a standard container or another suitable component instead.
-Do not use a card if no interaction is required.
+
+{% notification {
+  type: "warning",
+  message: "Do not use a card if no interaction is required."
+  } %}
 
 ### Do not use cards for selection
 
@@ -217,8 +223,6 @@ For selections, use dedicated components such as radio groups, checkboxes or lis
 ---
 
 ## Examples
-
-Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
