@@ -92,16 +92,16 @@ export const SlottedText = createStory<ListProps>(SlottedTextTemplate, defaultAr
 
 const SlottedTextInteractiveTemplate = () => withLayout(html`
     <pie-list aria-label="Slotted interactive content">
-        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-button">
+        <pie-list-item hasDivider interactionType="button" data-test-id="item-button">
             <span slot="primary">Edit profile</span>
             <span slot="secondary">Update your name and photo</span>
         </pie-list-item>
-        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-link">
+        <pie-list-item hasDivider interactionType="link" data-test-id="item-link">
             <span slot="primary">Orders</span>
             <span slot="secondary">View and manage live orders</span>
             <a slot="link" href="#orders" data-test-id="link-slotted"></a>
         </pie-list-item>
-        <pie-list-item .interactionType=${'switch'} data-test-id="item-switch">
+        <pie-list-item interactionType="switch" data-test-id="item-switch">
             <span slot="primary">Email</span>
             <span slot="secondary">Order updates and receipts</span>
             <pie-switch slot="leading" data-test-id="switch-slotted"></pie-switch>

@@ -47,11 +47,11 @@ export const defaultArgs: ListPlaygroundProps = {
 
 export const listArgTypes: ListStoryMeta['argTypes'] = {
     primaryText: {
-        description: 'The main text of the item.',
+        description: 'The main text of the item. Mutually exclusive with the `primary` slot (if set, the primary slot is not rendered).',
         control: 'text',
     },
     secondaryText: {
-        description: 'Optional additional detail, rendered on a second line.',
+        description: 'Optional additional detail, rendered on a second line. Mutually exclusive with the `secondary` slot (if set, the secondary slot is not rendered).',
         control: 'text',
     },
     metaText: {

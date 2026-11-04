@@ -20,8 +20,8 @@ const componentSelector = 'pie-list-item';
 
 /**
  * @tagname pie-list-item
- * @slot primary - Content shown as the item's main text if `primaryText` is not set, and used as the item's accessible name.
- * @slot secondary - Content shown on a second line beneath the primary text if `secondaryText` is not set, and used as part of the item's accessible description.
+ * @slot primary - Content shown as the first line of the item. Mutually exclusive with `primaryText`.
+ * @slot secondary - Content shown beneath the primary content. Mutually exclusive with `secondaryText`.
  * @slot leading - Content shown at the start of the item (for example an icon, avatar, or a slotted radio/checkbox).
  * @slot trailing - Content shown at the end of the item. Mutually exclusive with `metaText`.
  * @slot link - Rendered only when `interactionType="link"`. Slot one empty anchor (e.g. `<a slot="link" href="/x">`) stretched over the whole row as the link target. Must contain no text.

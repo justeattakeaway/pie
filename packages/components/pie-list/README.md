@@ -22,7 +22,7 @@
   - [How the naming is derived](#how-the-naming-is-derived)
 - [Usage Examples](#usage-examples)
   - [Basic list](#basic-list)
-  - [Slotted text](#slotted-text)
+  - [Primary and secondary slots](#primary-and-secondary-slots)
   - [Leading and trailing content](#leading-and-trailing-content)
   - [Trailing tag](#trailing-tag)
   - [Meta text](#meta-text)
@@ -69,8 +69,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Prop | Options | Description | Default |
 |---|---|---|---|
-| `primaryText` | Any string | The main text of the item, providing an overview of the content. | `undefined` |
-| `secondaryText` | Any string | Optional additional detail, rendered on a second line beneath the primary text. | `undefined` |
+| `primaryText` | Any string | The main text of the item, providing an overview of the content. **Mutually exclusive with the `primary` slot**: if `primaryText` is set, the `primary` slot is not rendered. | `undefined` |
+| `secondaryText` | Any string | Optional additional detail, rendered on a second line beneath the primary text. **Mutually exclusive with the `secondary` slot**: if `secondaryText` is set, the `secondary` slot is not rendered. | `undefined` |
 | `metaText` | Any string | Optional supporting information about the item's context, status or attributes. Rendered as a trailing text string. **Mutually exclusive with the `trailing` slot**: if `metaText` is set, the `trailing` slot is not rendered. | `undefined` |
 | `isCompact` | `true`, `false` | Decreases the item height to save vertical space. See the [rules](#usage-notes-and-rules) below. | `false` |
 | `isBold` | `true`, `false` | Sets the primary text to a bold font-weight. | `false` |
@@ -86,8 +86,8 @@ Slots are provided by `pie-list-item`.
 
 | Slot | Description |
 |---|---|
-| `primary` | Content displayed as the item's main text when `primaryText` is not set. Use it for richer markup (for example emphasised text). Its text is used as the item's accessible name. |
-| `secondary` | Content displayed on a second line beneath the primary text when `secondaryText` is not set. Use it for richer markup. Its text is used as part of the item's accessible description. |
+| `primary` | Content displayed as the first line of the item. Not rendered when `primaryText` is set. |
+| `secondary` | Content displayed beneath the primary content. Not rendered when `secondaryText` is set. |
 | `leading` | Content displayed at the start of the item, before the text. Intended for a small icon or a media element (e.g. `pie-thumbnail`). If slotting `pie-thumbnail`, it MUST use `size="40"`; this is the only size that fits the list-item layout correctly. |
 | `trailing` | Content displayed at the end of the item, after the text. Intended for a small icon, a `pie-tag`, etc. Not rendered when `metaText` is set. |
 | `link` | Only rendered when `interactionType="link"`. Slot a single **empty** anchor (`<a slot="link" href="...">`) here. It is stretched over the whole row so the entire item becomes the navigation target. The item supplies the anchor's accessible name and description from its text, so the anchor must contain no text of its own; apply any native anchor attributes you need (`href`, `target`, `rel`, and so on). See [Link items](#link-items). |
@@ -196,9 +196,9 @@ A basic list with primary, secondary and meta text (note the required `aria-labe
 <script type="module" src="/main.js"></script>
 ```
 
-### Slotted text
+### Primary and secondary slots
 
-Use the `primary` and `secondary` slots instead of the corresponding props when the text needs richer markup.
+Use the `primary` and `secondary` slots instead of `primaryText` and `secondaryText` when the content needs richer markup.
 
 ```html
 <pie-list aria-label="Recent orders">
@@ -635,6 +635,7 @@ To keep lists consistent and correct, follow these rules:
 - **Do not set `hasDivider` to `true` on the last item in a list.** Setting it on the last item adds a bottom border beneath the list, which breaks the design. Set `hasDivider` on every item except the last.
 - **For selectable lists, use `pie-list-item` inside `pie-radio-group` or `pie-checkbox-group`, not `pie-list`.** `pie-list` is a static container with no selection or keyboard behaviour. See [Selectable lists](#selectable-lists).
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.
+- **`primaryText` and the `primary` slot, and `secondaryText` and the `secondary` slot, are mutually exclusive.** If the prop is set, the matching slot content is ignored. Choose one for each.
 - **Slotted `pie-thumbnail` must use `size="40"`.** This is the only size that fits the list-item layout correctly.
 - **Always set `hasMedia` when slotting media** (`pie-thumbnail`, and `pie-avatar` in future), whether or not the item has `secondaryText`. This guarantees the item has the correct block padding.
 - **Do not combine `isCompact` with `secondaryText` or with slotted media.** Compact items are too short for these.
