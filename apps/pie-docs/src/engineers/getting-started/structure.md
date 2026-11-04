@@ -5,6 +5,7 @@ eleventyNavigation:
     parent: engineers-getting-started
     order: 2
 shouldShowContents: true
+llmsTxtDescription: Compares the JET component libraries that implement PIE (PIE Web Components, Snacks, Fozzie and Skip PIE), recommends which one to use for each tech stack (React, Next, Vue, Nuxt and SSR), explains what to do when a web component is missing, and describes how the PIE monorepo is organised into apps and packages.
 ---
 
 ## PIE Component Systems

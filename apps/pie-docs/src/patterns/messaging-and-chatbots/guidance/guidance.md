@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: 'Messaging and Chatbots'
     order: 2
 shouldShowContents: true
+llmsTxtDescription: Design guidance for messaging and chatbot UIs, covering content width, message colours, borders, tails and groups, structured responses, metadata, avatars and backgrounds.
 ---
 
 ## Foundations 

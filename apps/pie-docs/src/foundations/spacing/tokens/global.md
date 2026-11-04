@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Global tokens
     parent: Spacing
     order: 3
+includeInLlmsTxt: false
 ---
 ## Our global spacing scale
 

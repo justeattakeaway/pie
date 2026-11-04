@@ -42,6 +42,9 @@ module.exports = eleventyConfig => {
     // Pass CNAME file into dist output (needed for domain to work correctly)
     eleventyConfig.addPassthroughCopy("CNAME");
 
+    // Pass Amplify custom headers file into dist output (needed for headers such as the .txt charset)
+    eleventyConfig.addPassthroughCopy("customHttp.yml");
+
     // Pass favicon files into dist output
     eleventyConfig.addPassthroughCopy("android-chrome-192x192.png");
     eleventyConfig.addPassthroughCopy("android-chrome-256x256.png");

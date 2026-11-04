@@ -35,6 +35,7 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: ${{ inputs.build-script }}
+          concurrency: 6
       - name: Analyse Component Bundle Sizes
         if: inputs.analyse-component-bundles
         run: yarn analyse-component-bundles

@@ -3,6 +3,7 @@ eleventyNavigation:
     key: NextJS 14 Integration
     parent: engineers-web-components
     order: 3
+llmsTxtDescription: How to install and set up PIE Web Components with SSR in a NextJS 14 app, including pie-css, the @lit-labs/nextjs config, React imports and "use client" with the app router.
 ---
 
 ## Installation

@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Updates & maintenance
     parent: Design Tokens
     order: 2
+llmsTxtDescription: The workflow for updating design tokens, from Figma and the PIE Design Changelog to releasing the pie-design-tokens package and rolling it out to web, iOS and Android.
 ---
 
 ## Introduction

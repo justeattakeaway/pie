@@ -7,6 +7,22 @@ title: Agentic AI Resources
 description: This page provides different resources for working with agentic AIs.
 ---
 
+## llms.txt
+
+The [llms.txt](/llms.txt) file at the root of this website gives AI agents an overview of the PIE documentation. It follows the [llms.txt proposal](https://llmstxt.org/) and lists the most relevant pages for agents, grouped by section, each with a link and a short description of its content.
+
+This helps agents find the right page and only fetch the documentation they need, rather than browsing the whole website.
+
+**How to use it:**
+
+Point your AI agent to `https://www.pie.design/llms.txt` and ask it to use the file to find PIE documentation. For example:
+
+`Use https://www.pie.design/llms.txt to find the PIE guidance for building a form.`
+
+The file is generated automatically from the website content every time the website is updated. The generation date at the bottom of the file shows how recent it is.
+
+---
+
 ## Skills
 
 A skill.md is a structured markdown file used to extend the functionality of an AI agent. It allows the agent to perform repetitive tasks following instructions with special knowledge of a specific domain.

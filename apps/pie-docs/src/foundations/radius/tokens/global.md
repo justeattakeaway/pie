@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Global tokens
     parent: Radius
     order: 3
+includeInLlmsTxt: false
 ---
 
 ## Global radius tokens
