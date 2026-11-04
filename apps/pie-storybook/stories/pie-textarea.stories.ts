@@ -70,7 +70,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             description: 'The value of the textarea (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
             defaultValue: {
-                summary: defaultProps.value,
+                summary: '',
             },
         },
         defaultValue: {

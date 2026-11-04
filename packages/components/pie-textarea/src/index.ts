@@ -33,8 +33,18 @@ const assistiveTextIdValue = 'assistive-text';
  */
 @safeCustomElement('pie-textarea')
 export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(PieElement))) implements TextareaProps, PIEInputElement {
+    private _value: TextareaProps['value'];
+
     @property({ type: String })
-    public value = defaultProps.value;
+    public get value (): string {
+        return this._value ?? this.defaultValue ?? '';
+    }
+
+    public set value (val: string | undefined) {
+        const old = this._value;
+        this._value = val;
+        this.requestUpdate('value', old);
+    }
 
     @property({ type: String })
     public defaultValue: TextareaProps['defaultValue'];
@@ -112,7 +122,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
     protected updated (changedProperties: PropertyValues<this>) {
         if (changedProperties.has('value')) {
-            this.handleInput(null, this.value);
+            this.handleInput(null, this._value);
         }
 
         if (this.resize === 'auto' && ((changedProperties.has('resize') || changedProperties.has('size')) || changedProperties.has('rows'))) {
@@ -165,8 +175,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      * Resets the value to the default value.
      */
     public formResetCallback (): void {
-        this.value = this.defaultValue ?? defaultProps.value;
-
+        this.value = this.defaultValue ?? '';
         this._internals.setFormValue(this.value);
     }
 
@@ -233,7 +242,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             name,
             readonly,
             placeholder,
-            value,
+            defaultValue,
             required,
             status,
             assistiveText,
@@ -260,8 +269,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     data-test-id="${componentSelector}"
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
+                    .value=${live(this._value ?? defaultValue ?? '')}
                     placeholder=${ifDefined(placeholder)}
-                    .value=${live(value)}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}
                     ?required=${required}
@@ -273,8 +282,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     maxlength=${ifDefined(maxlength)}
-                    rows=${ifDefined(rows)}
-                ></textarea>
+                    rows=${ifDefined(rows)}></textarea>
             </div>
             ${this.renderAssistiveText()}
         </div>`;
