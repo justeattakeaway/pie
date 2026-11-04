@@ -53,7 +53,7 @@ This component does not expose any CSS variables.
 
 ### Page range and ellipsis
 
-When `totalPages` is large, the component automatically collapses the pages outside the current page's window behind a non-interactive ellipsis (`…`) separator. The first and last page are always visible. When the current page is near an edge, the window grows to five page buttons anchored to that edge; in the middle of the range only the current page and its immediate neighbours are shown:
+When `totalPages` is large, the component automatically collapses the pages outside the current page's window behind a non-interactive ellipsis (`…`) separator. The first and last page are always visible. When the current page is near an edge, the window grows to five page buttons anchored to that edge; in the middle of the range only the current page and its immediate neighbours are shown. Seven pages is the widest layout the component ever renders, so ellipses only appear beyond that:
 
 | Scenario                      | Rendered items      |
 |-------------------------------|---------------------|
