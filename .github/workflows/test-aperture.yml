@@ -130,6 +130,7 @@ jobs:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
         with:
           script-name: "build"
+          concurrency: 6
 
       - name: Get Markdown Changeset Files Difference
         id: diff_changeset_files
