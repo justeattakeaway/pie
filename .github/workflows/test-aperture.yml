@@ -1,4 +1,4 @@
-name: Changeset Snapshot
+name: Test Aperture
 
 on:
   issue_comment:
@@ -9,14 +9,18 @@ permissions:
   issues: write
   pull-requests: read
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
 jobs:
   snapshot:
     name: Snapshot Release
     if: |
       github.event.issue.pull_request &&
       (startsWith(github.event.comment.body, '/test-aperture'))
+    # One queue per pull request. This sits on the job, not the workflow, because
+    # every comment in the repo starts this workflow. At workflow level, those
+    # unrelated runs joined the queue and cancelled real /test-aperture requests
+    # waiting in it. A job skipped by its `if` never joins the queue.
+    concurrency:
+      group: test-aperture-${{ github.event.issue.number }}
     runs-on: ubuntu-latest
     steps:
       - name: Enforce permission requirement
@@ -147,6 +151,7 @@ jobs:
             done
 
       - name: Create and publish snapshot release and trigger aperture
+        id: snapshot
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         env:
           GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
@@ -159,8 +164,10 @@ jobs:
             const script = require('./packages/tools/pie-monorepo-utils/changeset-snapshot/test-aperture.js')
             await script({ github, context }, execa);
 
+      # The snapshot script posts its own comment explaining what went wrong
+      # before failing, so only comment here when an earlier step failed.
       - name: Add failure comment
-        if: failure()
+        if: failure() && steps.snapshot.outcome != 'failure'
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}

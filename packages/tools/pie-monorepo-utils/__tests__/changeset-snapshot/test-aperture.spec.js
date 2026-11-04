@@ -141,4 +141,58 @@ describe('test-aperture workflow', () => {
             expect(dispatchedPackages()).toBe('@justeat/pie-design-tokens @justeattakeaway/pie-css');
         });
     });
+
+    describe('when something goes wrong', () => {
+        const commentBodies = () => github.rest.issues.createComment.mock.calls.map(([{ body }]) => body);
+
+        beforeEach(() => {
+            // Keep the expected error logging out of the test output
+            vi.spyOn(console, 'error').mockImplementation(() => undefined);
+        });
+
+        test('should comment and fail the run when no changed packages are found', async () => {
+            // Arrange
+            sampleOutput = '🦋  warn No unpublished projects to publish';
+
+            // Act
+            const run = workflow({ github, context }, execa);
+
+            // Assert
+            await expect(run).rejects.toThrow('No changed packages found');
+            expect(commentBodies()).toEqual([expect.stringContaining('No changed packages found')]);
+            expect(github.rest.repos.createDispatchEvent).not.toHaveBeenCalled();
+        });
+
+        test('should comment and fail the run when publishing throws', async () => {
+            // Arrange
+            execa = { execaCommand: vi.fn().mockRejectedValue(new Error('npm publish failed')) };
+
+            // Act
+            const run = workflow({ github, context }, execa);
+
+            // Assert
+            await expect(run).rejects.toThrow('npm publish failed');
+            expect(commentBodies()).toEqual([expect.stringContaining('npm publish failed')]);
+            expect(github.rest.repos.createDispatchEvent).not.toHaveBeenCalled();
+        });
+
+        test('should still report the published snapshots, then comment and fail the run, when Aperture cannot be triggered', async () => {
+            // Arrange
+            sampleOutput = `
+                🦋  success packages published successfully:
+                🦋  @justeattakeaway/pie-css@0.0.0-snapshot-release-20231220110000
+            `;
+            github.rest.repos.createDispatchEvent.mockRejectedValue(new Error('Bad credentials'));
+
+            // Act
+            const run = workflow({ github, context }, execa);
+
+            // Assert: the snapshots exist on npm, so the user still needs to know about them
+            await expect(run).rejects.toThrow('Bad credentials');
+            expect(commentBodies()).toEqual([
+                expect.stringContaining('@justeattakeaway/pie-css@0.0.0-snapshot-release-20231220110000'),
+                expect.stringMatching(/Failed to trigger PIE Aperture[\s\S]*Bad credentials/),
+            ]);
+        });
+    });
 });

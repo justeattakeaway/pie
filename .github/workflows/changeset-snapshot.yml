@@ -5,14 +5,18 @@ on:
     types:
       - created
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
 jobs:
   snapshot:
     name: Snapshot Release
     if: |
       github.event.issue.pull_request &&
       (startsWith(github.event.comment.body, '/snapit'))
+    # One queue per pull request. This sits on the job, not the workflow, because
+    # every comment in the repo starts this workflow. At workflow level, those
+    # unrelated runs joined the queue and cancelled real /snapit requests waiting
+    # in it. A job skipped by its `if` never joins the queue.
+    concurrency:
+      group: snapit-${{ github.event.issue.number }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
