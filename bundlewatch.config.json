@@ -239,6 +239,10 @@
     {
       "path": "./packages/components/pie-dropdown/dist/*.js",
       "maxSize": "10 KB"
+    },
+    {
+      "path": "./packages/components/pie-skeleton/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
