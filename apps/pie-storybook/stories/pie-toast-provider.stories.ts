@@ -69,7 +69,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=193-32270',
         },
     },
 };

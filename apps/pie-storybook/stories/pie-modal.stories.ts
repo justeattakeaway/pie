@@ -140,7 +140,7 @@ const modalStoryMeta: ModalStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%5BPIE-2.0%5D?type=design&node-id=32007-376358&t=HIfzk0Y1IEnAJyUi-0',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=45-9885',
         },
     },
 };

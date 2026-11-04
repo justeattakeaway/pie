@@ -91,7 +91,7 @@ const radioStoryMeta: RadioStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=198-33663',
         },
     },
 };

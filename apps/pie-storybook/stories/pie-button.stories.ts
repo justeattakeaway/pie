@@ -202,7 +202,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=34706-406376&t=8JLrEVbwx7AEJbEL-0',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1-925',
         },
     },
 };

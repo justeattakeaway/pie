@@ -148,7 +148,7 @@ const linkStoryMeta: LinkStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/Core-Web-Components-%5BDESIGNERS-DO-NOT-USE%5D?type=design&node-id=364-29974&mode=design',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=364-29974',
         },
     },
 };

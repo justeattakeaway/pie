@@ -95,7 +95,7 @@ const chipStoryMeta: ChipStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?type=design&node-id=575-6726&mode=design&t=axoB6cYrus8n0tdC-0',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=75-21124',
         },
     },
 };

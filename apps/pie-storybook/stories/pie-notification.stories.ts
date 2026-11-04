@@ -165,7 +165,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/r96WaDE105zDbe5itnleVv/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?type=design&node-id=1005-30849&mode=design&t=lYLzXOzJIeo6OvAw-0',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1005-30849',
         },
     },
 };
