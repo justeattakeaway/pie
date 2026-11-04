@@ -1,9 +1,6 @@
 /* eslint-disable camelcase */
 const { createSnapshotComment, handleError, publishSnapshot } = require('./utils');
 
-// Every failure is reported on the PR and then rethrown, so the workflow step
-// fails too. Swallowing the error would leave the run green with no sign that
-// anything went wrong.
 module.exports = async ({ github, context }, execa) => {
     let newTags;
 
@@ -18,8 +15,6 @@ module.exports = async ({ github, context }, execa) => {
         throw error;
     }
 
-    // The snapshots are on npm from this point, so tell the user about them
-    // before triggering Aperture. They can still use them if the trigger fails.
     await github.rest.issues.createComment({
         issue_number: context.issue.number,
         owner: context.repo.owner,

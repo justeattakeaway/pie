@@ -146,7 +146,6 @@ describe('test-aperture workflow', () => {
         const commentBodies = () => github.rest.issues.createComment.mock.calls.map(([{ body }]) => body);
 
         beforeEach(() => {
-            // Keep the expected error logging out of the test output
             vi.spyOn(console, 'error').mockImplementation(() => undefined);
         });
 
@@ -187,7 +186,7 @@ describe('test-aperture workflow', () => {
             // Act
             const run = workflow({ github, context }, execa);
 
-            // Assert: the snapshots exist on npm, so the user still needs to know about them
+            // Assert
             await expect(run).rejects.toThrow('Bad credentials');
             expect(commentBodies()).toEqual([
                 expect.stringContaining('@justeattakeaway/pie-css@0.0.0-snapshot-release-20231220110000'),
