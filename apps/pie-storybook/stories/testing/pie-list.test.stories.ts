@@ -76,6 +76,41 @@ const TextOnlyTemplate = () => withLayout(html`
 
 export const TextOnly = createStory<ListProps>(TextOnlyTemplate, defaultArgs)();
 
+const SlottedTextTemplate = () => withLayout(html`
+    <pie-list aria-label="Slotted text">
+        <pie-list-item hasDivider data-test-id="item-1">
+            <span slot="primary">Slot primary</span>
+            <span slot="secondary">Slot secondary</span>
+        </pie-list-item>
+        <pie-list-item hasDivider data-test-id="item-2">
+            <span slot="primary">Slot primary only</span>
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const SlottedText = createStory<ListProps>(SlottedTextTemplate, defaultArgs)();
+
+const SlottedTextInteractiveTemplate = () => withLayout(html`
+    <pie-list aria-label="Slotted interactive content">
+        <pie-list-item hasDivider .interactionType=${'button'} data-test-id="item-button">
+            <span slot="primary">Edit profile</span>
+            <span slot="secondary">Update your name and photo</span>
+        </pie-list-item>
+        <pie-list-item hasDivider .interactionType=${'link'} data-test-id="item-link">
+            <span slot="primary">Orders</span>
+            <span slot="secondary">View and manage live orders</span>
+            <a slot="link" href="#orders" data-test-id="link-slotted"></a>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'switch'} data-test-id="item-switch">
+            <span slot="primary">Email</span>
+            <span slot="secondary">Order updates and receipts</span>
+            <pie-switch slot="leading" data-test-id="switch-slotted"></pie-switch>
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const SlottedTextInteractive = createStory<ListProps>(SlottedTextInteractiveTemplate, defaultArgs)();
+
 // Test-only: exercises interactionType role mapping, CSS classes, and ARIA behaviour across all types.
 // Each selectable item carries metaText so aria-hidden can be verified. Disabled variants are
 // provided for each selectable type to cover the is-disabled CSS hook regardless of interactionType.

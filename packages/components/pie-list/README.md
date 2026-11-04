@@ -22,6 +22,7 @@
   - [How the naming is derived](#how-the-naming-is-derived)
 - [Usage Examples](#usage-examples)
   - [Basic list](#basic-list)
+  - [Slotted text](#slotted-text)
   - [Leading and trailing content](#leading-and-trailing-content)
   - [Trailing tag](#trailing-tag)
   - [Meta text](#meta-text)
@@ -85,6 +86,8 @@ Slots are provided by `pie-list-item`.
 
 | Slot | Description |
 |---|---|
+| `primary` | Content displayed as the item's main text when `primaryText` is not set. Use it for richer markup (for example emphasised text). Its text is used as the item's accessible name. |
+| `secondary` | Content displayed on a second line beneath the primary text when `secondaryText` is not set. Use it for richer markup. Its text is used as part of the item's accessible description. |
 | `leading` | Content displayed at the start of the item, before the text. Intended for a small icon or a media element (e.g. `pie-thumbnail`). If slotting `pie-thumbnail`, it MUST use `size="40"`; this is the only size that fits the list-item layout correctly. |
 | `trailing` | Content displayed at the end of the item, after the text. Intended for a small icon, a `pie-tag`, etc. Not rendered when `metaText` is set. |
 | `link` | Only rendered when `interactionType="link"`. Slot a single **empty** anchor (`<a slot="link" href="...">`) here. It is stretched over the whole row so the entire item becomes the navigation target. The item supplies the anchor's accessible name and description from its text, so the anchor must contain no text of its own; apply any native anchor attributes you need (`href`, `target`, `rel`, and so on). See [Link items](#link-items). |
@@ -141,7 +144,7 @@ This component does not emit any custom events. To listen for interactions, trea
 ### You never set ARIA on a list item or its slotted content
 
 > [!IMPORTANT]
-> You do **not** add any ARIA attributes to a `pie-list-item`, nor to the control, anchor, icon or media you slot into it. The item manages all of that for you, driven entirely by the `primaryText`, `secondaryText` and `metaText` props (and the `interactionType`). Just provide the text and slot the element in.
+> You do **not** add any ARIA attributes to a `pie-list-item`, nor to the control, anchor, icon or media you slot into it. The item manages all of that for you, driven entirely by the `primaryText`/`primary` slot, `secondaryText`/`secondary` slot and `metaText` content (and the `interactionType`). Just provide the text and slot the element in.
 
 Specifically, for **every** interaction type the item takes care of:
 
@@ -191,6 +194,22 @@ A basic list with primary, secondary and meta text (note the required `aria-labe
   <pie-list-item primaryText="Primary text"></pie-list-item>
 </pie-list>
 <script type="module" src="/main.js"></script>
+```
+
+### Slotted text
+
+Use the `primary` and `secondary` slots instead of the corresponding props when the text needs richer markup.
+
+```html
+<pie-list aria-label="Recent orders">
+  <pie-list-item hasDivider>
+    <span slot="primary">Order <strong>#1234</strong></span>
+    <span slot="secondary">Delivered on <time datetime="2026-11-03">3 November</time></span>
+  </pie-list-item>
+  <pie-list-item>
+    <span slot="primary">Order <strong>#1235</strong></span>
+  </pie-list-item>
+</pie-list>
 ```
 
 ### Leading and trailing content
@@ -612,7 +631,7 @@ import { PieListItem } from '@justeattakeaway/pie-webc/react/list-item.js';
 To keep lists consistent and correct, follow these rules:
 
 - **Always give `pie-list` an accessible name** with `aria-label` or `aria-labelledby` (use `aria-labelledby` when a visible heading exists). This is required for screen reader users to understand the list. See [Accessibility](#accessibility).
-- **Provide `primaryText`** on every `pie-list-item`; it is the item's main line of content.
+- **Provide `primaryText` or the `primary` slot** on every `pie-list-item`; it is the item's main line of content.
 - **Do not set `hasDivider` to `true` on the last item in a list.** Setting it on the last item adds a bottom border beneath the list, which breaks the design. Set `hasDivider` on every item except the last.
 - **For selectable lists, use `pie-list-item` inside `pie-radio-group` or `pie-checkbox-group`, not `pie-list`.** `pie-list` is a static container with no selection or keyboard behaviour. See [Selectable lists](#selectable-lists).
 - **`metaText` and the `trailing` slot are mutually exclusive.** If `metaText` is set, any `trailing` slot content is ignored. Choose one.

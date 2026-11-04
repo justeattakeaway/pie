@@ -20,6 +20,8 @@ const componentSelector = 'pie-list-item';
 
 /**
  * @tagname pie-list-item
+ * @slot primary - Content shown as the item's main text if `primaryText` is not set, and used as the item's accessible name.
+ * @slot secondary - Content shown on a second line beneath the primary text if `secondaryText` is not set, and used as part of the item's accessible description.
  * @slot leading - Content shown at the start of the item (for example an icon, avatar, or a slotted radio/checkbox).
  * @slot trailing - Content shown at the end of the item. Mutually exclusive with `metaText`.
  * @slot link - Rendered only when `interactionType="link"`. Slot one empty anchor (e.g. `<a slot="link" href="/x">`) stretched over the whole row as the link target. Must contain no text.
@@ -133,6 +135,14 @@ export class PieListItem extends PieElement implements ListItemProps {
         return this.disabled || this._parentDisabled;
     }
 
+    private get _primaryContentText (): string | undefined {
+        return this.primaryText || this.querySelector('[slot="primary"]')?.textContent?.trim() || undefined;
+    }
+
+    private get _secondaryContentText (): string | undefined {
+        return this.secondaryText || this.querySelector('[slot="secondary"]')?.textContent?.trim() || undefined;
+    }
+
     // The interactive control (radio/checkbox/switch) slotted into this item, if any. Used only by
     // the client-side row-click handler.
     private get _control (): HTMLElement | null {
@@ -182,9 +192,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     private get _providedAria (): ContextualAria | undefined {
         if (!this._providesAria) return undefined;
 
-        const description = [this.secondaryText, this.metaText].filter(Boolean).join('. ');
+        const description = [this._secondaryContentText, this.metaText].filter(Boolean).join('. ');
 
-        return { label: this.primaryText, description: description || undefined };
+        return { label: this._primaryContentText, description: description || undefined };
     }
 
     /**
@@ -258,13 +268,22 @@ export class PieListItem extends PieElement implements ListItemProps {
         }
     }
 
+    _renderPrimaryText () {
+        const { primaryText } = this;
+        if (primaryText) {
+            return html`<span class="c-listItem-primaryText">${primaryText}</span>`;
+        }
+
+        return html`<span class="c-listItem-primaryText"><slot name="primary"></slot></span>`;
+    }
+
     _renderSecondaryText () {
         const { secondaryText } = this;
         if (secondaryText) {
             return html`<span class="c-listItem-secondaryText">${secondaryText}</span>`;
         }
 
-        return nothing;
+        return html`<span class="c-listItem-secondaryText"><slot name="secondary"></slot></span>`;
     }
 
     // metaText is another form of trailing content. The component can only ever display either slotted trailing content or the metaText string
@@ -298,8 +317,6 @@ export class PieListItem extends PieElement implements ListItemProps {
     }
 
     render () {
-        const { primaryText } = this;
-
         const containerClasses = {
             'c-listItem-container': true,
             'is-compact': this.isCompact,
@@ -310,6 +327,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             'is-link': this._isLinkRow,
             'is-button': this._isButtonRow,
             'is-disabled': this._isDisabled,
+            'has-secondary-text': Boolean(this.secondaryText),
         };
 
         return html`
@@ -321,7 +339,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             </div>
 
             <div class="c-listItem-text" aria-hidden=${this._providesAria ? 'true' : nothing}>
-                <span class="c-listItem-primaryText">${primaryText}</span>
+                ${this._renderPrimaryText()}
                 ${this._renderSecondaryText()}
             </div>
 

@@ -7,6 +7,7 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 // verified here rather than in the component (JS) tests.
 const visualStories: { storyId: string, snapshotName: string }[] = [
     { storyId: 'list--text-only', snapshotName: 'PieList - Text only' },
+    { storyId: 'list--slotted-text', snapshotName: 'PieList - Slotted text' },
     { storyId: 'list--leading-and-trailing', snapshotName: 'PieList - Leading and trailing content' },
     { storyId: 'list--leading-and-trailing-only-primary-text', snapshotName: 'PieList - Leading and trailing content (only primary text)' },
     { storyId: 'list--tags', snapshotName: 'PieList - Trailing tags' },
