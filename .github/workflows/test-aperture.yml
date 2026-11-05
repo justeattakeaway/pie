@@ -1,4 +1,4 @@
-name: Changeset Snapshot
+name: Test Aperture
 
 on:
   issue_comment:
@@ -9,14 +9,14 @@ permissions:
   issues: write
   pull-requests: read
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
 jobs:
   snapshot:
     name: Snapshot Release
     if: |
       github.event.issue.pull_request &&
       (startsWith(github.event.comment.body, '/test-aperture'))
+    concurrency:
+      group: test-aperture-${{ github.event.issue.number }}
     runs-on: ubuntu-latest
     steps:
       - name: Enforce permission requirement
@@ -147,6 +147,7 @@ jobs:
             done
 
       - name: Create and publish snapshot release and trigger aperture
+        id: snapshot
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         env:
           GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
@@ -160,7 +161,7 @@ jobs:
             await script({ github, context }, execa);
 
       - name: Add failure comment
-        if: failure()
+        if: failure() && steps.snapshot.outcome != 'failure'
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
