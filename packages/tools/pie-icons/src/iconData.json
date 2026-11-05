@@ -5,6 +5,14 @@
             "displayName": "Age limit",
             "icons": [
                 {
+                    "name": "id-required",
+                    "displayName": "Id Required"
+                },
+                {
+                    "name": "id-required-filled",
+                    "displayName": "Id Required Filled"
+                },
+                {
                     "name": "over-16",
                     "displayName": "Over 16"
                 },
@@ -2329,12 +2337,24 @@
                     "displayName": "Ribbon Heart"
                 },
                 {
+                    "name": "ribbon-heart-filled",
+                    "displayName": "Ribbon Heart Filled"
+                },
+                {
                     "name": "ribbon-star",
                     "displayName": "Ribbon Star"
                 },
                 {
+                    "name": "ribbon-star-filled",
+                    "displayName": "Ribbon Star Filled"
+                },
+                {
                     "name": "ribbon-success",
                     "displayName": "Ribbon Success"
+                },
+                {
+                    "name": "ribbon-success-filled",
+                    "displayName": "Ribbon Success Filled"
                 }
             ]
         },
@@ -2663,6 +2683,10 @@
                     "displayName": "Clock Refresh"
                 },
                 {
+                    "name": "clock-refresh-filled",
+                    "displayName": "Clock Refresh Filled"
+                },
+                {
                     "name": "stopwatch",
                     "displayName": "Stopwatch"
                 },
@@ -2733,6 +2757,10 @@
                     "displayName": "Plane"
                 },
                 {
+                    "name": "plane-filled",
+                    "displayName": "Plane Filled"
+                },
+                {
                     "name": "rocket-ship",
                     "displayName": "Rocket Ship"
                 },
@@ -2793,6 +2821,10 @@
                 {
                     "name": "trophy",
                     "displayName": "Trophy"
+                },
+                {
+                    "name": "trophy-filled",
+                    "displayName": "Trophy Filled"
                 }
             ]
         }
