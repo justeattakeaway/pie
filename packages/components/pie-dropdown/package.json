@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/pie-dropdown",
   "description": "PIE Design System Dropdown built using Web Components",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-dropdown"
+  },
+  "homepage": "https://webc.pie.design/?path=/docs/components-dropdown--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -40,7 +46,16 @@
     "@justeattakeaway/pie-monorepo-utils": "0.9.12"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "22.0.1"
+    "@justeattakeaway/pie-assistive-text": "1.0.16",
+    "@justeattakeaway/pie-checkbox": "1.4.10",
+    "@justeattakeaway/pie-checkbox-group": "1.2.12",
+    "@justeattakeaway/pie-chip": "1.0.17",
+    "@justeattakeaway/pie-form-label": "1.0.1",
+    "@justeattakeaway/pie-icons-webc": "1.29.5",
+    "@justeattakeaway/pie-list": "0.8.1",
+    "@justeattakeaway/pie-spinner": "1.5.11",
+    "@justeattakeaway/pie-webc-core": "22.0.1",
+    "element-internals-polyfill": "3.0.2"
   },
   "customElements": "custom-elements.json",
   "sideEffects": [

@@ -6,7 +6,7 @@ type AriaProps = {
     };
 };
 
-export const interactionTypes = ['none', 'radio', 'checkbox', 'switch', 'link', 'button'] as const;
+export const interactionTypes = ['none', 'option', 'radio', 'checkbox', 'switch', 'link', 'button'] as const;
 
 export type InteractionType = typeof interactionTypes[number];
 
@@ -56,6 +56,12 @@ export interface ListItemProps {
      * `secondaryText`, `metaText`), so you never set ARIA on the item or its slotted content yourself.
      *
      * - `none` (default) - a static, non-selectable list item (`role="listitem"`).
+     * - `option` - an option row inside a listbox-style container (e.g. a dropdown popover). The
+     *   item becomes `role="option"` and shows the interactive (hover/active) row states, but it
+     *   hosts no control of its own: selection state (`aria-selected`) and focus (a roving
+     *   `tabindex`) are managed by the owning container. The item's text stays visible to assistive
+     *   technology; set `aria-label`/`aria-description` on the item if the accessible name should
+     *   differ from its text.
      * - `radio` - hosts a `pie-radio` (used inside a `pie-radio-group`); the item is `presentation`.
      * - `checkbox` - hosts a `pie-checkbox` (used inside a `pie-checkbox-group`); the item is `presentation`.
      * - `switch` - hosts a `pie-switch`; there is no group, so the item stays `role="listitem"`.

@@ -98,6 +98,12 @@ export class PieListItem extends PieElement implements ListItemProps {
             this.interactionType === 'switch';
     }
 
+    // An option row is interactive (hover/active row tints, disabled styling) but hosts no control:
+    // its selection state and focus are owned by the containing listbox-style container.
+    private get _isOptionRow (): boolean {
+        return this.interactionType === 'option';
+    }
+
     private get _isLinkRow (): boolean {
         return this.interactionType === 'link';
     }
@@ -159,16 +165,24 @@ export class PieListItem extends PieElement implements ListItemProps {
 
     /**
      * Sets the item's role from `interactionType`: `presentation` for radio/checkbox (so the group
-     * owns those controls directly), otherwise `listitem` (static items, switches, links and
-     * buttons). A role set explicitly by the consumer is left untouched, even if it is added or
-     * removed dynamically after the element connects.
+     * owns those controls directly), `option` for an option row (selection and focus are owned by
+     * the containing listbox-style container), otherwise `listitem` (static items, switches, links
+     * and buttons). A role set explicitly by the consumer is left untouched, even if it is added
+     * or removed dynamically after the element connects.
      */
     private _applyRole (): void {
         const currentRole = this.getAttribute('role');
         // Only manage the role if it is absent or was last set by us — not a consumer-supplied value.
         if (currentRole !== null && currentRole !== this._managedRole) return;
 
-        const nextRole = this._ownedByGroup ? 'presentation' : 'listitem';
+        let nextRole = 'listitem';
+
+        if (this._ownedByGroup) {
+            nextRole = 'presentation';
+        } else if (this._isOptionRow) {
+            nextRole = 'option';
+        }
+
         this._managedRole = nextRole;
         this.setAttribute('role', nextRole);
     }
@@ -306,7 +320,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             'is-bold': this.isBold,
             'has-media': this.hasMedia,
             'has-divider': this.hasDivider,
-            'is-selectable': this._isSelectable,
+            'is-selectable': this._isSelectable || this._isOptionRow,
             'is-link': this._isLinkRow,
             'is-button': this._isButtonRow,
             'is-disabled': this._isDisabled,
