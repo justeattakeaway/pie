@@ -3,7 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: List Item
     order: 1
-permalink: components/list-item/list-item/
+permalink: components/list-item/
 ---
 
 ## Overview
@@ -12,7 +12,7 @@ The purpose of list items is to present individual pieces of content or data wit
 List items can be styled with various visual elements such as icons, illustrations and thumbnails (among others). They are commonly used in content listings or any situation where multiple items need to be displayed in a structured way.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/overview.svg",
+    src:"../../../assets/img/components/list-item/overview.svg",
     alt: "Two list items that are vertically stacked together."
 } %}
 
