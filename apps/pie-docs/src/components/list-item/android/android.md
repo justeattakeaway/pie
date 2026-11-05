@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
-    key: iOS
+    key: Android
     parent: List Item
-    order: 4
+    order: 3
 eleventyComputed:
     listItemSizesData: "{% include './list-item-sizes.json' %}"
-shouldShowContents: true
+    shouldShowContents: true
 ---
 
 ## Dos and Don'ts
@@ -32,7 +32,7 @@ shouldShowContents: true
 ## Anatomy
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/anatomy.svg",
+src:"../../../assets/img/components/list-item/android/anatomy.svg",
 alt: "Anatomy of the list item component.",
 width: 200
 } %}
@@ -66,7 +66,7 @@ width: 200
 The non-interactive variation should be used when the list item doesn't require any component level interactive states tied to the instance.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/variants-not-interactive.svg",
+src:"../../../assets/img/components/list-item/android/variants-not-interactive.svg",
 alt: "List item component in non-interactive variant.",
 width: 200
 } %}
@@ -76,7 +76,7 @@ width: 200
 The interactive variations should be used when the list item requires component level, or nested component level interactive states tied to the instance.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/variants-interactive.svg",
+src:"../../../assets/img/components/list-item/android/variants-interactive.svg",
 alt: "Examples of the list item component in interactive variant in the default and active interactive states.",
 width: 200
 } %}
@@ -93,7 +93,7 @@ width: 200
 } %}
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/modifiers-compact.svg",
+src:"../../../assets/img/components/list-item/android/modifiers-compact.svg",
 alt: "List item component in compact variant.",
 width: 200
 } %}
@@ -103,7 +103,7 @@ width: 200
 The secondary text can be used to provide additional content that supports the primary text.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/modifiers-secondary-text.svg",
+src:"../../../assets/img/components/list-item/android/modifiers-secondary-text.svg",
 alt: "List item component with secondary text.",
 width: 200
 } %}
@@ -113,7 +113,7 @@ width: 200
 There's an option to use bold in the Primary text.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/modifiers-bold-primary-text.svg",
+src:"../../../assets/img/components/list-item/android/modifiers-bold-primary-text.svg",
 alt: "List item component with bold primary text.",
 width: 200
 } %}
@@ -130,7 +130,7 @@ width: 200
   <h4>Avatar</h4>
   <p>Not available in the Compact variant.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-leading-avatar.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-leading-avatar.svg",
       width: "400px",
       alt: "List item component with leading avatar."
     } %}
@@ -139,7 +139,7 @@ width: 200
   <h4>Icon</h4>
   <p>Any decorative icon can be inserted into the placeholder.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-leading-icon.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-leading-icon.svg",
       width: "400px",
       alt: "List item component with leading icon."
     } %}
@@ -151,7 +151,7 @@ width: 200
   <h4>Icon with background</h4>
   <p> Any decorative icon can be inserted into the placeholder.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-leading-icon-background.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-leading-icon-background.svg",
       width: "400px",
       alt: "List item component with leading icon with background."
     } %}
@@ -160,7 +160,7 @@ width: 200
   <h4>Payment method</h4>
   <p>Payment method icon can be selected in properties.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-leading-payment.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-leading-payment.svg",
       width: "400px",
       alt: "List item component with leading payment method."
     } %}
@@ -172,7 +172,7 @@ width: 200
 Not available in the Compact variant.
 
 {% contentPageImage {
-src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-leading-thumbnail.svg",
+src: "../../../assets/img/components/list-item/android/modifiers-leading-thumbnail.svg",
 alt: "List item component with leading thumbnail.",
 width: 200
 } %}
@@ -194,7 +194,7 @@ width: 200
   <h4>Avatar</h4>
   <p>Not available in the Compact variant.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-leading-avatar.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-leading-avatar.svg",
       width: "400px",
       alt: "Interactive list item component with leading avatar."
     } %}
@@ -203,7 +203,7 @@ width: 200
   <h4>Checkbox</h4>
   <p>Alignment should be consistent through the pillar.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-leading-checkbox.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-leading-checkbox.svg",
       width: "400px",
       alt: "Interactive list item component with leading checkbox."
     } %}
@@ -215,7 +215,7 @@ width: 200
   <h4>Icon</h4>
   <p>Any decorative icon can be inserted into the placeholder.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-leading-icon.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-leading-icon.svg",
       width: "400px",
       alt: "Interactive list item component with leading icon."
     } %}
@@ -224,7 +224,7 @@ width: 200
   <h4>Icon with background</h4>
   <p>Any decorative icon can be inserted into the placeholder.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-leading-icon-background.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-leading-icon-background.svg",
       width: "400px",
       alt: "Interactive list item component with leading icon."
     } %}
@@ -236,7 +236,7 @@ width: 200
   <h4>Payment method</h4>
   <p>Payment method icon can be selected in properties..</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-leading-payment.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-leading-payment.svg",
       width: "400px",
       alt: "Interactive list item component with leading payment method."
     } %}
@@ -245,7 +245,7 @@ width: 200
   <h4>Radio</h4>
   <p>Alignment should be consistent through the pillar.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-leading-radio.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-leading-radio.svg",
       width: "400px",
       alt: "Interactive list item component with leading radio."
     } %}
@@ -257,7 +257,7 @@ width: 200
 Not available in the Compact variant.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-leading-thumbnail.svg",
+src:"../../../assets/img/components/list-item/android/modifiers-interactive-leading-thumbnail.svg",
 alt: "Interactive list item component with leading thumbnail.",
 width: 200
 } %}
@@ -269,7 +269,7 @@ width: 200
   <h4>Icon</h4>
   <p>Any decorative icon can be inserted into the placeholder.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-trailing-icon.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-trailing-icon.svg",
       width: "400px",
       alt: "Interactive list item component with trailing icon."
     } %}
@@ -278,7 +278,7 @@ width: 200
   <h4>Meta text</h4>
   <p>Highlights additional basic information about the List item.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-trailing-meta.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-trailing-meta.svg",
       width: "400px",
       alt: "Interactive list item component with trailing meta text."
     } %}
@@ -290,7 +290,7 @@ width: 200
 Alignment should be consistent through the pillar.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/modifiers-trailing-tag.svg",
+src:"../../../assets/img/components/list-item/android/modifiers-trailing-tag.svg",
 alt: "Interactive list item component with trailing tag.",
 width: 200
 } %}
@@ -307,7 +307,7 @@ width: 200
   <h4>Icon</h4>
   <p>Any decorative icon can be inserted into the placeholder.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-trailing-icon.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-trailing-icon.svg",
       width: "400px",
       alt: "Interactive list item component with trailing icon."
     } %}
@@ -316,7 +316,7 @@ width: 200
   <h4>Checkbox</h4>
   <p>Alignment should be consistent through the pillar.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-trailing-checkbox.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-trailing-checkbox.svg",
       width: "400px",
       alt: "Interactive list item component with trailing checkbox."
     } %}
@@ -328,7 +328,7 @@ width: 200
   <h4>Meta text</h4>
   <p>Highlights additional basic information about the List item.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-trailing-meta.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-trailing-meta.svg",
       width: "400px",
       alt: "Interactive list item component with trailing meta text."
     } %}
@@ -337,7 +337,7 @@ width: 200
   <h4>Radio</h4>
   <p>Alignment should be consistent through the pillar.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-trailing-radio.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-trailing-radio.svg",
       width: "400px",
       alt: "Interactive list item component with trailing radio."
     } %}
@@ -349,7 +349,7 @@ width: 200
   <h4>Switch</h4>
   <p>Used to quickly switch between two possible states.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-trailing-switch.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-trailing-switch.svg",
       width: "400px",
       alt: "Interactive list item component with trailing switch."
     } %}
@@ -358,7 +358,7 @@ width: 200
   <h4>Tag</h4>
   <p>Alignment should be consistent through the pillar.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/modifiers-interactive-trailing-tag.svg",
+      src: "../../../assets/img/components/list-item/android/modifiers-interactive-trailing-tag.svg",
       width: "400px",
       alt: "Interactive list item component with trailing tag."
     } %}
@@ -370,7 +370,7 @@ width: 200
 The divider is used to visually separate individual list items from each other. Dividers should never be used on the last item within a group.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/divider.svg",
+src:"../../../assets/img/components/list-item/android/divider.svg",
 alt: "Example of three list item components stacked vertically with dividers.",
 width: 200
 } %}
@@ -382,7 +382,7 @@ width: 200
 ### Variants
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/overrides-variants.svg",
+src:"../../../assets/img/components/list-item/android/overrides-variants.svg",
 alt: "Overview of overrides available at variant level for the Avatar, Tag and Icon with background.",
 width: 200
 } %}
@@ -399,7 +399,7 @@ width: 200
 ### Alignment / Layout
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/overrides-alignment.svg",
+src:"../../../assets/img/components/list-item/android/overrides-alignment.svg",
 alt: "Overview of alignment overrides available.",
 width: 200
 } %}
@@ -420,7 +420,7 @@ width: 200
 } %}
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/overrides-selected-state.svg",
+src:"../../../assets/img/components/list-item/android/overrides-selected-state.svg",
 alt: "Overview of selected state overrides available.",
 width: 200
 } %}
@@ -442,13 +442,13 @@ width: 200
 List items can be vertically stacked and horizontally, and if dividers are being used; it is suggested that the last item's divider is removed.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/layout-vertical.svg",
+src:"../../../assets/img/components/list-item/android/layout-vertical.svg",
 alt: "Example of a group of list item components stacked vertically.",
 width: 200
 } %}
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/layout-horizontal.svg",
+src:"../../../assets/img/components/list-item/android/layout-horizontal.svg",
 alt: "Example of a group of list item components stacked horizontally in two columns.",
 width: 200
 } %}
@@ -458,7 +458,7 @@ width: 200
 The radio form controls should always be used within a group, allowing users to make a single selection from a predefined set of options.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/layout-form-controls.svg",
+src:"../../../assets/img/components/list-item/android/layout-form-controls.svg",
 alt: "Example of a group of list item components with form controls.",
 width: 200
 } %}
@@ -488,13 +488,13 @@ Depending on the properties applied to the component, the minimum height of the 
 List items at both wide & narrow can be full width of an inset container.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/placement-wide.svg",
+src:"../../../assets/img/components/list-item/android/placement-wide.svg",
 alt: "Example of a group of list item components in a wide screen size in an inset container.",
 width: 200
 } %}
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/placement-narrow.svg",
+src:"../../../assets/img/components/list-item/android/placement-narrow.svg",
 alt: "Example of a group of list item components in a narrow screen size in an inset container.",
 width: 200
 } %}
@@ -504,7 +504,7 @@ width: 200
 Only List items at narrow have the option to be the full width of the device.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/placement-device.svg",
+src:"../../../assets/img/components/list-item/android/placement-device.svg",
 alt: "Example of a group of list item components in a narrow screen size in a device container.",
 width: 200
 } %}
@@ -516,7 +516,7 @@ width: 200
 The entire container for interactive variants is clickable.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/interactions.svg",
+src:"../../../assets/img/components/list-item/android/interactions.svg",
 alt: "Example of the interactive area in list item components.",
 width: 200
 } %}
@@ -530,7 +530,7 @@ width: 200
 The recommendation is to keep the copy short and concise to allow users to easily browse. If the length of the primary or secondary text exceeds the available horizontal space, the content will wrap onto a new line with no maximum.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/overflow-primary.svg",
+src:"../../../assets/img/components/list-item/android/overflow-primary.svg",
 alt: "Example of a group of list item components with primary and secondary text overflow.",
 width: 200
 } %}
@@ -540,13 +540,13 @@ width: 200
 If the trailing content contains a text element, it's maximum width is 1/3 of the available space. If the width is exceeded the content will wrap onto a new line.
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/overflow-trailingcontent-1.svg",
+src:"../../../assets/img/components/list-item/android/overflow-trailingcontent-1.svg",
 alt: "Example of a group of list item components with trailing meta text overflow.",
 width: 200
 } %}
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/overflow-trailingcontent-2.svg",
+src:"../../../assets/img/components/list-item/android/overflow-trailingcontent-2.svg",
 alt: "Example of a group of list item components with trailing tag text overflow.",
 width: 200
 } %}
@@ -560,7 +560,7 @@ The list item allows for two states: unselected and selected. By default, the `$
 ### Unselected
 
 {% contentPageImage {
-src:"../../../../assets/img/components/list-item/list-item/ios/states-unselected.svg",
+src:"../../../assets/img/components/list-item/android/states-unselected.svg",
 alt: "Example of a group of list item components in the unselected state.",
 width: 200
 } %}
@@ -571,7 +571,7 @@ width: 200
   {% contentItem %}
   <h4>Form control variants</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/states-selected-form.svg",
+      src: "../../../assets/img/components/list-item/android/states-selected-form.svg",
       width: "300px",
       alt: "Example of list item components in the selected state with form control variants."
     } %}
@@ -579,7 +579,7 @@ width: 200
   {% contentItem %}
   <h4>All other variants</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/states-selected-all-variants.svg",
+      src: "../../../assets/img/components/list-item/android/states-selected-all-variants.svg",
       width: "300px ",
       alt: "Example of list item components in the selected state in all variants except form control."
     } %}
@@ -601,7 +601,7 @@ The interactive variation includes all interactive states, while the non-interac
   {% contentItem %}
   <h3>Default</h3>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/interactive-states-default.svg",
+      src: "../../../assets/img/components/list-item/android/interactive-states-default.svg",
       width: "300px",
       alt: "Examples of list item components in the default state."
     } %}
@@ -609,7 +609,7 @@ The interactive variation includes all interactive states, while the non-interac
   {% contentItem %}
   <h3>Active</h3>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/interactive-states-active.svg",
+      src: "../../../assets/img/components/list-item/android/interactive-states-active.svg",
       width: "300px ",
       alt: "Examples of list item components in the active state."
     } %}
@@ -619,7 +619,7 @@ The interactive variation includes all interactive states, while the non-interac
 ### Disabled
 
  {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/interactive-states-disabled.svg",
+      src: "../../../assets/img/components/list-item/android/interactive-states-disabled.svg",
       width: "300px ",
       alt: "Examples of list item components in the disabled state."
     } %}
@@ -635,14 +635,14 @@ Here are some examples of a list item component in LTR context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/examples-ltr-1.svg",
+      src: "../../../assets/img/components/list-item/android/examples-ltr-1.svg",
       width: "300px",
       alt: "Examples of list item components in left-to-right context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/examples-ltr-2.svg",
+      src: "../../../assets/img/components/list-item/android/examples-ltr-2.svg",
       width: "300px ",
       alt: "Examples of list item components in left-to-right context."
     } %}
@@ -656,14 +656,14 @@ Here are some examples of a list item component in RTL context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/examples-rtl-1.svg",
+      src: "../../../assets/img/components/list-item/android/examples-rtl-1.svg",
       width: "300px",
       alt: "Examples of list item components in right-to-left context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/ios/examples-rtl-2.svg",
+      src: "../../../assets/img/components/list-item/android/examples-rtl-2.svg",
       width: "300px ",
       alt: "Examples of list item components in right-to-left context."
     } %}
@@ -684,7 +684,7 @@ In case truncation happens on important information offer an alternative for the
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../../assets/img/components/list-item/list-item/ios/text-scaling-do.svg",
+            src: "../../../assets/img/components/list-item/android/text-scaling-do.svg",
             width: "256px",
             alt: "Example of list item component with text scaling applied correctly."
         }]
@@ -692,7 +692,7 @@ In case truncation happens on important information offer an alternative for the
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../../assets/img/components/list-item/list-item/ios/text-scaling-dont.svg",
+            src: "../../../assets/img/components/list-item/android/text-scaling-dont.svg",
             width: "256px",
             alt: "Example of list item component with text scaling applied incorrectly."
         }]

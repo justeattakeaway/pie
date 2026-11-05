@@ -30,7 +30,7 @@ shouldShowContents: true
 ## Anatomy
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/anatomy.svg",
+    src:"../../../assets/img/components/list-item/web/anatomy.svg",
     alt: "Anatomy of the list item component, showing numbered parts including primary text, secondary text, divider, icon, icon with background, avatar, payment method icon, thumbnail, checkbox, radio, interactive icon, meta text, tag and switch.",
     width: 880
 } %}
@@ -64,7 +64,7 @@ shouldShowContents: true
 The non-interactive variation should be used when the list item doesn't require any component level interactive states tied to the instance.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/variants-non-interactive.svg",
+    src:"../../../assets/img/components/list-item/web/variants-non-interactive.svg",
     alt: "A wallet list showing Just Eat Pay, Just Eat+ and Account credit items with price tags, and a View credit activity button below.",
     width: 345
 } %}
@@ -74,7 +74,7 @@ The non-interactive variation should be used when the list item doesn't require 
 Includes form elements such as checkbox, radio or switch, which allows the user to make one or multiple choices.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/variants-interactive-form-selection.svg",
+    src:"../../../assets/img/components/list-item/web/variants-interactive-form-selection.svg",
     alt: "Two examples of form selection list items: a multi-selection checkbox list asking why an article wasn't helpful, and a single-selection radio list for choosing between Credit card, Apple Pay and PayPal.",
     width: 829
 } %}
@@ -84,7 +84,7 @@ Includes form elements such as checkbox, radio or switch, which allows the user 
 Functions as a link to redirect the user to a new destination.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/variants-interactive-navigation.svg",
+    src:"../../../assets/img/components/list-item/web/variants-interactive-navigation.svg",
     alt: "A Partner Hub side navigation panel showing a Management menu with list items such as Menu/Items, Item availability, History, Invoices, Payments, Pending charges and Tips.",
     width: 351
 } %}
@@ -94,7 +94,7 @@ Functions as a link to redirect the user to a new destination.
 Functions as a button to trigger an immediate operation or event.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/variants-interactive-action.svg",
+    src:"../../../assets/img/components/list-item/web/variants-interactive-action.svg",
     alt: "An icon button with an opened popover menu containing the action list items Deactivate, Edit charges and Delete area.",
     width: 247
 } %}
@@ -113,7 +113,7 @@ The height of the component is decreased to reduce the vertical space, and used 
 } %}
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/modifiers-compact.svg",
+    src:"../../../assets/img/components/list-item/web/modifiers-compact.svg",
     alt: "List item component in compact height.",
     width: 360
 } %}
@@ -123,7 +123,7 @@ The height of the component is decreased to reduce the vertical space, and used 
 The secondary text can be used to provide additional content that supports the primary text.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/modifiers-secondary-text.svg",
+    src:"../../../assets/img/components/list-item/web/modifiers-secondary-text.svg",
     alt: "List item component with primary and secondary text.",
     width: 360
 } %}
@@ -133,7 +133,7 @@ The secondary text can be used to provide additional content that supports the p
 There's an option to use bold in the primary text.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/modifiers-bold-primary-text.svg",
+    src:"../../../assets/img/components/list-item/web/modifiers-bold-primary-text.svg",
     alt: "List item component with bold primary text.",
     width: 360
 } %}
@@ -152,7 +152,7 @@ There's an option to use bold in the primary text.
   <h4>Avatar</h4>
   <p>Any avatar variant can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-leading-avatar.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-leading-avatar.svg",
       width: "360px",
       alt: "List item component with leading avatar."
     } %}
@@ -161,7 +161,7 @@ There's an option to use bold in the primary text.
   <h4>Icon</h4>
   <p>Any visually supporting icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-leading-icon.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-leading-icon.svg",
       width: "360px",
       alt: "List item component with leading icon."
     } %}
@@ -173,7 +173,7 @@ There's an option to use bold in the primary text.
   <h4>Icon with background</h4>
   <p>A supporting icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-leading-icon-background.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-leading-icon-background.svg",
       width: "360px",
       alt: "List item component with leading icon with background."
     } %}
@@ -182,7 +182,7 @@ There's an option to use bold in the primary text.
   <h4>Payment method</h4>
   <p>Any payment method icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-leading-payment.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-leading-payment.svg",
       width: "360px",
       alt: "List item component with leading payment method icon."
     } %}
@@ -194,7 +194,7 @@ There's an option to use bold in the primary text.
   <h4>Thumbnail</h4>
   <p>Any image can be used within the thumbnail component.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-leading-thumbnail.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-leading-thumbnail.svg",
       width: "360px",
       alt: "List item component with leading thumbnail."
     } %}
@@ -223,7 +223,7 @@ There's an option to use bold in the primary text.
   <h4>Avatar</h4>
   <p>Any avatar variant can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-leading-avatar.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-avatar.svg",
       width: "360px",
       alt: "Interactive list item component with leading avatar."
     } %}
@@ -232,7 +232,7 @@ There's an option to use bold in the primary text.
   <h4>Icon</h4>
   <p>Any visually supporting icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-leading-icon.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-icon.svg",
       width: "360px",
       alt: "Interactive list item component with leading icon."
     } %}
@@ -244,7 +244,7 @@ There's an option to use bold in the primary text.
   <h4>Icon with background</h4>
   <p>Any visually supporting icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-leading-icon-background.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-icon-background.svg",
       width: "360px",
       alt: "Interactive list item component with leading icon with background."
     } %}
@@ -253,7 +253,7 @@ There's an option to use bold in the primary text.
   <h4>Payment method</h4>
   <p>Any payment method icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-leading-payment.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-payment.svg",
       width: "360px",
       alt: "Interactive list item component with leading payment method icon."
     } %}
@@ -265,7 +265,7 @@ There's an option to use bold in the primary text.
   <h4>Thumbnail</h4>
   <p>Any image can be used within the thumbnail component.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-leading-thumbnail.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-thumbnail.svg",
       width: "360px",
       alt: "Interactive list item component with leading thumbnail."
     } %}
@@ -274,7 +274,7 @@ There's an option to use bold in the primary text.
   <h4>Checkbox</h4>
   <p>Checkboxes should be used consistently, either leading or trailing, and allow the user to select any number of list items from a group.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-leading-checkbox.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-checkbox.svg",
       width: "360px",
       alt: "Interactive list item component with leading checkbox."
     } %}
@@ -286,7 +286,7 @@ There's an option to use bold in the primary text.
   <h4>Radio</h4>
   <p>Radio buttons should be used consistently, either leading or trailing, and allow the user to select one list item from a group.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-leading-radio.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-radio.svg",
       width: "360px",
       alt: "Interactive list item component with leading radio."
     } %}
@@ -302,7 +302,7 @@ There's an option to use bold in the primary text.
   <h4>Icon</h4>
   <p>Any functional icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-trailing-icon.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-trailing-icon.svg",
       width: "360px",
       alt: "List item component with trailing icon."
     } %}
@@ -311,7 +311,7 @@ There's an option to use bold in the primary text.
   <h4>Meta text</h4>
   <p>Provides more information about the context, status, or attributes of the primary content.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-trailing-meta.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-trailing-meta.svg",
       width: "360px",
       alt: "List item component with trailing meta text."
     } %}
@@ -323,7 +323,7 @@ There's an option to use bold in the primary text.
   <h4>Tag</h4>
   <p>Non-interactive variant used to visually represent and categorise information.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-trailing-tag.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-trailing-tag.svg",
       width: "360px",
       alt: "List item component with trailing tag."
     } %}
@@ -337,7 +337,7 @@ There's an option to use bold in the primary text.
   <h4>Icon</h4>
   <p>Any functional icon can be used within the slot.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-trailing-icon.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-trailing-icon.svg",
       width: "360px",
       alt: "Interactive list item component with trailing icon."
     } %}
@@ -346,7 +346,7 @@ There's an option to use bold in the primary text.
   <h4>Meta text</h4>
   <p>Provides more information about the context, status, or attributes of the primary content.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-trailing-meta.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-trailing-meta.svg",
       width: "360px",
       alt: "Interactive list item component with trailing meta text."
     } %}
@@ -358,7 +358,7 @@ There's an option to use bold in the primary text.
   <h4>Tag</h4>
   <p>Non-interactive variant used to visually represent and categorise information.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-trailing-tag.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-trailing-tag.svg",
       width: "360px",
       alt: "Interactive list item component with trailing tag."
     } %}
@@ -367,7 +367,7 @@ There's an option to use bold in the primary text.
   <h4>Checkbox</h4>
   <p>Checkboxes should be used consistently, either leading or trailing, and allow the user to select any number of list items from a group.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-trailing-checkbox.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-trailing-checkbox.svg",
       width: "360px",
       alt: "Interactive list item component with trailing checkbox."
     } %}
@@ -379,7 +379,7 @@ There's an option to use bold in the primary text.
   <h4>Radio</h4>
   <p>Radio buttons should be used consistently, either leading or trailing, and allow the user to select one list item from a group.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-trailing-radio.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-trailing-radio.svg",
       width: "360px",
       alt: "Interactive list item component with trailing radio."
     } %}
@@ -388,7 +388,7 @@ There's an option to use bold in the primary text.
   <h4>Switch</h4>
   <p>Allows the user to switch between two states.</p>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/modifiers-interactive-trailing-switch.svg",
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-trailing-switch.svg",
       width: "360px",
       alt: "Interactive list item component with trailing switch."
     } %}
@@ -400,7 +400,7 @@ There's an option to use bold in the primary text.
 The divider is optional. It is used to visually separate individual list items from each other. Dividers should never be used on the last item within a group.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/divider.svg",
+    src:"../../../assets/img/components/list-item/web/divider.svg",
     alt: "Three list item components stacked vertically, the first two separated by dividers.",
     width: 360
 } %}
@@ -412,7 +412,7 @@ The divider is optional. It is used to visually separate individual list items f
 ### Variants
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/overrides-variants.svg",
+    src:"../../../assets/img/components/list-item/web/overrides-variants.svg",
     alt: "List item components with numbered markers indicating the avatar, tag and icon with background overrides.",
     width: 520
 } %}
@@ -429,7 +429,7 @@ The divider is optional. It is used to visually separate individual list items f
 ### Alignment / Layout
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/overrides-alignment.svg",
+    src:"../../../assets/img/components/list-item/web/overrides-alignment.svg",
     alt: "List item components with structure markers showing vertical alignment and horizontal padding overrides.",
     width: 799
 } %}
@@ -447,7 +447,7 @@ The divider is optional. It is used to visually separate individual list items f
 #### Navigation
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/overrides-selected-state.svg",
+    src:"../../../assets/img/components/list-item/web/overrides-selected-state.svg",
     alt: "A country list showing Germany selected with bold text and a trailing tick icon, compared with the unselected state.",
     width: 760
 } %}
@@ -471,14 +471,14 @@ List items can be stacked vertically to form a group, and groups can also be pai
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/layout-vertical.svg",
+      src: "../../../assets/img/components/list-item/web/layout-vertical.svg",
       width: "360px",
       alt: "A group of three list item components stacked vertically."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/layout-horizontal.svg",
+      src: "../../../assets/img/components/list-item/web/layout-horizontal.svg",
       width: "424px",
       alt: "Two groups of three list item components paired horizontally."
     } %}
@@ -490,7 +490,7 @@ List items can be stacked vertically to form a group, and groups can also be pai
 The radio form controls should always be used within a group, allowing users to make a single selection from a predefined set of options.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/layout-form-controls.svg",
+    src:"../../../assets/img/components/list-item/web/layout-form-controls.svg",
     alt: "A group of three list item components with leading radio form controls.",
     width: 360
 } %}
@@ -522,7 +522,7 @@ Depending on the properties applied to the component, the minimum height of the 
 The entire container for interactive variants is clickable.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/interactions.svg",
+    src:"../../../assets/img/components/list-item/web/interactions.svg",
     alt: "Three interactive list item components with an outline showing the clickable container area.",
     width: 360
 } %}
@@ -536,7 +536,7 @@ The entire container for interactive variants is clickable.
 The recommendation is to keep the copy short and concise to allow users to easily browse. If the length of the primary or secondary text exceeds the available horizontal space, the content will wrap onto a new line with no maximum.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/overflow-primary.svg",
+    src:"../../../assets/img/components/list-item/web/overflow-primary.svg",
     alt: "List item component with long primary and secondary text wrapping onto new lines.",
     width: 360
 } %}
@@ -546,7 +546,7 @@ The recommendation is to keep the copy short and concise to allow users to easil
 If the trailing content contains a text element, its maximum width is 1/3 of the available space. If the width is exceeded the content will wrap onto a new line.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/overflow-trailingcontent.svg",
+    src:"../../../assets/img/components/list-item/web/overflow-trailingcontent.svg",
     alt: "List item component with trailing meta text wrapping, and shaded overlays showing the interactive area split into two thirds and one third.",
     width: 360
 } %}
@@ -565,7 +565,7 @@ When a form control is present, the form control element indicates the selected 
   {% contentItem %}
   <h4>Unselected</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/states-form-selection-unselected.svg",
+      src: "../../../assets/img/components/list-item/web/states-form-selection-unselected.svg",
       width: "360px",
       alt: "Form selection list items with unselected checkbox, radio and switch form controls."
     } %}
@@ -573,7 +573,7 @@ When a form control is present, the form control element indicates the selected 
   {% contentItem %}
   <h4>Selected</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/states-form-selection-selected.svg",
+      src: "../../../assets/img/components/list-item/web/states-form-selection-selected.svg",
       width: "360px",
       alt: "Form selection list items with selected checkbox, radio and switch form controls."
     } %}
@@ -588,7 +588,7 @@ In navigation, the currently selected item should be indicated using bold text, 
   {% contentItem %}
   <h4>Unselected</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/states-navigation-unselected.svg",
+      src: "../../../assets/img/components/list-item/web/states-navigation-unselected.svg",
       width: "342px",
       alt: "A country list with regular weight primary text and no tick icons."
     } %}
@@ -596,7 +596,7 @@ In navigation, the currently selected item should be indicated using bold text, 
   {% contentItem %}
   <h4>Selected</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/states-navigation-selected.svg",
+      src: "../../../assets/img/components/list-item/web/states-navigation-selected.svg",
       width: "342px",
       alt: "A country list with Germany selected using bold text and a trailing tick icon."
     } %}
@@ -609,7 +609,7 @@ If bold text is used for unselected items, a trailing tick icon should always be
   {% contentItem %}
   <h4>Unselected</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/states-navigation-unselected-bold.svg",
+      src: "../../../assets/img/components/list-item/web/states-navigation-unselected-bold.svg",
       width: "342px",
       alt: "A country list with bold primary text on all items and no tick icons."
     } %}
@@ -617,7 +617,7 @@ If bold text is used for unselected items, a trailing tick icon should always be
   {% contentItem %}
   <h4>Selected</h4>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/states-navigation-selected-bold.svg",
+      src: "../../../assets/img/components/list-item/web/states-navigation-selected-bold.svg",
       width: "342px",
       alt: "A country list with bold primary text on all items and Germany distinguished by a trailing tick icon."
     } %}
@@ -631,7 +631,7 @@ Action list items are selectable and users can interact with them, but they do n
 #### No selected state
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/states-action-no-selected-state.svg",
+    src:"../../../assets/img/components/list-item/web/states-action-no-selected-state.svg",
     alt: "An icon button with an opened popover menu containing the action list items Deactivate, Edit charges and Delete area.",
     width: 247
 } %}
@@ -646,7 +646,7 @@ The interactive variation includes all interactive states, while the non-interac
   {% contentItem %}
   <h3>Default</h3>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/interactive-states-default.svg",
+      src: "../../../assets/img/components/list-item/web/interactive-states-default.svg",
       width: "360px",
       alt: "List item components in the default state."
     } %}
@@ -654,7 +654,7 @@ The interactive variation includes all interactive states, while the non-interac
   {% contentItem %}
   <h3>Hover</h3>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/interactive-states-hover.svg",
+      src: "../../../assets/img/components/list-item/web/interactive-states-hover.svg",
       width: "360px",
       alt: "List item components in the hover state, with a subtle background tint on the container.",
       variant: "secondary"
@@ -666,7 +666,7 @@ The interactive variation includes all interactive states, while the non-interac
   {% contentItem %}
   <h3>Active</h3>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/interactive-states-active.svg",
+      src: "../../../assets/img/components/list-item/web/interactive-states-active.svg",
       width: "360px",
       alt: "List item components in the active state, with a stronger background tint on the container."
     } %}
@@ -674,7 +674,7 @@ The interactive variation includes all interactive states, while the non-interac
   {% contentItem %}
   <h3>Focus</h3>
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/interactive-states-focus.svg",
+      src: "../../../assets/img/components/list-item/web/interactive-states-focus.svg",
       width: "360px",
       alt: "List item components in the focus state, with a focus ring around the container."
     } %}
@@ -686,7 +686,7 @@ The interactive variation includes all interactive states, while the non-interac
 Navigation type does not support a disabled state.
 
 {% contentPageImage {
-    src:"../../../../assets/img/components/list-item/list-item/web/interactive-states-disabled.svg",
+    src:"../../../assets/img/components/list-item/web/interactive-states-disabled.svg",
     width: "360px",
     alt: "List item components in the disabled state, greyed out and not interactive."
 } %}
@@ -702,14 +702,14 @@ Here are some examples of list items in left-to-right context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/examples-ltr-1.svg",
+      src: "../../../assets/img/components/list-item/web/examples-ltr-1.svg",
       width: "360px",
       alt: "A support menu with navigation list items for GPS issues, Pause / end shift early, Order disappeared and Earnings."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/examples-ltr-2.svg",
+      src: "../../../assets/img/components/list-item/web/examples-ltr-2.svg",
       width: "360px",
       alt: "A menu list with radio selection for Medium fries, Large fries and Side salad, showing kilojoule details and price meta text."
     } %}
@@ -723,14 +723,14 @@ Here are some examples of list items in right-to-left context:
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/examples-rtl-1.svg",
+      src: "../../../assets/img/components/list-item/web/examples-rtl-1.svg",
       width: "360px",
       alt: "A support menu with navigation list items in Hebrew for GPS issues, pausing or ending a shift early, a disappeared order and earnings."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../../assets/img/components/list-item/list-item/web/examples-rtl-2.svg",
+      src: "../../../assets/img/components/list-item/web/examples-rtl-2.svg",
       width: "360px",
       alt: "A menu list with radio selection in Hebrew for medium fries, large fries and side salad, showing kilojoule details and price meta text."
     } %}

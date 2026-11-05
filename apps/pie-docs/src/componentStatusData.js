@@ -1079,45 +1079,6 @@ const rows = [
         }
     ],
     [
-        { componentName: 'List Item Interactive' },
-        {
-            resource: resourceTypes.WEB_COMPONENT,
-            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114521',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114521',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/docs/components-list--overview',
-            status: webComponentStatuses['pie-list'],
-        },
-        {
-            resource: resourceTypes.VUE,
-            status: statusTypes.NOT_APPLICABLE,
-        },
-        {
-            resource: resourceTypes.REACT,
-            link: 'https://snacks.takeaway.com/portal/components/list/',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.IOS_PIE,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.STABLE,
-        }
-    ],
-    [
         { componentName: 'Map Pin' },
         {
             resource: resourceTypes.WEB_COMPONENT,
