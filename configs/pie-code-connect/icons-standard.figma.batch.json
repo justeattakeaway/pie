@@ -2,6 +2,11 @@
   "templateFile": "./dist/icons-standard.figma.batch.js",
   "components": [
     {
+      "baseName": "icon-id-required",
+      "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
+      "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=29669-596"
+    },
+    {
       "baseName": "icon-over-16",
       "source": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons/src/index.js",
       "url": "https://www.figma.com/design/k7gPJ4MZRUj4nlZK2hL0Op/-Core--Icons--PIE-3-?node-id=18-1244"
