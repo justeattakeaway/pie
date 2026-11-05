@@ -696,6 +696,26 @@
       "require": "./react/select.js",
       "types": "./react/select.d.ts"
     },
+    "./components/skeleton": {
+      "import": "./components/skeleton.js",
+      "require": "./components/skeleton.js",
+      "types": "./components/skeleton.d.ts"
+    },
+    "./components/skeleton.js": {
+      "import": "./components/skeleton.js",
+      "require": "./components/skeleton.js",
+      "types": "./components/skeleton.d.ts"
+    },
+    "./react/skeleton": {
+      "import": "./react/skeleton.js",
+      "require": "./react/skeleton.js",
+      "types": "./react/skeleton.d.ts"
+    },
+    "./react/skeleton.js": {
+      "import": "./react/skeleton.js",
+      "require": "./react/skeleton.js",
+      "types": "./react/skeleton.d.ts"
+    },
     "./components/spinner.js": {
       "import": "./components/spinner.js",
       "require": "./components/spinner.js",
@@ -935,6 +955,7 @@
     "@justeattakeaway/pie-radio": "1.2.9",
     "@justeattakeaway/pie-radio-group": "1.2.13",
     "@justeattakeaway/pie-select": "0.9.16",
+    "@justeattakeaway/pie-skeleton": "0.0.0",
     "@justeattakeaway/pie-spinner": "1.5.11",
     "@justeattakeaway/pie-switch": "2.7.7",
     "@justeattakeaway/pie-tabs": "0.1.38",
