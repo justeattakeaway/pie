@@ -463,4 +463,18 @@ test.describe('PiePagination - Component tests', () => {
         expect(snapshots).toHaveLength(1);
         expect(snapshots[0]).toEqual({ currentPage: 2 });
     });
+
+    test('should emit the clamped page when navigating from an out-of-range currentPage', async ({ page }) => {
+        // Arrange — currentPage 99 is clamped to the last page (5).
+        const paginationPage = new PaginationDefaultPage(page);
+        await paginationPage.load({ currentPage: 99, totalPages: 5 });
+        const { paginationComponent } = paginationPage;
+
+        // Act
+        const snapshots = await captureEvents(page, () => paginationComponent.previousButtonLocator.click());
+
+        // Assert
+        expect(snapshots).toHaveLength(1);
+        expect(snapshots[0]).toEqual({ currentPage: 4 });
+    });
 });

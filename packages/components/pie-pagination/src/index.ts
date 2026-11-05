@@ -54,26 +54,48 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
         dispatchCustomEvent(this, ON_PAGE_CHANGE_EVENT, { currentPage });
     }
 
-    private _handlePreviousClick () {
-        if (this.disabled || this.currentPage <= 1) return;
+    private _getSafeTotalPages (): number {
+        const parsed = Number(this.totalPages);
 
-        const requestedPage = this.currentPage - 1;
+        return Number.isFinite(parsed) ? Math.max(0, Math.floor(parsed)) : 0;
+    }
+
+    private _getSafeCurrentPage (): number {
+        const parsed = Number(this.currentPage);
+        const totalPages = this._getSafeTotalPages();
+
+        if (!Number.isFinite(parsed)) {
+            return 1;
+        }
+
+        return Math.min(Math.max(Math.floor(parsed), 1), Math.max(totalPages, 1));
+    }
+
+    private _handlePreviousClick () {
+        const currentPage = this._getSafeCurrentPage();
+
+        if (this.disabled || currentPage <= 1) return;
+
+        const requestedPage = currentPage - 1;
 
         dispatchCustomEvent(this, ON_PREV_EVENT, { currentPage: requestedPage });
         this._emitPageChange(requestedPage);
     }
 
     private _handleNextClick () {
-        if (this.disabled || this.currentPage >= this.totalPages) return;
+        const totalPages = this._getSafeTotalPages();
+        const currentPage = this._getSafeCurrentPage();
 
-        const requestedPage = this.currentPage + 1;
+        if (this.disabled || currentPage >= totalPages) return;
+
+        const requestedPage = currentPage + 1;
 
         dispatchCustomEvent(this, ON_NEXT_EVENT, { currentPage: requestedPage });
         this._emitPageChange(requestedPage);
     }
 
     private _handlePageClick (page: number) {
-        if (this.disabled || page === this.currentPage) return;
+        if (this.disabled || page === this._getSafeCurrentPage()) return;
         this._emitPageChange(page);
     }
 
@@ -126,17 +148,22 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
     }
 
     render () {
-        const {
-            aria, currentPage, disabled, totalPages,
-        } = this;
+        const { aria, disabled } = this;
+        const totalPages = this._getSafeTotalPages();
+        const currentPage = this._getSafeCurrentPage();
 
         const visiblePages = this._getVisiblePages(currentPage, totalPages);
         const isPreviousDisabled = disabled || currentPage <= 1;
         const isNextDisabled = disabled || currentPage >= totalPages;
 
+        const navClasses = {
+            'c-pagination': true,
+            'c-pagination--disabled': disabled,
+        };
+
         return html`
             <nav
-                class="c-pagination"
+                class="${classMap(navClasses)}"
                 aria-label="${aria?.label ?? 'Pagination'}"
                 data-test-id="pie-pagination">
                 <ol class="c-pagination-list" data-test-id="pie-pagination-list">

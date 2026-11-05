@@ -31,9 +31,11 @@
     @include btn.button-size('xsmall');
     @include btn.button-variant('ghost');
 
-    inline-size: 32px;
+    min-inline-size: 32px;
     block-size: 32px;
-    padding: 0;
+    padding-block: 0;
+    padding-inline-start: var(--dt-spacing-b);
+    padding-inline-end: var(--dt-spacing-b);
 
     --btn-font-weight: var(--dt-font-body-s-weight);
 
@@ -65,4 +67,8 @@
 
     cursor: default;
     user-select: none;
+}
+
+.c-pagination--disabled .c-pagination-ellipsis {
+    color: var(--dt-color-content-disabled-solid);
 }
