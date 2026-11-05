@@ -5,14 +5,14 @@ on:
     types:
       - created
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
 jobs:
   snapshot:
     name: Snapshot Release
     if: |
       github.event.issue.pull_request &&
       (startsWith(github.event.comment.body, '/snapit'))
+    concurrency:
+      group: snapit-${{ github.event.issue.number }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
