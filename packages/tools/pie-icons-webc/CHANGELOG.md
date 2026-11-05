@@ -1,5 +1,42 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.30.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3305](https://github.com/justeattakeaway/pie/pull/3305)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Age limit
+
+  - id-required-filled-large
+  - id-required-filled
+  - id-required-large
+  - id-required
+
+  ## Ribbon
+
+  - ribbon-heart-filled-large
+  - ribbon-heart-filled
+  - ribbon-star-filled-large
+  - ribbon-star-filled
+  - ribbon-success-filled-large
+  - ribbon-success-filled
+
+  ## Time
+
+  - clock-refresh-filled-large
+  - clock-refresh-filled
+
+  ## Travel & Transport
+
+  - plane-filled-large
+  - plane-filled
+
+  ## UEFA
+
+  - trophy-filled-large
+  - trophy-filled
+
 ## 1.29.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "1.29.5",
+  "version": "1.30.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.5",
-    "@justeattakeaway/pie-icons": "5.32.3",
+    "@justeattakeaway/pie-icons": "5.33.0",
     "@justeattakeaway/pie-icons-configs": "5.21.0",
     "@rollup/plugin-typescript": "12.3.0",
     "just-kebab-case": "4.2.0",
