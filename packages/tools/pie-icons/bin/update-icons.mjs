@@ -204,7 +204,7 @@ async function updateIcons () {
         if (changedFilesGroups.added) updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
 
         console.info('updating pie-docs snapshots');
-        execSync('cd ../../../ && yarn test --filter=@justeattakeaway/pie-docs -- -u', { stdio: 'inherit' });
+        execSync('cd ../../../ && yarn test --filter=@justeattakeaway/pie-docs --concurrency=6 -- -u', { stdio: 'inherit' });
 
         console.info('creating changesets');
         const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);
