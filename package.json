@@ -54,7 +54,7 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "test": "cross-env-shell turbo run test --token=${TURBO_TOKEN}",
+    "test": "cross-env-shell turbo run test --concurrency=6 --token=${TURBO_TOKEN}",
     "test:watch": "cross-env-shell turbo run test:watch",
     "test:ci": "cross-env-shell turbo run test:ci --token=${TURBO_TOKEN}",
     "test:coverage": "turbo run test:coverage",
