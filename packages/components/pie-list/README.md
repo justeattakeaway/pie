@@ -1,5 +1,5 @@
 # @justeattakeaway/pie-list
-[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-list) | [Design Documentation](https://pie.design/components/list) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-list)
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-list) | [Design Documentation](https://pie.design/components/list-item) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-list)
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-list">

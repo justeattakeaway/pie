@@ -1,9 +1,10 @@
 ---
 eleventyNavigation:
-    key: list-item
+    key: 'List Item'
     title: 'List Item'
     parent: Components
     order: 26
-    subPageDropdown: true
+    url: /components/list-item/
+permalink: false
 title: 'List Item'
 ---
