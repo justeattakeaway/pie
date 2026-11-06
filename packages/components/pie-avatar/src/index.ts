@@ -145,11 +145,10 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * @private
      */
     private get avatarContent (): TemplateResult {
-        if (this._hasImageError) {
-            return this.renderIcon();
-        }
-
         if (this.src) {
+            if (this._hasImageError) {
+                return this.renderIcon();
+            }
             return this.renderImage(this.src);
         }
 
