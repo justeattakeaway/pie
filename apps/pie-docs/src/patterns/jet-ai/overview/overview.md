@@ -10,9 +10,9 @@ llmsTxtDescription: JET AI visual identity guide covering brand principles, icon
 
 ## Overview
 
-At JET we use AI to assist and elevate our user’s experiences.
+At JET we use AI to assist and elevate our users' experiences.
 
-We have established an AI branding with its own, distinct visual identity for the purpose of providing clarity to our user’s on AI content across our products. This is so that we can continually be transparent in our use of AI.
+We have established an AI branding with its own, distinct visual identity for the purpose of providing clarity to our users on AI content across our products. This is so that we can continually be transparent in our use of AI.
 
 {% notification {
   type: "information",
@@ -35,7 +35,7 @@ alt: "Overview example displaying a JET AI branded notification banner."
 
 ### Dynamic
 
-AI is ever-evolving, and our motion pieces reflect its dynamic nature—bringing the technology to life.
+AI is ever-evolving, and our motion pieces reflect its dynamic nature bringing the technology to life.
 
 ### Futuristic
 
@@ -85,12 +85,12 @@ The sparkle icons are the primary visual indicators and look to enable AI recogn
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [iconography documentation](https://pie.design/foundations/iconography/)."
+  message: "Check out the [iconography documentation](/foundations/iconography/)."
 } %}
 
 ### Icon variants
 
-Currently we are only using the filled variant for both AI icons, if you'd like to use the outline variant please get in touch with the design system team in the #help-designsystem channel.
+Currently we are only using the filled variant for both AI icons, if you'd like to use the outline variant please get in touch with the PIE design system team.
 
 We use two types of icon for AI content:
 
@@ -115,7 +115,7 @@ The primary AI icon is ‘Type 1’ and it includes 2 sparkles. This is to be us
 {% contentPageImage {
 src:"../../../assets/img/patterns/jet-ai/icon-examples.svg",
 alt: "Examples of icon button, container and tag AI branded components with the advice 'Use along with headings to signify the use of AI in the preceding information'.",
-caption: "Use the Type 1 AI icon along with headings to signify the use of AI in the proceeding information. Examples shown are scaled up.",
+caption: "Use the Type 1 AI icon along with headings to signify the use of AI in the preceding information. Examples shown are scaled up.",
 width: 120
 } %}
 
@@ -133,7 +133,7 @@ There are two gradients used for AI content.
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [Gradients foundation documentation](https://pie.design/foundations/gradients/)."
+  message: "Check out the [Gradients foundation documentation](/foundations/gradients/)."
 } %}
 
 {% contentPageImage {
@@ -217,7 +217,7 @@ The border gradient can be applied across all areas of our product. The containe
 {% contentPageImage {
 src:"../../../assets/img/patterns/jet-ai/gradients-token-usage-examples.svg",
 alt: "Examples of our gradients being used in Just Eat products.",
-width: "120"
+width: 120
 } %}
 
 ---
@@ -255,7 +255,7 @@ If you would like additional motion pieces to support your work, please get in t
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [Motion guidelines](https://pie.design/foundations/motion/)."
+  message: "Check out the [Motion guidelines](/foundations/motion/)."
 } %}
 
 ### Animated background
