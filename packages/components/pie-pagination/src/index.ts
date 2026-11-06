@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, type PropertyValues,
+    html, unsafeCSS,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -50,73 +50,95 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
 
-    protected updated (changedProperties: PropertyValues<this>): void {
-        if (changedProperties.has('totalPages') && this.totalPages < 1) {
-            console.warn(`pie-pagination: "totalPages" must be at least 1, received "${this.totalPages}".`);
-        }
-
-        if (changedProperties.has('currentPage') && this.currentPage < 1) {
-            console.warn(`pie-pagination: "currentPage" must be at least 1, received "${this.currentPage}".`);
-        }
-
-        if (changedProperties.has('currentPage') && this.currentPage > this.totalPages) {
-            console.warn(`pie-pagination: "currentPage" (${this.currentPage}) cannot be greater than "totalPages" (${this.totalPages}).`);
-        }
-    }
-
-    /**
-     * Emits the page change event with the page the user wants to navigate to.
-     * The component never updates `currentPage` itself.
-     *
-     * @private
-     */
     private _emitPageChange (currentPage: number) {
         dispatchCustomEvent(this, ON_PAGE_CHANGE_EVENT, { currentPage });
     }
 
-    /**
-     * Handles a click on the "previous" control.
-     *
-     * @private
-     */
-    private _handlePreviousClick () {
-        if (this.disabled || this.currentPage <= 1) return;
+    private _getSafeTotalPages (): number {
+        const parsed = Number(this.totalPages);
 
-        const requestedPage = this.currentPage - 1;
+        return Number.isFinite(parsed) ? Math.max(0, Math.floor(parsed)) : 0;
+    }
+
+    private _getSafeCurrentPage (): number {
+        const parsed = Number(this.currentPage);
+        const totalPages = this._getSafeTotalPages();
+
+        if (!Number.isFinite(parsed)) {
+            return 1;
+        }
+
+        return Math.min(Math.max(Math.floor(parsed), 1), Math.max(totalPages, 1));
+    }
+
+    private _handlePreviousClick () {
+        const currentPage = this._getSafeCurrentPage();
+
+        if (this.disabled || currentPage <= 1) return;
+
+        const requestedPage = currentPage - 1;
 
         dispatchCustomEvent(this, ON_PREV_EVENT, { currentPage: requestedPage });
         this._emitPageChange(requestedPage);
     }
 
-    /**
-     * Handles a click on the "next" control.
-     *
-     * @private
-     */
     private _handleNextClick () {
-        if (this.disabled || this.currentPage >= this.totalPages) return;
+        const totalPages = this._getSafeTotalPages();
+        const currentPage = this._getSafeCurrentPage();
 
-        const requestedPage = this.currentPage + 1;
+        if (this.disabled || currentPage >= totalPages) return;
+
+        const requestedPage = currentPage + 1;
 
         dispatchCustomEvent(this, ON_NEXT_EVENT, { currentPage: requestedPage });
         this._emitPageChange(requestedPage);
     }
 
-    /**
-     * Handles a click on a page number control.
-     *
-     * @private
-     */
     private _handlePageClick (page: number) {
-        if (this.disabled || page === this.currentPage) return;
+        if (this.disabled || page === this._getSafeCurrentPage()) return;
         this._emitPageChange(page);
     }
 
     /**
-     * Renders the chevron icon for the previous/next controls, mirroring it for RTL.
-     *
-     * @private
+     * The current page never sits directly against an ellipsis — the window
+     * sizes and anchors below guarantee that. See the README for the rendered
+     * sequences.
      */
+    private _getVisiblePages (currentPage: number, totalPages: number): Array<number | 'ellipsis'> {
+        // Ellipses only save space when there are more than 7 pages, so below that we just show them all.
+        if (totalPages <= 7) {
+            return Array.from({ length: Math.max(totalPages, 0) }, (_, index) => index + 1);
+        }
+
+        const edgeWindowSize = 5;
+
+        if (currentPage <= edgeWindowSize - 1) {
+            return [
+                ...Array.from({ length: edgeWindowSize }, (_, index) => index + 1),
+                'ellipsis',
+                totalPages,
+            ];
+        }
+
+        if (currentPage >= totalPages - (edgeWindowSize - 2)) {
+            return [
+                1,
+                'ellipsis',
+                ...Array.from({ length: edgeWindowSize }, (_, index) => totalPages - edgeWindowSize + 1 + index),
+            ];
+        }
+
+        return [
+            1,
+            'ellipsis',
+            currentPage - 1,
+            currentPage,
+            currentPage + 1,
+            'ellipsis',
+            totalPages,
+        ];
+    }
+
     private _renderChevronIcon (direction: 'previous' | 'next') {
         const pointsLeft = direction === 'previous' ? !this.isRTL : this.isRTL;
 
@@ -126,17 +148,22 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
     }
 
     render () {
-        const {
-            aria, currentPage, disabled, totalPages,
-        } = this;
+        const { aria, disabled } = this;
+        const totalPages = this._getSafeTotalPages();
+        const currentPage = this._getSafeCurrentPage();
 
-        const pages = Array.from({ length: Math.max(totalPages, 0) }, (_, index) => index + 1);
+        const visiblePages = this._getVisiblePages(currentPage, totalPages);
         const isPreviousDisabled = disabled || currentPage <= 1;
         const isNextDisabled = disabled || currentPage >= totalPages;
 
+        const navClasses = {
+            'c-pagination': true,
+            'c-pagination--disabled': disabled,
+        };
+
         return html`
             <nav
-                class="c-pagination"
+                class="${classMap(navClasses)}"
                 aria-label="${aria?.label ?? 'Pagination'}"
                 data-test-id="pie-pagination">
                 <ol class="c-pagination-list" data-test-id="pie-pagination-list">
@@ -152,7 +179,19 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
                         </pie-icon-button>
                     </li>
 
-                    ${pages.map((page) => {
+                    ${visiblePages.map((pageItem) => {
+            if (pageItem === 'ellipsis') {
+                return html`
+                            <li class="c-pagination-item" aria-hidden="true">
+                                <span
+                                    class="c-pagination-ellipsis"
+                                    data-test-id="pie-pagination-ellipsis">
+                                    …
+                                </span>
+                            </li>`;
+            }
+
+            const page = pageItem;
             const isCurrent = page === currentPage;
             const classes = {
                 'c-pagination-control': true,
@@ -189,7 +228,6 @@ export class PiePagination extends RtlMixin(PieElement) implements PaginationPro
             </nav>`;
     }
 
-    // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
 
