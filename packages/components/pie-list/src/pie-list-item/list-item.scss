@@ -37,7 +37,7 @@
 
 // Two lines of text (primary + secondary) need top-alignment so leading/trailing
 // content sits level with the first line, not centred across both lines.
-.c-listItem-container.has-secondary-text {
+.c-listItem-container:has(.c-listItem-secondaryText) {
     align-items: var(--list-item-alignment);
     min-height: 76px;
 }
@@ -146,9 +146,9 @@ slot[name="link"]::slotted(a:focus-visible),
 }
 
 // Larger slotted media (e.g. pie-thumbnail) reduces the block padding, but only
-// when the primary text stands alone (no secondary text). With secondary text the
-// default padding is kept so two lines of text sit correctly.
-.c-listItem-container.has-media:not(.has-secondary-text) {
+// when the primary text stands alone (`:only-child` == no secondary text). With
+// secondary text the default padding is kept so two lines of text sit correctly.
+.c-listItem-container.has-media:has(.c-listItem-primaryText:only-child) {
     --list-item-block-padding: var(--dt-spacing-b);
 }
 

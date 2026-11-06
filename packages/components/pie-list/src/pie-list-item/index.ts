@@ -283,7 +283,11 @@ export class PieListItem extends PieElement implements ListItemProps {
             return html`<span class="c-listItem-secondaryText">${secondaryText}</span>`;
         }
 
-        return html`<span class="c-listItem-secondaryText"><slot name="secondary"></slot></span>`;
+        if (this._secondaryContentText) {
+            return html`<span class="c-listItem-secondaryText"><slot name="secondary"></slot></span>`;
+        }
+
+        return nothing;
     }
 
     // metaText is another form of trailing content. The component can only ever display either slotted trailing content or the metaText string
@@ -327,7 +331,6 @@ export class PieListItem extends PieElement implements ListItemProps {
             'is-link': this._isLinkRow,
             'is-button': this._isButtonRow,
             'is-disabled': this._isDisabled,
-            'has-secondary-text': Boolean(this.secondaryText),
         };
 
         return html`
