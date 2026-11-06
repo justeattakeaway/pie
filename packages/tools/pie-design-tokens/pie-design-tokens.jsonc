@@ -213,6 +213,7 @@
       "family-secondary": "Arial",
       "family-code": "PTMono",
       "family-alternative": "JETSansVF2",
+      "family-display": "JETSansDisplay",
 
       "weight-extrabold": "$platform",
       "weight-bold": "$platform",
@@ -227,7 +228,12 @@
       "size-24": "24",
       "size-28": "28",
       "size-32": "32",
+      "size-40": "40",
       "size-48": "48",
+      "size-56": "56",
+      "size-64": "64",
+      "size-88": "88",
+      "size-96": "96",
 
       "line-height-16": "16",
       "line-height-20": "20",
@@ -235,7 +241,20 @@
       "line-height-28": "28",
       "line-height-32": "32",
       "line-height-36": "36",
+      "line-height-40": "40",
+      "line-height-48": "48",
       "line-height-52": "52",
+      "line-height-56": "56",
+      "line-height-80": "80",
+      "line-height-88": "88",
+
+      "letter-spacing-minus-00-5": "-0.5",
+      "letter-spacing-minus-00-15": "-0.15",
+      "letter-spacing-minus-01": "-1",
+      "letter-spacing-minus-01-25": "-1.25",
+      "letter-spacing-minus-01-5": "-1.5",
+      "letter-spacing-minus-02": "-2",
+      "letter-spacing-minus-02-5": "-2.5",
 
       // Coupled font-size and line-height tokens (deprecated - added for backwards compatibility and will be removed in next major)
       "size-12-line-height": "16",
@@ -2067,6 +2086,62 @@
             "weight": "weight-bold",
             "paragraph": "paragraph-spacing-03",
             "text-decoration": "style-underline"
+          },
+
+          "display-xl": {
+            "size--wide": "size-96",
+            "line-height--wide": "line-height-88",
+            "size--narrow": "size-88",
+            "line-height--narrow": "line-height-80",
+            "family": "family-display",
+            "weight": "weight-extrablack",
+            "font-style": "style-italic",
+            "letter-spacing--wide": "letter-spacing-minus-02-5",
+            "letter-spacing--narrow": "letter-spacing-minus-02"
+          },
+          "display-l": {
+            "size--wide": "size-64",
+            "line-height--wide": "line-height-56",
+            "size--narrow": "size-56",
+            "line-height--narrow": "line-height-48",
+            "family": "family-display",
+            "weight": "weight-extrablack",
+            "font-style": "style-italic",
+            "letter-spacing--wide": "letter-spacing-minus-01-5",
+            "letter-spacing--narrow": "letter-spacing-minus-01-5"
+          },
+          "display-m": {
+            "size--wide": "size-48",
+            "line-height--wide": "line-height-40",
+            "size--narrow": "size-40",
+            "line-height--narrow": "line-height-32",
+            "family": "family-display",
+            "weight": "weight-extrablack",
+            "font-style": "style-italic",
+            "letter-spacing--wide": "letter-spacing-minus-01-25",
+            "letter-spacing--narrow": "letter-spacing-minus-01"
+          },
+          "display-s": {
+            "size--wide": "size-40",
+            "line-height--wide": "line-height-32",
+            "size--narrow": "size-32",
+            "line-height--narrow": "line-height-28",
+            "family": "family-display",
+            "weight": "weight-extrablack",
+            "font-style": "style-italic",
+            "letter-spacing--wide": "letter-spacing-minus-01",
+            "letter-spacing--narrow": "letter-spacing-minus-00-5"
+          },
+          "display-xs": {
+            "size--wide": "size-32",
+            "line-height--wide": "line-height-28",
+            "size--narrow": "size-24",
+            "line-height--narrow": "line-height-24",
+            "family": "family-display",
+            "weight": "weight-extrablack",
+            "font-style": "style-italic",
+            "letter-spacing--wide": "letter-spacing-minus-00-5",
+            "letter-spacing--narrow": "letter-spacing-minus-00-5"
           }
         }
       },

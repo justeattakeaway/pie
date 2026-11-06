@@ -2290,9 +2290,29 @@
         "category": "fontSize",
         "description": "Text size: 32px"
       },
+      "size-40": {
+        "category": "fontSize",
+        "description": "Text size: 40px"
+      },
       "size-48": {
         "category": "fontSize",
         "description": "Text size: 48px"
+      },
+      "size-56": {
+        "category": "fontSize",
+        "description": "Text size: 56px"
+      },
+      "size-64": {
+        "category": "fontSize",
+        "description": "Text size: 64px"
+      },
+      "size-88": {
+        "category": "fontSize",
+        "description": "Text size: 88px"
+      },
+      "size-96": {
+        "category": "fontSize",
+        "description": "Text size: 96px"
       },
       "line-height-16": {
         "category": "lineHeight",
@@ -2318,9 +2338,29 @@
         "category": "lineHeight",
         "description": "Line height: 36px"
       },
+      "line-height-40": {
+        "category": "lineHeight",
+        "description": "Line height: 40px"
+      },
+      "line-height-48": {
+        "category": "lineHeight",
+        "description": "Line height: 48px"
+      },
       "line-height-52": {
         "category": "lineHeight",
         "description": "Line height: 52px"
+      },
+      "line-height-56": {
+        "category": "lineHeight",
+        "description": "Line height: 56px"
+      },
+      "line-height-80": {
+        "category": "lineHeight",
+        "description": "Line height: 80px"
+      },
+      "line-height-88": {
+        "category": "lineHeight",
+        "description": "Line height: 88px"
       },
       "style-underline": {
         "category": "textDecoration",
@@ -2345,10 +2385,72 @@
       "letter-spacing-00": {
         "category": "letterSpacing",
         "description": "Letter spacing: default"
+      },
+      "letter-spacing-minus-00-5": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: -0.5px"
+      },
+      "letter-spacing-minus-00-15": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: -0.15px"
+      },
+      "letter-spacing-minus-01": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: -1px"
+      },
+      "letter-spacing-minus-01-25": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: -1.25px"
+      },
+      "letter-spacing-minus-01-5": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: -1.5px"
+      },
+      "letter-spacing-minus-02": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: -2px"
+      },
+      "letter-spacing-minus-02-5": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: -2.5px"
+      },
+      "family-display": {
+        "category": "fontFamily",
+        "description": "Display font family"
       }
     },
     "alias": {
       "wide": {
+        "display-xl": {
+          "category": "display",
+          "displayName": "Display XL",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-96", "$font-line-height-88", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-02-5"]
+        },
+        "display-l": {
+          "category": "display",
+          "displayName": "Display L",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-64", "$font-line-height-56", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-01-5"]
+        },
+        "display-m": {
+          "category": "display",
+          "displayName": "Display M",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-48", "$font-line-height-40", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-01-25"]
+        },
+        "display-s": {
+          "category": "display",
+          "displayName": "Display S",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-40", "$font-line-height-32", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-01"]
+        },
+        "display-xs": {
+          "category": "display",
+          "displayName": "Display XS",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-32", "$font-line-height-28", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-00-5"]
+        },
         "heading-xxl": {
           "category": "headings",
           "displayName": "Heading XXL",
@@ -2531,6 +2633,36 @@
         }
       },
       "narrow": {
+        "display-xl": {
+          "category": "display",
+          "displayName": "Display XL",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-88", "$font-line-height-80", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-02"]
+        },
+        "display-l": {
+          "category": "display",
+          "displayName": "Display L",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-56", "$font-line-height-48", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-01-5"]
+        },
+        "display-m": {
+          "category": "display",
+          "displayName": "Display M",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-40", "$font-line-height-32", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-01"]
+        },
+        "display-s": {
+          "category": "display",
+          "displayName": "Display S",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-32", "$font-line-height-28", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-00-5"]
+        },
+        "display-xs": {
+          "category": "display",
+          "displayName": "Display XS",
+          "description": "Used for headings in hero and header components.",
+          "globalToken": ["$font-family-display", "$font-size-24", "$font-line-height-24", "$font-weight-extrablack", "$font-style-italic", "$font-letter-spacing-minus-00-5"]
+        },
         "heading-xxl": {
           "category": "headings",
           "displayName": "Heading XXL",
