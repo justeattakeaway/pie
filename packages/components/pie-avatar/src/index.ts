@@ -1,11 +1,11 @@
 import {
-    html, type TemplateResult, unsafeCSS,
+    html, type PropertyValues, type TemplateResult, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 
-import { property } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import styles from './avatar.scss?inline';
 import {
     type AvatarProps, defaultProps, tags, type Initials,
@@ -31,6 +31,12 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
 
     @property({ type: String })
     public src: AvatarProps['src'];
+
+    @query('img')
+    private img!: HTMLImageElement;
+
+    @state()
+    private _hasImageError = false;
 
     /**
      * Attempts to extract initials from the label string.
@@ -85,13 +91,51 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
+     * Handles the image error event by flagging the image as failed,
+     * so the user icon is rendered instead.
+     *
+     * @private
+     */
+    private _handleImageError (): void {
+        this._hasImageError = true;
+    }
+
+    /**
+     * Checks if image load failed and triggers error handling if needed.
+     * In case `<img>` is SSR-ed, loading can fail before the error listener is attached.
+     *
+     * @private
+     */
+    private _checkImageError (): void {
+        if (this.img) {
+            const { complete, naturalHeight } = this.img;
+            const hasError = complete && naturalHeight === 0;
+            if (hasError) this._handleImageError();
+        }
+    }
+
+    /**
+     * Resets the image error state whenever `src` changes, so a new image is
+     * attempted and can fall back to the icon if it also fails.
+     */
+    protected updated (changedProperties: PropertyValues<this>): void {
+        if (changedProperties.get('src') !== undefined) {
+            this._hasImageError = false;
+        }
+    }
+
+    protected firstUpdated (): void {
+        this._checkImageError();
+    }
+
+    /**
      * Renders an image.
      * We assign an empty string to the alt attribute for a11y clarity as it explicitly declares the image as decorative
      *
      * @private
     */
     private renderImage (imgSrc: string): TemplateResult {
-        return html`<img class="c-avatar--image" src="${imgSrc}" data-test-id="pie-avatar-image" alt=""/>`;
+        return html`<img class="c-avatar--image" src="${imgSrc}" data-test-id="pie-avatar-image" alt="" @error=${this._handleImageError}/>`;
     }
 
     /**
@@ -101,6 +145,10 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * @private
      */
     private get avatarContent (): TemplateResult {
+        if (this._hasImageError) {
+            return this.renderIcon();
+        }
+
         if (this.src) {
             return this.renderImage(this.src);
         }
