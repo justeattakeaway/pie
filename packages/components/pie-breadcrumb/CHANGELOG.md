@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 1.0.19
+
+### Patch Changes
+
+- Updated dependencies [[`2d33784`](https://github.com/justeattakeaway/pie/commit/2d33784c0fcd25b3cb1f6b6e381201e848376213)]:
+  - @justeattakeaway/pie-icons-webc@1.30.0
+  - @justeattakeaway/pie-link@1.5.10
+
 ## 1.0.18
 
 ### Patch Changes

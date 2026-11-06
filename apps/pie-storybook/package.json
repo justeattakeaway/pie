@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.89.24",
+  "version": "1.89.25",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -18,13 +18,13 @@
   "dependencies": {
     "@justeat/pie-design-tokens": "7.15.1",
     "@justeattakeaway/pie-css": "1.9.1",
-    "@justeattakeaway/pie-icons-webc": "1.29.5",
-    "@justeattakeaway/pie-webc": "1.0.0",
+    "@justeattakeaway/pie-icons-webc": "1.30.0",
+    "@justeattakeaway/pie-webc": "1.0.1",
     "dompurify": "3.4.15"
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "5.21.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.12",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.13",
     "@storybook/addon-a11y": "10.6.5",
     "@storybook/addon-designs": "11.1.4",
     "@storybook/addon-docs": "10.6.5",

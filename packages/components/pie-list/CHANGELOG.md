@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-list
 
+## 0.8.2
+
+### Patch Changes
+
+- [Fixed] - Corrected the design documentation link in the README ([#3301](https://github.com/justeattakeaway/pie/pull/3301)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.1
 
 ### Patch Changes
