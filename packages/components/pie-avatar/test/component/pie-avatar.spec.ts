@@ -3,19 +3,21 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 
 const avatarInitialsTestCases = [
     { input: 'Alice Johnson', expectedVisual: 'AJ', expectedScreenReader: 'A, J' },
-    { input: 'John Davis Smith', expectedVisual: 'JD', expectedScreenReader: 'J, D' },
+    { input: 'John Davis Smith', expectedVisual: 'JS', expectedScreenReader: 'J, S' },
     { input: 'John Davis-Smith', expectedVisual: 'JD', expectedScreenReader: 'J, D' },
-    { input: 'Jean-Luc Picard', expectedVisual: 'JL', expectedScreenReader: 'J, L' },
+    { input: 'Jean-Luc Picard', expectedVisual: 'JP', expectedScreenReader: 'J, P' },
     { input: '  Mary   Anne  ', expectedVisual: 'MA', expectedScreenReader: 'M, A' },
     { input: 'Madonna', expectedVisual: 'M', expectedScreenReader: 'M' },
     { input: 'John 123', expectedVisual: 'J1', expectedScreenReader: 'J, 1' },
-    { input: "D'Angelo Russell", expectedVisual: 'DR', expectedScreenReader: 'D, R' }
+    { input: "D'Angelo Russell", expectedVisual: 'DR', expectedScreenReader: 'D, R' },
+    { input: '-*Mary Bell', expectedVisual: 'MB', expectedScreenReader: 'M, B' },
+    { input: 'John **// Bell', expectedVisual: 'JB', expectedScreenReader: 'J, B' },
 
 ];
 const avatarEdgeTestCases = [
     { input: '' },
     { input: null },
-    { input: undefined }
+    { input: undefined },
 ];
 
 test.describe('PieAvatar - Component tests', () => {
