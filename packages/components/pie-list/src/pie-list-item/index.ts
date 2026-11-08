@@ -285,7 +285,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             return html`<span class="c-listItem-primaryText">${primaryText}</span>`;
         }
 
-        return html`<span class="c-listItem-primaryText"><slot name="primary"></slot></span>`;
+        return html`<span class="c-listItem-primaryText"><slot name="primary" @slotchange=${this._syncSlottedText}></slot></span>`;
     }
 
     _renderSecondaryText () {
@@ -295,7 +295,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         }
 
         if (this._slottedSecondaryText) {
-            return html`<span class="c-listItem-secondaryText"><slot name="secondary"></slot></span>`;
+            return html`<span class="c-listItem-secondaryText"><slot name="secondary" @slotchange=${this._syncSlottedText}></slot></span>`;
         }
 
         return nothing;
@@ -345,7 +345,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         };
 
         return html`
-        <div class=${classMap(containerClasses)} @slotchange=${this._syncSlottedText}>
+        <div class=${classMap(containerClasses)}>
             ${this._isLinkRow ? html`<slot name="link"></slot>` : nothing}
             ${this._isButtonRow ? this._renderActionButton() : nothing}
             <div class="c-listItem-leading">
@@ -356,7 +356,6 @@ export class PieListItem extends PieElement implements ListItemProps {
                 ${this._renderPrimaryText()}
                 ${this._renderSecondaryText()}
             </div>
-            <slot name="secondary" style="display: none;"></slot>
 
             ${this._renderTrailingContent()}
         </div>`;
