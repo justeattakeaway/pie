@@ -135,12 +135,19 @@ export class PieListItem extends PieElement implements ListItemProps {
         return this.disabled || this._parentDisabled;
     }
 
-    private get _primaryContentText (): string | undefined {
-        return this.primaryText || this.querySelector('[slot="primary"]')?.textContent?.trim() || undefined;
+    @state()
+    private _slottedPrimaryText?: string;
+
+    @state()
+    private _slottedSecondaryText?: string;
+
+    private _getSlottedText (name: 'primary' | 'secondary') {
+        return this.querySelector(`[slot="${name}"]`)?.textContent?.replace(/\s+/g, ' ').trim() || undefined;
     }
 
-    private get _secondaryContentText (): string | undefined {
-        return this.secondaryText || this.querySelector('[slot="secondary"]')?.textContent?.trim() || undefined;
+    private _syncSlottedText () {
+        this._slottedPrimaryText = this._getSlottedText('primary');
+        this._slottedSecondaryText = this._getSlottedText('secondary');
     }
 
     // The interactive control (radio/checkbox/switch) slotted into this item, if any. Used only by
@@ -159,6 +166,10 @@ export class PieListItem extends PieElement implements ListItemProps {
     disconnectedCallback () {
         super.disconnectedCallback();
         this._abortController.abort();
+    }
+
+    protected firstUpdated () {
+        this._syncSlottedText();
     }
 
     protected updated () {
@@ -192,9 +203,9 @@ export class PieListItem extends PieElement implements ListItemProps {
     private get _providedAria (): ContextualAria | undefined {
         if (!this._providesAria) return undefined;
 
-        const description = [this._secondaryContentText, this.metaText].filter(Boolean).join('. ');
+        const description = [this.secondaryText || this._slottedSecondaryText, this.metaText].filter(Boolean).join('. ');
 
-        return { label: this._primaryContentText, description: description || undefined };
+        return { label: this.primaryText || this._slottedPrimaryText, description: description || undefined };
     }
 
     /**
@@ -283,7 +294,7 @@ export class PieListItem extends PieElement implements ListItemProps {
             return html`<span class="c-listItem-secondaryText">${secondaryText}</span>`;
         }
 
-        if (this._secondaryContentText) {
+        if (this._slottedSecondaryText) {
             return html`<span class="c-listItem-secondaryText"><slot name="secondary"></slot></span>`;
         }
 
@@ -334,7 +345,7 @@ export class PieListItem extends PieElement implements ListItemProps {
         };
 
         return html`
-        <div class=${classMap(containerClasses)}>
+        <div class=${classMap(containerClasses)} @slotchange=${this._syncSlottedText}>
             ${this._isLinkRow ? html`<slot name="link"></slot>` : nothing}
             ${this._isButtonRow ? this._renderActionButton() : nothing}
             <div class="c-listItem-leading">
@@ -345,6 +356,7 @@ export class PieListItem extends PieElement implements ListItemProps {
                 ${this._renderPrimaryText()}
                 ${this._renderSecondaryText()}
             </div>
+            <slot name="secondary" style="display: none;"></slot>
 
             ${this._renderTrailingContent()}
         </div>`;

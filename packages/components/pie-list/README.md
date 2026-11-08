@@ -158,8 +158,8 @@ The one accessibility attribute you **do** own is the accessible name of the `pi
 
 When a `pie-list-item` hosts an interactive element (a slotted control set via `interactionType="radio" | "checkbox" | "switch"`, a slotted link anchor via `interactionType="link"`, or the button it renders for `interactionType="button"`) it generates that element's accessibility naming from its own text:
 
-- `primaryText` becomes the element's **accessible name**;
-- `secondaryText` and `metaText` become its **accessible description** (combined with a full stop when both are present);
+- `primaryText` (or the `primary` slot, when `primaryText` is not set) becomes the element's **accessible name**;
+- `secondaryText` (or the `secondary` slot, when `secondaryText` is not set) and `metaText` become its **accessible description** (combined with a full stop when both are present);
 - the visible text rendered inside the item is `aria-hidden`, so a screen reader announces the name and description once (via the interactive element) rather than twice.
 
 How the naming reaches the element differs by type, but this is entirely internal - you never do it yourself. Selection controls receive it through a shared context and each applies it to the element that carries its role: `pie-radio` names its host, while `pie-checkbox` and `pie-switch` name their internal `input` (their host is role-less). A link anchor is a plain light-DOM element you slot (not a PIE control), so `pie-list-item` sets `aria-label` and `aria-description` on it directly. A `button` row's button is one the item renders itself, so it is named the same way from within the item.
