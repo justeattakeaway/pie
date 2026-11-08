@@ -141,13 +141,11 @@ export class PieListItem extends PieElement implements ListItemProps {
     @state()
     private _slottedSecondaryText?: string;
 
-    private _getSlottedText (name: 'primary' | 'secondary') {
-        return this.querySelector(`[slot="${name}"]`)?.textContent?.replace(/\s+/g, ' ').trim() || undefined;
-    }
-
     private _syncSlottedText () {
-        this._slottedPrimaryText = this._getSlottedText('primary');
-        this._slottedSecondaryText = this._getSlottedText('secondary');
+        const getText = (name: string) => this.querySelector(`[slot="${name}"]`)?.textContent?.trim() || undefined;
+
+        this._slottedPrimaryText = getText('primary');
+        this._slottedSecondaryText = getText('secondary');
     }
 
     // The interactive control (radio/checkbox/switch) slotted into this item, if any. Used only by
