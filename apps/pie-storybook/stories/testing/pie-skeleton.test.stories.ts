@@ -18,8 +18,13 @@ import { typographyIdentifiers } from '../../utilities/typographyIdentifiers';
 
 type SkeletonStoryMeta = Meta<SkeletonProps>;
 
+// `width` and `height` are omitted from `defaultProps` (they have no default), but they must be
+// present in the story args for the browser tests to set them through the story URL. `height` is
+// left undefined so the box keeps its default 1:1 aspect ratio.
 const defaultArgs: SkeletonProps = {
     ...defaultProps,
+    width: '200px',
+    height: undefined,
 };
 
 const skeletonStoryMeta: SkeletonStoryMeta = {
