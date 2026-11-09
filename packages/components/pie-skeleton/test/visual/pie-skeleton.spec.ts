@@ -33,4 +33,15 @@ test.describe('PieSkeleton - Visual tests', () => {
             await percySnapshot(page, `PIE Skeleton - ${name}`, { widths: [1280] });
         });
     });
+
+    test('should display the Text lines story in RTL', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'skeleton--text-lines');
+        await basePage.load({}, { writingDirection: 'rtl' });
+
+        // Assert
+        await expect.soft(page.getByTestId(skeleton.selectors.container.dataTestId).first()).toBeVisible();
+
+        await percySnapshot(page, 'PIE Skeleton - Text lines (RTL)', { widths: [1280] });
+    });
 });
