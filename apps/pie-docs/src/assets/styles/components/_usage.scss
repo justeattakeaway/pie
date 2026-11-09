@@ -19,8 +19,8 @@ $usage-bg-minHeight: 280px;
 
 .c-usage-caption {
     margin: 0;
-    @include p.font-size(--dt-font-caption-size);
-    @include p.line-height(--dt-font-caption-line-height);
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
 
     &:empty {
         display: none;
