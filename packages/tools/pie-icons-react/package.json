@@ -57,7 +57,7 @@
     "test:watch": "run -T vitest"
   },
   "devDependencies": {
-    "@babel/core": "7.29.7",
+    "@babel/core": "7.29.13",
     "@babel/node": "7.29.7",
     "@babel/preset-react": "7.29.7",
     "@justeattakeaway/pie-icons": "5.33.0",
