@@ -161,6 +161,9 @@ export class PieSkeleton extends PieElement implements SkeletonProps {
         if (variant === 'pill') {
             if (this._isButtonSize(height)) {
                 classes[`c-skeleton--${height}`] = true;
+            } else if (!this._resolveHeight()) {
+                // The pill defaults to the medium button height.
+                classes['c-skeleton--button-medium'] = true;
             }
             classes['c-skeleton--responsive'] = isResponsive;
         }
@@ -182,7 +185,13 @@ export class PieSkeleton extends PieElement implements SkeletonProps {
             styles.push(`width: ${width}`);
         }
 
-        if (variant === 'box' || variant === 'circle' || variant === 'pill') {
+        if (variant === 'circle') {
+            // A circle is sized by its height; width follows so it stays 1:1.
+            const height = this._resolveHeight();
+            if (height) {
+                styles.push(`width: ${height}`, `height: ${height}`);
+            }
+        } else if (variant === 'box' || variant === 'pill') {
             const height = this._resolveHeight();
             if (height) styles.push(`height: ${height}`);
         }
