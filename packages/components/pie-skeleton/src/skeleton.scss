@@ -23,6 +23,36 @@ $font-identifiers: ();
 // The pie-button sizes a pill can match, via height="button-{size}".
 $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'large');
 
+// The shimmer shared by every shape (box, circle, pill, text bar and star). A soft diagonal
+// band of the matching shimmer token (at 50% opacity) sweeps across the shape from left to
+// right. The band starts off the leading edge, so a shape that is not animating (reduced
+// motion, or a frozen visual test) shows only the flat background colour.
+@mixin skeleton-shimmer {
+    background-color: var(--skeleton-bg);
+    background-image: linear-gradient(
+        135deg,
+        transparent 40%,
+        var(--skeleton-shimmer-color) 50%,
+        transparent 60%
+    );
+    background-position: 150% 0;
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+
+    animation: skeletonShimmer var(--skeleton-shimmer-duration) linear infinite;
+    animation-direction: var(--skeleton-shimmer-direction);
+}
+
+@keyframes skeletonShimmer {
+    from {
+        background-position: 150% 0;
+    }
+
+    to {
+        background-position: -50% 0;
+    }
+}
+
 :host {
     display: block;
 
@@ -35,23 +65,43 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
     --skeleton-border-radius: var(--dt-radius-rounded-b);
     --skeleton-text-radius: var(--dt-radius-rounded-a);
     --skeleton-star-size: var(--dt-spacing-e);
+    --skeleton-shimmer: var(--dt-color-skeleton-shimmer-01);
+
+    // The shimmer band uses the matching shimmer token at 50% opacity.
+    --skeleton-shimmer-color: color-mix(in srgb, var(--skeleton-shimmer) 50%, transparent);
+
+    // The Figma spec calls for a 1200ms duration. pie-design-tokens has no skeleton duration
+    // token (the motion-timing tokens top out at 350ms), so this is defined locally and
+    // flagged to design to add one.
+    --skeleton-shimmer-duration: 1200ms;
+
+    // Reversed in RTL so the shimmer follows the reading direction (right to left).
+    --skeleton-shimmer-direction: normal;
 
     position: relative;
     overflow: hidden;
     width: 100%;
 }
 
+// In RTL the shimmer moves in the opposite direction (right to left).
+:host(:dir(rtl)) .c-skeleton {
+    --skeleton-shimmer-direction: reverse;
+}
+
 // Background colours
 .c-skeleton--backgroundDefault {
     --skeleton-bg: var(--dt-color-skeleton-01);
+    --skeleton-shimmer: var(--dt-color-skeleton-shimmer-01);
 }
 
 .c-skeleton--backgroundStrong {
     --skeleton-bg: var(--dt-color-skeleton-02);
+    --skeleton-shimmer: var(--dt-color-skeleton-shimmer-02);
 }
 
 .c-skeleton--backgroundSubtle {
     --skeleton-bg: var(--dt-color-skeleton-03);
+    --skeleton-shimmer: var(--dt-color-skeleton-shimmer-03);
 }
 
 // Shapes
@@ -59,7 +109,7 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
 .c-skeleton--circle,
 .c-skeleton--pill,
 .c-skeleton-star {
-    background-color: var(--skeleton-bg);
+    @include skeleton-shimmer;
 }
 
 // Box
@@ -162,6 +212,7 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
 
     // The bar is the font size tall and centred in the line box.
     &:after {
+        @include skeleton-shimmer;
         content: '';
         position: absolute;
         inset-inline: 0;
@@ -169,7 +220,6 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
         translate: 0 -50%;
         block-size: 1em;
         border-radius: var(--skeleton-text-radius);
-        background-color: var(--skeleton-bg);
     }
 
     // With more than one line, the last line is half width (set through the is-last class).
@@ -201,4 +251,17 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
     mask-position: center;
     mask-repeat: no-repeat;
     mask-size: contain;
+}
+
+// Motion-sensitive users get a static placeholder: no shimmer, just the background colour.
+@media (prefers-reduced-motion: reduce) {
+    .c-skeleton--box,
+    .c-skeleton--circle,
+    .c-skeleton--pill,
+    .c-skeleton-star,
+    .c-skeleton-line:after {
+        background-image: none;
+
+        animation: none;
+    }
 }
