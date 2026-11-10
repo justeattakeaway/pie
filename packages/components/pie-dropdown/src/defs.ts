@@ -20,10 +20,7 @@ export interface DropdownOption {
      */
     primaryText: string,
 
-    /**
-     * Optional supporting text rendered beneath the primary text. Used as the
-     * option's accessible description rather than part of its name.
-     */
+    /** Supporting text beneath the primary text; the option's accessible description; matched by search filtering. */
     secondaryText?: string,
 
     /**
@@ -77,10 +74,7 @@ export interface DropdownProps {
      */
     isMultiselect?: boolean,
 
-    /**
-     * **Required:** When true, the field becomes a text input that filters the
-     * options list as the user types.
-     */
+    /** **Required:** When true, the field becomes a search input, filtering by primary or secondary text (prefix match). */
     isSearchable?: boolean,
 
     /**

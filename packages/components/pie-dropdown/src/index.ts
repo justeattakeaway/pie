@@ -176,6 +176,13 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @state()
     private _hasEverOpened = false;
 
+    /** Clones of the selected option's slotted icon, rendered in its row (the field's slot wins the projection). */
+    @state()
+    private _selectionIconClones: HTMLElement[] = [];
+
+    /** The `value` the icon clones were last captured for, so `updated()` only re-captures on change. */
+    private _iconSyncValue: DropdownProps['value'] | undefined;
+
     private _value: DropdownProps['value'] = '';
 
     /** The value the component resets to when its owning form is reset. */
@@ -292,6 +299,11 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (changedProperties.has('required')) {
             this._updateValidity();
         }
+
+        // Re-capture after controlled value changes; updated() never runs during SSR.
+        if (this._hasEverOpened && this._iconSyncValue !== this._value) {
+            this._syncSelectionIconClones();
+        }
     }
 
     public disconnectedCallback (): void {
@@ -325,13 +337,32 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (!this.isSearchable || !this._searchText) return this._openOptions;
 
         const needle = this._searchText.toLowerCase();
-        // v1 filters on the primary text with a starts-to-match rule; a richer
-        // matching rule (any-part, secondary text) is a future feature.
-        return this._openOptions.filter((option) => option.primaryText.toLowerCase().startsWith(needle));
+        // Prefix match, case-insensitive, on the primary or secondary text.
+        const matches = (text?: string): boolean => !!text && text.toLowerCase().startsWith(needle);
+
+        return this._openOptions.filter((option) => matches(option.primaryText) || matches(option.secondaryText));
     }
 
     private _isSelected (option: DropdownOption): boolean {
         return this._selectedValues.includes(option.value);
+    }
+
+    /** Captures the selected option's slotted icon(s) as clones for its row; client-side only, never during SSR. */
+    private _syncSelectionIconClones (): void {
+        this._iconSyncValue = this._value;
+
+        const slot = this.renderRoot?.querySelector<HTMLSlotElement>('.c-dropdown-selectionIcon slot');
+
+        this._selectionIconClones = slot
+            ? slot.assignedElements().map((element) => {
+                const clone = element.cloneNode(true) as HTMLElement;
+                // Slotted into the row like the original, so the row's styling applies; the class marks it for tests.
+                clone.setAttribute('slot', 'leading');
+                clone.classList.add('c-dropdown-rowIcon');
+
+                return clone;
+            })
+            : [];
     }
 
     private _selectSingle (option: DropdownOption): void {
@@ -431,6 +462,9 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             : [...(this.options ?? [])];
         this._isOpen = true;
         this._hasEverOpened = true;
+
+        // Capture before the rows render: the slot's initial slotchange can fire before hydration attaches the listener.
+        this._syncSelectionIconClones();
 
         dispatchCustomEvent(this, 'pie-dropdown-open', { source });
 
@@ -738,6 +772,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
+    private _onSelectionIconSlotChange = (): void => {
+        this._syncSelectionIconClones();
+    };
+
     private _onCheckboxChange = (event: Event): void => {
         const checkbox = event.composedPath().find((node): node is HTMLElement => node instanceof HTMLElement && node.tagName === 'PIE-CHECKBOX') as (HTMLElement & { value: string; checked: boolean }) | undefined;
 
@@ -896,19 +934,14 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         return html`<span class="c-dropdown-fieldPlaceholder" data-test-id="pie-dropdown-placeholder">${this.placeholder || ''}</span>`;
     }
 
-    /**
-     * The selected option's leading icon, projected into the field via its `icon-{value}` slot
-     * (this slot comes first, so it wins the projection over the option row). Non-searchable
-     * variants only render it while closed — open, the icon returns to the row per the designs;
-     * searchable variants keep it in the field, including while searching.
-     */
+    /** The selected option's leading icon, projected into the field (its slot renders first, so it wins over the row's). */
     private _renderSelectionIcon (): TemplateResult | typeof nothing {
         if (this.isMultiselect || !this._hasSelection) return nothing;
 
-        if (!this.isSearchable && this._isOpen) return nothing;
-
         return html`<span class="c-dropdown-selectionIcon">
-            <slot name="icon-${this._selectedValues[0]}"></slot>
+            <slot
+                name="icon-${this._selectedValues[0]}"
+                @slotchange=${this._onSelectionIconSlotChange}></slot>
         </span>`;
     }
 
@@ -1081,6 +1114,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         `;
     }
 
+    /** The selected option renders clones of its slotted icon; the rows never exist during SSR. */
     private _renderOptionRow (option: DropdownOption): TemplateResult {
         const selected = this._isSelected(option);
 
@@ -1102,7 +1136,9 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 ${selected
             ? html`<icon-check slot="trailing" size="s" aria-hidden="true"></icon-check>`
             : nothing}
-                <slot name="icon-${option.value}" slot="leading"></slot>
+                ${selected && this._selectionIconClones.length > 0
+                ? this._selectionIconClones
+                : html`<slot name="icon-${option.value}" slot="leading"></slot>`}
             </pie-list-item>
         `;
     }

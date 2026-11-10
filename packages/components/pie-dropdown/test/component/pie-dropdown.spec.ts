@@ -926,6 +926,34 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(option)).toHaveText('Pasta');
         });
 
+        test('should filter options by secondary text', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--complex-options-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.click();
+            await input.fill('Wood');
+
+            // No primary text starts with "Wood": Pizza matches via its secondary text ("Wood-fired, with a crisp base").
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(option)).toHaveCount(1);
+            await expect(page.getByTestId(option)).toContainText('Pizza');
+            await expect(page.getByTestId(dropdown.selectors.status.dataTestId)).toHaveText('1 option available');
+        });
+
+        test('should match secondary text case-insensitively', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--complex-options-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.click();
+            await input.fill('SLOW');
+
+            // Curry's secondary text starts with "Slow-cooked" (case-insensitively).
+            await expect(page.getByTestId(option)).toHaveCount(1);
+            await expect(page.getByTestId(option)).toContainText('Curry');
+        });
+
         test('should announce the number of matching options', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();
@@ -996,6 +1024,27 @@ test.describe('PieDropdown - Component tests', () => {
             return { location, assigned: slot.assignedElements().length };
         }, value);
 
+        // The row shows clones (rendered nodes), so its icon cannot be asserted through slot assignment like the field's.
+        const rowIconState = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.evaluate((optionValue) => {
+            const dropdown = document.querySelector('pie-dropdown');
+            const row = dropdown?.shadowRoot?.querySelector(`#pie-dropdown-option-${optionValue}`);
+            const clone = row?.querySelector('.c-dropdown-rowIcon') ?? null;
+
+            return {
+                hasRow: !!row,
+                rowIconCount: row?.querySelectorAll('.c-dropdown-rowIcon').length ?? 0,
+                cloneTag: clone?.tagName.toLowerCase() ?? '',
+            };
+        }, value);
+
+        // The clones are captured asynchronously, so their presence is polled in the browser.
+        const waitForRowIcon = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.waitForFunction((optionValue) => {
+            const dropdown = document.querySelector('pie-dropdown');
+            const row = dropdown?.shadowRoot?.querySelector(`#pie-dropdown-option-${optionValue}`);
+
+            return (row?.querySelectorAll('.c-dropdown-rowIcon').length ?? 0) > 0;
+        }, value);
+
         test('should show the selected option\'s leading icon in the field', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
             await dropdownPage.load();
@@ -1007,7 +1056,7 @@ test.describe('PieDropdown - Component tests', () => {
             expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
         });
 
-        test('should return the selected option\'s icon to its row while the popover is open', async ({ page }) => {
+        test('should show the selected option\'s icon in both the field and its row while the popover is open', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
             await dropdownPage.load();
 
@@ -1017,12 +1066,31 @@ test.describe('PieDropdown - Component tests', () => {
             // between the text and the chevron with a selection present.
             await page.getByTestId(trigger).click({ position: { x: 10, y: 24 } });
 
-            // The field slot is not rendered while the popover is open, so
-            // the icon projects back into the selected option's row.
-            expect(await iconState(page, 'burger')).toEqual({ location: 'row', assigned: 1 });
+            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+            await waitForRowIcon(page, 'burger');
+            expect(await rowIconState(page, 'burger')).toEqual({ hasRow: true, rowIconCount: 1, cloneTag: 'icon-check' });
         });
 
-        test('should keep the selected option\'s icon in the search field while searching', async ({ page }) => {
+        test('should show the selected option\'s icon in both the search field and its row while the popover is open', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.value = 'burger';
+                return dropdown.updateComplete;
+            });
+            await slotIconFor(page, 'burger');
+
+            // Clicking the search field opens the popover without moving the caret.
+            await page.getByTestId(dropdown.selectors.input.dataTestId).click();
+
+            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+            await waitForRowIcon(page, 'burger');
+            expect(await rowIconState(page, 'burger')).toEqual({ hasRow: true, rowIconCount: 1, cloneTag: 'icon-check' });
+        });
+
+        test('should keep the selected option\'s icon in the search field and its row while searching', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();
 
@@ -1034,14 +1102,41 @@ test.describe('PieDropdown - Component tests', () => {
             await slotIconFor(page, 'burger');
 
             const input = page.getByTestId(dropdown.selectors.input.dataTestId);
-            await input.fill('Pas');
+            // 'Bur' keeps the selected option's row in the filtered list.
+            await input.fill('Bur');
 
-            // The icon stays in the field while searching (the designs show
-            // it alongside the search text).
             expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+            await waitForRowIcon(page, 'burger');
+            expect(await rowIconState(page, 'burger')).toEqual({ hasRow: true, rowIconCount: 1, cloneTag: 'icon-check' });
+            await expect(page.getByTestId(option)).toHaveCount(1);
         });
 
-        test('should render no icon in the field when the selected option has none', async ({ page }) => {
+        test('should render the selected option\'s row icon at the same size as the other rows\' icons', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--complex-options');
+            await dropdownPage.load();
+
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            // Pizza's row renders the clone; Burger's renders its original.
+            const sizes = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                const selectedRow = dropdown?.shadowRoot?.querySelector('#pie-dropdown-option-pizza');
+                const clone = selectedRow?.querySelector('.c-dropdown-rowIcon') ?? null;
+                const original = dropdown?.querySelector('[slot="icon-burger"]') ?? null;
+
+                return {
+                    clone: clone ? getComputedStyle(clone).width : '',
+                    original: original ? getComputedStyle(original).width : '',
+                };
+            });
+
+            expect(sizes.clone).toBeTruthy();
+            expect(sizes.original).toBeTruthy();
+            expect(sizes.clone).toBe(sizes.original);
+        });
+
+        test('should render no icon in the field or the row when the selected option has none', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select');
             await dropdownPage.load();
 
@@ -1050,9 +1145,15 @@ test.describe('PieDropdown - Component tests', () => {
 
             await page.getByTestId(trigger).click();
             await page.getByTestId(option).filter({ hasText: 'Pizza' }).click();
+            await expect(page.getByTestId(popover)).toBeHidden();
 
-            // Pizza's field slot exists but nothing projects into it.
+            // Pizza's field slot exists but nothing projects into it...
             expect(await iconState(page, 'pizza')).toEqual({ location: 'field', assigned: 0 });
+
+            // ...and its row renders no clones when it is next shown.
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            expect(await rowIconState(page, 'pizza')).toEqual({ hasRow: true, rowIconCount: 0, cloneTag: '' });
         });
 
         test('should remove the field icon when the selection is cleared', async ({ page }) => {
@@ -1065,6 +1166,11 @@ test.describe('PieDropdown - Component tests', () => {
             await page.getByTestId(dropdown.selectors.clear.dataTestId).click();
 
             expect(await iconState(page, 'burger')).toEqual({ location: 'none', assigned: 0 });
+
+            // With no field slot, the icon returns to Burger's (unselected) row, which renders its own slot again.
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            expect(await iconState(page, 'burger')).toEqual({ location: 'row', assigned: 1 });
         });
     });
 

@@ -371,12 +371,6 @@
     @include p.focus;
 }
 
-// Consumer-slotted option icons render at 20px regardless of the `size`
-// attribute they carry (the designs specify Size=Small).
-.c-dropdown-option [slot^="icon-"] {
-    --icon-size-override: 20px;
-}
-
 // The loading and no-results states.
 .c-dropdown-popoverMessage {
     display: flex;

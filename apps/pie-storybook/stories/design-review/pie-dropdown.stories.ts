@@ -371,7 +371,7 @@ export const SingleSelectWithIcons = createStory<DropdownStoryProps>(iconDropdow
 
 export const MultiSelect = createStory<DropdownStoryProps>(dropdownTemplate, defaultArgs)({ isMultiselect: true, value: ['pizza', 'curry'] });
 
-export const MultiSelectWithIconsAndSecondaryText = createStory<DropdownStoryProps>(iconDropdownTemplate, defaultArgs)({ isMultiselect: true, value: ['pizza', 'curry'] });
+export const MultiSelectWithSecondaryText = createStory<DropdownStoryProps>(dropdownTemplate, defaultArgs)({ isMultiselect: true, hasSecondaryText: true, value: ['pizza', 'curry'] });
 
 /* -------------------------- Single select search ------------------------- */
 
@@ -385,8 +385,8 @@ export const MultiSelectSearchable = createStory<DropdownStoryProps>(dropdownTem
     isMultiselect: true, isSearchable: true, value: ['pizza'], placeholder: 'Search meals',
 });
 
-export const MultiSelectSearchableWithIconsAndSecondaryText = createStory<DropdownStoryProps>(iconDropdownTemplate, defaultArgs)({
-    isMultiselect: true, isSearchable: true, value: ['pizza', 'ramen'], placeholder: 'Search meals',
+export const MultiSelectSearchableWithSecondaryText = createStory<DropdownStoryProps>(dropdownTemplate, defaultArgs)({
+    isMultiselect: true, isSearchable: true, hasSecondaryText: true, value: ['pizza'], placeholder: 'Search meals',
 });
 
 /* -------------------------------- States --------------------------------- */

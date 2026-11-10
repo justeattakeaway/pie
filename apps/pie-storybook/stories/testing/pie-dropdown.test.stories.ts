@@ -391,6 +391,8 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
 
 export const ComplexOptions = createStory<DropdownStoryProps>(ComplexOptionsTemplate, defaultArgs)({ value: 'pizza' });
 
+export const ComplexOptionsSearchable = createStory<DropdownStoryProps>(ComplexOptionsTemplate, defaultArgs)({ isSearchable: true, placeholder: 'Search meals' });
+
 /* ------------------------------------------------------------------ *
  * Dropdown inside a modal: the popover hangs from the field inside the
  * modal's scrollable body, which clips anything that overflows it, so
