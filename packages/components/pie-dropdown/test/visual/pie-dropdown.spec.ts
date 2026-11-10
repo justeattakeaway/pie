@@ -66,6 +66,47 @@ test.describe('PieDropdown - Visual tests', () => {
 
             await percySnapshot(page, 'PieDropdown - Disabled variations', DESKTOP_WIDTH);
         });
+
+        // The single-instance states below cover the design-review fixes:
+        // the 16px edge padding and icon gap, the subdued leading icons, the
+        // content-default clear and chevron icons, and the content-disabled
+        // colours across every element of a disabled field.
+
+        test('should render the closed field with a static leading icon and a selection', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--leading-icon');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Closed, static leading icon', RESPONSIVE_WIDTHS);
+        });
+
+        test('should render the disabled field without a selection', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--disabled-no-selection');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Disabled, no selection', RESPONSIVE_WIDTHS);
+        });
+
+        test('should render the disabled field with a static leading icon and a selection', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--disabled-leading-icon');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Disabled, static leading icon', RESPONSIVE_WIDTHS);
+        });
+
+        test('should render the disabled field with the selected option icon', async ({ page }) => {
+            const basePage = new BasePage(page, 'dropdown--disabled-with-icons');
+            await basePage.load();
+
+            await expect(page.getByTestId(field).first()).toBeVisible();
+
+            await percySnapshot(page, 'PieDropdown - Disabled, selected option icon', RESPONSIVE_WIDTHS);
+        });
     });
 
     test.describe('Open states', () => {

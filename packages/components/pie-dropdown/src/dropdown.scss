@@ -8,13 +8,14 @@
     // The field's height, padding and text tokens, following the size scale.
     --dropdown-height: 48px;
     --dropdown-padding-block: var(--dt-spacing-c);
-    --dropdown-padding-inline: var(--dt-spacing-c);
+    --dropdown-padding-inline: var(--dt-spacing-d);
     --dropdown-chevron-size: 52px;
     --dropdown-clear-size: 44px;
     --dropdown-border-color: var(--dt-color-border-form);
     --dropdown-background-color: var(--dt-color-container-default);
     --dropdown-text-color: var(--dt-color-content-default);
     --dropdown-placeholder-color: var(--dt-color-content-subdued);
+    --dropdown-leading-icon-color: var(--dt-color-content-subdued);
     --dropdown-font-family: var(--dt-font-body-l-family);
     --dropdown-font-size: #{p.font-size(--dt-font-body-l-size)};
     --dropdown-line-height: #{p.font-size(--dt-font-body-l-line-height)};
@@ -34,7 +35,20 @@
     display: flex;
     align-items: center;
 
+    // A leading icon (static or the selected option's) and the trigger sit one
+    // 16px step apart, matching pie-text-input. The field's own inline-start
+    // padding is the surface-edge whitespace (16px), so the text of a field
+    // without a leading icon starts 16px in, and an icon sits at 16px with a
+    // 16px gap before the text.
+    gap: var(--dt-spacing-d);
+
     height: var(--dropdown-height);
+
+    // The inline-start padding lives on the field (not the trigger) so a
+    // leading icon and a text-only field share the same 16px edge whitespace.
+    // The trigger still spans the field's remaining width, and the field's own
+    // click listener opens the popover from the padding strip.
+    padding-inline-start: var(--dropdown-padding-inline);
 
     // The field's contents (selection text, chip, search text) never dictate
     // its width: long values truncate inside it instead of growing it, so
@@ -52,6 +66,10 @@
     font-family: var(--dropdown-font-family);
     font-size: var(--dropdown-font-size);
     line-height: var(--dropdown-line-height);
+
+    // The padding strip is part of the field's click surface, so it keeps the
+    // field's cursor affordance now that it sits outside the trigger's box.
+    cursor: var(--dropdown-cursor);
 
     // The open field keeps its focus ring (the focus has moved into the
     // popover, but the field is still the component's anchor).
@@ -94,25 +112,28 @@
         --dropdown-background-color: var(--dt-color-disabled-01);
         --dropdown-border-color: var(--dt-color-disabled-01);
         --dropdown-text-color: var(--dt-color-content-disabled);
+        --dropdown-placeholder-color: var(--dt-color-content-disabled);
+        --dropdown-leading-icon-color: var(--dt-color-content-disabled);
         --dropdown-cursor: auto;
     }
 
     // In multi-select variants the count chip sits directly in the field
     // row, next to the trigger (or the search input). It truncates rather
     // than squeezing out the interactive element (which keeps a minimum
-    // share of the field, as the designs require), and aligns with the
-    // field's content padding.
+    // share of the field, as the designs require). The field's inline-start
+    // padding places it at the 16px surface edge.
     > pie-chip {
         min-inline-size: 0;
         max-inline-size: 60%;
-        margin-inline-start: var(--dropdown-padding-inline);
     }
 }
 
 // The field's interactive element: a disclosure button (non-searchable
-// variants) or a filtering textbox (searchable variants). It fills the field
-// so the whole surface — including the chevron area — is its click target;
-// the clear button and chevron icon are siblings laid over it.
+// variants) or a filtering textbox (searchable variants). It fills the field's
+// width after the inline-start padding — the chevron area included — so the
+// whole surface (bar the leading padding strip, which the field's own click
+// listener covers) is its click target; the clear button and chevron icon are
+// siblings laid over it.
 .c-dropdown-trigger {
     flex: 1;
     min-inline-size: 0;
@@ -122,8 +143,10 @@
 
     padding-block-start: var(--dropdown-padding-block);padding-block-end: var(--dropdown-padding-block);
 
-    // Room for the chevron (and the clear button when one is shown).
-    padding-inline-start: var(--dropdown-padding-inline);padding-inline-end: var(--dropdown-chevron-size);
+    // Room for the chevron (and the clear button when one is shown). The
+    // inline-start whitespace lives on the field, so the trigger has none of
+    // its own — a leading icon and the trigger are separated by the field's gap.
+    padding-inline-start: 0;padding-inline-end: var(--dropdown-chevron-size);
 
     border: none;
     background: transparent;
@@ -171,8 +194,9 @@
     display: flex;
     align-items: center;
 
-    // The selected option's leading icon and its text sit a step apart.
-    gap: var(--dt-spacing-b);
+    // The selected option's leading icon and its text sit one 16px step apart,
+    // matching the field's own gap and pie-text-input.
+    gap: var(--dt-spacing-d);
 
     // Long selections truncate with an ellipsis rather than growing the field.
     overflow: hidden;
@@ -184,20 +208,19 @@
     display: contents;
 }
 
-// Both the static and the selected-option's icon sit 16px in from the surface
-// edge (per the designs): inside the trigger (12px padding + 4px margin) for
-// non-searchable variants, and at the field start (16px margin) for
-// searchable ones. Icons render at 20px regardless of their `size` attribute.
+// The selected option's leading icon in the field uses the subdued content
+// colour (matching the popover options). Its 16px edge whitespace comes from
+// the field's inline-start padding; icons render at 20px regardless of `size`.
 .c-dropdown-fieldText .c-dropdown-selectionIcon ::slotted(*) {
     --icon-size-override: 20px;
 
-    margin-inline-start: var(--dt-spacing-a);
+    color: var(--dropdown-leading-icon-color);
 }
 
 .c-dropdown-field > .c-dropdown-selectionIcon ::slotted(*) {
     --icon-size-override: 20px;
 
-    margin-inline-start: var(--dt-spacing-d);
+    color: var(--dropdown-leading-icon-color);
 }
 
 .c-dropdown-fieldValue {
@@ -239,21 +262,15 @@
     border: none;
     background: transparent;
 
-    color: var(--dt-color-content-subdued);
+    color: var(--dt-color-content-default);
     cursor: pointer;
 
-    // The field's disabled state fully disables the clear button: no hover
-    // affordance, no pointer cursor, and the disabled content colour (matching
-    // the field's disabled text).
+    // The field's disabled state fully disables the clear button: no pointer
+    // cursor and the disabled content colour (matching the field's disabled
+    // text).
     &:disabled {
         color: var(--dt-color-content-disabled);
         cursor: auto;
-    }
-
-    // A disabled button still matches :hover, so the guard keeps the disabled
-    // field from offering a hover affordance that does nothing.
-    &:not(:disabled):hover {
-        color: var(--dt-color-content-default);
     }
 
     &:focus-visible {
@@ -291,7 +308,7 @@
     width: var(--dropdown-chevron-size);
 
     pointer-events: none;
-    color: var(--dt-color-content-subdued);
+    color: var(--dt-color-content-default);
 
     &[data-interactive-chevron] {
         pointer-events: auto;
@@ -299,16 +316,22 @@
     }
 }
 
+// The chevron carries an explicit colour (content-default), so a disabled field
+// applies the disabled content colour to it rather than relying on inheritance.
+.c-dropdown-field.is-disabled .c-dropdown-chevron {
+    color: var(--dt-color-content-disabled);
+}
+
 // The static leading icon (the `leadingIcon` slot): `display: contents` collapses when empty, and the
-// 16px margin on the projected icon matches the designs. Icons render at 20px regardless of `size`.
+// field's 16px inline-start padding places the projected icon at the surface edge. The icon uses the
+// subdued content colour, matching the popover options. Icons render at 20px regardless of `size`.
 .c-dropdown-leadingIcon {
     display: contents;
 
     ::slotted([slot="leadingIcon"]) {
         --icon-size-override: 20px;
 
-        margin-inline-start: var(--dt-spacing-d);
-        color: var(--dt-color-content-subdued);
+        color: var(--dropdown-leading-icon-color);
     }
 }
 

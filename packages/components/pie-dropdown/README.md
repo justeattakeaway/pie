@@ -159,6 +159,7 @@ The component defines these CSS variables, which can be overridden:
 | `--dropdown-background-color`   | The background colour of the field.                | `var(--dt-color-container-default)` |
 | `--dropdown-text-color`         | The text colour of the field.                      | `var(--dt-color-content-default)`   |
 | `--dropdown-placeholder-color`  | The placeholder text colour.                       | `var(--dt-color-content-subdued)`   |
+| `--dropdown-leading-icon-color` | The colour of the field's leading icons (the static `leadingIcon` and the selected option's icon). | `var(--dt-color-content-subdued)`   |
 
 ### Events
 | Event                  | Description                                                                                                                      |

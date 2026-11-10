@@ -20,6 +20,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconStar.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeart.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconClock.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCamera.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 type DropdownStoryProps = DropdownProps & { hasSecondaryText?: boolean };
 type DropdownStoryMeta = Meta<DropdownStoryProps>;
@@ -151,7 +152,36 @@ export const LoadingState = createStory<DropdownStoryProps>(DropdownTemplate, de
 
 export const DisabledState = createStory<DropdownStoryProps>(DropdownTemplate, defaultArgs)({ value: 'burger', disabled: true });
 
+export const DisabledNoSelection = createStory<DropdownStoryProps>(DropdownTemplate, defaultArgs)({ disabled: true });
+
 export const DisabledMultiselectState = createStory<DropdownStoryProps>(DropdownTemplate, defaultArgs)({ isMultiselect: true, value: ['pizza', 'curry'], disabled: true });
+
+// A static leading icon slotted into the field (the `leadingIcon` slot), for the
+// field's leading-icon colour and edge-padding coverage.
+const LeadingIconTemplate: TemplateFunction<DropdownStoryProps> = ({
+    name,
+    label,
+    placeholder,
+    value,
+    disabled,
+}) => html`
+        ${storySizingStyles}
+        <div class="story-wrapper">
+            <pie-dropdown
+                name="${ifDefined(name)}"
+                label="${ifDefined(label)}"
+                placeholder="${ifDefined(placeholder)}"
+                .value="${ifDefined(value)}"
+                .options=${options}
+                ?disabled="${disabled}">
+                <icon-placeholder slot="leadingIcon" size="s"></icon-placeholder>
+            </pie-dropdown>
+        </div>
+    `;
+
+export const LeadingIcon = createStory<DropdownStoryProps>(LeadingIconTemplate, defaultArgs)();
+
+export const DisabledLeadingIcon = createStory<DropdownStoryProps>(LeadingIconTemplate, defaultArgs)({ disabled: true });
 
 /* ------------------------------------------------------------------ *
  * Visual-test galleries: curated, captioned instances of every
@@ -370,6 +400,7 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
     placeholder,
     value,
     isSearchable,
+    disabled,
 }) => html`
         ${storySizingStyles}
         <div class="story-wrapper">
@@ -379,7 +410,8 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
                 placeholder="${ifDefined(placeholder)}"
                 .value="${ifDefined(value)}"
                 .options=${complexOptions}
-                ?isSearchable="${isSearchable}">
+                ?isSearchable="${isSearchable}"
+                ?disabled="${disabled}">
                 <icon-food slot="icon-pizza"></icon-food>
                 <icon-star slot="icon-burger"></icon-star>
                 <icon-heart slot="icon-pasta"></icon-heart>
@@ -392,6 +424,8 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
 export const ComplexOptions = createStory<DropdownStoryProps>(ComplexOptionsTemplate, defaultArgs)({ value: 'pizza' });
 
 export const ComplexOptionsSearchable = createStory<DropdownStoryProps>(ComplexOptionsTemplate, defaultArgs)({ isSearchable: true, placeholder: 'Search meals' });
+
+export const DisabledWithIcons = createStory<DropdownStoryProps>(ComplexOptionsTemplate, defaultArgs)({ value: 'pizza', disabled: true });
 
 /* ------------------------------------------------------------------ *
  * Dropdown inside a modal: the popover hangs from the field inside the
