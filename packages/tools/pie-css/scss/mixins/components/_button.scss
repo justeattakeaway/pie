@@ -11,6 +11,32 @@
 @use '../../settings' as *;
 
 // ============================================================================
+// Button Padding Properties
+// ============================================================================
+
+/// Declares the per-size button padding custom properties.
+/// Split out of `button-base` so other PIE components (e.g. pie-skeleton) can reuse
+/// the padding values through `button-size` without pulling in the rest of the button styles.
+/// @example scss - Basic usage
+///   .my-element {
+///     @include button-padding-properties();
+///     @include button-size('medium');
+///   }
+@mixin button-padding-properties() {
+    // Vertical padding values per size
+    --btn-padding-vertical-xsmall: 6px;
+    --btn-padding-vertical-small-expressive: 8px;
+    --btn-padding-vertical-small-productive: 10px;
+    --btn-padding-vertical-medium: 12px;
+    --btn-padding-vertical-large: 16px;
+
+    // Horizontal padding values per size
+    --btn-padding-horizontal-small: var(--dt-spacing-b);
+    --btn-padding-horizontal-medium: var(--dt-spacing-d);
+    --btn-padding-horizontal-large: var(--dt-spacing-e);
+}
+
+// ============================================================================
 // Button Base
 // ============================================================================
 
@@ -32,17 +58,8 @@
     --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-light-solid);
 
-    // Vertical padding values per size
-    --btn-padding-vertical-xsmall: 6px;
-    --btn-padding-vertical-small-expressive: 8px;
-    --btn-padding-vertical-small-productive: 10px;
-    --btn-padding-vertical-medium: 12px;
-    --btn-padding-vertical-large: 16px;
-
-    // Horizontal padding values per size
-    --btn-padding-horizontal-small: var(--dt-spacing-b);
-    --btn-padding-horizontal-medium: var(--dt-spacing-d);
-    --btn-padding-horizontal-large: var(--dt-spacing-e);
+    // Padding values per size
+    @include button-padding-properties;
 
     // Layout
     position: relative;
