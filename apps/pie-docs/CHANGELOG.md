@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.21.2
+
+### Patch Changes
+
+- [Changed] Image for Motion animated background updated so blur effect is visible. ([#3312](https://github.com/justeattakeaway/pie/pull/3312)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
 ## 5.21.1
 
 ### Patch Changes
