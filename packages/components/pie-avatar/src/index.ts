@@ -43,13 +43,12 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
             if (!name || typeof name !== 'string' || name.trim().length === 0) {
                 return null;
             }
-
-            const nameSplit: string[] = name.trim().split(/\s+/); // [Jean-Luc, Godard]
-            // match returns the first letter or number (or null if no match) and ignores non-alphanumeric characters.
-            const firstInitial: string = nameSplit[0].match(/[\p{L}\p{N}]/u)?.[0].toUpperCase() ?? ''; // J
-            const lastInitial: string = nameSplit[nameSplit.length - 1].match(/[\p{L}\p{N}]/u)?.[0]?.toUpperCase() ?? ''; // G
-            const initials: string[] = (nameSplit.length > 1 ? [firstInitial, lastInitial] : [firstInitial])
+            const nameSplit: string[] = name.trim().split(/\s+/)
+                .map((word) => word.match(/[\p{L}\p{N}]/u)?.[0].toUpperCase() ?? '')
                 .filter(Boolean);
+            const initials: string[] = nameSplit.length > 1
+                ? [nameSplit[0], nameSplit[nameSplit.length - 1]]
+                : nameSplit;
 
             if (initials.length === 0) {
                 return null;

@@ -12,6 +12,9 @@ const avatarInitialsTestCases = [
     { input: "D'Angelo Russell", expectedVisual: 'DR', expectedScreenReader: 'D, R' },
     { input: '-*Mary Bell', expectedVisual: 'MB', expectedScreenReader: 'M, B' },
     { input: 'John **// Bell', expectedVisual: 'JB', expectedScreenReader: 'J, B' },
+    { input: '!! John Bell !!', expectedVisual: 'JB', expectedScreenReader: 'J, B' },
+    { input: 'Óleg Łukaszewicz', expectedVisual: 'ÓŁ', expectedScreenReader: 'Ó, Ł' },
+    { input: 'anne johnson', expectedVisual: 'AJ', expectedScreenReader: 'A, J' },
 
 ];
 const avatarEdgeTestCases = [
@@ -84,6 +87,26 @@ test.describe('PieAvatar - Component tests', () => {
             // Assert
             await expect(avatarComponentIcon).toHaveAttribute('aria-hidden');
         });
+    });
+});
+
+test.describe('PieAvatar - Label with no letters or numbers', () => {
+    test('should render user icon when label contains no letters or numbers', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--default');
+        await avatarPage.load();
+
+        await page.locator('pie-avatar').waitFor({ state: 'visible' });
+
+        // Act
+        await page.evaluate(async () => {
+            const avatarComponent = document.querySelector('pie-avatar');
+            avatarComponent?.setAttribute('label', '***');
+        });
+
+        // Assert
+        await expect(page.getByTestId('pie-avatar-icon')).toBeVisible();
+        await expect(page.getByTestId('pie-avatar-initials-visual')).toHaveCount(0);
     });
 });
 

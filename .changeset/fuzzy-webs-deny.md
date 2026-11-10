@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-avatar": minor
 ---
 
-[updated] - initials rendering logic
+[Changed] - initials rendering logic
