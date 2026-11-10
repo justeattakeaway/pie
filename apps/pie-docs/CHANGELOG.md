@@ -1,5 +1,60 @@
 # Changelog
 
+## 5.21.2
+
+### Patch Changes
+
+- [Changed] Image for Motion animated background updated so blur effect is visible. ([#3312](https://github.com/justeattakeaway/pie/pull/3312)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+## 5.21.1
+
+### Patch Changes
+
+- [Changed] ([#3306](https://github.com/justeattakeaway/pie/pull/3306)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  Overview section: Rewrote intro copy,
+  Iconography: Condensed copy and added cross-links to motion and motion foundations pages,
+  Gradients: Clarified that the container gradient is restricted to the AI assistant; removed the "images versus gradients" and 162px height guidance; added new token usage examples image,
+  Motion - Animated background: Replaced duplicated intro text with specific guidance about the Lottie animation and reduce-motion settings,
+  Components: Replaced do/don't usage blocks and layering guidance with a simpler overview.
+
+  [Added]
+  Components: Added new chip section; added contextual example images for button, icon button, chip, and tag.
+
+  [Removed]
+  Language overview: Removed entire section (tone, clarity, identity guidance),
+  Components: Removed "button without icon" and "generating query" subsections.
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.2
+
+## 5.21.0
+
+### Minor Changes
+
+- [Added] - Generate an `llms.txt` file for pie.design from page frontmatter, with optional `includeInLlmsTxt` and `llmsTxtDescription` fields ([#3286](https://github.com/justeattakeaway/pie/pull/3286)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Added content under Interactions section to clarify the card usage ([#3287](https://github.com/justeattakeaway/pie/pull/3287)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Added] - Added override options for elevation and border colour
+
+### Patch Changes
+
+- [Changed] - Updated Android PIE component statuses to match Android PIE core 4.6.1 (Accordion, Dropdown, Fab, Link, Map Pin, Progress Bar, Rating, Segmented Controls, Slider, Tabs, Thumbnail and Tooltip) ([#3293](https://github.com/justeattakeaway/pie/pull/3293)) by [@ReyhaneKheirandish](https://github.com/ReyhaneKheirandish)
+
+- [Changed] - updated snapshots after icons update ([#3305](https://github.com/justeattakeaway/pie/pull/3305)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- [Removed] - Removed the List Item Interactive documentation page and its component status entry ([#3301](https://github.com/justeattakeaway/pie/pull/3301)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - Moved the List Item documentation from `/components/list-item/list-item/` to `/components/list-item/` and flattened it to a single sidebar item
+
+- [Changed] Reordered and updated figma links. ([#3298](https://github.com/justeattakeaway/pie/pull/3298)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+- Updated dependencies [[`2d33784`](https://github.com/justeattakeaway/pie/commit/2d33784c0fcd25b3cb1f6b6e381201e848376213)]:
+  - @justeattakeaway/pie-icons@5.33.0
+  - @justeattakeaway/pie-icons-webc@1.30.0
+  - @justeattakeaway/pie-webc@1.0.1
+
 ## 5.20.7
 
 ### Patch Changes

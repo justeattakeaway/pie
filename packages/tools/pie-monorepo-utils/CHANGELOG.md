@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.9.13
+
+### Patch Changes
+
+- [Fixed] - `/test-aperture` now fails the workflow run when publishing or triggering Aperture goes wrong, rather than posting an error comment and finishing green. ([#3297](https://github.com/justeattakeaway/pie/pull/3297)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.9.12
 
 ### Patch Changes

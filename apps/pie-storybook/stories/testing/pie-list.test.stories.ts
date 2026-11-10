@@ -76,6 +76,154 @@ const TextOnlyTemplate = () => withLayout(html`
 
 export const TextOnly = createStory<ListProps>(TextOnlyTemplate, defaultArgs)();
 
+const PrimaryAndSecondarySlotsTemplate = () => withLayout(html`
+    <style>.centre-aligned { --list-item-alignment: center; }</style>
+
+    <h2>Rich markup</h2>
+    <pie-list aria-label="Primary and secondary slots with rich markup">
+        <pie-list-item hasDivider>
+            <span slot="primary">Order <strong>#1234</strong> from <em>Pizza Palace</em></span>
+            <span slot="secondary">Delivered on <strong>3 November</strong> at <time datetime="18:30">18:30</time></span>
+        </pie-list-item>
+        <pie-list-item>
+            <span slot="primary"><strong>Primary slot</strong> only</span>
+        </pie-list-item>
+    </pie-list>
+
+    <h2>Leading, trailing and meta text</h2>
+    <pie-list aria-label="Primary and secondary slots with leading, trailing and meta text">
+        <pie-list-item hasDivider>
+            <span slot="primary">Primary <strong>slot</strong></span>
+            <span slot="secondary">Secondary <em>slot</em></span>
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+        <pie-list-item hasDivider>
+            <span slot="primary">Primary <strong>slot</strong> only</span>
+            ${leadingIcon}
+            ${trailingTag}
+        </pie-list-item>
+        <pie-list-item hasDivider metaText="Meta text">
+            <span slot="primary">Primary <strong>slot</strong></span>
+            <span slot="secondary">Secondary <em>slot</em></span>
+        </pie-list-item>
+        <pie-list-item hasDivider primaryText="Primary prop">
+            <span slot="secondary">Secondary <strong>slot</strong></span>
+            ${leadingIcon}
+        </pie-list-item>
+        <pie-list-item secondaryText="Secondary prop">
+            <span slot="primary">Primary <strong>slot</strong></span>
+            ${leadingIcon}
+        </pie-list-item>
+    </pie-list>
+
+    <h2>Media</h2>
+    <pie-list aria-label="Primary and secondary slots with media">
+        <pie-list-item hasDivider hasMedia>
+            <span slot="primary">Primary <strong>slot</strong> only</span>
+            ${leadingThumbnail}
+        </pie-list-item>
+        <pie-list-item hasMedia>
+            <span slot="primary">Primary <strong>slot</strong></span>
+            <span slot="secondary">Secondary <em>slot</em></span>
+            ${leadingThumbnail}
+        </pie-list-item>
+    </pie-list>
+
+    <h2>Selection rows</h2>
+    <pie-radio-group name="slotted-radio" value="express">
+        <pie-list-item hasDivider .interactionType=${'radio'}>
+            <span slot="primary">Standard <strong>delivery</strong></span>
+            <span slot="secondary">3 to 5 <em>working</em> days</span>
+            <pie-radio slot="leading" value="standard"></pie-radio>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'radio'}>
+            <span slot="primary">Express <strong>delivery</strong></span>
+            <span slot="secondary">Next <em>working</em> day</span>
+            <pie-radio slot="leading" value="express"></pie-radio>
+        </pie-list-item>
+    </pie-radio-group>
+    <pie-checkbox-group name="slotted-checkbox">
+        <pie-list-item hasDivider .interactionType=${'checkbox'}>
+            <span slot="primary"><strong>Cheese</strong></span>
+            <span slot="secondary">Extra <em>mature</em></span>
+            <pie-checkbox slot="leading" name="cheese" checked></pie-checkbox>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'checkbox'}>
+            <span slot="primary"><strong>Pepperoni</strong> only</span>
+            <pie-checkbox slot="leading" name="pepperoni"></pie-checkbox>
+        </pie-list-item>
+    </pie-checkbox-group>
+    <pie-list aria-label="Slotted switch rows">
+        <pie-list-item hasDivider .interactionType=${'switch'}>
+            <span slot="primary"><strong>Email</strong> updates</span>
+            <span slot="secondary">Order <em>updates</em> and receipts</span>
+            <pie-switch slot="trailing"></pie-switch>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'switch'}>
+            <span slot="primary">Push <strong>notifications</strong></span>
+            <pie-switch slot="trailing" checked></pie-switch>
+        </pie-list-item>
+    </pie-list>
+    <pie-radio-group name="slotted-radio-disabled" disabled>
+        <pie-list-item hasDivider .interactionType=${'radio'}>
+            <span slot="primary">Disabled <strong>via group</strong></span>
+            <span slot="secondary">Secondary <em>slot</em></span>
+            <pie-radio slot="leading" value="a"></pie-radio>
+        </pie-list-item>
+        <pie-list-item .interactionType=${'radio'}>
+            <span slot="primary">Disabled <strong>via group</strong></span>
+            <pie-radio slot="leading" value="b"></pie-radio>
+        </pie-list-item>
+    </pie-radio-group>
+
+    <h2>Interactive rows</h2>
+    <pie-list aria-label="Slotted interactive rows">
+        <pie-list-item hasDivider interactionType="button">
+            <span slot="primary"><strong>Edit</strong> profile</span>
+            <span slot="secondary">Update your <em>name</em> and photo</span>
+        </pie-list-item>
+        <pie-list-item interactionType="link">
+            <span slot="primary"><strong>Orders</strong></span>
+            <span slot="secondary">View and manage <em>live</em> orders</span>
+            <a slot="link" href="#orders"></a>
+        </pie-list-item>
+    </pie-list>
+
+    <h2>Long content</h2>
+    <pie-list aria-label="Long primary and secondary slot content">
+        <pie-list-item hasDivider metaText="Some very long awful meta text">
+            <span slot="primary">Primary <strong>slot</strong> that goes on far too long Primary slot that goes on far too long</span>
+            <span slot="secondary">Secondary <em>slot</em> that goes on far too long Secondary slot that goes on far too long</span>
+            ${leadingIcon}
+        </pie-list-item>
+        <pie-list-item>
+            <span slot="primary">Primary <strong>slot</strong> that goes on far too long Primary slot that goes on far too long</span>
+            ${leadingIcon}
+            ${trailingIcon}
+        </pie-list-item>
+    </pie-list>
+
+    <h2>Centre aligned, compact and bold</h2>
+    <pie-list aria-label="Centre aligned, compact and bold primary and secondary slots">
+        <pie-list-item hasDivider class="centre-aligned">
+            <span slot="primary">Primary <strong>slot</strong></span>
+            <span slot="secondary">Secondary <em>slot</em></span>
+            ${trailingIcon}
+        </pie-list-item>
+        <pie-list-item hasDivider isCompact>
+            <span slot="primary">Compact <strong>primary</strong> slot</span>
+            ${trailingIcon}
+        </pie-list-item>
+        <pie-list-item isBold>
+            <span slot="primary">Bold primary slot</span>
+            <span slot="secondary">Secondary <em>slot</em></span>
+        </pie-list-item>
+    </pie-list>
+`);
+
+export const PrimaryAndSecondarySlots = createStory<ListProps>(PrimaryAndSecondarySlotsTemplate, defaultArgs)();
+
 // Test-only: exercises interactionType role mapping, CSS classes, and ARIA behaviour across all types.
 // Each selectable item carries metaText so aria-hidden can be verified. Disabled variants are
 // provided for each selectable type to cover the is-disabled CSS hook regardless of interactionType.

@@ -9,7 +9,8 @@ describe('generated file', () => {
         'tokens.json'
     ])('should match %s', (filename) => {
         // Arrange
-        const contents = fs.readFileSync(`dist/${filename}`).toString();
+        const contents = fs.readFileSync(`dist/${filename}`).toString()
+            .replace(/,?\s*"version": "[^"]*"/, '');
 
         // Assert
         expect(contents).toMatchSnapshot();

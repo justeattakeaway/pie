@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-list
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - `primary` and `secondary` named slots on `pie-list-item`, so the item's text can be provided as rich markup. ([#3300](https://github.com/justeattakeaway/pie/pull/3300)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.8.2
+
+### Patch Changes
+
+- [Fixed] - Corrected the design documentation link in the README ([#3301](https://github.com/justeattakeaway/pie/pull/3301)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.1
 
 ### Patch Changes

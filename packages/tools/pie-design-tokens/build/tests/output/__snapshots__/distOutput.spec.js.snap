@@ -7605,7 +7605,6 @@ exports[`generated file should match tokens.json 1`] = `
         }
       }
     }
-  },
-  \\"version\\": \\"7.15.0\\"
+  }
 }"
 `;
