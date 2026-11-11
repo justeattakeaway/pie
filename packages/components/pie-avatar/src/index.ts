@@ -44,7 +44,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
                 return null;
             }
             const nameSplit: string[] = name.trim().split(/\s+/)
-                .map((word) => word.match(/[\p{L}\p{N}]/u)?.[0].toUpperCase() ?? '')
+                .map((word) => [...(word.match(/[\p{L}\p{N}]/u)?.[0].toUpperCase() ?? '')][0])
                 .filter(Boolean);
             const initials: string[] = nameSplit.length > 1
                 ? [nameSplit[0], nameSplit[nameSplit.length - 1]]
