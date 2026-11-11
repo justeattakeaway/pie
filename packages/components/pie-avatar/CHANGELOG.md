@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-avatar
 
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - initials rendering logic ([#3295](https://github.com/justeattakeaway/pie/pull/3295)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.4.55
 
 ### Patch Changes
