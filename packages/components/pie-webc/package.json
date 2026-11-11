@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -955,7 +955,7 @@
     "@justeattakeaway/pie-radio": "1.2.9",
     "@justeattakeaway/pie-radio-group": "1.2.14",
     "@justeattakeaway/pie-select": "0.9.17",
-    "@justeattakeaway/pie-skeleton": "0.0.1",
+    "@justeattakeaway/pie-skeleton": "0.1.0",
     "@justeattakeaway/pie-spinner": "1.5.11",
     "@justeattakeaway/pie-switch": "2.7.8",
     "@justeattakeaway/pie-tabs": "0.1.38",

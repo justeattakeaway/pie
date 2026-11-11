@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.9.2
+
+### Patch Changes
+
+- [Changed] - Moved the button padding custom properties (`--btn-padding-vertical-*` and `--btn-padding-horizontal-*`) out of `button-base` into a new internal `button-padding-properties` mixin, so other PIE components can reuse the button padding values without pulling in the full button styles. The CSS output of `button-base` is unchanged. ([#3313](https://github.com/justeattakeaway/pie/pull/3313)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.9.1
 
 ### Patch Changes
