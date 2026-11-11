@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.21.3
+
+### Patch Changes
+
+- Updated dependencies [[`3668da6`](https://github.com/justeattakeaway/pie/commit/3668da65fc9644587a110f0e3234aeb5a3a3cb6d)]:
+  - @justeattakeaway/pie-css@1.9.2
+  - @justeattakeaway/pie-webc@1.0.3
+
+## 5.21.2
+
+### Patch Changes
+
+- [Changed] Image for Motion animated background updated so blur effect is visible. ([#3312](https://github.com/justeattakeaway/pie/pull/3312)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
 ## 5.21.1
 
 ### Patch Changes
