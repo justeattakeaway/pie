@@ -10,7 +10,7 @@ import {
 } from '@justeattakeaway/pie-webc/components/toast-provider';
 import '@justeattakeaway/pie-webc/components/toast';
 import '@justeattakeaway/pie-webc/components/button';
-import '@justeattakeaway/pie-webc/components/modal';
+import { sizes as modalSizes } from '@justeattakeaway/pie-webc/components/modal';
 
 import { createStory } from '../../utilities';
 
@@ -183,7 +183,11 @@ export const ScrollPage: StoryObj<ToastProviderProps> = {
     },
 };
 
-const MultipleProvidersTemplate = () => html`
+type MultipleProvidersArgs = ToastProviderProps & {
+    size: typeof modalSizes[number];
+};
+
+const MultipleProvidersTemplate = ({ size }: MultipleProvidersArgs) => html`
     <pie-toast-provider
         id="main"
         @pie-toast-provider-queue-update="${onQueueUpdate}">
@@ -191,6 +195,7 @@ const MultipleProvidersTemplate = () => html`
 
     <pie-modal
         heading="Modal with Toast Provider"
+        size="${size}"
         isDismissible
         isOpen>
         <pie-toast-provider
@@ -225,8 +230,17 @@ const MultipleProvidersTemplate = () => html`
     </pie-button>
 `;
 
-export const MultipleProviders: StoryObj<ToastProviderProps> = {
-    ...createStory<ToastProviderProps>(MultipleProvidersTemplate, defaultArgs)(),
+export const MultipleProviders: StoryObj<MultipleProvidersArgs> = {
+    ...createStory<MultipleProvidersArgs>(MultipleProvidersTemplate, {
+        ...defaultArgs,
+        size: 'medium',
+    })(),
+    argTypes: {
+        size: {
+            control: 'select',
+            options: modalSizes,
+        },
+    },
 };
 
 const AutoResolveProviderTemplate = () => html`

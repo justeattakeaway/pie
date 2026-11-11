@@ -3722,7 +3722,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-avatar@npm:0.4.55, @justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar":
+"@justeattakeaway/pie-avatar@npm:0.5.0, @justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar"
   dependencies:
@@ -3900,7 +3900,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.33.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.30.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.13"
-    "@justeattakeaway/pie-webc": "npm:1.0.3"
+    "@justeattakeaway/pie-webc": "npm:1.0.4"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -4242,7 +4242,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.30.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.13"
-    "@justeattakeaway/pie-webc": "npm:1.0.3"
+    "@justeattakeaway/pie-webc": "npm:1.0.4"
     "@storybook/addon-a11y": "npm:10.6.6"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.6.6"
@@ -4341,7 +4341,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-toast-provider@npm:1.3.3, @justeattakeaway/pie-toast-provider@workspace:packages/components/pie-toast-provider":
+"@justeattakeaway/pie-toast-provider@npm:1.3.4, @justeattakeaway/pie-toast-provider@workspace:packages/components/pie-toast-provider":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-toast-provider@workspace:packages/components/pie-toast-provider"
   dependencies:
@@ -4413,13 +4413,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:1.0.3, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:1.0.4, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
     "@justeattakeaway/pie-accordion": "npm:1.0.2"
     "@justeattakeaway/pie-assistive-text": "npm:1.0.17"
-    "@justeattakeaway/pie-avatar": "npm:0.4.55"
+    "@justeattakeaway/pie-avatar": "npm:0.5.0"
     "@justeattakeaway/pie-breadcrumb": "npm:1.0.19"
     "@justeattakeaway/pie-button": "npm:1.15.1"
     "@justeattakeaway/pie-card": "npm:2.0.0"
@@ -4452,7 +4452,7 @@ __metadata:
     "@justeattakeaway/pie-textarea": "npm:0.23.12"
     "@justeattakeaway/pie-thumbnail": "npm:1.0.1"
     "@justeattakeaway/pie-toast": "npm:1.2.7"
-    "@justeattakeaway/pie-toast-provider": "npm:1.3.3"
+    "@justeattakeaway/pie-toast-provider": "npm:1.3.4"
     "@justeattakeaway/pie-tooltip": "npm:0.7.1"
     chalk: "npm:5.6.2"
   languageName: unknown
