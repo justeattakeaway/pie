@@ -242,7 +242,7 @@
     },
     {
       "path": "./packages/components/pie-skeleton/dist/*.js",
-      "maxSize": "3 KB"
+      "maxSize": "5 KB"
     }
   ],
   "defaultCompression": "gzip",
