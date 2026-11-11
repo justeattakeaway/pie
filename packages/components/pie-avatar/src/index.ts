@@ -43,9 +43,12 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
             if (!name || typeof name !== 'string' || name.trim().length === 0) {
                 return null;
             }
-
-            const nameSplit: string[] = name.trim().replace(/-/g, ' ').split(/\s+/); // [Ada, Lovelace]
-            const initials: string[] = nameSplit.slice(0, 2).map((word) => word[0].toUpperCase()); // [A, L]
+            const nameSplit: string[] = name.trim().split(/\s+/)
+                .map((word) => [...(word.match(/[\p{L}\p{N}]/u)?.[0].toUpperCase() ?? '')][0])
+                .filter(Boolean);
+            const initials: string[] = nameSplit.length > 1
+                ? [nameSplit[0], nameSplit[nameSplit.length - 1]]
+                : nameSplit;
 
             if (initials.length === 0) {
                 return null;
