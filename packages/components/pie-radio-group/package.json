@@ -44,7 +44,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.5",
-    "@justeattakeaway/pie-css": "1.9.1",
+    "@justeattakeaway/pie-css": "1.9.2",
     "@justeattakeaway/pie-monorepo-utils": "0.9.13",
     "@justeattakeaway/pie-radio": "1.2.9"
   },
