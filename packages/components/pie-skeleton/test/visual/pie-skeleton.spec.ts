@@ -18,6 +18,7 @@ const visualStories: Array<[string, string]> = [
     ['skeleton--aspect-ratios', 'Aspect ratios'],
     ['skeleton--clamped-lines', 'Clamped lines'],
     ['skeleton--clamped-stars', 'Clamped stars'],
+    ['skeleton--list-items', 'List items'],
 ];
 
 test.describe('PieSkeleton - Visual tests', () => {
