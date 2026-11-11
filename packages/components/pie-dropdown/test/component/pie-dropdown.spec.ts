@@ -983,6 +983,32 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(option)).toContainText('Curry');
         });
 
+        test('should match text from the middle of an option\'s text', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--complex-options-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.click();
+            await input.fill('fired');
+
+            // Pizza's secondary text contains "fired" mid-text ("Wood-fired, with a crisp base").
+            await expect(page.getByTestId(option)).toHaveCount(1);
+            await expect(page.getByTestId(option)).toContainText('Pizza');
+        });
+
+        test('should match a multi-word search within the text', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--complex-options-searchable');
+            await dropdownPage.load();
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.click();
+            await input.fill('crisp base');
+
+            // Pizza's secondary text contains "crisp base" mid-text.
+            await expect(page.getByTestId(option)).toHaveCount(1);
+            await expect(page.getByTestId(option)).toContainText('Pizza');
+        });
+
         test('should announce the number of matching options', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();

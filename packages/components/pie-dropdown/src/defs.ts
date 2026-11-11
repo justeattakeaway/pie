@@ -74,7 +74,7 @@ export interface DropdownProps {
      */
     isMultiselect?: boolean,
 
-    /** **Required:** When true, the field becomes a search input, filtering by primary or secondary text (prefix match). */
+    /** **Required:** When true, the field becomes a search input, filtering by primary or secondary text (substring match). */
     isSearchable?: boolean,
 
     /**

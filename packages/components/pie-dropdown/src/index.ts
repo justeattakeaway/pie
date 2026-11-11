@@ -343,8 +343,8 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (!this.isSearchable || !this._searchText) return this._openOptions;
 
         const needle = this._searchText.toLowerCase();
-        // Prefix match, case-insensitive, on the primary or secondary text.
-        const matches = (text?: string): boolean => !!text && text.toLowerCase().startsWith(needle);
+        // Substring match, case-insensitive, on the primary or secondary text.
+        const matches = (text?: string): boolean => !!text && text.toLowerCase().includes(needle);
 
         return this._openOptions.filter((option) => matches(option.primaryText) || matches(option.secondaryText));
     }
