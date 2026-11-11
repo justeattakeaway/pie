@@ -19,6 +19,8 @@
   - [Events](#events)
 - [Usage Examples](#usage-examples)
 - [Avoiding layout shift](#avoiding-layout-shift)
+- [Animation](#animation)
+  - [Reduced motion](#reduced-motion)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -129,6 +131,18 @@ A skeleton's job is to reserve the space of the content it stands in for, so the
 - **Reserve space for images.** Give a `box` skeleton the same size or aspect ratio as the image, and keep that space reserved on the image itself.
 - **Reserve space on the container.** A fixed or minimum height (or aspect ratio) on the container stops small differences inside it from moving content outside it.
 - **Small mismatches add up.** One 4px difference is negligible (around 0.003 CLS), but the same difference repeated across a list of 10 cards can reach around 0.04 — almost half of the 0.1 "good" threshold.
+
+## Animation
+
+A skeleton plays a shimmer animation to show that content is loading.
+
+In a right-to-left layout (`dir="rtl"`), the band moves right to left, following the reading direction.
+
+The wave is anchored to the viewport, so every skeleton on the page shares one continuous sweep: a shape lights up as the wave passes over it, and skeletons added later join the wave already in progress. Because the wave is viewport-anchored, its width scales with the viewport rather than with each shape.
+
+### Reduced motion
+
+When the user has requested reduced motion (`prefers-reduced-motion: reduce`), the shimmer animation is removed and the skeleton is shown as a static placeholder.
 
 ## Questions and Support
 
