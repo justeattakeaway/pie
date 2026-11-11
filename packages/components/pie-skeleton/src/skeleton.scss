@@ -24,10 +24,13 @@ $font-identifiers: ();
 $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'large');
 
 // The shimmer shared by every shape (box, circle, pill, text bar and star). A soft diagonal
-// band of the matching shimmer token (at 50% opacity) sweeps across the shape from left to
-// right. The band starts off the leading edge, so a shape that is not animating (reduced
-// motion, or a frozen visual test) shows only the flat background colour.
+// band of the matching shimmer token (at 50% opacity) sweeps from left to right. The band is
+// anchored to the viewport (background-attachment: fixed), so every skeleton on the page
+// shares one continuous wave and shapes light up as the wave passes over them, rather than
+// each shape animating its own band. The band starts off the leading edge, so a shape that is
+// not animating (reduced motion, or a frozen visual test) shows only the flat background colour.
 @mixin skeleton-shimmer {
+    background-attachment: fixed;
     background-color: var(--skeleton-bg);
     background-image: linear-gradient(
         135deg,
@@ -210,14 +213,16 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
         content: '\200b';
     }
 
-    // The bar is the font size tall and centred in the line box.
+    // The bar is the font size tall and centred in the line box. It is centred with
+    // `inset-block-start` rather than `translate`, because a transform on the bar would make
+    // its viewport-anchored (fixed) shimmer resolve against the bar instead of the viewport,
+    // putting the text variant out of sync with the other shapes.
     &:after {
         @include skeleton-shimmer;
         content: '';
         position: absolute;
         inset-inline: 0;
-        inset-block-start: 50%;
-        translate: 0 -50%;
+        inset-block-start: calc(50% - 0.5em);
         block-size: 1em;
         border-radius: var(--skeleton-text-radius);
     }
