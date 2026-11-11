@@ -1,7 +1,204 @@
+@use 'sass:meta';
+@use 'sass:string';
+@use 'sass:list';
+@use '@justeat/pie-design-tokens/dist/jet.scss' as tokens;
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/mixins/components/button' as btn;
+
+// Build the list of typography identifiers from the design tokens at build time.
+// Every font-* token ending in -size or -size--narrow (excluding font-size-*), with the suffix removed.
+// New typography tokens are picked up on the next build, so there is no hand-maintained list.
+$font-identifiers: ();
+
+@each $name, $value in meta.module-variables('tokens') {
+    @if string.index($name, 'font-') == 1 and not string.index($name, 'font-size') {
+        @if string.index($name, '-size--narrow') {
+            $font-identifiers: list.append($font-identifiers, string.slice($name, 1, string.index($name, '-size--narrow') - 1), comma);
+        } @else if string.slice($name, -5) == '-size' {
+            $font-identifiers: list.append($font-identifiers, string.slice($name, 1, -6), comma);
+        }
+    }
+}
+
+// The pie-button sizes a pill can match, via height="button-{size}".
+$button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'large');
 
 :host {
-    // Note: For consistency sake, the recommended display should be either
-    // "block" or "inline-block", otherwise it can be ommited for floating elements
     display: block;
+
+    // Skeletons are decorative, never interactive.
+    pointer-events: none;
+}
+
+.c-skeleton {
+    --skeleton-bg: var(--dt-color-skeleton-01);
+    --skeleton-border-radius: var(--dt-radius-rounded-b);
+    --skeleton-text-radius: var(--dt-radius-rounded-a);
+    --skeleton-star-size: var(--dt-spacing-e);
+
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+// Background colours
+.c-skeleton--backgroundDefault {
+    --skeleton-bg: var(--dt-color-skeleton-01);
+}
+
+.c-skeleton--backgroundStrong {
+    --skeleton-bg: var(--dt-color-skeleton-02);
+}
+
+.c-skeleton--backgroundSubtle {
+    --skeleton-bg: var(--dt-color-skeleton-03);
+}
+
+// Shapes
+.c-skeleton--box,
+.c-skeleton--circle,
+.c-skeleton--pill,
+.c-skeleton-star {
+    background-color: var(--skeleton-bg);
+}
+
+// Box
+.c-skeleton--box {
+    border-radius: var(--skeleton-border-radius);
+}
+
+.c-skeleton--radius-rounded-none {
+    --skeleton-border-radius: var(--dt-radius-rounded-none);
+}
+
+.c-skeleton--radius-rounded-a {
+    --skeleton-border-radius: var(--dt-radius-rounded-a);
+}
+
+.c-skeleton--radius-rounded-b {
+    --skeleton-border-radius: var(--dt-radius-rounded-b);
+}
+
+.c-skeleton--radius-rounded-c {
+    --skeleton-border-radius: var(--dt-radius-rounded-c);
+}
+
+.c-skeleton--radius-rounded-d {
+    --skeleton-border-radius: var(--dt-radius-rounded-d);
+}
+
+.c-skeleton--radius-rounded-e {
+    --skeleton-border-radius: var(--dt-radius-rounded-e);
+}
+
+.c-skeleton--radius-rounded-f {
+    --skeleton-border-radius: var(--dt-radius-rounded-f);
+}
+
+.c-skeleton--radius-rounded-g {
+    --skeleton-border-radius: var(--dt-radius-rounded-g);
+}
+
+// Box aspect ratios
+.c-skeleton--1by1 {
+    aspect-ratio: 1 / 1;
+}
+
+.c-skeleton--4by3 {
+    aspect-ratio: 4 / 3;
+}
+
+.c-skeleton--16by9 {
+    aspect-ratio: 16 / 9;
+}
+
+.c-skeleton--3by4 {
+    aspect-ratio: 3 / 4;
+}
+
+.c-skeleton--9by16 {
+    aspect-ratio: 9 / 16;
+}
+
+// Circle
+.c-skeleton--circle {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+// Pill
+.c-skeleton--pill {
+    // border-box keeps the reused button padding inside the pill's specified size,
+    // so its default width and any explicit height match the real button.
+    box-sizing: border-box;
+    border-radius: var(--dt-radius-rounded-e);
+}
+
+@each $size in $button-sizes {
+    .c-skeleton--button-#{$size} {
+        @include btn.button-padding-properties;
+        @include btn.button-size($size, 'c-skeleton');
+
+        line-height: var(--btn-line-height);
+
+        // A zero-width character makes the pill exactly one line box tall, like a button label.
+        &:before {
+            content: '\200b';
+        }
+    }
+}
+
+// Text
+.c-skeleton-line {
+    @include p.font-theme('font-body-l');
+
+    position: relative;
+    border-radius: var(--skeleton-text-radius);
+
+    // A zero-width character makes the line exactly one line box tall.
+    &:before {
+        content: '\200b';
+    }
+
+    // The bar is the font size tall and centred in the line box.
+    &:after {
+        content: '';
+        position: absolute;
+        inset-inline: 0;
+        inset-block-start: 50%;
+        translate: 0 -50%;
+        block-size: 1em;
+        border-radius: var(--skeleton-text-radius);
+        background-color: var(--skeleton-bg);
+    }
+
+    // With more than one line, the last line is half width (set through the is-last class).
+    &.is-last:after {
+        inset-inline-end: 50%;
+    }
+}
+
+@each $identifier in $font-identifiers {
+    .c-skeleton-line--#{$identifier} {
+        @include p.font-theme($identifier);
+    }
+}
+
+// Star
+.c-skeleton--star {
+    display: flex;
+    gap: 0;
+    width: fit-content;
+}
+
+.c-skeleton-star {
+    flex: 0 0 auto;
+    inline-size: var(--skeleton-star-size);
+    block-size: var(--skeleton-star-size);
+
+    // The PIE star icon (star-filled) masks the background into a star shape.
+    mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Cpath%20d='m12.288%2014.449-4.183-2.197a.22.22%200%200%200-.21%200L3.713%2014.45%204.5%209.794a.25.25%200%200%200%200-.193L1.07%206.302l4.673-.682a.23.23%200%200%200%20.166-.114L8%201.271l2.091%204.235a.23.23%200%200%200%20.167.114l4.672.682-3.386%203.3a.25.25%200%200%200-.061.192z'/%3E%3C/svg%3E");
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
 }

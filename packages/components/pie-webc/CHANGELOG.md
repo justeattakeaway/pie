@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`3668da6`](https://github.com/justeattakeaway/pie/commit/3668da65fc9644587a110f0e3234aeb5a3a3cb6d)]:
+  - @justeattakeaway/pie-skeleton@0.1.0
+
 ## 1.0.2
 
 ### Patch Changes
