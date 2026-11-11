@@ -49,7 +49,7 @@
   },
   "List": {
     "piePackage": "@justeattakeaway/pie-list",
-    "status": "beta"
+    "status": "stable"
   },
   "Loading": {
     "piePackage": "@justeattakeaway/pie-spinner",
