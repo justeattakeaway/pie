@@ -118,8 +118,10 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * Resets the image error state whenever `src` changes, so a new image is
      * attempted and can fall back to the icon if it also fails.
      */
-    protected updated (changedProperties: PropertyValues<this>): void {
-        if (changedProperties.get('src') !== undefined) {
+    protected willUpdate (changedProperties?: PropertyValues<this>): void {
+        super.willUpdate();
+
+        if (changedProperties?.has('src')) {
             this._hasImageError = false;
         }
     }
@@ -139,7 +141,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the inner content of the avatar such as initials, an icon or an image.
+     * Renders the inner contentok  of the avatar such as initials, an icon or an image.
      * It is a getter because the value is computed based on properties
      *
      * @private
