@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-avatar": minor
 ---
 
-[added] - image error fallback
+[Added] - image error fallback
