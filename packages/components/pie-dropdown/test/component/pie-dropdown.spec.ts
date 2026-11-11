@@ -377,6 +377,35 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip')).toHaveText(/2 selected/);
         });
 
+        test('should not re-sort the open list when options are selected mid-session, sorting selected options to the top on reopen', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            // Click near the field's start: the chip's close button sits in the middle and would clear the selection.
+            await page.getByTestId(dropdown.selectors.field.dataTestId).click({ position: { x: 10, y: 24 } });
+
+            // The popover opens with the selected option (Pizza) first, the rest alphabetically.
+            const rows = page.getByTestId(option);
+            await expect(rows).toHaveCount(6);
+            await expect(rows.nth(0)).toContainText('Pizza');
+            await expect(rows.nth(1)).toContainText('Burger');
+            await expect(rows.nth(2)).toContainText('Curry');
+
+            // Ticking a mid-list option never re-sorts the live list (the chip assertion waits for the re-render).
+            await page.getByTestId(popover).locator('pie-checkbox').nth(1).click();
+            await expect(page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip')).toHaveText(/2 selected/);
+            await expect(rows.nth(0)).toContainText('Pizza');
+            await expect(rows.nth(1)).toContainText('Burger');
+            await expect(rows.nth(2)).toContainText('Curry');
+
+            // Escape refocuses the field, ArrowDown reopens: both selections sort to the top alphabetically.
+            await page.keyboard.press('Escape');
+            await page.keyboard.press('ArrowDown');
+            await expect(rows.nth(0)).toContainText('Burger');
+            await expect(rows.nth(1)).toContainText('Pizza');
+            await expect(rows.nth(2)).toContainText('Curry');
+        });
+
         test('should toggle a checkbox with Space', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--multi-select');
             await dropdownPage.load();
@@ -1289,6 +1318,36 @@ test.describe('PieDropdown - Component tests', () => {
 
             await expect(page.getByTestId(dropdown.selectors.loading.dataTestId)).toBeVisible();
             await expect(page.getByTestId(option)).toHaveCount(0);
+        });
+
+        test('should render asynchronously loaded options set while the popover is open', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
+            await dropdownPage.load();
+
+            // The README's async flow: on search, set the fetched options while the popover is open.
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.addEventListener('pie-dropdown-search', () => {
+                    dropdown.isLoading = true;
+                    setTimeout(() => {
+                        dropdown.options = [
+                            { value: 'sushi-platter', primaryText: 'Sushi platter' },
+                            { value: 'sushi-rolls', primaryText: 'Sushi rolls' },
+                        ];
+                        dropdown.isLoading = false;
+                    }, 0);
+                });
+            });
+
+            const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+            await input.click();
+            // No story option starts with "Sushi": only the fetched options can match.
+            await input.fill('Sushi');
+
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await expect(page.getByTestId(option)).toHaveCount(2);
+            await expect(page.getByTestId(option).filter({ hasText: 'Sushi platter' })).toBeVisible();
+            await expect(page.getByTestId(dropdown.selectors.noResults.dataTestId)).toBeHidden();
         });
     });
 

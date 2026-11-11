@@ -144,11 +144,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @property({ type: Object })
     public aria: DropdownProps['aria'];
 
-    /**
-     * The options rendered in the popover while it is open. Captured when the
-     * popover opens, so mid-session selections never re-sort the live list —
-     * in multi-select, selected options are sorted to the top on reopen.
-     */
+    /** The options rendered while the popover is open; re-captured when `options` changes while open (in multi-select, selected options sort to the top). */
     @state()
     private _openOptions: DropdownOption[] = [];
 
@@ -292,6 +288,16 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     protected updated (changedProperties: PropertyValues<this>): void {
         if (changedProperties.has('disabled') && this.disabled && this._isOpen) {
             this._closePopover('outside');
+        }
+
+        // Options can arrive while the popover is open (async loading), so the live list is re-captured.
+        if (changedProperties.has('options') && this._isOpen) {
+            this._captureOpenOptions();
+        }
+
+        // A re-capture can remove the focused row, silently moving focus to <body>: restore it into the list.
+        if (changedProperties.has('_openOptions') && this._isOpen && !this.shadowRoot?.activeElement) {
+            this._focusInitialOption();
         }
 
         // The validity state depends on `required`, so it is refreshed when
@@ -457,9 +463,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
         // Capture the option order now: in multi-select, selected options are
         // sorted to the top (alphanumerically) whenever the popover is opened.
-        this._openOptions = this.isMultiselect
-            ? this._sortedSelectedFirst(this.options ?? [])
-            : [...(this.options ?? [])];
+        this._captureOpenOptions();
         this._isOpen = true;
         this._hasEverOpened = true;
 
@@ -494,6 +498,12 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
 
         dispatchCustomEvent(this, 'pie-dropdown-close', { source });
+    }
+
+    private _captureOpenOptions (): void {
+        this._openOptions = this.isMultiselect
+            ? this._sortedSelectedFirst(this.options ?? [])
+            : [...(this.options ?? [])];
     }
 
     private _sortedSelectedFirst (options: DropdownOption[]): DropdownOption[] {
