@@ -134,11 +134,11 @@ A skeleton's job is to reserve the space of the content it stands in for, so the
 
 ## Animation
 
-A skeleton plays a shimmer animation to representa that content is loading.
+A skeleton plays a shimmer animation to show that content is loading.
 
 In a right-to-left layout (`dir="rtl"`), the band moves right to left, following the reading direction.
 
-Skeletons that are rendered at the same time share the same animation timing, so the wave lines up across a group of skeletons. A skeleton added to the page later starts its own animation.
+The wave is anchored to the viewport, so every skeleton on the page shares one continuous sweep: a shape lights up as the wave passes over it, and skeletons added later join the wave already in progress. Because the wave is viewport-anchored, its width scales with the viewport rather than with each shape.
 
 ### Reduced motion
 
