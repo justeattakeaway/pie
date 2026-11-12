@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`f69047f`](https://github.com/justeattakeaway/pie/commit/f69047fd933d9000d2ee4b0f972aba8996b44c8a)]:
+  - @justeattakeaway/pie-select@0.10.0
+
 ## 1.0.5
 
 ### Patch Changes
