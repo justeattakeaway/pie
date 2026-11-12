@@ -105,13 +105,6 @@ select.options = [
 ];
 ```
 
-**Providing an accessible label when no visible label is used:**
-
-```js
-const select = document.querySelector('pie-select');
-select.aria = { label: 'Choose a meal' };
-```
-
 **For Native JS Applications, Vue, Angular, Svelte, etc.:**
 
 ```js
