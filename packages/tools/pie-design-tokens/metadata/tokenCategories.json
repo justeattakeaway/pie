@@ -137,6 +137,9 @@
     },
     "alias": {
       "wide": {
+        "display": {
+          "displayName": "Display"
+        },
         "headings": {
           "displayName": "Headings"
         },
@@ -160,6 +163,9 @@
         }
       },
       "narrow": {
+        "display": {
+          "displayName": "Display"
+        },
         "headings": {
           "displayName": "Headings"
         },
