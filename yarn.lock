@@ -3900,7 +3900,7 @@ __metadata:
     "@justeattakeaway/pie-icons": "npm:5.33.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.30.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.14"
-    "@justeattakeaway/pie-webc": "npm:1.0.5"
+    "@justeattakeaway/pie-webc": "npm:1.0.6"
     "@lit-labs/eleventy-plugin-lit": "npm:1.0.6"
     "@lit-labs/ssr-client": "npm:1.1.8"
     "@types/markdown-it": "npm:14.1.2"
@@ -4189,7 +4189,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-select@npm:0.9.17, @justeattakeaway/pie-select@workspace:packages/components/pie-select":
+"@justeattakeaway/pie-select@npm:0.10.0, @justeattakeaway/pie-select@workspace:packages/components/pie-select":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-select@workspace:packages/components/pie-select"
   dependencies:
@@ -4233,7 +4233,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "npm:5.21.0"
     "@justeattakeaway/pie-icons-webc": "npm:1.30.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.14"
-    "@justeattakeaway/pie-webc": "npm:1.0.5"
+    "@justeattakeaway/pie-webc": "npm:1.0.6"
     "@storybook/addon-a11y": "npm:10.6.6"
     "@storybook/addon-designs": "npm:11.1.4"
     "@storybook/addon-docs": "npm:10.6.6"
@@ -4404,7 +4404,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@npm:1.0.5, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@npm:1.0.6, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4433,7 +4433,7 @@ __metadata:
     "@justeattakeaway/pie-pagination": "npm:0.1.1"
     "@justeattakeaway/pie-radio": "npm:1.2.9"
     "@justeattakeaway/pie-radio-group": "npm:1.2.14"
-    "@justeattakeaway/pie-select": "npm:0.9.17"
+    "@justeattakeaway/pie-select": "npm:0.10.0"
     "@justeattakeaway/pie-skeleton": "npm:0.1.0"
     "@justeattakeaway/pie-spinner": "npm:1.5.11"
     "@justeattakeaway/pie-switch": "npm:2.7.8"
