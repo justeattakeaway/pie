@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tooltip
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Promoted pie-tooltip component status from alpha to beta ([#3321](https://github.com/justeattakeaway/pie/pull/3321)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.7.1
 
 ### Patch Changes
