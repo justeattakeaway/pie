@@ -52,7 +52,7 @@
     "@justeattakeaway/pie-chip": "1.0.18",
     "@justeattakeaway/pie-form-label": "1.0.1",
     "@justeattakeaway/pie-icons-webc": "1.30.0",
-    "@justeattakeaway/pie-list": "0.9.0",
+    "@justeattakeaway/pie-list": "1.0.0",
     "@justeattakeaway/pie-spinner": "1.5.11",
     "@justeattakeaway/pie-webc-core": "22.0.1",
     "element-internals-polyfill": "3.0.2"

@@ -3934,7 +3934,7 @@ __metadata:
     "@justeattakeaway/pie-css": "npm:1.9.3"
     "@justeattakeaway/pie-form-label": "npm:1.0.1"
     "@justeattakeaway/pie-icons-webc": "npm:1.30.0"
-    "@justeattakeaway/pie-list": "npm:0.9.0"
+    "@justeattakeaway/pie-list": "npm:1.0.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.14"
     "@justeattakeaway/pie-spinner": "npm:1.5.11"
     "@justeattakeaway/pie-webc-core": "npm:22.0.1"
@@ -4086,16 +4086,6 @@ __metadata:
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.5"
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-list@npm:0.9.0":
-  version: 0.9.0
-  resolution: "@justeattakeaway/pie-list@npm:0.9.0"
-  dependencies:
-    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
-    "@lit/context": "npm:1.1.6"
-  checksum: 10/5ba37f352859c4407709d528268b6f0a26add0467ee9992eae3284d0472615c0c4bc8a131ff5600f0c8f14a6fb8fa2cff2207bad846975fdcbfe09f79bd9a143
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-list@npm:1.0.0, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
   version: 0.0.0-use.local
