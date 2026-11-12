@@ -32,8 +32,10 @@
         "lint:scripts:fix": "yarn lint:scripts --fix",
         "watch": "run -T vite build --watch"
     },
+    "dependencies": {
+        "@justeat/pie-design-tokens": "7.15.1"
+    },
     "devDependencies": {
-        "@justeat/pie-design-tokens": "7.15.1",
         "@justeattakeaway/pie-components-config": "*"
     }
 }

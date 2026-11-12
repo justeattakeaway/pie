@@ -1,4 +1,5 @@
 <link rel="preload" href="https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDigital-VF-optimised-extended.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDisplay-ExtraBlackItalic-optimised-extended.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/PTMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="prefetch" href="{{ '/assets/img/heroes/pie-hero.png' | url }}">
 <link rel="prefetch" href="{{ '/assets/img/coming-soon.svg' | url }}">
@@ -12,6 +13,13 @@
         font-weight: 100 1000;
         font-stretch: 25% 151%;
         font-style: oblique 0deg 20deg;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: JETSansDisplay;
+        src: url('https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDisplay-ExtraBlackItalic-optimised-extended.woff2') format('woff2');
+        font-weight: 1000;
+        font-style: italic;
         font-display: swap;
     }
     @font-face {
