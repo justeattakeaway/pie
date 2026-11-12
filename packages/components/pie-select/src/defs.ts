@@ -54,11 +54,8 @@ export interface SelectOptionGroupProps {
 }
 
 type AriaProps = {
-    /**
-     * Provides an accessible label for the select. Should be used when no visible label is associated with the select.
-     */
     label?: string;
-}
+};
 
 export interface SelectProps {
     /**
