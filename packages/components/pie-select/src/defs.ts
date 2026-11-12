@@ -53,7 +53,19 @@ export interface SelectOptionGroupProps {
     disabled?: boolean;
 }
 
+type AriaProps = {
+    /**
+     * Provides an accessible label for the select. Should be used when no visible label is associated with the select.
+     */
+    label?: string;
+}
+
 export interface SelectProps {
+    /**
+     * The ARIA attributes for the select. Offers a `label` used for the `aria-label` of the `<select>` element.
+     */
+    aria?: AriaProps;
+
     /**
      * The size of the select component. Can be `small`, `medium` or `large`. Defaults to `medium`.
      */
@@ -90,7 +102,7 @@ export interface SelectProps {
     value?: string | number;
 }
 
-type DefaultProps = ComponentDefaultProps<SelectProps, keyof Omit<SelectProps, 'name' | 'assistiveText'>>;
+type DefaultProps = ComponentDefaultProps<SelectProps, keyof Omit<SelectProps, 'name' | 'assistiveText' | 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',

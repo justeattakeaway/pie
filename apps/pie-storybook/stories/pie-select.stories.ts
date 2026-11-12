@@ -57,6 +57,10 @@ const selectStoryMeta: SelectStoryMeta = {
     title: 'Components/Select',
     component: 'pie-select',
     argTypes: {
+        aria: {
+            description: 'The ARIA attributes for the select. Offers a `label` used for the `aria-label` of the `<select>` element.',
+            control: 'object',
+        },
         name: {
             description: 'The name of the select (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
@@ -128,6 +132,7 @@ const selectStoryMeta: SelectStoryMeta = {
 export default selectStoryMeta;
 
 const Template: TemplateFunction<SelectProps> = ({
+    aria,
     disabled,
     size,
     assistiveText,
@@ -152,6 +157,7 @@ const Template: TemplateFunction<SelectProps> = ({
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"
             .options="${options}"
+            .aria="${aria}"
             value="${ifDefined(value)}"
             @change="${onChange}">
                 ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}

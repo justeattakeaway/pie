@@ -32,6 +32,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Properties
 | Prop           | Options                                | Description                                                                                                                                                                | Default     |
 |----------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| `aria`         | `{ label?: string }`                   | The ARIA attributes for the select. Offers a `label` used for the `aria-label` of the `<select>` element.                                                                   | `undefined` |
 | `size`         | `"small"`, `"medium"`, `"large"`       | The size of the select component.                                                                                                                                          | `medium`    |
 | `disabled`     | `boolean`                              | Whether the select is disabled.                                                                                                                                            | `false`     |
 | `assistiveText`| `string`                               | An optional assistive text to display below the select element. Must be provided when the status is `error`.                                                               | `undefined` |
@@ -102,6 +103,13 @@ select.options = [
   { tag: 'option', text: 'Option 1', value: 'option1' },
   { tag: 'option', text: 'Option 2', value: 'option2' }
 ];
+```
+
+**Providing an accessible label when no visible label is used:**
+
+```js
+const select = document.querySelector('pie-select');
+select.aria = { label: 'Choose a meal' };
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte, etc.:**

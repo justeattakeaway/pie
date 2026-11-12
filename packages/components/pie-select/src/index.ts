@@ -59,6 +59,9 @@ export class PieSelect extends FormControlMixin(RtlMixin(DelegatesFocusMixin(Pie
     @property({ type: String })
     public assistiveText: SelectProps['assistiveText'];
 
+    @property({ type: Object })
+    public aria: SelectProps['aria'];
+
     @property({ type: String, reflect: true })
     public name: SelectProps['name'];
 
@@ -231,6 +234,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(DelegatesFocusMixin(Pie
             size,
             name,
             options,
+            aria,
             _hasLeadingIcon,
         } = this;
 
@@ -251,6 +255,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(DelegatesFocusMixin(Pie
                     data-test-id="pie-select-element"
                     name="${ifDefined(name)}"
                     ?disabled="${disabled}"
+                    aria-label=${ifDefined(aria?.label)}
                     aria-describedby="${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}"
                     aria-invalid="${status === 'error' ? 'true' : 'false'}"
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
