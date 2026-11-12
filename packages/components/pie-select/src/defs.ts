@@ -59,7 +59,7 @@ type AriaProps = {
 
 export interface SelectProps {
     /**
-     * The ARIA attributes for the select. Offers a `label` used for the `aria-label` of the `<select>` element.
+     * The ARIA attributes for the select.
      */
     aria?: AriaProps;
 
