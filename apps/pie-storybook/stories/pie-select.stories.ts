@@ -58,7 +58,7 @@ const selectStoryMeta: SelectStoryMeta = {
     component: 'pie-select',
     argTypes: {
         aria: {
-            description: 'The ARIA attributes for the select. Offers a `label` used for the `aria-label` of the `<select>` element.',
+            description: 'ARIA attributes for the select. Offers `label` — use it when no visible label is associated with the select.',
             control: 'object',
         },
         name: {
