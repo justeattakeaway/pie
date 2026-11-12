@@ -141,7 +141,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the inner contentok  of the avatar such as initials, an icon or an image.
+     * Renders the inner content of the avatar such as initials, an icon or an image.
      * It is a getter because the value is computed based on properties
      *
      * @private
