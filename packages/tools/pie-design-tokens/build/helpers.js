@@ -6,7 +6,8 @@ const CONSTANTS = {
     ADD_REM_TO_VALUE: ['round'], // list of properties that should have rem added after the value when compiled
     ALIAS_TOKEN_KEY: 'alias',
     ALTERNATE_MODES: ['dark'],
-    APPLY_QUOTES_TO_VALUE: ['family-primary', 'family-secondary', 'family-code', 'family-alternative'], // list of properties that should have quotes applied when compiled
+    APPLY_QUOTES_TO_VALUE: ['family-primary', 'family-secondary', 'family-code', 'family-alternative', 'family-display'], // list of properties that should have quotes applied when compiled
+    FONT_LETTER_SPACING_PREFIX: 'letter-spacing', // font sub-properties with this prefix get px units appended in CSS/SCSS output
     CATEGORIES_WITH_UNITS: ['radius', 'spacing', 'breakpoint', 'blur'], // list of categories that needs units to be added to the values
     CATEGORIES_WITH_ALTERNATE_MODES: ['color', 'elevation', 'gradient'],
     CATEGORY_WITH_TIMING: 'timing',

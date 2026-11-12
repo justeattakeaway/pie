@@ -480,15 +480,28 @@ exports[`generated file should match jet.css 1`] = `
     /* Global tokens - Font */
     --dt-font-family-alternative: 'JETSansVF2';
     --dt-font-family-code: 'PTMono';
+    --dt-font-family-display: 'JETSansDisplay';
     --dt-font-family-primary: 'JetSansDigital';
     --dt-font-family-secondary: 'Arial';
+    --dt-font-letter-spacing-minus-00-15: -0.15px;
+    --dt-font-letter-spacing-minus-00-5: -0.5px;
+    --dt-font-letter-spacing-minus-01: -1px;
+    --dt-font-letter-spacing-minus-01-25: -1.25px;
+    --dt-font-letter-spacing-minus-01-5: -1.5px;
+    --dt-font-letter-spacing-minus-02: -2px;
+    --dt-font-letter-spacing-minus-02-5: -2.5px;
     --dt-font-line-height-16: 16;
     --dt-font-line-height-20: 20;
     --dt-font-line-height-24: 24;
     --dt-font-line-height-28: 28;
     --dt-font-line-height-32: 32;
     --dt-font-line-height-36: 36;
+    --dt-font-line-height-40: 40;
+    --dt-font-line-height-48: 48;
     --dt-font-line-height-52: 52;
+    --dt-font-line-height-56: 56;
+    --dt-font-line-height-80: 80;
+    --dt-font-line-height-88: 88;
     --dt-font-paragraph-spacing-01: 16;
     --dt-font-paragraph-spacing-02: 14;
     --dt-font-paragraph-spacing-03: 12;
@@ -506,8 +519,13 @@ exports[`generated file should match jet.css 1`] = `
     --dt-font-size-28-line-height: 32;
     --dt-font-size-32: 32;
     --dt-font-size-32-line-height: 36;
+    --dt-font-size-40: 40;
     --dt-font-size-48: 48;
     --dt-font-size-48-line-height: 52;
+    --dt-font-size-56: 56;
+    --dt-font-size-64: 64;
+    --dt-font-size-88: 88;
+    --dt-font-size-96: 96;
     --dt-font-style-italic: italic;
     --dt-font-style-underline: underline;
     --dt-font-weight-black: 900;
@@ -720,6 +738,56 @@ exports[`generated file should match jet.css 1`] = `
     --dt-font-caption-strong-link-weight: var(--dt-font-weight-bold);
     --dt-font-caption-strong-link-paragraph: var(--dt-font-paragraph-spacing-03);
     --dt-font-caption-strong-link-text-decoration: var(--dt-font-style-underline);
+    /* Display-xl font theme */
+    --dt-font-display-xl-size--wide: var(--dt-font-size-96);
+    --dt-font-display-xl-line-height--wide: var(--dt-font-line-height-88);
+    --dt-font-display-xl-size--narrow: var(--dt-font-size-88);
+    --dt-font-display-xl-line-height--narrow: var(--dt-font-line-height-80);
+    --dt-font-display-xl-family: var(--dt-font-family-display);
+    --dt-font-display-xl-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-xl-font-style: var(--dt-font-style-italic);
+    --dt-font-display-xl-letter-spacing--wide: var(--dt-font-letter-spacing-minus-02-5);
+    --dt-font-display-xl-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-02);
+    /* Display-l font theme */
+    --dt-font-display-l-size--wide: var(--dt-font-size-64);
+    --dt-font-display-l-line-height--wide: var(--dt-font-line-height-56);
+    --dt-font-display-l-size--narrow: var(--dt-font-size-56);
+    --dt-font-display-l-line-height--narrow: var(--dt-font-line-height-48);
+    --dt-font-display-l-family: var(--dt-font-family-display);
+    --dt-font-display-l-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-l-font-style: var(--dt-font-style-italic);
+    --dt-font-display-l-letter-spacing--wide: var(--dt-font-letter-spacing-minus-01-5);
+    --dt-font-display-l-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-01-5);
+    /* Display-m font theme */
+    --dt-font-display-m-size--wide: var(--dt-font-size-48);
+    --dt-font-display-m-line-height--wide: var(--dt-font-line-height-40);
+    --dt-font-display-m-size--narrow: var(--dt-font-size-40);
+    --dt-font-display-m-line-height--narrow: var(--dt-font-line-height-32);
+    --dt-font-display-m-family: var(--dt-font-family-display);
+    --dt-font-display-m-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-m-font-style: var(--dt-font-style-italic);
+    --dt-font-display-m-letter-spacing--wide: var(--dt-font-letter-spacing-minus-01-25);
+    --dt-font-display-m-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-01);
+    /* Display-s font theme */
+    --dt-font-display-s-size--wide: var(--dt-font-size-40);
+    --dt-font-display-s-line-height--wide: var(--dt-font-line-height-32);
+    --dt-font-display-s-size--narrow: var(--dt-font-size-32);
+    --dt-font-display-s-line-height--narrow: var(--dt-font-line-height-28);
+    --dt-font-display-s-family: var(--dt-font-family-display);
+    --dt-font-display-s-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-s-font-style: var(--dt-font-style-italic);
+    --dt-font-display-s-letter-spacing--wide: var(--dt-font-letter-spacing-minus-01);
+    --dt-font-display-s-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-00-5);
+    /* Display-xs font theme */
+    --dt-font-display-xs-size--wide: var(--dt-font-size-32);
+    --dt-font-display-xs-line-height--wide: var(--dt-font-line-height-28);
+    --dt-font-display-xs-size--narrow: var(--dt-font-size-24);
+    --dt-font-display-xs-line-height--narrow: var(--dt-font-line-height-24);
+    --dt-font-display-xs-family: var(--dt-font-family-display);
+    --dt-font-display-xs-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-xs-font-style: var(--dt-font-style-italic);
+    --dt-font-display-xs-letter-spacing--wide: var(--dt-font-letter-spacing-minus-00-5);
+    --dt-font-display-xs-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-00-5);
     /* Global tokens - Radius */
     --dt-radius-12: 12px;
     --dt-radius-16: 16px;
@@ -1959,15 +2027,28 @@ html[data-color-mode=\\"dark\\"] {
 // Global tokens - Font
 $font-family-alternative: 'JETSansVF2';
 $font-family-code: 'PTMono';
+$font-family-display: 'JETSansDisplay';
 $font-family-primary: 'JetSansDigital';
 $font-family-secondary: 'Arial';
+$font-letter-spacing-minus-00-15: -0.15px;
+$font-letter-spacing-minus-00-5: -0.5px;
+$font-letter-spacing-minus-01: -1px;
+$font-letter-spacing-minus-01-25: -1.25px;
+$font-letter-spacing-minus-01-5: -1.5px;
+$font-letter-spacing-minus-02: -2px;
+$font-letter-spacing-minus-02-5: -2.5px;
 $font-line-height-16: 16;
 $font-line-height-20: 20;
 $font-line-height-24: 24;
 $font-line-height-28: 28;
 $font-line-height-32: 32;
 $font-line-height-36: 36;
+$font-line-height-40: 40;
+$font-line-height-48: 48;
 $font-line-height-52: 52;
+$font-line-height-56: 56;
+$font-line-height-80: 80;
+$font-line-height-88: 88;
 $font-paragraph-spacing-01: 16;
 $font-paragraph-spacing-02: 14;
 $font-paragraph-spacing-03: 12;
@@ -1985,8 +2066,13 @@ $font-size-28: 28;
 $font-size-28-line-height: 32;
 $font-size-32: 32;
 $font-size-32-line-height: 36;
+$font-size-40: 40;
 $font-size-48: 48;
 $font-size-48-line-height: 52;
+$font-size-56: 56;
+$font-size-64: 64;
+$font-size-88: 88;
+$font-size-96: 96;
 $font-style-italic: italic;
 $font-style-underline: underline;
 $font-weight-black: 900;
@@ -2199,6 +2285,56 @@ $font-caption-strong-link-family: $font-family-primary;
 $font-caption-strong-link-weight: $font-weight-bold;
 $font-caption-strong-link-paragraph: $font-paragraph-spacing-03;
 $font-caption-strong-link-text-decoration: $font-style-underline;
+// Display-xl font theme
+$font-display-xl-size--wide: $font-size-96;
+$font-display-xl-line-height--wide: $font-line-height-88;
+$font-display-xl-size--narrow: $font-size-88;
+$font-display-xl-line-height--narrow: $font-line-height-80;
+$font-display-xl-family: $font-family-display;
+$font-display-xl-weight: $font-weight-extrablack;
+$font-display-xl-font-style: $font-style-italic;
+$font-display-xl-letter-spacing--wide: $font-letter-spacing-minus-02-5;
+$font-display-xl-letter-spacing--narrow: $font-letter-spacing-minus-02;
+// Display-l font theme
+$font-display-l-size--wide: $font-size-64;
+$font-display-l-line-height--wide: $font-line-height-56;
+$font-display-l-size--narrow: $font-size-56;
+$font-display-l-line-height--narrow: $font-line-height-48;
+$font-display-l-family: $font-family-display;
+$font-display-l-weight: $font-weight-extrablack;
+$font-display-l-font-style: $font-style-italic;
+$font-display-l-letter-spacing--wide: $font-letter-spacing-minus-01-5;
+$font-display-l-letter-spacing--narrow: $font-letter-spacing-minus-01-5;
+// Display-m font theme
+$font-display-m-size--wide: $font-size-48;
+$font-display-m-line-height--wide: $font-line-height-40;
+$font-display-m-size--narrow: $font-size-40;
+$font-display-m-line-height--narrow: $font-line-height-32;
+$font-display-m-family: $font-family-display;
+$font-display-m-weight: $font-weight-extrablack;
+$font-display-m-font-style: $font-style-italic;
+$font-display-m-letter-spacing--wide: $font-letter-spacing-minus-01-25;
+$font-display-m-letter-spacing--narrow: $font-letter-spacing-minus-01;
+// Display-s font theme
+$font-display-s-size--wide: $font-size-40;
+$font-display-s-line-height--wide: $font-line-height-32;
+$font-display-s-size--narrow: $font-size-32;
+$font-display-s-line-height--narrow: $font-line-height-28;
+$font-display-s-family: $font-family-display;
+$font-display-s-weight: $font-weight-extrablack;
+$font-display-s-font-style: $font-style-italic;
+$font-display-s-letter-spacing--wide: $font-letter-spacing-minus-01;
+$font-display-s-letter-spacing--narrow: $font-letter-spacing-minus-00-5;
+// Display-xs font theme
+$font-display-xs-size--wide: $font-size-32;
+$font-display-xs-line-height--wide: $font-line-height-28;
+$font-display-xs-size--narrow: $font-size-24;
+$font-display-xs-line-height--narrow: $font-line-height-24;
+$font-display-xs-family: $font-family-display;
+$font-display-xs-weight: $font-weight-extrablack;
+$font-display-xs-font-style: $font-style-italic;
+$font-display-xs-letter-spacing--wide: $font-letter-spacing-minus-00-5;
+$font-display-xs-letter-spacing--narrow: $font-letter-spacing-minus-00-5;
 // Global tokens - Radius
 $radius-12: 12px;
 $radius-16: 16px;
@@ -4910,15 +5046,28 @@ exports[`generated file should match tokens.json 1`] = `
         \\"global\\": {
           \\"family-alternative\\": \\"JETSansVF2\\",
           \\"family-code\\": \\"PTMono\\",
+          \\"family-display\\": \\"JETSansDisplay\\",
           \\"family-primary\\": \\"JetSansDigital\\",
           \\"family-secondary\\": \\"Arial\\",
+          \\"letter-spacing-minus-00-15\\": \\"-0.15\\",
+          \\"letter-spacing-minus-00-5\\": \\"-0.5\\",
+          \\"letter-spacing-minus-01\\": \\"-1\\",
+          \\"letter-spacing-minus-01-25\\": \\"-1.25\\",
+          \\"letter-spacing-minus-01-5\\": \\"-1.5\\",
+          \\"letter-spacing-minus-02\\": \\"-2\\",
+          \\"letter-spacing-minus-02-5\\": \\"-2.5\\",
           \\"line-height-16\\": \\"16\\",
           \\"line-height-20\\": \\"20\\",
           \\"line-height-24\\": \\"24\\",
           \\"line-height-28\\": \\"28\\",
           \\"line-height-32\\": \\"32\\",
           \\"line-height-36\\": \\"36\\",
+          \\"line-height-40\\": \\"40\\",
+          \\"line-height-48\\": \\"48\\",
           \\"line-height-52\\": \\"52\\",
+          \\"line-height-56\\": \\"56\\",
+          \\"line-height-80\\": \\"80\\",
+          \\"line-height-88\\": \\"88\\",
           \\"paragraph-spacing-01\\": \\"16\\",
           \\"paragraph-spacing-02\\": \\"14\\",
           \\"paragraph-spacing-03\\": \\"12\\",
@@ -4936,8 +5085,13 @@ exports[`generated file should match tokens.json 1`] = `
           \\"size-28-line-height\\": \\"32\\",
           \\"size-32\\": \\"32\\",
           \\"size-32-line-height\\": \\"36\\",
+          \\"size-40\\": \\"40\\",
           \\"size-48\\": \\"48\\",
           \\"size-48-line-height\\": \\"52\\",
+          \\"size-56\\": \\"56\\",
+          \\"size-64\\": \\"64\\",
+          \\"size-88\\": \\"88\\",
+          \\"size-96\\": \\"96\\",
           \\"style-italic\\": \\"italic\\",
           \\"style-underline\\": \\"underline\\",
           \\"weight-black\\": \\"Black\\",
@@ -5180,6 +5334,61 @@ exports[`generated file should match tokens.json 1`] = `
             \\"weight\\": \\"Bold\\",
             \\"paragraph\\": \\"12\\",
             \\"text-decoration\\": \\"underline\\"
+          },
+          \\"display-xl\\": {
+            \\"size--wide\\": \\"96\\",
+            \\"line-height--wide\\": \\"88\\",
+            \\"size--narrow\\": \\"88\\",
+            \\"line-height--narrow\\": \\"80\\",
+            \\"family\\": \\"JETSansDisplay\\",
+            \\"weight\\": \\"ExtraBlack\\",
+            \\"font-style\\": \\"italic\\",
+            \\"letter-spacing--wide\\": \\"-2.5\\",
+            \\"letter-spacing--narrow\\": \\"-2\\"
+          },
+          \\"display-l\\": {
+            \\"size--wide\\": \\"64\\",
+            \\"line-height--wide\\": \\"56\\",
+            \\"size--narrow\\": \\"56\\",
+            \\"line-height--narrow\\": \\"48\\",
+            \\"family\\": \\"JETSansDisplay\\",
+            \\"weight\\": \\"ExtraBlack\\",
+            \\"font-style\\": \\"italic\\",
+            \\"letter-spacing--wide\\": \\"-1.5\\",
+            \\"letter-spacing--narrow\\": \\"-1.5\\"
+          },
+          \\"display-m\\": {
+            \\"size--wide\\": \\"48\\",
+            \\"line-height--wide\\": \\"40\\",
+            \\"size--narrow\\": \\"40\\",
+            \\"line-height--narrow\\": \\"32\\",
+            \\"family\\": \\"JETSansDisplay\\",
+            \\"weight\\": \\"ExtraBlack\\",
+            \\"font-style\\": \\"italic\\",
+            \\"letter-spacing--wide\\": \\"-1.25\\",
+            \\"letter-spacing--narrow\\": \\"-1\\"
+          },
+          \\"display-s\\": {
+            \\"size--wide\\": \\"40\\",
+            \\"line-height--wide\\": \\"32\\",
+            \\"size--narrow\\": \\"32\\",
+            \\"line-height--narrow\\": \\"28\\",
+            \\"family\\": \\"JETSansDisplay\\",
+            \\"weight\\": \\"ExtraBlack\\",
+            \\"font-style\\": \\"italic\\",
+            \\"letter-spacing--wide\\": \\"-1\\",
+            \\"letter-spacing--narrow\\": \\"-0.5\\"
+          },
+          \\"display-xs\\": {
+            \\"size--wide\\": \\"32\\",
+            \\"line-height--wide\\": \\"28\\",
+            \\"size--narrow\\": \\"24\\",
+            \\"line-height--narrow\\": \\"24\\",
+            \\"family\\": \\"JETSansDisplay\\",
+            \\"weight\\": \\"ExtraBlack\\",
+            \\"font-style\\": \\"italic\\",
+            \\"letter-spacing--wide\\": \\"-0.5\\",
+            \\"letter-spacing--narrow\\": \\"-0.5\\"
           }
         }
       },

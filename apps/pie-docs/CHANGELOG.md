@@ -1,5 +1,26 @@
 # Changelog
 
+## 5.22.0
+
+### Minor Changes
+
+- [Added] - Adds Display type documentation ([#3303](https://github.com/justeattakeaway/pie/pull/3303)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies [[`06635ab`](https://github.com/justeattakeaway/pie/commit/06635ab7aa120aeefdece183bcab2ca7580c4310)]:
+  - @justeat/pie-design-tokens@7.16.0
+  - @justeattakeaway/pie-webc@1.0.5
+  - @justeattakeaway/pie-css@1.9.3
+  - @justeattakeaway/pie-icons@5.33.1
+
+## 5.21.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.4
+
 ## 5.21.3
 
 ### Patch Changes

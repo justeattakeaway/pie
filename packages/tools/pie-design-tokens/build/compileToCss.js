@@ -23,6 +23,7 @@ const {
     CATEGORIES_WITH_UNITS,
     GLOBAL_TOKEN_KEY,
     CATEGORY_WITH_TIMING,
+    FONT_LETTER_SPACING_PREFIX,
 } = CONSTANTS;
 
 let currentThemeTokens = {};
@@ -165,6 +166,10 @@ const createCssVariable = (category, name, value) => {
 
     if (category === 'elevation' && !value.length) {
         compiledValue = '\'none\'';
+    }
+
+    if (category === 'font' && name.startsWith(FONT_LETTER_SPACING_PREFIX) && !value.startsWith('var(') && value !== '0') {
+        compiledValue = `${value}px`;
     }
 
     if (category === 'font' && APPLY_QUOTES_TO_VALUE.includes(name)) {
