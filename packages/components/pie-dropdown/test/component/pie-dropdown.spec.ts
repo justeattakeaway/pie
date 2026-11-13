@@ -1052,78 +1052,43 @@ test.describe('PieDropdown - Component tests', () => {
     });
 
     test.describe('Selection icon', () => {
-        const slotIconFor = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.evaluate((optionValue) => {
+        // Sets an option's `icon` field the way a consumer would.
+        const setIconFor = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string, tag: string) => page.evaluate(({ optionValue, iconTag }) => {
             const dropdown = document.querySelector('pie-dropdown');
-            const icon = document.createElement('icon-check');
-            icon.setAttribute('slot', `icon-${optionValue}`);
-            dropdown.appendChild(icon);
+            dropdown.options = (dropdown.options ?? []).map((option) => (option.value === optionValue ? { ...option, icon: iconTag } : option));
             return dropdown.updateComplete;
-        }, value);
+        }, { optionValue: value, iconTag: tag });
 
-        // Locators cannot follow slot projection (the icon stays a light-DOM
-        // child of the host), so the icon's whereabouts are asserted through
-        // the slot it is assigned to.
-        const iconState = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.evaluate((optionValue) => {
+        // The rendered icons live in the shadow DOM, so their whereabouts are asserted directly.
+        const iconState = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string, tag: string) => page.evaluate(({ optionValue, iconTag }) => {
             const dropdown = document.querySelector('pie-dropdown');
-            const slot = dropdown?.shadowRoot?.querySelector(`slot[name="icon-${optionValue}"]`);
-
-            if (!slot) return { location: 'none', assigned: 0 };
-
-            let location = 'other';
-            if (slot.closest('.c-dropdown-selectionIcon')) {
-                location = 'field';
-            } else if (slot.closest('.c-dropdown-popover')) {
-                location = 'row';
-            }
-
-            return { location, assigned: slot.assignedElements().length };
-        }, value);
-
-        // The row shows clones (rendered nodes), so its icon cannot be asserted through slot assignment like the field's.
-        const rowIconState = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.evaluate((optionValue) => {
-            const dropdown = document.querySelector('pie-dropdown');
+            const fieldIcon = dropdown?.shadowRoot?.querySelector(`.c-dropdown-selectionIcon ${iconTag}`) ?? null;
             const row = dropdown?.shadowRoot?.querySelector(`#pie-dropdown-option-${optionValue}`);
-            const clone = row?.querySelector('.c-dropdown-rowIcon') ?? null;
+            const rowIcon = row?.querySelector(`${iconTag}[slot="leading"]`) ?? null;
 
-            return {
-                hasRow: !!row,
-                rowIconCount: row?.querySelectorAll('.c-dropdown-rowIcon').length ?? 0,
-                cloneTag: clone?.tagName.toLowerCase() ?? '',
-            };
-        }, value);
-
-        // The clones are captured asynchronously, so their presence is polled in the browser.
-        const waitForRowIcon = (page: Parameters<Parameters<typeof test>[2]>[0]['page'], value: string) => page.waitForFunction((optionValue) => {
-            const dropdown = document.querySelector('pie-dropdown');
-            const row = dropdown?.shadowRoot?.querySelector(`#pie-dropdown-option-${optionValue}`);
-
-            return (row?.querySelectorAll('.c-dropdown-rowIcon').length ?? 0) > 0;
-        }, value);
+            return { field: !!fieldIcon, row: !!rowIcon };
+        }, { optionValue: value, iconTag: tag });
 
         test('should show the selected option\'s leading icon in the field', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
             await dropdownPage.load();
 
-            await slotIconFor(page, 'burger');
+            await setIconFor(page, 'burger', 'icon-star');
 
-            // The icon projects into the field: the field's slot comes first
-            // in the shadow tree, so it wins the projection over the row.
-            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: true, row: false });
         });
 
         test('should show the selected option\'s icon in both the field and its row while the popover is open', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
             await dropdownPage.load();
 
-            await slotIconFor(page, 'burger');
+            await setIconFor(page, 'burger', 'icon-star');
 
-            // Click near the start of the field: the clear button sits
-            // between the text and the chevron with a selection present.
+            // Click near the field's start: the clear button sits between the text and the chevron with a selection present.
             await page.getByTestId(trigger).click({ position: { x: 10, y: 24 } });
+            await expect(page.getByTestId(popover)).toBeVisible();
 
-            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
-            await waitForRowIcon(page, 'burger');
-            expect(await rowIconState(page, 'burger')).toEqual({ hasRow: true, rowIconCount: 1, cloneTag: 'icon-check' });
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: true, row: true });
         });
 
         test('should show the selected option\'s icon in both the search field and its row while the popover is open', async ({ page }) => {
@@ -1135,14 +1100,13 @@ test.describe('PieDropdown - Component tests', () => {
                 dropdown.value = 'burger';
                 return dropdown.updateComplete;
             });
-            await slotIconFor(page, 'burger');
+            await setIconFor(page, 'burger', 'icon-star');
 
             // Clicking the search field opens the popover without moving the caret.
             await page.getByTestId(dropdown.selectors.input.dataTestId).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
 
-            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
-            await waitForRowIcon(page, 'burger');
-            expect(await rowIconState(page, 'burger')).toEqual({ hasRow: true, rowIconCount: 1, cloneTag: 'icon-check' });
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: true, row: true });
         });
 
         test('should keep the selected option\'s icon in the search field and its row while searching', async ({ page }) => {
@@ -1154,16 +1118,14 @@ test.describe('PieDropdown - Component tests', () => {
                 dropdown.value = 'burger';
                 return dropdown.updateComplete;
             });
-            await slotIconFor(page, 'burger');
+            await setIconFor(page, 'burger', 'icon-star');
 
             const input = page.getByTestId(dropdown.selectors.input.dataTestId);
             // 'Bur' keeps the selected option's row in the filtered list.
             await input.fill('Bur');
-
-            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
-            await waitForRowIcon(page, 'burger');
-            expect(await rowIconState(page, 'burger')).toEqual({ hasRow: true, rowIconCount: 1, cloneTag: 'icon-check' });
             await expect(page.getByTestId(option)).toHaveCount(1);
+
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: true, row: true });
         });
 
         test('should render the selected option\'s row icon at the same size as the other rows\' icons', async ({ page }) => {
@@ -1173,59 +1135,82 @@ test.describe('PieDropdown - Component tests', () => {
             await page.getByTestId(trigger).click();
             await expect(page.getByTestId(popover)).toBeVisible();
 
-            // Pizza's row renders the clone; Burger's renders its original.
             const sizes = await page.evaluate(() => {
                 const dropdown = document.querySelector('pie-dropdown');
-                const selectedRow = dropdown?.shadowRoot?.querySelector('#pie-dropdown-option-pizza');
-                const clone = selectedRow?.querySelector('.c-dropdown-rowIcon') ?? null;
-                const original = dropdown?.querySelector('[slot="icon-burger"]') ?? null;
+                const selectedRowIcon = dropdown?.shadowRoot?.querySelector('#pie-dropdown-option-pizza icon-food');
+                const otherRowIcon = dropdown?.shadowRoot?.querySelector('#pie-dropdown-option-burger icon-star');
 
                 return {
-                    clone: clone ? getComputedStyle(clone).width : '',
-                    original: original ? getComputedStyle(original).width : '',
+                    selected: selectedRowIcon ? getComputedStyle(selectedRowIcon).width : '',
+                    other: otherRowIcon ? getComputedStyle(otherRowIcon).width : '',
                 };
             });
 
-            expect(sizes.clone).toBeTruthy();
-            expect(sizes.original).toBeTruthy();
-            expect(sizes.clone).toBe(sizes.original);
+            expect(sizes.selected).toBeTruthy();
+            expect(sizes.other).toBeTruthy();
+            expect(sizes.selected).toBe(sizes.other);
         });
 
         test('should render no icon in the field or the row when the selected option has none', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select');
             await dropdownPage.load();
 
-            // Only Burger's option has a slotted icon; Pizza does not.
-            await slotIconFor(page, 'burger');
+            // Only Burger's option has an icon; Pizza does not.
+            await setIconFor(page, 'burger', 'icon-star');
 
             await page.getByTestId(trigger).click();
             await page.getByTestId(option).filter({ hasText: 'Pizza' }).click();
             await expect(page.getByTestId(popover)).toBeHidden();
 
-            // Pizza's field slot exists but nothing projects into it...
-            expect(await iconState(page, 'pizza')).toEqual({ location: 'field', assigned: 0 });
+            expect(await iconState(page, 'pizza', 'icon-star')).toEqual({ field: false, row: false });
 
-            // ...and its row renders no clones when it is next shown.
+            // Burger's unselected row still shows its icon.
             await page.getByTestId(trigger).click();
             await expect(page.getByTestId(popover)).toBeVisible();
-            expect(await rowIconState(page, 'pizza')).toEqual({ hasRow: true, rowIconCount: 0, cloneTag: '' });
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: false, row: true });
         });
 
         test('should remove the field icon when the selection is cleared', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
             await dropdownPage.load();
 
-            await slotIconFor(page, 'burger');
-            expect(await iconState(page, 'burger')).toEqual({ location: 'field', assigned: 1 });
+            await setIconFor(page, 'burger', 'icon-star');
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: true, row: false });
 
             await page.getByTestId(dropdown.selectors.clear.dataTestId).click();
+            await expect(page.getByTestId(dropdown.selectors.placeholder.dataTestId)).toBeVisible();
 
-            expect(await iconState(page, 'burger')).toEqual({ location: 'none', assigned: 0 });
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: false, row: false });
 
-            // With no field slot, the icon returns to Burger's (unselected) row, which renders its own slot again.
+            // Burger's unselected row renders its icon again once the popover is shown.
             await page.getByTestId(trigger).click();
             await expect(page.getByTestId(popover)).toBeVisible();
-            expect(await iconState(page, 'burger')).toEqual({ location: 'row', assigned: 1 });
+            expect(await iconState(page, 'burger', 'icon-star')).toEqual({ field: false, row: true });
+        });
+
+        test('should render no icon for an invalid icon tag name', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
+            await dropdownPage.load();
+
+            // Anything that is not a valid custom element name is never rendered as markup.
+            await setIconFor(page, 'burger', 'icon-burger onclick=alert(1)');
+
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            const state = await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                const fieldIconSpan = dropdown?.shadowRoot?.querySelector('.c-dropdown-selectionIcon');
+                const row = dropdown?.shadowRoot?.querySelector('#pie-dropdown-option-burger');
+
+                return {
+                    fieldIconCount: fieldIconSpan?.childElementCount ?? -1,
+                    rowLeadingCount: row?.querySelectorAll('[slot="leading"]').length ?? -1,
+                };
+            });
+
+            expect(state.fieldIconCount).toBe(0);
+            expect(state.rowLeadingCount).toBe(0);
         });
     });
 

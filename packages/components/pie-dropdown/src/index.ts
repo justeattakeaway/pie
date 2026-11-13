@@ -23,6 +23,7 @@ import {
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { live } from 'lit/directives/live.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronDown.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronUp.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircle.js';
@@ -48,6 +49,9 @@ import {
 export * from './defs';
 
 const componentSelector = 'pie-dropdown';
+
+/** A valid custom element tag name (lowercase, alphanumeric, at least one hyphen) — the only strings rendered as option icons. */
+const customElementNamePattern = /^[a-z][a-z0-9]*(-[a-z0-9]+)+$/;
 
 /**
  * Whether `target` lives anywhere inside `container`'s composed tree,
@@ -165,13 +169,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
      */
     @state()
     private _hasEverOpened = false;
-
-    /** Clones of the selected option's slotted icon, rendered in its row (the field's slot wins the projection). */
-    @state()
-    private _selectionIconClones: HTMLElement[] = [];
-
-    /** The `value` the icon clones were last captured for, so `updated()` only re-captures on change. */
-    private _iconSyncValue: DropdownProps['value'] | undefined;
 
     private _value: DropdownProps['value'] = '';
 
@@ -299,11 +296,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (changedProperties.has('required')) {
             this._updateValidity();
         }
-
-        // Re-capture after controlled value changes; updated() never runs during SSR.
-        if (this._hasEverOpened && this._iconSyncValue !== this._value) {
-            this._syncSelectionIconClones();
-        }
     }
 
     public disconnectedCallback (): void {
@@ -347,22 +339,13 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         return this._selectedValues.includes(option.value);
     }
 
-    /** Captures the selected option's slotted icon(s) as clones for its row; client-side only, never during SSR. */
-    private _syncSelectionIconClones (): void {
-        this._iconSyncValue = this._value;
+    /** Renders an option's leading icon element from its `icon` tag name; unset or invalid tags render nothing. */
+    private _renderOptionIcon (option: DropdownOption, slotName?: string): TemplateResult | typeof nothing {
+        if (!option.icon || !customElementNamePattern.test(option.icon)) return nothing;
 
-        const slot = this.renderRoot?.querySelector<HTMLSlotElement>('.c-dropdown-selectionIcon slot');
+        const slotAttribute = slotName ? ` slot="${slotName}"` : '';
 
-        this._selectionIconClones = slot
-            ? slot.assignedElements().map((element) => {
-                const clone = element.cloneNode(true) as HTMLElement;
-                // Slotted into the row like the original, so the row's styling applies; the class marks it for tests.
-                clone.setAttribute('slot', 'leading');
-                clone.classList.add('c-dropdown-rowIcon');
-
-                return clone;
-            })
-            : [];
+        return html`${unsafeHTML(`<${option.icon}${slotAttribute}></${option.icon}>`)}`;
     }
 
     private _selectSingle (option: DropdownOption): void {
@@ -461,9 +444,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         this._captureOpenOptions();
         this._isOpen = true;
         this._hasEverOpened = true;
-
-        // Capture before the rows render: the slot's initial slotchange can fire before hydration attaches the listener.
-        this._syncSelectionIconClones();
 
         dispatchCustomEvent(this, 'pie-dropdown-open', { source });
 
@@ -777,10 +757,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
-    private _onSelectionIconSlotChange = (): void => {
-        this._syncSelectionIconClones();
-    };
-
     private _onCheckboxChange = (event: Event): void => {
         const checkbox = event.composedPath().find((node): node is HTMLElement => node instanceof HTMLElement && node.tagName === 'PIE-CHECKBOX') as (HTMLElement & { value: string; checked: boolean }) | undefined;
 
@@ -939,14 +915,15 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         return html`<span class="c-dropdown-fieldPlaceholder" data-test-id="pie-dropdown-placeholder">${this.placeholder || ''}</span>`;
     }
 
-    /** The selected option's leading icon, projected into the field (its slot renders first, so it wins over the row's). */
+    /** The selected option's leading icon, rendered directly into the field (single-select variants only). */
     private _renderSelectionIcon (): TemplateResult | typeof nothing {
         if (this.isMultiselect || !this._hasSelection) return nothing;
 
+        const [selectedOption] = this._selectedOptions;
+        if (!selectedOption?.icon) return nothing;
+
         return html`<span class="c-dropdown-selectionIcon">
-            <slot
-                name="icon-${this._selectedValues[0]}"
-                @slotchange=${this._onSelectionIconSlotChange}></slot>
+            ${this._renderOptionIcon(selectedOption)}
         </span>`;
     }
 
@@ -1123,7 +1100,6 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         `;
     }
 
-    /** The selected option renders clones of its slotted icon; the rows never exist during SSR. */
     private _renderOptionRow (option: DropdownOption): TemplateResult {
         const selected = this._isSelected(option);
 
@@ -1142,12 +1118,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 aria-description=${ifDefined(option.secondaryText)}
                 @click=${() => !option.disabled && this._selectSingle(option)}
                 data-test-id="pie-dropdown-option">
+                ${this._renderOptionIcon(option, 'leading')}
                 ${selected
             ? html`<icon-check slot="trailing" size="s" aria-hidden="true"></icon-check>`
             : nothing}
-                ${selected && this._selectionIconClones.length > 0
-                ? this._selectionIconClones
-                : html`<slot name="icon-${option.value}" slot="leading"></slot>`}
             </pie-list-item>
         `;
     }

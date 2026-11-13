@@ -60,6 +60,7 @@ The `options` prop accepts an array of option objects:
 | `value`        | `string`  | **Required:** The value the option represents, used for the component's `value` and form submission. | `undefined` |
 | `primaryText`  | `string`  | **Required:** The option's primary text, used as its accessible name.                                 | `undefined` |
 | `secondaryText`| `string`  | Supporting text rendered beneath the primary text, used as the option's accessible description and matched by the searchable variant's filter.       | `undefined` |
+| `icon`         | `string`  | The tag name of a registered `pie-icons-webc` element rendered as the option's leading icon, e.g. `'icon-food'`. See [Option icons](#option-icons). | `undefined` |
 | `disabled`     | `boolean` | When true the option cannot be selected, and keyboard focus skips it.                                 | `false`     |
 
 ```js
@@ -71,6 +72,61 @@ const options = [
 ```
 
 In multi-select variants, the selected options are sorted to the top of the list (in alphanumeric order) whenever the popover is opened.
+
+#### Option icons
+
+Each option accepts an `icon` — the **tag name of a `pie-icons-webc` element**. The dropdown renders that element as the option's leading icon in its row and, while the option is selected in a single-select variant, in the field alongside the selection text.
+
+**Your app imports the icons it uses — the dropdown never bundles them.** Import the individual icons (recommended, so your bundler tree-shakes the rest) or the full `pie-icons-webc` package:
+
+```js
+// individual icons (recommended)
+import '@justeattakeaway/pie-icons-webc/dist/IconFlagGb.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFlagIe.js';
+
+// or every icon at once
+// import '@justeattakeaway/pie-icons-webc';
+```
+
+```html
+<script type="module">
+    import '@justeattakeaway/pie-icons-webc/dist/IconFlagGb.js';
+    import '@justeattakeaway/pie-icons-webc/dist/IconFlagIe.js';
+    import '@justeattakeaway/pie-webc/components/dropdown.js';
+</script>
+
+<pie-dropdown
+    label="Country"
+    .options='${[
+        { value: 'gb', primaryText: 'United Kingdom', icon: 'icon-flag-gb' },
+        { value: 'ie', primaryText: 'Ireland', icon: 'icon-flag-ie' },
+    ]}'>
+</pie-dropdown>
+```
+
+In React, pass the tag name in the options array — no slotted children are involved:
+
+```jsx
+import { PieDropdown } from '@justeattakeaway/pie-webc/react/dropdown.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFlagGb.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFlagIe.js';
+
+<PieDropdown
+    label="Country"
+    options={[
+        { value: 'gb', primaryText: 'United Kingdom', icon: 'icon-flag-gb' },
+        { value: 'ie', primaryText: 'Ireland', icon: 'icon-flag-ie' },
+    ]}
+    value="gb"
+/>
+```
+
+Notes:
+- The tag must be a **registered custom element** by the time the dropdown renders — an unregistered or invalid tag name simply renders no icon.
+- Option icons are decorative: the option's accessible name comes from its `primaryText`.
+- Icons render at 20px in the subdued content colour, regardless of their `size` attribute.
+- The field can also show a static, selection-independent icon via the [`leadingIcon` slot](#slots) — a separate mechanism from option icons.
+- Multi-select variants show option icons in their rows only (the field shows the count chip).
 
 #### Opening the dropdown
 The popover opens when the field is clicked; non-searchable fields also open on keyboard focus. **Focus-open never moves focus** — it stays on the field in every variant; the arrow keys are what move focus into the option list. `Tab` reaches the field's other controls (the count chip's close button first in multi-select variants with a selection, then the single-select clear button) and then moves past the dropdown.
@@ -147,7 +203,6 @@ Which clear affordance is shown depends on the variant:
 | Slot                  | Description                                                                                                                                       |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | `leadingIcon`         | An icon shown at the start of the field, visually supporting it. Slot a `pie-icons-webc` icon, e.g. `<icon-placeholder slot="leadingIcon">`. Slotted icons render at 20px regardless of their `size` attribute.      |
-| `icon-{value}`        | An icon shown at the start of a single-select option row. The slot name includes the option's `value`, e.g. `<icon-flag-gb slot="icon-gb">`. A missing slot simply renders no icon. While such an option is selected, its icon is shown in the field alongside the selection text — in every variant, open or closed, searching or not — and it stays in its option row too: a named slot projects into only one place, so the row shows a clone of the slotted icon. Re-slotting or replacing the icon updates both; mutating the slotted element's attributes in place does not update the row's copy. Option icons are decorative: the option's accessible name comes from its `primaryText`. In the field the icon renders at 20px regardless of its `size` attribute. |
 
 ### CSS Variables
 The component defines these CSS variables, which can be overridden:
@@ -246,13 +301,21 @@ Because a `change` event also fires when the owning form is reset, controlled st
 
 ### With option icons
 
+See [Option icons](#option-icons) — each option's `icon` names the `pie-icons-webc` element the dropdown renders:
+
 ```html
-<pie-dropdown label="Country" .options='${[
-    { value: 'gb', primaryText: 'United Kingdom' },
-    { value: 'ie', primaryText: 'Ireland' },
-]}'>
-    <icon-flag-gb slot="icon-gb"></icon-flag-gb>
-    <icon-flag-ie slot="icon-ie"></icon-flag-ie>
+<script type="module">
+    import '@justeattakeaway/pie-icons-webc/dist/IconFlagGb.js';
+    import '@justeattakeaway/pie-icons-webc/dist/IconFlagIe.js';
+    import '@justeattakeaway/pie-webc/components/dropdown.js';
+</script>
+
+<pie-dropdown
+    label="Country"
+    .options='${[
+        { value: 'gb', primaryText: 'United Kingdom', icon: 'icon-flag-gb' },
+        { value: 'ie', primaryText: 'Ireland', icon: 'icon-flag-ie' },
+    ]}'>
 </pie-dropdown>
 ```
 

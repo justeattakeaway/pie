@@ -159,17 +159,8 @@
 
 .c-dropdown-selectionIcon {
     display: contents;
-}
 
-.c-dropdown-fieldText .c-dropdown-selectionIcon ::slotted(*) {
     --icon-size-override: 20px;
-
-    color: var(--dropdown-leading-icon-color);
-}
-
-.c-dropdown-field > .c-dropdown-selectionIcon ::slotted(*) {
-    --icon-size-override: 20px;
-
     color: var(--dropdown-leading-icon-color);
 }
 

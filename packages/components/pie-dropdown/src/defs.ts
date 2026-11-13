@@ -24,6 +24,14 @@ export interface DropdownOption {
     secondaryText?: string,
 
     /**
+     * The tag name of a registered `pie-icons-webc` element rendered as the
+     * option's leading icon, e.g. `'icon-food'`. The app must import the
+     * icons it uses — the dropdown renders the tag but never bundles icons.
+     * An unset or invalid tag renders no icon.
+     */
+    icon?: string,
+
+    /**
      * When true the option cannot be selected, and keyboard focus skips it.
      */
     disabled?: boolean,

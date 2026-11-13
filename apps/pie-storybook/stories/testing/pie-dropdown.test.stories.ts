@@ -54,11 +54,21 @@ const options: DropdownOption[] = [{
 // Options with secondary text and per-option leading icons, with a selection,
 // so the selected option's icon is also shown in the field.
 const complexOptions: DropdownOption[] = [
-    { value: 'pizza', primaryText: 'Pizza', secondaryText: 'Wood-fired, with a crisp base' },
-    { value: 'burger', primaryText: 'Burger', secondaryText: 'Flame-grilled, with pickles' },
-    { value: 'pasta', primaryText: 'Pasta', secondaryText: 'Made to a traditional recipe' },
-    { value: 'curry', primaryText: 'Curry', secondaryText: 'Slow-cooked with aromatic spices' },
-    { value: 'ramen', primaryText: 'Ramen', secondaryText: 'Rich broth and springy noodles' },
+    {
+        value: 'pizza', primaryText: 'Pizza', secondaryText: 'Wood-fired, with a crisp base', icon: 'icon-food',
+    },
+    {
+        value: 'burger', primaryText: 'Burger', secondaryText: 'Flame-grilled, with pickles', icon: 'icon-star',
+    },
+    {
+        value: 'pasta', primaryText: 'Pasta', secondaryText: 'Made to a traditional recipe', icon: 'icon-heart',
+    },
+    {
+        value: 'curry', primaryText: 'Curry', secondaryText: 'Slow-cooked with aromatic spices', icon: 'icon-clock',
+    },
+    {
+        value: 'ramen', primaryText: 'Ramen', secondaryText: 'Rich broth and springy noodles', icon: 'icon-camera',
+    },
 ];
 
 const defaultArgs: DropdownStoryProps = {
@@ -229,17 +239,7 @@ type GalleryInstance = {
     status?: string,
     assistiveText?: string,
     options?: DropdownOption[],
-    withOptionIcons?: boolean,
 };
-
-/** The per-option leading icons, slotted for the values in `complexOptions`. */
-const optionIcons = html`
-    <icon-food slot="icon-pizza"></icon-food>
-    <icon-star slot="icon-burger"></icon-star>
-    <icon-heart slot="icon-pasta"></icon-heart>
-    <icon-clock slot="icon-curry"></icon-clock>
-    <icon-camera slot="icon-ramen"></icon-camera>
-`;
 
 const galleryItem = (instance: GalleryInstance) => html`
     <div class="gallery-item">
@@ -261,7 +261,6 @@ const galleryItem = (instance: GalleryInstance) => html`
     clearSelection: 'Clear selection',
     clearAllSelections: 'Clear all {count} selections',
 }}>
-            ${instance.withOptionIcons ? optionIcons : ''}
         </pie-dropdown>
     </div>
 `;
@@ -283,10 +282,10 @@ const ClosedRichVariantsTemplate: TemplateFunction<DropdownStoryProps> = () => h
     ${galleryStyles}
     <div class="gallery">
         ${galleryItem({
-    caption: 'single select, icons + secondary text, selected', options: complexOptions, value: 'pizza', withOptionIcons: true,
+    caption: 'single select, icons + secondary text, selected', options: complexOptions, value: 'pizza',
 })}
         ${galleryItem({
-    caption: 'single select, searchable, icons + secondary text, selected', options: complexOptions, value: 'pizza', isSearchable: true, placeholder: 'Search meals', withOptionIcons: true,
+    caption: 'single select, searchable, icons + secondary text, selected', options: complexOptions, value: 'pizza', isSearchable: true, placeholder: 'Search meals',
 })}
         ${galleryItem({
     caption: 'multi select, secondary text, 2 selected', options: complexOptions, isMultiselect: true, value: ['pizza', 'curry'],
@@ -448,11 +447,6 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
                 .aria=${{
     clearSelection: 'Clear selection',
 }}>
-                <icon-food slot="icon-pizza"></icon-food>
-                <icon-star slot="icon-burger"></icon-star>
-                <icon-heart slot="icon-pasta"></icon-heart>
-                <icon-clock slot="icon-curry"></icon-clock>
-                <icon-camera slot="icon-ramen"></icon-camera>
             </pie-dropdown>
         </div>
     `;
