@@ -33,5 +33,16 @@ test.describe('PieAvatar - Visual tests`', () => {
         await expect.soft(avatarImg).toBeVisible();
         await percySnapshot(page, 'PieAvatar - Src Provided Test');
     });
+
+    test('should display the PieAvatar fallback icon when the image fails to load', async ({ page }) => {
+        const avatarPage = new BasePage(page, 'avatar--with-image-error');
+        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
+        const avatarIcon = page.getByTestId(avatar.selectors.icon.dataTestId);
+        await avatarPage.load();
+
+        await expect.soft(avatarComponent).toBeVisible();
+        await expect.soft(avatarIcon).toBeVisible();
+        await percySnapshot(page, 'PieAvatar - Image Error Fallback Test');
+    });
 });
 
