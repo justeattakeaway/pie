@@ -5,7 +5,6 @@
 }
 
 .c-dropdown {
-    // The field's height, padding and text tokens, following the size scale.
     --dropdown-height: 48px;
     --dropdown-padding-block: var(--dt-spacing-c);
     --dropdown-padding-inline: var(--dt-spacing-d);
@@ -22,9 +21,6 @@
     --dropdown-cursor: pointer;
 }
 
-// The popover's containing block: it wraps the field (the label sits above
-// it and the assistive text below it, so the component itself cannot anchor
-// the popover) and the popover hangs directly from its bottom edge.
 .c-dropdown-anchor {
     position: relative;
 }
@@ -35,26 +31,13 @@
     display: flex;
     align-items: center;
 
-    // A leading icon (static or the selected option's) and the trigger sit one
-    // 16px step apart, matching pie-text-input. The field's own inline-start
-    // padding is the surface-edge whitespace (16px), so the text of a field
-    // without a leading icon starts 16px in, and an icon sits at 16px with a
-    // 16px gap before the text.
     gap: var(--dt-spacing-d);
 
     height: var(--dropdown-height);
 
-    // The inline-start padding lives on the field (not the trigger) so a
-    // leading icon and a text-only field share the same 16px edge whitespace.
-    // The trigger still spans the field's remaining width, and the field's own
-    // click listener opens the popover from the padding strip.
     padding-inline-start: var(--dropdown-padding-inline);
 
-    // The field's contents (selection text, chip, search text) never dictate
-    // its width: long values truncate inside it instead of growing it, so
-    // making a selection or typing cannot change the component's size. The
-    // minimum matches the default width in the designs, and consumers can
-    // size the component however they like.
+    // The field's contents never dictate its width; the minimum matches the default designed width.
     min-inline-size: 256px;
     contain: inline-size;
 
@@ -67,19 +50,14 @@
     font-size: var(--dropdown-font-size);
     line-height: var(--dropdown-line-height);
 
-    // The padding strip is part of the field's click surface, so it keeps the
-    // field's cursor affordance now that it sits outside the trigger's box.
     cursor: var(--dropdown-cursor);
 
-    // The open field keeps its focus ring (the focus has moved into the
-    // popover, but the field is still the component's anchor).
+    // The open field keeps its focus ring (focus has moved into the popover, but the field remains the anchor).
     &.is-open {
         @include p.focus;
     }
 
-    // Keyboard focus on a closed field (e.g. the focus returned to it after a
-    // keyboard-triggered close): the trigger is the tab target in
-    // non-searchable variants, so the container shows the ring on its behalf.
+    // The container rings on the trigger's behalf: it is the tab target in non-searchable variants.
     &:has(.c-dropdown-trigger:focus-visible) {
         @include p.focus;
     }
@@ -117,23 +95,12 @@
         --dropdown-cursor: auto;
     }
 
-    // In multi-select variants the count chip sits directly in the field
-    // row, next to the trigger (or the search input). It truncates rather
-    // than squeezing out the interactive element (which keeps a minimum
-    // share of the field, as the designs require). The field's inline-start
-    // padding places it at the 16px surface edge.
     > pie-chip {
         min-inline-size: 0;
         max-inline-size: 60%;
     }
 }
 
-// The field's interactive element: a disclosure button (non-searchable
-// variants) or a filtering textbox (searchable variants). It fills the field's
-// width after the inline-start padding — the chevron area included — so the
-// whole surface (bar the leading padding strip, which the field's own click
-// listener covers) is its click target; the clear button and chevron icon are
-// siblings laid over it.
 .c-dropdown-trigger {
     flex: 1;
     min-inline-size: 0;
@@ -143,9 +110,6 @@
 
     padding-block-start: var(--dropdown-padding-block);padding-block-end: var(--dropdown-padding-block);
 
-    // Room for the chevron (and the clear button when one is shown). The
-    // inline-start whitespace lives on the field, so the trigger has none of
-    // its own — a leading icon and the trigger are separated by the field's gap.
     padding-inline-start: 0;padding-inline-end: var(--dropdown-chevron-size);
 
     border: none;
@@ -161,10 +125,6 @@
     }
 
     .is-clearable & {
-        // The end zone with a clear button is the clear cell, the 1px divider
-        // and the chevron cell, overlapping by the shared 8px gaps (per the
-        // designs: text → 16px → clear icon → 8px → divider → 8px → chevron
-        // icon → 16px → surface edge).
         padding-inline-end: calc(var(--dropdown-chevron-size) + var(--dropdown-clear-size) - var(--dt-spacing-b));
     }
 
@@ -174,9 +134,6 @@
 }
 
 .c-dropdown-input {
-    // The input is its own value display, so it inherits the field's text
-    // styling rather than the browser default. It never grows the field: long
-    // search text scrolls within it.
     appearance: none;
     min-inline-size: 0;
     width: 100%;
@@ -194,23 +151,16 @@
     display: flex;
     align-items: center;
 
-    // The selected option's leading icon and its text sit one 16px step apart,
-    // matching the field's own gap and pie-text-input.
     gap: var(--dt-spacing-d);
 
-    // Long selections truncate with an ellipsis rather than growing the field.
     overflow: hidden;
     white-space: nowrap;
 }
 
-// The selected option's leading icon, projected into the field (an icon-less option contributes no box).
 .c-dropdown-selectionIcon {
     display: contents;
 }
 
-// The selected option's leading icon in the field uses the subdued content
-// colour (matching the popover options). Its 16px edge whitespace comes from
-// the field's inline-start padding; icons render at 20px regardless of `size`.
 .c-dropdown-fieldText .c-dropdown-selectionIcon ::slotted(*) {
     --icon-size-override: 20px;
 
@@ -239,18 +189,11 @@
     color: var(--dropdown-placeholder-color);
 }
 
-// The clear button sits between the field's text and the chevron, as a
-// sibling of the trigger so no interactive element nests inside another. It
-// is only shown in single-select variants without search, where it removes
-// the selection; searchable variants and multi select never show it — typed
-// search text is cleared by backspacing, and multi select clears every
-// selection via the count chip's close icon instead.
 .c-dropdown-clear {
     position: absolute;
     inset-block-start: 50%;
     transform: translateY(-50%);
 
-    // Just inside the chevron area at the end of the field.
     inset-inline-end: calc(var(--dropdown-chevron-size) - var(--dt-spacing-b));
 
     display: flex;
@@ -265,9 +208,6 @@
     color: var(--dt-color-content-default);
     cursor: pointer;
 
-    // The field's disabled state fully disables the clear button: no pointer
-    // cursor and the disabled content colour (matching the field's disabled
-    // text).
     &:disabled {
         color: var(--dt-color-content-disabled);
         cursor: auto;
@@ -278,13 +218,11 @@
     }
 }
 
-// A thin divider between the clear button and the chevron (shown only while the clear button is).
 .c-dropdown-fieldDivider {
     position: absolute;
     inset-block-start: 50%;
     transform: translateY(-50%);
 
-    // At the boundary of the chevron area, 8px before the chevron icon.
     inset-inline-end: calc(var(--dropdown-chevron-size) - var(--dt-spacing-b));
 
     inline-size: 1px;
@@ -293,9 +231,6 @@
     background-color: var(--dt-color-divider-default);
 }
 
-// The chevron is decorative (the field's own semantics describe the
-// expanded state), so it is hidden from assistive technology. In searchable
-// variants it is also the surface that closes the popover again.
 .c-dropdown-chevron {
     position: absolute;
     inset-block-start: 50%;
@@ -316,15 +251,10 @@
     }
 }
 
-// The chevron carries an explicit colour (content-default), so a disabled field
-// applies the disabled content colour to it rather than relying on inheritance.
 .c-dropdown-field.is-disabled .c-dropdown-chevron {
     color: var(--dt-color-content-disabled);
 }
 
-// The static leading icon (the `leadingIcon` slot): `display: contents` collapses when empty, and the
-// field's 16px inline-start padding places the projected icon at the surface edge. The icon uses the
-// subdued content colour, matching the popover options. Icons render at 20px regardless of `size`.
 .c-dropdown-leadingIcon {
     display: contents;
 
@@ -339,13 +269,7 @@
  * Popover
  * ------------------------------------------------------------------ */
 
-// The popover hangs from the anchor directly below the field, matching the
-// field's full width. Pure CSS positioning (no JavaScript): unlike a
-// viewport-fixed popover it cannot be mispositioned by a transformed
-// ancestor (e.g. an open pie-modal) or by a static DOM replay (visual
-// regression testing). Trade-off: a clipping ancestor (overflow: hidden,
-// auto, scroll or clip) clips the popover, so the field needs room below it
-// inside such containers.
+// Pure CSS positioning below the field — never mispositioned by a transformed ancestor (e.g. an open pie-modal), but clipped by a scrollable/overflow-hidden ancestor.
 .c-dropdown-popover {
     position: absolute;
     inset-block-start: calc(100% + var(--dt-spacing-b));
@@ -355,7 +279,6 @@
 
     box-sizing: border-box;
 
-    // Symmetric padding keeps the popover's whitespace even and never clips the rows' focus rings.
     padding: var(--dt-spacing-b);
 
     border-radius: var(--dt-radius-rounded-c);
@@ -371,30 +294,20 @@
     display: block;
 }
 
-// The selected option's tick uses the brand colour (the icon only renders on
-// selected rows, so the selector is inherently scoped to the selected state).
 .c-dropdown-option icon-check {
     color: var(--dt-color-content-brand-solid);
 }
 
-// The dropdown's rows use 12px block padding (16px inline matches the default) and an 8px
-// text-to-tick gap — per the designs.
 .c-dropdown-option {
     --list-item-block-padding: var(--dt-spacing-c);
     --list-item-trailing-gap: var(--dt-spacing-b);
 }
 
-// The popover opens with DOM focus placed on the initial option (matching a
-// native <select>). That focus is programmatic after a pointer open, which
-// :focus-visible does not match, so the row would carry focus with no visible
-// indicator and the first arrow key press looks like it skips the initial
-// option. The ring is therefore painted for plain :focus: keyboard entry
-// produces the same ring, keeping both entry points visually consistent.
+// The ring is painted for plain :focus: programmatic focus after a pointer open is not matched by :focus-visible.
 .c-dropdown-option:focus {
     @include p.focus;
 }
 
-// The loading and no-results states.
 .c-dropdown-popoverMessage {
     display: flex;
     align-items: center;
@@ -404,7 +317,6 @@
     color: var(--dt-color-content-default);
 }
 
-// Kept available for screen readers but hidden from view.
 .c-dropdown-visuallyHidden {
     @include p.visually-hidden;
 }
