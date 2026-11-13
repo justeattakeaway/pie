@@ -40,15 +40,18 @@ type AriaProps = {
      * The accessible name for the field's clear button in single-select
      * variants without search, which removes the current selection. The
      * field's accessible name (from `label`, `aria.label` or `placeholder`)
-     * is always appended for screen reader context, e.g. `"Clear selection, Meal"`.
+     * is appended for screen reader context, e.g. `"Clear selection, Meal"`.
+     * The button has no accessible name when unset — always provide it.
      */
     clearSelection?: string;
 
     /**
      * The accessible name for the "N selected" chip's close button (multi
-     * select), which removes every selection at once. The field's accessible
-     * name (from `label`, `aria.label` or `placeholder`) is always appended
-     * for screen reader context, e.g. `"Clear all 2 selections, Meal"`.
+     * select), which removes every selection at once. A `{count}`
+     * placeholder is replaced with the number of selections, and the field's
+     * accessible name (from `label`, `aria.label` or `placeholder`) is
+     * appended for screen reader context, e.g. `"Clear all 2 selections, Meal"`.
+     * The button has no accessible name when unset — always provide it.
      */
     clearAllSelections?: string;
 };
@@ -137,12 +140,15 @@ export interface DropdownProps {
     required?: boolean,
 
     /**
-     * The text shown in the popover while `isLoading` is true.
+     * The text shown in the popover while `isLoading` is true (and announced
+     * by the live region). No text is shown or announced when unset — the
+     * spinner still renders.
      */
     loadingText?: string,
 
     /**
-     * The text shown in the popover when a search returns no matching options.
+     * The text shown in the popover when a search returns no matching options
+     * (and announced by the live region). No message is shown when unset.
      */
     noResultsText?: string,
 
@@ -150,6 +156,7 @@ export interface DropdownProps {
      * The text shown in the count chip in multi-select variants when options
      * are selected. Use a `{count}` placeholder where the number of selected
      * options should appear, e.g. `"{count} picked"` renders as "3 picked".
+     * When unset the chip shows the bare count.
      */
     selectedCountText?: string,
 
@@ -158,14 +165,15 @@ export interface DropdownProps {
      * matching options. Use a `{count}` placeholder where the number of
      * matching options should appear, e.g. `"Options available: {count}"`
      * renders as "Options available: 6" (phrasing that avoids plurals keeps
-     * the message correct for any count).
+     * the message correct for any count). Nothing is announced when unset.
      */
     optionsAvailableText?: string,
 
     /**
      * The validation message used when the dropdown is `required` and
-     * submitted without a selection (the `valueMissing` validity state). This
-     * is separate from `assistiveText`, which is the helper text rendered
+     * submitted without a selection (the `valueMissing` validity state) —
+     * submission is blocked with an empty message when unset. This is
+     * separate from `assistiveText`, which is the helper text rendered
      * below the field.
      */
     noSelectionText?: string,

@@ -67,6 +67,14 @@ const defaultArgs: DropdownStoryProps = {
     label: 'Meal',
     placeholder: 'Select a meal',
     options,
+    loadingText: 'Loading results...',
+    noResultsText: 'No results',
+    optionsAvailableText: '{count} option available',
+    selectedCountText: '{count} selected',
+    aria: {
+        clearSelection: 'Clear selection',
+        clearAllSelections: 'Clear all {count} selections',
+    },
 };
 
 /**
@@ -101,6 +109,11 @@ const DropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
     disabled,
     required,
     hasSecondaryText,
+    loadingText,
+    noResultsText,
+    optionsAvailableText,
+    selectedCountText,
+    aria,
 }) => html`
         ${storySizingStyles}
         <div class="story-wrapper">
@@ -120,7 +133,12 @@ const DropdownTemplate: TemplateFunction<DropdownStoryProps> = ({
                 ?isSearchable="${isSearchable}"
                 ?isLoading="${isLoading}"
                 ?disabled="${disabled}"
-                ?required="${required}"></pie-dropdown>
+                ?required="${required}"
+                loadingText="${ifDefined(loadingText)}"
+                noResultsText="${ifDefined(noResultsText)}"
+                optionsAvailableText="${ifDefined(optionsAvailableText)}"
+                selectedCountText="${ifDefined(selectedCountText)}"
+                .aria="${ifDefined(aria)}"></pie-dropdown>
         </div>
     `;
 
@@ -237,7 +255,12 @@ const galleryItem = (instance: GalleryInstance) => html`
             ?disabled="${instance.disabled}"
             size="${ifDefined(instance.size)}"
             status="${ifDefined(instance.status)}"
-            assistiveText="${ifDefined(instance.assistiveText)}">
+            assistiveText="${ifDefined(instance.assistiveText)}"
+            selectedCountText="{count} selected"
+            .aria=${{
+    clearSelection: 'Clear selection',
+    clearAllSelections: 'Clear all {count} selections',
+}}>
             ${instance.withOptionIcons ? optionIcons : ''}
         </pie-dropdown>
     </div>
@@ -371,7 +394,11 @@ const FieldsetFormTemplate: TemplateFunction<DropdownStoryProps> = ({
                 label="${ifDefined(label)}"
                 placeholder="${ifDefined(placeholder)}"
                 .value="${ifDefined(value)}"
-                .options="${options}">
+                .options="${options}"
+                .aria=${{
+    clearSelection: 'Clear selection',
+    clearAllSelections: 'Clear all {count} selections',
+}}>
             </pie-dropdown>
         </fieldset>
         <button type="reset">Reset</button>
@@ -401,6 +428,9 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
     value,
     isSearchable,
     disabled,
+    loadingText,
+    noResultsText,
+    optionsAvailableText,
 }) => html`
         ${storySizingStyles}
         <div class="story-wrapper">
@@ -411,7 +441,13 @@ const ComplexOptionsTemplate: TemplateFunction<DropdownStoryProps> = ({
                 .value="${ifDefined(value)}"
                 .options=${complexOptions}
                 ?isSearchable="${isSearchable}"
-                ?disabled="${disabled}">
+                ?disabled="${disabled}"
+                loadingText="${ifDefined(loadingText)}"
+                noResultsText="${ifDefined(noResultsText)}"
+                optionsAvailableText="${ifDefined(optionsAvailableText)}"
+                .aria=${{
+    clearSelection: 'Clear selection',
+}}>
                 <icon-food slot="icon-pizza"></icon-food>
                 <icon-star slot="icon-burger"></icon-star>
                 <icon-heart slot="icon-pasta"></icon-heart>

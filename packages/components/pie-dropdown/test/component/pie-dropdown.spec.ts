@@ -535,7 +535,7 @@ test.describe('PieDropdown - Component tests', () => {
             // includes the field's accessible name so it is never announced
             // without the context of the dropdown it belongs to.
             const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
-            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selection, Meal');
+            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selections, Meal');
         });
 
         test('should append the field name to a consumer-provided chip close name', async ({ page }) => {
@@ -543,7 +543,7 @@ test.describe('PieDropdown - Component tests', () => {
             await dropdownPage.load();
 
             const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
-            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selection, Meal');
+            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selections, Meal');
 
             // A consumer-provided name still gets the field context appended,
             // so the context guarantee is unconditional.
@@ -564,12 +564,12 @@ test.describe('PieDropdown - Component tests', () => {
                 const dropdown = document.querySelector('pie-dropdown');
                 dropdown.label = '';
                 dropdown.placeholder = '';
-                dropdown.aria = {};
+                dropdown.aria = { clearAllSelections: 'Clear all {count} selections' };
                 return dropdown.updateComplete;
             });
 
             const chipClose = page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button');
-            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selection');
+            await expect(chipClose).toHaveAttribute('aria-label', 'Clear all 1 selections');
         });
 
         test('should deselect all options when the count chip is dismissed', async ({ page }) => {
@@ -1261,17 +1261,22 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(dropdown.selectors.status.dataTestId)).toHaveText('Options available: 1');
         });
 
-        test('should use the default validation message when required and empty', async ({ page }) => {
+        test('should block submission with an empty validation message when noSelectionText is unset', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select');
             await dropdownPage.load();
 
-            const message = await page.evaluate(() => {
+            const result = await page.evaluate(() => {
                 const dropdown = document.querySelector('pie-dropdown');
                 dropdown.required = true;
-                return dropdown.updateComplete.then(() => dropdown._internals.validationMessage);
+                return dropdown.updateComplete.then(() => ({
+                    message: dropdown._internals.validationMessage,
+                    isValid: dropdown.checkValidity(),
+                }));
             });
 
-            expect(message).toBe('Please select an option');
+            // No copy prop, no message (a bare space satisfies the API's non-empty rule): the missing selection still blocks submission.
+            expect(result.message.trim()).toBe('');
+            expect(result.isValid).toBe(false);
         });
 
         test('should use a custom validation message when required and empty', async ({ page }) => {
@@ -1300,8 +1305,8 @@ test.describe('PieDropdown - Component tests', () => {
             });
 
             // The assistive text is the helper text below the field, never
-            // the validation message.
-            expect(message).toBe('Please select an option');
+            // the validation message (which stays effectively empty when noSelectionText is unset).
+            expect(message.trim()).toBe('');
         });
 
         test('should announce the assistive text as the field description', async ({ page }) => {
@@ -1344,6 +1349,23 @@ test.describe('PieDropdown - Component tests', () => {
 
             await expect(page.getByTestId(dropdown.selectors.loading.dataTestId)).toBeVisible();
             await expect(page.getByTestId(option)).toHaveCount(0);
+        });
+
+        test('should show the spinner without text when loadingText is unset', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--loading-state');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.loadingText = '';
+                return dropdown.updateComplete;
+            });
+
+            await page.getByTestId(trigger).click();
+
+            // No copy prop, no text: the spinner alone communicates the loading state.
+            await expect(page.getByTestId(dropdown.selectors.loading.dataTestId)).toBeVisible();
+            await expect(page.getByTestId(dropdown.selectors.loading.dataTestId).locator('span')).toHaveCount(0);
         });
 
         test('should render asynchronously loaded options set while the popover is open', async ({ page }) => {

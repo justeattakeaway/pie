@@ -57,6 +57,14 @@ const defaultArgs: DropdownStoryProps = {
     hasSecondaryText: false,
     showLeadingIcon: false,
     options,
+    loadingText: 'Loading results...',
+    noResultsText: 'No results',
+    optionsAvailableText: '{count} option available',
+    selectedCountText: '{count} selected',
+    aria: {
+        clearSelection: 'Clear selection',
+        clearAllSelections: 'Clear all {count} selections',
+    },
 };
 
 const dropdownTemplate: TemplateFunction<DropdownStoryProps> = ({

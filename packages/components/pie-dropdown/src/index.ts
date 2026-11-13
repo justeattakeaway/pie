@@ -49,12 +49,6 @@ export * from './defs';
 
 const componentSelector = 'pie-dropdown';
 
-/** Message shown in the live region and popover while options load. */
-const defaultLoadingText = 'Loading results...';
-
-/** Message shown in the popover when a search matches no options. */
-const defaultNoResultsText = 'No results';
-
 /**
  * Whether `target` lives anywhere inside `container`'s composed tree,
  * crossing any shadow-root boundaries between them.
@@ -442,7 +436,8 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         const valueMissing = this.required && this._selectedValues.length === 0;
 
         if (valueMissing) {
-            this._internals.setValidity({ valueMissing: true }, this.noSelectionText || 'Please select an option', this._field);
+            // setValidity rejects an empty message while invalid, so a space (not copy) stands in when noSelectionText is unset.
+            this._internals.setValidity({ valueMissing: true }, this.noSelectionText || ' ', this._field);
         } else {
             this._internals.setValidity({ valueMissing: false });
         }
@@ -874,20 +869,20 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
     /**
      * The message announced by the live region: loading, a "no results"
-     * notice, or the number of options available after filtering.
+     * notice, or the number of options available after filtering — each only
+     * when its copy prop is provided.
      */
     private get _statusMessage (): string {
         if (!this._isOpen) return '';
 
-        if (this.isLoading) return this.loadingText || defaultLoadingText;
+        if (this.isLoading) return this.loadingText || '';
 
         if (this.isSearchable && this._searchText) {
             const count = this._visibleOptions.length;
-            if (count === 0) return this.noResultsText || defaultNoResultsText;
-            if (this.optionsAvailableText) {
-                return this.optionsAvailableText.replace('{count}', String(count));
-            }
-            return `${count} option${count === 1 ? '' : 's'} available`;
+
+            if (count === 0) return this.noResultsText || '';
+
+            return this.optionsAvailableText?.replace('{count}', String(count)) ?? '';
         }
 
         return '';
@@ -957,6 +952,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
 
     private _renderCountChip (): TemplateResult {
         const count = this._selectedValues.length;
+        // The chip text falls back to the bare count: a numeral is language-neutral data, not copy.
+        const chipText = this.selectedCountText?.replace('{count}', String(count)) ?? String(count);
+        // {count} lets the accessible name reference the dynamic number of selections.
+        const clearAllLabel = this.aria?.clearAllSelections?.replace('{count}', String(count));
 
         return html`
             <pie-chip
@@ -965,11 +964,11 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
                 ?isDismissible=${true}
                 ?disabled=${this.disabled}
                 .aria=${{
-            close: this._withFieldContext(this.aria?.clearAllSelections || `Clear all ${count} selection${count === 1 ? '' : 's'}`),
+            close: clearAllLabel ? this._withFieldContext(clearAllLabel) : undefined,
         }}
                 @focusin=${this._onChipFocusIn}
                 @close=${this._onChipClose}>
-                ${(this.selectedCountText ?? '{count} selected').replace('{count}', String(count))}
+                ${chipText}
             </pie-chip>
         `;
     }
@@ -981,7 +980,7 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             <button
                 type="button"
                 class="c-dropdown-clear"
-                aria-label="${this._withFieldContext(this.aria?.clearSelection || 'Clear selection')}"
+                aria-label="${ifDefined(this.aria?.clearSelection ? this._withFieldContext(this.aria.clearSelection) : undefined)}"
                 ?disabled=${this.disabled}
                 @click=${this._onClearClick}
                 data-test-id="pie-dropdown-clear">
@@ -1176,12 +1175,12 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         `;
     }
 
-    private _renderPopoverContent (): TemplateResult {
+    private _renderPopoverContent (): TemplateResult | typeof nothing {
         if (this.isLoading) {
             return html`
                 <div class="c-dropdown-popoverMessage" data-test-id="pie-dropdown-loading">
                     <pie-spinner></pie-spinner>
-                    <span>${this.loadingText || defaultLoadingText}</span>
+                    ${this.loadingText ? html`<span>${this.loadingText}</span>` : nothing}
                 </div>
             `;
         }
@@ -1189,9 +1188,11 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         const visibleOptions = this._visibleOptions;
 
         if (visibleOptions.length === 0) {
+            if (!this.noResultsText) return nothing;
+
             return html`
                 <div class="c-dropdown-popoverMessage" data-test-id="pie-dropdown-noResults">
-                    <span>${this.noResultsText || defaultNoResultsText}</span>
+                    <span>${this.noResultsText}</span>
                 </div>
             `;
         }
