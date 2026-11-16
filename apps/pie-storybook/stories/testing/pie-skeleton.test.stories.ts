@@ -142,3 +142,31 @@ export const ClampedStars = createVariantStory<SkeletonProps>(Template, {
     variant: ['star'],
     stars: [0, 12],
 }, { multiColumn: true });
+
+// A composed list of skeleton rows (a copy of the `ListItems` story from the main stories file, with
+// fewer rows), so the combined layout is available to the browser and visual tests.
+const listRow = () => html`
+    <div style="display: flex; align-items: flex-start; gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--dt-color-divider-default);">
+        <pie-skeleton variant="circle" height="40px"></pie-skeleton>
+        <div style="flex: 1; display: grid; gap: 8px;">
+            <pie-skeleton variant="text" height="font-body-l" lines="2"></pie-skeleton>
+            <div style="display: flex;">
+              <pie-skeleton variant="star" stars="5"></pie-skeleton>
+            </div>
+        </div>
+        <pie-skeleton variant="text" height="font-body-l" lines="1" width="64px"></pie-skeleton>
+    </div>`;
+
+const ListItemsTemplate: TemplateFunction<SkeletonProps> = () => html`
+    <div style="width: 360px; padding: 16px; background-color: var(--dt-color-container-default); border-radius: 12px;">
+        <pie-skeleton variant="box" width="100%" height="56px"></pie-skeleton>
+        <div style="margin-block-start: 8px;">
+            ${Array.from({ length: 6 }, () => listRow())}
+        </div>
+    </div>`;
+
+export const ListItems = ListItemsTemplate.bind({});
+ListItems.parameters = {
+    layout: 'padded',
+    controls: { disable: true },
+};
