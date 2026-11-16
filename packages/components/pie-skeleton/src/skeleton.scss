@@ -47,11 +47,17 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
 }
 
 @keyframes skeletonShimmer {
-    from {
+    0% {
         background-position: 150% 0;
     }
 
-    to {
+    // The band finishes its sweep after 1000ms (83.333% of the 1200ms cycle), then rests for the
+    // remaining 200ms before the next sweep.
+    83.333% {
+        background-position: -50% 0;
+    }
+
+    100% {
         background-position: -50% 0;
     }
 }
@@ -71,9 +77,9 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
     --skeleton-shimmer: var(--dt-color-skeleton-shimmer-01);
     --skeleton-shimmer-color: color-mix(in srgb, var(--skeleton-shimmer) 50%, transparent);
 
-    // The Figma spec calls for a 1200ms duration. pie-design-tokens has no skeleton duration
-    // token (the motion-timing tokens top out at 350ms), so this is defined locally and
-    // flagged to design to add one.
+    // The Figma spec calls for a 1200ms cycle: the band sweeps for 1000ms, then rests for 200ms
+    // before looping. pie-design-tokens has no skeleton duration token (the motion-timing tokens
+    // top out at 350ms), so this is defined locally and flagged to design to add one.
     --skeleton-shimmer-duration: 1200ms;
 
     // Reversed in RTL so the shimmer follows the reading direction (right to left).
