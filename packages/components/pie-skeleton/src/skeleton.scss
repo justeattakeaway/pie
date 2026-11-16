@@ -69,8 +69,6 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
     --skeleton-text-radius: var(--dt-radius-rounded-a);
     --skeleton-star-size: var(--dt-spacing-e);
     --skeleton-shimmer: var(--dt-color-skeleton-shimmer-01);
-
-    // The shimmer band uses the matching shimmer token at 50% opacity.
     --skeleton-shimmer-color: color-mix(in srgb, var(--skeleton-shimmer) 50%, transparent);
 
     // The Figma spec calls for a 1200ms duration. pie-design-tokens has no skeleton duration
@@ -86,7 +84,6 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
     width: 100%;
 }
 
-// In RTL the shimmer moves in the opposite direction (right to left).
 :host(:dir(rtl)) .c-skeleton {
     --skeleton-shimmer-direction: reverse;
 }
@@ -213,10 +210,6 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
         content: '\200b';
     }
 
-    // The bar is the font size tall and centred in the line box. It is centred with
-    // `inset-block-start` rather than `translate`, because a transform on the bar would make
-    // its viewport-anchored (fixed) shimmer resolve against the bar instead of the viewport,
-    // putting the text variant out of sync with the other shapes.
     &:after {
         @include skeleton-shimmer;
         content: '';
