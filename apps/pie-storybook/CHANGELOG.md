@@ -1,5 +1,47 @@
 # Changelog
 
+## 1.90.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.7
+
+## 1.90.0
+
+### Minor Changes
+
+- [Added] - `aria` prop with a `label` option for the `aria-label` of the select element ([#3324](https://github.com/justeattakeaway/pie/pull/3324)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.6
+
+## 1.89.29
+
+### Patch Changes
+
+- Updated dependencies [[`06635ab`](https://github.com/justeattakeaway/pie/commit/06635ab7aa120aeefdece183bcab2ca7580c4310)]:
+  - @justeat/pie-design-tokens@7.16.0
+  - @justeattakeaway/pie-webc@1.0.5
+  - @justeattakeaway/pie-css@1.9.3
+
+## 1.89.28
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.4
+
+## 1.89.27
+
+### Patch Changes
+
+- Updated dependencies [[`3668da6`](https://github.com/justeattakeaway/pie/commit/3668da65fc9644587a110f0e3234aeb5a3a3cb6d)]:
+  - @justeattakeaway/pie-css@1.9.2
+  - @justeattakeaway/pie-webc@1.0.3
+
 ## 1.89.26
 
 ### Patch Changes

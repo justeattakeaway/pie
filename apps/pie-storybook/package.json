@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.89.26",
+  "version": "1.90.1",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -16,28 +16,28 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@justeat/pie-design-tokens": "7.15.1",
-    "@justeattakeaway/pie-css": "1.9.1",
+    "@justeat/pie-design-tokens": "7.16.0",
+    "@justeattakeaway/pie-css": "1.9.3",
     "@justeattakeaway/pie-icons-webc": "1.30.0",
-    "@justeattakeaway/pie-webc": "1.0.2",
+    "@justeattakeaway/pie-webc": "1.0.7",
     "dompurify": "3.4.15"
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "5.21.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.9.13",
-    "@storybook/addon-a11y": "10.6.6",
+    "@justeattakeaway/pie-monorepo-utils": "0.9.14",
+    "@storybook/addon-a11y": "10.6.7",
     "@storybook/addon-designs": "11.1.4",
-    "@storybook/addon-docs": "10.6.6",
-    "@storybook/addon-links": "10.6.6",
-    "@storybook/html": "10.6.6",
-    "@storybook/web-components": "10.6.6",
-    "@storybook/web-components-vite": "10.6.6",
+    "@storybook/addon-docs": "10.6.7",
+    "@storybook/addon-links": "10.6.7",
+    "@storybook/html": "10.6.7",
+    "@storybook/web-components": "10.6.7",
+    "@storybook/web-components-vite": "10.6.7",
     "@types/dompurify": "3.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-syntax-highlighter": "16.1.1",
     "remark-gfm": "4.0.1",
-    "storybook": "10.6.6",
+    "storybook": "10.6.7",
     "storybook-dark-mode": "5.0.0"
   },
   "installConfig": {

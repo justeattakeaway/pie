@@ -1,5 +1,42 @@
 # @justeattakeaway/pie-webc
 
+## 1.0.7
+
+### Patch Changes
+
+- Updated dependencies [[`2cc9535`](https://github.com/justeattakeaway/pie/commit/2cc95352d1a3594025bcec47f0037ede96bca0fe)]:
+  - @justeattakeaway/pie-avatar@0.6.0
+
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`f69047f`](https://github.com/justeattakeaway/pie/commit/f69047fd933d9000d2ee4b0f972aba8996b44c8a)]:
+  - @justeattakeaway/pie-select@0.10.0
+
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`71e48bd`](https://github.com/justeattakeaway/pie/commit/71e48bdfc4095fe5f58cebbdfb90d53da294c63e), [`71e48bd`](https://github.com/justeattakeaway/pie/commit/71e48bdfc4095fe5f58cebbdfb90d53da294c63e)]:
+  - @justeattakeaway/pie-list@1.0.0
+  - @justeattakeaway/pie-tooltip@0.8.0
+
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`4a68c11`](https://github.com/justeattakeaway/pie/commit/4a68c1187f1e7cc23dca6cc24c953d9338b50f43), [`f184d71`](https://github.com/justeattakeaway/pie/commit/f184d713af5b4288713f020ee0decab7fdc6a3c8)]:
+  - @justeattakeaway/pie-avatar@0.5.0
+  - @justeattakeaway/pie-toast-provider@1.3.4
+
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`3668da6`](https://github.com/justeattakeaway/pie/commit/3668da65fc9644587a110f0e3234aeb5a3a3cb6d)]:
+  - @justeattakeaway/pie-skeleton@0.1.0
+
 ## 1.0.2
 
 ### Patch Changes

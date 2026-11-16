@@ -33,9 +33,9 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Prop | Options | Description | Default |
 |------|---------|-------------|---------|
-| `src` | — | The src attribute for the underlying image tag. | `""` |
+| `src` | — | The `src` attribute for the underlying image tag.  If the image fails to load, the user icon is rendered instead. Changing `src` retries the load, falling back to the icon again if the new image also fails. | `""` |
 | `tag` | "button",  "a",  "div" | Which HTML element to use when rendering the avatar.| `div` |
-| `label` | - | User or company name that will be rendered as initials inside the avatar.| `""` |
+| `label` | - | User or company name that is rendered as initials inside the avatar. Note that if both `label` and `src` are provided, the image is rendered; if the image fails to load, the user icon is rendered instead.  | `""` |
 
 ### Slots
 | Slot     | Description                                                                                                                                                                                                                                                                         |

@@ -301,6 +301,42 @@ test.describe('PieSelect - Component tests', () => {
     });
 
     test.describe('Attributes:', () => {
+        test.describe('aria-label', () => {
+            test.describe('when the `aria` prop is not defined', () => {
+                test('should not render the attribute', async ({ page }) => {
+                    // Arrange
+                    const selectPage = new BasePage(page, 'select--default');
+                    await selectPage.load();
+
+                    // Act
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    // Assert
+                    await expect(selectElement).not.toHaveAttribute('aria-label');
+                });
+            });
+
+            test.describe('when the `aria` prop is defined', () => {
+                test('should render the attribute correctly with the correct value', async ({ page }) => {
+                    // Arrange
+                    const props: Partial<SelectProps> = {
+                        aria: {
+                            label: 'Choose a meal',
+                        },
+                    };
+
+                    const selectPage = new BasePage(page, 'select--default');
+                    await selectPage.load(props);
+
+                    // Act
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    // Assert
+                    await expect(selectElement).toHaveAttribute('aria-label', 'Choose a meal');
+                });
+            });
+        });
+
         test.describe('aria-describedby', () => {
             test.describe('when `assistiveText` is not defined', () => {
                 test('should not render the attribute', async ({ page }) => {

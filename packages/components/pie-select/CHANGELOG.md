@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-select
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - `aria` prop with a `label` option for the `aria-label` of the select element ([#3324](https://github.com/justeattakeaway/pie/pull/3324)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.17
 
 ### Patch Changes

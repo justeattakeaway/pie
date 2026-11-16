@@ -28,6 +28,10 @@ const CUSTOM_BACKGROUNDS = {
             name: 'container-inverse',
             value: 'var(--dt-color-container-inverse)', // Uses CSS variable for better support of dark/light mode in Storybook
         },
+        'grey-80%-L': {
+            name: 'grey-80%-L',
+            value: 'hsl(0deg 0% 80%)', // Neutral grey, useful for low-contrast components such as skeletons
+        },
         'brand orange': {
             name: 'brand orange',
             value: global.orange,

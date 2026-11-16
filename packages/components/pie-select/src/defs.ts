@@ -53,7 +53,16 @@ export interface SelectOptionGroupProps {
     disabled?: boolean;
 }
 
+type AriaProps = {
+    label?: string;
+};
+
 export interface SelectProps {
+    /**
+     * The ARIA attributes for the select.
+     */
+    aria?: AriaProps;
+
     /**
      * The size of the select component. Can be `small`, `medium` or `large`. Defaults to `medium`.
      */
@@ -90,7 +99,7 @@ export interface SelectProps {
     value?: string | number;
 }
 
-type DefaultProps = ComponentDefaultProps<SelectProps, keyof Omit<SelectProps, 'name' | 'assistiveText'>>;
+type DefaultProps = ComponentDefaultProps<SelectProps, keyof Omit<SelectProps, 'name' | 'assistiveText' | 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',

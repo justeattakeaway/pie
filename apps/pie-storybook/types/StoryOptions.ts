@@ -3,6 +3,7 @@ type BackgroundColor = 'light (container-default)' |
     'background-subtle' |
     'background-dark' |
     'container-inverse' |
+    'grey-80%-L' |
     'brand orange' |
     'saddlebrown' |
     'aquamarine';

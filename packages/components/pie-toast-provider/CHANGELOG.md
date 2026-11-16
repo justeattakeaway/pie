@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.3.4
+
+### Patch Changes
+
+- [Fixed] - `bottom-center` toast providers no longer clip the toast to half of their containing block. ([#3314](https://github.com/justeattakeaway/pie/pull/3314)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.3.3
 
 ### Patch Changes

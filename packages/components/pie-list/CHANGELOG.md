@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-list
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Promoted pie-list component status from beta to stable ([#3321](https://github.com/justeattakeaway/pie/pull/3321)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.0
 
 ### Minor Changes
