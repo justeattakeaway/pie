@@ -50,3 +50,8 @@ export const WithImage = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
     src: './static/images/pie-avatar--static-image.jpg',
 })();
+
+export const WithImageError = createStory<OptionalAvatarProps>(Template, {
+    tag: 'div',
+    src: './static/images/does-not-exist.jpg',
+})();

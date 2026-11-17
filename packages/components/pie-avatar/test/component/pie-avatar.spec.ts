@@ -88,6 +88,68 @@ test.describe('PieAvatar - Component tests', () => {
             await expect(avatarComponentIcon).toHaveAttribute('aria-hidden');
         });
     });
+
+    test.describe('PieAvatar - Image error fallback', () => {
+        test('should render the fallback icon when the image fails to load', async ({ page }) => {
+            // Arrange
+            const avatarPage = new BasePage(page, 'avatar--with-image-error');
+            await avatarPage.load();
+
+            // Act
+            const avatarComponentIcon = page.getByTestId('pie-avatar-icon');
+            const avatarComponentImg = page.getByTestId('pie-avatar-image');
+
+            // Assert
+            await expect(avatarComponentIcon).toBeVisible();
+            await expect(avatarComponentImg).toHaveCount(0);
+        });
+
+        test('should retry loading the image when src changes after a failure', async ({ page }) => {
+            // Arrange
+            const avatarPage = new BasePage(page, 'avatar--with-image-error');
+            await avatarPage.load();
+
+            const avatarComponentIcon = page.getByTestId('pie-avatar-icon');
+            const avatarComponentImg = page.getByTestId('pie-avatar-image');
+            await expect(avatarComponentIcon).toBeVisible();
+            await expect(avatarComponentImg).toHaveCount(0);
+
+            // Act - point the avatar at an image that loads
+            await page.evaluate(() => {
+                document.querySelector('pie-avatar')?.setAttribute('src', './static/images/pie-avatar--static-image.jpg');
+            });
+
+            // Assert
+            await expect(avatarComponentImg).toBeVisible();
+            await expect(avatarComponentImg).toHaveAttribute('src', './static/images/pie-avatar--static-image.jpg');
+            await expect(avatarComponentIcon).toHaveCount(0);
+            await expect.poll(() => avatarComponentImg.evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+        });
+
+        test('should render the fallback icon again when the updated image also fails', async ({ page }) => {
+            // Arrange
+            const avatarPage = new BasePage(page, 'avatar--with-image-error');
+            await avatarPage.load();
+
+            const avatarComponentIcon = page.getByTestId('pie-avatar-icon');
+            const avatarComponentImg = page.getByTestId('pie-avatar-image');
+            await expect(avatarComponentIcon).toBeVisible();
+
+            // Act - recover with a valid image, then fail again
+            await page.evaluate(() => {
+                document.querySelector('pie-avatar')?.setAttribute('src', './static/images/pie-avatar--static-image.jpg');
+            });
+            await expect(avatarComponentImg).toBeVisible();
+
+            await page.evaluate(() => {
+                document.querySelector('pie-avatar')?.setAttribute('src', './static/images/does-not-exist.jpg');
+            });
+
+            // Assert
+            await expect(avatarComponentIcon).toBeVisible();
+            await expect(avatarComponentImg).toHaveCount(0);
+        });
+    });
 });
 
 test.describe('PieAvatar - Label with no letters or numbers', () => {

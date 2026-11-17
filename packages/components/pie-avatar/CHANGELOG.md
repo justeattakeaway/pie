@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-avatar
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - image error fallback ([#3308](https://github.com/justeattakeaway/pie/pull/3308)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.5.0
 
 ### Minor Changes
