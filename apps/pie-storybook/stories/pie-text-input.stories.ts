@@ -7,6 +7,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-webc/components/text-input';
 import {
     type TextInputProps as TextInputPropsBase, types, inputModes, statusTypes, sizes, defaultProps,
+    autocapitalizeValues, enterkeyhintValues,
 } from '@justeattakeaway/pie-webc/components/text-input';
 import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/link';
@@ -162,7 +163,7 @@ const textInputStoryMeta: TextInputStoryMeta = {
         autocapitalize: {
             description: 'Controls whether and how text input is automatically capitalised as it is entered by the user. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) for more information.',
             control: 'select',
-            options: ['off', 'none', 'on', 'sentences', 'words', 'characters'],
+            options: autocapitalizeValues,
             defaultValue: {
                 summary: '',
             },
@@ -184,7 +185,7 @@ const textInputStoryMeta: TextInputStoryMeta = {
         enterkeyhint: {
             description: 'Provides a hint to browsers as to the action label to display on the virtual keyboard\'s enter key. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint) for more information.',
             control: 'select',
-            options: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send'],
+            options: enterkeyhintValues,
             defaultValue: {
                 summary: '',
             },

@@ -7,6 +7,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-webc/components/text-input';
 import {
     type TextInputProps as TextInputPropsBase, types, inputModes, statusTypes, sizes, defaultProps,
+    autocapitalizeValues, enterkeyhintValues,
 } from '@justeattakeaway/pie-webc/components/text-input';
 import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/link';
@@ -194,7 +195,7 @@ const textInputStoryMeta: TextInputStoryMeta = {
         },
         autocapitalize: {
             control: 'select',
-            options: ['off', 'none', 'on', 'sentences', 'words', 'characters'],
+            options: autocapitalizeValues,
             defaultValue: {
                 summary: '',
             },
@@ -213,7 +214,7 @@ const textInputStoryMeta: TextInputStoryMeta = {
         },
         enterkeyhint: {
             control: 'select',
-            options: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send'],
+            options: enterkeyhintValues,
             defaultValue: {
                 summary: '',
             },
