@@ -373,6 +373,24 @@
             ]
         },
         {
+            "name": "busy",
+            "displayName": "Busy",
+            "icons": [
+                {
+                    "name": "busy-high",
+                    "displayName": "Busy High"
+                },
+                {
+                    "name": "busy-low",
+                    "displayName": "Busy Low"
+                },
+                {
+                    "name": "busy-medium",
+                    "displayName": "Busy Medium"
+                }
+            ]
+        },
+        {
             "name": "calendar",
             "displayName": "Calendar",
             "icons": [
@@ -801,8 +819,28 @@
             "displayName": "Elements",
             "icons": [
                 {
+                    "name": "clear-night",
+                    "displayName": "Clear Night"
+                },
+                {
+                    "name": "cloudy",
+                    "displayName": "Cloudy"
+                },
+                {
+                    "name": "extreme-weather",
+                    "displayName": "Extreme Weather"
+                },
+                {
                     "name": "fire",
                     "displayName": "Fire"
+                },
+                {
+                    "name": "foggy",
+                    "displayName": "Foggy"
+                },
+                {
+                    "name": "heavy-rain",
+                    "displayName": "Heavy Rain"
                 },
                 {
                     "name": "lightning",
@@ -817,8 +855,32 @@
                     "displayName": "Moon"
                 },
                 {
+                    "name": "partly-cloudy-day",
+                    "displayName": "Partly Cloudy Day"
+                },
+                {
+                    "name": "partly-cloudy-night",
+                    "displayName": "Partly Cloudy Night"
+                },
+                {
+                    "name": "rain",
+                    "displayName": "Rain"
+                },
+                {
+                    "name": "sleet-hail",
+                    "displayName": "Sleet Hail"
+                },
+                {
+                    "name": "snow",
+                    "displayName": "Snow"
+                },
+                {
                     "name": "snowflake",
                     "displayName": "Snowflake"
+                },
+                {
+                    "name": "storm",
+                    "displayName": "Storm"
                 },
                 {
                     "name": "sun",
@@ -827,6 +889,10 @@
                 {
                     "name": "temp",
                     "displayName": "Temp"
+                },
+                {
+                    "name": "windy",
+                    "displayName": "Windy"
                 }
             ]
         },
