@@ -284,7 +284,8 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 aria-label="${ifDefined(aria?.label)}"
                 aria-description="${ifDefined(aria?.description)}"
                 aria-haspopup="${ifDefined(aria?.haspopup)}"
-                aria-expanded="${ifDefined(aria?.expanded)}">
+                aria-expanded="${ifDefined(aria?.expanded)}"
+                aria-busy="${isLoading}">
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <span class="o-btn-text"><slot></slot></span>
