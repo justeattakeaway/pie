@@ -126,14 +126,14 @@ Notes:
 - Option icons are decorative: the option's accessible name comes from its `primaryText`.
 - Icons render at 20px in the subdued content colour, regardless of their `size` attribute.
 - The field can also show a static, selection-independent icon via the [`leadingIcon` slot](#slots) — a separate mechanism from option icons.
-- Multi-select variants show option icons in their rows only (the field shows the count chip).
+- Multi-select variants do not show option icons: the rows host checkboxes and the field shows the count chip. Option icons render in single-select rows and the field only.
 
 #### Opening the dropdown
 The popover opens when the field is clicked; non-searchable fields also open on keyboard focus. **Focus-open never moves focus** — it stays on the field in every variant; the arrow keys are what move focus into the option list. `Tab` reaches the field's other controls (the count chip's close button first in multi-select variants with a selection, then the single-select clear button) and then moves past the dropdown.
 
 - **Non-searchable single select** — focus stays on the field; `ArrowDown`/`ArrowUp` move focus into the option list (the selected option, or the first one if nothing is selected), from both a closed and an open field.
 - **Non-searchable multi select** — with a selection, the first tab stop is the count chip's close button: the popover opens while focus stays on the chip, so keyboard users can clear every selection with `Enter`. Tabbing from the chip moves straight to the first option — the trigger is not a tab stop while the chip is shown. Without a selection, focus stays on the trigger.
-- **Searchable** — the popover does not open on focus (the `aria-expanded` state change would chase the field's focus announcement and interrupt screen readers mid-announcement); it opens on the first keystroke, the arrow keys or a click, with the caret staying in the search field so typing filters immediately. Filtering matches an option whose primary or secondary text contains the typed text, case-insensitively. Selecting from filtered results shows the selection in the field and clears the search: the popover's filtering is never committed, so the next open starts from the full list.
+- **Searchable** — the popover opens on focus (like the other variants), on the first keystroke, the arrow keys, a click or the chevron, with the caret staying in the search field so typing filters immediately; the focus that returns to the field when the popover closes never reopens it. Filtering matches an option whose primary or secondary text contains the typed text, case-insensitively. Selecting from filtered results shows the selection in the field and clears the search: the popover's filtering is never committed, so the next open starts from the full list.
 
 Focus that is a side effect of another interaction (such as the focus returning to the field when the popover closes) never reopens it.
 

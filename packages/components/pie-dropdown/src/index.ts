@@ -282,6 +282,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
             this._closePopover('outside');
         }
 
+        if (changedProperties.has('_isOpen') && this._isOpen && this._popover) {
+            this._popover.scrollTop = 0;
+        }
+
         // Options can arrive while the popover is open (async loading), so the live list is re-captured.
         if (changedProperties.has('options') && this._isOpen) {
             this._captureOpenOptions();
@@ -715,10 +719,21 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
-    /** Focus no longer opens the popover (its state change interrupted SR announcements); flags are consumed so stale suppression never blocks the chip. */
+    /** Focus opens the popover like the chip and non-searchable field paths; suppression flags stop close-refocus and pointer focus from reopening. */
     private _onSearchFocus = (): void => {
-        this._suppressFocusOpen = false;
-        this._suppressPointerFocusOpen = false;
+        if (this._suppressFocusOpen) {
+            this._suppressFocusOpen = false;
+            return;
+        }
+
+        if (this._suppressPointerFocusOpen) {
+            this._suppressPointerFocusOpen = false;
+            return;
+        }
+
+        if (!this._isOpen && !this.disabled) {
+            this._openPopover('keyboard', false);
+        }
     };
 
     /** Pointer focus must not open the non-searchable field: the click that follows toggles it. */

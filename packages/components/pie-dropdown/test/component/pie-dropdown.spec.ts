@@ -222,6 +222,55 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(option).filter({ hasText: 'Burger' })).toBeFocused();
         });
 
+        test('should scroll the open list to the selected option on keyboard open', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.options = Array.from({ length: 15 }, (_, i) => ({ value: `o${i}`, primaryText: `Option ${i}` }));
+                dropdown.value = 'o12';
+                return dropdown.updateComplete;
+            });
+
+            // The popover opens on field focus; ArrowDown focuses the selected row, which is scrolled into view.
+            await page.getByTestId(trigger).focus();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await page.keyboard.press('ArrowDown');
+
+            await expect(page.getByTestId(option).filter({ hasText: 'Option 12' })).toBeFocused();
+
+            const scrollTop = await page.evaluate(() => document.querySelector('pie-dropdown').shadowRoot.querySelector('.c-dropdown-popover').scrollTop);
+            expect(scrollTop).toBeGreaterThan(0);
+        });
+
+        test('should reopen the list scrolled to the top, not where a previous session left it', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.options = Array.from({ length: 15 }, (_, i) => ({ value: `o${i}`, primaryText: `Option ${i}` }));
+                return dropdown.updateComplete;
+            });
+
+            // Scroll the open list near the bottom, as focusing a low checkbox would.
+            await page.getByTestId(dropdown.selectors.field.dataTestId).click({ position: { x: 10, y: 24 } });
+            await page.evaluate(() => {
+                const popover = document.querySelector('pie-dropdown').shadowRoot.querySelector('.c-dropdown-popover');
+                popover.scrollTop = 500;
+            });
+            await page.keyboard.press('Escape');
+            await expect(page.getByTestId(popover)).toBeHidden();
+
+            // Returning focus to the chip reopens the list at the top.
+            await page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip button').focus();
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            const scrollTop = await page.evaluate(() => document.querySelector('pie-dropdown').shadowRoot.querySelector('.c-dropdown-popover').scrollTop);
+            expect(scrollTop).toBe(0);
+        });
+
         test('should enter the option list with the arrow keys when the field is focused and open', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select');
             await dropdownPage.load();
@@ -642,27 +691,22 @@ test.describe('PieDropdown - Component tests', () => {
     });
 
     test.describe('Search', () => {
-        test('should not open the popover on focus alone, opening instead when the user types', async ({ page }) => {
+        test('should open the popover when the search field is focused, keeping the caret in the field', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();
 
             const input = page.getByTestId(dropdown.selectors.input.dataTestId);
 
-            // Focus alone does not open the popover: the `aria-expanded`
-            // state change chasing the focus announcement interrupts screen
-            // readers mid-announcement, so the open happens on the first
-            // keystroke instead.
+            // Focus opens the popover like the chip and non-searchable field paths, with the caret staying in the field.
             await input.focus();
             await expect(input).toBeFocused();
-            await expect(page.getByTestId(popover)).toBeHidden();
-
-            // The first keystroke opens the popover and filters, with the
-            // caret staying in the field.
-            await page.keyboard.type('Pas');
             await expect(page.getByTestId(popover)).toBeVisible();
-            await expect(input).toBeFocused();
+
+            // Typing still filters.
+            await page.keyboard.type('Pas');
             await expect(page.getByTestId(option)).toHaveCount(1);
             await expect(page.getByTestId(option)).toHaveText('Pasta');
+            await expect(input).toBeFocused();
         });
 
         test('should open the popover when the search field is clicked', async ({ page }) => {
@@ -680,10 +724,12 @@ test.describe('PieDropdown - Component tests', () => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-searchable');
             await dropdownPage.load();
 
-            // Focus alone does not open a searchable field (typing does), so
-            // the chevron is the pointer user's way to see the full list.
             const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+
+            // Focus opens the popover; Escape closes it so the chevron can be tested as the opener.
             await input.focus();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await page.keyboard.press('Escape');
             await expect(page.getByTestId(popover)).toBeHidden();
 
             await page.getByTestId(dropdown.selectors.chevron.dataTestId).click();
@@ -785,22 +831,19 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(page.getByTestId(popover)).toBeHidden();
         });
 
-        test('should not open the popover on focus in multi-select searchable variants, with ArrowDown opening the list', async ({ page }) => {
+        test('should open the popover on focus in multi-select searchable variants, with ArrowDown entering the list', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--multi-select-searchable');
             await dropdownPage.load();
 
             const input = page.getByTestId(dropdown.selectors.input.dataTestId);
 
-            // Focus alone does not open the popover (screen reader focus
-            // announcements must not be interrupted by the expanded state
-            // change); the arrow keys open it and move into the list.
+            // Focus opens the popover (consistent with the chip focus path), with the caret staying in the field.
             await input.focus();
             await expect(input).toBeFocused();
-            await expect(page.getByTestId(popover)).toBeHidden();
+            await expect(page.getByTestId(popover)).toBeVisible();
 
             await page.keyboard.press('ArrowDown');
 
-            await expect(page.getByTestId(popover)).toBeVisible();
             await expect(page.getByTestId(popover).locator('pie-checkbox').first()).toBeFocused();
         });
 
@@ -810,14 +853,12 @@ test.describe('PieDropdown - Component tests', () => {
 
             const input = page.getByTestId(dropdown.selectors.input.dataTestId);
 
-            // Focus does not open the popover; ArrowDown opens it and moves
-            // into the list.
+            // The popover is already open from focusing the field; ArrowDown moves into the list.
             await input.focus();
-            await expect(page.getByTestId(popover)).toBeHidden();
+            await expect(page.getByTestId(popover)).toBeVisible();
 
             await page.keyboard.press('ArrowDown');
 
-            await expect(page.getByTestId(popover)).toBeVisible();
             await expect(page.getByTestId(popover).locator('pie-checkbox').first()).toBeFocused();
         });
 
@@ -826,7 +867,11 @@ test.describe('PieDropdown - Component tests', () => {
             await dropdownPage.load();
 
             const input = page.getByTestId(dropdown.selectors.input.dataTestId);
+
+            // Focus opens the popover; Escape closes it so the chevron can be tested as the opener.
             await input.focus();
+            await expect(page.getByTestId(popover)).toBeVisible();
+            await page.keyboard.press('Escape');
             await expect(page.getByTestId(popover)).toBeHidden();
 
             await page.getByTestId(dropdown.selectors.chevron.dataTestId).click();
