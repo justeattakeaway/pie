@@ -418,6 +418,164 @@ test.describe('PieTextInput - Component tests', () => {
             });
         });
 
+        test.describe('autocapitalize', () => {
+            test('should not render an autocapitalize attribute on the input element if no autocapitalize provided', async ({ page }) => {
+                // Arrange
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).not.toHaveAttribute('autocapitalize');
+            });
+
+            test('should apply the autocapitalize prop to the HTML input rendered', async ({ page }) => {
+                // Arrange
+                const props: TextInputProps = {
+                    autocapitalize: 'characters',
+                    value: '',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).toHaveAttribute('autocapitalize', 'characters');
+            });
+        });
+
+        test.describe('autocorrect', () => {
+            test('should not render an autocorrect attribute on the input element if no autocorrect provided', async ({ page }) => {
+                // Arrange
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).not.toHaveAttribute('autocorrect');
+            });
+
+            test('should render the autocorrect attribute as `on` when the prop is `true`', async ({ page }) => {
+                // Arrange
+                const props: TextInputProps = {
+                    autocorrect: true,
+                    value: '',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).toHaveAttribute('autocorrect', 'on');
+            });
+
+            test('should render the autocorrect attribute as `off` when the prop is `false`', async ({ page }) => {
+                // Arrange
+                const props: TextInputProps = {
+                    autocorrect: false,
+                    value: '',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).toHaveAttribute('autocorrect', 'off');
+            });
+        });
+
+        test.describe('spellcheck', () => {
+            test('should not render a spellcheck attribute on the input element if no spellcheck provided', async ({ page }) => {
+                // Arrange
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).not.toHaveAttribute('spellcheck');
+            });
+
+            test('should apply the spellcheck prop to the HTML input rendered when `true`', async ({ page }) => {
+                // Arrange
+                const props: TextInputProps = {
+                    spellcheck: true,
+                    value: '',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).toHaveAttribute('spellcheck', 'true');
+            });
+
+            test('should apply the spellcheck prop to the HTML input rendered when `false`', async ({ page }) => {
+                // Arrange
+                const props: TextInputProps = {
+                    spellcheck: false,
+                    value: '',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).toHaveAttribute('spellcheck', 'false');
+            });
+        });
+
+        test.describe('enterkeyhint', () => {
+            test('should not render an enterkeyhint attribute on the input element if no enterkeyhint provided', async ({ page }) => {
+                // Arrange
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).not.toHaveAttribute('enterkeyhint');
+            });
+
+            test('should apply the enterkeyhint prop to the HTML input rendered', async ({ page }) => {
+                // Arrange
+                const props: TextInputProps = {
+                    enterkeyhint: 'search',
+                    value: '',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
+
+                // Act
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Assert
+                await expect(input).toHaveAttribute('enterkeyhint', 'search');
+            });
+        });
+
         test.describe('readonly', () => {
             test('should be able to edit the component value when readonly is `false`', async ({ page }) => {
                 // Arrange

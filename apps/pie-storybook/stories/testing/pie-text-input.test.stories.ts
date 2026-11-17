@@ -7,6 +7,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-webc/components/text-input';
 import {
     type TextInputProps as TextInputPropsBase, types, inputModes, statusTypes, sizes, defaultProps,
+    autocapitalizeValues, enterkeyhintValues,
 } from '@justeattakeaway/pie-webc/components/text-input';
 import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc/components/link';
@@ -192,6 +193,32 @@ const textInputStoryMeta: TextInputStoryMeta = {
                 summary: false,
             },
         },
+        autocapitalize: {
+            control: 'select',
+            options: autocapitalizeValues,
+            defaultValue: {
+                summary: '',
+            },
+        },
+        autocorrect: {
+            control: 'boolean',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        spellcheck: {
+            control: 'boolean',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        enterkeyhint: {
+            control: 'select',
+            options: enterkeyhintValues,
+            defaultValue: {
+                summary: '',
+            },
+        },
         showEmailField: {
             control: 'boolean',
             defaultValue: {
@@ -216,6 +243,10 @@ const Template = ({
     placeholder,
     autoFocus,
     inputmode,
+    autocapitalize,
+    autocorrect,
+    spellcheck,
+    enterkeyhint,
     readonly,
     defaultValue,
     leadingSlot,
@@ -262,6 +293,10 @@ const Template = ({
             autocomplete="${ifDefined(autocomplete)}"
             placeholder="${ifDefined(placeholder)}"
             inputmode="${ifDefined(inputmode)}"
+            autocapitalize="${ifDefined(autocapitalize)}"
+            autocorrect="${ifDefined(autocorrect)}"
+            spellcheck="${ifDefined(spellcheck)}"
+            enterkeyhint="${ifDefined(enterkeyhint)}"
             defaultValue="${ifDefined(defaultValue)}"
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
