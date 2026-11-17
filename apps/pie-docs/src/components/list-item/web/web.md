@@ -39,7 +39,7 @@ shouldShowContents: true
     type: listTypes.ordered,
     items: [
         "**Primary text:** Provides an overview of the content.",
-        "**Secondary text (Optional):** Provides additional detail if required.",
+        "**Secondary content (Optional):** Provides additional detail if required.",
         "**Divider (Optional):** Visually defines the end of one list item and the beginning of the next.",
         "**Icon (Optional):** Non-interactive icon that visually supports the primary text.",
         "**Icon with background (Optional):** Non-interactive icon that visually supports the primary text.",
@@ -197,6 +197,15 @@ There's an option to use bold in the primary text.
       src: "../../../assets/img/components/list-item/web/modifiers-leading-thumbnail.svg",
       width: "360px",
       alt: "List item component with leading thumbnail."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/web/modifiers-leading-badge.svg",
+      width: "360px",
+      alt: "List item component with leading badge."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
