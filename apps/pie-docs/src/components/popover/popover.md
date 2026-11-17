@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Popover'
     parent: Components
-    order: 34
+    order: 35
     url: /components/popover/
 permalink: false
 ---
