@@ -192,6 +192,32 @@ const textInputStoryMeta: TextInputStoryMeta = {
                 summary: false,
             },
         },
+        autocapitalize: {
+            control: 'select',
+            options: ['off', 'none', 'on', 'sentences', 'words', 'characters'],
+            defaultValue: {
+                summary: '',
+            },
+        },
+        autocorrect: {
+            control: 'boolean',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        spellcheck: {
+            control: 'boolean',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        enterkeyhint: {
+            control: 'select',
+            options: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send'],
+            defaultValue: {
+                summary: '',
+            },
+        },
         showEmailField: {
             control: 'boolean',
             defaultValue: {
@@ -216,6 +242,10 @@ const Template = ({
     placeholder,
     autoFocus,
     inputmode,
+    autocapitalize,
+    autocorrect,
+    spellcheck,
+    enterkeyhint,
     readonly,
     defaultValue,
     leadingSlot,
@@ -262,6 +292,10 @@ const Template = ({
             autocomplete="${ifDefined(autocomplete)}"
             placeholder="${ifDefined(placeholder)}"
             inputmode="${ifDefined(inputmode)}"
+            autocapitalize="${ifDefined(autocapitalize)}"
+            autocorrect="${ifDefined(autocorrect)}"
+            spellcheck="${ifDefined(spellcheck)}"
+            enterkeyhint="${ifDefined(enterkeyhint)}"
             defaultValue="${ifDefined(defaultValue)}"
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"

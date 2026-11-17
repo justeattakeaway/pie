@@ -66,6 +66,32 @@ export interface TextInputProps {
     inputmode?: typeof inputModes[number];
 
     /**
+     * Controls whether and how text input is automatically capitalised as it is entered by the user.
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) for more information.
+     */
+    autocapitalize?: 'off' | 'none' | 'on' | 'sentences' | 'words' | 'characters';
+
+    /**
+     * Indicates whether automatic correction of spelling or grammar should be enabled for the input.
+     * Exposed as a boolean to match `HTMLElement.autocorrect`; the value is forwarded to the inner
+     * `input` as the native enumerated `autocorrect` attribute (`on` / `off`).
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocorrect) for more information.
+     */
+    autocorrect?: boolean;
+
+    /**
+     * Indicates whether the element may be checked for spelling errors.
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) for more information.
+     */
+    spellcheck?: boolean;
+
+    /**
+     * Provides a hint to browsers as to the action label to display on the virtual keyboard's enter key.
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint) for more information.
+     */
+    enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+
+    /**
      * When true, the user cannot edit the control. Not the same as disabled.
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
      */

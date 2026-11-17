@@ -159,6 +159,36 @@ const textInputStoryMeta: TextInputStoryMeta = {
                 summary: '',
             },
         },
+        autocapitalize: {
+            description: 'Controls whether and how text input is automatically capitalised as it is entered by the user. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) for more information.',
+            control: 'select',
+            options: ['off', 'none', 'on', 'sentences', 'words', 'characters'],
+            defaultValue: {
+                summary: '',
+            },
+        },
+        autocorrect: {
+            description: 'Indicates whether automatic correction of spelling or grammar should be enabled for the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocorrect) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        spellcheck: {
+            description: 'Indicates whether the element may be checked for spelling errors. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        enterkeyhint: {
+            description: 'Provides a hint to browsers as to the action label to display on the virtual keyboard\'s enter key. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint) for more information.',
+            control: 'select',
+            options: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send'],
+            defaultValue: {
+                summary: '',
+            },
+        },
         readonly: {
             description: 'When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.',
             control: 'boolean',
@@ -242,6 +272,10 @@ const Template = ({
     placeholder,
     autoFocus,
     inputmode,
+    autocapitalize,
+    autocorrect,
+    spellcheck,
+    enterkeyhint,
     readonly,
     defaultValue,
     leadingSlot,
@@ -286,6 +320,10 @@ const Template = ({
             autocomplete="${ifDefined(autocomplete)}"
             placeholder="${ifDefined(placeholder)}"
             inputmode="${ifDefined(inputmode)}"
+            autocapitalize="${ifDefined(autocapitalize)}"
+            autocorrect="${ifDefined(autocorrect)}"
+            spellcheck="${ifDefined(spellcheck)}"
+            enterkeyhint="${ifDefined(enterkeyhint)}"
             defaultValue="${ifDefined(defaultValue)}"
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
