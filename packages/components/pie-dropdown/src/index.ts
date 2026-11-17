@@ -24,6 +24,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { live } from 'lit/directives/live.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import 'element-internals-polyfill';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronDown.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronUp.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircle.js';
@@ -494,14 +495,16 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         if (!this._isOpen) return;
 
         if (this.isMultiselect) {
-            const firstCheckbox = this.renderRoot.querySelector<HTMLElement>('pie-checkbox');
-            firstCheckbox?.focus();
+            const firstEnabledCheckbox = Array.from(this.renderRoot.querySelectorAll<HTMLElement & { disabled?: boolean }>('pie-checkbox'))
+                .find((checkbox) => !checkbox.disabled);
+
+            firstEnabledCheckbox?.focus();
             return;
         }
 
         const optionEls = this._optionEls;
         const selectedEl = optionEls.find((el) => el.getAttribute('aria-selected') === 'true');
-        const target = selectedEl ?? optionEls[0];
+        const target = selectedEl ?? optionEls.find((el) => el.getAttribute('aria-disabled') !== 'true');
         if (target) this._roving.setActiveItem(target, { focus: true });
     }
 

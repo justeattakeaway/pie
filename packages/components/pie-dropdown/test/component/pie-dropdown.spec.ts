@@ -188,6 +188,23 @@ test.describe('PieDropdown - Component tests', () => {
             await expect(firstOption).toHaveAttribute('tabindex', '-1');
         });
 
+        test('should focus the first enabled option when the first option is disabled and nothing is selected', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--single-select');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.options = (dropdown.options ?? []).map((option) => (option.value === 'pizza' ? { ...option, disabled: true } : option));
+                return dropdown.updateComplete;
+            });
+
+            await page.getByTestId(trigger).click();
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            // Pizza (first) is disabled and not focusable: focus lands on the first enabled row.
+            await expect(page.getByTestId(option).filter({ hasText: 'Burger' })).toBeFocused();
+        });
+
         test('should open the popover with ArrowUp and focus the selected option', async ({ page }) => {
             const dropdownPage = new BasePage(page, 'dropdown--single-select-selected');
             await dropdownPage.load();
@@ -419,6 +436,23 @@ test.describe('PieDropdown - Component tests', () => {
             // The popover stays open and the count chip updates.
             await expect(page.getByTestId(popover)).toBeVisible();
             await expect(page.getByTestId(dropdown.selectors.field.dataTestId).locator('pie-chip')).toHaveText(/2 selected/);
+        });
+
+        test('should focus the first enabled checkbox when the first option is disabled', async ({ page }) => {
+            const dropdownPage = new BasePage(page, 'dropdown--multi-select');
+            await dropdownPage.load();
+
+            await page.evaluate(() => {
+                const dropdown = document.querySelector('pie-dropdown');
+                dropdown.options = (dropdown.options ?? []).map((option) => (option.value === 'pizza' ? { ...option, disabled: true } : option));
+                return dropdown.updateComplete;
+            });
+
+            await page.getByTestId(dropdown.selectors.field.dataTestId).click({ position: { x: 10, y: 24 } });
+            await expect(page.getByTestId(popover)).toBeVisible();
+
+            // Pizza (first, selected) is disabled and its checkbox is not focusable: Burger's takes the focus.
+            await expect(page.getByTestId(popover).locator('pie-checkbox').nth(1)).toBeFocused();
         });
 
         test('should enter the option list with the arrow keys when the chip is focused and open', async ({ page }) => {
