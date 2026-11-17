@@ -228,11 +228,7 @@ The body can be toggled on and off and may include text or an open slot to add i
 ### Footer content
 
 The footer may include buttons stacked or side-by-side buttons, with the option of adding footer content in the form of either a text input or a slot to add specified content.
-
-{% notification {
-  type: "warning",
-  message: "Stacked button option will only available for narrow modal components."
-} %}
+When using stacked buttons on wider screens, consider the overall visual balance of the modal in relation to the screen. Vertically stacked buttons may create unnecessary whitespace, ensure the button arrangement feels balanced and proportionate to the modal's width.
 
 {% contentLayout { columns: 3 } %}
   {% contentItem %}
