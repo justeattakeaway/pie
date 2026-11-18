@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`4cacebc`](https://github.com/justeattakeaway/pie/commit/4cacebc7d0fadce41dbfcd56b3e12bebafb4e479)]:
+  - @justeattakeaway/pie-dropdown@0.1.1
+
 ## 1.1.0
 
 ### Minor Changes
