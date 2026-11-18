@@ -719,21 +719,10 @@ export class PieDropdown extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
-    /** Focus opens the popover like the chip and non-searchable field paths; suppression flags stop close-refocus and pointer focus from reopening. */
+    /** Focus no longer opens the popover (its state change interrupted SR announcements); flags are consumed so stale suppression never blocks the chip. */
     private _onSearchFocus = (): void => {
-        if (this._suppressFocusOpen) {
-            this._suppressFocusOpen = false;
-            return;
-        }
-
-        if (this._suppressPointerFocusOpen) {
-            this._suppressPointerFocusOpen = false;
-            return;
-        }
-
-        if (!this._isOpen && !this.disabled) {
-            this._openPopover('keyboard', false);
-        }
+        this._suppressFocusOpen = false;
+        this._suppressPointerFocusOpen = false;
     };
 
     /** Pointer focus must not open the non-searchable field: the click that follows toggles it. */
