@@ -65,3 +65,13 @@ Verifies a newly added or changed PIE component prop in Aperture. After `/test-a
 ```
 npx skills add git@github.com:justeattakeaway/pie.git --skill aperture-props-test
 ```
+
+---
+
+### figma-engineering-audit
+
+Performs an engineering audit of a component design in Figma using the Figma MCP tools, then produces a markdown report. Use when the user shares a Figma link and asks for an engineering review or readiness assessment of a component design, with particular emphasis on interactivity and behaviour, accessibility, SSR compatibility and performance — the areas designs most often leave unspecified.
+
+```
+npx skills add git@github.com:justeattakeaway/pie.git --skill figma-engineering-audit
+```
