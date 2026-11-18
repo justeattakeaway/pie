@@ -93,14 +93,18 @@ import '@justeattakeaway/pie-icons-webc/dist/IconFlagIe.js';
     import '@justeattakeaway/pie-icons-webc/dist/IconFlagGb.js';
     import '@justeattakeaway/pie-icons-webc/dist/IconFlagIe.js';
     import '@justeattakeaway/pie-webc/components/dropdown.js';
+
+    const dropdown = document.querySelector('pie-dropdown');
+
+    dropdown.options = [
+        { value: 'gb', primaryText: 'United Kingdom', icon: 'icon-flag-gb' },
+        { value: 'ie', primaryText: 'Ireland', icon: 'icon-flag-ie' },
+    ];
 </script>
 
 <pie-dropdown
     label="Country"
-    .options='${[
-        { value: 'gb', primaryText: 'United Kingdom', icon: 'icon-flag-gb' },
-        { value: 'ie', primaryText: 'Ireland', icon: 'icon-flag-ie' },
-    ]}'>
+    value="gb">
 </pie-dropdown>
 ```
 
@@ -243,39 +247,151 @@ Because a `change` event also fires when the owning form is reset, controlled st
 
 ### Single select
 
+**For HTML:**
+
 ```html
+<script type="module">
+    import '@justeattakeaway/pie-webc/components/dropdown.js';
+
+    const dropdown = document.querySelector('pie-dropdown');
+
+    dropdown.options = [
+        { value: 'pizza', primaryText: 'Pizza' },
+        { value: 'burger', primaryText: 'Burger' },
+        { value: 'salad', primaryText: 'Salad', disabled: true },
+    ];
+</script>
+
 <pie-dropdown
     label="Meal"
     placeholder="Select a meal"
     name="meal"
-    .options='${[
-        { value: 'pizza', primaryText: 'Pizza' },
-        { value: 'burger', primaryText: 'Burger' },
-        { value: 'salad', primaryText: 'Salad', disabled: true },
-    ]}'
-    .value='pizza'>
+    value="pizza">
 </pie-dropdown>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieDropdown } from '@justeattakeaway/pie-webc/react/dropdown.js';
+
+const options = [
+    { value: 'pizza', primaryText: 'Pizza' },
+    { value: 'burger', primaryText: 'Burger' },
+    { value: 'salad', primaryText: 'Salad', disabled: true },
+];
+
+<PieDropdown
+    label="Meal"
+    placeholder="Select a meal"
+    name="meal"
+    options={options}
+    value="pizza" />
 ```
 
 ### Multi select
 
+**For HTML:**
+
 ```html
+<script type="module">
+    import '@justeattakeaway/pie-webc/components/dropdown.js';
+
+    const dropdown = document.querySelector('pie-dropdown');
+
+    dropdown.options = [
+        { value: 'cheese', primaryText: 'Cheese', secondaryText: 'Extra mature' },
+        { value: 'pepperoni', primaryText: 'Pepperoni' },
+    ];
+    dropdown.value = ['cheese'];
+</script>
+
 <pie-dropdown
     label="Toppings"
     name="toppings"
-    ?isMultiselect
-    .options='${[
+    isMultiselect>
+</pie-dropdown>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieDropdown } from '@justeattakeaway/pie-webc/react/dropdown.js';
+
+const options = [
+    { value: 'cheese', primaryText: 'Cheese', secondaryText: 'Extra mature' },
+    { value: 'pepperoni', primaryText: 'Pepperoni' },
+];
+
+<PieDropdown
+    label="Toppings"
+    name="toppings"
+    isMultiselect
+    options={options} />
+```
+
+### Multi select, searchable
+
+**For HTML:**
+
+```html
+<script type="module">
+    import '@justeattakeaway/pie-webc/components/dropdown.js';
+
+    const dropdown = document.querySelector('pie-dropdown');
+
+    dropdown.options = [
         { value: 'cheese', primaryText: 'Cheese', secondaryText: 'Extra mature' },
         { value: 'pepperoni', primaryText: 'Pepperoni' },
-    ]}'
-    .value='${['cheese']}'>
+        { value: 'mushroom', primaryText: 'Mushroom' },
+    ];
+    dropdown.value = ['cheese', 'pepperoni'];
+</script>
+
+<pie-dropdown
+    label="Toppings"
+    name="toppings"
+    isMultiselect
+    isSearchable
+    placeholder="Search toppings"
+    selectedCountText="{count} picked">
 </pie-dropdown>
+```
+
+**For React Applications:**
+
+```jsx
+import { useState } from 'react';
+import { PieDropdown } from '@justeattakeaway/pie-webc/react/dropdown.js';
+
+const options = [
+    { value: 'cheese', primaryText: 'Cheese', secondaryText: 'Extra mature' },
+    { value: 'pepperoni', primaryText: 'Pepperoni' },
+    { value: 'mushroom', primaryText: 'Mushroom' },
+];
+
+const [toppings, setToppings] = useState(['cheese', 'pepperoni']);
+
+<PieDropdown
+    label="Toppings"
+    name="toppings"
+    isMultiselect
+    isSearchable
+    placeholder="Search toppings"
+    selectedCountText="{count} picked"
+    options={options}
+    value={toppings}
+    onChange={(event) => setToppings(event.target.value)} />
 ```
 
 ### Searchable, with asynchronous options
 
+**For HTML:**
+
 ```html
 <script type="module">
+    import '@justeattakeaway/pie-webc/components/dropdown.js';
+
     const dropdown = document.querySelector('pie-dropdown');
 
     dropdown.addEventListener('pie-dropdown-search', async (event) => {
@@ -294,9 +410,38 @@ Because a `change` event also fires when the owning form is reset, controlled st
 <pie-dropdown
     label="Restaurant location"
     placeholder="Search countries"
-    ?isSearchable
-    .options='${[]}'>
+    isSearchable>
 </pie-dropdown>
+```
+
+**For React Applications:**
+
+```jsx
+import { useState } from 'react';
+import { PieDropdown } from '@justeattakeaway/pie-webc/react/dropdown.js';
+
+const [options, setOptions] = useState([]);
+const [isLoading, setIsLoading] = useState(false);
+
+const handleSearch = async (event) => {
+    setIsLoading(true);
+
+    const results = await fetchOptions(event.detail.searchText);
+
+    setOptions(results.map((result) => ({
+        value: result.id,
+        primaryText: result.name,
+    })));
+    setIsLoading(false);
+};
+
+<PieDropdown
+    label="Restaurant location"
+    placeholder="Search countries"
+    isSearchable
+    options={options}
+    isLoading={isLoading}
+    onPieDropdownSearch={handleSearch} />
 ```
 
 ### With option icons
@@ -308,14 +453,18 @@ See [Option icons](#option-icons) — each option's `icon` names the `pie-icons-
     import '@justeattakeaway/pie-icons-webc/dist/IconFlagGb.js';
     import '@justeattakeaway/pie-icons-webc/dist/IconFlagIe.js';
     import '@justeattakeaway/pie-webc/components/dropdown.js';
+
+    const dropdown = document.querySelector('pie-dropdown');
+
+    dropdown.options = [
+        { value: 'gb', primaryText: 'United Kingdom', icon: 'icon-flag-gb' },
+        { value: 'ie', primaryText: 'Ireland', icon: 'icon-flag-ie' },
+    ];
 </script>
 
 <pie-dropdown
     label="Country"
-    .options='${[
-        { value: 'gb', primaryText: 'United Kingdom', icon: 'icon-flag-gb' },
-        { value: 'ie', primaryText: 'Ireland', icon: 'icon-flag-ie' },
-    ]}'>
+    value="gb">
 </pie-dropdown>
 ```
 
