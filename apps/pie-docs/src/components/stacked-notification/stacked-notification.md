@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Stacked Notification
     parent: Components
-    order: 47
+    order: 48
     url: /components/stacked-notification/
 permalink: false
 ---

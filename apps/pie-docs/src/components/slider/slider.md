@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Slider'
     parent: Components
-    order: 45
+    order: 46
     url: /components/slider/
 permalink: false
 ---
