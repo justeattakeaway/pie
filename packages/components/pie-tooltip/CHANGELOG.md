@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-tooltip
 
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-webc-core@22.1.0
+  - @justeattakeaway/pie-icon-button@2.8.4
+  - @justeattakeaway/pie-icons-webc@1.31.1
+
 ## 0.8.1
 
 ### Patch Changes
