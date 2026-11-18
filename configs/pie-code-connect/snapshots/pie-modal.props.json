@@ -17,9 +17,9 @@
         "name": "Size",
         "type": "VARIANT",
         "variantOptions": [
-          "Large",
+          "Small",
           "Medium",
-          "Small"
+          "Large"
         ],
         "default": "Medium"
       },
