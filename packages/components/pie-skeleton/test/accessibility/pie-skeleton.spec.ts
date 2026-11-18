@@ -13,4 +13,16 @@ test.describe('PieSkeleton - Accessibility tests', () => {
 
         expect(results.violations).toEqual([]);
     });
+
+    test('a11y - should test the accessible loading region example WCAG compliance', async ({ page, makeAxeBuilder }) => {
+        // Arrange
+        const basePage = new BasePage(page, 'skeleton--accessible-loading-region');
+
+        await basePage.load();
+
+        // Act
+        const results = await makeAxeBuilder().analyze();
+
+        expect(results.violations).toEqual([]);
+    });
 });

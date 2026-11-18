@@ -3,6 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/skeleton';
+import '@justeattakeaway/pie-webc/components/button';
 import {
     type SkeletonProps,
     defaultProps,
@@ -14,6 +15,7 @@ import {
 } from '@justeattakeaway/pie-webc/components/skeleton';
 
 import { createStory, type TemplateFunction } from '../utilities';
+import { skeletonLoadingRegionTemplate } from './skeleton-shared';
 import { typographyIdentifiers } from '../utilities/typographyIdentifiers';
 
 type SkeletonStoryMeta = Meta<SkeletonProps>;
@@ -235,6 +237,16 @@ const ListTemplate: TemplateFunction<SkeletonProps> = () => html`
 
 export const ListItems = ListTemplate.bind({});
 ListItems.parameters = {
+    layout: 'padded',
+    controls: { disable: true },
+};
+
+// An accessible loading region. The skeletons are hidden from assistive technology, so the
+// container announces the loading state once (visually hidden, localised text) and uses a polite
+// live region to announce when the content has loaded. Use the button to simulate loading
+// finishing. See the README's "Accessibility" section for the full guidance.
+export const AccessibleLoadingRegion = skeletonLoadingRegionTemplate.bind({});
+AccessibleLoadingRegion.parameters = {
     layout: 'padded',
     controls: { disable: true },
 };
