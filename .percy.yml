@@ -1,4 +1,5 @@
 version: 2
 discovery:
-  disallowedHostnames:
-    - unpkg.com
+  allowedHostnames:
+    - pie-design-system-cdn.production.jet-external.com
+  networkIdleTimeout: 250
