@@ -4041,7 +4041,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "npm:0.21.5"
     "@justeattakeaway/pie-css": "npm:1.9.3"
     "@justeattakeaway/pie-form-label": "npm:1.0.1"
-    "@justeattakeaway/pie-icons-webc": "npm:1.30.0"
+    "@justeattakeaway/pie-icons-webc": "npm:1.31.0"
     "@justeattakeaway/pie-list": "npm:1.0.0"
     "@justeattakeaway/pie-monorepo-utils": "npm:0.9.14"
     "@justeattakeaway/pie-spinner": "npm:1.5.11"
@@ -4141,15 +4141,6 @@ __metadata:
     vue-template-compiler: "npm:2.7.14"
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-icons-webc@npm:1.30.0":
-  version: 1.30.0
-  resolution: "@justeattakeaway/pie-icons-webc@npm:1.30.0"
-  dependencies:
-    "@justeattakeaway/pie-webc-core": "npm:22.0.1"
-  checksum: 10/0af8f7b9a543b5fa11967250ea03099903429f844495a837081833ae21f47e92c1cb9edb49e53ee5e191971f051c3d44e5d31ba132ef73898b94c5843d8c7b59
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-icons-webc@npm:1.31.0, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
   version: 0.0.0-use.local
