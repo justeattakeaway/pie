@@ -13,17 +13,19 @@
 }
 
 .c-avatar {
+    --int-states-mixin-bg-color: var(--dt-color-container-inverse);
+
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--dt-font-body-s-family);
     @include p.font-size(--dt-font-body-s-size);
-    background-color: var(--dt-color-container-inverse);
+    background-color: var(--int-states-mixin-bg-color);
     color: var(--dt-color-content-interactive-primary); 
     width: var(--avatar-size);
     height: var(--avatar-size);
     border-radius:var(--dt-radius-rounded-e);
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .c-avatar--image {
@@ -33,6 +35,15 @@
 }
 
 .c-avatar--button {
+    padding: 0;
     border: none;
     font-family: inherit;
+    cursor: pointer;
+    outline: none;
+
+    &:focus-visible {
+        @include p.focus;
+    }
+
+    @include p.interactive-states('--dt-color-container-inverse', 'inverse', '02');
 }
