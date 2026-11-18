@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.21.6
+
+### Patch Changes
+
+- [Removed] - Removed Percy hostname settings that had no effect from the visual test setup. ([#3338](https://github.com/justeattakeaway/pie/pull/3338)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.21.5
 
 ### Patch Changes
