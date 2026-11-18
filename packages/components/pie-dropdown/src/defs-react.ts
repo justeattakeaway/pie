@@ -5,4 +5,4 @@ import type React from 'react';
  * Example: an HTML button maps to `React.ButtonHTMLAttributes<HTMLButtonElement>`
  * https://github.com/DefinitelyTyped/DefinitelyTyped/blob/0bb210867d16170c4a08d9ce5d132817651a0f80/types/react/index.d.ts#L2829
  */
-export type ReactBaseType = React.HTMLAttributes<HTMLElement>
+export type ReactBaseType = Omit<React.HTMLAttributes<HTMLElement>, 'onChange'>
