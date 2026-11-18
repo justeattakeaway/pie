@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-skeleton
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - Added the shimmer animation to `pie-skeleton` variant and background colour ([#3320](https://github.com/justeattakeaway/pie/pull/3320)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.1.0
 
 ### Minor Changes

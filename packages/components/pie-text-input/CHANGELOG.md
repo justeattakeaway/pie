@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-text-input
 
+## 0.31.0
+
+### Minor Changes
+
+- [Added] - Added `autocapitalize`, `autocorrect`, `spellcheck` and `enterkeyhint` props to `pie-text-input`, forwarded to the inner `input` element ([#3334](https://github.com/justeattakeaway/pie/pull/3334)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.18
+
 ## 0.30.17
 
 ### Patch Changes

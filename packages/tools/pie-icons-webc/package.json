@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "1.30.0",
+  "version": "1.31.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -41,7 +41,7 @@
     "test:browsers:webc": "run -T playwright test -c ./playwright-lit.config.ts",
     "test:browsers": "yarn test:browsers:react && yarn test:browsers:webc",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICONS_WEBC} percy exec --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICONS_WEBC} percy exec -- run -T playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "browserslist": [
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.21.5",
-    "@justeattakeaway/pie-icons": "5.33.1",
+    "@justeattakeaway/pie-icons": "5.34.0",
     "@justeattakeaway/pie-icons-configs": "5.21.0",
     "@rollup/plugin-typescript": "12.3.0",
     "just-kebab-case": "4.2.0",

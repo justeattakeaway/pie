@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-radio-group",
   "description": "PIE Design System Radio Group built using Web Components",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -37,7 +37,7 @@
     "watch": "run -T vite build --watch",
     "test:browsers": "run -T playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_RADIO_GROUP} percy exec --allowed-hostname cloudfront.net -- run -T playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_RADIO_GROUP} percy exec -- run -T playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
@@ -49,7 +49,7 @@
     "@justeattakeaway/pie-radio": "1.2.9"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "1.0.17",
+    "@justeattakeaway/pie-assistive-text": "1.0.18",
     "@justeattakeaway/pie-webc-core": "22.0.1",
     "@lit/context": "1.1.6"
   },

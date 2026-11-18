@@ -1,5 +1,22 @@
 # Changelog
 
+## 5.23.0
+
+### Minor Changes
+
+- [Added] - Added stacked button option in Modal wide variants ([#3317](https://github.com/justeattakeaway/pie/pull/3317)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Updated] - Updated the subheading text in Card
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#3335](https://github.com/justeattakeaway/pie/pull/3335)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`18d05e6`](https://github.com/justeattakeaway/pie/commit/18d05e6f87f8cde6ef8522266b5d1f98c38961f2)]:
+  - @justeattakeaway/pie-icons@5.34.0
+  - @justeattakeaway/pie-icons-webc@1.31.0
+  - @justeattakeaway/pie-webc@1.0.8
+
 ## 5.22.2
 
 ### Patch Changes

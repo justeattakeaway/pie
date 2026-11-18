@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.16.0
+
+### Minor Changes
+
+- [Changed] - `pie-button` now renders `aria-busy` on the underlying button element while in its loading state, consistent with `pie-chip` and `pie-modal` ([#3334](https://github.com/justeattakeaway/pie/pull/3334)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.15.1
 
 ### Patch Changes
