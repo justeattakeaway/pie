@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-select
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-webc-core@22.1.0
+  - @justeattakeaway/pie-assistive-text@1.0.19
+
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.18
+
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - `aria` prop with a `label` option for the `aria-label` of the select element ([#3324](https://github.com/justeattakeaway/pie/pull/3324)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.17
 
 ### Patch Changes

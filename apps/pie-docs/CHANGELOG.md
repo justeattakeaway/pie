@@ -1,5 +1,101 @@
 # Changelog
 
+## 5.23.1
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-webc@1.1.0
+  - @justeattakeaway/pie-icons-webc@1.31.1
+
+## 5.23.0
+
+### Minor Changes
+
+- [Added] - Added stacked button option in Modal wide variants ([#3317](https://github.com/justeattakeaway/pie/pull/3317)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Updated] - Updated the subheading text in Card
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#3335](https://github.com/justeattakeaway/pie/pull/3335)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+- Updated dependencies [[`18d05e6`](https://github.com/justeattakeaway/pie/commit/18d05e6f87f8cde6ef8522266b5d1f98c38961f2)]:
+  - @justeattakeaway/pie-icons@5.34.0
+  - @justeattakeaway/pie-icons-webc@1.31.0
+  - @justeattakeaway/pie-webc@1.0.8
+
+## 5.22.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.7
+
+## 5.22.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.6
+
+## 5.22.0
+
+### Minor Changes
+
+- [Added] - Adds Display type documentation ([#3303](https://github.com/justeattakeaway/pie/pull/3303)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- Updated dependencies [[`06635ab`](https://github.com/justeattakeaway/pie/commit/06635ab7aa120aeefdece183bcab2ca7580c4310)]:
+  - @justeat/pie-design-tokens@7.16.0
+  - @justeattakeaway/pie-webc@1.0.5
+  - @justeattakeaway/pie-css@1.9.3
+  - @justeattakeaway/pie-icons@5.33.1
+
+## 5.21.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.4
+
+## 5.21.3
+
+### Patch Changes
+
+- Updated dependencies [[`3668da6`](https://github.com/justeattakeaway/pie/commit/3668da65fc9644587a110f0e3234aeb5a3a3cb6d)]:
+  - @justeattakeaway/pie-css@1.9.2
+  - @justeattakeaway/pie-webc@1.0.3
+
+## 5.21.2
+
+### Patch Changes
+
+- [Changed] Image for Motion animated background updated so blur effect is visible. ([#3312](https://github.com/justeattakeaway/pie/pull/3312)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+## 5.21.1
+
+### Patch Changes
+
+- [Changed] ([#3306](https://github.com/justeattakeaway/pie/pull/3306)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+  Overview section: Rewrote intro copy,
+  Iconography: Condensed copy and added cross-links to motion and motion foundations pages,
+  Gradients: Clarified that the container gradient is restricted to the AI assistant; removed the "images versus gradients" and 162px height guidance; added new token usage examples image,
+  Motion - Animated background: Replaced duplicated intro text with specific guidance about the Lottie animation and reduce-motion settings,
+  Components: Replaced do/don't usage blocks and layering guidance with a simpler overview.
+
+  [Added]
+  Components: Added new chip section; added contextual example images for button, icon button, chip, and tag.
+
+  [Removed]
+  Language overview: Removed entire section (tone, clarity, identity guidance),
+  Components: Removed "button without icon" and "generating query" subsections.
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.0.2
+
 ## 5.21.0
 
 ### Minor Changes

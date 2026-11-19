@@ -23,11 +23,6 @@ export function getPlaywrightNativeVisualConfig() {
             /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
             trace: 'retain-on-failure',
             testIdAttribute: 'data-test-id',
-            discovery: {
-                disallowedHostnames: [
-                    'unpkg.com'
-                ],
-            },
         },
 
         /* Configure projects for major browsers */

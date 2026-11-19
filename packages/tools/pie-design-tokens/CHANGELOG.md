@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.16.0
+
+### Minor Changes
+
+- [Added] - Adds support for Display type including new font family and letter spacing options ([#3303](https://github.com/justeattakeaway/pie/pull/3303)) by [@maledr5](https://github.com/maledr5)
+
 ## 7.15.1
 
 ### Patch Changes

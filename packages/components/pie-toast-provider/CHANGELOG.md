@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-toast-provider
 
+## 1.3.6
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-webc-core@22.1.0
+  - @justeattakeaway/pie-toast@1.2.9
+
+## 1.3.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@1.2.8
+
+## 1.3.4
+
+### Patch Changes
+
+- [Fixed] - `bottom-center` toast providers no longer clip the toast to half of their containing block. ([#3314](https://github.com/justeattakeaway/pie/pull/3314)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.3.3
 
 ### Patch Changes

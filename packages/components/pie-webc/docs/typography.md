@@ -4,7 +4,7 @@ In order for our components to look and feel like the rest of the Just Eat Takea
 ## Table of Contents
 
 - [The JETSansDigital Variable Font](#the-jetsansdigital-variable-font)
-- [Font Loading](#font-loading)
+- [The JETSansDisplay Font](#the-jetsansdisplay-font)
 - [Italic Font Usage](#italic-font-usage)
 - [Font Optimisation (subsetting)](#font-optimisation-subsetting)
 
@@ -19,7 +19,7 @@ The font is available in two versions via our CDN:
 | **Base**     | [JETSansDigital-VF-opt.woff2](https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDigital-VF-opt.woff2)                               | Default choice. Includes Latin characters and supports common European languages (English, French, Spanish, German, etc.).                         |
 | **Extended** | [JETSansDigital-VF-optimised-extended.woff2](https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDigital-VF-optimised-extended.woff2) | Use when your app supports additional languages such as Hebrew, Bulgarian, or other Cyrillic-based languages. This version is larger in file size. |
 
-## Font Loading
+### Font Loading
 
 Add the following code into the `<head>` of your application:
 
@@ -47,6 +47,29 @@ body {
 ```shell
 # If your application needs extended language support, replace the font URL with the extended version.
 https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDigital-VF-optimised-extended.woff2
+```
+
+## The JETSansDisplay Font
+
+`JETSansDisplay` is a static font used exclusively for display-sized headings (hero and header components). Unlike `JETSansDigital`, it is not a variable font — it ships as a single weight/style (ExtraBlack Italic), which keeps the file size small.
+
+It maps to the `$font-family-display` design token and is used by the `$display-*` alias tokens (`display-xl` through `display-xs`).
+
+### Font Loading
+
+Add the following `@font-face` declaration to the `<head>` of your application alongside the existing `JETSansDigital` declaration:
+
+```html
+<link rel="preload" href="https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDisplay-ExtraBlackItalic-optimised-extended.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+    font-family: JETSansDisplay;
+    src: url('https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDisplay-ExtraBlackItalic-optimised-extended.woff2') format('woff2');
+    font-weight: 1000;
+    font-style: italic;
+    font-display: swap;
+}
+</style>
 ```
 
 ## Italic Font Usage

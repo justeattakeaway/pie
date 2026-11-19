@@ -9,7 +9,7 @@ const getExampleColumnSize = (tokenType) => {
     const tokenColumnHandler = {
         [tokenTypes.COLOR]: '240px',
         [tokenTypes.GRADIENT]: '240px',
-        [tokenTypes.FONT]: '240px',
+        [tokenTypes.FONT]: '285px',
         default: '152px',
     };
 

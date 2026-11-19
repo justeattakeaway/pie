@@ -19,6 +19,7 @@ const {
     APPLY_QUOTES_TO_VALUE,
     CATEGORIES_WITH_UNITS,
     CATEGORY_WITH_TIMING,
+    FONT_LETTER_SPACING_PREFIX,
     GLOBAL_TOKEN_KEY,
 } = CONSTANTS;
 
@@ -90,6 +91,10 @@ const createScssVariable = (category, name, value) => {
 
     if (category === 'elevation' && !value.length) {
         compiledValue = '\'none\'';
+    }
+
+    if (category === 'font' && name.startsWith(FONT_LETTER_SPACING_PREFIX) && !value.startsWith('$') && value !== '0') {
+        compiledValue = `${value}px`;
     }
 
     if (category === 'font' && APPLY_QUOTES_TO_VALUE.includes(name)) {
