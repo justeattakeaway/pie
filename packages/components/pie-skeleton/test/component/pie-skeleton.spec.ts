@@ -251,4 +251,87 @@ test.describe('PieSkeleton - Component tests', () => {
             expect(box?.height).toBe(100);
         });
     });
+
+    test.describe('accessibility', () => {
+        const variants = ['box', 'circle', 'pill', 'text', 'star'];
+
+        variants.forEach((variant) => {
+            test(`should hide the ${variant} variant from assistive technology`, async ({ page }) => {
+                // Arrange
+                await loadSkeleton(page, { variant, width: '200px', height: '48px' });
+
+                // Assert
+                await expect(page.getByTestId(container.dataTestId)).toHaveAttribute('aria-hidden', 'true');
+            });
+        });
+
+        test('should not be focusable and should not expose a tabindex', async ({ page }) => {
+            // Arrange
+            await loadSkeleton(page, { width: '200px' });
+
+            // Act
+            const isFocusable = await page.evaluate(() => {
+                const host = document.querySelector('pie-skeleton') as HTMLElement;
+                host.focus();
+                return document.activeElement === host || host.shadowRoot?.activeElement != null;
+            });
+
+            // Assert
+            expect(isFocusable).toBe(false);
+            await expect(page.locator('pie-skeleton')).not.toHaveAttribute('tabindex');
+        });
+
+        test('should disable pointer events', async ({ page }) => {
+            // Arrange
+            await loadSkeleton(page, { width: '200px' });
+
+            // Act
+            const pointerEvents = await page.evaluate(() => {
+                const host = document.querySelector('pie-skeleton') as HTMLElement;
+                return getComputedStyle(host).pointerEvents;
+            });
+
+            // Assert
+            expect(pointerEvents).toBe('none');
+        });
+    });
+
+    test.describe('accessible loading region', () => {
+        test('should step from idle to loading to loaded', async ({ page }) => {
+            // Arrange
+            const basePage = new BasePage(page, 'skeleton--accessible-loading-region');
+            await basePage.load();
+
+            const region = page.locator('[data-loading-region]');
+            const button = page.locator('[data-load-button]');
+
+            // Assert - the region starts idle: not busy, no skeletons, no content, no message.
+            // The polite live region is on the message, not on the busy container.
+            await expect(region).toHaveAttribute('aria-busy', 'false');
+            await expect(region).not.toHaveAttribute('aria-live');
+            await expect(region.locator('[data-loading-message]')).toHaveAttribute('aria-live', 'polite');
+            await expect(region.locator('[data-loading-message]')).toHaveText('');
+            await expect(region.locator('[data-skeleton-content]')).toBeHidden();
+            await expect(region.locator('[data-loaded-content]')).toBeHidden();
+
+            // Act - step into loading
+            await button.click();
+
+            // Assert - the region is busy, shows the skeletons and announces the loading message
+            await expect(region).toHaveAttribute('aria-busy', 'true');
+            await expect(region.locator('[data-loading-message]')).toHaveText('Loading restaurants');
+            await expect(region.locator('[data-skeleton-content]')).toBeVisible();
+            await expect(region.locator('[data-loaded-content]')).toBeHidden();
+
+            // Act - step into loaded
+            await button.click();
+
+            // Assert - the region is no longer busy, the skeletons are hidden and the live region
+            // announces that loading has finished
+            await expect(region).toHaveAttribute('aria-busy', 'false');
+            await expect(region.locator('[data-loading-message]')).toHaveText('Restaurants loaded');
+            await expect(region.locator('[data-skeleton-content]')).toBeHidden();
+            await expect(region.locator('[data-loaded-content]')).toBeVisible();
+        });
+    });
 });
