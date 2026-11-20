@@ -24,7 +24,7 @@ test.describe('PieAvatar - Visual tests`', () => {
     });
 
     test('should display the PieAvatar component when src is provided', async ({ page }) => {
-        const avatarPage = new BasePage(page, 'avatar--with-image');
+        const avatarPage = new BasePage(page, 'avatar--with-static-image');
         const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
         const avatarImg = page.getByTestId(avatar.selectors.image.dataTestId);
         await avatarPage.load();
@@ -35,7 +35,7 @@ test.describe('PieAvatar - Visual tests`', () => {
     });
 
     test('should display the PieAvatar fallback icon when the image fails to load', async ({ page }) => {
-        const avatarPage = new BasePage(page, 'avatar--with-image-error');
+        const avatarPage = new BasePage(page, 'avatar--with-static-image-error');
         const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
         const avatarIcon = page.getByTestId(avatar.selectors.icon.dataTestId);
         await avatarPage.load();
@@ -43,6 +43,17 @@ test.describe('PieAvatar - Visual tests`', () => {
         await expect.soft(avatarComponent).toBeVisible();
         await expect.soft(avatarIcon).toBeVisible();
         await percySnapshot(page, 'PieAvatar - Image Error Fallback Test');
+    });
+
+    test('should display the PieAvatar as a button when tag is button', async ({ page }) => {
+        const avatarPage = new BasePage(page, 'avatar--with-button-as-image');
+        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
+        const avatarButton = page.getByTestId(avatar.selectors.button.dataTestId);
+        await avatarPage.load();
+
+        await expect.soft(avatarComponent).toBeVisible();
+        await expect.soft(avatarButton).toBeVisible();
+        await percySnapshot(page, 'PieAvatar - Button With Image Test');
     });
 });
 
