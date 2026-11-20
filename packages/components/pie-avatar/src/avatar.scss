@@ -35,6 +35,7 @@
 }
 
 .c-avatar--button {
+    position: relative;
     padding: 0;
     border: none;
     font-family: inherit;
@@ -46,4 +47,18 @@
     }
 
     @include p.interactive-states('--dt-color-container-inverse', 'inverse', '02');
+}
+
+
+.c-avatar--button:has(> .c-avatar--image) {
+    --int-states-mixin-bg-color: var(--dt-color-transparent);
+
+    &:after {
+        content: '';
+        position: absolute;
+        inset: 0; 
+        background-color: var(--int-states-mixin-bg-color);
+    }
+
+    @include p.interactive-states('--dt-color-transparent', 'transparent');
 }
