@@ -287,7 +287,7 @@ width: 200
 {% contentLayout %}
   {% contentItem %}
   <h4>Thumbnail</h4>
-  <p> Not available in the Compact variant.</p>
+  <p>Not available in the Compact variant.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/list-item/ios/modifiers-interactive-leading-thumbnail.svg",
       width: "400px",
@@ -296,6 +296,7 @@ width: 200
   {% endcontentItem %}
   {% contentItem %}
   <h4>Badge</h4>
+   <p>Use badge to display a numeric value or count.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/list-item/ios/modifiers-interactive-leading-badge.svg",
       width: "400px",

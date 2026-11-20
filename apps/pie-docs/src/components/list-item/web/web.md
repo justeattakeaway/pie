@@ -509,7 +509,7 @@ Prioritise using the selected state from form control variants. The following re
 
 {% contentPageImage {
     src:"../../../assets/img/components/list-item/web/overrides-colour.svg",
-    alt: "List item components with icon colour override options",
+    alt: "List item components with icon colour override options.",
     width: 760
 } %}
 
@@ -702,6 +702,11 @@ Action list items are selectable and users can interact with them, but they do n
 ## Interactive states
 
 The interactive variation includes all interactive states, while the non-interactive variation only includes the default state.
+
+{% notification {
+  type: "information",
+  message: "All form elements: **Checkbox**, **Radio** and **Switch** display their own interactive states alongside the container's hover and active overlay."
+} %}
 
 {% contentLayout %}
   {% contentItem %}
