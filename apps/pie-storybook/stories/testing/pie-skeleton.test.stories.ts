@@ -15,7 +15,7 @@ import {
 } from '@justeattakeaway/pie-webc/components/skeleton';
 
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
-import { skeletonLoadingRegionTemplate } from '../skeleton-shared';
+import { skeletonLoadingRegionTemplate } from '../pie-skeleton-shared';
 import { typographyIdentifiers } from '../../utilities/typographyIdentifiers';
 
 type SkeletonStoryMeta = Meta<SkeletonProps>;
