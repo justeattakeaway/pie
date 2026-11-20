@@ -7,5 +7,8 @@
 # Unsetting it lets turbo discover the repo from the working directory.
 unset GIT_DIR
 
+# Set TURBO_TOKEN to empty string for local development if not already set
+export TURBO_TOKEN="${TURBO_TOKEN:-}"
+
 # Checks the diff files for lint errors before allowing to push
 yarn lint:scripts lint:style

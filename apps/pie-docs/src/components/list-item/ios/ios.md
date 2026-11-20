@@ -41,7 +41,7 @@ width: 200
     type: listTypes.ordered,
     items: [
         "**Primary text:** Gives the users an overview of the content, aiming to be contained within one line.",
-        "**Secondary text (Optional):** Provides additional detail if required, aiming to be contained within two lines.",
+        "**Secondary content (Optional):** Provides additional detail if required, aiming to be contained within two lines.",
         "**Leading icon with background (Optional):** Non-interactive icon with a background that can be used to visually support the primary text.",
         "**Divider (Optional):** Helps visually define the end of a list item and the beginning of the next one.",
         "**Avatar (Optional):** Placeholder to be replaced with a close-up photo of a person.",
@@ -53,7 +53,8 @@ width: 200
         "**Switch (Optional):** Used to quickly switch between two possible states.",
         "**Trailing icon (Optional):** Interactive icon (i.e. a bin or drag), but is not to be used as a secondary CTA.",
         "**Meta text (Optional):** Highlights basic information about the List item.",
-        "**Tag (Optional):** Used to highlight special conditions like 'sold out'."
+        "**Tag (Optional):** Used to highlight special conditions like 'sold out'.",
+        "**Badge (Optional):** Use to display a numeric value or count."
     ]
 } %}
 
@@ -66,18 +67,38 @@ width: 200
 The non-interactive variation should be used when the list item doesn't require any component level interactive states tied to the instance.
 
 {% contentPageImage {
-src:"../../../assets/img/components/list-item/ios/variants-not-interactive.svg",
+src:"../../../assets/img/components/list-item/ios/variants-non-interactive.svg",
 alt: "List item component in non-interactive variant.",
 width: 200
 } %}
 
-### Interactive
+### Interactive - Form selection
 
-The interactive variations should be used when the list item requires component level, or nested component level interactive states tied to the instance.
+Includes form elements such as checkbox, radio or switch, which allows the user to make one or multiple choices.
 
 {% contentPageImage {
-src:"../../../assets/img/components/list-item/ios/variants-interactive.svg",
-alt: "Examples of the list item component in interactive variant in the default and active interactive states.",
+src:"../../../assets/img/components/list-item/ios/variants-interactive-form-selection.svg",
+alt: "Examples of the list item component in interactive variant with form selections",
+width: 200
+} %}
+
+### Interactive - Navigation
+
+Functions as a link to redirect the user to a new destination.
+
+{% contentPageImage {
+src:"../../../assets/img/components/list-item/ios/variants-interactive-navigation.svg",
+alt: "Examples of the list item component in interactive variant with navigations",
+width: 200
+} %}
+
+### Interactive - Action
+
+Functions as a button to trigger an immediate operation or event.
+
+{% contentPageImage {
+src:"../../../assets/img/components/list-item/ios/variants-interactive-action.svg",
+alt: "Examples of the list item component in interactive variant with actions",
 width: 200
 } %}
 
@@ -98,13 +119,13 @@ alt: "List item component in compact variant.",
 width: 200
 } %}
 
-### Secondary text
+### Secondary content
 
-The secondary text can be used to provide additional content that supports the primary text.
+Use secondary content to add supporting details, such as text and tag, alongside the primary text.
 
 {% contentPageImage {
-src:"../../../assets/img/components/list-item/ios/modifiers-secondary-text.svg",
-alt: "List item component with secondary text.",
+src:"../../../assets/img/components/list-item/ios/modifiers-secondary-content.svg",
+alt: "List item component with secondary content.",
 width: 200
 } %}
 
@@ -167,15 +188,26 @@ width: 200
   {% endcontentItem %}
 {% endcontentLayout %}
 
-#### Thumbnail
-
-Not available in the Compact variant.
-
-{% contentPageImage {
-src: "../../../assets/img/components/list-item/ios/modifiers-leading-thumbnail.svg",
-alt: "List item component with leading thumbnail.",
-width: 200
-} %}
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Thumbnail</h4>
+  <p> Not available in the Compact variant.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/modifiers-leading-thumbnail.svg",
+      width: "400px",
+      alt: "List item component with leading thumbnail."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/modifiers-leading-badge.svg",
+      width: "400px",
+      alt: "List item component with leading badge."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Leading content (Interactive)
 
@@ -252,15 +284,25 @@ width: 200
   {% endcontentItem %}
 {% endcontentLayout %}
 
-#### Thumbnail
-
-Not available in the Compact variant.
-
-{% contentPageImage {
-src:"../../../assets/img/components/list-item/ios/modifiers-interactive-leading-thumbnail.svg",
-alt: "Interactive list item component with leading thumbnail.",
-width: 200
-} %}
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Thumbnail</h4>
+  <p> Not available in the Compact variant.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/modifiers-interactive-leading-thumbnail.svg",
+      width: "400px",
+      alt: "List item component with leading thumbnail."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Badge</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/modifiers-interactive-leading-badge.svg",
+      width: "400px",
+      alt: "List item component with leading badge."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Trailing content (Non-interactive)
 
@@ -285,15 +327,26 @@ width: 200
   {% endcontentItem %}
 {% endcontentLayout %}
 
-#### Tag
-
-Alignment should be consistent through the pillar.
-
-{% contentPageImage {
-src:"../../../assets/img/components/list-item/ios/modifiers-trailing-tag.svg",
-alt: "Interactive list item component with trailing tag.",
-width: 200
-} %}
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Tag</h4>
+  <p>Alignment should be consistent through the pillar.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/modifiers-trailing-tag.svg",
+      width: "400px",
+      alt: "Interactive list item component with trailing tag."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/modifiers-trailing-badge.svg",
+      width: "400px",
+      alt: "Interactive list item component with trailing badge."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Trailing content (Interactive)
 
@@ -365,6 +418,18 @@ width: 200
   {% endcontentItem %}
 {% endcontentLayout %}
 
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/modifiers-interactive-trailing-badge.svg",
+      width: "400px",
+      alt: "Interactive list item component with trailing badge."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
 ### Divider
 
 The divider is used to visually separate individual list items from each other. Dividers should never be used on the last item within a group.
@@ -400,36 +465,57 @@ width: 200
 
 {% contentPageImage {
 src:"../../../assets/img/components/list-item/ios/overrides-alignment.svg",
-alt: "Overview of alignment overrides available.",
+alt: "List item components with structure markers showing vertical alignment, horizontal padding and trailing content alignment overrides.",
 width: 200
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Alignment:** The vertical alignment of both leading and trailing content can be adjusted to centre alignment. However, both must maintain the same alignment.",
-        "**Vertical spacing:** Vertical padding can be removed when being used within a component e.g. Modal, Bottom sheet."
+        "**Vertical alignment:** The vertical alignment of both leading and trailing content can be adjusted to centre alignment. However, both must maintain the same alignment.",
+        "**Horizontal spacing:** Horizontal padding can be removed when being used within a component e.g. Modal, bottom sheet.",
+        "**Trailing content alignment:** Trailing content can be aligned to the right edge or hug the body content, , maintaining 12px of spacing between elements."
     ]
 } %}
 
 ### Selected state
+
+Prioritise using the selected state from form control variants. The following recommendation applies to the navigation variant only.
 
 {% notification {
   type: "information",
   message: "Find more information in the [Selected state patterns documentation](/patterns/selected-state/)."
 } %}
 
+#### Navigation
+
 {% contentPageImage {
 src:"../../../assets/img/components/list-item/ios/overrides-selected-state.svg",
-alt: "Overview of selected state overrides available.",
+alt: "List item components with icon colour and tick icon overrides in selected state.",
 width: 200
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Border colour** The border colour token can be overridden with `$color-border-selected`.",
-        "**Icon colour:** The icon colour token can be overridden with `$color-content-brand-solid`."
+        "**Icon colour** The icon colour token can be overridden with `$color-content-brand-solid ` to provide an additional visual cue.",
+        "**Tick icon:** Highly recommended using the tick icon to indicate the selected page or link. Optional when the distinction between states is clear."
+    ]
+} %}
+
+### Colour
+
+{% contentPageImage {
+src:"../../../assets/img/components/list-item/ios/overrides-colour.svg",
+alt: "List item components with icon colour override options.",
+width: 200
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Trailing icon colour - Positive:** The icon colour token can be overridden to $colour-content-positive to convey positive information for the user.",
+        "**Trailing icon colour - Error** The icon colour token can be overridden to $colour-content-error to highlight critical information for the user. Please review whether an icon alone is sufficient, or whether an error notification or toast would communicate the message more effectively."
     ]
 } %}
 
@@ -513,6 +599,8 @@ width: 200
 
 ## Interactions
 
+### Interactive variants
+
 The entire container for interactive variants is clickable.
 
 {% contentPageImage {
@@ -555,46 +643,96 @@ width: 200
 
 ## States
 
-The list item allows for two states: unselected and selected. By default, the `$color-border-select-brand` is used.
+Interactive list items have two states: unselected and selected. How the selected state is presented depends on the interaction type.
 
-### Unselected
+### Form selection
 
-{% contentPageImage {
-src:"../../../assets/img/components/list-item/ios/states-unselected.svg",
-alt: "Example of a group of list item components in the unselected state.",
-width: 200
-} %}
-
-### Selected
+When a form control is present, the form control element indicates the selected state.
 
 {% contentLayout %}
   {% contentItem %}
-  <h4>Form control variants</h4>
+  <h4>Unselected</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/list-item/ios/states-selected-form.svg",
-      width: "300px",
-      alt: "Example of list item components in the selected state with form control variants."
+      src: "../../../assets/img/components/list-item/ios/states-form-selection-unselected.svg",
+      width: "360px",
+      alt: "Form selection list items with unselected checkbox, radio and switch form controls."
     } %}
   {% endcontentItem %}
   {% contentItem %}
-  <h4>All other variants</h4>
+  <h4>Selected</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/list-item/ios/states-selected-all-variants.svg",
-      width: "300px ",
-      alt: "Example of list item components in the selected state in all variants except form control."
+      src: "../../../assets/img/components/list-item/ios/states-form-selection-selected.svg",
+      width: "360px",
+      alt: "Form selection list items with selected checkbox, radio and switch form controls."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
+
+### Navigation
+
+In navigation, the currently selected item should be indicated using bold text, with an optional tick icon. Apply this convention consistently throughout the experience.
+
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Unselected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/states-navigation-unselected.svg",
+      width: "342px",
+      alt: "A country list with regular weight primary text and no tick icons."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Selected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/states-navigation-selected.svg",
+      width: "342px",
+      alt: "A country list with Germany selected using bold text and a trailing tick icon."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+If bold text is used for unselected items, a trailing tick icon should always be present to clearly distinguish them from the selected state. Additionally, the icon can use a brand colour to provide an additional visual cue and reinforce the distinction between states.
+
+{% contentLayout %}
+  {% contentItem %}
+  <h4>Unselected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/states-navigation-unselected-bold.svg",
+      width: "342px",
+      alt: "A country list with bold primary text on all items and no tick icons."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  <h4>Selected</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/ios/states-navigation-selected-bold.svg",
+      width: "342px",
+      alt: "A country list with bold primary text on all items and Germany distinguished by a trailing tick icon."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### Action
+
+Action list items are selectable and users can interact with them, but they do not require a persistent selected state. Selecting an action triggers an immediate outcome rather than indicating which item is currently selected.
+
+#### No selected state
+
+{% contentPageImage {
+    src:"../../../assets/img/components/list-item/ios/states-action-no-selected-state.svg",
+    alt: "An icon button with an opened popover menu containing the action list items Deactivate, Edit charges and Delete area.",
+    width: 247
+} %}
 
 ---
 
 ## Interactive states
 
-The interactive variation includes all interactive states, while the non-interactive variation only includes the default and disabled states.
+The interactive variation includes all interactive states, while the non-interactive variation only includes the default state.
 
 {% notification {
   type: "information",
-  message: "All form elements: **Checkbox**, **Radio** and **Switch** display their own interactive states rather than the list item container."
+  message: "All form elements: **Checkbox**, **Radio** and **Switch** display their own interactive states alongside the container's active overlay."
 } %}
 
 {% contentLayout %}
