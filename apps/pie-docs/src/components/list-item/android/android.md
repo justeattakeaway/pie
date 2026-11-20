@@ -475,7 +475,7 @@ width: 200
     items: [
         "**Vertical alignment:** The vertical alignment of both leading and trailing content can be adjusted to centre alignment. However, both must maintain the same alignment.",
         "**Horizontal spacing:** Horizontal padding can be removed when being used within a component e.g. Modal, bottom sheet.",
-        "**Trailing content alignment:** Trailing content can be aligned to the right edge or hug the body content, , maintaining 12px of spacing between elements."
+        "**Trailing content alignment:** Trailing content can be aligned to the right edge or hug the body content, maintaining 12px of spacing between elements."
     ]
 } %}
 
