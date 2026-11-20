@@ -515,8 +515,8 @@ width: 200
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Trailing icon colour - Positive:** The icon colour token can be overridden to $colour-content-positive to convey positive information for the user.",
-        "**Trailing icon colour - Error** The icon colour token can be overridden to $colour-content-error to highlight critical information for the user. Please review whether an icon alone is sufficient, or whether an error notification or toast would communicate the message more effectively."
+        "**Trailing icon colour - Positive:** The icon colour token can be overridden to `$color-content-positive` to convey positive information for the user.",
+        "**Trailing icon colour - Error** The icon colour token can be overridden to `$color-content-error` to highlight critical information for the user. Please review whether an icon alone is sufficient, or whether an error notification or toast would communicate the message more effectively."
     ]
 } %}
 
