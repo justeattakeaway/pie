@@ -254,7 +254,8 @@ export class PieSkeleton extends PieElement implements SkeletonProps {
             <div
                 data-test-id="pie-skeleton"
                 class="${classMap(this._rootClasses)}"
-                style="${this._rootStyles}">
+                style="${this._rootStyles}"
+                aria-hidden="true">
                 ${this._renderShapes()}
             </div>
         `;

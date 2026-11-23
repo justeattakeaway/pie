@@ -3,6 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/skeleton';
+import '@justeattakeaway/pie-webc/components/button';
 import {
     type SkeletonProps,
     defaultProps,
@@ -14,6 +15,7 @@ import {
 } from '@justeattakeaway/pie-webc/components/skeleton';
 
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
+import { skeletonLoadingRegionTemplate } from '../pie-skeleton-shared';
 import { typographyIdentifiers } from '../../utilities/typographyIdentifiers';
 
 type SkeletonStoryMeta = Meta<SkeletonProps>;
@@ -167,6 +169,14 @@ const ListItemsTemplate: TemplateFunction<SkeletonProps> = () => html`
 
 export const ListItems = ListItemsTemplate.bind({});
 ListItems.parameters = {
+    layout: 'padded',
+    controls: { disable: true },
+};
+
+// A copy of the `AccessibleLoadingRegion` story from the main stories file, so the browser tests
+// can load it and check the loading region behaviour. It shares the same template.
+export const AccessibleLoadingRegion = skeletonLoadingRegionTemplate.bind({});
+AccessibleLoadingRegion.parameters = {
     layout: 'padded',
     controls: { disable: true },
 };
