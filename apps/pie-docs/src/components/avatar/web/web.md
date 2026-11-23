@@ -237,7 +237,7 @@ width: 200
 
 ## Sizes
 
-### Small (S)
+### XXSmall (XXS)
 
 Height and width of 24px.
 
@@ -248,7 +248,8 @@ variant: "secondary",
 width: 200
 } %}
 
-### Medium (M)
+
+### XSmall(XS)
 
 Height and width of 32px.
 
@@ -259,7 +260,7 @@ variant: "secondary",
 width: 200
 } %}
 
-### Large (L)
+### Small (S)
 
 Height and width of 40px.
 
@@ -270,7 +271,11 @@ variant: "secondary",
 width: 200
 } %}
 
-### X Large (XL)
+### Medium (M)
+ 
+Height and width of 48px.
+
+### Large (L)
 
 Height and width of 56px.
 
