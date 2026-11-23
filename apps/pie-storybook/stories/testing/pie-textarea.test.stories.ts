@@ -70,7 +70,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
         value: {
             control: 'text',
             defaultValue: {
-                summary: defaultProps.value,
+                summary: '',
             },
         },
         defaultValue: {
@@ -209,6 +209,7 @@ const longContent = 'This textarea has been filled with enough text for the auto
 const overflowingContent = 'The default height is enough for two lines of text, but it should grow if you type more.\n\nIf you reach more than six lines of content, the element will not continue to grow and scrollbars will appear.';
 
 const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalField?: boolean }> = ({
+    value,
     defaultValue,
     disabled,
     showAdditionalField = false,
@@ -231,7 +232,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
         const output = form.parentElement?.querySelector('#formDataOutput') as HTMLDivElement | null;
         const descriptionField = form.querySelector('#description') as (TextareaProps & HTMLElement) | null;
         const isDescriptionDisabled = Boolean(descriptionField?.disabled);
-        const descriptionValue = descriptionField?.value?.trim();
+        const descriptionValue = descriptionField?.value.trim() ?? '';
 
         if (!isDescriptionDisabled && !descriptionValue) {
             setDescriptionValidationState(form, 'error', 'Please enter a description before submitting.');
@@ -300,6 +301,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalFiel
             class="form-field"
             id="description"
             name="description"
+            .value="${value}"
             defaultValue="${ifDefined(defaultValue)}"
             ?disabled="${disabled}"
             data-test-id="pie-textarea-container">

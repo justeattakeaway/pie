@@ -112,6 +112,23 @@ test.describe('PieTextarea - Component tests', () => {
                 // Assert
                 await expect(textarea).toHaveValue('testValue');
             });
+
+            test('the value property should be applied to the rendered HTML textarea element if both value and defaultValue are provided', async ({ page }) => {
+                // Arrange
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    value: 'testValue',
+                    defaultValue: 'defaultValue',
+                };
+
+                await textAreaPage.load({ ...props });
+
+                // Act
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+
+                // Assert
+                await expect(textarea).toHaveValue('testValue');
+            });
         });
 
         test.describe('name', () => {
@@ -145,7 +162,7 @@ test.describe('PieTextarea - Component tests', () => {
         });
 
         test.describe('defaultValue', () => {
-            test('should apply the `defaultValue` property to the rendered HTML textarea element', async ({ page }) => {
+            test('should apply the `defaultValue` property to the rendered HTML textarea element when no `value` is provided', async ({ page }) => {
                 // Arrange
                 const textAreaPage = new BasePage(page, 'textarea');
                 const props: Partial<TextareaProps> = {
@@ -155,10 +172,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.locator(textArea.selectors.textArea.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                await expect(textarea).toHaveAttribute('defaultValue', 'testDefaultValue');
+                await expect(textarea).toHaveValue('testDefaultValue');
             });
         });
 
@@ -679,7 +696,23 @@ test.describe('PieTextarea - Component tests', () => {
             await expect(output).toHaveText('{"description":"newTestValue"}');
         });
 
-        test('should correctly reset the textarea value when the form is reset', async ({ page }) => {
+        test('should submit `defaultValue` if provided, when no `value` is provided', async ({ page }) => {
+            // Arrange
+            const textAreaPage = new BasePage(page, 'textarea--example-form');
+            const props: Partial<TextareaProps> = {
+                defaultValue: 'foo',
+            };
+            await textAreaPage.load({ ...props });
+
+            // Act
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
+
+            // Assert
+            const output = page.locator('#formDataOutput');
+            await expect(output).toHaveText('{"description":"foo"}');
+        });
+
+        test('should correctly reset the textarea value when the form is reset and no `defaultValue` is provided', async ({ page }) => {
             // Arrange
             const textAreaPage = new BasePage(page, 'textarea--example-form');
             await textAreaPage.load();
@@ -694,7 +727,7 @@ test.describe('PieTextarea - Component tests', () => {
             await expect(textarea).toHaveValue('');
         });
 
-        test('should correctly reset the textarea value to the `defaultValue` if one is provided when the form is reset', async ({ page }) => {
+        test('should correctly reset the textarea value to  `defaultValue` when the form is reset', async ({ page }) => {
             // Arrange
             const textAreaPage = new BasePage(page, 'textarea--example-form');
             const props: Partial<TextareaProps> = {
