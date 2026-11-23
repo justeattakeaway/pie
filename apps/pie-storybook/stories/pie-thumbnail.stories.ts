@@ -105,7 +105,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/z8B7RUnz2Oq8cplqN38E9j/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=17054-19120&node-type=instance&m=dev',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=315-28057',
         },
     },
 };

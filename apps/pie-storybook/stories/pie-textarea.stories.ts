@@ -139,7 +139,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/aD4m0j97Ruw8Q4S5lED2Bl/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?m=auto&node-id=1573-114527&t=t5zmveNU4ztOqlCs-1',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114527',
         },
     },
 };

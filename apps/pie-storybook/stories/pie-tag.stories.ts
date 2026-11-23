@@ -90,7 +90,7 @@ const tagStoryMeta: TagStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/OOgnT2oNMdGFytj5AanYvt/branch/QGEtmJqZM3OL9QG33L4053/%E2%9D%8C-%5BBETA%5D-%5BCore%5D-Component-Documentation-%5BPIE-3%5D-%E2%9D%8C?type=design&node-id=419-62146&mode=design',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=266-36459',
         },
     },
 };

@@ -18,7 +18,7 @@ const tabsStoryMeta: TabsStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=294-32395',
         },
     },
 };
