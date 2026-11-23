@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-token-map
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`06635ab`](https://github.com/justeattakeaway/pie/commit/06635ab7aa120aeefdece183bcab2ca7580c4310)]:
+  - @justeat/pie-design-tokens@7.16.0
+
 ## 0.3.0
 
 ### Minor Changes

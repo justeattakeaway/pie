@@ -1,5 +1,176 @@
 # @justeattakeaway/pie-webc
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`4cacebc`](https://github.com/justeattakeaway/pie/commit/4cacebc7d0fadce41dbfcd56b3e12bebafb4e479)]:
+  - @justeattakeaway/pie-dropdown@0.1.1
+
+## 1.1.0
+
+### Minor Changes
+
+- [Added] - New `pie-dropdown` component: a form-associated dropdown supporting single and multi selection, an optional search field, loading and no-results states, and full keyboard and screen reader support (single select uses a listbox with roving focus; multi select uses checkbox rows inside a checkbox group). The component is server-side rendering safe (declarative shadow root, deterministic internal ids) and works in controlled and uncontrolled modes: the `value` prop drives the component, and the `change` event (exposed as `onChange` in the generated React wrapper — read the value from `event.target.value`) flows changes back, including when the owning form is reset (custom behaviour, unlike native controls). ([#3292](https://github.com/justeattakeaway/pie/pull/3292)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Added] - The popover is positioned with CSS directly below the field and never flips above it; note it is clipped by a scrollable or `overflow: hidden` ancestor, so give the field room below it inside such containers. The listbox stays mounted (hidden while closed) after first open so re-opens do not re-insert it and interrupt screen reader announcements, and the focused option is visibly indicated with the PIE focus ring however the popover was opened.
+
+  [Added] - Non-searchable fields open on click or keyboard focus (focus-open never moves focus — the arrow keys move focus into the option list, never `Tab`, so the field's other controls stay reachable); searchable fields open on the first keystroke, the arrow keys, a click or the chevron — not on focus, so the `aria-expanded` state change never interrupts the field's focus announcement. The chevron is the pointer way out in searchable variants; the caret always stays in the search field. The popover's scroll position resets on every open, so the list always starts at the top (a keyboard open still scrolls the selected option into view, matching a native `<select>`).
+
+  [Added] - Search filters options whose primary or secondary text contains the typed text, case-insensitively; typing while focused on an option returns focus to the search field and filters. Options set while the popover is open — e.g. fetched asynchronously in response to `pie-dropdown-search` — are rendered immediately. Selecting from filtered results shows the selection in the field and clears the search, so the next open starts from the full list.
+
+  [Added] - In multi-select variants with a selection, the count chip's close button is the first tab stop (the trigger is skipped while the chip is shown) and opens the popover on keyboard focus, so keyboard users can clear every selection and Tab straight to the options. The clear affordances (the chip's close button and the single-select clear button) append the field's accessible name to their own for screen reader context, e.g. "Clear all 2 selections, Meal", and are fully disabled when the field is disabled.
+
+  [Added] - Each option accepts an `icon` — the tag name of a registered `pie-icons-webc` element, e.g. `'icon-food'` — which the dropdown renders as the option's leading icon in single-select rows and, while selected, in the field alongside the selection text (open or closed, searching or not; multi-select rows host checkboxes and show no option icons). The app imports the icons it uses (the dropdown renders the tag but never bundles icons); unset or invalid tag names render no icon. All copy is consumer-supplied — the component ships no hard-coded strings: `loadingText`, `noResultsText`, `optionsAvailableText`, `selectedCountText`, `noSelectionText` and the clear affordances' accessible names (`aria.clearSelection` / `aria.clearAllSelections`) render nothing when unset (the spinner still shows while loading, the count chip falls back to the bare count, and a missing required selection still blocks submission with an empty message). `{count}` placeholders are supported in `selectedCountText`, `optionsAvailableText` and `aria.clearAllSelections`, and `assistiveText` is announced as the field's accessible description.
+
+  [Added] - `RovingTabindexController` exported from `pie-webc-core` for arrow-key, Home/End and type-ahead navigation across a group of items. An `isTabbable` option removes the group from the page tab sequence entirely, and an `isTypeaheadEnabled` option disables type-ahead, for combobox-style popovers where the field is the single tab stop and printable characters belong in the textbox.
+
+  [Added] - New `option` interaction type on `pie-list-item`: the item becomes an `option` row with interactive states, for use inside listbox-style containers such as the dropdown popover; selection state and focus remain owned by the container.
+
+  [Added] - `pie-dropdown` re-exported from the `pie-webc` umbrella package.
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-dropdown@0.1.0
+  - @justeattakeaway/pie-list@1.1.0
+  - @justeattakeaway/pie-accordion@1.0.4
+  - @justeattakeaway/pie-assistive-text@1.0.19
+  - @justeattakeaway/pie-avatar@0.6.2
+  - @justeattakeaway/pie-breadcrumb@1.0.21
+  - @justeattakeaway/pie-button@1.16.1
+  - @justeattakeaway/pie-card@2.0.1
+  - @justeattakeaway/pie-checkbox@1.4.13
+  - @justeattakeaway/pie-checkbox-group@1.2.15
+  - @justeattakeaway/pie-chip@1.0.20
+  - @justeattakeaway/pie-cookie-banner@1.12.3
+  - @justeattakeaway/pie-data-table@0.4.2
+  - @justeattakeaway/pie-divider@1.5.39
+  - @justeattakeaway/pie-form-label@1.0.2
+  - @justeattakeaway/pie-icon-button@2.8.4
+  - @justeattakeaway/pie-icon-with-background@0.4.7
+  - @justeattakeaway/pie-link@1.5.12
+  - @justeattakeaway/pie-lottie-player@1.0.2
+  - @justeattakeaway/pie-modal@1.27.18
+  - @justeattakeaway/pie-notification@1.0.5
+  - @justeattakeaway/pie-pagination@0.1.3
+  - @justeattakeaway/pie-radio@1.2.10
+  - @justeattakeaway/pie-radio-group@1.2.16
+  - @justeattakeaway/pie-select@0.10.2
+  - @justeattakeaway/pie-skeleton@0.2.1
+  - @justeattakeaway/pie-spinner@1.5.12
+  - @justeattakeaway/pie-switch@2.7.10
+  - @justeattakeaway/pie-tabs@0.1.39
+  - @justeattakeaway/pie-tag@1.1.7
+  - @justeattakeaway/pie-text-input@0.31.1
+  - @justeattakeaway/pie-textarea@0.23.14
+  - @justeattakeaway/pie-thumbnail@1.0.2
+  - @justeattakeaway/pie-toast@1.2.9
+  - @justeattakeaway/pie-toast-provider@1.3.6
+  - @justeattakeaway/pie-tooltip@0.8.2
+
+## 1.0.8
+
+### Patch Changes
+
+- Updated dependencies [[`5a5d2e5`](https://github.com/justeattakeaway/pie/commit/5a5d2e50b6d04dc7b02e71b89187fc2b48b5150c), [`5a5d2e5`](https://github.com/justeattakeaway/pie/commit/5a5d2e50b6d04dc7b02e71b89187fc2b48b5150c), [`2928b7e`](https://github.com/justeattakeaway/pie/commit/2928b7ebb81d1941bac4199b211b53f6a229582e)]:
+  - @justeattakeaway/pie-button@1.16.0
+  - @justeattakeaway/pie-text-input@0.31.0
+  - @justeattakeaway/pie-skeleton@0.2.0
+  - @justeattakeaway/pie-cookie-banner@1.12.2
+  - @justeattakeaway/pie-modal@1.27.17
+  - @justeattakeaway/pie-pagination@0.1.2
+  - @justeattakeaway/pie-toast@1.2.8
+  - @justeattakeaway/pie-accordion@1.0.3
+  - @justeattakeaway/pie-assistive-text@1.0.18
+  - @justeattakeaway/pie-avatar@0.6.1
+  - @justeattakeaway/pie-breadcrumb@1.0.20
+  - @justeattakeaway/pie-chip@1.0.19
+  - @justeattakeaway/pie-icon-button@2.8.3
+  - @justeattakeaway/pie-link@1.5.11
+  - @justeattakeaway/pie-notification@1.0.4
+  - @justeattakeaway/pie-switch@2.7.9
+  - @justeattakeaway/pie-tooltip@0.8.1
+  - @justeattakeaway/pie-toast-provider@1.3.5
+  - @justeattakeaway/pie-checkbox@1.4.12
+  - @justeattakeaway/pie-checkbox-group@1.2.14
+  - @justeattakeaway/pie-radio-group@1.2.15
+  - @justeattakeaway/pie-select@0.10.1
+  - @justeattakeaway/pie-textarea@0.23.13
+
+## 1.0.7
+
+### Patch Changes
+
+- Updated dependencies [[`2cc9535`](https://github.com/justeattakeaway/pie/commit/2cc95352d1a3594025bcec47f0037ede96bca0fe)]:
+  - @justeattakeaway/pie-avatar@0.6.0
+
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`f69047f`](https://github.com/justeattakeaway/pie/commit/f69047fd933d9000d2ee4b0f972aba8996b44c8a)]:
+  - @justeattakeaway/pie-select@0.10.0
+
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`71e48bd`](https://github.com/justeattakeaway/pie/commit/71e48bdfc4095fe5f58cebbdfb90d53da294c63e), [`71e48bd`](https://github.com/justeattakeaway/pie/commit/71e48bdfc4095fe5f58cebbdfb90d53da294c63e)]:
+  - @justeattakeaway/pie-list@1.0.0
+  - @justeattakeaway/pie-tooltip@0.8.0
+
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`4a68c11`](https://github.com/justeattakeaway/pie/commit/4a68c1187f1e7cc23dca6cc24c953d9338b50f43), [`f184d71`](https://github.com/justeattakeaway/pie/commit/f184d713af5b4288713f020ee0decab7fdc6a3c8)]:
+  - @justeattakeaway/pie-avatar@0.5.0
+  - @justeattakeaway/pie-toast-provider@1.3.4
+
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`3668da6`](https://github.com/justeattakeaway/pie/commit/3668da65fc9644587a110f0e3234aeb5a3a3cb6d)]:
+  - @justeattakeaway/pie-skeleton@0.1.0
+
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`6fc0a8b`](https://github.com/justeattakeaway/pie/commit/6fc0a8b2dd860d9d51faa01c810ffed0b89bd827)]:
+  - @justeattakeaway/pie-list@0.9.0
+
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`9add63d`](https://github.com/justeattakeaway/pie/commit/9add63ded5be4616d8d6dfbc1707e60d2168d425), [`17f93e3`](https://github.com/justeattakeaway/pie/commit/17f93e308658153e8f4c81d7d2dd5999e2f76b8e)]:
+  - @justeattakeaway/pie-list@0.8.2
+  - @justeattakeaway/pie-skeleton@0.0.1
+  - @justeattakeaway/pie-accordion@1.0.2
+  - @justeattakeaway/pie-assistive-text@1.0.17
+  - @justeattakeaway/pie-avatar@0.4.55
+  - @justeattakeaway/pie-breadcrumb@1.0.19
+  - @justeattakeaway/pie-checkbox@1.4.11
+  - @justeattakeaway/pie-checkbox-group@1.2.13
+  - @justeattakeaway/pie-chip@1.0.18
+  - @justeattakeaway/pie-cookie-banner@1.12.1
+  - @justeattakeaway/pie-icon-button@2.8.2
+  - @justeattakeaway/pie-link@1.5.10
+  - @justeattakeaway/pie-modal@1.27.16
+  - @justeattakeaway/pie-notification@1.0.3
+  - @justeattakeaway/pie-pagination@0.1.1
+  - @justeattakeaway/pie-radio-group@1.2.14
+  - @justeattakeaway/pie-select@0.9.17
+  - @justeattakeaway/pie-switch@2.7.8
+  - @justeattakeaway/pie-text-input@0.30.17
+  - @justeattakeaway/pie-textarea@0.23.12
+  - @justeattakeaway/pie-toast@1.2.7
+  - @justeattakeaway/pie-toast-provider@1.3.3
+  - @justeattakeaway/pie-tooltip@0.7.1
+
 ## 1.0.0
 
 ### Major Changes

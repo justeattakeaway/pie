@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.9.14
+
+### Patch Changes
+
+- Updated dependencies [[`250f0cc`](https://github.com/justeattakeaway/pie/commit/250f0ccf6f87955b19472fff39c99b117a8f9ae6)]:
+  - @justeattakeaway/eslint-plugin-snacks-pie-migration@0.16.0
+
+## 0.9.13
+
+### Patch Changes
+
+- [Fixed] - `/test-aperture` now fails the workflow run when publishing or triggering Aperture goes wrong, rather than posting an error comment and finishing green. ([#3297](https://github.com/justeattakeaway/pie/pull/3297)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.9.12
 
 ### Patch Changes

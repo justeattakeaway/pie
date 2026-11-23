@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.16.1
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-webc-core@22.1.0
+  - @justeattakeaway/pie-spinner@1.5.12
+
+## 1.16.0
+
+### Minor Changes
+
+- [Changed] - `pie-button` now renders `aria-busy` on the underlying button element while in its loading state, consistent with `pie-chip` and `pie-modal` ([#3334](https://github.com/justeattakeaway/pie/pull/3334)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.15.1
 
 ### Patch Changes

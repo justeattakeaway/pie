@@ -990,7 +990,77 @@ exports[`components/radio.css > should render the expected CSS content 1`] = `
 `;
 
 exports[`helpers/typography.css > should render the expected CSS content 1`] = `
-".u-font-heading-xxl {
+".u-font-display-xl {
+  font-family: var(--dt-font-display-xl-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-display-xl-weight);
+  font-style: var(--dt-font-display-xl-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-display-xl-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-display-xl-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-display-xl {
+    font-size: calc(var(--dt-font-display-xl-size--wide) * 1px);
+    line-height: calc(var(--dt-font-display-xl-line-height--wide) * 1px);
+  }
+}
+.u-font-display-l {
+  font-family: var(--dt-font-display-l-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-display-l-weight);
+  font-style: var(--dt-font-display-l-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-display-l-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-display-l-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-display-l {
+    font-size: calc(var(--dt-font-display-l-size--wide) * 1px);
+    line-height: calc(var(--dt-font-display-l-line-height--wide) * 1px);
+  }
+}
+.u-font-display-m {
+  font-family: var(--dt-font-display-m-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-display-m-weight);
+  font-style: var(--dt-font-display-m-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-display-m-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-display-m-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-display-m {
+    font-size: calc(var(--dt-font-display-m-size--wide) * 1px);
+    line-height: calc(var(--dt-font-display-m-line-height--wide) * 1px);
+  }
+}
+.u-font-display-s {
+  font-family: var(--dt-font-display-s-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-display-s-weight);
+  font-style: var(--dt-font-display-s-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-display-s-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-display-s-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-display-s {
+    font-size: calc(var(--dt-font-display-s-size--wide) * 1px);
+    line-height: calc(var(--dt-font-display-s-line-height--wide) * 1px);
+  }
+}
+.u-font-display-xs {
+  font-family: var(--dt-font-display-xs-family), var(--dt-font-family-secondary), sans-serif;
+  font-weight: var(--dt-font-display-xs-weight);
+  font-style: var(--dt-font-display-xs-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-display-xs-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-display-xs-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-display-xs {
+    font-size: calc(var(--dt-font-display-xs-size--wide) * 1px);
+    line-height: calc(var(--dt-font-display-xs-line-height--wide) * 1px);
+  }
+}
+.u-font-heading-xxl {
   font-family: var(--dt-font-heading-xxl-family), var(--dt-font-family-secondary), sans-serif;
   font-weight: var(--dt-font-heading-xxl-weight);
   font-size: calc(var(--dt-font-heading-xxl-size--narrow) * 1px);
@@ -1658,15 +1728,28 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Global tokens - Font */
     --dt-font-family-alternative: 'JETSansVF2';
     --dt-font-family-code: 'PTMono';
+    --dt-font-family-display: 'JETSansDisplay';
     --dt-font-family-primary: 'JetSansDigital';
     --dt-font-family-secondary: 'Arial';
+    --dt-font-letter-spacing-minus-00-15: -0.15px;
+    --dt-font-letter-spacing-minus-00-5: -0.5px;
+    --dt-font-letter-spacing-minus-01: -1px;
+    --dt-font-letter-spacing-minus-01-25: -1.25px;
+    --dt-font-letter-spacing-minus-01-5: -1.5px;
+    --dt-font-letter-spacing-minus-02: -2px;
+    --dt-font-letter-spacing-minus-02-5: -2.5px;
     --dt-font-line-height-16: 16;
     --dt-font-line-height-20: 20;
     --dt-font-line-height-24: 24;
     --dt-font-line-height-28: 28;
     --dt-font-line-height-32: 32;
     --dt-font-line-height-36: 36;
+    --dt-font-line-height-40: 40;
+    --dt-font-line-height-48: 48;
     --dt-font-line-height-52: 52;
+    --dt-font-line-height-56: 56;
+    --dt-font-line-height-80: 80;
+    --dt-font-line-height-88: 88;
     --dt-font-paragraph-spacing-01: 16;
     --dt-font-paragraph-spacing-02: 14;
     --dt-font-paragraph-spacing-03: 12;
@@ -1684,8 +1767,13 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-size-28-line-height: 32;
     --dt-font-size-32: 32;
     --dt-font-size-32-line-height: 36;
+    --dt-font-size-40: 40;
     --dt-font-size-48: 48;
     --dt-font-size-48-line-height: 52;
+    --dt-font-size-56: 56;
+    --dt-font-size-64: 64;
+    --dt-font-size-88: 88;
+    --dt-font-size-96: 96;
     --dt-font-style-italic: italic;
     --dt-font-style-underline: underline;
     --dt-font-weight-black: 900;
@@ -1898,6 +1986,56 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-caption-strong-link-weight: var(--dt-font-weight-bold);
     --dt-font-caption-strong-link-paragraph: var(--dt-font-paragraph-spacing-03);
     --dt-font-caption-strong-link-text-decoration: var(--dt-font-style-underline);
+    /* Display-xl font theme */
+    --dt-font-display-xl-size--wide: var(--dt-font-size-96);
+    --dt-font-display-xl-line-height--wide: var(--dt-font-line-height-88);
+    --dt-font-display-xl-size--narrow: var(--dt-font-size-88);
+    --dt-font-display-xl-line-height--narrow: var(--dt-font-line-height-80);
+    --dt-font-display-xl-family: var(--dt-font-family-display);
+    --dt-font-display-xl-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-xl-font-style: var(--dt-font-style-italic);
+    --dt-font-display-xl-letter-spacing--wide: var(--dt-font-letter-spacing-minus-02-5);
+    --dt-font-display-xl-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-02);
+    /* Display-l font theme */
+    --dt-font-display-l-size--wide: var(--dt-font-size-64);
+    --dt-font-display-l-line-height--wide: var(--dt-font-line-height-56);
+    --dt-font-display-l-size--narrow: var(--dt-font-size-56);
+    --dt-font-display-l-line-height--narrow: var(--dt-font-line-height-48);
+    --dt-font-display-l-family: var(--dt-font-family-display);
+    --dt-font-display-l-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-l-font-style: var(--dt-font-style-italic);
+    --dt-font-display-l-letter-spacing--wide: var(--dt-font-letter-spacing-minus-01-5);
+    --dt-font-display-l-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-01-5);
+    /* Display-m font theme */
+    --dt-font-display-m-size--wide: var(--dt-font-size-48);
+    --dt-font-display-m-line-height--wide: var(--dt-font-line-height-40);
+    --dt-font-display-m-size--narrow: var(--dt-font-size-40);
+    --dt-font-display-m-line-height--narrow: var(--dt-font-line-height-32);
+    --dt-font-display-m-family: var(--dt-font-family-display);
+    --dt-font-display-m-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-m-font-style: var(--dt-font-style-italic);
+    --dt-font-display-m-letter-spacing--wide: var(--dt-font-letter-spacing-minus-01-25);
+    --dt-font-display-m-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-01);
+    /* Display-s font theme */
+    --dt-font-display-s-size--wide: var(--dt-font-size-40);
+    --dt-font-display-s-line-height--wide: var(--dt-font-line-height-32);
+    --dt-font-display-s-size--narrow: var(--dt-font-size-32);
+    --dt-font-display-s-line-height--narrow: var(--dt-font-line-height-28);
+    --dt-font-display-s-family: var(--dt-font-family-display);
+    --dt-font-display-s-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-s-font-style: var(--dt-font-style-italic);
+    --dt-font-display-s-letter-spacing--wide: var(--dt-font-letter-spacing-minus-01);
+    --dt-font-display-s-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-00-5);
+    /* Display-xs font theme */
+    --dt-font-display-xs-size--wide: var(--dt-font-size-32);
+    --dt-font-display-xs-line-height--wide: var(--dt-font-line-height-28);
+    --dt-font-display-xs-size--narrow: var(--dt-font-size-24);
+    --dt-font-display-xs-line-height--narrow: var(--dt-font-line-height-24);
+    --dt-font-display-xs-family: var(--dt-font-family-display);
+    --dt-font-display-xs-weight: var(--dt-font-weight-extrablack);
+    --dt-font-display-xs-font-style: var(--dt-font-style-italic);
+    --dt-font-display-xs-letter-spacing--wide: var(--dt-font-letter-spacing-minus-00-5);
+    --dt-font-display-xs-letter-spacing--narrow: var(--dt-font-letter-spacing-minus-00-5);
     /* Global tokens - Radius */
     --dt-radius-12: 12px;
     --dt-radius-16: 16px;

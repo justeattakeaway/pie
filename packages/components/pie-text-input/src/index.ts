@@ -28,6 +28,34 @@ const componentSelector = 'pie-text-input';
 const assistiveTextIdValue = 'assistive-text';
 
 /**
+ * The `autocorrect` prop is exposed as a boolean to match `HTMLElement.autocorrect`,
+ * but the native `input` attribute is an enumerated attribute accepting `on` / `off`.
+ * This maps the boolean to the attribute value, returning `undefined` when the prop is not set.
+ */
+const getAutocorrectAttribute = (autocorrect: TextInputProps['autocorrect']) => {
+    if (autocorrect === undefined) {
+        return undefined;
+    }
+
+    return autocorrect ? 'on' : 'off';
+};
+
+/**
+ * Lit's default boolean attribute converter treats the presence of an attribute as `true`.
+ * `spellcheck` and `autocorrect` are enumerated attributes that accept explicit `false` / `off`
+ * values, so this converter maps those string values to a boolean instead.
+ */
+const enumeratedBooleanConverter = (falseValues: string[]) => ({
+    fromAttribute: (value: string | null): boolean | undefined => {
+        if (value === null) {
+            return undefined;
+        }
+
+        return !falseValues.includes(value);
+    },
+});
+
+/**
  * @tagname pie-text-input
  * @event {InputEvent} input - when the input value is changed.
  * @event {CustomEvent} change - when the input value is changed.
@@ -71,6 +99,24 @@ export class PieTextInput extends FormControlMixin(RtlMixin(DelegatesFocusMixin(
 
     @property({ type: String })
     public inputmode: TextInputProps['inputmode'];
+
+    @property({ type: String })
+    public autocapitalize!: Exclude<TextInputProps['autocapitalize'], undefined>;
+
+    @property({
+        type: Boolean,
+        converter: enumeratedBooleanConverter(['off', 'false']),
+    })
+    public autocorrect!: Exclude<TextInputProps['autocorrect'], undefined>;
+
+    @property({
+        type: Boolean,
+        converter: enumeratedBooleanConverter(['false']),
+    })
+    public spellcheck!: Exclude<TextInputProps['spellcheck'], undefined>;
+
+    @property({ type: String })
+    public enterkeyhint: TextInputProps['enterkeyhint'];
 
     @property({ type: Boolean })
     public readonly = defaultProps.readonly;
@@ -175,9 +221,12 @@ export class PieTextInput extends FormControlMixin(RtlMixin(DelegatesFocusMixin(
     render () {
         const {
             assistiveText,
+            autocapitalize,
             autocomplete,
+            autocorrect,
             autoFocus,
             disabled,
+            enterkeyhint,
             inputmode,
             maxlength,
             minlength,
@@ -185,6 +234,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(DelegatesFocusMixin(
             max,
             name,
             pattern,
+            spellcheck,
             step,
             placeholder,
             readonly,
@@ -225,6 +275,10 @@ export class PieTextInput extends FormControlMixin(RtlMixin(DelegatesFocusMixin(
                     min=${ifDefined(min)}
                     max=${ifDefined(max)}
                     autocomplete=${ifDefined(autocomplete)}
+                    autocapitalize=${ifDefined(autocapitalize)}
+                    autocorrect=${ifDefined(getAutocorrectAttribute(autocorrect))}
+                    spellcheck=${ifDefined(spellcheck)}
+                    enterkeyhint=${ifDefined(enterkeyhint)}
                     ?autofocus=${autoFocus}
                     inputmode=${ifDefined(inputmode)}
                     placeholder=${ifDefined(placeholder)}

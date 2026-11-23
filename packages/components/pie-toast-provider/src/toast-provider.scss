@@ -72,8 +72,10 @@
     &.c-toast-provider--bottom-center {
         --pie-animation-slide-translate-start: 0, 100%;
 
-        left: 50%;
+        left: 0;
+        right: 0;
         bottom: var(--toast-provider-offset);
-        transform: translateX(-50%);
+        margin-inline: auto;
+        inline-size: fit-content;
     }
 }

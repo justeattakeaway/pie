@@ -1,5 +1,31 @@
 # @justeattakeaway/pie-text-input
 
+## 0.31.1
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-webc-core@22.1.0
+  - @justeattakeaway/pie-assistive-text@1.0.19
+
+## 0.31.0
+
+### Minor Changes
+
+- [Added] - Added `autocapitalize`, `autocorrect`, `spellcheck` and `enterkeyhint` props to `pie-text-input`, forwarded to the inner `input` element ([#3334](https://github.com/justeattakeaway/pie/pull/3334)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.18
+
+## 0.30.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.17
+
 ## 0.30.16
 
 ### Patch Changes

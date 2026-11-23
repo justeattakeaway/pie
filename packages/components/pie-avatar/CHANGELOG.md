@@ -1,5 +1,39 @@
 # @justeattakeaway/pie-avatar
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [[`7dff68c`](https://github.com/justeattakeaway/pie/commit/7dff68ca731b7ad07387aa2da23ac51a8d030fb7)]:
+  - @justeattakeaway/pie-webc-core@22.1.0
+  - @justeattakeaway/pie-icons-webc@1.31.1
+
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`18d05e6`](https://github.com/justeattakeaway/pie/commit/18d05e6f87f8cde6ef8522266b5d1f98c38961f2)]:
+  - @justeattakeaway/pie-icons-webc@1.31.0
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - image error fallback ([#3308](https://github.com/justeattakeaway/pie/pull/3308)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - initials rendering logic ([#3295](https://github.com/justeattakeaway/pie/pull/3295)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 0.4.55
+
+### Patch Changes
+
+- Updated dependencies [[`2d33784`](https://github.com/justeattakeaway/pie/commit/2d33784c0fcd25b3cb1f6b6e381201e848376213)]:
+  - @justeattakeaway/pie-icons-webc@1.30.0
+
 ## 0.4.54
 
 ### Patch Changes

@@ -400,7 +400,7 @@ describe('pie-token-map', () => {
                 });
 
             Object.keys(typographyMap)
-                .filter((n) => !n.includes('italic'))
+                .filter((n) => !n.includes('italic') && !n.includes('display'))
                 .forEach((name) => {
                     expect(getTypoToken(name).fontStyle).toBeUndefined();
                 });

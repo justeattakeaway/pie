@@ -517,4 +517,48 @@ test.describe('props', () => {
             });
         });
     });
+
+    test.describe('isLoading', () => {
+        test('should render aria-busy as "true" on the underlying button element when isLoading is `true`', async ({ page }) => {
+            // Arrange
+            const props: ButtonProps = {
+                isLoading: true,
+            };
+
+            const buttonDefaultPage = new ButtonDefaultPage(page);
+            await buttonDefaultPage.load({ ...props });
+
+            const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+            // Assert
+            await expect(button).toHaveAttribute('aria-busy', 'true');
+        });
+
+        test('should render aria-busy as "false" on the underlying button element when isLoading is `false`', async ({ page }) => {
+            // Arrange
+            const buttonDefaultPage = new ButtonDefaultPage(page);
+            await buttonDefaultPage.load();
+
+            const button = buttonDefaultPage.buttonComponent.componentLocator.locator('button');
+
+            // Assert
+            await expect(button).toHaveAttribute('aria-busy', 'false');
+        });
+
+        test('should not render aria-busy on the anchor element when tag is "a"', async ({ page }) => {
+            // Arrange
+            const props: ButtonProps = {
+                tag: 'a',
+                isLoading: true,
+            };
+
+            const buttonAnchorPage = new ButtonAnchorPage(page);
+            await buttonAnchorPage.load({ ...props });
+
+            const anchor = buttonAnchorPage.buttonComponent.componentLocator.locator('a');
+
+            // Assert
+            await expect(anchor).not.toHaveAttribute('aria-busy');
+        });
+    });
 });

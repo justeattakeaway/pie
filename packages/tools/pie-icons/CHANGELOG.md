@@ -1,5 +1,103 @@
 # Changelog
 
+## 5.34.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3335](https://github.com/justeattakeaway/pie/pull/3335)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Busy
+
+  - busy-high-large
+  - busy-high
+  - busy-low-large
+  - busy-low
+  - busy-medium-large
+  - busy-medium
+
+  ## Elements
+
+  - clear-night-large
+  - clear-night
+  - cloudy-large
+  - cloudy
+  - extreme-weather-large
+  - extreme-weather
+  - foggy-large
+  - foggy
+  - heavy-rain-large
+  - heavy-rain
+  - partly-cloudy-day-large
+  - partly-cloudy-day
+  - partly-cloudy-night-large
+  - partly-cloudy-night
+  - rain-large
+  - rain
+  - sleet-hail-large
+  - sleet-hail
+  - snow-large
+  - snow
+  - storm-large
+  - storm
+  - windy-large
+  - windy
+
+  [Updated] - Icons
+
+  ## Elements
+
+  - moon-large
+  - moon
+
+## 5.33.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-monorepo-utils@0.9.14
+
+## 5.33.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3305](https://github.com/justeattakeaway/pie/pull/3305)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Age limit
+
+  - id-required-filled-large
+  - id-required-filled
+  - id-required-large
+  - id-required
+
+  ## Ribbon
+
+  - ribbon-heart-filled-large
+  - ribbon-heart-filled
+  - ribbon-star-filled-large
+  - ribbon-star-filled
+  - ribbon-success-filled-large
+  - ribbon-success-filled
+
+  ## Time
+
+  - clock-refresh-filled-large
+  - clock-refresh-filled
+
+  ## Travel & Transport
+
+  - plane-filled-large
+  - plane-filled
+
+  ## UEFA
+
+  - trophy-filled-large
+  - trophy-filled
+
+### Patch Changes
+
+- Updated dependencies [[`db557a2`](https://github.com/justeattakeaway/pie/commit/db557a20dd904e248fc2800bbf2548d368806f18)]:
+  - @justeattakeaway/pie-monorepo-utils@0.9.13
+
 ## 5.32.3
 
 ### Patch Changes
