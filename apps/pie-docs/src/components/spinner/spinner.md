@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Spinner
     parent: Components
-    order: 46
+    order: 47
     url: /components/spinner/
 permalink: false
 ---

@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: 'Payment Method Card'
   parent: Components
-  order: 33
+  order: 34
   url: /components/payment-method-card/
 permalink: false
 ---

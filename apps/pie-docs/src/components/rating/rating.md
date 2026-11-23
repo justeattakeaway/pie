@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Rating'
     parent: Components
-    order: 39
+    order: 40
     url: /components/rating/
 permalink: false
 ---
