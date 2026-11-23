@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-dropdown
 
+## 0.1.1
+
+### Patch Changes
+
+- [Changed] - Updated README code examples to use native HTML and React instead of Lit template syntax, and added a multi-select searchable example ([#3340](https://github.com/justeattakeaway/pie/pull/3340)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.1.0
 
 ### Minor Changes
