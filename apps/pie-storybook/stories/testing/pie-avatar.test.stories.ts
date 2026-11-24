@@ -41,17 +41,22 @@ const Template: TemplateFunction<AvatarProps> = ({ label, tag, src }: AvatarProp
 
 export const Default = createStory<OptionalAvatarProps>(Template, {})();
 
-export const LabelProvided = createStory<OptionalAvatarProps>(Template, {
+export const StaticLabelProvided = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
     label: 'Alice Johnson',
 })();
 
-export const WithImage = createStory<OptionalAvatarProps>(Template, {
+export const WithStaticImage = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
     src: './static/images/pie-avatar--static-image.jpg',
 })();
 
-export const WithImageError = createStory<OptionalAvatarProps>(Template, {
+export const WithStaticImageError = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
     src: './static/images/does-not-exist.jpg',
+})();
+
+export const WithButtonAsImage = createStory<OptionalAvatarProps>(Template, {
+    tag: 'button',
+    src: './static/images/pie-avatar--static-image.jpg',
 })();

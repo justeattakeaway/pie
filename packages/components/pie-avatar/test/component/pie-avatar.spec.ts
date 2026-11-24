@@ -1,5 +1,11 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+
+declare global {
+    interface Window {
+        __avatarClicks?: number;
+    }
+}
 
 const avatarInitialsTestCases = [
     { input: 'Alice Johnson', expectedVisual: 'AJ', expectedScreenReader: 'A, J' },
@@ -26,7 +32,7 @@ const avatarEdgeTestCases = [
 test.describe('PieAvatar - Component tests', () => {
     test('should render as image when src is provided', async ({ page }) => {
         // Arrange
-        const avatarPage = new BasePage(page, 'avatar--with-image');
+        const avatarPage = new BasePage(page, 'avatar--with-static-image');
         await avatarPage.load();
 
         // Act
@@ -92,7 +98,7 @@ test.describe('PieAvatar - Component tests', () => {
     test.describe('PieAvatar - Image error fallback', () => {
         test('should render the fallback icon when the image fails to load', async ({ page }) => {
             // Arrange
-            const avatarPage = new BasePage(page, 'avatar--with-image-error');
+            const avatarPage = new BasePage(page, 'avatar--with-static-image-error');
             await avatarPage.load();
 
             // Act
@@ -106,7 +112,7 @@ test.describe('PieAvatar - Component tests', () => {
 
         test('should retry loading the image when src changes after a failure', async ({ page }) => {
             // Arrange
-            const avatarPage = new BasePage(page, 'avatar--with-image-error');
+            const avatarPage = new BasePage(page, 'avatar--with-static-image-error');
             await avatarPage.load();
 
             const avatarComponentIcon = page.getByTestId('pie-avatar-icon');
@@ -128,7 +134,7 @@ test.describe('PieAvatar - Component tests', () => {
 
         test('should render the fallback icon again when the updated image also fails', async ({ page }) => {
             // Arrange
-            const avatarPage = new BasePage(page, 'avatar--with-image-error');
+            const avatarPage = new BasePage(page, 'avatar--with-static-image-error');
             await avatarPage.load();
 
             const avatarComponentIcon = page.getByTestId('pie-avatar-icon');
@@ -196,3 +202,106 @@ avatarInitialsTestCases.forEach(({ input, expectedVisual, expectedScreenReader }
         await expect(avatarComponentScreenreader).not.toHaveAttribute('aria-hidden');
     });
 });
+
+test.describe('PieAvatar - Focus behaviour', () => {
+    test('should focus the internal button when the avatar is focused programmatically', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--with-button-as-image');
+        await avatarPage.load();
+
+        await page.locator('pie-avatar').waitFor({ state: 'visible' });
+
+        // Act
+        await page.evaluate(() => {
+            document.querySelector('pie-avatar')?.focus();
+        });
+
+        // Assert
+        await expect(page.getByTestId('pie-avatar-button')).toBeFocused();
+    });
+
+    test('should focus the internal button when tabbing to the avatar', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--with-button-as-image');
+        await avatarPage.load();
+
+        await page.locator('pie-avatar').waitFor({ state: 'visible' });
+
+        // Act
+        await page.keyboard.press('Tab');
+
+        // Assert
+        await expect(page.getByTestId('pie-avatar-button')).toBeFocused();
+    });
+
+    test('should apply the focus-visible ring to the internal button when focused via keyboard', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--with-button-as-image');
+        await avatarPage.load();
+
+        await page.locator('pie-avatar').waitFor({ state: 'visible' });
+
+        // Act
+        await page.keyboard.press('Tab');
+
+        // Assert
+        await expect(page.getByTestId('pie-avatar-button')).not.toHaveCSS('box-shadow', 'none');
+    });
+});
+
+test.describe('PieAvatar - Button activation', () => {
+    const installClickCounter = (page: Page) => page.evaluate(() => {
+        window.__avatarClicks = 0;
+        document.querySelector('pie-avatar')?.addEventListener('click', () => {
+            window.__avatarClicks = (window.__avatarClicks ?? 0) + 1;
+        });
+    });
+
+    const loadButtonAvatar = async (page: Page) => {
+        const avatarPage = new BasePage(page, 'avatar--with-button-as-image');
+        await avatarPage.load();
+        await page.locator('pie-avatar').waitFor({ state: 'visible' });
+        await installClickCounter(page);
+    };
+
+    test('should fire a click event on pie-avatar when the avatar is clicked', async ({ page }) => {
+        // Arrange
+        await loadButtonAvatar(page);
+        const countBefore = await page.evaluate(() => window.__avatarClicks ?? 0);
+
+        // Act
+        await page.locator('pie-avatar').click();
+
+        // Assert
+        await page.waitForFunction((count) => (window.__avatarClicks ?? 0) > count, countBefore);
+    });
+
+    test('should fire a click event on pie-avatar when the focused button is activated with Enter', async ({ page }) => {
+        // Arrange
+        await loadButtonAvatar(page);
+        await page.keyboard.press('Tab');
+        await expect(page.getByTestId('pie-avatar-button')).toBeFocused();
+        const countBefore = await page.evaluate(() => window.__avatarClicks ?? 0);
+
+        // Act
+        await page.keyboard.press('Enter');
+
+        // Assert
+        await page.waitForFunction((count) => (window.__avatarClicks ?? 0) > count, countBefore);
+    });
+
+    test('should fire a click event on pie-avatar when the focused button is activated with Space', async ({ page }) => {
+        // Arrange
+        await loadButtonAvatar(page);
+        await page.keyboard.press('Tab');
+        await expect(page.getByTestId('pie-avatar-button')).toBeFocused();
+        const countBefore = await page.evaluate(() => window.__avatarClicks ?? 0);
+
+        // Act
+        await page.keyboard.press('Space');
+
+        // Assert
+        await page.waitForFunction((count) => (window.__avatarClicks ?? 0) > count, countBefore);
+    });
+});
+
