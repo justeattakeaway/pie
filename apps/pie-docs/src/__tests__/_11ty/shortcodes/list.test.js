@@ -15,6 +15,14 @@ describe('list.js', () => {
         expect(result).toMatchSnapshot();
     });
 
+    it('should return the expected HTML for an ordered list with a start offset', () => {
+        // act
+        const result = list({ type: listTypes.ordered, start: 8, items });
+
+        // assert
+        expect(result).toMatchSnapshot();
+    });
+
     it('should return the expected HTML for an icon list', () => {
         // act
         const result = list({
