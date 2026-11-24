@@ -1,0 +1,14 @@
+{
+    "headings": [
+        "Property",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "Shimmer blur",
+            "$easing-functional",
+            "Moves from right to left of a component for 1000ms and has a delay at the end for 200ms before starting again"
+        ]
+    ]
+}
