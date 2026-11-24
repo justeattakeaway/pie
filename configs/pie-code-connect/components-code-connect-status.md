@@ -21,7 +21,7 @@
 | List Item Interactive | Soon           |                                                                                                                                                              |
 | Modal                 | ✅ Done        |                                                                                                                                                              |
 | Notification          | ✅ Done        |                                                                                                                                                              |
-| Pagination            | Soon           |                                                                                                                                                              |
+| Pagination            | ✅ Done        | Only the Default component set is mapped; the Dropdown set is not built in code. Figma has no Disabled property, so `disabled` is not mapped                 |
 | Radio                 | ✅ Done        |                                                                                                                                                              |
 | RadioGroup            | ✅ Done        |                                                                                                                                                              |
 | SelectInput           | ✅ Done        | Label is not working, instance needs to be renamed.                                                                                                          |

@@ -7,14 +7,19 @@ const getInstanceProp = createGetInstanceProp(figma);
 const { componentName, componentNameReact } = figma.batch;
 const selectedComponentName = process.env.FRAMEWORK === 'react' ? componentNameReact : componentName;
 
-const currentPage = 1;
-const totalPages = 10;
-const isDisabled = getInstanceProp('getBoolean', 'Disabled');
+const totalPages = parseInt(getInstanceProp('getString', '[𝐓] Last page'), 10) || 10;
 
+// Figma only offers First/Middle/Last, so Middle is mapped to a representative page in the range.
+const currentPage = getInstanceProp('getEnum', 'Selection', {
+    First: 1,
+    Middle: Math.ceil(totalPages / 2),
+    Last: totalPages,
+}) || 1;
+
+// `disabled` is not mapped because the Figma component set has no Disabled property.
 const props = [
-    renderProp('currentPage', currentPage, '1'),
-    renderProp('totalPages', totalPages, '1'),
-    renderProp('disabled', isDisabled, false),
+    renderProp('currentPage', currentPage, 1),
+    renderProp('totalPages', totalPages, 1),
 ].filter(Boolean).join('\n    ');
 
 // Define template

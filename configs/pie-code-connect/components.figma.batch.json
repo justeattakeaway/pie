@@ -371,5 +371,16 @@
         "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=193-32321"
       }
     ]
+  },
+  {
+    "templateFile": "dist/pie-pagination.figma.batch.js",
+    "components": [
+      {
+        "componentName": "pie-pagination",
+        "componentNameReact": "PiePagination",
+        "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-pagination/src/index.ts",
+        "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-133899"
+      }
+    ]
   }
 ]
