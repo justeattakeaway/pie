@@ -363,6 +363,30 @@ When content replaces the skeleton, it should load in from the top of the screen
 
 Skeletons are visual-only components and require specific considerations to ensure a good experience for all users.
 
+### Exceptions
+
+3:1 contrast ratio is not enforced for skeleton loaders by default. While technically recommended, skeletons are non-interactive placeholders, not content or controls that users need to interact with. Increasing contrast risks making them look like real content, creating confusion and a poorer user experience. We should prioritise subtle, low-contrast placeholders, provided they respect reduced-motion preferences and include a programmatic loading announcement for assistive technologies.
+
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/skeleton/accessibility-contrast-do.svg",
+            width: "358px",
+            alt: "A restaurant card skeleton using the standard colours."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/skeleton/accessibility-contrast-dont.svg",
+            width: "358px",
+            alt: "A restaurant card skeleton using increased standard colours."
+        }]
+    }
+} %}
+
 ### Screen readers
 
 Skeleton shapes are decorative and should be hidden from assistive technology (e.g. using `aria-hidden="true"`). Use a live region (e.g. `aria-live="polite"`) to announce when content has finished loading, so screen reader users know the page is ready.
