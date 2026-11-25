@@ -160,6 +160,7 @@ A lighter version of the default colour, to be used when there are multiple leve
 
 {% contentPageImage {
     src: "../../../assets/img/components/skeleton/modifiers-colour-subtle.svg",
+    variant: "strong",
     width: 120,
     alt: "A box skeleton in the subtle colour."
 } %}
