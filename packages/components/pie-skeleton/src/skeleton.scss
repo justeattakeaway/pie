@@ -65,7 +65,6 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
 :host {
     display: block;
 
-    // Skeletons are decorative, never interactive.
     pointer-events: none;
 }
 
@@ -259,6 +258,25 @@ $button-sizes: ('xsmall', 'small-productive', 'small-expressive', 'medium', 'lar
 
 // Motion-sensitive users get a static placeholder: no shimmer, just the background colour.
 @media (prefers-reduced-motion: reduce) {
+    .c-skeleton--box,
+    .c-skeleton--circle,
+    .c-skeleton--pill,
+    .c-skeleton-star,
+    .c-skeleton-line:after {
+        background-image: none;
+
+        animation: none;
+    }
+}
+
+// Forced colours (high contrast) mode removes background colours, which would leave the skeleton
+// invisible and give no cue that content is loading. Paint every shape with a system colour, which
+// is not forced, and drop the shimmer so it stays a clear, static placeholder.
+@media (forced-colors: active) {
+    .c-skeleton {
+        --skeleton-bg: CanvasText;
+    }
+
     .c-skeleton--box,
     .c-skeleton--circle,
     .c-skeleton--pill,

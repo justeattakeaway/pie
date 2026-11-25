@@ -2,7 +2,9 @@ import {
     html, type PropertyValues, type TemplateResult, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import {
+    DelegatesFocusMixin, RtlMixin, safeCustomElement, validPropertyValues,
+} from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 
 import { property, query, state } from 'lit/decorators.js';
@@ -21,7 +23,7 @@ const componentSelector = 'pie-avatar';
  */
 
 @safeCustomElement('pie-avatar')
-export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
+export class PieAvatar extends RtlMixin(DelegatesFocusMixin(PieElement)) implements AvatarProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
     public tag = defaultProps.tag;

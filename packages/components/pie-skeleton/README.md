@@ -19,8 +19,10 @@
   - [Events](#events)
 - [Usage Examples](#usage-examples)
 - [Avoiding layout shift](#avoiding-layout-shift)
-- [Animation](#animation)
+- [Accessibility](#accessibility)
   - [Reduced motion](#reduced-motion)
+  - [Best practices](#best-practices)
+  - [Accessible skeleton and loading region example](#accessible-skeleton-and-loading-region-example)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -132,9 +134,65 @@ A skeleton's job is to reserve the space of the content it stands in for, so the
 - **Reserve space on the container.** A fixed or minimum height (or aspect ratio) on the container stops small differences inside it from moving content outside it.
 - **Small mismatches add up.** One 4px difference is negligible (around 0.003 CLS), but the same difference repeated across a list of 10 cards can reach around 0.04 — almost half of the 0.1 "good" threshold.
 
+## Accessibility
+
+A skeleton is a visual placeholder with no meaning on its own. To keep the loading state clear for everyone, `pie-skeleton`:
+
+- **Is hidden from assistive technology**. (`aria-hidden="true"`) is set for every variant. A single shape (a line, a box, a circle) has no meaning on its own, so if each one were announced as "loading", a card with five skeletons would announce "loading" five times. The loading state is announced once by the container that owns the content, not by the shapes. Treating every variant the same way also keeps the behaviour predictable: no shape is ever announced, rather than only some.
+- **Is not focusable and does not handle keyboard events**. There is nothing to act on, and a focusable element hidden from assistive technology would create an empty focus stop for keyboard and screen reader users.
+- **Disables pointer events**. (`pointer-events: none`) is set, so a placeholder can't be clicked by mistake and clicks are ignored.
+- **Removes the shimmer animation** when the user requests reduced motion (`prefers-reduced-motion: reduce`), showing a static placeholder instead. The static shape is still a clear cue that content is loading.
+
 ### Reduced motion
 
 When the user has requested reduced motion (`prefers-reduced-motion: reduce`), the shimmer animation is removed and the skeleton is shown as a static placeholder.
+
+### Best practices
+
+Follow these practices when you use skeletons, so the loading state is clear to everyone:
+
+- **Provide one loading message per loading region.** Add a single visually hidden, localised message (e.g. "Loading restaurants") inside the container that holds the skeletons, rather than relying on the skeletons themselves. One message per region avoids repeated announcements, and you can translate it.
+- **Mark the loading region with `aria-busy="true"`, and set it to `false` once everything has loaded.** This applies to tables, cards or any container where several skeletons load together. When loading finishes, remove (or hide) the skeletons so stale placeholders don't stay on the page.
+- **Put the polite live region (`aria-live="polite"`) on the loading message itself, not on the container that carries `aria-busy`.** A live region on a busy container can have its announcements deferred until the region is no longer busy, which can delay or drop the loading message. Use one live region per loading region, not one per skeleton, and test the announcement with real screen readers.
+- **Don't show skeletons indefinitely.** Always provide an end state: loaded content, an error, or a timeout message.
+- **Avoid semantic heading markup when you use a skeleton as a heading placeholder.** An empty heading still appears in a screen reader's heading list, which confuses users who navigate by headings.
+
+### Accessible skeleton and loading region example
+
+A loading region owns the skeletons, announces the loading state once with a visually hidden message, is marked busy while loading, and announces when the content has arrived. The skeletons inside it stay hidden from assistive technology.
+
+```html
+<!-- The container owns the loading state: one localised message, marked busy while loading. The
+     polite live region is on the message itself, not on the busy container, so the busy state does
+     not defer the announcement. -->
+<section id="restaurants" aria-busy="true" aria-label="Restaurants">
+  <!-- `.is-visuallyHidden` is a utility class from @justeattakeaway/pie-css.
+       It keeps the message available to screen readers without showing it. -->
+  <p class="is-visuallyHidden" aria-live="polite">Loading restaurants</p>
+
+  <div class="restaurant">
+    <pie-skeleton variant="circle" height="40px"></pie-skeleton>
+    <pie-skeleton variant="text" height="font-body-l" lines="2"></pie-skeleton>
+  </div>
+</section>
+```
+
+```js
+import '@justeattakeaway/pie-webc/components/skeleton.js';
+
+// Call this once data has arrived.
+function showRestaurants (restaurants) {
+  const region = document.getElementById('restaurants');
+  
+  // Replace the skeletons with the real content.
+  // Application particular logic has priority over this simple example.
+  region.querySelector('.restaurant').replaceWith(restaurantContent);
+
+  // Update the live region so screen readers announce that loading has finished, then clear the busy state.
+  region.querySelector('.is-visuallyHidden').textContent = 'Restaurants loaded';
+  region.setAttribute('aria-busy', 'false');
+}
+```
 
 ## Questions and Support
 
