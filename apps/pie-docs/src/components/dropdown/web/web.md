@@ -6,19 +6,6 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Overview
-
-The purpose of dropdowns is to provide a compact and organised way to display a set of selectable items, such as categories, filters, or actions, within a user interface.
-
-Dropdowns enhance user experience by conserving screen space and organising choices in a structured manner, making it convenient for users to access and select from a range of options.
-
-{% contentPageImage {
-    src: "../../../assets/img/components/dropdown/overview.svg",
-    alt: "An expanded dropdown component showing a 'Sort by' label with 'Best match' selected in the field and a popover listing the options Best match, Distance and Reviews."
-} %}
-
----
-
 ## Dos and Don'ts
 
 {% usage {
