@@ -201,7 +201,7 @@ In the example below we've resized our Pill Skeleton to recreate our Button comp
 Skeleton placeholders sit in the same position on the screen as their loaded counterparts would. This is done to avoid the feeling of UI elements and components jumping around on the page.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/skeleton/position-example.webp",
+    src: "../../../assets/img/components/skeleton/position-example.avif",
     width: "861px",
     alt: "A skeleton screen on the left and the same screen with loaded content on the right, showing elements in the same position."
 } %}
@@ -300,7 +300,7 @@ If the component you're trying to recreate using Skeleton components uses a cont
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/skeleton/use-defined-container-background-colours-do.webp",
+            src: "../../../assets/img/components/skeleton/use-defined-container-background-colours-do.avif",
             width: "358px",
             alt: "A restaurant card skeleton using the same background colour as its container."
         }]
@@ -308,7 +308,7 @@ If the component you're trying to recreate using Skeleton components uses a cont
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/skeleton/use-defined-container-background-colours-dont.webp",
+            src: "../../../assets/img/components/skeleton/use-defined-container-background-colours-dont.avif",
             width: "358px",
             alt: "A restaurant card skeleton whose background colour matches its container, making it hard to see."
         }]
@@ -325,7 +325,7 @@ Be mindful of the order in which they appear, using lighter colours for elements
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/skeleton/using-colour-container-do.webp",
+            src: "../../../assets/img/components/skeleton/using-colour-container-do.avif",
             width: "375px",
             alt: "A restaurant card skeleton using the same background colour as its container."
         }]
@@ -333,7 +333,7 @@ Be mindful of the order in which they appear, using lighter colours for elements
     dont: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/skeleton/using-colour-container-dont.webp",
+            src: "../../../assets/img/components/skeleton/using-colour-container-dont.avif",
             width: "375px",
             alt: "A restaurant card skeleton whose background colour matches its container, making it hard to see."
         }]
@@ -352,7 +352,7 @@ When content replaces the skeleton, it should load in from the top of the screen
 } %}
 
 {% contentPageImage {
-    src: "../../../assets/img/components/skeleton/loading-order-example.webp",
+    src: "../../../assets/img/components/skeleton/loading-order-example.avif",
     width: "1001px",
     alt: "Five frames showing skeleton content being replaced by loaded content progressively from the top of the screen downwards."
 } %}
