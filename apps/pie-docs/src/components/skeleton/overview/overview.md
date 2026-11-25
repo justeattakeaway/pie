@@ -19,11 +19,6 @@ Skeletons work best when loading times are short and the shape of the content is
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Skeleton documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Skeleton'
 } %}

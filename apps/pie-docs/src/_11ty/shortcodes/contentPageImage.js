@@ -21,7 +21,7 @@ const createCaption = (config) => (config.caption
  * @param {string} config.mobileSrc - the image src path for an optimised mobile image if required
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
  * @param {string} config.caption - A string to use as the image caption. This can be raw text or markdown (which will be transformed into HTML).
- * @param {string} config.variant - Sets the variant of the shortcut. Valid values are default, secondary and inverse. Defaults to "default"
+ * @param {string} config.variant - Sets the variant of the shortcut. Valid values are default, strong, secondary and inverse. Defaults to "default"
  * @returns {string} a <figure> element containing the image(s) provided with the config settings applied.
  */
 const contentPageImage = (config) => {

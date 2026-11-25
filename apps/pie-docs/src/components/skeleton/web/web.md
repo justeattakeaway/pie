@@ -278,14 +278,15 @@ When building Skeletons, make sure you use the right base colour by observing th
         {% contentPageImage {
             src: "../../../assets/img/components/skeleton/using-colour-background-strong.svg",
             width: 120,
-            alt: "A box skeleton placed on a strong background."
+            alt: "A box skeleton placed on a subtle background."
         } %}
     {% endcontentItem %}
     {% contentItem %}
         {% contentPageImage {
             src: "../../../assets/img/components/skeleton/using-colour-background-default.svg",
+            variant: "strong",
             width: 120,
-            alt: "A box skeleton placed on a subtle background."
+            alt: "A box skeleton placed on a strong background."
         } %}
     {% endcontentItem %}
 {% endcontentLayout %}
