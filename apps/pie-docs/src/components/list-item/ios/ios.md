@@ -40,20 +40,20 @@ width: 200
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Primary text:** Gives the users an overview of the content, aiming to be contained within one line.",
-        "**Secondary content (Optional):** Provides additional detail if required, aiming to be contained within two lines.",
-        "**Leading icon with background (Optional):** Non-interactive icon with a background that can be used to visually support the primary text.",
-        "**Divider (Optional):** Helps visually define the end of a list item and the beginning of the next one.",
-        "**Avatar (Optional):** Placeholder to be replaced with a close-up photo of a person.",
-        "**Thumbnail (Optional):** Placeholder to be replaced with an image.",
-        "**Leading icon (Optional):** Non-interactive icon that can be used to visually support the primary text.",
-        "**Checkbox (Optional):** Allows users to select none, one, or more items from the list. Left or right alignment should be consistent through the pillar.",
-        "**Radio (Optional):** Allowing the user to select a single option from the list. Left or right alignment should be consistent through the pillar.",
-        "**Payment icon (Optional):** Non-interactive payment icon that is used to visually support a payment method.",
-        "**Switch (Optional):** Used to quickly switch between two possible states.",
-        "**Trailing icon (Optional):** Interactive icon (i.e. a bin or drag), but is not to be used as a secondary CTA.",
-        "**Meta text (Optional):** Highlights basic information about the List item.",
-        "**Tag (Optional):** Used to highlight special conditions like 'sold out'.",
+       "**Primary text:** Provides an overview of the content.",
+        "**Secondary content (Optional):** Provides additional detail if required.",
+        "**Divider (Optional):** Visually defines the end of one list item and the beginning of the next.",
+        "**Icon (Optional):** Non-interactive icon that visually supports the primary text.",
+        "**Icon with background (Optional):** Non-interactive icon that visually supports the primary text.",
+        "**Avatar (Optional):** Visually supports the primary text if it references an individual or business.",
+        "**Payment method icon (Optional):** Non-interactive payment method icon that supports the primary text.",
+        "**Thumbnail (Optional):** Small image or media content that visually supports the primary text.",
+        "**Checkbox (Optional):** Interactive element that allows users to select or deselect options from a list of choices.",
+        "**Radio (Optional):** Interactive element that allows users to select a single option from a predefined set of choices.",
+        "**Icon - interactive (Optional):** Interactive icon that indicates an action.",
+        "**Meta text (Optional):** Provides more information about the context, status, or attributes of the primary content.",
+        "**Tag (Optional):** Visual element used to represent and categorise information, only non-interactive variants permitted.",
+        "**Switch (Optional):** Interactive element that allows users to switch between two states.",
         "**Badge (Optional):** Use to display a numeric value or count."
     ]
 } %}
@@ -108,9 +108,11 @@ width: 200
 
 ### Compact
 
+The height of the component is decreased to reduce the vertical space, and used when space needs to be saved. 
+
 {% notification {
   type: "information",
-  message: "The height of the component is decreased to reduce the vertical space, and used when space needs to be saved. If the secondary text is required, don't apply the compact prop."
+  message: "If the secondary text is required, don't apply the compact prop."
 } %}
 
 {% contentPageImage {
