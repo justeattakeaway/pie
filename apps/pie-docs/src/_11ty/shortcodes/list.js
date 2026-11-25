@@ -55,8 +55,9 @@ const list = ({
         </li>`).join('');
 
     const listTag = type === listTypes.ordered ? 'ol' : 'ul';
-    const startAttributes = type === listTypes.ordered && start
-        ? ` start="${start}" style="counter-reset: item ${Number(start) - 1}"`
+    const parsedStart = Number(start);
+    const startAttributes = type === listTypes.ordered && start && Number.isFinite(parsedStart)
+        ? ` start="${parsedStart}" style="counter-reset: item ${parsedStart - 1}"`
         : '';
     const listClasses = [
         'c-list',

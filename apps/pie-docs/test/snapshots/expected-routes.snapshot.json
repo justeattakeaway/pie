@@ -81,8 +81,6 @@
     "components/dropdown/android",
     "components/dropdown/ios",
     "components/dropdown/search",
-    "components/dropdown/search/android",
-    "components/dropdown/search/ios",
     "components/dropdown/search/web",
     "components/dropdown/web",
     "components/fab",
