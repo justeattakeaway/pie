@@ -100,16 +100,40 @@ const getUrl = ({ filePath, data }) => {
 
 const getNavLabel = (node) => node.data.eleventyNavigation.title || node.data.eleventyNavigation.key;
 
+// Number of leading directory segments two paths share, e.g. `a/b/c` and `a/b/d` share 2.
+const countSharedDirectorySegments = (dirA, dirB) => {
+    const segmentsA = dirA.split(path.sep);
+    const segmentsB = dirB.split(path.sep);
+    const shortest = Math.min(segmentsA.length, segmentsB.length);
+    let shared = 0;
+
+    while (shared < shortest && segmentsA[shared] === segmentsB[shared]) {
+        shared += 1;
+    }
+
+    return shared;
+};
+
 // Navigation keys are not unique (e.g. every component has an "Overview" page), so a parent key
-// is resolved to the matching node closest to the child in the directory tree.
+// is resolved to the matching node closest to the child in the directory tree. A parent node is
+// usually in an ancestor directory, but the two-page component structure (e.g. Dropdown and
+// Dropdown Search) keeps the navigation node in a sibling directory, so fall back to the
+// candidate sharing the longest directory prefix with the child.
 const findParentNode = (navNodes, node) => {
     const parentKey = node.data.eleventyNavigation.parent;
+    const candidates = navNodes.filter((candidate) => candidate !== node &&
+        candidate.data.eleventyNavigation.key === parentKey);
 
-    return navNodes
-        .filter((candidate) => candidate !== node &&
-            candidate.data.eleventyNavigation.key === parentKey &&
-            `${node.dir}${path.sep}`.startsWith(`${candidate.dir}${path.sep}`))
-        .sort((a, b) => b.dir.length - a.dir.length)[0];
+    const [ancestor] = candidates
+        .filter((candidate) => `${node.dir}${path.sep}`.startsWith(`${candidate.dir}${path.sep}`))
+        .sort((a, b) => b.dir.length - a.dir.length);
+
+    if (ancestor) return ancestor;
+
+    return candidates
+        .map((candidate) => ({ candidate, sharedSegments: countSharedDirectorySegments(candidate.dir, node.dir) }))
+        .sort((a, b) => b.sharedSegments - a.sharedSegments || b.candidate.dir.length - a.candidate.dir.length)[0]
+        ?.candidate;
 };
 
 // Toggle pages (e.g. light/dark alias tokens) share one navigation entry, so the toggle label is
@@ -281,4 +305,4 @@ const writeLlmsTxt = () => {
 // Only write the file when run directly, so the generator can be imported by tests
 if (require.main === module) writeLlmsTxt();
 
-module.exports = { generateLlmsTxt };
+module.exports = { generateLlmsTxt, findParentNode };
