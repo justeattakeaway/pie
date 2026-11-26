@@ -39,7 +39,7 @@ shouldShowContents: true
     type: listTypes.ordered,
     items: [
         "**Primary text:** Provides an overview of the content.",
-        "**Secondary text (Optional):** Provides additional detail if required.",
+        "**Secondary content (Optional):** Provides additional detail if required.",
         "**Divider (Optional):** Visually defines the end of one list item and the beginning of the next.",
         "**Icon (Optional):** Non-interactive icon that visually supports the primary text.",
         "**Icon with background (Optional):** Non-interactive icon that visually supports the primary text.",
@@ -51,7 +51,8 @@ shouldShowContents: true
         "**Icon - interactive (Optional):** Interactive icon that indicates an action.",
         "**Meta text (Optional):** Provides more information about the context, status, or attributes of the primary content.",
         "**Tag (Optional):** Visual element used to represent and categorise information, only non-interactive variants permitted.",
-        "**Switch (Optional):** Interactive element that allows users to switch between two states."
+        "**Switch (Optional):** Interactive element that allows users to switch between two states.",
+        "**Badge (Optional):** Use to display a numeric value or count."
     ]
 } %}
 
@@ -118,13 +119,13 @@ The height of the component is decreased to reduce the vertical space, and used 
     width: 360
 } %}
 
-### Secondary text
+### Secondary content
 
-The secondary text can be used to provide additional content that supports the primary text.
+Use secondary content to add supporting details, such as text and tag, alongside the primary text.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/list-item/web/modifiers-secondary-text.svg",
-    alt: "List item component with primary and secondary text.",
+    src:"../../../assets/img/components/list-item/web/modifiers-secondary-content.svg",
+    alt: "List item component with primary and secondary content.",
     width: 360
 } %}
 
@@ -197,6 +198,15 @@ There's an option to use bold in the primary text.
       src: "../../../assets/img/components/list-item/web/modifiers-leading-thumbnail.svg",
       width: "360px",
       alt: "List item component with leading thumbnail."
+    } %}
+  {% endcontentItem %}
+    {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/web/modifiers-leading-badge.svg",
+      width: "360px",
+      alt: "List item component with leading badge."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -291,6 +301,15 @@ There's an option to use bold in the primary text.
       alt: "Interactive list item component with leading radio."
     } %}
   {% endcontentItem %}
+      {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-leading-badge.svg",
+      width: "360px",
+      alt: "List item component with leading badge."
+    } %}
+  {% endcontentItem %}
 {% endcontentLayout %}
 
 ### Trailing content
@@ -326,6 +345,15 @@ There's an option to use bold in the primary text.
       src: "../../../assets/img/components/list-item/web/modifiers-trailing-tag.svg",
       width: "360px",
       alt: "List item component with trailing tag."
+    } %}
+  {% endcontentItem %}
+      {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/web/modifiers-trailing-badge.svg",
+      width: "360px",
+      alt: "List item component with trailing badge."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -393,6 +421,15 @@ There's an option to use bold in the primary text.
       alt: "Interactive list item component with trailing switch."
     } %}
   {% endcontentItem %}
+        {% contentItem %}
+  <h4>Badge</h4>
+  <p>Use badge to display a numeric value or count.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/list-item/web/modifiers-interactive-trailing-badge.svg",
+      width: "360px",
+      alt: "List item component with trailing badge."
+    } %}
+  {% endcontentItem %}
 {% endcontentLayout %}
 
 ### Divider
@@ -430,25 +467,33 @@ The divider is optional. It is used to visually separate individual list items f
 
 {% contentPageImage {
     src:"../../../assets/img/components/list-item/web/overrides-alignment.svg",
-    alt: "List item components with structure markers showing vertical alignment and horizontal padding overrides.",
+    alt: "List item components with structure markers showing vertical alignment, horizontal padding and trailing content alignment overrides.",
     width: 799
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Alignment:** The vertical alignment of both leading and trailing content can be adjusted to centre alignment. However, both must maintain the same alignment.",
-        "**Vertical spacing:** Vertical padding can be removed when being used within a component e.g. Modal, bottom sheet."
+        "**Vertical alignment:** The vertical alignment of both leading and trailing content can be adjusted to centre alignment. However, both must maintain the same alignment.",
+        "**Horizontal spacing:** Horizontal padding can be removed when being used within a component e.g. Modal, bottom sheet.",
+        "**Trailing content alignment:** Trailing content can be aligned to the right edge or hug the body content, maintaining 12px of spacing between elements."
     ]
 } %}
 
 ### Selected state
 
+Prioritise using the selected state from form control variants. The following recommendation applies to the navigation variant only.
+
+{% notification {
+  type: "information",
+  message: "Find more information in the [Selected state patterns documentation](/patterns/selected-state/)."
+} %}
+
 #### Navigation
 
 {% contentPageImage {
     src:"../../../assets/img/components/list-item/web/overrides-selected-state.svg",
-    alt: "A country list showing Germany selected with bold text and a trailing tick icon, compared with the unselected state.",
+    alt: "List item components with icon colour and tick icon overrides in selected state.",
     width: 760
 } %}
 
@@ -457,6 +502,22 @@ The divider is optional. It is used to visually separate individual list items f
     items: [
         "**Icon colour:** The icon colour token can be overridden with `$color-content-brand-solid` to provide an additional visual cue.",
         "**Tick icon:** Highly recommended using the tick icon to indicate the selected page or link. Optional when the distinction between states is clear."
+    ]
+} %}
+
+### Colour
+
+{% contentPageImage {
+    src:"../../../assets/img/components/list-item/web/overrides-colour.svg",
+    alt: "List item components with icon colour override options.",
+    width: 760
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Trailing icon colour - Positive:** The icon colour token can be overridden to `$color-content-positive` to convey positive information for the user.",
+        "**Trailing icon colour - Error:** The icon colour token can be overridden to `$color-content-error` to highlight critical information for the user. Please review whether an icon alone is sufficient, or whether an error notification or toast would communicate the message more effectively."
     ]
 } %}
 
@@ -517,7 +578,7 @@ Depending on the properties applied to the component, the minimum height of the 
 
 ## Interactions
 
-### Interactive
+### Interactive variants
 
 The entire container for interactive variants is clickable.
 
@@ -641,6 +702,11 @@ Action list items are selectable and users can interact with them, but they do n
 ## Interactive states
 
 The interactive variation includes all interactive states, while the non-interactive variation only includes the default state.
+
+{% notification {
+  type: "information",
+  message: "All form elements: **Checkbox**, **Radio** and **Switch** display their own interactive states alongside the container's hover and active overlay."
+} %}
 
 {% contentLayout %}
   {% contentItem %}
