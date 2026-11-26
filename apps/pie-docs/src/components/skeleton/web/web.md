@@ -209,7 +209,7 @@ Skeleton placeholders sit in the same position on the screen as their loaded cou
 {% notification {
     type: "information",
     title: "Cumulative Layout Shift (CLS)",
-    message: "Cumulative Layout Shift (CLS) is a Core Web Vital that measures visual stability and how often users experience unexpected layout shifts on a page, and must be considered when creating skeleton layouts for a page. A low CLS means a more stable, less frustrating experience for a user. [See here for more info](https://web.dev/articles/cls)"
+    message: "Cumulative Layout Shift (CLS) is a Core Web Vital that measures visual stability and how often users experience unexpected layout shifts on a page, and must be considered when creating skeleton layouts for a page. A low CLS means a more stable, less frustrating experience for a user. <a href='https://web.dev/articles/cls' target='_blank'>See here for more info.</a>"
 } %}
 
 ---
