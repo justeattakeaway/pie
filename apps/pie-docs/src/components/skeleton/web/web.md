@@ -367,10 +367,10 @@ Skeletons are visual-only components and require specific considerations to ensu
 
 3:1 contrast ratio is not enforced for skeleton loaders by default. While technically recommended, skeletons are non-interactive placeholders, not content or controls that users need to interact with. Increasing contrast risks making them look like real content, creating confusion and a poorer user experience. We should prioritise subtle, low-contrast placeholders, provided they respect reduced-motion preferences and include a programmatic loading announcement for assistive technologies.
 
-
 {% usage {
     do: {
         type: usageTypes.image,
+        variant: "secondary",
         items: [{
             src: "../../../assets/img/components/skeleton/accessibility-contrast-do.svg",
             width: "358px",
@@ -379,10 +379,11 @@ Skeletons are visual-only components and require specific considerations to ensu
     },
     dont: {
         type: usageTypes.image,
+        variant: "secondary",
         items: [{
             src: "../../../assets/img/components/skeleton/accessibility-contrast-dont.svg",
             width: "358px",
-            alt: "A restaurant card skeleton using increased standard colours."
+            alt: "A restaurant card skeleton using increased contrast colours."
         }]
     }
 } %}
