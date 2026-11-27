@@ -305,3 +305,32 @@ test.describe('PieAvatar - Button activation', () => {
     });
 });
 
+test.describe('PieAvatar - aria label', () => {
+    test('should apply aria-label to the internal button when tag is button', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--with-button-as-icon');
+        await avatarPage.load({ aria: { label: 'Test aria-label' } });
+
+        // Assert
+        await expect(page.getByTestId('pie-avatar-button')).toHaveAttribute('aria-label', 'Accessible avatar');
+    });
+
+    test('should not apply aria-label to the div when tag is div', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--default');
+        await avatarPage.load({ aria: { label: 'Test aria-label' } });
+
+        // Assert
+        await expect(page.getByTestId('pie-avatar-div')).not.toHaveAttribute('aria-label');
+    });
+
+    test('should not apply aria-label when the aria prop is not provided', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--with-button-as-image');
+        await avatarPage.load();
+
+        // Assert
+        await expect(page.getByTestId('pie-avatar-button')).not.toHaveAttribute('aria-label');
+    });
+});
+

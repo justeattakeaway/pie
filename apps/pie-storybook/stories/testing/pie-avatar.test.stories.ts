@@ -13,6 +13,10 @@ const avatarStoryMeta: AvatarStoryMeta = {
     title: 'Avatar',
     component: 'pie-avatar',
     argTypes: {
+        aria: {
+            description: 'ARIA attributes for the avatar.',
+            control: 'object',
+        },
         label: {
             description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
             control: 'text',
@@ -31,11 +35,14 @@ const avatarStoryMeta: AvatarStoryMeta = {
 
 export default avatarStoryMeta;
 
-const Template: TemplateFunction<AvatarProps> = ({ label, tag, src }: AvatarProps) => html`
+const Template: TemplateFunction<AvatarProps> = ({
+    label, tag, src, aria,
+}: AvatarProps) => html`
     <pie-avatar
     tag="${ifDefined(tag)}"
     label="${ifDefined(label)}"
-    src="${ifDefined(src)}">
+    src="${ifDefined(src)}"
+    .aria="${aria}">
     </pie-avatar>
 `;
 
@@ -59,4 +66,9 @@ export const WithStaticImageError = createStory<OptionalAvatarProps>(Template, {
 export const WithButtonAsImage = createStory<OptionalAvatarProps>(Template, {
     tag: 'button',
     src: './static/images/pie-avatar--static-image.jpg',
+})();
+
+export const WithButtonAsIcon = createStory<OptionalAvatarProps>(Template, {
+    tag: 'button',
+    aria: { label: 'Accessible button' },
 })();
