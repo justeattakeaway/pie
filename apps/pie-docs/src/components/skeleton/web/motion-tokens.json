@@ -1,0 +1,20 @@
+{
+    "headings": [
+        { "text": "Skeleton token" },
+        { "text": "Duration" }
+    ],
+    "rows": [
+        {
+            "data": [
+                { "text": "Default" },
+                { "text": "1200ms" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Reduced motion" },
+                { "text": "<strong>No animation/motion</strong>" }
+            ]
+        }
+    ]
+}

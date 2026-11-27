@@ -1,0 +1,26 @@
+{
+    "headings": [
+        { "text": "Skeleton token" },
+        { "text": "Shimmer token" }
+    ],
+    "rows": [
+        {
+            "data": [
+                { "text": "$skeleton-01" },
+                { "text": "$skeleton-shimmer-01" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "$skeleton-02" },
+                { "text": "$skeleton-shimmer-02" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "$skeleton-03" },
+                { "text": "$skeleton-shimmer-03" }
+            ]
+        }
+    ]
+}

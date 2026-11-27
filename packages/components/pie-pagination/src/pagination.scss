@@ -23,18 +23,16 @@
     align-items: center;
 }
 
-// Page number control.
-// Built from the shared PIE button mixins so it inherits the same typography,
-// interactive states and focus ring as pie-button, but sized as a fixed
-// 32x32 circular control to match the Figma specification.
 .c-pagination-control {
     @include btn.button-base($include-icon-selector: false);
     @include btn.button-size('xsmall');
     @include btn.button-variant('ghost');
 
-    inline-size: 32px;
+    min-inline-size: 32px;
     block-size: 32px;
-    padding: 0;
+    padding-block: 0;
+    padding-inline-start: var(--dt-spacing-b);
+    padding-inline-end: var(--dt-spacing-b);
 
     --btn-font-weight: var(--dt-font-body-s-weight);
 
@@ -50,4 +48,24 @@
 
         cursor: not-allowed;
     }
+}
+
+.c-pagination-ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: 32px;
+    block-size: 32px;
+
+    font-size: calc(var(--dt-font-body-s-size) * 1px);
+    font-weight: var(--dt-font-body-s-weight);
+    color: var(--dt-color-content-default);
+
+    cursor: default;
+    user-select: none;
+}
+
+.c-pagination--disabled .c-pagination-ellipsis {
+    color: var(--dt-color-content-disabled-solid);
 }

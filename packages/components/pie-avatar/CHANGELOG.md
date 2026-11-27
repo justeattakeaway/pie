@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-avatar
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - Made the `button` variant interactive, with hover, active and focus-visible states, focus delegation and a tint over image avatars ([#3343](https://github.com/justeattakeaway/pie/pull/3343)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.6.2
 
 ### Patch Changes
