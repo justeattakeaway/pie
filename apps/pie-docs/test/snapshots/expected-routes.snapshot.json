@@ -221,6 +221,8 @@
     "components/toast/web",
     "components/tooltip",
     "components/tooltip/android",
+    "components/tooltip/icon",
+    "components/tooltip/icon/web",
     "components/tooltip/ios",
     "components/tooltip/web",
     "components/uploader",

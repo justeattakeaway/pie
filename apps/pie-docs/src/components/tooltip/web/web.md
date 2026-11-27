@@ -4,18 +4,6 @@ eleventyNavigation:
     parent: Tooltip
     order: 2
 shouldShowContents: true
----
-
-## Overview
-
-The purpose of tooltips is to enhance the user experience by providing context and guidance, particularly when elements may not have enough space to display all the information or when certain functionalities need clarification.
-
-Tooltips are displayed as a small box near the element they are associated with. They are triggered by user actions like hovering over an element with a mouse cursor or tapping on it in touch-based interfaces.
-
-{% contentPageImage {
-    src:"../../../assets/img/components/tooltip/overview.svg",
-    alt: "A tooltip that contains multiple lines of text and a close icon to dismiss."
-} %}
 
 ---
 
@@ -93,7 +81,7 @@ Used on dark backgrounds or containers.
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/tooltip/web/variants-inverse-complex-bg.png",
+      src: "../../../assets/img/components/tooltip/web/variants-inverse-complex-bg.svg",
       alt: "Example of the inverse tooltip variant on a complex background."
     } %}
   {% endcontentItem %}
@@ -570,11 +558,3 @@ Here are some examples of the component in right-to-left context:
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
-
----
-
-## Resources
-
-{% resourceTable {
-    componentName: 'Tooltip'
-} %}
