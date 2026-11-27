@@ -87,3 +87,25 @@ exports[`list.js > should return the expected HTML for an icon list 1`] = `
         </li>
     </ul>"
 `;
+
+exports[`list.js > should return the expected HTML for an ordered list with a start offset 1`] = `
+"<ol class="c-list c-list--ordered" start="8" style="counter-reset: item 7"  >
+        <li class="c-list-item">
+        
+        
+        <span>a</span>
+        </li><li class="c-list-item">
+        
+        
+        <span>b</span>
+        </li><li class="c-list-item">
+        
+        
+        <span>c</span>
+        </li><li class="c-list-item">
+        
+        
+        <span>d</span>
+        </li>
+    </ol>"
+`;

@@ -34,10 +34,11 @@ const getHighlightIndicator = (highlightColour, index) => {
  * @param {string} iconFill - fill token name such as "support-positive" if type is icon
  * @param {boolean} isCompact - boolean to indicate if the list is compact
  * @param {string[]} items - An array of list items
+ * @param {number} start - (ordered lists only) the number the list numbering should start from, e.g. 8
  * @returns {string}
  */
 const list = ({
-    type, items, iconName, iconFill, highlightColour, isCompact,
+    type, items, iconName, iconFill, highlightColour, isCompact, start,
 }) => {
     if (!type || !listTypes[type]) {
         throw new Error(`List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
@@ -54,13 +55,17 @@ const list = ({
         </li>`).join('');
 
     const listTag = type === listTypes.ordered ? 'ol' : 'ul';
+    const parsedStart = Number(start);
+    const startAttributes = type === listTypes.ordered && start && Number.isFinite(parsedStart)
+        ? ` start="${parsedStart}" style="counter-reset: item ${parsedStart - 1}"`
+        : '';
     const listClasses = [
         'c-list',
         `c-list--${type}`,
         isCompact ? 'c-list--compact' : '',
     ];
 
-    return `<${listTag} class="${listClasses.join(' ').trim()}"  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''}>
+    return `<${listTag} class="${listClasses.join(' ').trim()}"${startAttributes}  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''}>
         ${listItems}
     </${listTag}>`;
 };
