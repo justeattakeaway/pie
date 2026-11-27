@@ -53,6 +53,10 @@ $contentImage-height-l--mobile:           400px;
         // Same as default styles
     }
 
+    &.c-contentImage-strong {
+        background-color: var(--dt-color-container-strong);
+    }
+
     &.c-contentImage-secondary {
         background-color: var(--dt-color-container-default);
         border: 1px solid var(--dt-color-border-strong);

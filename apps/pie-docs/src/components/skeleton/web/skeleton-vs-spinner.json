@@ -1,0 +1,50 @@
+{
+    "headings": [
+        { "text": "Situation" },
+        { "text": "Use" }
+    ],
+    "rows": [
+        {
+            "data": [
+                { "text": "First-time content load where layout is known" },
+                { "text": "Skeleton" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Multiple elements loading at once" },
+                { "text": "Skeleton" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Data-heavy screens with longer load times" },
+                { "text": "Skeleton" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "User has just taken an action (e.g. submitted a form)" },
+                { "text": "Spinner" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "A small, inline action is processing" },
+                { "text": "Spinner" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Content loads in under a second" },
+                { "text": "❌ Neither" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Background or long-running process" },
+                { "text": "Spinner" }
+            ]
+        }
+    ]
+}

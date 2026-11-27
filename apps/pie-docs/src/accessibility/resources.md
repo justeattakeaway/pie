@@ -40,5 +40,5 @@ Ensuring that our design system is accessible is crucial to ensuring that all of
 
 In addition to ensuring that PIE is accessible, it is essential to ensure that the digital products that are built using our design system are also accessible. Below are some resources related to building accessible digital products:
 
-* [Web accessibility – Intro, why and who's responsible](https://drive.google.com/file/d/1LzS8LVv8waq3Gv3ezMMBjnBRLfO7dhUv/view){target=“_blank”} (JET employees)
+* [Web accessibility – Intro, why and who's responsible](https://drive.google.com/file/d/1LzS8LVv8waq3Gv3ezMMBjnBRLfO7dhUv/view){target="_blank"} (JET employees)
 * [Accessibility for teams](https://accessibility.digital.gov/)

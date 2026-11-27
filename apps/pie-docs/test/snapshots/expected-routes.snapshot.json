@@ -172,6 +172,7 @@
     "components/side-sheet",
     "components/skeleton",
     "components/skeleton/apps",
+    "components/skeleton/motion",
     "components/skeleton/web",
     "components/slider",
     "components/slider/android",

@@ -102,7 +102,7 @@
     "commitizen": "4.3.1",
     "cross-env": "7.0.3",
     "cz-customizable": "7.5.4",
-    "danger": "13.0.7",
+    "danger": "13.0.10",
     "eslint": "8.57.0",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-json-format": "2.0.1",

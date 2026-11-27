@@ -38,4 +38,70 @@ test.describe('PiePagination - Visual tests', () => {
         await expect.soft(paginationPage.paginationComponent.componentLocator).toBeVisible();
         await percySnapshot(page, 'PiePagination - Disabled', { widths: [1280] });
     });
+
+    test('should display the PiePagination component successfully on the first page of a large range', async ({ page }) => {
+        // Arrange
+        const paginationPage = new PaginationDefaultPage(page);
+
+        // Act
+        await paginationPage.load({ currentPage: 1, totalPages: 50 });
+
+        // Assert
+        await expect.soft(paginationPage.paginationComponent.componentLocator).toBeVisible();
+        await expect.soft(paginationPage.paginationComponent.ellipsisLocator).toHaveCount(1);
+        await percySnapshot(page, 'PiePagination - Large range first page', { widths: [1280] });
+    });
+
+    test('should display the PiePagination component successfully on a middle page of a large range', async ({ page }) => {
+        // Arrange
+        const paginationPage = new PaginationDefaultPage(page);
+
+        // Act
+        await paginationPage.load({ currentPage: 25, totalPages: 50 });
+
+        // Assert
+        await expect.soft(paginationPage.paginationComponent.componentLocator).toBeVisible();
+        await expect.soft(paginationPage.paginationComponent.ellipsisLocator).toHaveCount(2);
+        await percySnapshot(page, 'PiePagination - Large range middle page', { widths: [1280] });
+    });
+
+    test('should display the PiePagination component successfully on the last page of a large range', async ({ page }) => {
+        // Arrange
+        const paginationPage = new PaginationDefaultPage(page);
+
+        // Act
+        await paginationPage.load({ currentPage: 50, totalPages: 50 });
+
+        // Assert
+        await expect.soft(paginationPage.paginationComponent.componentLocator).toBeVisible();
+        await expect.soft(paginationPage.paginationComponent.ellipsisLocator).toHaveCount(1);
+        await percySnapshot(page, 'PiePagination - Large range last page', { widths: [1280] });
+    });
+
+    test('should display the PiePagination component successfully with no pages when totalPages is zero', async ({ page }) => {
+        // Arrange
+        const paginationPage = new PaginationDefaultPage(page);
+
+        // Act
+        await paginationPage.load({ currentPage: 1, totalPages: 0 });
+
+        // Assert
+        await expect.soft(paginationPage.paginationComponent.componentLocator).toBeVisible();
+        await expect.soft(paginationPage.paginationComponent.pageButtonLocator).toHaveCount(0);
+        await expect.soft(paginationPage.paginationComponent.previousButtonLocator).toBeDisabled();
+        await expect.soft(paginationPage.paginationComponent.nextButtonLocator).toBeDisabled();
+        await percySnapshot(page, 'PiePagination - No pages', { widths: [1280] });
+    });
+
+    test('should display the PiePagination component successfully with a very large page number', async ({ page }) => {
+        // Arrange
+        const paginationPage = new PaginationDefaultPage(page);
+
+        // Act
+        await paginationPage.load({ currentPage: 1, totalPages: 999999999 });
+
+        // Assert
+        await expect.soft(paginationPage.paginationComponent.componentLocator).toBeVisible();
+        await percySnapshot(page, 'PiePagination - Very large page number', { widths: [1280] });
+    });
 });
