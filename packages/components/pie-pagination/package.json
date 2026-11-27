@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-pagination",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "PIE design system pagination built using web components",
   "repository": {
     "type": "git",
@@ -52,8 +52,8 @@
   ],
   "dependencies": {
     "@justeattakeaway/pie-button": "1.16.1",
-    "@justeattakeaway/pie-icon-button": "2.8.4",
-    "@justeattakeaway/pie-icons-webc": "1.31.1",
+    "@justeattakeaway/pie-icon-button": "2.8.5",
+    "@justeattakeaway/pie-icons-webc": "1.32.0",
     "@justeattakeaway/pie-webc-core": "22.1.0"
   }
 }

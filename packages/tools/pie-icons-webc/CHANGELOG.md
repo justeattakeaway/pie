@@ -1,5 +1,32 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.32.0
+
+### Minor Changes
+
+- [Added] - Icons ([#3356](https://github.com/justeattakeaway/pie/pull/3356)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Functionality
+
+  - pin-filled-large
+  - pin-filled
+  - pin-large
+  - pin
+
+  ## Gestures
+
+  - swipe-filled-large
+  - swipe-filled
+  - swipe-large
+  - swipe
+
+  [Updated] - Icons
+
+  ## Functionality
+
+  - drag-large
+  - drag
+
 ## 1.31.1
 
 ### Patch Changes

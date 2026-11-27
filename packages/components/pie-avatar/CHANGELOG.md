@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-avatar
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - `aria` prop to `pie-avatar` ([#3354](https://github.com/justeattakeaway/pie/pull/3354)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`400f709`](https://github.com/justeattakeaway/pie/commit/400f7098cadc6632c0584ede5bfd0d27e025a854)]:
+  - @justeattakeaway/pie-icons-webc@1.32.0
+
 ## 0.7.0
 
 ### Minor Changes

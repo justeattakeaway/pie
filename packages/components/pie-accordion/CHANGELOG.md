@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-accordion
 
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`400f709`](https://github.com/justeattakeaway/pie/commit/400f7098cadc6632c0584ede5bfd0d27e025a854)]:
+  - @justeattakeaway/pie-icons-webc@1.32.0
+
 ## 1.0.4
 
 ### Patch Changes

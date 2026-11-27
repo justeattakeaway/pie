@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-text-input
 
+## 0.31.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@1.0.20
+
 ## 0.31.1
 
 ### Patch Changes
