@@ -1,0 +1,22 @@
+{
+    "headings": [
+        "Property",
+        "Cubic Bezier",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "Translate X or Y",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Moves 4px towards point of activation at 150ms"
+        ],
+        [
+            "Opacity",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Tooltip gently fades out of view at 150ms"
+        ]
+    ]
+}
