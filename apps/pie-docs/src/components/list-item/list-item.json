@@ -2,5 +2,5 @@
     "metaTitlePrefix": "List Item — ",
     "title": "List Item",
     "navKey": "List Item",
-    "description": "A list item is a single element in a list that displays specific information in an organised manner."
+    "description": "A list item is a single element in a list that displays specific information in an organised manner, allowing users to optionally interact with it."
 }

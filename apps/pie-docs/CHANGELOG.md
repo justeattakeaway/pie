@@ -1,5 +1,29 @@
 # Changelog
 
+## 5.24.0
+
+### Minor Changes
+
+- [Added] - Added colour and alignment override options across platforms ([#3336](https://github.com/justeattakeaway/pie/pull/3336)) by [@tingting-lau](https://github.com/tingting-lau)
+
+  [Added] - Added badge in leading and trailing content across platforms
+  [Changed] - Apps: applied recent updates from the web audit
+
+### Patch Changes
+
+- [Added] - Added the Web documentation page for the Skeleton component, including anatomy, variants, modifiers, size, position, overrides, colour and accessibility guidance ([#3349](https://github.com/justeattakeaway/pie/pull/3349)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Fixed] - Corrected invalid curly-quote `target` attributes on markdown links so they open in a new tab ([#3349](https://github.com/justeattakeaway/pie/pull/3349)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Added a `strong` variant to the `contentPageImage` shortcode for `--dt-color-container-strong` backdrops ([#3349](https://github.com/justeattakeaway/pie/pull/3349)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Removed] - Removed the "documentation is being updated" warning from the Skeleton overview page
+
+- [Added] - Added the Motion documentation page for the Skeleton component, covering the shimmer animation, shimmer tokens and the transition to the loaded state ([#3349](https://github.com/justeattakeaway/pie/pull/3349)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@1.1.2
+
 ## 5.23.2
 
 ### Patch Changes

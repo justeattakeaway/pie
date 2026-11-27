@@ -10,7 +10,7 @@ eleventyComputed:
 
 ## Example
 
-Illustrates the movement taking place when a modal enters and exit from view. You can see an animated example of this component [here](https://drive.google.com/drive/folders/1Gis7qhjs30rGMyo5nE-sQUDzhL0hE1c3){target=“_blank”}.
+Illustrates the movement taking place when a modal enters and exit from view. You can see an animated example of this component [here](https://drive.google.com/drive/folders/1Gis7qhjs30rGMyo5nE-sQUDzhL0hE1c3){target="_blank"}.
 
 {% contentPageImage {
     src:"../../../assets/img/components/modal/motion-example.svg",

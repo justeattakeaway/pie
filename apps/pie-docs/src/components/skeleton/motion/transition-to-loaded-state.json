@@ -1,0 +1,26 @@
+{
+    "headings": [
+        { "text": "Property" },
+        { "text": "Value" }
+    ],
+    "rows": [
+        {
+            "data": [
+                { "text": "Duration" },
+                { "text": "1000ms" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Delay" },
+                { "text": "200ms" }
+            ]
+        },
+        {
+            "data": [
+                { "text": "Easing" },
+                { "text": "functional easing" }
+            ]
+        }
+    ]
+}

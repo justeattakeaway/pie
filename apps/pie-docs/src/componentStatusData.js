@@ -1816,7 +1816,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/docs/components-skeleton--overview',
+            status: statusTypes.ALPHA,
         },
         {
             resource: resourceTypes.VUE,
