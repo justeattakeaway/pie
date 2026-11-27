@@ -8,6 +8,7 @@ import {
 import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 
 import { property, query, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './avatar.scss?inline';
 import {
     type AvatarProps, defaultProps, tags, type Initials,
@@ -24,6 +25,9 @@ const componentSelector = 'pie-avatar';
 
 @safeCustomElement('pie-avatar')
 export class PieAvatar extends RtlMixin(DelegatesFocusMixin(PieElement)) implements AvatarProps {
+    @property({ type: Object })
+    public aria: AvatarProps['aria'];
+
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
     public tag = defaultProps.tag;
@@ -173,10 +177,10 @@ export class PieAvatar extends RtlMixin(DelegatesFocusMixin(PieElement)) impleme
      * @private
      */
     private renderAvatarWrapper (content: TemplateResult): TemplateResult {
-        const { tag } = this;
+        const { tag, aria } = this;
 
         if (tag === 'button') {
-            return html`<button data-test-id="pie-avatar-button" class="c-avatar c-avatar--button">${content}</button>`;
+            return html`<button data-test-id="pie-avatar-button" class="c-avatar c-avatar--button" aria-label="${ifDefined(aria?.label)}">${content}</button>`;
         }
 
         if (tag === 'a') {

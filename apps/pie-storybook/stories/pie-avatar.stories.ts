@@ -15,6 +15,10 @@ const avatarStoryMeta: AvatarStoryMeta = {
     title: 'Components/Avatar',
     component: 'pie-avatar',
     argTypes: {
+        aria: {
+            description: 'ARIA attributes for the avatar. Offers label — use it when no visible text is associated with the avatar. Not applied when tag is `div`.',
+            control: 'object',
+        },
         label: {
             description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
             control: 'text',
@@ -44,8 +48,15 @@ const avatarStoryMeta: AvatarStoryMeta = {
 
 export default avatarStoryMeta;
 
-const Template = ({ label, tag, src }: AvatarProps) => html`
-    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}" src="${ifDefined(src)}"></pie-avatar>
+const Template = ({
+    label, tag, src, aria,
+}: AvatarProps) => html`
+    <pie-avatar
+        label="${ifDefined(label)}"
+        tag="${ifDefined(tag)}"
+        src="${ifDefined(src)}"
+        .aria="${aria}">
+    </pie-avatar>
 `;
 
 const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);

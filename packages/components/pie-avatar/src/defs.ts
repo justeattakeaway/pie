@@ -2,7 +2,18 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const tags = ['a', 'button', 'div'] as const;
 
+type AriaProps = {
+    /**
+     * The accessible label for the avatar.
+     */
+    label?: string;
+}
+
 export interface AvatarProps {
+    /**
+     * The ARIA attributes for the avatar.
+     */
+    aria?: AriaProps;
     /**
      * Label for the username that will be turned into initials inside the avatar, if provided.
      */
@@ -20,7 +31,7 @@ export interface AvatarProps {
 
 }
 
-export type DefaultProps = ComponentDefaultProps<AvatarProps, keyof Omit<AvatarProps, 'label' | 'src'>>;
+export type DefaultProps = ComponentDefaultProps<AvatarProps, keyof Omit<AvatarProps, 'label' | 'src' | 'aria'>>;
 export const defaultProps: DefaultProps = {
     tag: 'div',
 };
