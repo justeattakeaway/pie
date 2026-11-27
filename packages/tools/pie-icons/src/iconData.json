@@ -1333,6 +1333,14 @@
                     "displayName": "Note"
                 },
                 {
+                    "name": "pin",
+                    "displayName": "Pin"
+                },
+                {
+                    "name": "pin-filled",
+                    "displayName": "Pin Filled"
+                },
+                {
                     "name": "plus",
                     "displayName": "Plus"
                 },
@@ -1421,6 +1429,14 @@
                 {
                     "name": "do-not-touch",
                     "displayName": "Do Not Touch"
+                },
+                {
+                    "name": "swipe",
+                    "displayName": "Swipe"
+                },
+                {
+                    "name": "swipe-filled",
+                    "displayName": "Swipe Filled"
                 }
             ]
         },
