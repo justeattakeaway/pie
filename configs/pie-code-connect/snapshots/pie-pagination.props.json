@@ -1,0 +1,32 @@
+[
+  {
+    "filePath": "components.figma.batch.json",
+    "nodeId": "1607:133899",
+    "availableProperties": [
+      {
+        "name": "[𝐓] Last page",
+        "type": "TEXT",
+        "default": "10"
+      },
+      {
+        "name": "Screen size",
+        "type": "VARIANT",
+        "variantOptions": [
+          "Wide",
+          "Narrow"
+        ],
+        "default": "Wide"
+      },
+      {
+        "name": "Selection",
+        "type": "VARIANT",
+        "variantOptions": [
+          "First",
+          "Middle",
+          "Last"
+        ],
+        "default": "First"
+      }
+    ]
+  }
+]

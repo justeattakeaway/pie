@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-133899",
+    "nodeId": "1607:133899",
+    "filePath": "components.figma.batch.json",
+    "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-pagination/src/index.ts",
+    "success": true,
+    "snippet": "<PiePagination\n     totalPages={10}>\n</PiePagination>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen size=Wide, Selection=First"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-133899",
+    "nodeId": "1607:133899",
+    "filePath": "components.figma.batch.json",
+    "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-pagination/src/index.ts",
+    "success": true,
+    "snippet": "<PiePagination\n     totalPages={10}>\n</PiePagination>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen size=Narrow, Selection=First"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-133899",
+    "nodeId": "1607:133899",
+    "filePath": "components.figma.batch.json",
+    "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-pagination/src/index.ts",
+    "success": true,
+    "snippet": "<PiePagination\n     currentPage={5}\n     totalPages={10}>\n</PiePagination>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen size=Wide, Selection=Middle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-133899",
+    "nodeId": "1607:133899",
+    "filePath": "components.figma.batch.json",
+    "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-pagination/src/index.ts",
+    "success": true,
+    "snippet": "<PiePagination\n     currentPage={5}\n     totalPages={10}>\n</PiePagination>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen size=Narrow, Selection=Middle"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-133899",
+    "nodeId": "1607:133899",
+    "filePath": "components.figma.batch.json",
+    "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-pagination/src/index.ts",
+    "success": true,
+    "snippet": "<PiePagination\n     currentPage={10}\n     totalPages={10}>\n</PiePagination>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen size=Wide, Selection=Last"
+  },
+  {
+    "url": "https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=1607-133899",
+    "nodeId": "1607:133899",
+    "filePath": "components.figma.batch.json",
+    "source": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-pagination/src/index.ts",
+    "success": true,
+    "snippet": "<PiePagination\n     currentPage={10}\n     totalPages={10}>\n</PiePagination>",
+    "language": "React",
+    "propertyCombinationLabel": "Screen size=Narrow, Selection=Last"
+  }
+]
