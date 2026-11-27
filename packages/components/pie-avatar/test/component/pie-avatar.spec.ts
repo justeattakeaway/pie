@@ -312,7 +312,7 @@ test.describe('PieAvatar - aria label', () => {
         await avatarPage.load({ aria: { label: 'Test aria-label' } });
 
         // Assert
-        await expect(page.getByTestId('pie-avatar-button')).toHaveAttribute('aria-label', 'Accessible avatar');
+        await expect(page.getByTestId('pie-avatar-button')).toHaveAttribute('aria-label', 'Test aria-label');
     });
 
     test('should not apply aria-label to the div when tag is div', async ({ page }) => {
